@@ -14,4 +14,106 @@
 
     <name>Frontend</name>
     <description>Frontend web layer</description>
+
+    <build>
+        <plugins>
+            <!-- FRONTEND PACKAGING STEP 1 -->
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>${frontend-maven-plugin.version}</version>
+
+                <configuration>
+                    <nodeVersion>${node.version}</nodeVersion>
+                    <yarnVersion>${yarn.version}</yarnVersion>
+                    <workingDirectory>${frontend-src-dir}</workingDirectory>
+                    <installDirectory>${project.build.directory}</installDirectory>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>install-frontend-tools</id>
+                        <goals>
+                            <goal>install-node-and-yarn</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>yarn-install</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install --no-lockfile</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>yarn-test</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>test:math</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>build-frontend</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <arguments>build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- FRONTEND PACKAGING STEP 2 -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>position-react-build</id>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}/frontend</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${frontend-src-dir}/dist</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- DELETE COMPILED FRONTEND FOR CLEAN PHASE -->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+
+                <executions>
+                    <execution>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                        <configuration>
+                            <excludeDefaultDirectories>true</excludeDefaultDirectories>
+                            <filesets>
+                                <fileset>
+                                    <directory>${pom.basedir}/src/main/react/dist</directory>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </execution>
+                </executions>
+
+            </plugin>
+        </plugins>
+    </build>
 </project>
