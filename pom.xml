@@ -15,6 +15,13 @@
     <name>Frontend</name>
     <description>Frontend web layer</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <!-- FRONTEND PACKAGING STEP 1 -->
