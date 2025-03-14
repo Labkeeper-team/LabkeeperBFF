@@ -4,12 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.labkeeper.web</groupId>
+        <groupId>io.labkeeper</groupId>
         <artifactId>Web</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <groupId>io.labkeeper.web.frontend</groupId>
     <artifactId>Frontend</artifactId>
     <version>${revision}</version>
 
