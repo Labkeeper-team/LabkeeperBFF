@@ -20,10 +20,53 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.labkeeper</groupId>
+            <artifactId>Common</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+            <version>${playwright.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <compilerArg>
+                            -Amapstruct.defaultComponentModel=spring
+                        </compilerArg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
             <!-- FRONTEND PACKAGING STEP 1 -->
             <plugin>
                 <groupId>com.github.eirslett</groupId>
@@ -47,6 +90,7 @@
 
                     <execution>
                         <id>yarn-install</id>
+                        <phase>compile</phase>
                         <goals>
                             <goal>yarn</goal>
                         </goals>
@@ -57,6 +101,7 @@
 
                     <execution>
                         <id>yarn-test</id>
+                        <phase>test</phase>
                         <goals>
                             <goal>yarn</goal>
                         </goals>
@@ -67,10 +112,10 @@
 
                     <execution>
                         <id>build-frontend</id>
+                        <phase>compile</phase>
                         <goals>
                             <goal>yarn</goal>
                         </goals>
-                        <phase>prepare-package</phase>
                         <configuration>
                             <arguments>build</arguments>
                         </configuration>
@@ -86,7 +131,7 @@
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
-                        <phase>prepare-package</phase>
+                        <phase>compile</phase>
                         <configuration>
                             <outputDirectory>${project.build.outputDirectory}/frontend</outputDirectory>
                             <resources>
@@ -119,7 +164,6 @@
                         </configuration>
                     </execution>
                 </executions>
-
             </plugin>
         </plugins>
     </build>
