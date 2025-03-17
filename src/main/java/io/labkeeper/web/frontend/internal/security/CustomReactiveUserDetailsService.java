@@ -16,6 +16,7 @@ public class CustomReactiveUserDetailsService implements ReactiveUserDetailsServ
     public Mono<UserDetails> findByUsername(String username) {
         return userService
                 .getUserByEmail(username)
+                .onErrorResume(e -> Mono.empty())
                 .map(userMapper::toUserWebDto);
     }
 }
