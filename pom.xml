@@ -16,28 +16,25 @@
     <description>Frontend web layer</description>
 
     <dependencies>
+        <!-- STARTERS -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-client</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.labkeeper</groupId>
-            <artifactId>Common</artifactId>
-            <version>${revision}</version>
-        </dependency>
+
+        <!-- TEST -->
         <dependency>
             <groupId>com.microsoft.playwright</groupId>
             <artifactId>playwright</artifactId>
             <version>${playwright.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- INTERNAL -->
+        <dependency>
+            <groupId>io.labkeeper</groupId>
+            <artifactId>Common</artifactId>
+            <version>${revision}</version>
         </dependency>
     </dependencies>
 
