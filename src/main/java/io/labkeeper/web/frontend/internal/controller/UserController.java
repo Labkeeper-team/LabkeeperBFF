@@ -1,17 +1,27 @@
 package io.labkeeper.web.frontend.internal.controller;
 
+import io.labkeeper.businesslogic.api.service.UserService;
 import io.labkeeper.web.common.api.domain.UserWebPresentation;
+import io.labkeeper.web.frontend.api.dto.CodeCheckResponseDto;
 import io.labkeeper.web.frontend.api.dto.UserInfoResponseDto;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-import static io.labkeeper.web.frontend.internal.EndpointsList.USER_INFO_ENDPOINT;
+import static io.labkeeper.web.frontend.internal.EndpointsList.*;
 
 @RestController
+@RequiredArgsConstructor
 public class UserController {
     static final UserInfoResponseDto NO_USER = new UserInfoResponseDto(null, -1, false);
+
+    final UserService userService;
 
     @GetMapping(USER_INFO_ENDPOINT)
     public Mono<UserInfoResponseDto> getUserInfo() {
@@ -24,5 +34,25 @@ public class UserController {
                         user.id(),
                         true))
                 .onErrorReturn(NO_USER);
-    };
+    }
+
+    @PostMapping(EMAIL_ENDPOINT)
+    public Mono<Void> sendEmail(@RequestParam("email") @Email String email,
+                                @RequestParam("registration") boolean registration) {
+        return userService.sendPasswordSetupCodeToEmail(email, registration);
+    }
+
+    @PostMapping(CODE_ENDPOINT)
+    public Mono<CodeCheckResponseDto> checkEmail(@RequestParam("email") @Email String email,
+                                                 @RequestParam("code") @NotBlank String code) {
+        return userService.checkValidCode(email, code).map(CodeCheckResponseDto::new);
+    }
+
+    @PostMapping(SET_PASSWORD_ENDPOINT)
+    public Mono<Void> setPassword(@RequestParam("password") @NotBlank String password,
+                                  @RequestParam("email") @Email String email,
+                                  @RequestParam("code") @NotBlank String code,
+                                  @RequestParam("registration") boolean registration) {
+        return userService.setPassword(email, password, code, registration);
+    }
 }

@@ -14,4 +14,7 @@ public class EndpointsList {
     public static final String SSO_LOGIN_ENDPOINT = "/oauth2/authorization/sso";
     public static final String SSO_CODE_ENDPOINT = "/login/oauth2/code/sso";
     public static final String LOGOUT_ENDPOINT = "/logout";
+    public static final String EMAIL_ENDPOINT = "/email";
+    public static final String CODE_ENDPOINT = "/code";
+    public static final String SET_PASSWORD_ENDPOINT = "/password";
 }
