@@ -4,7 +4,6 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import io.labkeeper.businesslogic.api.service.UserService;
-import io.labkeeper.web.common.CommonConfig;
 import io.labkeeper.web.frontend.FrontendConfig;
 import io.labkeeper.web.frontend.internal.security.FrontendSecurityConfig;
 import org.junit.jupiter.api.Test;
@@ -22,7 +21,6 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(classes = {
         FrontendConfig.class,
-        CommonConfig.class,
         FrontendSecurityConfig.class,
         ReactiveWebServerFactoryAutoConfiguration.class,
         ReactiveSecurityAutoConfiguration.class,
@@ -30,13 +28,10 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
         HttpHandlerAutoConfiguration.class
 })
 public class PlaywrightTests {
-    static final String TEST_EMAIL = "test@test.com";
-    static final long TEST_ID = 11L;
-
-    @MockBean
-    UserService userService;
     @LocalServerPort
     long port;
+    @MockBean
+    UserService userService;
 
     @Test
     public void simpleTest() {

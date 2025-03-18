@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultReactiveOAuth2UserService;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
+import org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder;
 import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
 import org.springframework.security.web.server.DefaultServerRedirectStrategy;
 import org.springframework.security.web.server.SecurityWebFilterChain;
@@ -21,8 +22,10 @@ import org.springframework.security.web.server.authentication.ServerAuthenticati
 import org.springframework.security.web.server.authentication.logout.RedirectServerLogoutSuccessHandler;
 import org.springframework.security.web.server.util.matcher.OrServerWebExchangeMatcher;
 import org.springframework.security.web.server.util.matcher.PathPatternParserServerWebExchangeMatcher;
+import reactor.core.publisher.Mono;
 
 import java.net.URI;
+import java.text.ParseException;
 import java.util.List;
 
 import static io.labkeeper.web.frontend.internal.EndpointsList.FORM_LOGIN_ENDPOINT;
@@ -110,6 +113,17 @@ public class FrontendSecurityConfig {
             UserMapper userMapper
     ) {
         return new CustomOAuth2UserService(jwtDecoder, userService, userMapper);
+    }
+
+    @Bean
+    public ReactiveJwtDecoder decoder() {
+        return new NimbusReactiveJwtDecoder(jwt -> {
+            try {
+                return Mono.just(jwt.getJWTClaimsSet());
+            } catch (ParseException e) {
+                throw new IllegalStateException(e);
+            }
+        });
     }
 
     @Bean
