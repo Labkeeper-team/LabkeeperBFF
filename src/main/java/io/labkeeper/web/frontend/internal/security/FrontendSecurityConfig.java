@@ -5,14 +5,18 @@ import io.labkeeper.web.frontend.internal.EndpointsList;
 import io.labkeeper.web.frontend.internal.mapper.UserMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultReactiveOAuth2UserService;
 import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
+import org.springframework.security.web.server.DefaultServerRedirectStrategy;
 import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.security.web.server.ServerRedirectStrategy;
 import org.springframework.security.web.server.authentication.RedirectServerAuthenticationEntryPoint;
+import org.springframework.security.web.server.authentication.ServerAuthenticationFailureHandler;
 import org.springframework.security.web.server.authentication.logout.RedirectServerLogoutSuccessHandler;
 import org.springframework.security.web.server.util.matcher.OrServerWebExchangeMatcher;
 import org.springframework.security.web.server.util.matcher.PathPatternParserServerWebExchangeMatcher;
@@ -20,6 +24,7 @@ import org.springframework.security.web.server.util.matcher.PathPatternParserSer
 import java.net.URI;
 import java.util.List;
 
+import static io.labkeeper.web.frontend.internal.EndpointsList.FORM_LOGIN_ENDPOINT;
 import static io.labkeeper.web.frontend.internal.EndpointsList.LOGOUT_ENDPOINT;
 
 @Configuration
@@ -31,6 +36,7 @@ public class FrontendSecurityConfig {
         return http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .securityMatcher(new OrServerWebExchangeMatcher(List.of(
+                        new PathPatternParserServerWebExchangeMatcher(FORM_LOGIN_ENDPOINT),
                         new PathPatternParserServerWebExchangeMatcher(LOGOUT_ENDPOINT),
                         new PathPatternParserServerWebExchangeMatcher(EndpointsList.SSO_LOGIN_ENDPOINT),
                         new PathPatternParserServerWebExchangeMatcher(EndpointsList.SSO_CODE_ENDPOINT),
@@ -38,6 +44,11 @@ public class FrontendSecurityConfig {
                 )))
                 .oauth2Login(c -> c
                         .loginPage(EndpointsList.HOME_PAGE)
+                        .authenticationFailureHandler(authenticationFailureHandler())
+                )
+                .formLogin(form -> form
+                        .loginPage(FORM_LOGIN_ENDPOINT)
+                        .authenticationFailureHandler(authenticationFailureHandler())
                 )
                 .authorizeExchange(exchange ->
                         exchange
@@ -48,6 +59,19 @@ public class FrontendSecurityConfig {
                         .logoutSuccessHandler(logoutSuccessHandler)
                 )
                 .build();
+    }
+
+    @Bean
+    public ServerAuthenticationFailureHandler authenticationFailureHandler() {
+        ServerRedirectStrategy redirectStrategy = new DefaultServerRedirectStrategy();
+        var badCredentials = URI.create(EndpointsList.HOME_PAGE + "?error=bad_credentials");
+        var unknownError = URI.create(EndpointsList.HOME_PAGE + "?error=unknown_error");
+        return (webFilterExchange, exception) -> {
+            if (exception instanceof BadCredentialsException) {
+                return redirectStrategy.sendRedirect(webFilterExchange.getExchange(), badCredentials);
+            }
+            return redirectStrategy.sendRedirect(webFilterExchange.getExchange(), unknownError);
+        };
     }
 
     @Bean

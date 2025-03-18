@@ -10,6 +10,7 @@ public class EndpointsList {
     public static final String DEFAULT_PROJECT_PAGE = "/project/default";
 
     // ENDPOINTS
+    public static final String FORM_LOGIN_ENDPOINT = "/formlogin";
     public static final String USER_INFO_ENDPOINT = "/user-info";
     public static final String SSO_LOGIN_ENDPOINT = "/oauth2/authorization/sso";
     public static final String SSO_CODE_ENDPOINT = "/login/oauth2/code/sso";
