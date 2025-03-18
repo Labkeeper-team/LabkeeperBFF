@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultReactiveOAuth2UserService;
+import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
 import org.springframework.security.web.server.DefaultServerRedirectStrategy;
 import org.springframework.security.web.server.SecurityWebFilterChain;
@@ -65,10 +66,14 @@ public class FrontendSecurityConfig {
     public ServerAuthenticationFailureHandler authenticationFailureHandler() {
         ServerRedirectStrategy redirectStrategy = new DefaultServerRedirectStrategy();
         var badCredentials = URI.create(EndpointsList.HOME_PAGE + "?error=bad_credentials");
+        var oauthError = URI.create(EndpointsList.HOME_PAGE + "?error=oauth_error");
         var unknownError = URI.create(EndpointsList.HOME_PAGE + "?error=unknown_error");
         return (webFilterExchange, exception) -> {
             if (exception instanceof BadCredentialsException) {
                 return redirectStrategy.sendRedirect(webFilterExchange.getExchange(), badCredentials);
+            }
+            if (exception instanceof OAuth2AuthenticationException) {
+                return redirectStrategy.sendRedirect(webFilterExchange.getExchange(), oauthError);
             }
             return redirectStrategy.sendRedirect(webFilterExchange.getExchange(), unknownError);
         };
