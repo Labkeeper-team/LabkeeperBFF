@@ -1,5 +1,6 @@
 package io.labkeeper.web.frontend.internal.controller;
 
+import io.labkeeper.businesslogic.api.exception.InvalidCodeException;
 import io.labkeeper.businesslogic.api.exception.NoSuchUserException;
 import io.labkeeper.businesslogic.api.exception.UserWithSuchEmailAlreadyExistsException;
 import org.springframework.http.HttpStatus;
@@ -18,5 +19,10 @@ public class FrontendControllerAdvice {
     @ExceptionHandler
     public Mono<ResponseEntity<?>> handleUserWithSuchEmailAlreadyExistsException(UserWithSuchEmailAlreadyExistsException ignored) {
         return Mono.just(ResponseEntity.status(HttpStatus.CONFLICT).build());
+    }
+
+    @ExceptionHandler
+    public Mono<ResponseEntity<?>> handleInvalidCodeException(InvalidCodeException ignored) {
+        return Mono.just(ResponseEntity.badRequest().build());
     }
 }

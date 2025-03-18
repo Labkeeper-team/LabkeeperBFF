@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +23,7 @@ public class UserController {
     static final UserInfoResponseDto NO_USER = new UserInfoResponseDto(null, -1, false);
 
     final UserService userService;
+    final PasswordEncoder passwordEncoder;
 
     @GetMapping(USER_INFO_ENDPOINT)
     public Mono<UserInfoResponseDto> getUserInfo() {
@@ -53,6 +55,6 @@ public class UserController {
                                   @RequestParam("email") @Email String email,
                                   @RequestParam("code") @NotBlank String code,
                                   @RequestParam("registration") boolean registration) {
-        return userService.setPassword(email, password, code, registration);
+        return userService.setPassword(email, passwordEncoder.encode(password), code, registration);
     }
 }
