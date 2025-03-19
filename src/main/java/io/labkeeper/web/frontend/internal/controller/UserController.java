@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import java.util.Locale;
+
 import static io.labkeeper.web.frontend.internal.EndpointsList.*;
 
 @RestController
@@ -40,8 +42,9 @@ public class UserController {
 
     @PostMapping(EMAIL_ENDPOINT)
     public Mono<Void> sendEmail(@RequestParam("email") @Email String email,
-                                @RequestParam("registration") boolean registration) {
-        return userService.sendPasswordSetupCodeToEmail(email, registration);
+                                @RequestParam("registration") boolean registration,
+                                Locale locale) {
+        return userService.sendPasswordSetupCodeToEmail(email, registration, locale);
     }
 
     @PostMapping(CODE_ENDPOINT)
