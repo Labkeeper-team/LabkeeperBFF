@@ -3,6 +3,7 @@ package io.labkeeper.web.frontend.internal.controller;
 import io.labkeeper.businesslogic.api.exception.InvalidCodeException;
 import io.labkeeper.businesslogic.api.exception.NoSuchUserException;
 import io.labkeeper.businesslogic.api.exception.UserWithSuchEmailAlreadyExistsException;
+import io.labkeeper.web.frontend.internal.service.captcha.yandex.CaptchaCheckerException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -24,5 +25,10 @@ public class FrontendControllerAdvice {
     @ExceptionHandler
     public Mono<ResponseEntity<?>> handleInvalidCodeException(InvalidCodeException ignored) {
         return Mono.just(ResponseEntity.badRequest().build());
+    }
+
+    @ExceptionHandler
+    public Mono<ResponseEntity<?>> handleCaptchaCheckerException(CaptchaCheckerException ignored) {
+        return Mono.just(ResponseEntity.status(HttpStatus.FAILED_DEPENDENCY).build());
     }
 }

@@ -3,6 +3,7 @@ package io.labkeeper.web.frontend.internal.security;
 import io.labkeeper.businesslogic.api.service.UserService;
 import io.labkeeper.web.frontend.internal.EndpointsList;
 import io.labkeeper.web.frontend.internal.mapper.UserMapper;
+import io.labkeeper.web.frontend.internal.service.captcha.yandex.YandexCaptchaService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -30,11 +31,13 @@ import java.util.List;
 
 import static io.labkeeper.web.frontend.internal.EndpointsList.FORM_LOGIN_ENDPOINT;
 import static io.labkeeper.web.frontend.internal.EndpointsList.LOGOUT_ENDPOINT;
+import static org.springframework.security.config.web.server.SecurityWebFiltersOrder.FORM_LOGIN;
 
 @Configuration
 public class FrontendSecurityConfig {
     @Bean
-    public SecurityWebFilterChain authSecurityWebFilterChain(ServerHttpSecurity http) {
+    public SecurityWebFilterChain authSecurityWebFilterChain(ServerHttpSecurity http,
+                                                             YandexCaptchaService yandexCaptchaService) {
         RedirectServerLogoutSuccessHandler logoutSuccessHandler = new RedirectServerLogoutSuccessHandler();
         logoutSuccessHandler.setLogoutSuccessUrl(URI.create(EndpointsList.HOME_PAGE));
         return http
@@ -46,6 +49,7 @@ public class FrontendSecurityConfig {
                         new PathPatternParserServerWebExchangeMatcher(EndpointsList.SSO_CODE_ENDPOINT),
                         new PathPatternParserServerWebExchangeMatcher(EndpointsList.USER_INFO_ENDPOINT)
                 )))
+                .addFilterBefore(new YandexCaptchaSecurityFilter(yandexCaptchaService), FORM_LOGIN)
                 .oauth2Login(c -> c
                         .loginPage(EndpointsList.HOME_PAGE)
                         .authenticationFailureHandler(authenticationFailureHandler())
