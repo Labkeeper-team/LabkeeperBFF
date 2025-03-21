@@ -2,9 +2,9 @@ package io.labkeeper.web.frontend.internal.security;
 
 import io.labkeeper.web.common.api.service.IpExtractorService;
 import io.labkeeper.web.frontend.internal.EndpointsList;
-import io.labkeeper.web.frontend.internal.service.captcha.yandex.CaptchaCheckerException;
 import io.labkeeper.web.frontend.internal.service.captcha.yandex.YandexCaptchaService;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.security.web.server.DefaultServerRedirectStrategy;
 import org.springframework.security.web.server.ServerRedirectStrategy;
 import org.springframework.web.server.ServerWebExchange;
@@ -30,7 +30,7 @@ public class YandexCaptchaSecurityFilter implements WebFilter {
             return exchange
                     .getFormData()
                     .mapNotNull(data -> data.getFirst("captcha"))
-                    .switchIfEmpty(Mono.error(new CaptchaCheckerException()))
+                    .switchIfEmpty(Mono.just(Strings.EMPTY))
                     .flatMap(token -> yandexCaptchaService.checkCaptcha(token, ip))
                     .then(chain.filter(exchange))
                     .onErrorResume(ex -> redirectStrategy.sendRedirect(exchange, redirectUri));
