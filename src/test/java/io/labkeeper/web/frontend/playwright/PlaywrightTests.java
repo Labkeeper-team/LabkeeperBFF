@@ -4,6 +4,7 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import io.labkeeper.businesslogic.api.service.UserService;
+import io.labkeeper.web.common.api.service.yandex.YandexCaptchaService;
 import io.labkeeper.web.frontend.FrontendConfig;
 import io.labkeeper.web.frontend.internal.security.FrontendSecurityConfig;
 import org.junit.jupiter.api.Test;
@@ -32,6 +33,8 @@ public class PlaywrightTests {
     long port;
     @MockBean
     UserService userService;
+    @MockBean
+    YandexCaptchaService yandexCaptchaService;
 
     @Test
     public void simpleTest() {

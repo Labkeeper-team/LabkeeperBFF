@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-import static io.labkeeper.web.frontend.internal.EndpointsList.*;
+import static io.labkeeper.web.common.api.EndpointsList.*;
 
 @RestController
 public class PagesController {
