@@ -3,11 +3,12 @@ package io.labkeeper.web.frontend.internal.security;
 import io.labkeeper.businesslogic.api.service.UserService;
 import io.labkeeper.web.common.api.EndpointsList;
 import io.labkeeper.web.common.api.filter.YandexCaptchaSecurityFilter;
-import io.labkeeper.web.common.api.service.yandex.YandexCaptchaService;
+import io.labkeeper.web.common.internal.service.yandex.YandexCaptchaService;
 import io.labkeeper.web.frontend.internal.mapper.UserMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,40 +32,49 @@ import java.text.ParseException;
 import java.util.List;
 
 import static io.labkeeper.web.common.api.EndpointsList.*;
-import static org.springframework.security.config.web.server.SecurityWebFiltersOrder.FORM_LOGIN;
+import static org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers.pathMatchers;
 
 @Configuration
 public class FrontendSecurityConfig {
     @Bean
-    public SecurityWebFilterChain authSecurityWebFilterChain(ServerHttpSecurity http,
-                                                             YandexCaptchaService yandexCaptchaService) {
+    public SecurityWebFilterChain authSecurityWebFilterChain(ServerHttpSecurity http) {
         RedirectServerLogoutSuccessHandler logoutSuccessHandler = new RedirectServerLogoutSuccessHandler();
-        logoutSuccessHandler.setLogoutSuccessUrl(URI.create(EndpointsList.HOME_PAGE));
+        logoutSuccessHandler.setLogoutSuccessUrl(URI.create(HOME_PAGE));
         return http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
-                .securityMatcher(new OrServerWebExchangeMatcher(List.of(
-                        new PathPatternParserServerWebExchangeMatcher(FORM_LOGIN_ENDPOINT),
-                        new PathPatternParserServerWebExchangeMatcher(LOGOUT_ENDPOINT),
-                        new PathPatternParserServerWebExchangeMatcher(EndpointsList.SSO_LOGIN_ENDPOINT),
-                        new PathPatternParserServerWebExchangeMatcher(EndpointsList.SSO_CODE_ENDPOINT)
-                )))
-                .addFilterBefore(new YandexCaptchaSecurityFilter(yandexCaptchaService), FORM_LOGIN)
+                .securityMatcher(pathMatchers(
+                        LOGOUT_ENDPOINT,
+                        SSO_LOGIN_ENDPOINT,
+                        SSO_CODE_ENDPOINT
+                ))
                 .oauth2Login(c -> c
-                        .loginPage(EndpointsList.HOME_PAGE)
-                        .authenticationFailureHandler(authenticationFailureHandler())
-                )
-                .formLogin(form -> form
-                        .loginPage(FORM_LOGIN_ENDPOINT)
+                        .loginPage(HOME_PAGE)
                         .authenticationFailureHandler(authenticationFailureHandler())
                 )
                 .authorizeExchange(exchange ->
                         exchange
-                                .pathMatchers(EndpointsList.PROJECTS_PAGE).authenticated()
+                                .pathMatchers(PROJECTS_PAGE).authenticated()
                                 .anyExchange().permitAll())
                 .logout(logoutSpec -> logoutSpec
                         .logoutUrl(LOGOUT_ENDPOINT)
                         .logoutSuccessHandler(logoutSuccessHandler)
                 )
+                .build();
+    }
+
+    @Bean
+    public SecurityWebFilterChain formLoginFilterChain(
+            ServerHttpSecurity http,
+            YandexCaptchaService yandexCaptchaService
+    ) {
+        return http
+                .csrf(ServerHttpSecurity.CsrfSpec::disable)
+                .securityMatcher(pathMatchers(FORM_LOGIN_ENDPOINT))
+                .formLogin(form -> form
+                        .loginPage(FORM_LOGIN_ENDPOINT)
+                        .authenticationFailureHandler(authenticationFailureHandler()))
+                .addFilterAt(new YandexCaptchaSecurityFilter(yandexCaptchaService), SecurityWebFiltersOrder.FIRST)
+                .authorizeExchange(auth -> auth.anyExchange().permitAll())
                 .build();
     }
 

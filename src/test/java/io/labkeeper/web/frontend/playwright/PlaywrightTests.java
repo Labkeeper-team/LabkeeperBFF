@@ -4,7 +4,7 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import io.labkeeper.businesslogic.api.service.UserService;
-import io.labkeeper.web.common.api.service.yandex.YandexCaptchaService;
+import io.labkeeper.web.common.internal.service.yandex.YandexCaptchaService;
 import io.labkeeper.web.frontend.FrontendConfig;
 import io.labkeeper.web.frontend.internal.security.FrontendSecurityConfig;
 import org.junit.jupiter.api.Test;
