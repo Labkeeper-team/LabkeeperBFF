@@ -37,7 +37,8 @@ import static org.springframework.security.web.server.util.matcher.ServerWebExch
 @Configuration
 public class FrontendSecurityConfig {
     @Bean
-    public SecurityWebFilterChain authSecurityWebFilterChain(ServerHttpSecurity http) {
+    public SecurityWebFilterChain authSecurityWebFilterChain(ServerHttpSecurity http,
+                                                             YandexCaptchaService yandexCaptchaService) {
         RedirectServerLogoutSuccessHandler logoutSuccessHandler = new RedirectServerLogoutSuccessHandler();
         logoutSuccessHandler.setLogoutSuccessUrl(URI.create(HOME_PAGE));
         return http
@@ -45,7 +46,8 @@ public class FrontendSecurityConfig {
                 .securityMatcher(pathMatchers(
                         LOGOUT_ENDPOINT,
                         SSO_LOGIN_ENDPOINT,
-                        SSO_CODE_ENDPOINT
+                        SSO_CODE_ENDPOINT,
+                        FORM_LOGIN_ENDPOINT
                 ))
                 .oauth2Login(c -> c
                         .loginPage(HOME_PAGE)
@@ -59,22 +61,10 @@ public class FrontendSecurityConfig {
                         .logoutUrl(LOGOUT_ENDPOINT)
                         .logoutSuccessHandler(logoutSuccessHandler)
                 )
-                .build();
-    }
-
-    @Bean
-    public SecurityWebFilterChain formLoginFilterChain(
-            ServerHttpSecurity http,
-            YandexCaptchaService yandexCaptchaService
-    ) {
-        return http
-                .csrf(ServerHttpSecurity.CsrfSpec::disable)
-                .securityMatcher(pathMatchers(FORM_LOGIN_ENDPOINT))
+                .addFilterAfter(new YandexCaptchaSecurityFilter(yandexCaptchaService), SecurityWebFiltersOrder.FIRST)
                 .formLogin(form -> form
                         .loginPage(FORM_LOGIN_ENDPOINT)
                         .authenticationFailureHandler(authenticationFailureHandler()))
-                .addFilterAt(new YandexCaptchaSecurityFilter(yandexCaptchaService), SecurityWebFiltersOrder.FIRST)
-                .authorizeExchange(auth -> auth.anyExchange().permitAll())
                 .build();
     }
 
