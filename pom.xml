@@ -97,6 +97,17 @@
                     </execution>
 
                     <execution>
+                        <id>yarn-check</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run check</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
                         <id>yarn-test</id>
                         <phase>test</phase>
                         <goals>
