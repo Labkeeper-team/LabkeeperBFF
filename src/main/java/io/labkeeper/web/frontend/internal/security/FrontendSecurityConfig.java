@@ -31,7 +31,12 @@ import java.net.URI;
 import java.text.ParseException;
 import java.util.List;
 
-import static io.labkeeper.web.common.api.EndpointsList.*;
+import static io.labkeeper.web.common.api.EndpointsList.FORM_LOGIN_ENDPOINT;
+import static io.labkeeper.web.common.api.EndpointsList.HOME_PAGE;
+import static io.labkeeper.web.common.api.EndpointsList.LOGOUT_ENDPOINT;
+import static io.labkeeper.web.common.api.EndpointsList.PROJECTS_PAGE;
+import static io.labkeeper.web.common.api.EndpointsList.SSO_CODE_ENDPOINT;
+import static io.labkeeper.web.common.api.EndpointsList.SSO_LOGIN_ENDPOINT;
 import static org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers.pathMatchers;
 
 @Configuration
@@ -71,9 +76,9 @@ public class FrontendSecurityConfig {
     @Bean
     public ServerAuthenticationFailureHandler authenticationFailureHandler() {
         ServerRedirectStrategy redirectStrategy = new DefaultServerRedirectStrategy();
-        var badCredentials = URI.create(EndpointsList.HOME_PAGE + "?error=bad_credentials");
-        var oauthError = URI.create(EndpointsList.HOME_PAGE + "?error=oauth_error");
-        var unknownError = URI.create(EndpointsList.HOME_PAGE + "?error=unknown_error");
+        var badCredentials = URI.create(HOME_PAGE + "?error=bad_credentials");
+        var oauthError = URI.create(HOME_PAGE + "?error=oauth_error");
+        var unknownError = URI.create(HOME_PAGE + "?error=unknown_error");
         return (webFilterExchange, exception) -> {
             if (exception instanceof BadCredentialsException) {
                 return redirectStrategy.sendRedirect(webFilterExchange.getExchange(), badCredentials);
@@ -89,15 +94,15 @@ public class FrontendSecurityConfig {
     public SecurityWebFilterChain pagesSecurityWebFilterChain(ServerHttpSecurity http) {
         return http
                 .exceptionHandling(c -> c
-                        .authenticationEntryPoint(new RedirectServerAuthenticationEntryPoint(EndpointsList.HOME_PAGE)))
+                        .authenticationEntryPoint(new RedirectServerAuthenticationEntryPoint(HOME_PAGE)))
                 .securityMatcher(new OrServerWebExchangeMatcher(List.of(
-                        new PathPatternParserServerWebExchangeMatcher(EndpointsList.HOME_PAGE),
-                        new PathPatternParserServerWebExchangeMatcher(EndpointsList.PROJECTS_PAGE),
+                        new PathPatternParserServerWebExchangeMatcher(HOME_PAGE),
+                        new PathPatternParserServerWebExchangeMatcher(PROJECTS_PAGE),
                         new PathPatternParserServerWebExchangeMatcher(EndpointsList.DEFAULT_PROJECT_PAGE),
                         new PathPatternParserServerWebExchangeMatcher(EndpointsList.PROJECT_PAGE)
                 )))
                 .authorizeExchange(exchange -> exchange
-                        .pathMatchers(EndpointsList.PROJECTS_PAGE).authenticated()
+                        .pathMatchers(PROJECTS_PAGE).authenticated()
                         .anyExchange().permitAll()
                 )
                 .build();
