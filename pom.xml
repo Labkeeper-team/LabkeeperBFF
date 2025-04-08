@@ -125,7 +125,7 @@
                             <goal>yarn</goal>
                         </goals>
                         <configuration>
-                            <arguments>build</arguments>
+                            <arguments>build --mode "{\"major\": ${version.major}, \"minor\": ${version.minor}}"</arguments>
                         </configuration>
                     </execution>
                 </executions>
