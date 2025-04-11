@@ -80,7 +80,6 @@
                             <executable>npm</executable>
                             <arguments>
                                 <argument>install</argument>
-                                <argument>--no-package-lock</argument>
                             </arguments>
                             <workingDirectory>${frontend-src-dir}</workingDirectory>
                         </configuration>
