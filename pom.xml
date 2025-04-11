@@ -66,66 +66,70 @@
             </plugin>
             <!-- FRONTEND PACKAGING STEP 1 -->
             <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <version>${frontend-maven-plugin.version}</version>
-
-                <configuration>
-                    <nodeVersion>${node.version}</nodeVersion>
-                    <yarnVersion>${yarn.version}</yarnVersion>
-                    <workingDirectory>${frontend-src-dir}</workingDirectory>
-                    <installDirectory>${project.build.directory}</installDirectory>
-                </configuration>
-
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
-                        <id>install-frontend-tools</id>
-                        <goals>
-                            <goal>install-node-and-yarn</goal>
-                        </goals>
-                    </execution>
-
-                    <execution>
-                        <id>yarn-install</id>
+                        <id>npm-install</id>
                         <phase>compile</phase>
                         <goals>
-                            <goal>yarn</goal>
+                            <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <arguments>install --no-lockfile</arguments>
+                            <executable>npm</executable>
+                            <arguments>
+                                <argument>install</argument>
+                                <argument>--no-package-lock</argument>
+                            </arguments>
+                            <workingDirectory>${frontend-src-dir}</workingDirectory>
                         </configuration>
                     </execution>
-
                     <execution>
-                        <id>yarn-check</id>
+                        <id>npm-check</id>
                         <phase>compile</phase>
                         <goals>
-                            <goal>yarn</goal>
+                            <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <arguments>run check</arguments>
+                            <executable>npm</executable>
+                            <arguments>
+                                <argument>run</argument>
+                                <argument>check</argument>
+                            </arguments>
+                            <workingDirectory>${frontend-src-dir}</workingDirectory>
                         </configuration>
                     </execution>
-
                     <execution>
-                        <id>yarn-test</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>yarn</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>test:math</arguments>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>build-frontend</id>
+                        <id>npm-test</id>
                         <phase>compile</phase>
                         <goals>
-                            <goal>yarn</goal>
+                            <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <arguments>build --mode "{\"major\": ${version.major}, \"minor\": ${version.minor}}"</arguments>
+                            <executable>npm</executable>
+                            <arguments>
+                                <argument>run</argument>
+                                <argument>test:math</argument>
+                            </arguments>
+                            <workingDirectory>${frontend-src-dir}</workingDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm-build</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>npm</executable>
+                            <arguments>
+                                <argument>run</argument>
+                                <argument>build</argument>
+                                <argument>--</argument>
+                                <argument>--mode=${revision}</argument>
+                            </arguments>
+                            <workingDirectory>${frontend-src-dir}</workingDirectory>
                         </configuration>
                     </execution>
                 </executions>

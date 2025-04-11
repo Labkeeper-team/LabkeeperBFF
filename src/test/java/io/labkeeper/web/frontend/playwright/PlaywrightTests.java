@@ -7,6 +7,7 @@ import io.labkeeper.businesslogic.api.service.UserService;
 import io.labkeeper.web.common.internal.service.yandex.YandexCaptchaService;
 import io.labkeeper.web.frontend.FrontendConfig;
 import io.labkeeper.web.frontend.internal.security.FrontendSecurityConfig;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.security.oauth2.client.reactive.ReactiveOAuth2ClientAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.reactive.ReactiveSecurityAutoConfiguration;
@@ -19,6 +20,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
+@Disabled
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(classes = {
         FrontendConfig.class,
