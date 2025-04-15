@@ -36,6 +36,11 @@
             <artifactId>Common</artifactId>
             <version>${revision}</version>
         </dependency>
+        <dependency>
+            <groupId>io.labkeeper</groupId>
+            <artifactId>BusinessLogic</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
 
     <build>
