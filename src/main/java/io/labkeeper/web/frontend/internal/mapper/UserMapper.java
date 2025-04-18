@@ -5,6 +5,6 @@ import io.labkeeper.web.common.api.domain.UserWebPresentation;
 import org.mapstruct.Mapper;
 
 @Mapper
-public interface UserMapper {
-    UserWebPresentation toUserWebDto(LabkeeperUser user);
+public abstract class UserMapper {
+    public abstract UserWebPresentation toUserWebDto(LabkeeperUser user);
 }
