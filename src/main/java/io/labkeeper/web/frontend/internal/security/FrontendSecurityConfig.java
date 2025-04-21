@@ -15,8 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultReactiveOAuth2UserService;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
-import org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder;
-import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
 import org.springframework.security.web.server.DefaultServerRedirectStrategy;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.ServerRedirectStrategy;
@@ -25,18 +23,16 @@ import org.springframework.security.web.server.authentication.ServerAuthenticati
 import org.springframework.security.web.server.authentication.logout.RedirectServerLogoutSuccessHandler;
 import org.springframework.security.web.server.util.matcher.OrServerWebExchangeMatcher;
 import org.springframework.security.web.server.util.matcher.PathPatternParserServerWebExchangeMatcher;
-import reactor.core.publisher.Mono;
 
 import java.net.URI;
-import java.text.ParseException;
 import java.util.List;
 
 import static io.labkeeper.web.common.api.EndpointsList.FORM_LOGIN_ENDPOINT;
 import static io.labkeeper.web.common.api.EndpointsList.HOME_PAGE;
 import static io.labkeeper.web.common.api.EndpointsList.LOGOUT_ENDPOINT;
+import static io.labkeeper.web.common.api.EndpointsList.OAUTH_CODE_ENDPOINT;
+import static io.labkeeper.web.common.api.EndpointsList.OAUTH_LOGIN_ENDPOINT;
 import static io.labkeeper.web.common.api.EndpointsList.PROJECTS_PAGE;
-import static io.labkeeper.web.common.api.EndpointsList.SSO_CODE_ENDPOINT;
-import static io.labkeeper.web.common.api.EndpointsList.SSO_LOGIN_ENDPOINT;
 import static org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers.pathMatchers;
 
 @Configuration
@@ -50,8 +46,8 @@ public class FrontendSecurityConfig {
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .securityMatcher(pathMatchers(
                         LOGOUT_ENDPOINT,
-                        SSO_LOGIN_ENDPOINT,
-                        SSO_CODE_ENDPOINT,
+                        OAUTH_LOGIN_ENDPOINT,
+                        OAUTH_CODE_ENDPOINT,
                         FORM_LOGIN_ENDPOINT
                 ))
                 .oauth2Login(c -> c
@@ -115,23 +111,8 @@ public class FrontendSecurityConfig {
     }
 
     @Bean
-    public DefaultReactiveOAuth2UserService oauth2UserService(
-            ReactiveJwtDecoder jwtDecoder,
-            UserService userService,
-            UserMapper userMapper
-    ) {
-        return new CustomOAuth2UserService(jwtDecoder, userService, userMapper);
-    }
-
-    @Bean
-    public ReactiveJwtDecoder decoder() {
-        return new NimbusReactiveJwtDecoder(jwt -> {
-            try {
-                return Mono.just(jwt.getJWTClaimsSet());
-            } catch (ParseException e) {
-                throw new IllegalStateException(e);
-            }
-        });
+    public DefaultReactiveOAuth2UserService oauth2UserService(UserService userService, UserMapper userMapper) {
+        return new CustomOAuth2UserService(userService, userMapper);
     }
 
     @Bean
