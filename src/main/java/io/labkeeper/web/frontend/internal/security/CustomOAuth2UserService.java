@@ -26,6 +26,12 @@ public class CustomOAuth2UserService extends DefaultReactiveOAuth2UserService {
                 .cast(String.class)
                 .switchIfEmpty(Mono.error(new OAuth2AuthenticationException(INVALID_TOKEN)))
                 .flatMap(userService::getOrCreateUserByEmail)
-                .map(userMapper::toUserWebDto);
+                .map(userMapper::toUserWebDto)
+                // TODO
+                // Хорошо бы перенести следующий код в какое-то более
+                // правильное с точки зрения Spring Security место.
+                .flatMap(userWebPresentation -> userService
+                        .loginSuccessfully(userWebPresentation.email())
+                        .thenReturn(userWebPresentation));
     }
 }

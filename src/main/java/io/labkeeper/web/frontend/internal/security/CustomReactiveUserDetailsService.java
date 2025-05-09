@@ -17,6 +17,12 @@ public class CustomReactiveUserDetailsService implements ReactiveUserDetailsServ
         return userService
                 .getUserByEmail(username)
                 .onErrorResume(e -> Mono.empty())
-                .map(userMapper::toUserWebDto);
+                .map(userMapper::toUserWebDto)
+                // TODO
+                // Хорошо бы перенести следующий код в какое-то более
+                // правильное с точки зрения Spring Security место.
+                .flatMap(userWebPresentation -> userService
+                        .loginSuccessfully(userWebPresentation.email())
+                        .thenReturn(userWebPresentation));
     }
 }

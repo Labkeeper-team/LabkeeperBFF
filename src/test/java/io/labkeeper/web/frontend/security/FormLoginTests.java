@@ -52,6 +52,7 @@ public class FormLoginTests {
                 1,
                 passwordEncoder.encode("g")
         ))).when(userService).getUserByEmail(eq("g@gmail.com"));
+        doReturn(Mono.empty()).when(userService).loginSuccessfully(any());
         doReturn(Mono.just(true)).when(yandexCaptchaService)
                 .checkCaptcha(any());
         URI location = webClient
