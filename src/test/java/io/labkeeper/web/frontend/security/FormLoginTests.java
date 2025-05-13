@@ -1,7 +1,7 @@
 package io.labkeeper.web.frontend.security;
 
-import io.labkeeper.businesslogic.api.domain.LabkeeperUser;
-import io.labkeeper.businesslogic.api.service.UserService;
+import io.labkeeper.businesslogic.domain.api.model.LabkeeperUser;
+import io.labkeeper.businesslogic.operation.api.service.UserService;
 import io.labkeeper.web.common.api.EndpointsList;
 import io.labkeeper.web.common.internal.service.yandex.YandexCaptchaService;
 import io.labkeeper.web.frontend.FrontendConfig;
@@ -23,8 +23,11 @@ import reactor.core.publisher.Mono;
 
 import java.net.URI;
 
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 
 @WebFluxTest
 @ContextConfiguration(classes = {

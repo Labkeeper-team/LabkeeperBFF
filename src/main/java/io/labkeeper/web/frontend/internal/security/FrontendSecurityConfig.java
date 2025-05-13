@@ -1,6 +1,6 @@
 package io.labkeeper.web.frontend.internal.security;
 
-import io.labkeeper.businesslogic.api.service.UserService;
+import io.labkeeper.businesslogic.operation.api.service.UserService;
 import io.labkeeper.web.common.api.EndpointsList;
 import io.labkeeper.web.common.api.filter.YandexCaptchaSecurityFilter;
 import io.labkeeper.web.common.internal.service.yandex.YandexCaptchaService;

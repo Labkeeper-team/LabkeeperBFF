@@ -1,6 +1,6 @@
 package io.labkeeper.web.frontend.internal.security;
 
-import io.labkeeper.businesslogic.api.service.UserService;
+import io.labkeeper.businesslogic.operation.api.service.UserService;
 import io.labkeeper.web.frontend.internal.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultReactiveOAuth2UserService;
