@@ -5,6 +5,7 @@ import io.labkeeper.web.common.api.EndpointsList;
 import io.labkeeper.web.common.api.filter.YandexCaptchaSecurityFilter;
 import io.labkeeper.web.common.internal.service.yandex.YandexCaptchaService;
 import io.labkeeper.web.frontend.internal.mapper.UserMapper;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -35,6 +36,7 @@ import static io.labkeeper.web.common.api.EndpointsList.OAUTH_LOGIN_ENDPOINT;
 import static io.labkeeper.web.common.api.EndpointsList.PROJECTS_PAGE;
 import static org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers.pathMatchers;
 
+@Log4j2
 @Configuration
 public class FrontendSecurityConfig {
     @Bean
@@ -77,11 +79,14 @@ public class FrontendSecurityConfig {
         var unknownError = URI.create(HOME_PAGE + "?error=unknown_error");
         return (webFilterExchange, exception) -> {
             if (exception instanceof BadCredentialsException) {
+                log.debug("Bad credentials error", exception);
                 return redirectStrategy.sendRedirect(webFilterExchange.getExchange(), badCredentials);
             }
             if (exception instanceof OAuth2AuthenticationException) {
+                log.warn("OIDC error", exception);
                 return redirectStrategy.sendRedirect(webFilterExchange.getExchange(), oauthError);
             }
+            log.error("Unknown error", exception);
             return redirectStrategy.sendRedirect(webFilterExchange.getExchange(), unknownError);
         };
     }
