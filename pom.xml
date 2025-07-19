@@ -77,11 +77,6 @@
         <!-- INTERNAL -->
         <dependency>
             <groupId>io.labkeeper</groupId>
-            <artifactId>Common</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.labkeeper</groupId>
             <artifactId>Operation</artifactId>
             <version>${revision}</version>
         </dependency>
