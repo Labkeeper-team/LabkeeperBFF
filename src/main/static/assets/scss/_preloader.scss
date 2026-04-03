@@ -1,0 +1,54 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+
+    &.preloader--hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__logo {
+        width: 80px;
+        height: 80px;
+        position: relative;
+        
+        svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    &__path {
+        &--bg {
+            fill: #E5E7EB; /* Light gray outline/background */
+        }
+
+        &--fill {
+            fill: #4469E0; /* Logo blue */
+            /* Start clipped from the top so it's empty, then animate to full height */
+            clip-path: inset(100% 0 0 0);
+            animation: preloaderFill 1.5s ease-in-out infinite alternate;
+        }
+    }
+}
+
+@keyframes preloaderFill {
+    from {
+        clip-path: inset(100% 0 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}

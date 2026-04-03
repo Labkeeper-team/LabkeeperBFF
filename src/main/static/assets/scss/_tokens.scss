@@ -1,0 +1,155 @@
+.tokens-hero {
+  padding: 180px 0 100px;
+  background-color: #ffffff;
+  min-height: calc(100vh - 200px);
+
+  @include mobile {
+    padding: 120px 0 60px;
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    gap: 40px;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__title {
+    color: var(--c-text-main);
+    flex: 1;
+
+    .text-blue {
+      color: var(--c-primary);
+    }
+  }
+
+  &__desc {
+    flex: 1;
+    color: var(--c-text-main);
+    max-width: 540px;
+    padding-top: 12px;
+
+    @include mobile {
+      padding-top: 0;
+    }
+  }
+
+  &__variants {
+    margin-top: 40px;
+  }
+
+  &__subtitle {
+    color: var(--c-text-main);
+    margin-bottom: 24px;
+    margin-top: 0;
+
+    .mobile-text {
+      display: none;
+    }
+
+    @include mobile {
+      text-align: center;
+      margin-bottom: 20px;
+
+      .desktop-text {
+        display: none;
+      }
+
+      .mobile-text {
+        display: block;
+      }
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+}
+
+.token-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #D9E2FC;
+  border-radius: 8px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--c-bg-card);
+    border-color: var(--c-bg-card);
+    transform: translateY(-4px);
+
+    .token-card__icon {
+      transform: translateX(4px);
+    }
+  }
+
+  @include mobile {
+    aspect-ratio: auto;
+    height: 180px;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__amount {
+    color: var(--c-primary);
+    margin-bottom: 12px;
+  }
+
+  &__price {
+    font-size: 18px;
+    color: var(--c-primary);
+    font-weight: 400;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    color: var(--c-primary);
+    font-size: 20px;
+    transition: transform 0.3s ease;
+
+    @include mobile {
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+}

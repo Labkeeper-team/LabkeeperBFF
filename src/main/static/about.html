@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests">
+    <title>Labkeeper — О нас</title>
+    <meta
+        name="description"
+        content="О команде и миссии Labkeeper: единая среда для документов, расчетов и научных публикаций. / About Labkeeper team and mission: a unified environment for documents, calculations, and scientific writing."
+    />
+    <link rel="canonical" href="https://labkeeper.io/about" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://labkeeper.io/about" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Labkeeper" />
+    <meta
+        property="og:title"
+        content="Labkeeper — О нас / Labkeeper — About"
+    />
+    <meta
+        property="og:description"
+        content="Узнайте о миссии Labkeeper и о том, для кого создана платформа. / Learn about Labkeeper's mission and who the platform is built for."
+    />
+    <meta property="og:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta name="twitter:title" content="Labkeeper — О нас / Labkeeper — About" />
+    <meta
+        name="twitter:description"
+        content="Узнайте о миссии Labkeeper и о том, для кого создана платформа. / Learn about Labkeeper's mission and who the platform is built for."
+    />
+    <script>
+        (function () {
+            const metrikaId = "IO_LABKEEPER_FRONTEND_YANDEX_METRIKA_KEY";
+            if (!metrikaId || metrikaId === "IO_LABKEEPER_FRONTEND_YANDEX_METRIKA_KEY") return;
+
+            window.__LABKEEPER_YM_KEY = Number(metrikaId);
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+                m[i].l = 1 * new Date();
+                for (let j = 0; j < document.scripts.length; j += 1) {
+                    if (document.scripts[j].src === r) return;
+                }
+                k = e.createElement(t);
+                a = e.getElementsByTagName(t)[0];
+                k.async = 1;
+                k.src = r;
+                a.parentNode.insertBefore(k, a);
+            })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+            window.ym(window.__LABKEEPER_YM_KEY, "init", {
+                clickmap: true,
+                trackLinks: true,
+                accurateTrackBounce: true,
+                webvisor: true
+            });
+        })();
+    </script>
+
+    <!-- Preconnect & Async Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="page">
+    <header class="header js-header">
+        <div class="header__container">
+            <div class="header__left">
+                <!-- Кнопка мобильного меню -->
+                <button class="header__burger js-burger-btn" aria-label="Открыть меню">
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                </button>
+                <a href="/" class="header__logo">
+                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="header__logo-icon" width="36" height="36">
+                    <span class="header__logo-text">Labkeeper</span>
+                </a>
+                <div class="header__lang js-lang-switcher">
+                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
+                    <button class="header__lang-btn" data-lang="en">En</button>
+                </div>
+            </div>
+
+            <nav class="header__nav js-nav">
+                <div class="header__mobile-lang js-lang-switcher">
+                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
+                    <button class="header__lang-btn" data-lang="en">En</button>
+                </div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/#features" class="header__nav-link"
+                            data-i18n="nav-advantages"></a></li>
+                    <li class="header__nav-item"><a href="/#advantages" class="header__nav-link"
+                            data-i18n="nav-features"></a></li>
+                    <li class="header__nav-item"><a href="/#audience" class="header__nav-link"
+                            data-i18n="nav-audience"></a></li>
+                    <!-- TODO billing -->
+                    <!--
+                    <li class="header__nav-item"><a href="tokens.html" class="header__nav-link"
+                            data-i18n="nav-tokens"></a></li>
+                    -->
+                    <li class="header__nav-item"><a href="/about" class="header__nav-link header__nav-link--active"
+                            data-i18n="nav-about"></a></li>
+                </ul>
+                <div class="header__mobile-contact">
+                    <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
+                    <a href="mailto:contact@labkeeper.io" class="header__mobile-contact-link">contact@labkeeper.io</a>
+                </div>
+            </nav>
+
+            <!--
+            TODO: https://github.com/Labkeeper-team/TypeThree/issues/391
+            <div class="header__right">
+                <a href="login.html" class="button button--outline header__login" data-i18n="btn-login">
+                    Войти <span class="button__arrow">→</span>
+                </a>
+            </div>
+            -->
+        </div>
+    </header>
+
+    <main class="main page-about">
+        <!-- Блок 1: Hero и Миссия -->
+        <section class="about-hero">
+            <div class="about-hero__container">
+                <!-- Описание -->
+                <div class="about-hero__row">
+                    <div class="about-hero__content">
+                        <h1 class="about-hero__title h1" data-i18n="about-title"></h1>
+                        <p class="about-hero__text" data-i18n="about-text-1"></p>
+                        <p class="about-hero__text" data-i18n="about-text-2"></p>
+                    </div>
+                    <img src="assets/img/logo.svg" alt="Labkeeper decorative pattern" class="about-hero__logo" loading="lazy">
+                </div>
+
+                <!-- Миссия -->
+                <div class="about-hero__row about-hero__row--reverse">
+                    <div class="about-hero__content">
+                        <h2 class="about-hero__subtitle h1" data-i18n="about-mission"></h2>
+                        <p class="about-hero__text" data-i18n="about-mission-text"></p>
+                    </div>
+                    <img src="assets/img/logo.svg" alt="Labkeeper decorative pattern"
+                         class="about-hero__logo about-hero__logo--small" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 2: Для кого (клонировано с мода) -->
+        <section class="audience audience--about" id="audience">
+            <div class="audience__container">
+                <h2 class="audience__title h1" data-i18n="aud-title"></h2>
+                <div class="audience__cards">
+                    <div class="audience-card">
+                        <h3 class="audience-card__title" data-i18n="aud-c1-title"></h3>
+                        <p class="audience-card__text" data-i18n="aud-c1-text"></p>
+                    </div>
+                    <div class="audience-card">
+                        <h3 class="audience-card__title" data-i18n="aud-c2-title"></h3>
+                        <p class="audience-card__text" data-i18n="aud-c2-text"></p>
+                    </div>
+                    <div class="audience-card">
+                        <h3 class="audience-card__title" data-i18n="aud-c3-title"></h3>
+                        <p class="audience-card__text" data-i18n="aud-c3-text"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TODO billing -->
+        <!--
+        <section class="about-docs">
+            <div class="about-docs__container">
+                <h2 class="about-docs__title h2" data-i18n="docs-title"></h2>
+
+                <div class="about-docs__table">
+                    <div class="about-docs__row">
+                        <div class="about-docs__label" data-i18n="docs-label-name"></div>
+                        <div class="about-docs__value">ИП Иванов Иван Иванович
+                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
+                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                        fill="#4469E0" />
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="about-docs__row">
+                        <div class="about-docs__label" data-i18n="docs-label-address"></div>
+                        <div class="about-docs__value">Россия, 141195, Московская область, г.Фрязино, ул. Барские Пруды,
+                            дом 1А
+                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
+                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                        fill="#4469E0" />
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="about-docs__row">
+                        <div class="about-docs__label">ИНН</div>
+                        <div class="about-docs__value">5052014518
+                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
+                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                        fill="#4469E0" />
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="about-docs__row">
+                        <div class="about-docs__label">КПП</div>
+                        <div class="about-docs__value">505001001
+                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
+                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                        fill="#4469E0" />
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="about-docs__row">
+                        <div class="about-docs__label" data-i18n="docs-label-bank"></div>
+                        <div class="about-docs__value">р/с 40702810740480125396 в ПАО "Сбербанк России", г.Москва к/с
+                            30101810400000000225 БИК 044525225
+                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
+                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                        fill="#4469E0" />
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="about-docs__row">
+                        <div class="about-docs__label">ОГРН</div>
+                        <div class="about-docs__value">1045010550243
+                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
+                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                        fill="#4469E0" />
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="about-docs__row">
+                        <div class="about-docs__label">ОКПО</div>
+                        <div class="about-docs__value">70423280
+                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
+                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                        fill="#4469E0" />
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="about-docs__row">
+                        <div class="about-docs__label">ОКВЭД</div>
+                        <div class="about-docs__value">46.69.5
+                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
+                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                        fill="#4469E0" />
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="about-docs__row">
+                        <div class="about-docs__label" data-i18n="docs-label-director"></div>
+                        <div class="about-docs__value">Бляблин Илья Владимирович, генеральный директор, действует на
+                            основании устава
+                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
+                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                        fill="#4469E0" />
+                                </svg></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-docs__links">
+                    <a href="privacy/soglashenie.html" class="button button--outline about-docs__link"
+                        target="_blank"><span data-i18n="docs-link-consent"></span> <img src="img/target.svg" alt="external link" class="button__external-icon"
+                            width="16" height="16"></a>
+                    <a href="privacy/oferta.html" class="button button--outline about-docs__link" target="_blank"><span
+                            data-i18n="docs-link-oferta"></span> <img src="img/target.svg"
+                            alt="external link" class="button__external-icon" width="16" height="16"></a>
+                    <a href="privacy.html" class="button button--outline about-docs__link" target="_blank"><span
+                            data-i18n="docs-link-privacy"></span> <img src="img/target.svg"
+                            alt="external link" class="button__external-icon" width="16" height="16"></a>
+                </div>
+            </div>
+        </section>
+        -->
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__top">
+                <nav class="footer__nav">
+                    <a href="/#features" class="footer__link" data-i18n="nav-advantages"></a>
+                    <a href="/#advantages" class="footer__link" data-i18n="nav-features"></a>
+                    <!-- TODO billing -->
+                    <!-- <a href="tokens.html" class="footer__link" data-i18n="nav-tokens"></a> -->
+                    <a href="https://github.com/Labkeeper-team/Docs/wiki/ru" target="_blank"
+                        class="footer__link footer__link--external">
+                        <span data-i18n="nav-wiki"></span>
+                        <img src="assets/img/target.svg" alt="target icon" class="footer__link-icon"
+                             style="margin-left: 4px; vertical-align: middle;" width="16" height="16" loading="lazy">
+                    </a>
+                    <a href="/about" class="footer__link" data-i18n="nav-about"></a>
+                </nav>
+                <a href="/" class="footer__logo-link">
+                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="footer__logo" width="40" height="40"
+                         loading="lazy">
+                </a>
+                <div class="footer__contact">
+                    <span class="footer__contact-label" data-i18n="footer-contact"></span>
+                    <a href="mailto:contact@labkeeper.io" class="footer__contact-link">contact@labkeeper.io</a>
+                </div>
+            </div>
+            <div class="footer__middle">
+                <img src="assets/img/img-for-footer.svg" alt="Labkeeper" class="footer__huge-logo" aria-hidden="true"
+                     loading="lazy">
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__copyright">© 2024—2026</div>
+                <!-- TODO -->
+                <!-- <a href="privacy.html" class="footer__policy" data-i18n="footer-policy"></a> -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/lang.js" defer></script>
+</body>
+
+</html>

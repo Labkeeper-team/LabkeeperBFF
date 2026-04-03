@@ -1,0 +1,79 @@
+.hero {
+  padding: 120px 0 60px;
+  height: 630px;
+  background-color: #ffffff;
+  overflow: hidden;
+
+  @include mobile {
+    height: auto;
+    padding: 100px 0 40px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    @include mobile {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    max-width: 500px;
+
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    @extend .h1;
+    color: var(--c-text-main);
+    margin-bottom: 24px;
+    
+    .text-blue {
+      color: var(--c-primary);
+    }
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--c-text-main);
+    max-width: 340px;
+    margin-bottom: 32px;
+
+    @include mobile {
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+
+    @include mobile {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  &__image {
+    max-width: 120%;
+    height: auto;
+    object-fit: contain;
+    margin-right: -56px;
+
+    @include mobile {
+      max-width: 100%;
+      margin-right: 0;
+    }
+  }
+}

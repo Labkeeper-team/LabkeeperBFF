@@ -1,0 +1,292 @@
+@import 'variables';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #F1F5FF;
+  transition: all 0.3s ease;
+  height: 76px;
+
+  &--scrolled {
+    height: 60px;
+    border-bottom: 1px solid #F1F5FF;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    .header__nav {
+      @include mobile {
+        top: 60px;
+        height: calc(100vh - 60px);
+      }
+    }
+
+    .header__nav-link::after {
+      bottom: -22px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: -4px;
+
+    &-icon {
+      height: 36px;
+      width: 36px;
+    }
+
+    &-text {
+      font-size: 20px;
+      font-weight: 400; // изменено на regular (обычный)
+      color: var(--c-text-main);
+      letter-spacing: -0.02em;
+    }
+  }
+
+  &__lang {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    @include mobile {
+      display: none; // на мобильных устройствах будет внутри меню или останется здесь, если есть место. На самом деле давайте скроем в мобильной шапке, если у нас есть бургер
+    }
+
+    &-btn {
+      font-size: 13px;
+      color: var(--c-text-main);
+      padding: 4px 8px;
+      padding-bottom: 2px; // Уменьшено на 2px снизу из-за бордера
+      border-radius: 4px;
+      border-bottom: 2px solid transparent; // Прозрачный бордер снизу
+      transition: all 0.2s;
+
+      &--active {
+        font-weight: 700;
+        color: var(--c-text-main);
+        border-bottom-color: var(--c-primary); // Синий бордер снизу
+      }
+
+      &:hover:not(&--active) {
+        color: var(--c-text-main);
+        background-color: var(--c-bg-card);
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    @include mobile {
+      position: fixed;
+      top: 76px;
+      left: 0;
+      width: 100vw;
+      height: calc(100vh - 76px);
+      background-color: var(--c-bg-card);
+      flex-direction: column;
+      padding: 40px 20px;
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path 0.4s ease;
+      z-index: 100;
+
+      &--open {
+        clip-path: inset(0 0 0 0);
+      }
+    }
+
+    &-list {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      gap: 22px; // изменено на 22px
+
+      @include mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        height: auto;
+        gap: 32px;
+      }
+    }
+
+    &-item {
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      @include mobile {
+        height: auto;
+      }
+    }
+
+    &-link {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      font-size: 15px;
+      font-weight: 400; // изменено на regular (обычный)
+      color: var(--c-text-main);
+      transition: color 0.2s, font-weight 0.2s;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: transparent;
+        transition: background-color 0.2s, bottom 0.2s;
+      }
+
+      &:hover {
+        color: var(--c-primary);
+      }
+
+      &--active {
+        font-weight: 700;
+
+        &::after {
+          background-color: var(--c-primary);
+        }
+      }
+
+      @include mobile {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 400;
+        height: auto;
+
+        &::after {
+          display: none; // прячем бордер на мобилках
+        }
+
+        &--active {
+          color: var(--c-primary); // на мобилках просто красим
+        }
+      }
+    }
+  }
+
+  &__mobile-lang {
+    display: none;
+
+    @include mobile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .header__lang-btn {
+      font-size: 16px;
+      padding: 6px 12px;
+      padding-bottom: 4px;
+    }
+  }
+
+  &__mobile-contact {
+    display: none;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    &-label {
+      font-size: 13px;
+      color: var(--c-text-main);
+    }
+
+    &-link {
+      font-size: 15px;
+      color: var(--c-primary);
+      font-weight: 500;
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--c-primary-hover);
+      }
+    }
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    z-index: 101;
+
+    @include mobile {
+      display: flex;
+    }
+
+    &-line {
+      width: 100%;
+      height: 2px;
+      background-color: var(--c-text-main);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    &--active {
+      .header__burger-line {
+        &:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+
+    .button {
+      height: 30px;
+      padding: 0 31px 4px; // это сдвигает контент вверх на 2px.
+      font-size: 13px;
+
+      @include mobile {
+        height: auto;
+        padding: 8px 16px;
+      }
+    }
+  }
+}

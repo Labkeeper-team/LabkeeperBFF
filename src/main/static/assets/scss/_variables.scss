@@ -1,0 +1,188 @@
+:root {
+  // Colors
+  --c-text-main: #111827;
+  --c-text-white: #FFFFFF;
+  
+  --c-primary: #2563EB; /* Premium blue */
+  --c-primary-hover: #1D4ED8;
+  --c-bg-dark: #0A0F1C;
+  --c-bg-card: #F8FAFC;
+  --c-border: #E5E7EB;
+
+  // Typography
+  --font-main: 'Roboto', sans-serif;
+}
+
+// Media query mixins
+@mixin mobile {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
+// Global text settings
+body {
+  font-family: var(--font-main);
+  color: var(--c-text-main);
+  font-size: 15px;
+  line-height: 17px;
+  letter-spacing: 0;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  @include mobile {
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0;
+  }
+}
+
+// Resets
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, p, ul, margin {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+// Typography Classes and Tag resets
+h1, .h1 {
+  font-size: 50px;
+  line-height: 50px;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+
+  @include mobile {
+    font-size: 40px;
+    line-height: 36px;
+    letter-spacing: -0.05em;
+  }
+}
+
+h2, .h2 {
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+
+  @include mobile {
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0;
+  }
+}
+
+.body-small {
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.text-blue {
+  color: var(--c-primary);
+}
+
+// Global UI Components
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 34px; // +10px
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 400; // regular
+  transition: all 0.3s ease;
+  line-height: normal;
+
+  @include mobile {
+    height: auto;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 10px 30px; // +10px sides on mobile
+  }
+
+  &--primary {
+    background-color: var(--c-primary);
+    color: var(--c-text-white);
+    
+    &:hover {
+      background-color: var(--c-primary-hover);
+    }
+  }
+
+  &--outline {
+    border: 1px solid var(--c-primary);
+    color: var(--c-primary);
+    background-color: transparent;
+
+    &:hover {
+      background-color: var(--c-primary);
+      color: var(--c-text-white);
+
+      .button__external-icon {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+
+  &--outline-light {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--c-text-white);
+    background-color: transparent;
+
+    &:hover {
+      border-color: var(--c-text-white);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &__arrow, &__external-icon {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover &__arrow {
+    transform: translateX(4px);
+  }
+  
+  &:hover &__external-icon {
+    transform: translate(2px, -2px);
+  }
+}
+
+// Block Containers
+[class$="__container"] {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}

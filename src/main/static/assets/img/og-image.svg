@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Labkeeper</title>
+  <desc id="desc">Labkeeper preview image for social sharing.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="72" y="72" width="1056" height="486" rx="28" fill="#0b1220" fill-opacity="0.5" stroke="#60a5fa" stroke-opacity="0.35" />
+  <g transform="translate(120 155)">
+    <rect x="0" y="0" width="76" height="76" rx="14" fill="#4469E0" />
+    <path d="M42.4068 56.1927C42.4068 55.1716 41.5789 54.3438 40.5579 54.3438H35.9952C34.9741 54.3438 34.1463 55.1716 34.1463 56.1927V67.2394C34.1463 68.2605 33.3184 69.0883 32.2973 69.0883H27.7346C26.7135 69.0883 25.8857 68.2605 25.8857 67.2394V46.2062H51.8041V67.2394C51.8041 68.2605 50.9762 69.0883 49.9552 69.0883H45.3924C44.3714 69.0883 43.5435 68.2605 43.5435 67.2394V56.1927H42.4068ZM17.7802 46.2062V52.4984C17.7802 53.5195 16.9524 54.3473 15.9313 54.3473H4.18496C3.16388 54.3473 2.33605 53.5195 2.33605 52.4984V48.0695C2.33605 47.0484 3.16388 46.2206 4.18496 46.2206H17.7802V46.2062Z" fill="#ffffff"/>
+    <text x="102" y="56" fill="#ffffff" font-size="56" font-family="Arial, Helvetica, sans-serif" font-weight="700">Labkeeper</text>
+    <text x="0" y="138" fill="#cbd5e1" font-size="36" font-family="Arial, Helvetica, sans-serif">
+      Online PDF editor with scientific calculations
+    </text>
+    <text x="0" y="194" fill="#cbd5e1" font-size="30" font-family="Arial, Helvetica, sans-serif">
+       540:B>@ 4>:C<5=B>2, D>@<C; 8 3@0D8:>2 2 >4=>< <5AB5
+    </text>
+  </g>
+</svg>

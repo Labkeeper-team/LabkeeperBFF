@@ -115,7 +115,7 @@
                             <arguments>
                                 <argument>install</argument>
                             </arguments>
-                            <workingDirectory>${frontend-src-dir}</workingDirectory>
+                            <workingDirectory>${editor-frontend-src-dir}</workingDirectory>
                         </configuration>
                     </execution>
                     <execution>
@@ -130,7 +130,7 @@
                                 <argument>run</argument>
                                 <argument>check</argument>
                             </arguments>
-                            <workingDirectory>${frontend-src-dir}</workingDirectory>
+                            <workingDirectory>${editor-frontend-src-dir}</workingDirectory>
                         </configuration>
                     </execution>
                     <execution>
@@ -145,7 +145,7 @@
                                 <argument>run</argument>
                                 <argument>test:math</argument>
                             </arguments>
-                            <workingDirectory>${frontend-src-dir}</workingDirectory>
+                            <workingDirectory>${editor-frontend-src-dir}</workingDirectory>
                         </configuration>
                     </execution>
                     <execution>
@@ -162,7 +162,7 @@
                                 <argument>--</argument>
                                 <argument>--mode=${revision}</argument>
                             </arguments>
-                            <workingDirectory>${frontend-src-dir}</workingDirectory>
+                            <workingDirectory>${editor-frontend-src-dir}</workingDirectory>
                         </configuration>
                     </execution>
                 </executions>
@@ -178,10 +178,26 @@
                         </goals>
                         <phase>compile</phase>
                         <configuration>
-                            <outputDirectory>${project.build.outputDirectory}/frontend</outputDirectory>
+                            <outputDirectory>${project.build.outputDirectory}/react</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${frontend-src-dir}/dist</directory>
+                                    <directory>${editor-frontend-src-dir}/dist</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>position-static</id>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${static-frontend-src-dir}</directory>
                                     <filtering>false</filtering>
                                 </resource>
                             </resources>
