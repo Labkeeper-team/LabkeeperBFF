@@ -30,16 +30,16 @@ public class PagesController {
 
     public PagesController(FrontendProperties frontendProperties) {
         this.frontendProperties = frontendProperties;
-        this.reactIndexHtmlMono = getClasspathResourcesAsMono("react/index.html")
+        this.reactIndexHtmlMono = getClasspathResourcesAsMono("editor/index.html")
                 .map(str -> str
                         .replace(SENTRY_DSN_PARAM, frontendProperties.getSentryDsn())
                         .replace(YANDEX_METRIKA_PARAM, frontendProperties.getYandexMetrikaKey())
                         .replace(YANDEX_CAPTCHA_SITE_KEY, frontendProperties.getYandexCaptchaSiteKey()))
                 .cache();
-        this.landingPageHtmlMono = getClasspathResourcesAsMono("static/index.html")
+        this.landingPageHtmlMono = getClasspathResourcesAsMono("pages/index.html")
                 .map(this::replaceLandingPageParams)
                 .cache();
-        this.aboutUsPageHtmlMono = getClasspathResourcesAsMono("static/about.html")
+        this.aboutUsPageHtmlMono = getClasspathResourcesAsMono("pages/about.html")
                 .map(this::replaceLandingPageParams)
                 .cache();
     }

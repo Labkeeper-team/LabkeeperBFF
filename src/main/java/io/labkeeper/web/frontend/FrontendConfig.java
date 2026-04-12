@@ -18,9 +18,9 @@ public class FrontendConfig {
     @Bean
     RouterFunction<ServerResponse> staticResourceRouter() {
         return RouterFunctions.resources(RouterFunctions
-                .resourceLookupFunction("/**", new ClassPathResource("static/"))
+                .resourceLookupFunction("/**", new ClassPathResource("pages/"))
         ).and(RouterFunctions.resources(RouterFunctions
-                .resourceLookupFunction("/**", new ClassPathResource("react/"))
+                .resourceLookupFunction("/**", new ClassPathResource("editor/"))
         ));
     }
 }

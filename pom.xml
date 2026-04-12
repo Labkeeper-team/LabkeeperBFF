@@ -160,7 +160,7 @@
                         </goals>
                         <phase>compile</phase>
                         <configuration>
-                            <outputDirectory>${project.build.outputDirectory}/react</outputDirectory>
+                            <outputDirectory>${project.build.outputDirectory}/editor</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${editor-frontend-src-dir}/dist</directory>
@@ -176,10 +176,10 @@
                         </goals>
                         <phase>compile</phase>
                         <configuration>
-                            <outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+                            <outputDirectory>${project.build.outputDirectory}/pages</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${static-frontend-src-dir}</directory>
+                                    <directory>${pages-frontend-src-dir}/src</directory>
                                     <filtering>false</filtering>
                                 </resource>
                             </resources>
@@ -199,7 +199,7 @@
                         <configuration>
                             <filesets>
                                 <fileset>
-                                    <directory>${pom.basedir}/src/main/react/dist</directory>
+                                    <directory>${pom.basedir}/src/main/editor/dist</directory>
                                 </fileset>
                             </filesets>
                         </configuration>
