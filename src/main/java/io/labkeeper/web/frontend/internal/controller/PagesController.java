@@ -72,6 +72,6 @@ public class PagesController {
     }
 
     private String replaceLandingPageParams(String html) {
-        return html.replace(YANDEX_METRIKA_PARAM, frontendProperties.getYandexMetrikaKey());
+        return html.replaceFirst(YANDEX_METRIKA_PARAM, frontendProperties.getYandexMetrikaKey());
     }
 }
