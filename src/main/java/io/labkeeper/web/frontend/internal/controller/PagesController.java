@@ -1,6 +1,7 @@
 package io.labkeeper.web.frontend.internal.controller;
 
 import io.labkeeper.web.frontend.FrontendProperties;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,14 +22,20 @@ public class PagesController {
 
     static final String SENTRY_DSN_PARAM = "IO_LABKEEPER_FRONTEND_SENTRY_DSN";
     static final String YANDEX_METRIKA_PARAM = "IO_LABKEEPER_FRONTEND_YANDEX_METRIKA_KEY";
+    static final String VERSION_PARAM = "IO_LABKEEPER_FRONTEND_API_VERSION";
     static final String YANDEX_CAPTCHA_SITE_KEY = "IO_LABKEEPER_FRONTEND_YANDEX_CAPTCHA_SITE_KEY";
 
     final FrontendProperties frontendProperties;
     final Mono<String> reactIndexHtmlMono;
     final Mono<String> landingPageHtmlMono;
     final Mono<String> aboutUsPageHtmlMono;
+    final int majorVersion;
 
-    public PagesController(FrontendProperties frontendProperties) {
+    public PagesController(
+            FrontendProperties frontendProperties,
+            @Value("${io.labkeeper.version.major}") int majorVersion
+    ) {
+        this.majorVersion = majorVersion;
         this.frontendProperties = frontendProperties;
         this.reactIndexHtmlMono = getClasspathResourcesAsMono("editor/index.html")
                 .map(str -> str
@@ -72,6 +79,8 @@ public class PagesController {
     }
 
     private String replaceLandingPageParams(String html) {
-        return html.replaceFirst(YANDEX_METRIKA_PARAM, frontendProperties.getYandexMetrikaKey());
+        return html
+                .replace(VERSION_PARAM, "v" + majorVersion)
+                .replaceFirst(YANDEX_METRIKA_PARAM, frontendProperties.getYandexMetrikaKey());
     }
 }
