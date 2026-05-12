@@ -3,11 +3,14 @@ package io.labkeeper.web.frontend.internal.controller;
 import io.labkeeper.web.frontend.FrontendProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
 
 @RestController
@@ -30,11 +33,14 @@ public class PagesController {
     final Mono<String> landingPageHtmlMono;
     final Mono<String> aboutUsPageHtmlMono;
     final int majorVersion;
+    final String host;
 
     public PagesController(
             FrontendProperties frontendProperties,
-            @Value("${io.labkeeper.version.major}") int majorVersion
+            @Value("${io.labkeeper.version.major}") int majorVersion,
+            @Value("${io.labkeeper.host}") String host
     ) {
+        this.host = host;
         this.majorVersion = majorVersion;
         this.frontendProperties = frontendProperties;
         this.reactIndexHtmlMono = getClasspathResourcesAsMono("editor/index.html")
@@ -51,9 +57,16 @@ public class PagesController {
                 .cache();
     }
 
-    @GetMapping({PROJECT_PAGE, PROJECTS_PAGE, DEFAULT_PROJECT_PAGE, OAUTH_CODE_PAGE, QR_PAGE})
+    @GetMapping({PROJECT_PAGE, PROJECTS_PAGE, DEFAULT_PROJECT_PAGE, OAUTH_CODE_PAGE})
     public Mono<String> spa() {
         return reactIndexHtmlMono;
+    }
+
+    @GetMapping(QR_PAGE)
+    public Mono<ResponseEntity<?>> qr() {
+        return Mono.just(ResponseEntity.status(HttpStatus.FOUND) // 302
+                .location(URI.create(host))
+                .build());
     }
 
     @GetMapping({ABOUT_PAGE})
