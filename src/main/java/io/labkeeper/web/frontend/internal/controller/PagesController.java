@@ -94,6 +94,6 @@ public class PagesController {
     private String replaceLandingPageParams(String html) {
         return html
                 .replace(VERSION_PARAM, "v" + majorVersion)
-                .replaceFirst(YANDEX_METRIKA_PARAM, frontendProperties.getYandexMetrikaKey());
+                .replace(YANDEX_METRIKA_PARAM, frontendProperties.getYandexMetrikaKey());
     }
 }
