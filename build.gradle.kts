@@ -40,7 +40,7 @@ tasks.register<Exec>("npmTestMath") {
 
 tasks.register<Exec>("npmBuild") {
     workingDir = editorFrontendDir.asFile
-    commandLine(npmCommand, "run", "build", "--", "--mode=${rootProject.version}")
+    commandLine(npmCommand, "run", "build", "--", "--build-version=${rootProject.version}")
     dependsOn("npmTestMath")
 }
 
