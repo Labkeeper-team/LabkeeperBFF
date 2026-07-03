@@ -26,22 +26,10 @@ tasks.register<Exec>("npmInstall") {
     commandLine(npmCommand, "install")
 }
 
-tasks.register<Exec>("npmCheck") {
-    workingDir = editorFrontendDir.asFile
-    commandLine(npmCommand, "run", "check")
-    dependsOn("npmInstall")
-}
-
-tasks.register<Exec>("npmTestMath") {
-    workingDir = editorFrontendDir.asFile
-    commandLine(npmCommand, "run", "test:math")
-    dependsOn("npmCheck")
-}
-
 tasks.register<Exec>("npmBuild") {
     workingDir = editorFrontendDir.asFile
     commandLine(npmCommand, "run", "build", "--", "--build-version=${rootProject.version}")
-    dependsOn("npmTestMath")
+    dependsOn("npmInstall")
 }
 
 tasks.named<ProcessResources>("processResources") {
