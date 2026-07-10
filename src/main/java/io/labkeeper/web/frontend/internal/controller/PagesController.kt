@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
 import java.io.IOException
 import java.net.URI
@@ -34,13 +35,17 @@ class PagesController(
         }
         .cache()
 
-    private val landingPageHtmlMono: Mono<String> = getClasspathResourcesAsMono("pages/index.html")
-        .map(::replaceLandingPageParams)
-        .cache()
+    private val landingPageHtmlMono: Mono<String> = cachedLandingPage("pages/index.html")
 
-    private val aboutUsPageHtmlMono: Mono<String> = getClasspathResourcesAsMono("pages/about.html")
-        .map(::replaceLandingPageParams)
-        .cache()
+    private val aboutUsPageHtmlMono: Mono<String> = cachedLandingPage("pages/about.html")
+
+    private val policyPageHtmlMonos: Map<String, Mono<String>> = mapOf(
+        SOGLAS_PAGE to cachedLandingPage("pages/soglas.html"),
+        PRIVACY_PAGE to cachedLandingPage("pages/privacy.html"),
+        SOGL_YAM_PAGE to cachedLandingPage("pages/sogl_yam.html"),
+        SOGL_ADV_PAGE to cachedLandingPage("pages/sogl_adv.html"),
+        OFERTA_PAGE to cachedLandingPage("pages/oferta.html"),
+    )
 
     @GetMapping(PROJECTS_PAGE, DEFAULT_PROJECT_PAGE, OAUTH_CODE_PAGE)
     fun spa(): Mono<String> = reactIndexHtmlMono
@@ -74,6 +79,15 @@ class PagesController(
     @GetMapping(HOME_PAGE)
     fun aboutPage(): Mono<String> = landingPageHtmlMono
 
+    @GetMapping(SOGLAS_PAGE, PRIVACY_PAGE, SOGL_YAM_PAGE, SOGL_ADV_PAGE, OFERTA_PAGE)
+    fun policyPage(exchange: ServerWebExchange): Mono<String> =
+        policyPageHtmlMonos.getValue(exchange.request.path.value())
+
+    private fun cachedLandingPage(resource: String): Mono<String> =
+        getClasspathResourcesAsMono(resource)
+            .map(::replaceLandingPageParams)
+            .cache()
+
     private fun getClasspathResourcesAsMono(res: String): Mono<String> {
         return Mono
             .just(ClassPathResource(res))
@@ -95,6 +109,11 @@ class PagesController(
     companion object {
         private const val HOME_PAGE = "/"
         private const val ABOUT_PAGE = "/about"
+        private const val SOGLAS_PAGE = "/soglas"
+        private const val PRIVACY_PAGE = "/privacy"
+        private const val SOGL_YAM_PAGE = "/sogl_yam"
+        private const val SOGL_ADV_PAGE = "/sogl_adv"
+        private const val OFERTA_PAGE = "/oferta"
         private const val PROJECT_PAGE = "/project/{id}"
         private const val PROJECTS_PAGE = "/projects"
         private const val DEFAULT_PROJECT_PAGE = "/project/default"
