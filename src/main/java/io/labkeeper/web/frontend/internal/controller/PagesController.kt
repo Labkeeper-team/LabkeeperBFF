@@ -47,7 +47,7 @@ class PagesController(
         OFERTA_PAGE to cachedLandingPage("pages/oferta.html"),
     )
 
-    @GetMapping(PROJECTS_PAGE, DEFAULT_PROJECT_PAGE, OAUTH_CODE_PAGE, TOKENS_PAGE)
+    @GetMapping(PROJECTS_PAGE, DEFAULT_PROJECT_PAGE, OAUTH_CODE_PAGE, TOKENS_PAGE, PAY_PAGE)
     fun spa(): Mono<String> = reactIndexHtmlMono
 
     @GetMapping(QR_PAGE)
@@ -110,6 +110,7 @@ class PagesController(
         private const val HOME_PAGE = "/"
         private const val TOKENS_PAGE = "/tokens"
         private const val ABOUT_PAGE = "/about"
+        private const val PAY_PAGE = "/pay"
         private const val SOGLAS_PAGE = "/soglas"
         private const val PRIVACY_PAGE = "/privacy"
         private const val SOGL_YAM_PAGE = "/sogl_yam"
