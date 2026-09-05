@@ -16,6 +16,7 @@ import java.io.IOException
 import java.net.URI
 import java.nio.charset.StandardCharsets
 import java.util.UUID
+import java.util.concurrent.ConcurrentHashMap
 
 @RestController
 class PagesController(
@@ -46,6 +47,11 @@ class PagesController(
         SOGL_ADV_PAGE to cachedLandingPage("pages/sogl_adv.html"),
         OFERTA_PAGE to cachedLandingPage("pages/oferta.html"),
     )
+
+    private val blogPageHtmlMono: Mono<String> = cachedLandingPage("pages/blog.html")
+
+    /** Blog articles are cached lazily by slug: the set of articles is only known from the classpath. */
+    private val blogArticleHtmlMonos = ConcurrentHashMap<String, Mono<String>>()
 
     @GetMapping(PROJECTS_PAGE, DEFAULT_PROJECT_PAGE, OAUTH_CODE_PAGE, TOKENS_PAGE, PAY_PAGE)
     fun spa(): Mono<String> = reactIndexHtmlMono
@@ -83,6 +89,28 @@ class PagesController(
     fun policyPage(exchange: ServerWebExchange): Mono<String> =
         policyPageHtmlMonos.getValue(exchange.request.path.value())
 
+    @GetMapping(BLOG_PAGE)
+    fun blogPage(): Mono<String> = blogPageHtmlMono
+
+    @GetMapping(BLOG_ARTICLE_PAGE)
+    fun blogArticlePage(
+        @PathVariable("slug") slug: String,
+    ): Mono<ResponseEntity<String>> {
+        // The slug goes into a classpath lookup, so anything outside [a-z0-9-] is rejected before it gets there.
+        if (!BLOG_SLUG.matches(slug)) {
+            return Mono.just(ResponseEntity.notFound().build())
+        }
+        val article = blogArticleHtmlMonos.computeIfAbsent(slug) {
+            cachedLandingPage("pages/blog/$slug.html")
+        }
+        return article
+            .map { html -> ResponseEntity.ok(html) }
+            .onErrorResume(IllegalStateException::class.java) {
+                blogArticleHtmlMonos.remove(slug)
+                Mono.just(ResponseEntity.notFound().build())
+            }
+    }
+
     private fun cachedLandingPage(resource: String): Mono<String> =
         getClasspathResourcesAsMono(resource)
             .map(::replaceLandingPageParams)
@@ -116,6 +144,9 @@ class PagesController(
         private const val SOGL_YAM_PAGE = "/sogl_yam"
         private const val SOGL_ADV_PAGE = "/sogl_adv"
         private const val OFERTA_PAGE = "/oferta"
+        private const val BLOG_PAGE = "/blog"
+        private const val BLOG_ARTICLE_PAGE = "/blog/{slug}"
+        private val BLOG_SLUG = Regex("[a-z0-9-]+")
         private const val PROJECT_PAGE = "/project/{id}"
         private const val PROJECTS_PAGE = "/projects"
         private const val DEFAULT_PROJECT_PAGE = "/project/default"
