@@ -15,6 +15,7 @@ dependencies {
 
 val editorFrontendDir = layout.projectDirectory.dir("src/main/editor")
 val pagesFrontendDir = layout.projectDirectory.dir("src/main/pages")
+val wikiFrontendDir = layout.projectDirectory.dir("src/main/wiki")
 val npmCommand = if (System.getProperty("os.name").startsWith("Windows", ignoreCase = true)) {
     "npm.cmd"
 } else {
@@ -32,14 +33,27 @@ tasks.register<Exec>("npmBuild") {
     dependsOn("npmInstall")
 }
 
+tasks.register<Exec>("wikiNpmInstall") {
+    workingDir = wikiFrontendDir.asFile
+    commandLine(npmCommand, "ci")
+}
+
+tasks.register<Exec>("wikiNpmBuild") {
+    workingDir = wikiFrontendDir.asFile
+    commandLine(npmCommand, "run", "build")
+    dependsOn("wikiNpmInstall")
+}
+
 tasks.named<ProcessResources>("processResources") {
-    dependsOn("npmBuild")
+    dependsOn("npmBuild", "wikiNpmBuild")
     from(editorFrontendDir.dir("dist")) { into("editor") }
     from(pagesFrontendDir.dir("src")) { into("pages") }
+    from(wikiFrontendDir.dir("_site")) { into("wiki") }
 }
 
 tasks.named("clean") {
     doFirst {
         delete(editorFrontendDir.dir("dist"))
+        delete(wikiFrontendDir.dir("_site"))
     }
 }

@@ -92,6 +92,14 @@ class PagesController(
     @GetMapping(BLOG_PAGE)
     fun blogPage(): Mono<String> = blogPageHtmlMono
 
+    @GetMapping(WIKI_PAGE)
+    fun wiki(): Mono<ResponseEntity<Void>> = Mono.just(
+        ResponseEntity
+            .status(HttpStatus.FOUND)
+            .location(URI.create("$WIKI_PAGE/"))
+            .build(),
+    )
+
     @GetMapping(BLOG_ARTICLE_PAGE)
     fun blogArticlePage(
         @PathVariable("slug") slug: String,
@@ -146,6 +154,7 @@ class PagesController(
         private const val OFERTA_PAGE = "/oferta"
         private const val BLOG_PAGE = "/blog"
         private const val BLOG_ARTICLE_PAGE = "/blog/{slug}"
+        private const val WIKI_PAGE = "/wiki"
         private val BLOG_SLUG = Regex("[a-z0-9-]+")
         private const val PROJECT_PAGE = "/project/{id}"
         private const val PROJECTS_PAGE = "/projects"
