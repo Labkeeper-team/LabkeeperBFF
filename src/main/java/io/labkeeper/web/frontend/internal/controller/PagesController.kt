@@ -73,7 +73,7 @@ class PagesController(
                 val uuid = UUID.fromString(id)
                 val project = projectService.getProjectUnauthorizedWithProgramResult(uuid)
                 return@mono content
-                    .replace(HTML_TITLE_TO_REPLACE, project.title())
+                    .replace(HTML_TITLE_TO_REPLACE, project.title)
                     .replace(HTML_DESCRIPTION_TO_REPLACE, Strings.EMPTY)
             }.onErrorReturn(content)
         }
