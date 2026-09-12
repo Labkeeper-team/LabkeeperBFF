@@ -45,6 +45,7 @@ class PagesController(
         PRIVACY_PAGE to cachedLandingPage("pages/privacy.html"),
         SOGL_YAM_PAGE to cachedLandingPage("pages/sogl_yam.html"),
         SOGL_ADV_PAGE to cachedLandingPage("pages/sogl_adv.html"),
+        SOGL_DS_PAGE to cachedLandingPage("pages/sogl_ds.html"),
         OFERTA_PAGE to cachedLandingPage("pages/oferta.html"),
     )
 
@@ -85,7 +86,7 @@ class PagesController(
     @GetMapping(HOME_PAGE)
     fun aboutPage(): Mono<String> = landingPageHtmlMono
 
-    @GetMapping(SOGLAS_PAGE, PRIVACY_PAGE, SOGL_YAM_PAGE, SOGL_ADV_PAGE, OFERTA_PAGE)
+    @GetMapping(SOGLAS_PAGE, PRIVACY_PAGE, SOGL_YAM_PAGE, SOGL_ADV_PAGE, SOGL_DS_PAGE, OFERTA_PAGE)
     fun policyPage(exchange: ServerWebExchange): Mono<String> =
         policyPageHtmlMonos.getValue(exchange.request.path.value())
 
@@ -151,6 +152,7 @@ class PagesController(
         private const val PRIVACY_PAGE = "/privacy"
         private const val SOGL_YAM_PAGE = "/sogl_yam"
         private const val SOGL_ADV_PAGE = "/sogl_adv"
+        private const val SOGL_DS_PAGE = "/sogl_ds"
         private const val OFERTA_PAGE = "/oferta"
         private const val BLOG_PAGE = "/blog"
         private const val BLOG_ARTICLE_PAGE = "/blog/{slug}"
