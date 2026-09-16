@@ -19,4 +19,5 @@ public class FrontendProperties {
     String yandexMetrikaKey;
     String openpanelClientId;
     String openpanelApiUrl;
+    boolean disallowIndexing;
 }
