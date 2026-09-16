@@ -25,6 +25,8 @@ class PagesController(
     @Value($$"${io.labkeeper.frontend.sentry-dsn}") private val sentryDsn: String,
     @Value($$"${io.labkeeper.frontend.yandex-metrika-key}") private val yandexMetrikaKey: String,
     @Value($$"${io.labkeeper.frontend.yandex-captcha-site-key}") private val yandexCaptchaSiteKey: String,
+    @Value($$"${io.labkeeper.frontend.openpanel-client-id}") private val openpanelClientId: String,
+    @Value($$"${io.labkeeper.frontend.openpanel-api-url}") private val openpanelApiUrl: String,
     private val projectService: ProjectService,
 ) {
     private val reactIndexHtmlMono: Mono<String> = getClasspathResourcesAsMono("editor/index.html")
@@ -33,6 +35,8 @@ class PagesController(
                 .replace(SENTRY_DSN_PARAM, sentryDsn)
                 .replace(YANDEX_METRIKA_PARAM, yandexMetrikaKey)
                 .replace(YANDEX_CAPTCHA_SITE_KEY, yandexCaptchaSiteKey)
+                .replace(OPENPANEL_CLIENT_ID_PARAM, openpanelClientId)
+                .replace(OPENPANEL_API_URL_PARAM, openpanelApiUrl)
         }
         .cache()
 
@@ -168,6 +172,8 @@ class PagesController(
         private const val YANDEX_METRIKA_PARAM = "IO_LABKEEPER_FRONTEND_YANDEX_METRIKA_KEY"
         private const val VERSION_PARAM = "IO_LABKEEPER_FRONTEND_API_VERSION"
         private const val YANDEX_CAPTCHA_SITE_KEY = "IO_LABKEEPER_FRONTEND_YANDEX_CAPTCHA_SITE_KEY"
+        private const val OPENPANEL_CLIENT_ID_PARAM = "IO_LABKEEPER_FRONTEND_OPENPANEL_CLIENT_ID"
+        private const val OPENPANEL_API_URL_PARAM = "IO_LABKEEPER_FRONTEND_OPENPANEL_API_URL"
 
         private const val HTML_TITLE_TO_REPLACE = "Labkeeper — online pdf editor with a built-in scientific calculator"
         private const val HTML_DESCRIPTION_TO_REPLACE = "Compose documents, formulas, and plots, convert to pdf. Editor and calculations in one place"

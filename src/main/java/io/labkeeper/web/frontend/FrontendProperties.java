@@ -17,4 +17,6 @@ public class FrontendProperties {
     String yandexCaptchaSiteKey;
     String sentryDsn;
     String yandexMetrikaKey;
+    String openpanelClientId;
+    String openpanelApiUrl;
 }
