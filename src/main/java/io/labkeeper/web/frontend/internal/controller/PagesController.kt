@@ -145,6 +145,8 @@ class PagesController(
         return html
             .replace(VERSION_PARAM, "v$majorVersion")
             .replace(YANDEX_METRIKA_PARAM, yandexMetrikaKey)
+            .replace(OPENPANEL_CLIENT_ID_PARAM, openpanelClientId)
+            .replace(OPENPANEL_API_URL_PARAM, openpanelApiUrl)
     }
 
     companion object {
