@@ -58,7 +58,7 @@ class PagesController(
     /** Blog articles are cached lazily by slug: the set of articles is only known from the classpath. */
     private val blogArticleHtmlMonos = ConcurrentHashMap<String, Mono<String>>()
 
-    @GetMapping(PROJECTS_PAGE, DEFAULT_PROJECT_PAGE, OAUTH_CODE_PAGE, TOKENS_PAGE, PAY_PAGE)
+    @GetMapping(PROJECTS_PAGE, DEFAULT_PROJECT_PAGE, DEFAULT_PROJECT_PAGE_AGENT, OAUTH_CODE_PAGE, TOKENS_PAGE, PAY_PAGE)
     fun spa(): Mono<String> = reactIndexHtmlMono
 
     @GetMapping(QR_PAGE)
@@ -69,7 +69,7 @@ class PagesController(
             .build(),
     )
 
-    @GetMapping(PROJECT_PAGE)
+    @GetMapping(PROJECT_PAGE, PROJECT_PAGE_AGENT)
     fun projectPageWithCustomDescription(
         @PathVariable("id") id: String,
     ): Mono<String> {
@@ -165,8 +165,10 @@ class PagesController(
         private const val WIKI_PAGE = "/wiki"
         private val BLOG_SLUG = Regex("[a-z0-9-]+")
         private const val PROJECT_PAGE = "/project/{id}"
+        private const val PROJECT_PAGE_AGENT = "/project/{id}/agent"
         private const val PROJECTS_PAGE = "/projects"
         private const val DEFAULT_PROJECT_PAGE = "/project/default"
+        private const val DEFAULT_PROJECT_PAGE_AGENT = "/project/default/agent"
         private const val OAUTH_CODE_PAGE = "/oauth2/code"
         private const val QR_PAGE = "/qr/{version}"
 
