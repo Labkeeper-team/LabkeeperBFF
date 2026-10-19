@@ -5,23 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     const projectsContainer = document.getElementById('projects-container');
     if (projectsContainer) {
-        const API_URL = '/api/v4/public/preview';
         const categoryLinks = document.querySelectorAll('#project-categories .header__nav-link');
-
-        let allProjects = [];
+        const allSlides = Array.from(projectsContainer.querySelectorAll('.swiper-slide'));
         let swiperInstance = null;
 
         const activeLangBtn = document.querySelector('.js-lang-switcher .header__lang-btn--active');
         let currentLang = activeLangBtn ? activeLangBtn.getAttribute('data-lang') : (document.documentElement.lang || 'ru');
-
-        const backupData = {
-            projects: [
-                { id: '092bacc5-c98a-4709-b67d-7455fd4588e4', name: { ru: 'Измерение интенсивности радиационного фона', en: 'Radiation background intensity measurement' }, category: 'lab', projectType: 'markdown', logoUrl: 'https://labkeeper.io/assets/img/case1.png' },
-                { id: '1acb4436-d4d6-4f40-9fc2-92039adff180', name: { ru: 'Статистическая обработка результатов многократных измерений', en: 'Statistical processing of multiple measurement results' }, category: 'lab', projectType: 'markdown', logoUrl: 'https://labkeeper.io/assets/img/case2.png' },
-                { id: 'c4c71322-14da-4394-b546-2ed0ace1ebfa', name: { ru: 'Определение систематических и случайных погрешностей', en: 'Determination of systematic and random errors' }, category: 'lab', projectType: 'markdown', logoUrl: 'https://labkeeper.io/assets/img/case4.png' },
-                { id: 'd24a814f-ff8f-4b8c-8267-f824cf8c7b6b', name: { ru: 'Изучение линейной временной модальной логики', en: 'Study of linear temporal modal logic' }, category: 'diploma', projectType: 'latex', logoUrl: 'https://labkeeper.io/assets/img/case3.png' }
-            ]
-        };
 
         function initSwiper() {
             if (swiperInstance) {
@@ -52,107 +41,69 @@ document.addEventListener('DOMContentLoaded', () => {
             return activeTab ? activeTab.getAttribute('data-category') : 'all';
         }
 
-        function renderProjects(projects) {
-            projectsContainer.innerHTML = '';
+        function applyLanguage() {
+            const nameKey = currentLang === 'en' ? 'nameEn' : 'nameRu';
+            const categoryKey = currentLang === 'en' ? 'categoryEn' : 'categoryRu';
+            allSlides.forEach((slide) => {
+                const title = slide.querySelector('.example-card__title');
+                const text = slide.querySelector('.example-card__text');
+                if (title) {
+                    title.textContent = slide.dataset[nameKey] || '';
+                }
+                if (text) {
+                    text.textContent = slide.dataset[categoryKey] || '';
+                }
+            });
+        }
 
-            if (!projects || projects.length === 0) {
-                const noProjectsText = currentLang === 'ru' ? 'Нет проектов в данной категории' : 'No projects in this category';
+        function renderProjects(category) {
+            projectsContainer.innerHTML = '';
+            const visible = category === 'all'
+                ? allSlides
+                : allSlides.filter((slide) => slide.dataset.category === category);
+            if (visible.length === 0) {
+                const noProjectsText = currentLang === 'ru'
+                    ? 'Нет проектов в данной категории'
+                    : 'No projects in this category';
                 projectsContainer.innerHTML = `<div class="loading-placeholder">${noProjectsText}</div>`;
+                if (swiperInstance) {
+                    swiperInstance.destroy(true, true);
+                    swiperInstance = null;
+                }
                 return;
             }
-
-            projects.forEach((project) => {
-                const projectName = project.name?.[currentLang] || project.name?.ru || project.name?.en || 'Untitled';
-
-                const hasLogo = Boolean(project.logoUrl);
-                const imgSrc = hasLogo ? project.logoUrl : 'assets/img/logo.svg';
-                const imgClass = hasLogo ? 'example-card__image' : 'example-card__image example-card__image--placeholder';
-
-                let categoryText = '';
-                if (project.category === 'lab') {
-                    categoryText = currentLang === 'ru' ? 'Лабораторная работа' : 'Laboratory work';
-                } else if (project.category === 'diploma') {
-                    categoryText = currentLang === 'ru' ? 'Дипломный проект' : 'Diploma project';
-                } else {
-                    categoryText = project.category || '';
-                }
-
-                const cardHtml = `
-                    <div class="swiper-slide">
-                        <a href="https://labkeeper.io/project/${project.id}" class="example-card" target="_blank">
-                            <div class="example-card__visual">
-                                <img src="${imgSrc}" alt="${projectName}" class="${imgClass}" loading="lazy">
-                                <img src="assets/img/target.svg" alt="open" class="example-card__external-icon" width="16" height="16">
-                            </div>
-                            <div class="example-card__content">
-                                <h3 class="example-card__title">${projectName}</h3>
-                                <p class="example-card__text">${categoryText}</p>
-                            </div>
-                        </a>
-                    </div>
-                `;
-                projectsContainer.insertAdjacentHTML('beforeend', cardHtml);
-            });
-
+            visible.forEach((slide) => projectsContainer.appendChild(slide));
             initSwiper();
-        }
-
-        function updateSliderDisplay() {
-            const selectedCategory = getActiveCategory();
-            if (selectedCategory === 'all') {
-                renderProjects(allProjects);
-            } else {
-                const filtered = allProjects.filter((project) => project.category === selectedCategory);
-                renderProjects(filtered);
-            }
-        }
-
-        async function fetchProjects() {
-            try {
-                const response = await fetch(API_URL);
-                if (!response.ok) {
-                    throw new Error(`Status: ${response.status}`);
-                }
-
-                const data = await response.json();
-                allProjects = data.projects || [];
-                renderProjects(allProjects);
-            } catch (error) {
-                console.warn('Локальный тест (или ошибка CORS). Используются резервные данные:', error);
-                allProjects = backupData.projects;
-                renderProjects(allProjects);
-            }
         }
 
         categoryLinks.forEach((link) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                categoryLinks.forEach((l) => l.classList.remove('header__nav-link--active'));
+                categoryLinks.forEach((item) => item.classList.remove('header__nav-link--active'));
                 link.classList.add('header__nav-link--active');
-                updateSliderDisplay();
+                renderProjects(getActiveCategory());
             });
         });
 
-        const langSwitchers = document.querySelectorAll('.js-lang-switcher');
-        langSwitchers.forEach((switcher) => {
+        document.querySelectorAll('.js-lang-switcher').forEach((switcher) => {
             switcher.addEventListener('click', (e) => {
                 const btn = e.target.closest('.header__lang-btn');
                 if (!btn) {
                     return;
                 }
-
                 const newLang = btn.getAttribute('data-lang');
                 if (newLang && newLang !== currentLang) {
                     currentLang = newLang;
-                    updateSliderDisplay();
+                    applyLanguage();
+                    renderProjects(getActiveCategory());
                 }
             });
         });
 
-        fetchProjects();
+        applyLanguage();
+        renderProjects(getActiveCategory());
     }
 
-    // =========================================================================
     // 2. Реестр всех статей блога
     // =========================================================================
     const ALL_BLOG_ARTICLES = window.LABKEEPER_BLOG_ARTICLES || [];

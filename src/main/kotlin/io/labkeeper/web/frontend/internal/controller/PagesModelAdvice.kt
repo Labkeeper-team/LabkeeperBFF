@@ -1,13 +1,17 @@
 package io.labkeeper.web.frontend.internal.controller
 
 import io.labkeeper.web.frontend.internal.blog.BlogCatalog
+import io.labkeeper.web.frontend.internal.landing.LandingPageSource
+import io.labkeeper.web.frontend.internal.landing.LandingPreviewProject
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ModelAttribute
+import reactor.core.publisher.Mono
 
 @ControllerAdvice
 class PagesModelAdvice(
     private val blogCatalog: BlogCatalog,
+    private val landingPageSource: LandingPageSource,
     @Value("\${io.labkeeper.version.major:4}") private val majorVersion: Int,
     @Value("\${io.labkeeper.frontend.yandex-metrika-key:}") private val yandexMetrikaKey: String,
     @Value("\${io.labkeeper.frontend.openpanel-client-id:}") private val openpanelClientId: String,
@@ -30,4 +34,10 @@ class PagesModelAdvice(
 
     @ModelAttribute("openpanelApiUrl")
     fun openpanelApiUrl(): String = openpanelApiUrl
+
+    @ModelAttribute("viewerAuthenticated")
+    fun viewerAuthenticated(): Mono<Boolean> = landingPageSource.viewer()
+
+    @ModelAttribute("previewProjects")
+    fun previewProjects(): Mono<List<LandingPreviewProject>> = landingPageSource.previewProjects()
 }

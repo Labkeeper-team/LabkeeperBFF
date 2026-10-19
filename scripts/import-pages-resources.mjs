@@ -205,6 +205,18 @@ function applyCommon(html) {
     for (const [token, expression] of PLACEHOLDERS) {
         result = result.split(token).join(expression);
     }
+    result = result.replace(
+        /(<a\b[^>]*class="[^"]*header__login"[^>]*)(>)/g,
+        (match, start, end) => (
+            start.includes('th:style')
+                ? match
+                : `${start} th:style="\${viewerAuthenticated} ? 'display: none' : null"${end}`
+        ),
+    );
+    result = result.replace(
+        /(<a\b[^>]*class="[^"]*header__projects"[^>]*?)\sstyle="display:\s*none;?"/g,
+        `$1 th:style="\${viewerAuthenticated} ? null : 'display: none'"`,
+    );
     return result.replace(
         /<script src="(?:\.\.\/)?assets\/js\/slider\.js" defer><\/script>/g,
         `${SLIDER_BOOT}<script src="assets/js/slider.js" defer></script>`,
@@ -245,13 +257,152 @@ const blogCards = `            <article class="blog-item" th:each="article : \${
                 </a>
             </article>`;
 
+const projectSlides = `                            <div class="swiper-slide" th:each="project : \${previewProjects}"
+                                th:data-category="\${project.category}"
+                                th:attr="data-name-ru=\${project.nameRu},data-name-en=\${project.nameEn},data-category-ru=\${project.categoryRu},data-category-en=\${project.categoryEn}">
+                                <a class="example-card" target="_blank" th:href="@{/project/{id}(id=\${project.id})}">
+                                    <div class="example-card__visual">
+                                        <img class="example-card__image" loading="lazy"
+                                            th:src="\${project.logoUrl != null ? project.logoUrl : 'assets/img/logo.svg'}"
+                                            th:alt="\${project.nameRu}"
+                                            th:classappend="\${project.logoUrl == null} ? 'example-card__image--placeholder'">
+                                        <img src="assets/img/target.svg" alt="open" class="example-card__external-icon" width="16" height="16">
+                                    </div>
+                                    <div class="example-card__content">
+                                        <h3 class="example-card__title" th:text="\${project.nameRu}">Проект</h3>
+                                        <p class="example-card__text" th:text="\${project.categoryRu}">Категория</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="loading-placeholder" th:if="\${previewProjects.isEmpty()}">Нет проектов в данной категории</div>`;
+
+function patchLandingScripts() {
+    fs.writeFileSync(path.join(staticDir, 'assets/js/auth.js'), `document.addEventListener('DOMContentLoaded', () => {
+  // Login and project buttons are rendered by the server for the current viewer.
+});
+`);
+    const sliderPath = path.join(staticDir, 'assets/js/slider.js');
+    const slider = fs.readFileSync(sliderPath, 'utf8');
+    const start = slider.indexOf('const projectsContainer = document.getElementById(\'projects-container\');');
+    const end = slider.indexOf('// 2. Реестр всех статей блога');
+    if (start < 0 || end < 0) {
+        throw new Error('slider.js preview block was not found');
+    }
+    const replacement = `const projectsContainer = document.getElementById('projects-container');
+    if (projectsContainer) {
+        const categoryLinks = document.querySelectorAll('#project-categories .header__nav-link');
+        const allSlides = Array.from(projectsContainer.querySelectorAll('.swiper-slide'));
+        let swiperInstance = null;
+
+        const activeLangBtn = document.querySelector('.js-lang-switcher .header__lang-btn--active');
+        let currentLang = activeLangBtn ? activeLangBtn.getAttribute('data-lang') : (document.documentElement.lang || 'ru');
+
+        function initSwiper() {
+            if (swiperInstance) {
+                swiperInstance.destroy(true, true);
+            }
+
+            swiperInstance = new Swiper('#examples .examples__swiper', {
+                slidesPerView: 'auto',
+                spaceBetween: 16,
+                loop: false,
+                grabCursor: true,
+                navigation: {
+                    nextEl: '#examples .examples__arrow--next',
+                    prevEl: '#examples .examples__arrow--prev'
+                },
+                breakpoints: {
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                        allowTouchMove: true
+                    }
+                }
+            });
+        }
+
+        function getActiveCategory() {
+            const activeTab = document.querySelector('#project-categories .header__nav-link--active');
+            return activeTab ? activeTab.getAttribute('data-category') : 'all';
+        }
+
+        function applyLanguage() {
+            const nameKey = currentLang === 'en' ? 'nameEn' : 'nameRu';
+            const categoryKey = currentLang === 'en' ? 'categoryEn' : 'categoryRu';
+            allSlides.forEach((slide) => {
+                const title = slide.querySelector('.example-card__title');
+                const text = slide.querySelector('.example-card__text');
+                if (title) {
+                    title.textContent = slide.dataset[nameKey] || '';
+                }
+                if (text) {
+                    text.textContent = slide.dataset[categoryKey] || '';
+                }
+            });
+        }
+
+        function renderProjects(category) {
+            projectsContainer.innerHTML = '';
+            const visible = category === 'all'
+                ? allSlides
+                : allSlides.filter((slide) => slide.dataset.category === category);
+            if (visible.length === 0) {
+                const noProjectsText = currentLang === 'ru'
+                    ? 'Нет проектов в данной категории'
+                    : 'No projects in this category';
+                projectsContainer.innerHTML = \`<div class="loading-placeholder">\${noProjectsText}</div>\`;
+                if (swiperInstance) {
+                    swiperInstance.destroy(true, true);
+                    swiperInstance = null;
+                }
+                return;
+            }
+            visible.forEach((slide) => projectsContainer.appendChild(slide));
+            initSwiper();
+        }
+
+        categoryLinks.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                categoryLinks.forEach((item) => item.classList.remove('header__nav-link--active'));
+                link.classList.add('header__nav-link--active');
+                renderProjects(getActiveCategory());
+            });
+        });
+
+        document.querySelectorAll('.js-lang-switcher').forEach((switcher) => {
+            switcher.addEventListener('click', (e) => {
+                const btn = e.target.closest('.header__lang-btn');
+                if (!btn) {
+                    return;
+                }
+                const newLang = btn.getAttribute('data-lang');
+                if (newLang && newLang !== currentLang) {
+                    currentLang = newLang;
+                    applyLanguage();
+                    renderProjects(getActiveCategory());
+                }
+            });
+        });
+
+        applyLanguage();
+        renderProjects(getActiveCategory());
+    }
+
+    `;
+    fs.writeFileSync(sliderPath, `${slider.slice(0, start)}${replacement}${slider.slice(end)}`);
+}
+
 copyAssets();
 patchSlider();
+patchLandingScripts();
 const articleCount = writeArticles();
 writePage('index.html', (html) => {
     const marker = html.indexOf('<div class="swiper knowledge__swiper">');
     const wrapper = html.indexOf('<div class="swiper-wrapper">', marker);
-    return replaceInnerDiv(html, wrapper, knowledgeSlides);
+    const withKnowledge = replaceInnerDiv(html, wrapper, knowledgeSlides);
+    const projects = withKnowledge.indexOf('<div class="swiper-wrapper" id="projects-container">');
+    return replaceInnerDiv(withKnowledge, projects, projectSlides);
 });
 writePage('blog.html', (html) => {
     const grid = html.indexOf('<div class="blog-grid" id="blog-grid">');

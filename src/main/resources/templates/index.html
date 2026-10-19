@@ -232,9 +232,9 @@
 
             <div class="header__right">
                 <a href="/project/default?open=login" class="button button--outline header__login"
-                    data-i18n="btn-login"></a>
+                    data-i18n="btn-login" th:style="${viewerAuthenticated} ? 'display: none' : null"></a>
                 <a href="/projects" class="button button--outline header__projects" data-i18n="btn-projects"
-                    style="display: none;"></a>
+                    th:style="${viewerAuthenticated} ? null : 'display: none'"></a>
                 <a href="/project/default" class="button button--primary header__editor" data-i18n="btn-editor"></a>
             </div>
         </div>
@@ -422,9 +422,25 @@
                     <!-- Контейнер Swiper -->
                     <div class="swiper examples__swiper">
                         <div class="swiper-wrapper" id="projects-container">
-                            <!-- Карточки будут генерироваться динамически через JS -->
-                            <div class="loading-placeholder">Загрузка проектов...</div>
-                        </div>
+                            <div class="swiper-slide" th:each="project : ${previewProjects}"
+                                th:data-category="${project.category}"
+                                th:attr="data-name-ru=${project.nameRu},data-name-en=${project.nameEn},data-category-ru=${project.categoryRu},data-category-en=${project.categoryEn}">
+                                <a class="example-card" target="_blank" th:href="@{/project/{id}(id=${project.id})}">
+                                    <div class="example-card__visual">
+                                        <img class="example-card__image" loading="lazy"
+                                            th:src="${project.logoUrl != null ? project.logoUrl : 'assets/img/logo.svg'}"
+                                            th:alt="${project.nameRu}"
+                                            th:classappend="${project.logoUrl == null} ? 'example-card__image--placeholder'">
+                                        <img src="assets/img/target.svg" alt="open" class="example-card__external-icon" width="16" height="16">
+                                    </div>
+                                    <div class="example-card__content">
+                                        <h3 class="example-card__title" th:text="${project.nameRu}">Проект</h3>
+                                        <p class="example-card__text" th:text="${project.categoryRu}">Категория</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="loading-placeholder" th:if="${previewProjects.isEmpty()}">Нет проектов в данной категории</div>
+</div>
                     </div>
                 </div>
 

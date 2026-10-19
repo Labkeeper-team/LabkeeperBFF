@@ -37,6 +37,9 @@ class LandingPagesServerTest(
         assertTrue(body.contains("ym(123456, \"init\""))
         assertFalse(body.contains("IO_LABKEEPER_FRONTEND_"))
         assertTrue(body.contains("href=\"assets/css/style.css\""))
+        assertTrue(body.contains("Измерение интенсивности радиационного фона"))
+        assertTrue(body.contains("header__projects"))
+        assertTrue(body.contains("display: none"))
     }
 
     @Test
