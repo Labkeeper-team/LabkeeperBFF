@@ -1,0 +1,136 @@
+catalogIndex: 64
+slug: "latex-draftwatermark"
+batch: 2
+title: "Наложение водяных знаков и надписи «Черновик» на страницы LaTeX"
+pageTitle: "Водяной знак Черновик в LaTeX: пакет draftwatermark онлайн — Labkeeper"
+metaDescription: |2-
+  Как сделать водяной знак черновик на фоне LaTeX страниц. Подключение пакета draftwatermark
+  онлайн, настройка цвета, прозрачности, угла и масштаба.
+breadcrumbTitle: "Водяные знаки (draftwatermark)"
+h1: "Наложение водяных знаков и&nbsp;надписи «Черновик» на&nbsp;страницы LaTeX"
+categories:
+  - "latex"
+keywords:
+  - "водяной знак черновик на фоне latex"
+  - "пакет draftwatermark онлайн"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "6 мин"
+cardTitle: "Водяной знак «Черновик» в LaTeX: настройка пакета draftwatermark"
+cardDescription: |2-
+  Как наложить полупрозрачную фоновую надпись «Черновик», DRAFT или логотип на страницы документа
+  LaTeX, настроить масштаб, цвет и угол поворота.
+sliderTitle: "Водяные знаки в LaTeX (draftwatermark)"
+sliderText: "Фоновые надписи «Черновик», конфиденциальные метки и настройка прозрачности."
+sidebarText: "Добавляйте водяные знаки для рецензирования и проверки черновиков прямо в браузере с Labkeeper."
+ctaTitle: "Готовьте чистые черновики в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с возможностью быстрой сборки промежуточных версий документов с водяными
+  знаками.
+toc:
+  - id: "intro"
+    title: "Для чего нужны водяные знаки"
+  - id: "setup"
+    title: "Подключение и базовое использование draftwatermark"
+  - id: "custom-text"
+    title: "Водяной знак черновик на фоне latex: кириллица, угол и цвет"
+  - id: "advanced-options"
+    title: "Пакет draftwatermark онлайн: масштабирование и позиция"
+  - id: "single-page"
+    title: "Как показать знак только на первой странице"
+sections:
+  - id: "intro"
+    title: "Для чего нужны водяные знаки"
+    html: |2-
+                              <p>На этапе согласования диссертаций, курсовых проектов или
+      корпоративных отчетов важно однозначно указать статус документа (особенно при многократных
+      вычитках перед <a href="/blog/latex-dissertation">защитой диссертации в LaTeX</a>). Фоновая
+      надпись предотвращает случайную отправку предварительной версии в печать или публикацию.</p>
+                              <p>Фоновый <strong>водяной знак черновик на фоне latex</strong>
+      рендерится под основным текстом, не перекрывая формулы и таблицы, но оставаясь четко различимым
+      при чтении как на экране, так и на распечатанном листе.</p>
+  - id: "setup"
+    title: "Подключение и базовое использование draftwatermark"
+    html: |2-
+                              <p>Самым простым и современным решением является <strong>пакет
+      draftwatermark онлайн</strong>. В новых версиях TeX Live (начиная с 2020 года) он использует
+      синтаксис <code>\DraftwatermarkOptions</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{draftwatermark}
+
+      % По умолчанию выводит полупрозрачное слово DRAFT по центру каждой страницы</code></pre>
+                              </div>
+                              <p>При базовом подключении на каждой странице под углом 45 градусов
+      появится серая надпись «DRAFT». Для русскоязычных документов надпись кастомизируют.</p>
+  - id: "custom-text"
+    title: "Водяной знак черновик на фоне latex: кириллица, угол и цвет"
+    html: |2-
+                              <p>Чтобы вывести надпись «ЧЕРНОВИК» или «НЕ ДЛЯ ПУБЛИКАЦИИ», задайте
+      параметры в преамбуле документа:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{xcolor}
+      \usepackage{draftwatermark}
+
+      \DraftwatermarkOptions{
+          text={ЧЕРНОВИК},
+          angle=45,
+          scale=0.8,
+          color={[gray]{0.88}} % Светло-серый цвет
+      }</code></pre>
+                              </div>
+                              <p>Параметр <code>color</code> принимает любую цветовую модель: от
+      градаций серого <code>[gray]{0.85}</code> до пастельного красного <code>red!20</code>.</p>
+  - id: "advanced-options"
+    title: "Пакет draftwatermark онлайн: масштабирование и позиция"
+    html: |2-
+                              <p>С помощью дополнительных опций можно управлять геометрией отображения
+      метки:</p>
+                              <ul>
+                                  <li><code>scale=0.6</code> — множитель уже набранного знака (по
+      умолчанию 1), а не доля ширины листа. К ширине листа привязан ключ <code>fontsize</code>, по
+      умолчанию <code>0.25\paperwidth</code>.</li>
+                                  <li><code>angle=0</code> — горизонтальное расположение (например, в
+      сочетании с оформлением <a href="/blog/latex-fancyhdr">верхних и нижних колонтитулов
+      fancyhdr</a>).</li>
+                                  <li><code>hpos=0.5\paperwidth, vpos=0.5\paperheight</code> —
+      привязка центра надписи к абсолютным координатам страницы.</li>
+                              </ul>
+  - id: "single-page"
+    title: "Как показать знак только на первой странице"
+    html: |2-
+                              <p>Если водяной знак требуется отобразить исключительно на титульном
+      листе или первой странице препринта, передайте пакету опцию <code>firstpageonly</code>. Это
+      опция самого пакета, а не ключ <code>\DraftwatermarkOptions</code>: внутри команды она вызовет
+      ошибку keyval.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage[firstpageonly]{draftwatermark}</code></pre>
+                              </div>
+                              <p>А при финальной компиляции чистовика достаточно добавить команду
+      <code>\DraftwatermarkOptions{stamp=false}</code> или подключить пакет с опцией
+      <code>final</code>, чтобы скрыть водяной знак во всем документе без удаления преамбулы.</p>
+tips:
+  - title: "Вставка картинки вместо текста"
+    html: |2-
+      <p>Пакет позволяет использовать векторный логотип организации вместо текста:
+      <code>text={\includegraphics[width=0.6\paperwidth]{logo.pdf}}</code>.</p>
+  - title: "Исключение конфликтов с hyperref"
+    html: |2-
+      <p>Подключайте <code>draftwatermark</code> после пакета <code>xcolor</code>, но до
+      <code>hyperref</code>, чтобы гарантировать корректный Z-индекс слоев в PDF.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{draftwatermark}\DraftwatermarkOptions{text={ЧЕРНОВИК},scale=0.8}
+    \begin{document}
+    \section{Черновик отчёта}На фоне страницы — водяной знак.
+    \end{document}

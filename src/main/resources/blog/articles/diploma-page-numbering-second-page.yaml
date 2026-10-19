@@ -1,0 +1,171 @@
+catalogIndex: 53
+slug: "diploma-page-numbering-second-page"
+batch: 2
+title: "Автоматическая нумерация страниц диплома со второго листа"
+pageTitle: "Нумерация диплома со второй страницы онлайн: убрать номер с титульного ВКР — Labkeeper"
+metaDescription: |2-
+  Как сделать нумерацию диплома со второй страницы онлайн по ГОСТ: как убрать номер с титульного
+  листа ВКР, команды thispagestyle и счетчики в LaTeX.
+breadcrumbTitle: "Нумерация со второго листа по ГОСТ"
+h1: "Автоматическая нумерация страниц диплома со&nbsp;второго листа"
+categories:
+  - "diploma"
+keywords:
+  - "нумерация диплома со второй страницы онлайн"
+  - "как убрать номер с титульного листа вкр"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "6 мин"
+cardTitle: "Нумерация страниц диплома со второго листа по ГОСТ 7.32"
+cardDescription: |2-
+  Как скрыть цифру на титульном листе, начать визуальную нумерацию со 2 или 3 страницы
+  (содержание/введение) и настроить колонтитулы в LaTeX.
+sliderTitle: "Нумерация страниц диплома по ГОСТ"
+sliderText: "Скрытие номера на титульнике, нумерация со страницы 2 и колонтитулы ВКР."
+sidebarText: "Подготовьте выпускную квалификационную работу по строгим стандартам нормоконтроля в Labkeeper."
+ctaTitle: "Сдайте диплом без замечаний с&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX для ВКР: нумерация страниц, колонтитулы fancyhdr и поля geometry задаются
+  кодом, PDF — после нажатия «Выполнить».
+toc:
+  - id: "gost-rules"
+    title: "Требования ГОСТ к нумерации страниц ВКР"
+  - id: "title-hide"
+    title: "Как убрать номер с титульного листа вкр: команда thispagestyle"
+  - id: "second-page"
+    title: "Нумерация диплома со второй страницы онлайн: базовый подход"
+  - id: "task-sheet"
+    title: "Случай со бланком задания (нумерация с 3-й или 4-й страницы)"
+  - id: "fancyhdr-setup"
+    title: "Точная настройка положения номера через fancyhdr"
+sections:
+  - id: "gost-rules"
+    title: "Требования ГОСТ к нумерации страниц ВКР"
+    html: |2-
+                              <p>Дипломные работы и магистерские диссертации нумеруют по методичке
+      вуза, а она обычно повторяет правило <strong>ГОСТ 7.32-2017</strong>:</p>
+                              <blockquote>
+                                  «Страницы отчета следует нумеровать арабскими цифрами, соблюдая
+      сквозную нумерацию по всему тексту отчета, включая приложения. Номер страницы проставляется в
+      центре нижней части страницы без точки» (п. 6.3.1). «Титульный лист включают в общую нумерацию
+      страниц отчета. Номер страницы на титульном листе не проставляют» (п. 6.3.2).
+                              </blockquote>
+                              <p>Это означает, что титульный лист считается страницей 1, но физическая
+      цифра на нем отсутствует. Первая видимая цифра <strong>«2»</strong> (или «3», если вторым листом
+      идет задание) появляется на следующем листе — обычно в содержании работы.</p>
+  - id: "title-hide"
+    title: "Как убрать номер с титульного листа вкр: команда thispagestyle"
+    html: |2-
+                              <p>В LaTeX самый простой способ, <strong>как убрать номер с титульного
+      листа вкр</strong> — применить команду <code>\thispagestyle{empty}</code> непосредственно внутри
+      блока титульника (подробнее о его верстке читайте в гайде по <a
+      href="/blog/latex-titlepage">созданию титульного листа в LaTeX</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{titlepage}
+          \thispagestyle{empty} % Убирает верхний и нижний колонтитулы и номер страницы
+          % Содержимое титульного листа...
+          \begin{center}
+              {\bfseries МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РФ}\\
+              % ...
+          \end{center}
+      \end{titlepage}
+      \setcounter{page}{2} % titlepage сбросил счетчик на 1</code></pre>
+                              </div>
+                              <p>Команда <code>\thispagestyle{empty}</code> действует локально строго
+      на текущую страницу, поэтому следующая страница автоматически унаследует стандартный стиль с
+      номером.</p>
+                              <p><strong>Главная ловушка:</strong> окружение <code>titlepage</code> в
+      одностороннем документе классов <code>article</code> и <code>report</code> после себя сбрасывает
+      счетчик страниц на 1, и содержание получит номер 1, а не 2. Поэтому сразу после
+      <code>\end{titlepage}</code> стоит <code>\setcounter{page}{2}</code>. Другой путь — сверстать
+      титульник обычной страницей с <code>\thispagestyle{empty}</code> и <code>\newpage</code>, как в
+      примере в редакторе: тогда счетчик не сбрасывается.</p>
+  - id: "second-page"
+    title: "Нумерация диплома со второй страницы онлайн: базовый подход"
+    html: |2-
+                              <p>Чтобы работала правильная <strong>нумерация диплома со второй
+      страницы онлайн</strong>, важно правильно перейти к содержанию (для генерации структуры
+      рекомендуем статью об <a href="/blog/automatic-table-of-contents-diploma-gost">автоматическом
+      оглавлении диплома по ГОСТ</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\documentclass[14pt,a4paper]{extarticle} % класс article не знает кегль 14pt
+      \usepackage[T2A]{fontenc}
+      \usepackage[russian]{babel}
+
+      \begin{document}
+
+      % СТРАНИЦА 1: Титульный лист без номера
+      % (файл titlepage.tex заканчивается командой \end{titlepage})
+      \input{titlepage}
+      \setcounter{page}{2}
+
+      % СТРАНИЦА 2: Содержание (здесь отобразится цифра 2)
+      \tableofcontents
+      \clearpage
+
+      % СТРАНИЦА 3: Введение (цифра 3)
+      \section{Введение}
+      ...
+      \end{document}</code></pre>
+                              </div>
+  - id: "task-sheet"
+    title: "Случай со бланком задания (нумерация с 3-й или 4-й страницы)"
+    html: |2-
+                              <p>В большинстве вузов после титульника вшиваются оригиналы подписанных
+      бланков («Индивидуальное задание на ВКР» и «Календарный план»). Эти листы также входят в
+      нумерацию, но номера на них не печатаются.</p>
+                              <p>В таком случае в коде пропускают счетчик на нужное количество
+      позиций:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Если вставляется 2 страницы задания без номеров:
+      \setcounter{page}{4} % Следующая страница сразу получит номер 4</code></pre>
+                              </div>
+  - id: "fancyhdr-setup"
+    title: "Точная настройка положения номера через fancyhdr"
+    html: |2-
+                              <p>По ГОСТ номер страницы располагается <strong>по центру нижней части
+      листа</strong> (или в правом верхнем углу в зависимости от методички вуза). Настройка через
+      пакет <code>fancyhdr</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{fancyhdr}
+      \pagestyle{fancy}
+      \fancyhf{} % Очистка всех полей
+      \fancyfoot[C]{\thepage} % Номер строго по центру внизу
+      \renewcommand{\headrulewidth}{0pt} % Убираем разделительную линию сверху
+      \renewcommand{\footrulewidth}{0pt} % Убираем разделительную линию снизу</code></pre>
+                              </div>
+tips:
+  - title: "Шрифт номеров страниц"
+    html: |2-
+      <p>Кегль номера страницы должен совпадать с кеглем основного текста работы (обычно 12 или 14 пт
+      Times New Roman).</p>
+  - title: "Сброс стиля первой страницы главы"
+    html: |2-
+      <p>В классе <code>report</code> первая страница каждой новой главы по умолчанию переключается в
+      стиль <code>plain</code>. Чтобы переопределить ее, используйте
+      <code>\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}}</code>.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[russian]{babel}
+    \begin{document}
+    \thispagestyle{empty}
+    \begin{center}\Large Титульный лист\end{center}
+    \newpage
+    \tableofcontents
+    \newpage
+    \section{Введение}
+    Титульный лист считается страницей 1, но номер на нем не печатается, а содержание получает номер
+    2.
+    \section{Методика}
+    Нумерация продолжается.
+    \end{document}

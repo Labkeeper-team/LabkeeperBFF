@@ -1,0 +1,205 @@
+catalogIndex: 86
+slug: "latex-fancyhdr"
+batch: 1
+title: "Настройка колонтитулов и нумерации страниц в стиле научных журналов"
+pageTitle: "Настройка колонтитулов и нумерации страниц в LaTeX (fancyhdr) — Labkeeper"
+metaDescription: |2-
+  Пошаговое руководство по настройке fancyhdr онлайн LaTeX: красивые колонтитулы в LaTeX,
+  нумерация четных и нечетных страниц, стили для научных журналов и дипломных работ.
+ogTitle: "Настройка колонтитулов и нумерации страниц в стиле научных журналов (fancyhdr) — Labkeeper"
+ogDescription: |2-
+  Красивые колонтитулы в LaTeX: настройка пакета fancyhdr онлайн, номера страниц, название глав и
+  разделительные линии.
+twitterDescription: "Настройка fancyhdr онлайн LaTeX: оформление колонтитулов и нумерации в стиле журналов."
+schemaDescription: |2-
+  Гайд по настройке колонтитулов и нумерации страниц в LaTeX с помощью пакета fancyhdr:
+  односторонние и двусторонние документы.
+breadcrumbTitle: "Настройка fancyhdr в LaTeX"
+schemaBreadcrumbTitle: "Колонтитулы fancyhdr в LaTeX"
+h1: "Настройка колонтитулов и&nbsp;нумерации страниц в&nbsp;стиле научных журналов"
+categories:
+  - "articles"
+  - "latex"
+keywords:
+  - "настройка fancyhdr онлайн latex"
+  - "красивые колонтитулы в latex"
+datePublished: "2026-08-20"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "Настройка колонтитулов и нумерации страниц в стиле научных журналов"
+cardDescription: |2-
+  Настройка красивых колонтитулов в стиле научных журналов, четные и
+                          нечетные страницы (twoside) и линии (fancyhdr).
+sliderTitle: "Колонтитулы и&nbsp;нумерация (fancyhdr)"
+sliderText: "Настройка колонтитулов в стиле научных журналов, четные и нечетные страницы."
+sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sidebarText: |2-
+  Настраивайте колонтитулы и&nbsp;структуру статей в&nbsp;онлайн-редакторе Labkeeper
+  с&nbsp;предпросмотром PDF.
+ctaTitle: "Настраивайте оформление страниц в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с&nbsp;поддержкой пакета fancyhdr: создавайте профессиональные колонтитулы
+  и&nbsp;нумерацию прямо в&nbsp;браузере.
+toc:
+  - id: "intro"
+    title: "Зачем нужен пакет fancyhdr"
+  - id: "setup"
+    title: "Подключение и базовые команды (\\fancyhf)"
+  - id: "twoside"
+    title: "Двусторонние документы (четные и нечетные страницы)"
+  - id: "lines"
+    title: "Настройка разделительных линий"
+  - id: "plain"
+    title: "Первая страница раздела и стиль plain"
+  - id: "journal"
+    title: "Готовый шаблон колонтитулов научного журнала"
+  - id: "tips"
+    title: "Советы по оптимизации"
+sections:
+  - id: "intro"
+    title: "Зачем нужен пакет fancyhdr"
+    html: |2-
+                              <p>В стандартном LaTeX колонтитулы ограничены стилями <code>plain</code>
+      (номер страницы внизу) и <code>headings</code> (название главы вверху). Чтобы создать
+      <strong>красивые колонтитулы в LaTeX</strong> по требованиям редакций научных журналов (<a
+      href="/blog/latex-scopus-wos">стандарты Scopus, WoS, IEEE</a>) или <a
+      href="/blog/latex-diploma-gost">ГОСТ 7.32 для курсовых и дипломных работ</a>, используется пакет
+      <code>fancyhdr</code>.</p>
+                              <p>Он позволяет полностью контролировать верхний и нижний колонтитулы,
+      настраивать шрифт номеров страниц, выводить имя автора, название статьи или текущего раздела, а
+      также управлять толщиной декоративных линий.</p>
+  - id: "setup"
+    title: "Подключение и базовые команды (\\fancyhf)"
+    html: |2-
+                              <p>Для активации пакета подключите его в преамбуле и установите стиль
+      страницы <code>\pagestyle{fancy}</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{fancyhdr}
+      \pagestyle{fancy}
+
+      % Очистка стандартных настроек
+      \fancyhf{}
+
+      % Верхний колонтитул
+      \fancyhead[L]{\small Название статьи}
+      \fancyhead[R]{\small\thepage}
+
+      % Нижний колонтитул
+      \fancyfoot[C]{\footnotesize © 2026 Научный вестник}</code></pre>
+                              </div>
+                              <p>Команда <code>\fancyhf{}</code> сбрасывает все поля по умолчанию,
+      предотвращая дублирование номеров страниц.</p>
+  - id: "twoside"
+    title: "Двусторонние документы (четные и нечетные страницы)"
+    html: |2-
+                              <p>При верстке монографий, книг и журналов (опция <code>twoside</code> в
+      <code>\documentclass</code>) колонтитулы на четных (Even) и нечетных (Odd) страницах должны
+      зеркалиться:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\fancyhf{}
+
+      % Четные страницы (Even): номер слева, название журнала справа
+      \fancyhead[LE]{\thepage}
+      \fancyhead[RE]{\itshape Научный журнал, Том 12}
+
+      % Нечетные страницы (Odd). В book/report \leftmark — глава, \rightmark — раздел
+      \fancyhead[LO]{\itshape\rightmark}
+      \fancyhead[RO]{\thepage}</code></pre>
+                              </div>
+                              <p>Здесь <code>L, C, R</code> — выравнивание (Left, Center, Right), а
+      <code>E, O</code> — четность страниц (Even, Odd).</p>
+  - id: "lines"
+    title: "Настройка разделительных линий"
+    html: |2-
+                              <p>По умолчанию <code>fancyhdr</code> добавляет тонкую линию под верхним
+      колонтитулом. Вы можете изменить её толщину или убрать совсем:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Толщина верхней линии (0pt — убрать линию)
+      \renewcommand{\headrulewidth}{0.5pt}
+
+      % Толщина нижней линии
+      \renewcommand{\footrulewidth}{0.3pt}</code></pre>
+                              </div>
+  - id: "plain"
+    title: "Первая страница раздела и стиль plain"
+    html: |2-
+                              <p>Команды <code>\chapter{}</code> и <code>\maketitle</code>
+      автоматически переключают стиль текущей страницы на <code>plain</code>. Чтобы колонтитулы
+      титульной страницы или начала главы оставались строгими (без верхней линии):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\fancypagestyle{plain}{%
+          \fancyhf{}
+          \fancyfoot[C]{\thepage}
+          \renewcommand{\headrulewidth}{0pt}
+      }</code></pre>
+                              </div>
+                              <p>При подготовке начального листа вашей работы рекомендуем использовать
+      наш <a href="/blog/latex-titlepage">готовый шаблон титульного листа по ГОСТ</a>, где отображение
+      колонтитулов уже корректно подавлено.</p>
+  - id: "journal"
+    title: "Готовый шаблон колонтитулов научного журнала"
+    html: |2-
+                              <p>Пример полной конфигурации для статьи (в больших работах и <a
+      href="/blog/latex-dissertation">диссертациях ВАК</a> колонтитулы также могут обрамляться
+      рамками, а для инженерных записок — <a href="/blog/latex-eskd">штампами ЕСКД</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\documentclass[twoside,11pt]{article}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{fancyhdr}
+      \usepackage{lastpage} % для формата "Стр. X из Y"
+
+      \pagestyle{fancy}
+      \fancyhf{}
+      \fancyhead[LE]{\small\textbf{Иванов И.И.} / Исследование моделей данных}
+      \fancyhead[RO]{\small Журнал прикладных исследований · 2026}
+      \fancyfoot[C]{\small Стр. \thepage\ из \pageref{LastPage}}
+      \renewcommand{\headrulewidth}{0.4pt}
+      \renewcommand{\footrulewidth}{0.4pt}</code></pre>
+                              </div>
+  - id: "tips"
+    title: "Советы по оптимизации (настройка fancyhdr онлайн latex)"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Ошибки headheight</h3>
+                                          <p>Если компилятор выдает предупреждение <code>Package
+      Fancyhdr Warning: \headheight is too small</code>, добавьте в преамбулу
+      <code>\setlength{\headheight}{14pt}</code>.</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Отключение заглавных букв</h3>
+                                          <p>Чтобы названия глав в колонтитулах не переводились в
+      ВЕРХНИЙ РЕГИСТР, используйте команду
+      <code>\renewcommand{\chaptermark}[1]{\markboth{#1}{}}</code>.</p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{fancyhdr}\pagestyle{fancy}\fancyhf{}
+    \fancyhead[L]{Research report}\fancyhead[R]{Labkeeper}\fancyfoot[C]{\thepage}
+    \begin{document}
+    \section{Methods}First page.
+    \newpage\section{Results}Second page.
+    \end{document}

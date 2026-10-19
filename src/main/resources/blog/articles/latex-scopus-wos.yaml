@@ -1,0 +1,243 @@
+catalogIndex: 89
+slug: "latex-scopus-wos"
+batch: 1
+title: "Подготовка статьи для публикации в журнале Scopus/WoS: базовый шаблон LaTeX"
+pageTitle: "Подготовка статьи для публикации в журнале Scopus/WoS: шаблон LaTeX — Labkeeper"
+metaDescription: |2-
+  Шаблон статьи Scopus LaTeX онлайн: подготовка публикации WoS в LaTeX, настройка классов
+  IEEEtran, elsarticle, авторов, аффилиаций, аннотации и библиографии.
+ogTitle: "Подготовка статьи для публикации в журнале Scopus/WoS: базовый шаблон LaTeX — Labkeeper"
+ogDescription: |2-
+  Шаблон статьи Scopus LaTeX онлайн: верстка рукописи по международным стандартам WoS, IEEE и
+  Elsevier в онлайн-редакторе Labkeeper.
+twitterDescription: "Подготовка публикации WoS в LaTeX: шаблон статьи, оформление Abstract и цитирований."
+schemaDescription: |2-
+  Полное руководство по оформлению научных статей для международных изданий Scopus и Web of
+  Science в LaTeX.
+breadcrumbTitle: "Шаблон Scopus/WoS в LaTeX"
+schemaBreadcrumbTitle: "Статья Scopus/WoS в LaTeX"
+h1: "Подготовка статьи для публикации в&nbsp;журнале Scopus/WoS: базовый шаблон LaTeX"
+categories:
+  - "articles"
+  - "latex"
+keywords:
+  - "шаблон статьи scopus latex онлайн"
+  - "подготовка публикации wos в latex"
+datePublished: "2026-08-20"
+dateModified: "2026-10-18"
+readingTime: "9 мин"
+cardTitle: |2-
+  Подготовка статьи для публикации в журнале Scopus/WoS: базовый шаблон
+                          LaTeX
+cardDescription: |2-
+  Подготовка публикации в международные издания: шаблоны IEEEtran,
+                          elsarticle, авторы, Abstract, Keywords и ORCID.
+sliderTitle: "Шаблон статьи Scopus / Web of Science"
+sliderText: "Базовый шаблон LaTeX для публикации в международных журналах Scopus и WoS."
+sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sidebarText: |2-
+  Готовьте публикации для Scopus и&nbsp;WoS в&nbsp;Labkeeper — компиляция с&nbsp;классами
+  IEEEtran, elsarticle и&nbsp;acmart.
+ctaTitle: "Готовьте научные статьи в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX для&nbsp;исследователей: классы международных журналов, поддержка формул
+  и&nbsp;AI-ассистент прямо в&nbsp;браузере.
+toc:
+  - id: "intro"
+    title: "Требования международных издательств к LaTeX-рукописям"
+  - id: "classes"
+    title: "Популярные классы документов (IEEEtran, elsarticle, Springer)"
+  - id: "structure"
+    title: "Базовый код шаблона статьи Scopus/WoS"
+  - id: "authors"
+    title: "Авторы, аффилиации и ORCID ID"
+  - id: "abstract"
+    title: "Аннотация (Abstract) и ключевые слова (Keywords)"
+  - id: "biblio"
+    title: "Библиография и цитирование (BibTeX / IEEE / APA)"
+  - id: "tips"
+    title: "Чек-лист перед отправкой в редакцию"
+sections:
+  - id: "intro"
+    title: "Требования международных издательств к LaTeX-рукописям"
+    html: |2-
+                              <p>Ведущие научные издательства (Elsevier, Springer Nature, IEEE, Wiley,
+      MDPI), индексируемые в Scopus и Web of Science, принимают рукописи в формате LaTeX.
+      Использование <strong>шаблона статьи scopus latex онлайн</strong> позволяет исследователям
+      сфокусироваться на научной сути работы, доверив типографику компилятору.</p>
+                              <p>При этом <strong>подготовка публикации wos в latex</strong> требует
+      соблюдать правила конкретного журнала. Издательства дают свои классы и шаблоны; многие журналы,
+      в том числе Elsevier и Springer Nature, принимают рукописи в одну колонку, а колонтитулы задаёт
+      класс журнала — вручную через <a href="/blog/latex-fancyhdr">fancyhdr</a> их настраивают только
+      в собственных документах. Обязательны указание грантовой поддержки (Funding/Acknowledgments),
+      качественные рисунки и список источников в стиле журнала.</p>
+  - id: "classes"
+    title: "Популярные классы документов (IEEEtran, elsarticle, Springer)"
+    html: |2-
+                              <p>В зависимости от целевого журнала издательства предоставляют
+      специализированные классы:</p>
+                              <ul>
+                                  <li><code>IEEEtran</code> — стандартизированный класс для
+      конференций и журналов IEEE (двухколоночный макет).</li>
+                                  <li><code>elsarticle</code> — класс издательства Elsevier
+      (ScienceDirect).</li>
+                                  <li><code>acmart</code> — класс ACM для журналов и конференций.</li>
+                                  <li><code>sn-jnl</code> — класс Springer Nature. В TeX Live его нет:
+      скачайте комплект шаблона с сайта издательства и загрузите <code>sn-jnl.cls</code> и файлы
+      стилей в проект.</li>
+                                  <li>Стандартный <code>article</code> с пакетом <code>geometry</code>
+      — подходит для большинства журналов на этапе первичного рецензирования.</li>
+                              </ul>
+  - id: "structure"
+    title: "Базовый код шаблона статьи Scopus/WoS"
+    html: |2-
+                              <p>Ниже представлен проверенный шаблон универсальной англоязычной
+      статьи, готовый к компиляции в Labkeeper (для математических статей с доказательствами
+      подключите <a href="/blog/latex-amsthm">пакет теорем и лемм amsthm</a>, а для экспериментальных
+      величин — <a href="/blog/latex-siunitx">стандарт размерностей siunitx</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\documentclass[10pt,journal,compsoc]{IEEEtran}
+
+      \usepackage[utf8]{inputenc}
+      \usepackage{amsmath,amsfonts,amssymb}
+      \usepackage{graphicx}
+      \usepackage{booktabs}
+      \usepackage{hyperref}
+      \usepackage{cite}
+
+      \begin{document}
+
+      \title{A Novel Machine Learning Framework for Real-Time Scientific Data Processing}
+
+      \author{Ivan~Ivanov,~\IEEEmembership{Member,~IEEE,}
+              and~Alexey~Smirnov,~\IEEEmembership{Senior~Member,~IEEE}%
+      \thanks{I. Ivanov is with the Department of Computer Science, National Research University (e-mail: ivanov@example.com).}%
+      \thanks{A. Smirnov is with the Institute of Applied Mathematics.}}
+
+      \maketitle
+
+      \begin{abstract}
+      This paper presents a scalable computational framework designed to optimize real-time telemetry and data aggregation in distributed lab environments...
+      \end{abstract}
+
+      \begin{IEEEkeywords}
+      Data processing, machine learning, optimization algorithms, scientific computing.
+      \end{IEEEkeywords}
+
+      \section{Introduction}
+      Scientific computing requires high throughput and reliable validation pipelines \cite{smith2024}. In this work, we propose...
+
+      \section{Methodology}
+      The proposed model is governed by the following objective function:
+      \begin{equation}
+          \min_{\theta} \mathcal{L}(\theta) = \sum_{i=1}^{N} \| y_i - f(x_i; \theta) \|^2 + \lambda \|\theta\|_2^2
+      \end{equation}
+
+      \section{Results and Discussion}
+      The experimental results demonstrate a 35\% reduction in latency compared to baseline approaches.
+
+      \section{Conclusion}
+      We have developed an efficient approach suitable for integration into modern cloud workflows.
+
+      \section*{Acknowledgment}
+      This research was supported by the National Science Foundation under Grant No.~2026-XYZ.
+
+      \begin{thebibliography}{1}
+      \bibitem{smith2024} J.~Smith, ``Scalable validation pipelines for laboratory
+        telemetry,'' \emph{IEEE Trans. Instrum. Meas.}, vol.~73, pp.~1--10, 2024.
+      \end{thebibliography}
+
+      \end{document}</code></pre>
+                              </div>
+                              <p>Список литературы набран окружением <code>thebibliography</code>:
+      BibTeX в Labkeeper пока не запускается, и команды <code>\bibliographystyle{IEEEtran}</code> и
+      <code>\bibliography{references}</code> дали бы «[?]» вместо ссылки и пустой список. При
+      локальной сборке их можно вернуть вместе с файлом <code>references.bib</code>.</p>
+  - id: "authors"
+    title: "Авторы, аффилиации и ORCID ID"
+    html: |2-
+                              <p>Для корректной индексации статьи в Scopus и Google Scholar крайне
+      важно указывать уникальные идентификаторы авторов ORCID. Пакет <code>orcidlink</code> добавляет
+      кликабельную иконку зеленого кружка:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{orcidlink}
+      % В списке авторов:
+      Ivan Ivanov \orcidlink{0000-0002-1825-0097}</code></pre>
+                              </div>
+  - id: "abstract"
+    title: "Аннотация (Abstract) и ключевые слова (Keywords)"
+    html: |2-
+                              <p>Аннотация в международных статьях должна быть самодостаточной — в ней
+      не допускаются ссылки на формулы или библиографические источники <code>\cite{}</code> без явного
+      указания авторов и года.</p>
+  - id: "biblio"
+    title: "Библиография и цитирование (BibTeX / IEEE / APA)"
+    html: |2-
+                              <p>Для Scopus-статей рекомендуется использовать стандартные
+      библиографические стили:</p>
+                              <div class="article-table-wrapper">
+                                  <table class="article-table">
+                                      <thead>
+                                          <tr><th>Издательство</th><th>Стиль BibTeX</th><th>Формат
+      ссылки в тексте</th></tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr><td>IEEE</td><td><code>IEEEtran</code></td><td>Числовой:
+      [1], [2]</td></tr>
+                                          <tr><td>Springer Nature</td><td>Стили из комплекта
+      <code>sn-jnl</code></td><td>Числовой или (Author, 2024)</td></tr>
+                                          <tr><td>Elsevier</td><td><code>elsarticle-num</code> /
+      <code>elsarticle-harv</code></td><td>[1] или (Author, 2024)</td></tr>
+                                         
+      <tr><td>ACM</td><td><code>ACM-Reference-Format</code></td><td>[1] с полными
+      метаданными</td></tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <p>Стили BibTeX работают при локальной сборке. В Labkeeper оформляйте
+      записи вручную в стиле журнала через <code>thebibliography</code>, как в шаблоне выше.</p>
+  - id: "tips"
+    title: "Чек-лист перед отправкой в редакцию"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Проверка рисунков</h3>
+                                          <p>Векторные графики сохраняйте в PDF: у вектора нет
+      разрешения в DPI, и шрифты остаются чёткими при любом масштабе. Растровые рисунки в PNG или JPG
+      готовьте с разрешением от 300 dpi, если журнал не требует большего. EPS загрузить можно, но
+      pdfLaTeX без shell-escape его не вставит — сконвертируйте файл в PDF.</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Академическое портфолио автора</h3>
+                                          <p>Для подачи рукописи и участия в международных грантах
+      оформите профиль исследователя с помощью нашего <a href="/blog/latex-cv-resume">гайда по
+      академическому резюме CV</a>, а для диссертационной защиты — изучите <a
+      href="/blog/latex-dissertation">правила оформления диссертаций ВАК</a>.</p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+
+    \begin{document}
+    \title{A Reproducible Measurement Method}\author{Anna Petrova}\maketitle
+    \begin{abstract}We compare two measurement methods.\end{abstract}
+    \section{Introduction}Research question.
+    \section{Methods}Three repeated measurements.
+    \section{Results}The average was 5.2.
+    \section{Discussion}A larger sample is needed.
+    \end{document}

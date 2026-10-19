@@ -1,0 +1,186 @@
+catalogIndex: 7
+slug: "latex-algorithm2e-pseudocode-algorithms"
+batch: 2
+title: "Написание алгоритмов и псевдокода в LaTeX (пакет algorithm2e)"
+pageTitle: "Псевдокод в LaTeX algorithm2e: оформление алгоритма — Labkeeper"
+metaDescription: |2-
+  Полное руководство по пакету algorithm2e в LaTeX: написание псевдокода, русификация команд,
+  нумерация строк, верстка условий и циклов в Labkeeper.
+breadcrumbTitle: "Алгоритмы algorithm2e в LaTeX"
+h1: "Написание алгоритмов и&nbsp;псевдокода в&nbsp;LaTeX (пакет algorithm2e)"
+categories:
+  - "latex"
+keywords:
+  - "псевдокод в latex algorithm2e"
+  - "оформление алгоритма в latex"
+datePublished: "2026-09-06"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "Псевдокод и алгоритмы в LaTeX: пакет algorithm2e от А до Я"
+cardDescription: |2-
+  Как оформлять математические алгоритмы, циклы, условия и структуры данных с красивыми
+  вертикальными линиями и русской локализацией.
+sliderTitle: "Алгоритмы algorithm2e в LaTeX"
+sliderText: "Красивый псевдокод с нумерацией строк, условиями и циклами в LaTeX."
+sidebarText: |2-
+  В Labkeeper пакет algorithm2e уже есть в TeX Live: создавайте профессиональные описания
+  алгоритмов для статей и дипломов.
+ctaTitle: "Верстайте алгоритмы в&nbsp;Labkeeper"
+ctaText: "Онлайн-редактор LaTeX с поддержкой algorithm2e, формул amsmath и предпросмотром PDF."
+toc:
+  - id: "why-algorithm2e"
+    title: "Почему algorithm2e — стандарт для научных публикаций"
+  - id: "setup"
+    title: "Подключение и базовые опции: linesnumbered, ruled, vlined"
+  - id: "control-structures"
+    title: "Псевдокод в LaTeX algorithm2e: условия If-Else, циклы While и For"
+  - id: "russian-localization"
+    title: "Русификация ключевых слов (Вход, Выход, Если, Иначе)"
+  - id: "complete-example"
+    title: "Оформление алгоритма в LaTeX: законченный пример"
+sections:
+  - id: "why-algorithm2e"
+    title: "Почему algorithm2e — стандарт для научных публикаций"
+    html: |2-
+                              <p>При написании дипломных работ по программной инженерии, диссертаций и
+      статей в IEEE/ACM ключевые вычислительные методы принято представлять не длинными листингами
+      кода и не громоздкими рисунками, а в виде компактного псевдокода. Пакет
+      <strong>algorithm2e</strong> — признанный эталон академической верстки алгоритмов.</p>
+                              <p>В отличие от пакетов для вывода <a
+      href="/blog/latex-russian-cyrillic-code-listings-minted">листингов исходного кода с
+      кириллицей</a>, algorithm2e ориентирован именно на математическую абстракцию алгоритма,
+      обеспечивая строгую нумерацию строк и визуализацию вложенности условий.</p>
+  - id: "setup"
+    title: "Подключение и базовые опции: linesnumbered, ruled, vlined"
+    html: |2-
+                              <p>Для подключения пакета добавьте в преамбулу строку с полезными
+      опциями:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Преамбула</span></div>
+                                  <pre><code>\usepackage[linesnumbered,ruled,vlined]{algorithm2e}</code></pre>
+                              </div>
+                              <p>Значение параметров:</p>
+                              <ul>
+                                  <li><code>linesnumbered</code> — автоматическая нумерация строк
+      псевдокода слева;</li>
+                                  <li><code>ruled</code> — оформление заголовка алгоритма элегантными
+      горизонтальными разделительными линиями сверху и снизу;</li>
+                                  <li><code>vlined</code> — отрисовка аккуратных вертикальных линий,
+      наглядно показывающих границы вложенности условий и циклов.</li>
+                              </ul>
+                              <p>Опция <code>algo2e</code> переименовывает окружение в
+      <code>algorithm2e</code>. Она нужна, только если в документе есть другой пакет с окружением
+      <code>algorithm</code>, например пакет <code>algorithm</code> (не <code>algorithmicx</code>: тот
+      даёт окружение <code>algorithmic</code>). Тогда псевдокод пишите внутри
+      <code>\begin{algorithm2e}</code>, а <code>\begin{algorithm}</code> остаётся плавающим окружением
+      пакета <code>algorithm</code>. Без <code>algo2e</code> оба пакета сразу останавливают сборку:
+      <code>Command \algorithm already defined</code>. Ошибка <code>Environment algorithm
+      undefined</code> бывает в другом случае: опция <code>algo2e</code> включена, а пакета
+      <code>algorithm</code> нет.</p>
+  - id: "control-structures"
+    title: "Псевдокод в LaTeX algorithm2e: условия If-Else, циклы While и For"
+    html: |2-
+                              <p>Создавая <strong>псевдокод в latex algorithm2e</strong>, вы
+      используете интуитивные макросы для управляющих конструкций:</p>
+                              <ul>
+                                  <li>Условие: <code>\eIf{условие}{блок тогда}{блок иначе}</code> или
+      <code>\If{условие}{блок}</code>;</li>
+                                  <li>Цикл с предусловием: <code>\While{условие}{тело
+      цикла}</code>;</li>
+                                  <li>Цикл со счетчиком: <code>\For{i = 1 \KwTo n}{тело
+      цикла}</code>;</li>
+                                  <li>Итератор по коллекции: <code>\ForEach{элемент \textbf{in}
+      коллекция}{тело}</code>;</li>
+                                  <li>Возврат значения: <code>\Return результат\;</code> (обратите
+      внимание на обязательную точку с запятой <code>\;</code> в конце строки).</li>
+                              </ul>
+  - id: "russian-localization"
+    title: "Русификация ключевых слов (Вход, Выход, Если, Иначе)"
+    html: |2-
+                              <p>По умолчанию ключевые слова выводятся на английском языке. Чтобы
+      перевести их на русский для русскоязычной работы, задайте переопределения в преамбуле:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Русификация</span></div>
+                                  <pre><code>\SetKwInOut{Input}{Вход}
+      \SetKwInOut{Output}{Выход}
+      \SetKw{KwTo}{до}
+      \SetKw{KwDownTo}{вниз до}
+      \SetKwIF{If}{ElseIf}{Else}{если}{то}{иначе если}{иначе}{конец если}
+      \SetKwFor{While}{пока}{выполнять}{конец цикла}
+      \SetKwFor{For}{для}{выполнять}{конец цикла}
+      \SetKwFor{ForEach}{для каждого}{выполнять}{конец цикла}
+      \SetKw{Return}{вернуть}</code></pre>
+                              </div>
+  - id: "complete-example"
+    title: "Оформление алгоритма в LaTeX: законченный пример"
+    html: |2-
+                              <p>Полный код алгоритма поиска кратчайшего пути Дейкстры. Качественное
+      <strong>оформление алгоритма в LaTeX</strong> в виде псевдокода выглядит строго и
+      профессионально (если нужна именно блок-схема, смотрите статью о <a
+      href="/blog/algorithm-flowcharts-gost-markdown-latex">блок-схемах алгоритмов по ГОСТ</a>).
+      Команды <code>\Input</code> и <code>\Output</code> объявлены в разделе о русификации — добавьте
+      те строки в преамбулу. Каждая строка псевдокода заканчивается командой <code>\;</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Пример алгоритма</span></div>
+                                  <pre><code>\begin{algorithm}[htbp]
+      \caption{Алгоритм Дейкстры для поиска кратчайшего пути}
+      \label{algo:dijkstra}
+      \Input{Взвешенный граф $G = (V, E)$, стартовая вершина $s \in V$}
+      \Output{Массив кратчайших расстояний $dist[u]$ для всех $u \in V$}
+
+      \ForEach{$u \in V$}{
+          $dist[u] \leftarrow \infty$\;
+          $visited[u] \leftarrow \text{false}$\;
+      }
+      $dist[s] \leftarrow 0$\;
+      Инициализировать очередь с приоритетами $Q$ парой $(0, s)$\;
+
+      \While{$Q$ не пуста}{
+          Извлечь вершину $u$ с минимальным $dist[u]$ из $Q$\;
+          \If{$visited[u]$}{
+              \textbf{continue}\;
+          }
+          $visited[u] \leftarrow \text{true}$\;
+          
+          \ForEach{соседней вершины $v$ для $u$ со стоимостью ребра $w$}{
+              \If{$dist[u] + w < dist[v]$}{
+                  $dist[v] \leftarrow dist[u] + w$\;
+                  Добавить $(dist[v], v)$ в очередь $Q$\;
+              }
+          }
+      }
+      \Return $dist$\;
+      \end{algorithm}</code></pre>
+                              </div>
+                              <p>Чтобы читатель мог перейти к описанию алгоритма из текста работы по
+      клику на его номер, настройте систему <a
+      href="/blog/latex-hyperref-pdf-bookmarks-navigation">кликабельных перекрестных ссылок в
+      PDF</a>.</p>
+tips:
+  - title: "Точка с запятой \\; в конце строки"
+    html: |2-
+      <p>В algorithm2e команда <code>\;</code> не просто печатает точку с запятой, а завершает
+      логическую строку и осуществляет перенос на новую строку с сохранением нумерации.</p>
+  - title: "Компиляция в Labkeeper"
+    html: |2-
+      <p>В онлайн-редакторе Labkeeper сложные многостраничные алгоритмы удобно отлаживать: ошибки
+      компиляции показываются списком с привязкой к строке кода, а уже собранный PDF при этом не
+      пропадает.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage[ruled]{algorithm2e}
+    \begin{document}
+    \begin{algorithm}[H]
+    \KwIn{Array $a$ of length $n$}\KwOut{Sum $s$}
+    $s\gets0$\;
+    \For{$i\gets1$ \KwTo $n$}{$s\gets s+a_i$\;}
+    \caption{Array sum}\end{algorithm}
+    \end{document}

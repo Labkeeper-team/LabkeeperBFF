@@ -1,0 +1,111 @@
+catalogIndex: 70
+slug: "latex-geometry-margins-gost"
+batch: 2
+title: "Пакет geometry: точная настройка полей страницы в LaTeX"
+pageTitle: "Настройка полей страницы в LaTeX geometry: размер полей ГОСТ — Labkeeper"
+metaDescription: |2-
+  Гайд: настройка полей страницы в LaTeX geometry по ГОСТ 7.32 (левое 30 мм, правое 15 мм, верхнее
+  и нижнее 20 мм), параметры листа А4 и колонтитулов.
+breadcrumbTitle: "Поля страницы geometry в LaTeX"
+h1: "Пакет geometry: точная настройка полей страницы в&nbsp;LaTeX"
+categories:
+  - "latex"
+  - "diploma"
+keywords:
+  - "настройка полей страницы latex geometry"
+  - "размер полей гост в latex"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "6 мин"
+cardTitle: "Настройка полей страницы в LaTeX по ГОСТ: пакет geometry"
+cardDescription: |2-
+  Пошаговая конфигурация пакета geometry для курсовых, дипломов и диссертаций: левое 30 мм, правое
+  15 мм, верх/низ 20 мм на листах А4.
+sliderTitle: "Поля страницы по&nbsp;ГОСТ в&nbsp;LaTeX (geometry)"
+sliderText: "Точная настройка геометрии листа А4 под строгие нормоконтроли вузов."
+sidebarText: |2-
+  Настраивайте поля по ГОСТ пакетом geometry в онлайн-редакторе Labkeeper и проверяйте их рамкой
+  showframe в PDF.
+ctaTitle: "Готовьте работу к&nbsp;нормоконтролю в&nbsp;Labkeeper"
+ctaText: "Онлайн-редактор LaTeX с точной настройкой полей через geometry и сборкой PDF в браузере."
+toc:
+  - id: "gost-standards"
+    title: "Размер полей ГОСТ в LaTeX: требования стандарта 7.32"
+  - id: "setup-geometry"
+    title: "Настройка полей страницы latex geometry: готовая преамбула"
+  - id: "headers-footers-offset"
+    title: "Учет колонтитулов и переплета (bindingoffset)"
+  - id: "two-sided"
+    title: "Двусторонняя печать для диссертаций (twoside)"
+sections:
+  - id: "gost-standards"
+    title: "Размер полей ГОСТ в LaTeX: требования стандарта 7.32"
+    html: |2-
+                              <p>Стандартный <strong>размер полей гост в latex</strong> для отчетов о
+      НИР задаёт ГОСТ 7.32-2017 (наряду с нормой на <a
+      href="/blog/paragraph-indent-1-25-gost">абзацный отступ 1.25 см по ГОСТ</a>), и на него обычно
+      опираются методички по выпускным квалификационным работам:</p>
+                              <ul>
+                                  <li>Левое поле — <strong>30 мм</strong> (для последующего переплета
+      и подшивки документа);</li>
+                                  <li>Правое поле — <strong>15 мм</strong> (в некоторых вузах требуют
+      10 мм);</li>
+                                  <li>Верхнее поле — <strong>20 мм</strong>;</li>
+                                  <li>Нижнее поле — <strong>20 мм</strong>.</li>
+                              </ul>
+                              <p>У диссертаций поля другие: ГОСТ Р 7.0.11-2011 задаёт левое поле 25
+      мм, правое 10 мм, верхнее и нижнее по 20 мм.</p>
+  - id: "setup-geometry"
+    title: "Настройка полей страницы latex geometry: готовая преамбула"
+    html: |2-
+                              <p>Для реализации этих требований применяется признанный стандарт —
+      пакет <code>geometry</code>. Правильная <strong>настройка полей страницы latex geometry</strong>
+      задается в одну строчку в преамбуле:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage[a4paper,
+                  left=30mm,
+                  right=15mm,
+                  top=20mm,
+                  bottom=20mm,
+                  headheight=15pt,
+                  footskip=12mm]{geometry}</code></pre>
+                              </div>
+                              <p>Такая конфигурация гарантирует, что блок текста займет ровно
+      отведенную стандартом площадь листа, а в связке с <a
+      href="/blog/latex-line-spacing-1-5-setspace-gost">полуторным интервалом setspace по ГОСТ</a>
+      документ будет полностью готов к нормоконтролю.</p>
+  - id: "headers-footers-offset"
+    title: "Учет колонтитулов и переплета (bindingoffset)"
+    html: |2-
+                              <p>Если вы планируете твердый книжный переплет с толстым корешком,
+      полезно добавить параметр <code>bindingoffset=5mm</code>, который автоматически сместит текст
+      для компенсации толщины сшивки.</p>
+  - id: "two-sided"
+    title: "Двусторонняя печать для диссертаций (twoside)"
+    html: |2-
+                              <p>При двусторонней печати документа поля чередуются на четных и
+      нечетных листах. В таком случае у <code>\documentclass</code> нужна опция <code>twoside</code>,
+      а вместо <code>left</code> и <code>right</code> задаются <code>inner=30mm</code> (внутреннее
+      поле корешка) и <code>outer=15mm</code> (внешнее поле). Без <code>twoside</code> эти ключи не
+      чередуются.</p>
+tips:
+  - title: "Контроль геометрии ключом showframe"
+    html: |2-
+      <p>На этапе черновой верстки добавьте опцию <code>\usepackage[showframe,...]{geometry}</code>,
+      чтобы компилятор нарисовал рамки текстового блока и колонтитулов прямо в PDF для визуального
+      контроля.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm,showframe]{geometry}
+    \begin{document}
+    \section*{Page margins}
+    Left: 30 mm. Right: 15 mm. Top and bottom: 20 mm.
+    \par The frame shows the text area.
+    \end{document}

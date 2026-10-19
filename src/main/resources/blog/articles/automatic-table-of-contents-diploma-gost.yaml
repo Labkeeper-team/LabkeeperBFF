@@ -1,0 +1,165 @@
+catalogIndex: 45
+slug: "automatic-table-of-contents-diploma-gost"
+batch: 2
+title: "Как автоматически собрать оглавление (содержание) в курсовой и дипломе по ГОСТ"
+pageTitle: "Автоматическое оглавление для диплома ГОСТ: содержание курсовой онлайн — Labkeeper"
+metaDescription: |2-
+  Как сделать автоматическое оглавление для диплома по ГОСТ: содержание курсовой онлайн, отточия,
+  номера страниц, глубина tocdepth в LaTeX в Labkeeper.
+breadcrumbTitle: "Автоматическое оглавление по ГОСТ"
+h1: "Как автоматически собрать оглавление (содержание) в&nbsp;курсовой и&nbsp;дипломе по&nbsp;ГОСТ"
+categories:
+  - "diploma"
+keywords:
+  - "автоматическое оглавление для диплома гост"
+  - "содержание курсовой по госту онлайн"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "7 мин"
+cardTitle: "Автоматическое оглавление в дипломных и курсовых работах по ГОСТ"
+cardDescription: |2-
+  Как собрать идеальное «Содержание» в LaTeX: команда tableofcontents, отточия к номерам страниц,
+  глубина подразделов tocdepth и пакет tocloft.
+sliderTitle: "Автоматическое оглавление по ГОСТ"
+sliderText: "Команда tableofcontents, отточия, глубина tocdepth и пакет tocloft."
+sidebarText: |2-
+  Собирайте содержание ВКР без ручного пересчета страниц: LaTeX в Labkeeper обновляет номера при
+  каждой сборке.
+ctaTitle: "Забудьте о ручных правках содержания в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX: содержание собирается командой tableofcontents и обновляется при каждой
+  сборке PDF.
+toc:
+  - id: "requirements"
+    title: "Требования нормоконтроля к оформлению «Содержания»"
+  - id: "latex-basic"
+    title: "Автоматическое оглавление для диплома гост: команда tableofcontents"
+  - id: "tocdepth"
+    title: "Содержание курсовой по госту онлайн: настройка глубины tocdepth"
+  - id: "dots-formatting"
+    title: "Настройка отточий и выравнивания номеров страниц (пакет tocloft)"
+  - id: "unnumbered-sections"
+    title: "Добавление ненумерованных разделов (Введение, Заключение, Список источников)"
+sections:
+  - id: "requirements"
+    title: "Требования нормоконтроля к оформлению «Содержания»"
+    html: |2-
+                              <p>В ГОСТ 7.32-2017 раздел именуется строго
+      <strong>«СОДЕРЖАНИЕ»</strong> (заглавными буквами с выравниванием по центру). Основные
+      требования:</p>
+                              <ul>
+                                  <li>Все разделы, подразделы и приложения перечисляются с указанием
+      их порядковых номеров.</li>
+                                  <li>От названия каждого пункта до номера страницы идет непрерывная
+      линия из точек (отточие).</li>
+                                  <li>Номера страниц выравниваются строго по правому краю без слова
+      «стр.» или буквы «с» (а о том, как убрать номер с титульника, читайте в статье о <a
+      href="/blog/diploma-page-numbering-second-page">нумерации диплома со второй страницы</a>).</li>
+                                  <li>«Введение», «Заключение» и «Список использованных источников» не
+      имеют номеров разделов, но обязательно входят в оглавление.</li>
+                              </ul>
+  - id: "latex-basic"
+    title: "Автоматическое оглавление для диплома гост: команда tableofcontents"
+    html: |2-
+                              <p>Чтобы сгенерировать <strong>автоматическое оглавление для диплома
+      гост</strong> (в рамках единого шаблона <a href="/blog/latex-diploma-gost">оформления диплома по
+      ГОСТ в LaTeX</a>), достаточно вставить одну команду в месте размещения страницы содержания:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\tableofcontents
+      \clearpage</code></pre>
+                              </div>
+                              <p>При первой компиляции TeX собирает названия разделов во
+      вспомогательный файл <code>.toc</code>, а при втором проходе формирует выровненную верстку со
+      всеми номерами листов. В Labkeeper оба прохода выполняются при одном нажатии «Выполнить».</p>
+                              <p>В стандартной преамбуле Labkeeper разделы не нумеруются, поэтому в
+      содержании они выйдут без номеров. Для нумерованных разделов и настройки tocloft начните проект
+      со своей преамбулы, как в примере в редакторе.</p>
+  - id: "tocdepth"
+    title: "Содержание курсовой по госту онлайн: настройка глубины tocdepth"
+    html: |2-
+                              <p>Чтобы <strong>содержание курсовой по госту онлайн</strong> не было
+      перегружено мелкими пунктами, глубину отображения ограничивают счетчиком
+      <code>tocdepth</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% article: 1 = только section; report/book: 0 = главы, 1 = главы и section
+      % 2 = ещё и subsection — обычная глубина для ВКР
+      % 3 = включать пункты subsubsection
+      \setcounter{tocdepth}{2}</code></pre>
+                              </div>
+  - id: "dots-formatting"
+    title: "Настройка отточий и выравнивания номеров страниц (пакет tocloft)"
+    html: |2-
+                              <p>В стандартном классе <code>report</code> или <code>book</code> у глав
+      верхнего уровня отточия отключены по умолчанию. Для их принудительного включения по ГОСТ
+      подключите пакет <strong>tocloft</strong>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{tocloft}
+
+      % Включаем отточия для глав и крупных разделов
+      \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+      \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % только в классах report и book
+
+      % Заголовок по центру
+      \renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
+      \renewcommand{\cftaftertoctitle}{\hfill}
+
+      % «Оглавление» -> «СОДЕРЖАНИЕ»
+      \addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}</code></pre>
+                              </div>
+                              <p>Простое <code>\renewcommand{\contentsname}{...}</code> в преамбуле не
+      сработает: в начале документа babel вернет свое название «Оглавление». Поэтому новое название
+      передают через <code>\addto\captionsrussian</code>, а центрируют заголовок командами tocloft, а
+      не <code>\hfill</code> внутри названия.</p>
+  - id: "unnumbered-sections"
+    title: "Добавление ненумерованных разделов (Введение, Заключение, Список источников)"
+    html: |2-
+                              <p>Если раздел объявляется со звездочкой
+      (<code>\section*{Введение}</code>), LaTeX автоматически исключает его из оглавления. Чтобы
+      вернуть его в содержание с правильным номером листа, добавьте команду
+      <code>\addcontentsline</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\section*{ВВЕДЕНИЕ}
+      \addcontentsline{toc}{section}{ВВЕДЕНИЕ}
+
+      ... текст введения ...</code></pre>
+                              </div>
+tips:
+  - title: "Кликабельные пункты оглавления в PDF"
+    html: |2-
+      <p>Подключение <code>\usepackage[hidelinks]{hyperref}</code> превращает все строки содержания в
+      интерактивные гиперссылки: клик по строке мгновенно переносит к нужному разделу.</p>
+  - title: "Длинные заголовки в содержании"
+    html: |2-
+      <p>Если заголовок не помещается в строку, LaTeX перенесет его, а отточие и номер страницы
+      поставит в конце последней строки. Продолжение заголовка начинается от уровня начала его текста,
+      как и требует ГОСТ 7.32.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[russian]{babel}
+    \usepackage{tocloft}
+    \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+    \renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
+    \renewcommand{\cftaftertoctitle}{\hfill}
+    \addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}
+    \begin{document}
+    \tableofcontents
+    \newpage
+    \section*{ВВЕДЕНИЕ}
+    \addcontentsline{toc}{section}{ВВЕДЕНИЕ}
+    Цель работы.
+    \section{Методика}
+    \subsection{Оборудование}
+    Измерительная установка.
+    \section{Результаты}
+    Итоги измерений.
+    \end{document}

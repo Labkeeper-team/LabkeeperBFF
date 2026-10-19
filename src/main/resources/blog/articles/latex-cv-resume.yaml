@@ -1,0 +1,220 @@
+catalogIndex: 92
+slug: "latex-cv-resume"
+batch: 1
+title: "Верстка академического резюме (CV) для грантов и аспирантуры в онлайн LaTeX"
+pageTitle: "Верстка академического резюме (CV) в LaTeX для грантов и аспирантуры — Labkeeper"
+metaDescription: |2-
+  Шаблон академического резюме LaTeX онлайн: создать CV для аспирантуры в LaTeX с пакетом
+  moderncv. Структура разделов, список публикаций, гранты и контакты.
+ogTitle: "Верстка академического резюме (CV) для грантов и аспирантуры в онлайн LaTeX — Labkeeper"
+ogDescription: |2-
+  Создайте профессиональное академическое резюме (CV) в онлайн LaTeX: готовый шаблон moderncv для
+  поступления в аспирантуру и подачи на гранты.
+twitterTitle: "Верстка академического резюме (CV) в LaTeX — Labkeeper"
+twitterDescription: "Шаблон академического резюме LaTeX онлайн: создать CV для аспирантуры в LaTeX."
+schemaDescription: |2-
+  Полное руководство по созданию академического CV в LaTeX для аспирантуры, грантов и стипендий с
+  пакетом moderncv.
+breadcrumbTitle: "Академическое резюме в LaTeX"
+h1: "Верстка академического резюме (CV) для грантов и&nbsp;аспирантуры в&nbsp;онлайн LaTeX"
+categories:
+  - "cv"
+  - "latex"
+keywords:
+  - "шаблон академического резюме latex онлайн"
+  - "создать cv для аспирантуры в latex"
+datePublished: "2026-08-20"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: |2-
+  Верстка академического резюме (CV) для грантов и аспирантуры в онлайн
+                          LaTeX
+cardDescription: |2-
+  Шаблон Curriculum Vitae на пакете moderncv для аспирантуры, зарубежных
+                          стажировок, стипендий и грантов.
+sliderTitle: "Академическое резюме (CV) в&nbsp;LaTeX"
+sliderText: "Верстка резюме на пакете moderncv для аспирантуры, стажировок и грантов."
+sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sidebarText: |2-
+  Верстайте академическое CV на&nbsp;moderncv в&nbsp;онлайн-редакторе Labkeeper и&nbsp;сразу
+  получайте PDF.
+ctaTitle: "Создавайте академические резюме в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с&nbsp;поддержкой moderncv: верстайте аккуратные CV для&nbsp;грантов
+  и&nbsp;аспирантуры без&nbsp;установки программ на&nbsp;ПК.
+toc:
+  - id: "intro"
+    title: "Чем академическое CV отличается от обычного резюме"
+  - id: "moderncv"
+    title: "Класс moderncv: стили и цветовые темы"
+  - id: "template"
+    title: "Готовый шаблон академического резюме"
+  - id: "sections"
+    title: "Структура разделов: публикации, гранты, награды"
+  - id: "publications"
+    title: "Список публикаций без BibTeX"
+  - id: "tips"
+    title: "Советы для подачи в зарубежные университеты"
+sections:
+  - id: "intro"
+    title: "Чем академическое CV отличается от обычного резюме"
+    html: |2-
+                              <p>В отличие от стандартного одностраничного бизнес-резюме (Resume),
+      академическое <strong>Curriculum Vitae (CV)</strong> не ограничено по объему и ориентировано на
+      научные достижения: публикации в журналах (<a href="/blog/latex-scopus-wos">статьи Scopus и
+      WoS</a>), участие в научных конференциях, подготовку <a
+      href="/blog/latex-dissertation">кандидатской диссертации ВАК</a>, опыт преподавания, выигранные
+      гранты и патенты.</p>
+                              <p>Использование <strong>шаблона академического резюме latex
+      онлайн</strong> подчеркивает вашу техническую грамотность и обеспечивает безупречный внешний вид
+      документа при подаче заявки в аспирантуру или на гранты (РНФ, Erasmus, Fulbright).</p>
+  - id: "moderncv"
+    title: "Класс moderncv: стили и цветовые темы"
+    html: |2-
+                              <p>Наиболее популярным инструментом является класс
+      <code>moderncv</code>. Он предлагает несколько вариантов визуального стиля
+      (<code>classic</code>, <code>casual</code>, <code>banking</code>, <code>fancy</code>) и гибкую
+      цветовую палитру (<code>blue</code>, <code>green</code>, <code>orange</code>,
+      <code>burgundy</code>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\documentclass[11pt,a4paper,sans]{moderncv}
+
+      % Выбор стиля и цвета
+      \moderncvstyle{classic}
+      \moderncvcolor{blue}
+
+      \usepackage[scale=0.8]{geometry}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian,english]{babel}</code></pre>
+                              </div>
+  - id: "template"
+    title: "Готовый шаблон: создать CV для аспирантуры в LaTeX"
+    html: |2-
+                              <p>Ниже приведен готовый образец академического резюме:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\documentclass[11pt,a4paper,sans]{moderncv}
+      \moderncvstyle{banking}
+      \moderncvcolor{blue}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage[scale=0.82]{geometry}
+
+      % Персональные данные
+      \name{Иван}{Иванов}
+      \title{Аспирант по специальности «Информатика и вычислительная техника»}
+      \address{Москва, Россия}
+      \phone[mobile]{+7~(999)~000-00-00}
+      \email{ivanov@example.com}
+      \social[linkedin]{ivan-ivanov}
+      \social[github]{ivan-ivanov}
+      \homepage{labkeeper.io}
+
+      \begin{document}
+      \makecvtitle
+
+      \section{Образование}
+      \cventry{2024--2026}{Магистр прикладной математики}{МГУ им. М.В. Ломоносова}{Москва}{\textit{Диплом с отличием}}{Тема ВКР: Алгоритмы оптимизации графовых нейросетей.}
+      \cventry{2020--2024}{Бакалавр информатики}{МФТИ}{Москва}{}{Средний балл: 4.9 / 5.0.}
+
+      \section{Научные интересы}
+      \cvitem{}{Машинное обучение, параллельные вычисления, высокопроизводительный LaTeX.}
+
+      \section{Гранты и стипендии}
+      \cventry{2025}{Грант Президента РФ для молодых ученых}{}{}{}{Финансирование фундаментального проекта по машинному обучению.}
+      \cventry{2024}{Стипендия Правительства РФ}{}{}{}{За высокие академические и публикационные результаты.}
+
+      \section{Опыт исследований и работы}
+      \cventry{2024--наст.вр.}{Младший научный сотрудник}{Институт проблем управления РАН}{Москва}{}{Разработка масштабируемых пайплайнов обработки телеметрии на C++ и Python.}
+
+      \section{Навыки}
+      \cvitem{Языки программирования}{Python, C++, Rust, SQL}
+      \cvitem{Научные инструменты}{LaTeX, Git, Linux, Docker, PyTorch}
+      \cvitem{Языки}{Русский (родной), Английский (C1, IELTS 7.5)}
+
+      \end{document}</code></pre>
+                              </div>
+  - id: "sections"
+    title: "Структура разделов: публикации, гранты, награды"
+    html: |2-
+                              <p>В классе <code>moderncv</code> используются базовые команды
+      форматирования:</p>
+                              <ul>
+                                 
+      <li><code>\cventry{годы}{позиция}{организация}{город}{оценка}{описание}</code> — для
+      структурированных записей с датами.</li>
+                                  <li><code>\cvitem{категория}{значение}</code> — для перечисления
+      списков навыков и интересов.</li>
+                                  <li><code>\cvitemwithcomment{язык}{уровень}{сертификат}</code> — для
+      языковых компетенций.</li>
+                              </ul>
+  - id: "publications"
+    title: "Список публикаций без BibTeX"
+    html: |2-
+                              <p>Пакеты <code>bibentry</code> и <code>multibib</code> берут записи из
+      .bib-файла через BibTeX, а в Labkeeper BibTeX пока не запускается: вместо записей получатся
+      пустые места и «[?]». Оформите публикации вручную командами <code>\cvitem</code> или
+      нумерованным списком: по ГОСТ для российских грантов и диссоветов, по APA — для зарубежных
+      университетов (как оформить запись по ГОСТ, смотрите в <a
+      href="/blog/latex-gost-bibliography">статье о списке литературы по ГОСТ</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\section{Публикации}
+      \cvitem{2025}{Иванов,~И.~И. Алгоритмы оптимизации графовых нейросетей
+        / И.~И.~Иванов // Информатика и её применения. --- 2025. --- Т.~19, №~2.
+        --- С.~45--53.}
+      \cvitem{2024}{Ivanov, I., \&amp; Petrov, P. (2024). Scalable telemetry pipelines.
+        In \emph{Proceedings of the International Conference on Data Science}
+        (pp.~112--118).}</code></pre>
+                              </div>
+  - id: "tips"
+    title: "Советы для подачи в зарубежные университеты"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Единый PDF без фото</h3>
+                                          <p>В американских и европейских университетах принято
+      отправлять CV без личной фотографии для предотвращения предвзятости (unconscious bias).</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Колонтитулы и оформление приложений</h3>
+                                          <p>Если к резюме прикладывается расширенное портфолио работ
+      или научный отчет, оформите его в едином стиле с помощью <a
+      href="/blog/latex-diploma-gost">преамбулы по ГОСТ из гайда по диплому</a> и настройте красивые
+      <a href="/blog/latex-fancyhdr">колонтитулы fancyhdr</a>.</p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  latex: |2-
+    \documentclass[11pt,a4paper,sans]{moderncv}
+    \moderncvstyle{classic}
+    \moderncvcolor{blue}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[russian]{babel}
+    \usepackage[scale=0.8]{geometry}
+    \name{Анна}{Петрова}
+    \title{Аспирант, физика}
+    \email{anna@example.com}
+    \begin{document}
+    \makecvtitle
+    \section{Образование}
+    \cventry{2022--2024}{Магистр физики}{МФТИ}{Москва}{}{}
+    \section{Публикации}
+    \cvitem{2025}{Петрова,~А.~А. Метод измерений / А.~А.~Петрова // Письма в~ЖТФ. --- 2025. --- №~3.
+    --- С.~5--9.}
+    \section{Гранты}
+    \cvitem{2024}{Грант РНФ для молодых учёных}
+    \end{document}

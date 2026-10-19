@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests">
+    <title>Labkeeper — Публичная оферта</title>
+    <meta name="description"
+        content="Публичная оферта на приобретение и использование внутренних токенов (Cloud Tokens) на платформе Labkeeper." />
+    <link rel="canonical" href="https://labkeeper.io/oferta" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://labkeeper.io/oferta" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Labkeeper" />
+    <meta property="og:title" content="Labkeeper — Публичная оферта" />
+    <meta property="og:description"
+        content="Публичная оферта на приобретение и использование внутренних токенов (Cloud Tokens) на платформе Labkeeper." />
+    <meta property="og:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta name="twitter:title" content="Labkeeper — Публичная оферта" />
+    <meta name="twitter:description"
+        content="Публичная оферта на приобретение и использование внутренних токенов (Cloud Tokens) на платформе Labkeeper." />
+    <script type="text/javascript">
+        (function () {
+            function hasAcceptedCookieConsent() {
+                try {
+                    return localStorage.getItem('labkeeper_cookie_consent') === 'accepted';
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            window.initLabkeeperYandexMetrika = function () {
+                if (
+                    window.__labkeeperYandexMetrikaInitialized ||
+                    !hasAcceptedCookieConsent() ||
+                    typeof [(${yandexMetrikaKey})] === 'undefined'
+                ) {
+                    return;
+                }
+
+                (function (m, e, t, r, i, k, a) {
+                    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+                    m[i].l = 1 * new Date();
+                    for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+                })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+                ym([(${yandexMetrikaKey})], "init", {
+                    webvisor: true,
+                    clickmap: true,
+                    referrer: document.referrer,
+                    url: location.href,
+                    accurateTrackBounce: true,
+                    trackLinks: true
+                });
+
+                window.__labkeeperYandexMetrikaInitialized = true;
+            };
+
+            window.initLabkeeperYandexMetrika();
+        })();
+    </script>
+
+    <!-- Preconnect & Async Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="page">
+    <header class="header js-header">
+        <div class="header__container">
+            <div class="header__left">
+                <!-- Кнопка мобильного меню -->
+                <button class="header__burger js-burger-btn" aria-label="Открыть меню">
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                </button>
+                <a href="/" class="header__logo">
+                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="header__logo-icon" width="36"
+                        height="36">
+                    <span class="header__logo-text">Labkeeper</span>
+                </a>
+                <div class="header__lang js-lang-switcher">
+                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
+                    <button class="header__lang-btn" data-lang="en">En</button>
+                </div>
+            </div>
+
+            <nav class="header__nav js-nav">
+                <div class="header__mobile-lang js-lang-switcher">
+                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
+                    <button class="header__lang-btn" data-lang="en">En</button>
+                </div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/#examples" class="header__nav-link"
+                            data-i18n="nav-examples"></a></li>
+                    <li class="header__nav-item"><a href="/#advantages" class="header__nav-link"
+                            data-i18n="nav-features"></a></li>
+                    <li class="header__nav-item"><a href="/tokens" class="header__nav-link" data-i18n="nav-tokens"></a>
+                    </li>
+                    <li class="header__nav-item"><a href="/blog" class="header__nav-link" data-i18n="nav-blog"></a></li>
+
+                    <li class="header__nav-item"><a href="/about" class="header__nav-link" data-i18n="nav-about"></a>
+                    </li>
+                </ul>
+                <div class="header__mobile-contact">
+                    <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
+                    <a href="mailto:labkeeper.io@gmail.com"
+                        class="header__mobile-contact-link">labkeeper.io@gmail.com</a>
+                </div>
+            </nav>
+
+            <div class="header__right">
+                <a href="/project/default?open=login" class="button button--outline header__login"
+                    data-i18n="btn-login"></a>
+                <a href="/projects" class="button button--outline header__projects" data-i18n="btn-projects"
+                    style="display: none;"></a>
+                <a href="/project/default" class="button button--primary header__editor" data-i18n="btn-editor"></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main page-policy">
+
+        <!-- Навигация по документам -->
+        <div class="policy-nav">
+            <div class="policy-nav__container">
+                <ul class="header__nav-list2 policy-nav__list">
+                    <li class="header__nav-item">
+                        <a href="privacy" class="header__nav-link" data-i18n="policy-nav-privacy">Политика
+                            конфиденциальности</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="soglas" class="header__nav-link" data-i18n="policy-nav-consent">Согласие об
+                            обработке персональных данных</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="oferta" class="header__nav-link header__nav-link--active"
+                            data-i18n="policy-nav-oferta">Публичная
+                            оферта</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="sogl_yam" class="header__nav-link" data-i18n="policy-nav-yam">Согласие на
+                            использование сервиса ЯМ</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="sogl_adv" class="header__nav-link" data-i18n="policy-nav-adv">Согласие на получение рекламных
+                            рассылок</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="sogl_ds" class="header__nav-link" data-i18n="policy-nav-ds">Согласие на
+                            трансграничную передачу</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Контент документа -->
+        <div class="policy-article">
+            <div class="policy-article__container">
+
+                <h1 class="policy-article__title">Публичная оферта (договор)<br>на приобретение и использование
+                    внутренних токенов (cloud tokens) на платформе labkeeper</h1>
+
+
+
+
+
+
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">1.</span> Термины и
+                        определения</h2>
+
+
+
+                    <table class="policy-article__table">
+
+                        <tbody>
+
+                            <tr>
+
+                                <th><strong>Термин</strong></th>
+
+                                <th><strong>Определение</strong></th>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Акцепт</strong></td>
+
+                                <td>Полное и безоговорочное принятие условий Оферты путем совершения одного из следующих
+                                    действий: проставления отметки «Я согласен с условиями оферты» в форме заказа (перед
+                                    оплатой) в Сервисе; факт оплаты (пополнения баланса) любым способом, доступным на
+                                    Сайте. Акцепт — полное и безоговорочное принятие условий Оферты путем совершения
+                                    следующих действий: а) проставление отметки «Я согласен с условиями оферты»; б)
+                                    любым способом, доступным на Сайте.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Акция / Промокод</strong></td>
+
+                                <td>Временное поощрение, предоставляемое Исполнителем и позволяющее Пользователю
+                                    получить дополнительные Токены, скидку или иные преимущества на условиях, отличных
+                                    от стандартного Тарифа.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Баланс</strong></td>
+
+                                <td>Количество неизрасходованных Токенов, отображаемое в Личном кабинете Пользователя.
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Договор</strong></td>
+
+                                <td>Договор купли-продажи Токенов, заключенный между Исполнителем и Пользователем в
+                                    порядке, предусмотренном настоящей Офертой (ст. 454, 455, 456 ГК РФ).</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Исполнитель</strong></td>
+
+                                <td>Индивидуальный предприниматель <strong>Трофименко Анастасии
+                                        Алексеевны</strong> (ОГРНИП 326508100352548, ИНН 502910548283), заключающий с
+                                    Пользователем договор купли-продажи Токенов.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Календарный день </strong></td>
+
+                                <td>Период времени, продолжающийся 24 часа и начинающийся в 00:00, завершающийся в 24:00
+                                    по московскому времени (UTC+3).</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Контент пользователя</strong></td>
+
+                                <td>Любые данные, файлы, изображения, тексты, модели и иные материалы, загружаемые,
+                                    создаваемые, публикуемые или иным образом доводимые до общего доступа Пользователем
+                                    посредством Сервиса.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Личный кабинет</strong></td>
+
+                                <td>Совокупность защищённых страниц Сервиса (включая страницу редактора и страницу
+                                    управления токенами), доступных Пользователю после авторизации, на которых
+                                    отображается информация о состоянии Баланса, обеспечивается доступ к проектам и иным
+                                    функциям Сервиса.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Оферта </strong></td>
+
+                                <td>настоящий документ, размещенный на Сайте по адресу <a
+                                        href="https://labkeeper.io/oferta"
+                                        class="policy-article__link">https://labkeeper.io/oferta</a>, представляющий
+                                    собой в соответствии со статьей 435 Гражданского кодекса РФ официальное публичное
+                                    предложение Исполнителя, адресованное неопределенному кругу физических лиц,
+                                    заключить договор купли-продажи Токенов на изложенных в нем условиях.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Платные функции</strong></td>
+
+                                <td>Дополнительные операции внутри Сервиса, требующие списания Токенов с Баланса
+                                    Пользователя. К ним относятся, в частности: увеличенное время компиляции
+                                    LaTeX-документов, выполнение вычислительных задач, требующих повышенных ресурсов,
+                                    направление запросов к AI-ассистенту, а также иные функции,
+                                    явно обозначенные на Сайте как платные.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Персональные данные</strong></td>
+
+                                <td>Любая информация, относящаяся к прямо или косвенно определенному или определяемому
+                                    Пользователю (физическому лицу), обрабатываемая в рамках Договора. Обработка ПДн
+                                    осуществляется в соответствии с <strong>Политикой обработки персональных
+                                        данных</strong> (размещена по адресу <a href="https://labkeeper.io/privacy"
+                                        class="policy-article__link">https://labkeeper.io/privacy</a> )</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Платежный шлюз</strong></td>
+
+                                <td>Платежный агрегатор (ЮKassa, Система быстрых платежей), через который осуществляется
+                                    прием платежей от Пользователей. Исполнитель не обрабатывает и не хранит данные
+                                    банковских карт Пользователя.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Пользователь (Заказчик)</strong></td>
+
+                                <td>Дееспособное физическое лицо, принимающее условия настоящей Оферты для личных нужд,
+                                    не связанных с предпринимательской деятельностью. Акцептуя Оферту, Пользователь
+                                    подтверждает, что ознакомился с ее условиями и обязуется их соблюдать. Если
+                                    Пользователь намеревается использовать Сервис в коммерческих или предпринимательских
+                                    целях, заключение отдельного соглашения с Исполнителем обязательно.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Сервис (</strong><strong>Labkeeper</strong><strong>)</strong></td>
+
+                                <td>комплекс программно-аппаратных средств, доступный через веб-сайт по адресу
+                                    https://labkeeper.io (далее — «Сайт»), включая веб-интерфейс, серверные и
+                                    вычислительные ресурсы, предоставляющий Пользователю функционал онлайн-редактора
+                                    Markdown/LaTeX-документов, встроенный язык для высокоточных вычислений, инструменты
+                                    для отрисовки формул, компиляции в PDF, а также доступ к AI-ассистенту. Сервис также
+                                    включает в себя Личный кабинет Пользователя.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Сторонний сервис</strong></td>
+
+                                <td>Веб-сайт, приложение, библиотека или иной ресурс, не принадлежащий Исполнителю, но
+                                    интегрированный в Сервис либо доступный по ссылке из него. Сторонним сервисам, в
+                                    частности, относится сервис искусственного интеллекта DeepSeek (API
+                                    api.deepseek.com), используемый для генерации ответов на запросы Пользователей.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Тариф</strong></td>
+
+                                <td>Совокупность условий приобретения пакета Токенов (стоимость, количество Токенов).
+                                    Актуальные Тарифы размещены на Сайте в разделе «Токены».</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Токены (</strong><strong>Cloud</strong><strong>
+                                    </strong><strong>Tokens</strong><strong>)</strong></td>
+
+                                <td>Внутренняя условная единица учета, приобретаемая Пользователем за денежные средства
+                                    и расходуемая на оплату Платных функций. Токены не являются электронными деньгами,
+                                    средством платежа или ценной бумагой. Они предназначены исключительно для оплаты
+                                    Платных функций Сервиса в соответствии с действующими Тарифами. Токены не подлежат
+                                    обратному обмену на денежные средства, за исключением случаев, прямо предусмотренных
+                                    разделом «Возврат денежных средств»</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Учетная запись (Аккаунт)</strong></td>
+
+                                <td>Совокупность уникального идентификатора (логина), пароля и иных реквизитов
+                                    авторизации, позволяющих Исполнителю идентифицировать Пользователя при доступе к
+                                    Сервису.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Форс-мажор</strong></td>
+
+                                <td>Обстоятельства, предусмотренные статьей 401 Гражданского кодекса Российской
+                                    Федерации, а также иные события, находящиеся за разумным контролем Исполнителя,
+                                    включая действия государственных органов, санкционные ограничения, масштабные сбои в
+                                    сети Интернет, DDoS-атаки, отключения электроэнергии у хостинг-партнеров, блокировки
+                                    со стороны поставщиков AI-моделей (DeepSeek) и иные чрезвычайные обстоятельства,
+                                    препятствующие исполнению обязательств по договору.</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Цифровой</strong><strong> результат
+                                        (</strong><strong>товар</strong><strong>)</strong></td>
+
+                                <td>Любой нематериальный объект, созданный Пользователем с использованием функционала
+                                    Сервиса (тексты, изображения, PDF-файлы, результаты вычислений, исходный код,
+                                    сгенерированный AI-ассистентом, и т.п.).</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>Электронная почта Исполнителя</strong></td>
+
+                                <td><a href="mailto:labkeeper.io@gmail.com"
+                                        class="policy-article__link">labkeeper.io@gmail.com</a>, адрес для направления
+                                    юридически значимых уведомлений, претензий, запросов на возврат и отзыва согласий.
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><strong>API</strong></td>
+
+                                <td>Программный интерфейс приложений, предоставляемый Исполнителем для
+                                    автоматизированного взаимодействия Пользователя с функциями Сервиса.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">2.</span> Общие
+                        положения</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">2.1.</span> Настоящий
+                        документ в соответствии со статьей 437 Гражданского кодекса Российской Федерации (далее — ГК РФ)
+                        является официальным публичным предложением (публичной офертой) Исполнителя, адресованным
+                        неопределенному кругу лиц, заключить договор купли-продажи Токенов на условиях, изложенных ниже.
+                    </p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">2.2.</span> Полным и
+                        безоговорочным акцептом (принятием) настоящей Оферты в соответствии с пунктом 3 статьи 438 ГК РФ
+                        признается совершение Пользователем любого из следующих действий:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li>проставление отметки (галочки) «Я согласен с условиями оферты» в форме заказа (перед
+                            оплатой);</li>
+
+
+
+                        <li>факт оплаты (пополнения баланса) любым способом, доступным на Сайте.</li>
+
+
+
+                    </ul>
+
+
+
+                    <p class="p">Договор считается заключённым с момента успешной оплаты, совершённой после проставления
+                        указанной отметки</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">2.3.</span> С момента
+                        Акцепта Договор считается заключенным в простой письменной форме и не требует двустороннего
+                        подписания.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">2.4.</span> Так как
+                        Пользователем является физическое лицо, приобретающее Токены для личных, семейных или иных нужд,
+                        не связанных с предпринимательской деятельностью, к отношениям сторон применяются положения ГК
+                        РФ, Закона РФ от 07.02.1992 № 2300-1 «О защите прав потребителей» (далее — Закон о защите прав
+                        потребителей), а также иных нормативных правовых актов, принятых в соответствии с ними.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">2.5.</span> Исполнитель
+                        вправе в одностороннем порядке изменять условия настоящей Оферты с публикацией изменений на
+                        Сайте. Изменения вступают в силу по истечении <strong>7 (семи) календарных дней</strong> после
+                        размещения новой редакции. Пользователь считается надлежащим образом, уведомленным с момента
+                        публикации. Изменения не распространяются на Заказы (оплаченные Токены), оформленные до
+                        вступления изменений в силу.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">2.6.</span> Акцептуя
+                        настоящую Оферту, Пользователь также подтверждает, что:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li>является полностью дееспособным лицом, достигшим 18-летнего возраста;</li>
+
+
+
+                        <li>понимает значение своих действий и способен руководить ими;</li>
+
+
+
+                        <li>не находится под влиянием заблуждения, обмана, насилия или угрозы;</li>
+
+
+
+                        <li>признает безусловную пригодность платежной системы, предложенной Исполнителем;</li>
+
+
+
+                        <li>ознакомлен с условиями, порядком оказания и оплаты услуг;</li>
+
+
+
+                        <li>соглашается, что Оферта не содержит явно обременительных для него условий, которые он не
+                            принял бы при наличии возможности участвовать в определении условий договора;</li>
+
+
+
+                        <li>услуги не являются навязанными.</li>
+
+
+
+                    </ul>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">3.</span> Предмет
+                        Договора</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">3.1.</span> Исполнитель
+                        обязуется передать в собственность Пользователя Токены (Cloud Tokens) в количестве,
+                        соответствующем выбранному и оплаченному Тарифу, а Пользователь обязуется принять и оплатить их
+                        на условиях настоящей Оферты. Отношения сторон квалифицируются как договор купли-продажи
+                        нематериального объекта (ст. 454, 455, 456 ГК РФ).</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">3.2.</span> Токены
+                        предназначены для оплаты Платных функций внутри Сервиса. Порядок списания Токенов за конкретные
+                        операции определяется Исполнителем и публикуется на Сайте. Исполнитель вправе изменять алгоритмы
+                        расхода Токенов, уведомив Пользователей путем публикации новой редакции на Сайте.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">3.3.</span> Пользователь
+                        вправе использовать Токены <strong>исключительно для личного некоммерческого
+                            использования</strong> в рамках Сервиса. Запрещается перепродажа, дарение, передача в иное
+                        возмездное или безвозмездное пользование Токенов третьим лицам.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">3.4.</span> Созданный с
+                        помощью Сервиса Цифровой контент (тексты, изображения, расчеты, PDF-файлы) принадлежит
+                        Пользователю на праве собственности. Пользователь вправе использовать его для любых законных
+                        целей, включая публикацию в научных, образовательных, личных проектах. Коммерческое
+                        использование такого контента (продажа, лицензирование, включение в коммерческие продукты)
+                        допускается только при наличии письменного согласия Исполнителя.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">3.5.</span> Услуги по
+                        предоставлению доступа к Сервису считаются оказанными надлежащим образом с момента зачисления
+                        Токенов на Баланс Пользователя, если Пользователем не доказано иное.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">4.</span> Регистрация и
+                        Личный кабинет</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">4.1.</span> Для
+                        приобретения Токенов и использования Сервиса Пользователь обязан пройти регистрацию на Сайте.
+                        Регистрация осуществляется одним из следующих способов:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li>путем заполнения регистрационной формы с указанием действующего адреса электронной почты и
+                            пароля;</li>
+
+
+
+                        <li>путем авторизации через существующий аккаунт в сервисе «Яндекс» (Yandex OAuth). В этом
+                            случае Пользователь предоставляет Исполнителю информацию, разрешенную к передаче в рамках
+                            данного механизма авторизации.</li>
+
+
+
+                    </ul>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">4.2.</span> При
+                        регистрации Пользователь обязан проставить отметку (галочку) в чекбоксе, подтверждающую
+                        ознакомление и согласие с Политикой обработки персональных данных и Согласием на обработку
+                        персональных данных.<br>Отправка формы регистрации без проставления обязательной отметки
+                        технически невозможна. Согласие с условиями Оферты предоставляется отдельно на этапе оформления
+                        заказа (перед оплатой).</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">4.3.</span> Отдельной
+                        неотмеченной по умолчанию галочкой запрашивается согласие на получение рекламных рассылок.
+                        Указанное согласие является добровольным. Пользователь может отписаться от рассылки в любой
+                        момент по ссылке в письме или направив запрос на электронную почту Исполнителя.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">4.4.</span> Пользователь
+                        обязуется предоставить достоверную информацию. Исполнитель не несет ответственности за
+                        последствия предоставления недостоверных или неполных данных.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">4.5.</span> Пользователь
+                        несет ответственность за сохранность своих учетных данных и за все действия, совершенные в
+                        Личном кабинете с их использованием. При утере доступа Пользователь обязан незамедлительно
+                        уведомить Исполнителя.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">4.6.</span> Исполнитель
+                        вправе приостановить или прекратить доступ Пользователя к Личному кабинету и Сервису в случае
+                        нарушения условий настоящей Оферты (в том числе при попытке перепродажи Токенов, генерации
+                        запрещенного контента), а также при получении обоснованных жалоб от третьих лиц о незаконном
+                        использовании сгенерированного контента.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">4.7.</span> Пользователь
+                        должен быть не моложе 18 (восемнадцати) лет и обладать полной дееспособностью. Исполнитель
+                        вправе в случаях, предусмотренных законодательством, или при возникновении обоснованных сомнений
+                        запросить у Пользователя документы, подтверждающие возраст и дееспособность, и приостановить
+                        доступ к Сервису до момента их предоставления.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">4.8.</span> Пользователь
+                        вправе в любое время удалить свою учётную запись, направив письменное заявление на адрес
+                        электронной почты Исполнителя с пометкой «Удаление аккаунта». Заявление должно содержать адрес
+                        электронной почты, привязанный к удаляемому Аккаунту. Исполнитель обязуется рассмотреть
+                        заявление и удалить Аккаунт в течение 30 (тридцати) календарных дней с момента получения
+                        заявления, при условии отсутствия неисполненных обязательств перед Пользователем.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">4.9.</span> При удалении
+                        Аккаунта все персональные данные Пользователя, а также весь созданный им Контент удаляются, за
+                        исключением данных, которые подлежат хранению в соответствии с требованиями законодательства
+                        (финансовые документы). Неиспользованные Токены аннулируются и возврату не подлежат.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">5.</span> Порядок
+                        оформления Заказа и акцепта</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">5.1.</span> Для заключения
+                        Договора Пользователь выполняет следующие действия:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li class="policy-article__li--2">регистрируется (или входит в существующий Личный кабинет);
+                        </li>
+
+
+
+                        <li class="policy-article__li--2">выбирает на Сайте Тариф (количество Токенов);</li>
+
+
+
+                        <li class="policy-article__li--2">нажимает кнопку «Оплатить»;</li>
+
+
+
+                        <li class="policy-article__li--2">проходит процедуру оплаты через платежный шлюз ЮKassa,
+                            используя банковскую карту, Систему быстрых платежей (СБП) или иной доступный способ.</li>
+
+
+
+                    </ul>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">5.2.</span> Договор
+                        считается заключенным, а Оферта акцептованной с момента успешного списания денежных средств с
+                        Пользователя в полном объеме за выбранный Тариф, подтвержденного отчетом платежного шлюза.
+                        Моментом оплаты считается поступление денежных средств на расчетный счет Исполнителя.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">5.3.</span> Зачисление
+                        Токенов на Баланс производится автоматически в течение 15 (пятнадцати) минут после подтверждения
+                        оплаты. В случае технического сбоя (сбой в системе зачисления, задержка обработки платежа
+                        платежным шлюзом, сбой в работе серверов Исполнителя, ошибки в API интеграции) срок зачисления
+                        может быть продлен до 24 (двадцати четырех) часов. Если Токены не зачислены в течение 24 часов,
+                        Пользователь вправе обратиться в службу поддержки и потребовать возврата денежных средств в
+                        полном объеме.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">5.4.</span> Токены не
+                        считаются зачисленными, если: оплата не прошла (отклонена банком, отменена, возвращена);
+                        Пользователь указал неверный email или аккаунт; платеж был осуществлен через неподдерживаемый
+                        способ (криптовалюта, наличные, перевод на карту).</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">5.5.</span> Уведомление о
+                        зачислении Токенов направляется на адрес электронной почты, указанный при регистрации.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">5.6.</span> Цифровые
+                        результаты (изображения, тексты, файлы и т.п.) не являются объектом исполнения заказа. Они
+                        формируются автоматически при использовании Токенов в Сервисе и не подлежат доставке, гарантии,
+                        возврату или компенсации, если соответствуют описанию функционала Сервиса.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">6.</span> Цена и порядок
+                        оплаты</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">6.1.</span> Стоимость
+                        Токенов (Тарифов) указывается на Сайте в соответствующем разделе.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">6.2.</span> Цены указаны в
+                        рублях РФ, включают все налоги (Исполнитель применяет упрощенную систему налогообложения, НДС не
+                        облагается в соответствии со ст. 346.11 НК РФ).</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">6.3.</span> Исполнитель
+                        вправе изменять стоимость Тарифов в одностороннем порядке. Новая цена применяется к Заказам,
+                        оплаченным после ее публикации на Сайте.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">6.4.</span> Оплата
+                        производится безналичным способом через платежный шлюз ЮKassa. Исполнитель не обрабатывает и не
+                        хранит данные банковских карт Пользователя.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">6.5.</span> Исполнитель не
+                        несет ответственности за задержки и сбои при проведении платежа, зависящие от платежных систем,
+                        банков или операторов связи.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">6.6.</span> После оплаты
+                        Исполнитель направляет Пользователю электронный чек на указанный email.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">7.</span> Права и
+                        обязанности сторон</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">7.1.</span>
+                        <strong>Исполнитель обязуется:</strong></p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.1.1.</span> Зачислить
+                        Токены на Баланс Пользователя в порядке, установленном разделом «Порядок оформления Заказа и
+                        акцепта»;</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.1.2.</span>
+                        Обеспечивать работоспособность Сервиса, за исключением времени проведения плановых технических
+                        работ (о которых Исполнитель уведомляет не менее чем за 24 часа через Сайт или Личный кабинет) и
+                        внеплановых сбоев, вызванных обстоятельствами непреодолимой силы или действиями третьих лиц;</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.1.3.</span>
+                        Обеспечивать безопасность персональных данных в соответствии с ФЗ-152 и Политикой обработки
+                        персональных данных Исполнителя.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">7.2.</span>
+                        <strong>Исполнитель вправе:</strong></p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.2.1.</span> Изменять
+                        функционал Сервиса, алгоритмы расхода Токенов, вводить новые Тарифы, отключать или
+                        модифицировать Платные функции с предварительным уведомлением (публикация на Сайте);</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.2.2.</span>
+                        Приостанавливать или прекращать доступ Пользователя к Сервису при нарушении условий Оферты
+                        (перепродажа Токенов, генерация запрещенного контента);</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.2.3.</span>
+                        Привлекать третьих лиц для оказания услуг (хостинг-провайдеры, платежные агрегаторы, поставщики
+                        AI-моделей – DeepSeek, сервисы мониторинга Grafana, Sentry), оставаясь ответственным за их
+                        действия. В этих целях, а также для веб-аналитики и отправки email-уведомлений, Исполнитель
+                        вправе передавать необходимые данные, включая адрес электронной почты, внутренним и внешним
+                        сервисам (Яндекс.Метрика, Яндекс 360).</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.2.4.</span>
+                        Незамедлительно удалить любой Цифровой результат и/или заблокировать доступ Пользователя к
+                        Сервису без предварительного уведомления и возврата денежных средств в случаях:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li class="policy-article__li--2">получения предписания (уведомления) от уполномоченного
+                            государственного органа;</li>
+
+
+
+                        <li class="policy-article__li--2">выявления очевидного нарушения условий Оферты, в том числе
+                            генерации запрещенного контента, указанного в разделе «Права и обязанности сторон»;</li>
+
+
+
+                        <li class="policy-article__li--2">поступления обоснованной жалобы третьих лиц о нарушении их
+                            прав таким контентом.</li>
+
+
+
+                    </ul>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">7.3.</span>
+                        <strong>Пользователь обязуется:</strong></p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.3.1.</span>
+                        Предоставить достоверные и полные персональные данные при регистрации;</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.3.2.</span> Не
+                        использовать Сервис для генерации контента, нарушающего законодательство РФ (экстремизм,
+                        порнография, призывы к насилию, пропаганда наркотиков, клевета);</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.3.3.</span> Не
+                        перепродавать Токены третьим лицам, не передавать учетную запись в пользование иным лицам;</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.3.4.</span> Не
+                        предпринимать действий, направленных на обход технических ограничений Сервиса, декомпиляцию,
+                        извлечение исходного кода, автоматизированный сбор данных (парсинг, скрапинг);</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.3.5.</span>
+                        Незамедлительно уведомлять Исполнителя об утере доступа к Личному кабинету или о
+                        несанкционированном доступе третьих лиц.</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.3.6.</span> Не
+                        использовать Сервис для генерации, хранения или распространения контента, который:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li class="policy-article__li--2">нарушает права и законные интересы третьих лиц;</li>
+
+
+
+                        <li class="policy-article__li--2">содержит экстремистские и террористические материалы, призывы
+                            к насилию или дискриминации;</li>
+
+
+
+                        <li class="policy-article__li--2">пропагандирует наркотики, психотропные вещества, способы
+                            совершения преступлений;</li>
+
+
+
+                        <li class="policy-article__li--2">является порнографическим;</li>
+
+
+
+                        <li class="policy-article__li--2">направлен на дискредитацию органов государственной власти или
+                            Вооруженных Сил Российской Федерации;</li>
+
+
+
+                        <li class="policy-article__li--2">иным образом противоречит законодательству Российской
+                            Федерации.</li>
+
+
+
+                    </ul>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">7.4.</span>
+                        <strong>Пользователь вправе:</strong></p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.4.1.</span>
+                        Использовать Токены для оплаты Платных функций;</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.4.2.</span>
+                        Отказаться от получения рекламных рассылок в любое время;</p>
+
+
+
+                    <p class="p policy-article__subsubsection"><span class="policy-article__num">7.4.3.</span>
+                        Обратиться к Исполнителю с требованием о возврате денежных средств в случаях, предусмотренных
+                        разделом «Возврат денежных средств».</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">8.</span> ЦИФРОВЫЕ
+                        РЕЗУЛЬТАТЫ</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">8.1.</span> Цифровые
+                        результаты (изображения, тексты, файлы и т.п.), создаваемые с использованием Сервиса, не
+                        являются объектом купли-продажи в рамках настоящего Договора. Они представляют собой
+                        автоматически генерируемый контент, возникающий в результате обработки Пользовательского запроса
+                        программными алгоритмами и/или моделями искусственного интеллекта, доступ к которым
+                        предоставляется посредством списания Токенов.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">8.2.</span> Нажимая
+                        кнопки, инициирующие генерацию контента (такие как «Сгенерировать», «Вычислить» и аналогичные),
+                        Пользователь подтверждает, что:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li>является единственным инициатором создания соответствующего Цифрового результата;</li>
+
+
+
+                        <li>полностью осознает содержание, цели и возможные последствия его использования;</li>
+
+
+
+                        <li>принимает на себя ответственность как автор контента в соответствии с законодательством
+                            Российской Федерации, включая соблюдение требований об охране интеллектуальных прав, запрете
+                            экстремистской деятельности, защите персональных данных и иных норм.</li>
+
+
+
+                    </ul>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">8.3.</span> Пользователь
+                        понимает и соглашается, что:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li>Цифровой результат формируется программным обеспечением без непосредственного участия
+                            Исполнителя, зависит от множества факторов, включая, но не ограничиваясь: формулировку и
+                            содержание запроса, выбранные настройки, характеристики используемой нейросетевой модели, а
+                            также технические ограничения Сервиса.</li>
+
+
+
+                        <li>Цифровой результат не проходит предварительную проверку и не может рассматриваться как товар
+                            с заранее определенными потребительскими свойствами. Качество, точность, полнота,
+                            художественная или эстетическая ценность, а также пригодность для конкретных целей
+                            Пользователя не гарантируются.</li>
+
+
+
+                        <li>Возврат или компенсация стоимости Токенов, израсходованных на получение Цифрового
+                            результата, не производится, если полученный результат соответствует описанию функционала
+                            Сервиса, опубликованному на Сайте на момент использования. Основанием для возврата не могут
+                            служить субъективная неудовлетворенность содержанием, стилем, качеством генерации, а также
+                            несоответствие ожиданиям Пользователя, при условии, что функционал Сервиса был предоставлен
+                            в работоспособном состоянии и в соответствии с заявленными характеристиками.</li>
+
+
+
+                        <li>Пользователь самостоятельно принимает решение о целесообразности использования созданного
+                            Цифрового результата в своих личных некоммерческих проектах и несет все связанные с этим
+                            риски, включая риски возможного нарушения прав третьих лиц.</li>
+
+
+
+                    </ul>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">8.4.</span> Исполнитель не
+                        участвует в формировании смыслового наполнения генерируемого контента и не проверяет его на
+                        соответствие законодательству, за исключением случаев получения предписаний уполномоченных
+                        органов или выявления очевидных нарушений.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">8.5.</span> Исполнитель не
+                        несет ответственности за любые последствия использования или невозможности использования
+                        Цифровых результатов.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">9.</span>
+                        Ответственность сторон</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">9.1.</span> За
+                        неисполнение или ненадлежащее исполнение обязательств по Договору стороны несут ответственность
+                        в соответствии с законодательством РФ, а для Пользователей-потребителей – также в соответствии с
+                        Законом РФ «О защите прав потребителей».</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">9.2.</span> Исполнитель не
+                        несет ответственности:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li>за ненадлежащее использование Токенов Пользователем;</li>
+
+
+
+                        <li>за последствия использования цифровых результатов (нарушение авторских прав, дезинформация,
+                            юридические риски);</li>
+
+
+
+                        <li>за недостоверность, точность, полноту сгенерированного контента;</li>
+
+
+
+                        <li>за сбои в работе Сервиса, если они не связаны с отказом в зачислении Токенов;</li>
+
+
+
+                        <li>за прямой или косвенный ущерб, упущенную выгоду, потерю данных;</li>
+
+
+
+                        <li>за сбои в работе сторонних сервисов (платежных систем, хостинг-провайдеров, поставщиков
+                            AI-моделей).</li>
+
+
+
+                    </ul>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">9.3.</span> Совокупная
+                        ответственность Исполнителя по любому иску или претензии, связанной с использованием Сервиса и
+                        Токенов, ограничивается суммой, уплаченной Пользователем за Токены за последние 6 месяцев,
+                        предшествующих возникновению претензии, если иное не предусмотрено Законом «О защите прав
+                        потребителей».</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">9.4.</span> Пользователь
+                        несет полную ответственность за законность загружаемых материалов, соблюдение авторских прав
+                        третьих лиц и соответствие результатов генерации требованиям законодательства РФ.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">9.5.</span> Пользователь,
+                        использующий функционал публикации проектов и передачи доступа к ним третьим лицам, осознает и
+                        соглашается, что он действует исключительно по собственной инициативе и под свою полную
+                        ответственность. Пользователь самостоятельно определяет объем и содержание передаваемых
+                        материалов, а Исполнитель не осуществляет их предварительную модерацию и не несет
+                        ответственности за последствия такой передачи.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">10.</span> Возврат
+                        денежных средств</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">10.1.</span> Пользователь
+                        – физическое лицо, приобретающее Токены для личных нужд, вправе отказаться от исполнения
+                        Договора в любое время до момента зачисления Токенов на Баланс в соответствии со статьей 32
+                        Закона РФ «О защите прав потребителей». В этом случае Исполнитель возвращает уплаченную сумму за
+                        вычетом фактически понесенных расходов (комиссия платежного шлюза, затраты на обслуживание
+                        учетной записи), но не более 20% от суммы платежа.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">10.2.</span> С момента
+                        зачисления Токенов на Баланс услуга по их передаче считается оказанной в полном объеме. Токены
+                        являются уникальными условными единицами учета, которые зачисляются исключительно на конкретную
+                        Учетную запись Пользователя и не могут быть использованы иными лицами. Таким образом, Токены
+                        обладают индивидуально-определенными свойствами и могут быть использованы исключительно
+                        приобретающим их Пользователем. В соответствии с абзацем 4 пункта 4 статьи 26.1 Закона РФ «О
+                        защите прав потребителей» потребитель не вправе отказаться от товара надлежащего качества,
+                        имеющего индивидуально-определенные свойства, если указанный товар может быть использован
+                        исключительно приобретающим его потребителем.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">10.3.</span> На основании
+                        изложенного в п. 8.2. после зачисления Токенов на Баланс Пользователь утрачивает право на отказ
+                        от Договора и возврат денежных средств, за исключением случаев, прямо предусмотренных ниже:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li>по вине Исполнителя доступ к Платным функциям не был предоставлен в течение 14 дней с
+                            момента оплаты;</li>
+
+
+
+                        <li>Исполнитель не может предоставить доступ к Сервису по своей вине в течение 72 часов с
+                            момента оплаты.</li>
+
+
+
+                    </ul>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">10.4.</span> В случаях,
+                        указанных выше, Пользователь вправе потребовать возврата денежных средств в полном объеме путем
+                        направления письменного заявления на электронную почту Исполнителя. Возврат осуществляется в
+                        течение 10 (десяти) календарных дней с даты получения заявления.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">10.5.</span> Возврат не
+                        производится в следующих случаях:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li>субъективная неудовлетворенность качеством сгенерированного контента, если генерация
+                            выполнена в соответствии с запросом Пользователя;</li>
+
+
+
+                        <li>изменение решения Пользователя после начала использования Токенов;</li>
+
+
+
+                        <li>нарушение Пользователем условий настоящей Оферты (генерация запрещенного контента, попытка
+                            перепродажи Токенов), повлекшее блокировку доступа;</li>
+
+
+
+                        <li>сбои в работе Сервиса, вызванные действиями третьих лиц (блокировки со стороны поставщиков
+                            AI-моделей – DeepSeek, хостинг-провайдеров) или обстоятельствами непреодолимой силы.</li>
+
+
+
+                    </ul>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">10.6.</span> Для
+                        инициирования возврата Пользователь направляет письменное заявление на электронную почту
+                        Исполнителя с пометкой «Запрос на возврат». В заявлении указываются: ФИО, email, дата и сумма
+                        платежа, причина возврата. Возврат производится на ту же банковскую карту или счет, с которого
+                        была произведена оплата.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">11.</span>
+                        Интеллектуальная собственность</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">11.1.</span> Сервис
+                        Labkeeper, включая исходный код, дизайн, интерфейс, логотипы, товарные знаки, базы данных,
+                        является интеллектуальной собственностью Исполнителя и охраняется законодательством РФ.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">11.2.</span> Пользователю
+                        предоставляется неисключительная лицензия на использование Сервиса в пределах функционала,
+                        определяемого условиями Оферты. Никакие права на программное обеспечение Сервиса не передаются
+                        Пользователю.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">11.3.</span> Пользователь
+                        не вправе копировать, воспроизводить, модифицировать, декомпилировать, дизассемблировать Сервис
+                        или его части, создавать производные продукты, систематически извлекать данные (скрапинг,
+                        парсинг) без письменного разрешения Исполнителя.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">11.4.</span> Все права на
+                        контент, созданный Пользователем с использованием Сервиса, принадлежат Пользователю.
+                        Пользователь самостоятельно несет ответственность за законность такого контента и его
+                        соответствие требованиям законодательства РФ. Коммерческое использование такого контента
+                        допускается только по отдельному письменному соглашению с Исполнителем.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">12.</span> Срок действия
+                        Договора</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">12.1.</span> Договор
+                        вступает в силу с момента акцепта и действует до полного исполнения обязательств сторонами.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">12.2.</span> Если
+                        Пользователь не проявлял активность (не входил в Личный кабинет) более 12 месяцев подряд,
+                        Исполнитель вправе прекратить обработку персональных данных и аннулировать неиспользованные
+                        Токены без возврата денежных средств, предупредив Пользователя за 30 дней по электронной почте.
+                    </p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">12.3.</span> Признание
+                        судом какого-либо положения Оферты недействительным не влечет недействительности остальных
+                        положений.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">13.</span> Форс-мажор
+                    </h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">13.1.</span> Стороны
+                        освобождаются от ответственности за частичное или полное неисполнение обязательств, если оно
+                        вызвано обстоятельствами непреодолимой силы (форс-мажор), возникшими после заключения Договора:
+                        наводнение, пожар, землетрясение, военные действия, террористические акты, акты государственных
+                        органов, эпидемии, пандемии, сбои в работе общедоступных сетей связи и
+                        электропитания, блокировки или ограничения со стороны поставщиков AI-моделей (DeepSeek) или
+                        хостинг-провайдеров, DDoS-атаки.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">13.2.</span> Сторона, для
+                        которой наступили форс-мажорные обстоятельства, обязана незамедлительно (в течение 3 рабочих
+                        дней) уведомить другую сторону с предоставлением подтверждающих документов.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">13.3.</span> Срок
+                        исполнения обязательств отодвигается соразмерно времени действия форс-мажора. Если
+                        обстоятельства длятся более 30 календарных дней, любая сторона вправе отказаться от Договора без
+                        применения санкций, при этом предварительно уплаченные средства возвращаются за вычетом
+                        фактически понесенных расходов.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">14.</span> Разрешение
+                        споров. Подсудность</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">14.1.</span> Все споры
+                        подлежат обязательному досудебному урегулированию. Пользователь направляет письменную претензию
+                        на электронную почту Исполнителя с пометкой «Претензия».</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">14.2.</span> В претензии
+                        указываются: ФИО Пользователя, email, суть претензии, требования, прилагаются подтверждающие
+                        документы (скриншоты, чеки).</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">14.3.</span> Исполнитель
+                        обязуется ответить на претензию в течение 20 (двадцати) календарных дней с даты ее получения.
+                    </p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">14.4.</span> При
+                        недостижении согласия спор передается в суд общей юрисдикции по месту жительства истца (по
+                        выбору истца в соответствии с Законом РФ «О защите прав потребителей») либо по месту нахождения
+                        Исполнителя.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">15.</span> Изменения и
+                        документооборот</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">15.1.</span> Исполнитель
+                        вправе вносить односторонние изменения в Оферту. Новая редакция публикуется по адресу <a
+                            href="https://labkeeper.io/oferta"
+                            class="policy-article__link">https://labkeeper.io/oferta</a>. Изменения вступают в силу по
+                        истечении 7 (семи) календарных дней после публикации, если иной срок не указан в новой редакции.
+                        Пользователь считается надлежащим образом уведомленным с момента публикации.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">15.2.</span> Переписка
+                        между сторонами ведется через электронную почту с официальных доменов:</p>
+
+
+
+                    <ul>
+
+
+
+                        <li>Исполнитель: <a href="mailto:labkeeper.io@gmail.com"
+                                class="policy-article__link">labkeeper.io@gmail.com</a>;</li>
+
+
+
+                        <li>Пользователь: email, указанный при регистрации.</li>
+
+
+
+                    </ul>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">15.3.</span> Электронная
+                        переписка имеет юридическую силу и может использоваться в суде в качестве письменного
+                        доказательства. Простые электронные подписи (адрес электронной почты) приравниваются к
+                        собственноручной подписи сторон.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">16.</span>
+                        Заключительные положения</h2>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">16.1.</span> Настоящая
+                        Оферта является полным и исключительным соглашением между сторонами по вопросам использования
+                        Сервиса.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">16.2.</span> Ничто в
+                        настоящей Оферте не ограничивает права Пользователя, установленные законодательством РФ (в том
+                        числе права потребителя).</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">16.3.</span> Все
+                        неурегулированные вопросы подлежат разрешению в соответствии с действующим законодательством
+                        Российской Федерации.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">16.4.</span> Настоящая
+                        Оферта адресована исключительно физическим лицам, приобретающим Токены для личных, семейных,
+                        домашних и иных нужд, не связанных с предпринимательской деятельностью. В случае если
+                        Пользователь, несмотря на данное условие, использует Сервис в коммерческих целях без заключения
+                        отдельного письменного договора с Исполнителем, нормы Закона РФ «О защите прав потребителей» на
+                        такие отношения не распространяются, а Пользователь самостоятельно несет все связанные с этим
+                        риски и ответственность.</p>
+
+
+
+                    <p class="p policy-article__subsection"><span class="policy-article__num">16.5.</span> Настоящая
+                        Оферта вступает в силу с момента ее размещения на Сайте и действует до момента ее отзыва
+                        Исполнителем. Отзыв Оферты не является основанием для отказа от обязательств по уже заключенным
+                        Договорам.</p>
+
+
+
+                </div>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <h2 class="policy-article__section-title"><span class="policy-article__num">17.</span> РЕКВИЗИТЫ
+                    </h2>
+
+
+
+                    <p class="p"><strong>Индивидуальный предприниматель Трофименко Анастасии
+                            Алексеевны</strong><br>ОГРНИП 326508100352548<br>ИНН 502910548283<br>Адрес из ЕГРИП: 141014,
+                        РОССИЯ, МОСКОВСКАЯ ОБЛ, Г МЫТИЩИ, УЛ ПИОНЕРСКАЯ, Д 1А КВ 127</p>
+
+
+
+                    <p class="p"><strong>Банковские реквизиты:</strong><br>Расчетный счет: 40802810838720089904<br>Банк:
+                        ПАО Сбербанк<br>БИК: 044525225<br>Корреспондентский счет: 30101810400000000225</p>
+
+
+
+                    <p class="p"><strong>Контактная информация:</strong><br>Электронная почта: <a
+                            href="mailto:labkeeper.io@gmail.com"
+                            class="policy-article__link">labkeeper.io@gmail.com</a><br>Телефон: +7(963)768-55-90</p>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__top">
+                <nav class="footer__nav">
+                    <a href="/#features" class="footer__link" data-i18n="nav-advantages"></a>
+                    <a href="/#advantages" class="footer__link" data-i18n="nav-features"></a>
+                    <a href="/tokens" class="footer__link" data-i18n="nav-tokens"></a>
+                    <a href="https://github.com/Labkeeper-team/Docs/wiki/ru" target="_blank"
+                        class="footer__link footer__link--external">
+                        <span data-i18n="nav-wiki"></span>
+                        <img src="assets/img/target.svg" alt="target icon" class="footer__link-icon"
+                            style="margin-left: 4px; vertical-align: middle;" width="16" height="16" loading="lazy">
+                    </a>
+                    <a href="/#examples" class="footer__link" data-i18n="nav-examples"></a>
+                    <a href="/blog" class="footer__link" data-i18n="nav-blog"></a>
+
+                    <a href="/about" class="footer__link" data-i18n="nav-about"></a>
+                </nav>
+                <a href="/" class="footer__logo-link">
+                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="footer__logo" width="40" height="40"
+                        loading="lazy">
+                </a>
+                <div class="footer__contact">
+                    <span class="footer__contact-label" data-i18n="footer-contact"></span>
+                    <a href="mailto:labkeeper.io@gmail.com" class="footer__contact-link">labkeeper.io@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer__middle">
+                <img src="assets/img/img-for-footer.svg" alt="Labkeeper" class="footer__huge-logo" aria-hidden="true"
+                    loading="lazy">
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__copyright">© 2024—2026</div>
+                <a href="privacy" class="footer__policy" data-i18n="footer-policy"></a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner hidden">
+        <div class="cookie-banner__container">
+            <p class="cookie-banner__text">
+                Мы используем cookie и сервис Яндекс.Метрика для улучшения работы сайта. Обязательные cookie работают
+                всегда. Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс», Россия) требуют вашего согласия.
+                Подробнее — в <a href="privacy" class="cookie-banner__link" target="_blank">Политике обработки
+                    персональных данных</a> и <a href="sogl_yam" class="cookie-banner__link" target="_blank">Согласии на
+                    использование сервиса Яндекс.Метрика</a>.
+            </p>
+            <div class="cookie-banner__actions">
+                <button id="cookie-accept" class="button button--primary">Принять</button>
+                <button id="cookie-decline" class="button button--outline">Отказаться</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script>
+        window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
+        window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
+        window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
+    </script>
+    <script src="assets/js/auth.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/openpanel.js" defer></script>
+    <script src="assets/js/lang.js" defer></script>
+</body>
+
+</html>

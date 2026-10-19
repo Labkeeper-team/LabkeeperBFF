@@ -1,0 +1,177 @@
+catalogIndex: 18
+slug: "diploma-annotation-abstract-russian-english"
+batch: 2
+title: "Написание аннотации к диплому на русском и английском языках"
+pageTitle: "Как написать аннотацию к ВКР пример: Abstract диплом перевод — Labkeeper"
+metaDescription: |2-
+  Пошаговый разбор: как написать аннотацию к ВКР и дипломной работе. Пример аннотации на русском и
+  Abstract на английском языке, шаблон и ключевые слова в Labkeeper.
+breadcrumbTitle: "Аннотация и Abstract к диплому"
+h1: "Написание аннотации к&nbsp;диплому на&nbsp;русском и&nbsp;английском языках"
+categories:
+  - "diploma"
+  - "articles"
+keywords:
+  - "как написать аннотацию к вкр пример"
+  - "abstract диплом перевод шаблон"
+datePublished: "2026-09-06"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "Аннотация и Abstract к диплому: русская и английская версии по ГОСТ"
+cardDescription: |2-
+  Структура академической аннотации, статистика ВКР (страницы, таблицы, источники), готовый
+  перевод Abstract и подбор ключевых слов.
+sliderTitle: "Аннотация к диплому (Abstract)"
+sliderText: "Как грамотно составить аннотацию на русском и перевести Abstract для диплома."
+sidebarText: |2-
+  В Labkeeper можно оформить двуязычный реферат и Abstract к диплому с формулами и аккуратной
+  типографикой.
+ctaTitle: "Оформите аннотацию и&nbsp;диплом в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX: реферат и Abstract на одном листе, число страниц подставляет пакет
+  lastpage, PDF — после нажатия «Выполнить».
+toc:
+  - id: "purpose"
+    title: "Что такое аннотация к ВКР и где она размещается"
+  - id: "structure"
+    title: "Обязательные элементы реферата (аннотации) по ГОСТ 7.32"
+  - id: "russian-example"
+    title: "Как написать аннотацию к ВКР: готовый пример на русском языке"
+  - id: "english-abstract"
+    title: "Abstract диплом перевод: шаблон и профессиональные термины"
+  - id: "keywords-selection"
+    title: "Правила подбора ключевых слов (Keywords)"
+sections:
+  - id: "purpose"
+    title: "Что такое аннотация к ВКР и где она размещается"
+    html: |2-
+                              <p>Аннотация к выпускной квалификационной работе — это краткая
+      академическая характеристика дипломного исследования, позволяющая комиссии за 60 секунд понять
+      суть, цели, методы и практическую ценность проекта. Объем — не больше одной страницы А4: ГОСТ
+      7.32 называет оптимальным объем текста около 850 печатных знаков.</p>
+                              <p>Строго говоря, в ГОСТ 7.32-2017 этот элемент называется
+      <strong>«РЕФЕРАТ»</strong>: в нем приводят сведения об объеме работы, количестве иллюстраций,
+      таблиц, использованных источников и приложений, перечень ключевых слов и текст. Многие вузы
+      называют этот лист «аннотацией», поэтому ниже оба слова означают один элемент ВКР. Общие
+      требования к реферату ГОСТ 7.32 отсылает к ГОСТ 7.9-95, который в России заменен ГОСТ Р
+      7.0.99-2018 «Реферат и аннотация». Аннотация в узком смысле этого стандарта — более короткая
+      характеристика документа, например научной статьи.</p>
+                              <p>Она подшивается в начало пояснительной записки (после <a
+      href="/blog/diploma-assignment-form-calendar-schedule-gost">задания на дипломную работу</a> или
+      перед содержанием). Для магистерских диссертаций и ряда бакалаврских программ нормоконтроль
+      требует дублирования аннотации на английском языке под заголовком <strong>Abstract</strong>.</p>
+  - id: "structure"
+    title: "Обязательные элементы реферата (аннотации) по ГОСТ 7.32"
+    html: |2-
+                              <p>По ГОСТ 7.32-2017 (п. 5.3) реферат, который во многих вузах называют
+      аннотацией, содержит три части в таком порядке:</p>
+                              <ol>
+                                  <li><strong>Сведения об объеме работы:</strong> число страниц,
+      иллюстраций, таблиц, использованных источников и приложений;</li>
+                                  <li><strong>Перечень ключевых слов:</strong> от 5 до 15 слов или
+      словосочетаний, прописными буквами;</li>
+                                  <li><strong>Текст реферата:</strong> объект исследования или
+      разработки, цель работы, методы, результаты и их новизна, область применения, рекомендации или
+      итоги внедрения, экономическая эффективность или значимость работы.</li>
+                              </ol>
+                              <p>Если какой-то части в работе нет, ее пропускают, но порядок изложения
+      сохраняют.</p>
+                              <p>Логика изложения во многом перекликается с принципами <a
+      href="/blog/imrad-structure-scientific-article-scopus-template">международной структуры научных
+      публикаций IMRAD</a>, где важно четко разделить контекст, методы и практический результат.</p>
+  - id: "russian-example"
+    title: "Как написать аннотацию к ВКР: готовый пример на русском языке"
+    html: |2-
+                              <p>Рассмотрим конкретный образец, наглядно иллюстрирующий, <strong>как
+      написать аннотацию к вкр пример</strong> для дипломного проекта инженера-программиста:</p>
+                              <div class="article-quote">
+                                  <p><strong>Образец аннотации на русском:</strong><br>
+                                  «Выпускная квалификационная работа бакалавра содержит 74 страницы,
+      28 рисунков, 12 таблиц, 35 использованных источников, 3 приложения.<br><br>
+                                  МОНИТОРИНГ, СЕРВЕРНАЯ ИНФРАСТРУКТУРА, ПРЕДИКТИВНЫЙ АНАЛИЗ, FASTAPI,
+      PROMETHEUS, МЕТРИКИ<br><br>
+                                  <strong>Тема:</strong> Разработка автоматизированной системы
+      мониторинга серверной инфраструктуры.<br>
+                                  <strong>Объект исследования:</strong> распределенная серверная
+      инфраструктура облачного сервиса.<br>
+                                  <strong>Цель работы:</strong> снижение среднего времени обнаружения
+      инцидентов (MTTD) за счет внедрения предиктивного анализа метрик.<br>
+                                  <strong>Методы исследования:</strong> математическая статистика,
+      машинное обучение (ARIMA, Isolation Forest), контейнеризация Docker.<br>
+                                  <strong>Результаты:</strong> разработан программный комплекс на
+      языке Python/FastAPI с интеграцией Prometheus и Grafana. Внедрение позволило сократить время
+      реакции на сбои на 38%.»</p>
+                              </div>
+  - id: "english-abstract"
+    title: "Abstract диплом перевод: шаблон и профессиональные термины"
+    html: |2-
+                              <p>При подготовке англоязычной версии важно избегать корявого дословного
+      перевода онлайн-переводчиками. Используйте этот профессиональный <strong>abstract диплом перевод
+      шаблон</strong>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">English Abstract</span></div>
+                                  <pre><code>ABSTRACT
+      Bachelor's thesis contains 74 pages, 28 figures, 12 tables, 35 references, 3 appendices.
+
+      MONITORING, SERVER INFRASTRUCTURE, PREDICTIVE ANALYSIS, FASTAPI, PROMETHEUS, METRICS
+
+      Topic: Development of an automated server infrastructure monitoring system.
+      Object of study: Distributed cloud server infrastructure.
+      Objective: To reduce Mean Time to Detect (MTTD) by implementing predictive metric analysis.
+      Methods: Mathematical statistics, machine learning algorithms (ARIMA, Isolation Forest), Docker containerization.
+      Results: A software suite was developed using Python and FastAPI framework, integrated with Prometheus and Grafana. Implementation reduced incident response time by 38%.
+      Practical significance: The solution can be adopted by SaaS companies to optimize DevOps workloads.</code></pre>
+                              </div>
+  - id: "keywords-selection"
+    title: "Правила подбора ключевых слов (Keywords)"
+    html: |2-
+                              <p>Правила оформления ключевых слов реферата по ГОСТ 7.32-2017:</p>
+                              <ul>
+                                  <li>Их должно быть от 5 до 15 слов или словосочетаний из текста
+      работы (п. 5.3.2.1);</li>
+                                  <li>Их приводят в именительном падеже и печатают прописными буквами
+      в строку через запятые, без абзацного отступа и переноса слов, без точки в конце перечня (п.
+      6.12.2);</li>
+                                  <li>Слова должны отражать специфику работы: не используйте слишком
+      общие слова («РАБОТА», «ПРОГРАММА», «КОМПЬЮТЕР»).</li>
+                              </ul>
+                              <p>У научной статьи правила другие: там ключевые слова пишут строчными
+      после слов «Ключевые слова:» по ГОСТ Р 7.0.7-2021 — подробнее в статье об <a
+      href="/blog/scientific-article-annotation-abstract-keywords-vak">аннотации и ключевых словах к
+      научной статье</a>.</p>
+tips:
+  - title: "Сверяйте точную статистику"
+    html: |2-
+      <p>Количество страниц и таблиц в реферате пересчитывайте в самый последний момент перед печатью,
+      когда верстка диплома окончательно утверждена. В LaTeX общее число страниц подставляет команда
+      <code>\pageref{LastPage}</code> пакета <code>lastpage</code>, а число рисунков и таблиц
+      проверьте вручную.</p>
+  - title: "Двуязычная верстка в Labkeeper"
+    html: |2-
+      <p>В LaTeX-проекте Labkeeper русский реферат и английский Abstract удобно разместить на одном
+      листе. Английский текст оберните в окружение <code>otherlanguage</code>, чтобы переносы шли по
+      английским правилам.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{lastpage}
+    \begin{document}
+    \begin{center}\textbf{РЕФЕРАТ}\end{center}
+    ВКР содержит \pageref{LastPage}~с., 28~рис., 12~табл., 35~источников.
+
+    МОНИТОРИНГ, ПРЕДИКТИВНЫЙ АНАЛИЗ, МЕТРИКИ
+
+    Объект исследования --- серверная инфраструктура. Цель --- сократить время обнаружения сбоев.
+    Время реакции снижено на 38\,\%.
+    \begin{otherlanguage}{english}
+    \begin{center}\textbf{ABSTRACT}\end{center}
+    The thesis contains \pageref{LastPage}~pages, 28~figures, 12~tables, 35~references.
+
+    MONITORING, PREDICTIVE ANALYSIS, METRICS
+
+    A monitoring system was developed; incident response time was reduced by 38\,\%.
+    \end{otherlanguage}
+    \end{document}

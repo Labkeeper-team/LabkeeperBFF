@@ -1,0 +1,205 @@
+catalogIndex: 50
+slug: "it-english-cv-resume-template"
+batch: 2
+title: "Шаблон CV на чистом английском языке для IT-сферы"
+pageTitle: "Шаблон резюме на английском CV builder: CV in english template IT — Labkeeper"
+metaDescription: |2-
+  Шаблон резюме на английском в CV builder онлайн: готовый CV in english template IT для
+  разработчиков, DevOps и Data Science в LaTeX в Labkeeper.
+breadcrumbTitle: "IT CV на английском (Resume Template)"
+h1: "Шаблон CV на&nbsp;чистом английском языке для IT-сферы"
+categories:
+  - "cv"
+keywords:
+  - "шаблон резюме на английском cv builder"
+  - "cv in english template it"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "7 мин"
+cardTitle: "Англоязычное резюме (CV) для IT-специалистов: шаблон LaTeX"
+cardDescription: |2-
+  Одностраничный минималистичный шаблон резюме для зарубежных IT-компаний: структура Jake Resume,
+  прохождение ATS-фильтров и сильные глаголы действия.
+sliderTitle: "Шаблон IT-резюме на английском языке"
+sliderText: "Одностраничный CV, оптимизация под ATS-роботов, разделы опыта и стека."
+sidebarText: |2-
+  Соберите англоязычное резюме в LaTeX-проекте Labkeeper: код из статьи, кликабельные ссылки и PDF
+  после сборки.
+ctaTitle: "Создайте пробивное резюме в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX: резюме по коду из статьи, кликабельные ссылки на GitHub и LinkedIn и PDF
+  после нажатия «Выполнить».
+toc:
+  - id: "ats-standards"
+    title: "Требования зарубежных IT-компаний и прохождение ATS-роботов"
+  - id: "structure"
+    title: "Каноническая структура англоязычного одностраничного Resume"
+  - id: "latex-template"
+    title: "Шаблон резюме на английском cv builder: готовый код LaTeX"
+  - id: "it-keywords"
+    title: "Cv in english template it: формулировки достижений (XYZ-формула Google)"
+  - id: "formatting-rules"
+    title: "Ключевые ошибки: фото, семейное положение и контактные данные"
+sections:
+  - id: "ats-standards"
+    title: "Требования зарубежных IT-компаний и прохождение ATS-роботов"
+    html: |2-
+                              <p>В международных технологических компаниях (FAANG, европейские
+      стартапы) первое сито отбора осуществляют алгоритмы <strong>ATS (Applicant Tracking
+      System)</strong>. Сложные многоколоночные дизайнерские макеты из Canva с плашками и
+      нестандартными шрифтами часто распознаются парсерами как бессвязный набор символов (поэтому в
+      академической и технической среде стандартом остается <a href="/blog/latex-cv-resume">верстка CV
+      и резюме в LaTeX</a>).</p>
+                              <p>Одностраничный одноколоночный PDF из LaTeX ATS-системы обычно читают
+      хорошо: контакты, ключевые слова технологий, даты работы и образование попадают в нужные поля
+      профиля кандидата. Чтобы текст из PDF копировался без искажений, в шаблоне ниже включено
+      соответствие глифов Unicode (<code>\input{glyphtounicode}</code> и
+      <code>\pdfgentounicode=1</code>).</p>
+  - id: "structure"
+    title: "Каноническая структура англоязычного одностраничного Resume"
+    html: |2-
+                              <p>Классическое резюме уровня Junior–Senior разработчика состоит из 5
+      четких блоков:</p>
+                              <ol>
+                                  <li><strong>Header:</strong> имя, контакты (Email, Telegram), ссылки
+      на профили LinkedIn и GitHub.</li>
+                                  <li><strong>Education:</strong> университет, степень (B.S. / M.S. in
+      Computer Science), год окончания, средний балл (GPA).</li>
+                                  <li><strong>Technical Skills:</strong> языки программирования,
+      фреймворки, базы данных, облачные платформы и инструменты CI/CD.</li>
+                                  <li><strong>Experience:</strong> места работы в обратном
+      хронологическом порядке с буллетами реальных достижений.</li>
+                                  <li><strong>Projects:</strong> пет-проекты или open-source вклад с
+      кликабельными ссылками на репозитории (о том, как выигрышно подавать проекты и код, читайте в <a
+      href="/blog/programming-lab-report-code-listings-gost">гайде по оформлению листингов
+      программ</a>).</li>
+                              </ol>
+  - id: "latex-template"
+    title: "Шаблон резюме на английском cv builder: готовый код LaTeX"
+    html: |2-
+                              <p>Ниже представлен проверенный <strong>шаблон резюме на английском cv
+      builder</strong> (на базе всемирно признанного стандарта Jake's Resume):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX (IT Resume Template)</span></div>
+                                  <pre><code>\documentclass[letterpaper,11pt]{article}
+      \usepackage{latexsym}
+      \usepackage[empty]{fullpage}
+      \usepackage{titlesec}
+      \usepackage{marvosym}
+      \usepackage[usenames,dvipsnames]{color}
+      \usepackage{verbatim}
+      \usepackage{enumitem}
+      \usepackage[hidelinks]{hyperref}
+      \usepackage{fancyhdr}
+
+      % Текст PDF читается ATS-парсерами без искажений
+      \input{glyphtounicode}
+      \pdfgentounicode=1
+
+      \pagestyle{fancy}
+      \fancyhf{}
+      \renewcommand{\headrulewidth}{0pt}
+      \renewcommand{\footrulewidth}{0pt}
+
+      % Поля страницы 1.2 см для размещения на ровно 1 лист
+      \addtolength{\oddsidemargin}{-0.5in}
+      \addtolength{\evensidemargin}{-0.5in}
+      \addtolength{\textwidth}{1in}
+      \addtolength{\topmargin}{-.5in}
+      \addtolength{\textheight}{1.0in}
+
+      \urlstyle{same}
+
+      \begin{document}
+
+      % ШАПКА
+      \begin{center}
+          {\Huge \scshape Alexey Smirnov} \\ \vspace{1pt}
+          \small +7 (999) 123-45-67 $|$ \href{mailto:alex@example.com}{\underline{alex@example.com}} $|$ 
+          \href{https://linkedin.com/in/alex}{\underline{linkedin.com/in/alex}} $|$
+          \href{https://github.com/alex}{\underline{github.com/alex}}
+      \end{center}
+
+      % ТЕХНИЧЕСКИЕ НАВЫКИ
+      \section*{Technical Skills}
+      \begin{itemize}[leftmargin=0.15in, label={}]
+          \small{\item{
+           \textbf{Languages}{: Python, Go, TypeScript, SQL, C++} \\
+           \textbf{Frameworks}{: FastAPI, Django, React, Node.js} \\
+           \textbf{Infrastructure}{: Docker, Kubernetes, AWS, PostgreSQL, Redis, Git, CI/CD}
+          }}
+      \end{itemize}
+
+      % ОПЫТ РАБОТЫ
+      \section*{Experience}
+      \textbf{Backend Software Engineer} $|$ \emph{Fintech Solutions} \hfill \small{Jun 2024 -- Present} \\
+      \begin{itemize}[leftmargin=0.15in]
+          \item Designed and implemented a high-throughput payment processing microservice handling 3,000+ RPS with Go and PostgreSQL.
+          \item Reduced database query latency by 45\% through Redis caching and query index optimization.
+          \item Automated CI/CD deployment pipelines using GitHub Actions, cutting release cycle time from 2 hours to 15 minutes.
+      \end{itemize}
+
+      \end{document}</code></pre>
+                              </div>
+  - id: "it-keywords"
+    title: "Cv in english template it: формулировки достижений (XYZ-формула Google)"
+    html: |2-
+                              <p>В качественном <strong>cv in english template it</strong> каждый
+      пункт опыта работы формулируется по формуле Google: <em>«Accomplished [X] as measured by [Y], by
+      doing [Z]»</em> («Достиг X, что подтверждается метрикой Y, за счет выполнения Z»).</p>
+                              <p>Используйте сильные глаголы действия в прошедшем времени:
+      <em>Architected, Refactored, Deployed, Accelerated, Automated, Streamlined</em> вместо
+      пассивного <em>Responsible for...</em>.</p>
+  - id: "formatting-rules"
+    title: "Ключевые ошибки: фото, семейное положение и контактные данные"
+    html: |2-
+                              <p>Для резюме в США, Великобританию и Канаду строго соблюдайте правила
+      антидискриминационного законодательства (EEO):</p>
+                              <ul>
+                                  <li><strong>Не вставляйте фотографию:</strong> в этих странах фото в
+      резюме не принято, и многие компании отклоняют такие резюме, чтобы исключить предвзятость.</li>
+                                  <li><strong>Не указывайте:</strong> точный домашний адрес
+      (достаточно города и страны), возраст, дату рождения, пол и семейное положение.</li>
+                                  <li><strong>Объем:</strong> для Junior и Middle обычно одна страница
+      А4 / Letter. Резюме на 1.2 страницы выглядит неаккуратно: лучше сократить текст, чем оставить на
+      втором листе пару строк.</li>
+                              </ul>
+tips:
+  - title: "Кликабельные гиперссылки"
+    html: |2-
+      <p>Используйте <code>\usepackage[hidelinks]{hyperref}</code>, чтобы ссылки на профили оставались
+      кликабельными в PDF, но не обводились раздражающими цветными рамками.</p>
+  - title: "Имя файла и метаданные PDF"
+    html: |2-
+      <p>Labkeeper скачивает собранный документ как <code>result.pdf</code>: перед отправкой
+      переименуйте файл, например в <code>Name_Surname_Backend_CV.pdf</code>. Автора и заголовок в
+      свойствах PDF задает команда <code>\hypersetup{pdfauthor={Alexey Smirnov}, pdftitle={Backend
+      Engineer CV}}</code>.</p>
+editorExample:
+  latex: |2-
+    \documentclass[letterpaper,11pt]{article}
+    \usepackage[empty]{fullpage}
+    \usepackage{titlesec,enumitem}
+    \usepackage[hidelinks]{hyperref}
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \titleformat{\section}{\scshape\large}{}{0em}{}[\titlerule]
+    \begin{document}
+    \begin{center}
+    {\Huge\scshape Anna Petrova}\\
+    \small\href{mailto:anna@example.com}{anna@example.com} $|$
+    \href{https://github.com/anna}{github.com/anna}
+    \end{center}
+    \section*{Technical Skills}
+    \textbf{Languages}: Python, Go, SQL\\
+    \textbf{Tools}: Docker, PostgreSQL, Git
+    \section*{Experience}
+    \textbf{Backend Engineer} $|$ \emph{Fintech Solutions} \hfill Jun 2024 -- Present
+    \begin{itemize}[leftmargin=0.15in,itemsep=0pt]
+    \item Cut API latency by 30\% with Redis caching.
+    \item Added integration tests for the billing service.
+    \end{itemize}
+    \section*{Education}
+    \textbf{BSc Computer Science}, ITMO University \hfill 2022
+    \end{document}

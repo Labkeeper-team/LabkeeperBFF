@@ -1,0 +1,114 @@
+catalogIndex: 71
+slug: "latex-newcommand-macros"
+batch: 2
+title: "Создание собственных команд (макросов) в LaTeX: \\newcommand"
+pageTitle: "Как создать команду макрос в LaTeX: newcommand примеры — Labkeeper"
+metaDescription: |2-
+  Пошаговое руководство: как создать свою команду макрос в LaTeX с аргументами через newcommand,
+  примеры сокращения формул и переопределение renewcommand.
+breadcrumbTitle: "Макросы newcommand в LaTeX"
+h1: "Создание собственных команд (макросов) в&nbsp;LaTeX: \\newcommand"
+categories:
+  - "latex"
+  - "diploma"
+keywords:
+  - "как создать свою команду макрос в latex"
+  - "newcommand latex примеры"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "7 мин"
+cardTitle: "Макросы в LaTeX: создание пользовательских команд через \\newcommand"
+cardDescription: |2-
+  Как сократить повторяющийся код формул, создать свои операторы с аргументами и ускорить верстку
+  диссертации и диплома в разы.
+sliderTitle: "Собственные макросы \\newcommand в&nbsp;LaTeX"
+sliderText: "Создание команд с аргументами, сокращение формул и ускорение набора."
+sidebarText: |2-
+  Набирайте математические статьи быстрее с собственными макросами в облачном LaTeX-редакторе
+  Labkeeper.
+ctaTitle: "Оптимизируйте научную верстку в&nbsp;Labkeeper"
+ctaText: "Онлайн-редактор LaTeX с быстрой компиляцией и встроенным AI-помощником для написания макросов."
+toc:
+  - id: "why-macros"
+    title: "Зачем создавать свои макросы в LaTeX"
+  - id: "basic-syntax"
+    title: "Как создать свою команду макрос в LaTeX без параметров"
+  - id: "with-arguments"
+    title: "Команды с аргументами: newcommand в LaTeX с примерами"
+  - id: "default-arguments"
+    title: "Макросы с аргументами по умолчанию"
+  - id: "renewcommand"
+    title: "Переопределение существующих команд через \\renewcommand"
+sections:
+  - id: "why-macros"
+    title: "Зачем создавать свои макросы в LaTeX"
+    html: |2-
+                              <p>В математических и технических рукописях часто повторяются длинные
+      типовые конструкции: обозначения векторных пространств $\mathbb{R}^n$, дифференциальные
+      операторы $\frac{\partial^2 f}{\partial x^2}$ или громоздкие аббревиатуры (особенно если затем
+      требуется подробное <a href="/blog/formula-variable-explanation-where-gost">описание переменных
+      в формулах по ГОСТ</a>). Набирать их вручную десятки раз неэффективно.</p>
+  - id: "basic-syntax"
+    title: "Как создать свою команду макрос в LaTeX без параметров"
+    html: |2-
+                              <p>Узнаем, <strong>как создать свою команду макрос в latex</strong> для
+      простого сокращения. Команда объявляется в преамбуле документа:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{amssymb} % \mathbb нет в amsmath и в автоматической преамбуле
+      \newcommand{\R}{\mathbb{R}}
+      \newcommand{\eps}{\varepsilon}</code></pre>
+                              </div>
+                              <p>Теперь в тексте достаточно написать <code>$\R^3$</code> вместо
+      длинного <code>$\mathbb{R}^3$</code>, и компилятор подставит начертание. Команда
+      <code>\mathbb</code> требует <code>amssymb</code> или <code>amsfonts</code>: без пакета сборка
+      остановится (а для работы с физическими величинами советуем подключать <a
+      href="/blog/latex-siunitx">пакет siunitx для единиц измерения</a>).</p>
+  - id: "with-arguments"
+    title: "Команды с аргументами: newcommand в LaTeX с примерами"
+    html: |2-
+                              <p>Рассмотрим практические <strong>newcommand latex примеры</strong> с
+      передачей переменных. Синтаксис команды с позиционными параметрами:
+      <code>\newcommand{\имя}[число_аргументов]{определение}</code>.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Вектор со стрелкой в жирном начертании
+      \newcommand{\vect}[1]{\mathbf{\vec{#1}}}
+
+      % Дробная производная функции по переменной
+      \newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}</code></pre>
+                              </div>
+                              <p>Использование в документе: <code>$\pder{u}{t} = a^2 \pder{^2
+      u}{x^2}$</code>. Это делает исходный код статьи чистым и легким для проверки рецензентом.</p>
+  - id: "default-arguments"
+    title: "Макросы с аргументами по умолчанию"
+    html: |2-
+                              <p>LaTeX позволяет задавать первый параметр опциональным:
+      <code>\newcommand{\plusplus}[2][1]{#2 + #1}</code>. Если первый аргумент опущен в квадратных
+      скобках, подставится значение по умолчанию.</p>
+  - id: "renewcommand"
+    title: "Переопределение существующих команд через \\renewcommand"
+    html: |2-
+                              <p>Если команда уже существует в базовом дистрибутиве LaTeX (например,
+      <code>\phi</code> или <code>\leq</code>), попытка вызвать <code>\newcommand</code> выдаст ошибку
+      компиляции. В таких случаях используется директива <code>\renewcommand</code>, позволяющая
+      переопределить стандартное поведение (например, заменить стандартное начертание греческой буквы
+      на красивое <code>\renewcommand{\phi}{\varphi}</code>).</p>
+tips:
+  - title: "Имена команд только из букв"
+    html: |2-
+      <p>Имя макроса в LaTeX может состоять только из латинских букв (без цифр и спецсимволов). Имя
+      <code>\vec1</code> вызовет ошибку, используйте <code>\vecOne</code>.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \newcommand{\vect}[1]{\mathbf{#1}}\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+    \begin{document}
+    \[\vect{v}=(1,2,3),\qquad \norm{\vect{v}}=\sqrt{14}\]
+    \end{document}

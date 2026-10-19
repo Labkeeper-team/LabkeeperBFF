@@ -1,0 +1,152 @@
+catalogIndex: 47
+slug: "markdown-mathjax-katex-latex-math"
+batch: 2
+title: "Как вставлять математические формулы в Markdown (MathJax / KaTeX)"
+pageTitle: "Формулы в Markdown синтаксис: ввод математики MathJax онлайн — Labkeeper"
+metaDescription: |2-
+  Формулы в Markdown: синтаксис инлайн $...$ и блоков $$, ввод математики MathJax и KaTeX онлайн,
+  дроби, матрицы, интегралы в редакторе Labkeeper.
+breadcrumbTitle: "Математика в Markdown (MathJax / KaTeX)"
+h1: "Как вставлять математические формулы в&nbsp;Markdown (MathJax / KaTeX)"
+categories:
+  - "markdown"
+keywords:
+  - "формулы в markdown синтаксис"
+  - "ввод математики mathjax markdown онлайн"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "7 мин"
+cardTitle: "Математические формулы в Markdown: поддержка KaTeX и MathJax"
+cardDescription: |2-
+  Как совместить скорость Markdown и выразительность TeX-формул: инлайн-символы $...$, выключные
+  блоки $$, греческие буквы, дроби, суммы и матрицы.
+sliderTitle: "Формулы в Markdown (MathJax & KaTeX)"
+sliderText: "Синтаксис долларов $$, ввод дробей, греческих символов и матриц."
+sidebarText: |2-
+  Набирайте формулы LaTeX прямо внутри заметок Markdown в Labkeeper: MathJax показывает их в
+  превью при наборе.
+ctaTitle: "Пишите научные заметки в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор Markdown: формулы LaTeX через MathJax в превью при наборе и сохранение конспекта
+  в PDF через печать браузера.
+toc:
+  - id: "intro"
+    title: "Связка простоты Markdown и математической мощи TeX"
+  - id: "syntax"
+    title: "Формулы в markdown синтаксис: строчные и блочные выражения"
+  - id: "mathjax-online"
+    title: "Ввод математики mathjax markdown онлайн: базовые конструкции"
+  - id: "matrices-systems"
+    title: "Верстка матриц, векторов и систем уравнений"
+  - id: "faq"
+    title: "Отличия движков KaTeX и MathJax: скорость и поддержка команд"
+sections:
+  - id: "intro"
+    title: "Связка простоты Markdown и математической мощи TeX"
+    html: |2-
+                              <p>Markdown идеален для быстрого ведения конспектов, технической
+      документации и блогов. Однако когда требуется записать дифференциальное уравнение или закон Ома,
+      стандартных текстовых маркеров недостаточно (подробнее о правилах разметки уравнений читайте в
+      нашем <a href="/blog/latex-formulas">руководстве по формулам в LaTeX</a>).</p>
+                              <p>Современные веб-платформы поддерживают математический диалект LaTeX:
+      GitHub, Obsidian и онлайн-редактор <strong>Labkeeper</strong> набирают формулы через MathJax,
+      Notion — через KaTeX. Синтаксис у них почти одинаковый, поэтому полиграфические формулы
+      вставляются без перегрузки документа сложной TeX-разметкой.</p>
+  - id: "syntax"
+    title: "Формулы в markdown синтаксис: строчные и блочные выражения"
+    html: |2-
+                              <p>Освоить базовые <strong>формулы в markdown синтаксис</strong> можно
+      за две минуты благодаря символу доллара <code>$</code>:</p>
+                              <ul>
+                                  <li><strong>Строчная (инлайн) формула:</strong> окружается
+      одиночными долларами <code>$E = mc^2$</code> и встраивается прямо в середину предложения без
+      разрыва строки.</li>
+                                  <li><strong>Выключная (блочная) формула:</strong> окружается
+      двойными долларами <code>$$ ... $$</code>, центрируется на странице и выделяется вертикальными
+      отступами.</li>
+                              </ul>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown</span></div>
+                                  <pre><code>Второй закон Ньютона в дифференциальной форме $F = \frac{dp}{dt}$ связывает силу и импульс.
+
+      Вычисление определенного интеграла функции:
+      $$
+      \int_{0}^{\pi} \sin^2(x)\,dx = \frac{\pi}{2}
+      $$</code></pre>
+                              </div>
+                              <p>В Markdown-проекте Labkeeper формулы распознаются только между
+      знаками доллара. Скобочные разделители <code>\(...\)</code> и <code>\[...\]</code> из LaTeX
+      здесь не работают и выводятся как обычный текст.</p>
+  - id: "mathjax-online"
+    title: "Ввод математики mathjax markdown онлайн: базовые конструкции"
+    html: |2-
+                              <p>Выполняя <strong>ввод математики mathjax markdown онлайн</strong>,
+      используйте проверенный синтаксис ключевых математических операторов:</p>
+                              <ul>
+                                  <li><strong>Дроби:</strong>
+      <code>\frac{числитель}{знаменатель}</code>. Например: <code>\frac{a + b}{c - d}</code>.</li>
+                                  <li><strong>Индексы и степени:</strong> нижний индекс через
+      подчеркивание <code>x_{i+1}</code>, верхняя степень через каретку <code>e^{-x^2}</code>.</li>
+                                  <li><strong>Суммы и пределы:</strong> <code>\sum_{k=1}^{n}
+      k^2</code>, <code>\lim_{x \to 0} \frac{\sin x}{x} = 1</code>.</li>
+                                  <li><strong>Греческие буквы:</strong> <code>\alpha</code>,
+      <code>\beta</code>, <code>\gamma</code>, <code>\Omega</code>, <code>\Delta</code>.</li>
+                                  <li><strong>Корни:</strong> <code>\sqrt{x}</code> или корень n-й
+      степени <code>\sqrt[3]{a^2 + b^2}</code>.</li>
+                              </ul>
+  - id: "matrices-systems"
+    title: "Верстка матриц, векторов и систем уравнений"
+    html: |2-
+                              <p>Внутри двойных долларов <code>$$ ... $$</code> поддерживаются
+      классические окружения матриц (детальнее сложные системы разобраны в статье о <a
+      href="/blog/markdown-multiline-formulas-matrices-mathjax">многострочных формулах и матрицах в
+      MathJax</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown (MathJax)</span></div>
+                                  <pre><code>$$
+      A = \begin{pmatrix}
+      a_{11} & a_{12} & a_{13} \\
+      a_{21} & a_{22} & a_{23} \\
+      a_{31} & a_{32} & a_{33}
+      \end{pmatrix}
+      $$</code></pre>
+                              </div>
+                              <p>Окружение <code>pmatrix</code> дает круглые скобки,
+      <code>bmatrix</code> — квадратные скобки матрицы, а <code>vmatrix</code> — прямые линии
+      определителя (детерминанта).</p>
+  - id: "faq"
+    title: "Отличия движков KaTeX и MathJax: скорость и поддержка команд"
+    html: |2-
+                              <p>Два ведущих математических движка веба имеют свои особенности:</p>
+                              <ul>
+                                  <li><strong>KaTeX (от Khan Academy):</strong> заметно быстрее
+      отрисовывает формулы и не вызывает мигания страницы, но поддерживает меньше команд и
+      расширений.</li>
+                                  <li><strong>MathJax:</strong> поддерживает больше макросов и
+      расширений, но работает медленнее на страницах с сотнями уравнений. Именно MathJax набирает
+      формулы в превью Markdown-проекта Labkeeper.</li>
+                              </ul>
+tips:
+  - title: "Текст внутри формул"
+    html: |2-
+      <p>Для вставки обычных русских слов внутрь математической строки используйте макрос
+      <code>\text{...}</code>: <code>$$ v_{\text{ср}} = \frac{S}{t} $$</code>.</p>
+  - title: "Пробелы в формулах"
+    html: |2-
+      <p>В математическом режиме пробелы клавиатуры игнорируются. Для создания отступов используйте
+      тонкий пробел <code>\,</code>, средний <code>\;</code> или широкий <code>\quad</code>.</p>
+editorExample:
+  markdown: |2-
+    ## Формулы
+
+    В строке: $E=mc^2$.
+
+    $$
+    \int_0^1 x^2\,dx=\frac13
+    $$
+
+    $$
+    x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+    $$

@@ -1,0 +1,199 @@
+catalogIndex: 90
+slug: "latex-list-of-figures-tables"
+batch: 1
+title: "Автоматическая генерация списка иллюстраций и таблиц (List of Figures / Tables) по ГОСТ"
+pageTitle: "Список иллюстраций и таблиц по ГОСТ в LaTeX (List of Figures/Tables) — Labkeeper"
+metaDescription: |2-
+  Генерация списка таблиц и рисунков в LaTeX онлайн: оформление перечня иллюстраций LaTeX ГОСТ с
+  пакетом tocloft, русификация, настройка отступов и точек.
+ogTitle: |2-
+  Автоматическая генерация списка иллюстраций и таблиц (List of Figures / Tables) по ГОСТ —
+  Labkeeper
+ogDescription: |2-
+  Список таблиц и рисунков в LaTeX онлайн: автоматическая генерация, перечень иллюстраций в стиле
+  ГОСТ и настройка tocloft.
+twitterTitle: "Список иллюстраций и таблиц по ГОСТ в LaTeX — Labkeeper"
+twitterDescription: "Оформление перечня иллюстраций и таблиц LaTeX ГОСТ онлайн."
+schemaDescription: |2-
+  Руководство по настройке и форматированию списков рисунков и таблиц в LaTeX по ГОСТ с помощью
+  пакета tocloft.
+breadcrumbTitle: "Список иллюстраций и таблиц по ГОСТ"
+h1: |2-
+  Автоматическая генерация списка иллюстраций и&nbsp;таблиц (List of Figures / Tables)
+  по&nbsp;ГОСТ
+categories:
+  - "diploma"
+  - "latex"
+keywords:
+  - "список таблиц и рисунков в latex онлайн"
+  - "оформление перечня иллюстраций latex гост"
+datePublished: "2026-08-20"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: |2-
+  Автоматическая генерация списка иллюстраций и таблиц (List of Figures /
+                          Tables) по ГОСТ
+cardDescription: |2-
+  Автоматическая генерация перечня рисунков и таблиц: префиксы «Рисунок» и
+                          «Таблица», отточия и включение в оглавление.
+sliderTitle: "Список иллюстраций и&nbsp;таблиц по&nbsp;ГОСТ"
+sliderText: "Автоматическая генерация перечня рисунков и таблиц (LoF / LoT) в LaTeX."
+sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sidebarText: |2-
+  Генерируйте списки таблиц, рисунков и&nbsp;оглавление по&nbsp;ГОСТ в&nbsp;Labkeeper
+  без&nbsp;ручной рутины.
+ctaTitle: "Оформляйте перечни иллюстраций и&nbsp;таблиц в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с&nbsp;поддержкой пакета tocloft и&nbsp;автоматической сборкой списков
+  по&nbsp;ГОСТ без&nbsp;локальной настройки окружения.
+toc:
+  - id: "intro"
+    title: "Зачем нужен перечень иллюстраций и таблиц"
+  - id: "builtin"
+    title: "Стандартные команды \\listoffigures и \\listoftables"
+  - id: "tocloft"
+    title: "Оформление в стиле ГОСТ через пакет tocloft"
+  - id: "dots"
+    title: "Отточия (лидеры) и выравнивание номеров страниц"
+  - id: "tocbibind"
+    title: "Включение списков в общее оглавление (tocbibind)"
+  - id: "short-captions"
+    title: "Краткие подписи для списков в caption"
+  - id: "tips"
+    title: "Практические советы"
+sections:
+  - id: "intro"
+    title: "Зачем нужен перечень иллюстраций и таблиц"
+    html: |2-
+                              <p>В объемных <a href="/blog/latex-diploma-gost">дипломных проектах</a>,
+      <a href="/blog/latex-dissertation">диссертациях ВАК</a> и научно-технических отчетах многие вузы
+      требуют перечень графического материала: «Список иллюстраций» (List of Figures, LoF) и «Список
+      таблиц» (List of Tables, LoT). Среди структурных элементов ГОСТ 7.32-2017 такого перечня нет,
+      поэтому нужен ли он, решает методичка. При ручном составлении любые изменения нумерации приводят
+      к ошибкам.</p>
+                              <p>В LaTeX <strong>список таблиц и рисунков в latex онлайн</strong>
+      создается автоматически на основе подписей <code>\caption{}</code>, а <strong>оформление перечня
+      иллюстраций latex гост</strong> легко настраивается пакетом <code>tocloft</code>.</p>
+  - id: "builtin"
+    title: "Стандартные команды \\listoffigures и \\listoftables"
+    html: |2-
+                              <p>Для вывода списков достаточно разместить в нужном месте документа
+      (обычно сразу после оглавления <code>\tableofcontents</code>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\tableofcontents % Основное оглавление
+      \newpage
+
+      \listoffigures   % Список рисунков
+      \newpage
+
+      \listoftables    % Список таблиц
+      \newpage</code></pre>
+                              </div>
+  - id: "tocloft"
+    title: "Оформление в стиле ГОСТ через пакет tocloft"
+    html: |2-
+                              <p>ГОСТ 7.32-2017 задаёт форму подписи — «Рисунок 1 — Название» и
+      «Таблица 2 — Название», — а оформление перечней не регулирует. Многие методички просят повторить
+      эту форму в списках и назвать их по-русски; префиксы добавляет пакет <code>tocloft</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage[titles]{tocloft}
+
+      % Русификация заголовков
+      \renewcommand{\listfigurename}{Список иллюстраций}
+      \renewcommand{\listtablename}{Список таблиц}
+
+      % Префиксы перед номерами
+      \renewcommand{\cftfigpresnum}{Рисунок~}
+      \renewcommand{\cfttabpresnum}{Таблица~}
+
+      % Отступы для вмещения префикса
+      \settowidth{\cftfignumwidth}{Рисунок~99.~}
+      \settowidth{\cfttabnumwidth}{Таблица~99.~}</code></pre>
+                              </div>
+  - id: "dots"
+    title: "Отточия (лидеры) и выравнивание номеров страниц"
+    html: |2-
+                              <p>Для содержания ГОСТ 7.32-2017 требует отточие до номера страницы. Для
+      перечней рисунков и таблиц отдельного правила нет, но методички часто просят те же точки. В
+      перечнях LaTeX ставит их по умолчанию, а частоту точек в пакете <code>tocloft</code> задают
+      команды <code>\cftfigdotsep</code> и <code>\cfttabdotsep</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Частота точек в отточиях
+      \renewcommand{\cftfigdotsep}{1}
+      \renewcommand{\cfttabdotsep}{1}</code></pre>
+                              </div>
+  - id: "tocbibind"
+    title: "Включение списков в общее оглавление (tocbibind)"
+    html: |2-
+                              <p>Чтобы списки иллюстраций, таблиц и <a
+      href="/blog/latex-gost-bibliography">список литературы по ГОСТ 7.0.5</a> отображались в основном
+      оглавлении, подключите пакет <code>tocbibind</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage[nottoc]{tocbibind}
+      % Опция nottoc исключает попадание самого оглавления в оглавление</code></pre>
+                              </div>
+  - id: "short-captions"
+    title: "Краткие подписи для списков в caption"
+    html: |2-
+                              <p>Если подпись под графиком слишком длинная и содержит подробное
+      описание эксперимента, используйте опциональный аргумент команды
+      <code>\caption[краткая]{полная}</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{figure}[ht]
+          \centering
+          \includegraphics[width=0.8\textwidth]{diagram.pdf}
+          \caption[Схема экспериментальной установки]{Схема экспериментальной установки для исследования аэродинамического сопротивления профиля при сверхзвуковых скоростях потока.}
+          \label{fig:setup}
+      \end{figure}</code></pre>
+                              </div>
+                              <p>В перечень иллюстраций попадет только лаконичная фраза «Схема
+      экспериментальной установки». Для форматирования самих числовых таблиц рекомендуем использовать
+      <a href="/blog/latex-siunitx">выравнивание по разрядам в siunitx</a>.</p>
+  - id: "tips"
+    title: "Практические советы"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Двойная компиляция</h3>
+                                          <p>Списки таблиц и рисунков формируются через служебные
+      файлы <code>.lof</code> и <code>.lot</code>, поэтому для обновления номеров страниц требуется 2
+      прохода компиляции.</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Оформление по ЕСКД</h3>
+                                          <p>Для инженерных расчетно-пояснительных записок, требующих
+      сквозных рамок и штампов, ознакомьтесь с <a href="/blog/latex-eskd">руководством по
+      ЕСКД</a>.</p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+
+    \begin{document}
+    \listoffigures\listoftables
+    \begin{figure}[h]\centering\fbox{\rule{0pt}{15mm}\rule{35mm}{0pt}}
+    \caption{Experimental setup}\end{figure}
+    \begin{table}[h]\centering\begin{tabular}{cc}Time & Value\\1 & 2\end{tabular}
+    \caption{Measurements}\end{table}
+    \end{document}

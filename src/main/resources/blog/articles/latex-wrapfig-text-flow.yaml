@@ -1,0 +1,149 @@
+catalogIndex: 65
+slug: "latex-wrapfig-text-flow"
+batch: 2
+title: "Обертывание текста вокруг картинок в LaTeX (пакет wrapfig)"
+pageTitle: "Обтекание картинок текстом в LaTeX wrapfig сбоку от текста — Labkeeper"
+metaDescription: |2-
+  Как настроить обтекание картинки текстом в LaTeX через пакет wrapfig: размещение иллюстрации
+  сбоку, параметры r, l, устранение наложений и примеры.
+breadcrumbTitle: "Обтекание картинок (wrapfig)"
+h1: "Обертывание текста вокруг картинок в&nbsp;LaTeX (пакет wrapfig)"
+categories:
+  - "latex"
+keywords:
+  - "текст вокруг картинки обтекание latex"
+  - "картинка сбоку от текста latex wrapfig"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "6 мин"
+cardTitle: "Обтекание картинок текстом в LaTeX: руководство по пакету wrapfig"
+cardDescription: |2-
+  Как расположить компактную иллюстрацию справа или слева от текста, настроить точную ширину
+  врезки и избежать смещения абзацев в LaTeX.
+sliderTitle: "Обтекание текста картинкой в LaTeX"
+sliderText: "Пакет wrapfig, позиционирование картинок справа и слева от абзаца."
+sidebarText: |2-
+  Вставляйте иллюстрации с аккуратным обтеканием текста прямо в онлайн-редакторе Labkeeper и
+  собирайте PDF в браузере.
+ctaTitle: "Вставляйте графику в&nbsp;Labkeeper без сбоев"
+ctaText: "Онлайн-редактор LaTeX с предпросмотром PDF и полным TeX Live для типографики."
+toc:
+  - id: "intro"
+    title: "Когда требуется обтекание текстом"
+  - id: "syntax"
+    title: "Базовый синтаксис окружения wrapfigure"
+  - id: "alignment"
+    title: "Текст вокруг картинки обтекание latex: выравнивание слева и справа"
+  - id: "lines"
+    title: "Картинка сбоку от текста latex wrapfig: ручной контроль высоты врезки"
+  - id: "troubleshooting"
+    title: "Типичные ошибки и способы их решения"
+sections:
+  - id: "intro"
+    title: "Когда требуется обтекание текстом"
+    html: |2-
+                              <p>В стандартном LaTeX плавающие окружения <code>figure</code> занимают
+      всю ширину полосы набора. Если иллюстрация имеет небольшой размер (портрет автора, схема пина
+      микроконтроллера, компактный логотип), пустое пространство по бокам выглядит неаккуратно
+      (альтернативный способ компоновки графики — <a
+      href="/blog/latex-minipage-images-tables-side-by-side">размещение картинок рядом через
+      minipage</a>).</p>
+                              <p>Пакет <strong>wrapfig</strong> реализует журнальную верстку, при
+      которой <strong>текст вокруг картинки обтекание latex</strong> формируется плавно, заполняя
+      свободную площадь страницы и экономя вертикальное пространство документа.</p>
+  - id: "syntax"
+    title: "Базовый синтаксис окружения wrapfigure"
+    html: |2-
+                              <p>Подключите пакет в преамбуле: <code>\usepackage{wrapfig}</code>.
+      Вставка иллюстрации осуществляется через специальное окружение <code>wrapfigure</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{wrapfigure}{r}{0.38\textwidth}
+          \centering
+          \includegraphics[width=0.34\textwidth]{device.png}
+          \caption{Внешний вид датчика}
+          \label{fig:sensor}
+      \end{wrapfigure}
+      Здесь начинается текст абзаца, который будет обтекать рисунок слева. 
+      Важно помещать блок wrapfigure непосредственно перед началом абзаца...</code></pre>
+                              </div>
+                              <p>Окружение принимает два обязательных параметра: позицию
+      (<code>r</code> — справа, <code>l</code> — слева) и выделяемую ширину врезки (например,
+      <code>0.38\textwidth</code> или <code>5cm</code>).</p>
+  - id: "alignment"
+    title: "Текст вокруг картинки обтекание latex: выравнивание слева и справа"
+    html: |2-
+                              <p>Позиционирование задается символом регистра:</p>
+                              <ul>
+                                  <li><code>r</code> / <code>l</code> — строчные буквы фиксируют
+      рисунок строго у правого или левого края текущей страницы.</li>
+                                  <li><code>R</code> / <code>L</code> — заглавные буквы указывают
+      LaTeX, что рисунок является «плавающим» (если места в абзаце недостаточно, фигура
+      сдвинется).</li>
+                                  <li><code>o</code> / <code>i</code> — для двусторонней печати
+      (книжная верстка): <code>o</code> (снаружи, outer margin), <code>i</code> (внутри, inner
+      margin).</li>
+                              </ul>
+                              <p>Для большинства учебных и научных отчетов стандартом является
+      строчная буква <code>r</code> (картинка прижата к правому полю набора).</p>
+  - id: "lines"
+    title: "Картинка сбоку от текста latex wrapfig: ручной контроль высоты врезки"
+    html: |2-
+                              <p>Когда создается <strong>картинка сбоку от текста latex
+      wrapfig</strong>, алгоритм TeX не всегда точно рассчитывает количество суженных строк, из-за
+      чего следующий абзац или подзаголовок может «наехать» на подрисуночную подпись.</p>
+                              <p>Для исправления передайте опциональный параметр количества строк в
+      квадратных скобках перед позицией:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{wrapfigure}[14]{r}{6cm}
+          \centering
+          \includegraphics[width=5.5cm]{chart.pdf}
+          \caption{Характеристика АЧХ}
+      \end{wrapfigure}</code></pre>
+                              </div>
+                              <p>Число <code>[14]</code> принудительно зарезервирует ровно 14 строк
+      текста под ширину врезки, гарантируя, что последующий текст начнется ровно под иллюстрацией (а
+      требования к подписям и структуре нумерации смотрите в статье о <a
+      href="/blog/figure-double-numbering-chapters-gost">нумерации рисунков по главам по
+      ГОСТ</a>).</p>
+  - id: "troubleshooting"
+    title: "Типичные ошибки и способы их решения"
+    html: |2-
+                              <p>При использовании wrapfig соблюдайте следующие правила:</p>
+                              <ul>
+                                  <li><strong>Не ставьте wrapfig внутри списков:</strong> окружения
+      <code>enumerate</code> и <code>itemize</code> нарушают расчет ширины строк. Размещайте картинку
+      строго перед началом списка в сплошном абзаце.</li>
+                                  <li><strong>Не разрывайте абзац перед wrapfig:</strong> не
+      оставляйте пустую строку между <code>\end{wrapfigure}</code> и первым словом текста.</li>
+                                  <li><strong>Избегайте близости к концу страницы:</strong> если до
+      конца страницы осталось меньше трети высоты полосы, картинка вылетит на следующее поле. В таких
+      случаях используйте стандартный <code>figure[htbp]</code>.</li>
+                              </ul>
+tips:
+  - title: "Точные поля вокруг картинки"
+    html: |2-
+      <p>Длина <code>\setlength{\columnsep}{15pt}</code> регулирует горизонтальный отступ между телом
+      иллюстрации и обтекающим текстом.</p>
+  - title: "Обтекание таблиц"
+    html: |2-
+      <p>Пакет также предоставляет парное окружение <code>wraptable</code>, позволяющее точно так же
+      оборачивать текстом небольшие компактные таблицы.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{wrapfig}
+    \begin{document}
+    \begin{wrapfigure}{r}{.3\textwidth}\centering
+    \fbox{\rule{0pt}{18mm}\rule{25mm}{0pt}}\caption{Diagram}\end{wrapfigure}
+    Text flows around the illustration. A narrow figure can sit next to a paragraph without
+    occupying the entire line. Continue editing this paragraph to see how the available line width
+    changes below the image.
+    \end{document}

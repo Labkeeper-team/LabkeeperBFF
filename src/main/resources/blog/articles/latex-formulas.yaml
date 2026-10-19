@@ -1,0 +1,349 @@
+catalogIndex: 95
+slug: "latex-formulas"
+batch: 1
+title: "Пакет amsmath в LaTeX: формулы, выравнивание align и дроби"
+pageTitle: "Пакет amsmath в LaTeX: формулы, выравнивание align и дроби — Labkeeper"
+metaDescription: |2-
+  Полное руководство по пакету amsmath в LaTeX с примерами: выравнивание формул по знаку равно
+  (align), разница между frac, dfrac и tfrac, матрицы и скобки. Попробуйте в онлайн-редакторе
+  Labkeeper!
+schemaDescription: |2-
+  Полное руководство по пакету amsmath в LaTeX с примерами: выравнивание формул по знаку равно
+  (align), разница между frac, dfrac и tfrac, матрицы и скобки.
+breadcrumbTitle: "Формулы и уравнения в LaTeX"
+h1: |2-
+  Формулы и уравнения в&nbsp;LaTeX: полное руководство
+                          по&nbsp;пакету
+                          amsmath
+categories:
+  - "latex"
+  - "articles"
+keywords:
+  - "формулы и уравнения в latex amsmath"
+  - "выравнивание формул по знаку равно latex align"
+datePublished: "2026-08-15"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "Формулы и уравнения в LaTeX: полное руководство по пакету amsmath"
+cardDescription: |2-
+  Полное руководство по математическому режиму: align, gather, дроби
+                          dfrac/tfrac, матрицы и масштабирование скобок.
+sliderTitle: "Формулы и&nbsp;уравнения (пакет amsmath)"
+sliderText: "Полное руководство по математическому режиму, выравниванию формул и дробям в LaTeX."
+sidebarImageAlt: "Интерфейс онлайн-редактора LaTeX Labkeeper"
+sidebarText: |2-
+  Онлайн-редактор LaTeX с&nbsp;компиляцией в&nbsp;PDF,
+                          AI-ассистентом и&nbsp;поддержкой amsmath — без установки, сразу
+  в&nbsp;браузере.
+ctaTitle: "Набирайте сложные формулы в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с&nbsp;компиляцией в&nbsp;PDF, поддержкой
+                      пакетов amsmath и&nbsp;AI-ассистентом — без&nbsp;установки программ, сразу
+  в&nbsp;браузере.
+toc:
+  - id: "intro"
+    title: "Введение: зачем нужен amsmath"
+  - id: "inline"
+    title: "Inline-формулы в тексте"
+  - id: "equations"
+    title: "Окружения equation и equation*"
+  - id: "align"
+    title: |2-
+      Выравнивание формул по знаку равно
+                                          (align)
+  - id: "gather"
+    title: "Группировка уравнений: gather"
+  - id: "fractions"
+    title: |2-
+      Разница между frac, dfrac и tfrac в
+                                          LaTeX
+  - id: "matrices"
+    title: "Матрицы"
+  - id: "brackets"
+    title: "Масштабирование скобок"
+  - id: "tips"
+    title: "Практические советы"
+sections:
+  - id: "intro"
+    title: "Введение: зачем нужен amsmath"
+    html: |2-
+                              <p>Пакет <code>amsmath</code> в LaTeX — это признанный стандарт для
+      набора сложных
+                                  математических формул и уравнений, разработанный Американским
+      математическим обществом
+                                  (AMS). Ниже собраны подробные примеры работы с пакетом, правила
+      выравнивания формул и
+                                  типографические нюансы.</p>
+                              <p>Чтобы подключить пакет <code>amsmath</code>, добавьте в преамбулу
+      документа:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header">
+                                      <span class="article-code__lang">LaTeX</span>
+                                  </div>
+                                  <pre><code>\usepackage{amsmath}</code></pre>
+                              </div>
+                              <p>После подключения вам станут доступны все математические окружения и
+      команды. Большинство
+                                  современных онлайн-редакторов, включая <strong>Labkeeper</strong>,
+      поддерживают пакет
+                                  <code>amsmath</code> по умолчанию.
+                              </p>
+  - id: "inline"
+    title: "Inline-формулы в тексте"
+    html: |2-
+                              <p>Inline-формулы (внутристрочные выражения) позволяют вставлять формулы
+      прямо в текст без
+                                  разрыва абзаца.</p>
+                              <p>В LaTeX доступны два способа записи:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header">
+                                      <span class="article-code__lang">LaTeX</span>
+                                  </div>
+                                  <pre><code>Уравнение $E = mc^2$ — знаменитая формула Эйнштейна.
+
+      % Альтернативный синтаксис:
+      Уравнение \( E = mc^2 \) — знаменитая формула Эйнштейна.</code></pre>
+                              </div>
+                              <p><strong>Результат:</strong> Уравнение <em>E = mc²</em> — знаменитая
+      формула Эйнштейна.</p>
+                              <p>Оба варианта дают эквивалентный результат. Синтаксис <code>$ ...
+      $</code> является наиболее
+                                  популярным среди авторов.</p>
+                              <div class="article-note">
+                                  <strong>💡 Совет:</strong> Для внутристрочных формул LaTeX
+      автоматически масштабирует высоту
+                                  дробей и индексов. Если требуется отобразить дробь в полный размер,
+      используйте команду
+                                  <code>\displaystyle</code>.
+                              </div>
+  - id: "equations"
+    title: "Окружения equation и equation*"
+    html: |2-
+                              <p>Для выделенных (выносных) математических выражений используется
+      окружение
+                                  <code>equation</code>. Формула центрируется на отдельной строке и
+      получает сквозной номер.
+                              </p>
+                              <div class="article-code">
+                                  <div class="article-code__header">
+                                      <span class="article-code__lang">LaTeX</span>
+                                  </div>
+                                  <pre><code>\begin{equation}
+          a^2 + b^2 = c^2
+      \end{equation}</code></pre>
+                              </div>
+                              <p><strong>Результат:</strong> отцентрированная формула <em>a² + b² =
+      c²</em> с номером (1)
+                                  справа.</p>
+                              <div class="article-note">
+                                  <strong>💡 Нумерация в Labkeeper:</strong> если в проекте нет своей
+      преамбулы, Labkeeper
+                                  подставляет автоматическую с пакетом <code>mathtools</code> в режиме
+                                  <code>showonlyrefs</code>. Тогда номер появляется только у формулы,
+      на которую есть ссылка
+                                  через <code>\eqref</code>. Чтобы нумеровались все формулы, соберите
+      документ со своей
+                                  преамбулой — от <code>\documentclass</code> до
+      <code>\begin{document}</code>.
+                              </div>
+
+                              <p>Если нумерация строки не требуется, используйте звёздочную версию
+      <code>equation*</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header">
+                                      <span class="article-code__lang">LaTeX</span>
+                                  </div>
+                                  <pre><code>\begin{equation*}
+          \int_{0}^{\infty} e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}
+      \end{equation*}</code></pre>
+                              </div>
+                              <div class="article-note">
+                                  <strong>⚠️ Важно:</strong> Избегайте использования устаревшей
+      конструкции
+                                  <code>$$...$$</code> из plain TeX — в LaTeX она может нарушать
+      вертикальные интервалы.
+                              </div>
+  - id: "align"
+    title: "Выравнивание формул по знаку равно: LaTeX align"
+    html: |2-
+                              <p>Окружение <code>align</code> из пакета <code>amsmath</code>
+      предназначено для многострочных
+                                  вычислений. Выравнивание формул по знаку равно в LaTeX
+      осуществляется символом амперсанда
+                                  <code>&amp;</code> перед знаком равенства:
+                              </p>
+                              <div class="article-code">
+                                  <div class="article-code__header">
+                                      <span class="article-code__lang">LaTeX</span>
+                                  </div>
+                                  <pre><code>\begin{align}
+          f(x) &amp;= x^2 + 2x + 1 \\
+               &amp;= (x + 1)^2
+      \end{align}</code></pre>
+                              </div>
+                              <p>Символ <code>&amp;</code> задаёт точку выравнивания, а две косые
+      черты <code>\\</code>
+                                  выполняют перенос на новую строку.</p>
+
+                              <p>Для системы уравнений без нумерации строк используйте
+      <code>align*</code> (а для систем с
+                                  общей фигурной скобкой и кусочных функций ознакомьтесь с <a
+                                      href="/blog/latex-systems-equations">гайдом по системам
+      уравнений в LaTeX</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header">
+                                      <span class="article-code__lang">LaTeX</span>
+                                  </div>
+                                  <pre><code>\begin{align*}
+          3x + 2y &amp;= 7  \\
+           x - y  &amp;= 1
+      \end{align*}</code></pre>
+                              </div>
+                              <p>Чтобы отключить номер у конкретной строки в окружении
+      <code>align</code>, укажите команду
+                                  <code>\notag</code> или <code>\nonumber</code> перед переносом
+      строки <code>\\</code>.
+                              </p>
+  - id: "gather"
+    title: "Группировка уравнений: gather"
+    html: |2-
+                              <p>Окружение <code>gather</code> объединяет несколько уравнений в единый
+      блок, центрируя каждое
+                                  выражение без привязки к общей точке выравнивания (в отличие от
+      <code>align</code>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header">
+                                      <span class="article-code__lang">LaTeX</span>
+                                  </div>
+                                  <pre><code>\begin{gather}
+          x + y = 4 \\
+          x^2 + y^2 = 8
+      \end{gather}</code></pre>
+                              </div>
+  - id: "fractions"
+    title: "Разница между frac, dfrac и tfrac в LaTeX"
+    html: |2-
+                              <p>Разница между командами <code>\frac</code>, <code>\dfrac</code> и
+      <code>\tfrac</code>
+                                  заключается в контексте отображения и масштабе шрифта дроби:</p>
+
+                              <div class="article-table-wrapper">
+                                  <table class="article-table">
+                                      <thead>
+                                          <tr>
+                                              <th>Команда</th>
+                                              <th>Стиль и назначение</th>
+                                              <th>Пример кода</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td><code>\frac{a}{b}</code></td>
+                                              <td>Стандартный масштаб — автоматически подстраивается
+      под контекст (inline или
+                                                  отдельная строка)</td>
+                                              <td><code>\frac{x+1}{x-1}</code></td>
+                                          </tr>
+                                          <tr>
+                                              <td><code>\dfrac{a}{b}</code></td>
+                                              <td>Display-дробь полного размера — сохраняет крупный
+      шрифт даже внутри обычного
+                                                  текста</td>
+                                              <td><code>\dfrac{dy}{dx}</code></td>
+                                          </tr>
+                                          <tr>
+                                              <td><code>\tfrac{a}{b}</code></td>
+                                              <td>Text-дробь уменьшенного размера — удобна для
+      компактных числовых
+                                                  коэффициентов вроде 1/2</td>
+                                              <td><code>\tfrac{1}{2}</code></td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+
+                              <p>Пример использования дробей в формуле:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header">
+                                      <span class="article-code__lang">LaTeX</span>
+                                  </div>
+                                  <pre><code>\begin{equation}
+          \frac{d}{dx} \left( \frac{1}{x} \right) = -\frac{1}{x^2}
+      \end{equation}</code></pre>
+                              </div>
+  - id: "matrices"
+    title: "Матрицы"
+    html: |2-
+                              <p>Пакет <code>amsmath</code> предоставляет несколько окружений для
+      матриц, отличающихся типом
+                                  скобок (при оформлении математических доказательств с матрицами
+      используйте также <a
+                                      href="/blog/latex-amsthm">пакет теорем amsthm</a>):</p>
+
+                              <div class="article-code">
+                                  <div class="article-code__header">
+                                      <span class="article-code__lang">LaTeX</span>
+                                  </div>
+                                  <pre><code>\begin{equation}
+          A = \begin{pmatrix}
+              a_{11} &amp; a_{12} &amp; a_{13} \\
+              a_{21} &amp; a_{22} &amp; a_{23} \\
+              a_{31} &amp; a_{32} &amp; a_{33}
+          \end{pmatrix}
+      \end{equation}</code></pre>
+                              </div>
+  - id: "brackets"
+    title: "Масштабирование скобок"
+    html: |2-
+                              <p>Когда формула содержит дроби, суммы или интегралы, стандартные скобки
+      <code>( )</code>
+                                  оказываются слишком маленькими. Команды <code>\left</code> и
+      <code>\right</code>
+                                  автоматически подбирают размер.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header">
+                                      <span class="article-code__lang">LaTeX</span>
+                                  </div>
+                                  <pre><code>\left( \frac{a}{b} \right)
+      \left[ \frac{a}{b} \right]
+      \left\{ \frac{a}{b} \right\}</code></pre>
+                              </div>
+  - id: "tips"
+    title: "Практические советы"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Импорт формул из текстовых процессоров</h3>
+                                          <p>Если вы переносите рукопись из Word, изучите пошаговый
+      алгоритм в статье по <a
+                                                  href="/blog/latex-word-to-latex">конвертации
+      документов из Word в LaTeX</a>.
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Размерности и физические величины</h3>
+                                          <p>Для набора чисел с единицами измерения по ГОСТ
+      используйте <a
+                                                  href="/blog/latex-siunitx">пакет siunitx</a>, а не
+      обычный математический
+                                              режим.</p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+
+    \begin{document}
+    \[E=mc^2,\qquad \int_0^1 x^2\,dx=\frac13\]
+    \begin{align}a^2+b^2&=c^2\\x&=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\end{align}
+    \end{document}

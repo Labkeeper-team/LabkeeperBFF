@@ -1,0 +1,162 @@
+catalogIndex: 9
+slug: "modern-it-resume-markdown-cv-as-code"
+batch: 2
+title: "Шаблон современного IT-резюме в Markdown: пишем CV как код"
+pageTitle: "Markdown шаблон резюме разработчика: создать CV в Markdown онлайн — Labkeeper"
+metaDescription: |2-
+  Современный Markdown шаблон резюме разработчика под концепцию CV-as-Code. Как создать CV в
+  Markdown онлайн и сохранить его в PDF, который читают ATS-системы, в Labkeeper.
+breadcrumbTitle: "Резюме в Markdown (CV as Code)"
+h1: "Шаблон современного IT-резюме в&nbsp;Markdown: пишем CV как&nbsp;код"
+categories:
+  - "cv"
+  - "markdown"
+keywords:
+  - "markdown шаблон резюме разработчика"
+  - "создать cv в markdown онлайн"
+datePublished: "2026-09-06"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "IT-резюме в Markdown: пишем CV как код с контролем версий в Git"
+cardDescription: |2-
+  Философия Resume-as-Code: чистый текстовый исходник, сборка PDF из Markdown, отсутствие
+  визуального шума и хорошая читаемость для ATS.
+sliderTitle: "IT-резюме в Markdown (CV as Code)"
+sliderText: "Как писать резюме разработчика как код с контролем версий и ATS-версткой."
+sidebarText: |2-
+  Пишите IT-резюме в чистом Markdown в Labkeeper: превью при наборе и сохранение в PDF без
+  установки программ.
+ctaTitle: "Напишите CV как код в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор для инженеров: резюме в Markdown, превью при наборе и PDF через печать браузера
+  или LaTeX-проект.
+toc:
+  - id: "concept"
+    title: "Концепция «CV как код» (Resume as Code)"
+  - id: "benefits"
+    title: "Почему Markdown превосходит Canva, Figma и Word"
+  - id: "markdown-template"
+    title: "Markdown шаблон резюме разработчика: готовый образец"
+  - id: "online-creator"
+    title: "Создать CV в Markdown онлайн: пошаговая настройка в Labkeeper"
+  - id: "git-automation"
+    title: "Автоматизация версий через Git и GitHub Actions"
+sections:
+  - id: "concept"
+    title: "Концепция «CV как код» (Resume as Code)"
+    html: |2-
+                              <p>В инженерном сообществе подход <strong>«Резюме как код» (CV as
+      Code)</strong> стал признанным стандартом хорошего тона. Вместо того чтобы тратить часы на
+      выравнивание плашек в графических редакторах Canva или мучиться с непредсказуемой сеткой Word,
+      разработчик хранит резюме в виде чистого текстового файла с разметкой Markdown.</p>
+                              <p>Это дает колоссальные преимущества: полный контроль версий через Git,
+      возможность вести разные ветки под разные типы вакансий (например, <code>backend-lead</code> и
+      <code>devops-architect</code>) и быструю компиляцию в финальный документ. О том, как логично
+      сгруппировать навыки, читайте в нашей статье о том, как <a
+      href="/blog/frontend-backend-developer-resume-tech-stack-ats">структурировать стек технологий
+      разработчика</a>.</p>
+  - id: "benefits"
+    title: "Почему Markdown превосходит Canva, Figma и Word"
+    html: |2-
+                              <ul>
+                                  <li><strong>Совместимость с ATS:</strong> системы автоматического
+      скрининга кандидатов обычно хорошо читают структурированный текст без скрытых графических
+      фреймов;</li>
+                                  <li><strong>Скорость редактирования:</strong> добавить новый проект
+      или скорректировать цифру метрики можно за 10 секунд прямо из терминала или веб-редактора;</li>
+                                  <li><strong>Фокус на содержании, а не украшательстве:</strong>
+      технический директор оценивает ваши архитектурные решения и стек, а не цветные иконки и полоски
+      прогресса;</li>
+                                  <li><strong>Легкая портативность:</strong> из одного
+      <code>.md</code> файла можно мгновенно сгенерировать HTML-страницу, PDF для отклика или
+      plain-text для формы на сайте.</li>
+                              </ul>
+                              <p>Кроме того, текстовая разметка позволяет легко придерживаться
+      жесткого <a href="/blog/one-page-resume-cv-template-condensing-experience">одностраничного
+      формата резюме One-Pager</a>, принятого в международных компаниях.</p>
+  - id: "markdown-template"
+    title: "Markdown шаблон резюме разработчика: готовый образец"
+    html: |2-
+                              <p>Практический <strong>markdown шаблон резюме разработчика</strong> с
+      разделением на ключевые секции:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown CV Template</span></div>
+                                  <pre><code># Артем Кузнецов — Senior Fullstack Developer
+      **Специализация:** TypeScript, React, Node.js, Cloud Native  
+      **Контакты:** artem.dev@example.com | Telegram: @artem_kuznetsov | [GitHub](https://github.com) | [Portfolio](https://example.com)
+
+      ---
+
+      ## Краткое резюме
+      Fullstack разработчик с 6+ годами опыта в проектировании и масштабировании веб-сервисов с высокой нагрузкой. Эксперт в оптимизации производительности фронтенда (Web Vitals), создании отказоустойчивых REST/GraphQL API и микросервисной архитектуре.
+
+      ## Технический стек
+      - **Языки:** TypeScript, JavaScript, Python, SQL, HTML5/CSS3
+      - **Фронтенд:** React, Next.js, Redux Toolkit, TanStack Query, Tailwind CSS
+      - **Бэкенд:** Node.js (NestJS, Express), PostgreSQL, Redis, RabbitMQ
+      - **Инфраструктура:** Docker, Kubernetes, CI/CD (GitHub Actions), AWS (S3, EC2), Nginx
+
+      ## Опыт работы
+
+      ### Lead Fullstack Engineer — Финтех Платформа *(2022 — настоящее время)*
+      - Спроектировал клиентскую часть личного кабинета инвестора на Next.js, сократив время первой отрисовки (FCP) с 2,8 до 0,9 секунды.
+      - Перевел монолитный сервис нотификаций на событийно-ориентированную архитектуру с RabbitMQ, обеспечив обработку до 15 000 сообщений/сек.
+      - Руководил командой из 5 разработчиков: проводил архитектурные ревью, внедрил автотесты Jest/Playwright (покрытие выросло до 80%).
+
+      ### Middle Fullstack Developer — SaaS Маркетплейс *(2019 — 2022)*
+      - Разработал гибкий конструктор форм на React, ускоривший онбординг партнеров на 45%.
+      - Оптимизировал сложные аналитические запросы в PostgreSQL, снизив утилизацию CPU базы данных на 30%.
+
+      ## Образование
+      **МФТИ (ФПМИ)** — Бакалавр прикладной математики и информатики *(2015 — 2019)*</code></pre>
+                              </div>
+  - id: "online-creator"
+    title: "Создать CV в Markdown онлайн: пошаговая настройка в Labkeeper"
+    html: |2-
+                              <p>Чтобы быстро <strong>создать cv в markdown онлайн</strong> без
+      установки локальных утилит Pandoc и Node.js, воспользуйтесь онлайн-редактором Labkeeper:</p>
+                              <ol>
+                                  <li>Создайте Markdown-проект и вставьте шаблон из раздела выше;</li>
+                                  <li>Замените данные, ссылки и проекты своими — превью обновляется
+      при наборе;</li>
+                                  <li>Нажмите «Сохранить в PDF»: откроется печать браузера. Выберите
+      «Сохранить как PDF» и выключите колонтитулы, чтобы на листе не было адреса страницы и даты.</li>
+                              </ol>
+                              <p>Если нужен PDF с заданными полями, создайте LaTeX-проект и вставьте
+      тот же Markdown в Markdown-сегмент: сервер соберет его через Pandoc и pdfLaTeX, а ссылки на
+      GitHub и портфолио останутся кликабельными.</p>
+  - id: "git-automation"
+    title: "Автоматизация версий через Git и GitHub Actions"
+    html: |2-
+                              <p>Продвинутый уровень: создайте приватный или публичный репозиторий
+      <code>my-resume</code> на GitHub. Настройте GitHub Action, который при каждом пуше в ветку
+      <code>main</code> компилирует ваш <code>resume.md</code> в свежий <code>resume.pdf</code> и
+      публикует его в GitHub Releases.</p>
+tips:
+  - title: "Кликабельные ссылки в шапке"
+    html: |2-
+      <p>Всегда делайте ссылки на почту, Telegram и GitHub кликабельными
+      (<code>[github.com/nick](https://github.com/nick)</code>), чтобы рекрутер мог перейти в ваш
+      профиль в один клик прямо из PDF-ридера.</p>
+  - title: "Один исходник — два вида PDF"
+    html: |2-
+      <p>Храните в Git один файл <code>resume.md</code>. Для быстрой печати вставляйте его в
+      Markdown-проект, а для PDF с полями — в Markdown-сегмент LaTeX-проекта: содержание остается
+      одним и тем же.</p>
+editorExample:
+  markdown: |2-
+    # Артем Кузнецов — Fullstack Developer
+    **Контакты:** artem.dev@example.com | [GitHub](https://github.com/artem-dev)
+
+    ## Технический стек
+    - **Фронтенд:** React, Next.js, TypeScript
+    - **Бэкенд:** Node.js, PostgreSQL, Redis
+
+    ## Опыт работы
+    ### Lead Fullstack Engineer — Финтех *(2022 — н. в.)*
+    - Сократил время первой отрисовки с 2,8 до 0,9 с.
+    - Внедрил автотесты: покрытие выросло до 80 %.
+
+    ## Образование
+    **МФТИ** — бакалавр, 2019

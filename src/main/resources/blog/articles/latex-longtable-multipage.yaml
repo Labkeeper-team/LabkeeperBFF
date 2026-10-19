@@ -1,0 +1,157 @@
+catalogIndex: 61
+slug: "latex-longtable-multipage"
+batch: 2
+title: "Оформление многостраничных таблиц в LaTeX (пакет longtable)"
+pageTitle: "Таблица на несколько страниц LaTeX longtable: перенос на следующий лист — Labkeeper"
+metaDescription: |2-
+  Как сделать многостраничную таблицу в LaTeX через longtable: перенос таблицы на следующий лист
+  онлайн, повтор шапки, ГОСТ-подписи и примеры.
+breadcrumbTitle: "Многостраничные таблицы (longtable)"
+h1: "Оформление многостраничных таблиц в&nbsp;LaTeX (пакет longtable)"
+categories:
+  - "latex"
+keywords:
+  - "таблица на несколько страниц latex longtable"
+  - "перенос таблицы на следующий лист latex"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "Многостраничные таблицы в LaTeX: пошаговая настройка пакета longtable"
+cardDescription: |2-
+  Как переносить длинные таблицы через разрывы страниц, автоматически повторять шапку таблицы,
+  настраивать подписи «Продолжение таблицы» по ГОСТ.
+sliderTitle: "Многостраничные таблицы (longtable)"
+sliderText: "Автоматический перенос строк, повтор шапки таблицы и правила оформления ГОСТ."
+sidebarText: "Верстайте большие массивы данных и спецификации в LaTeX без ручных разрывов страниц в Labkeeper."
+ctaTitle: "Работайте со сложными таблицами в&nbsp;Labkeeper"
+ctaText: "Онлайн-редактор LaTeX с поддержкой longtable и сборкой многостраничных таблиц в PDF."
+toc:
+  - id: "problem"
+    title: "Почему стандартное окружение tabular не переносится"
+  - id: "setup"
+    title: "Таблица на несколько страниц latex longtable: базовый шаблон"
+  - id: "headers-footers"
+    title: "Специальные блоки шапок и подвалов longtable"
+  - id: "gost-pagination"
+    title: "Перенос таблицы на следующий лист latex: подписи по ГОСТ"
+  - id: "alignment"
+    title: "Ширина колонок и переносы строк внутри ячеек"
+sections:
+  - id: "problem"
+    title: "Почему стандартное окружение tabular не переносится"
+    html: |2-
+                              <p>Стандартное окружение <code>\begin{table} ... \begin{tabular}</code>
+      в LaTeX является неделимым «плавающим объектом» (float). Если число строк в таблице превышает
+      высоту печатного листа, таблица не разрывается, а просто срезается нижним краем страницы и
+      уходит за пределы листа бумаги.</p>
+                              <p>Для создания таблиц произвольной длины (на 2, 5 или 20 страниц)
+      используется специализированный пакет <strong>longtable</strong>. Он не оборачивается в
+      плавающее окружение <code>table</code>, а вставляется напрямую в текст документа.</p>
+  - id: "setup"
+    title: "Таблица на несколько страниц latex longtable: базовый шаблон"
+    html: |2-
+                              <p>Подключите пакет: <code>\usepackage{longtable}</code>. Полноценная
+      <strong>таблица на несколько страниц latex longtable</strong> разделяется на четыре служебные
+      зоны заголовков и подвалов:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{longtable}{|c|p{8cm}|r|}
+          % 1. Шапка на САМОЙ ПЕРВОЙ странице
+          \refstepcounter{table}\label{tab:measurements}
+          \multicolumn{3}{l}{Таблица~\thetable{} --- Экспериментальные данные измерений} \\
+          \hline
+          \textbf{№} & \textbf{Наименование образца} & \textbf{Масса, г} \\
+          \hline
+          \endfirsthead
+
+          % 2. Шапка на ВСЕХ ПОСЛЕДУЮЩИХ страницах (по ГОСТ)
+          \multicolumn{3}{l}{\textit{Продолжение таблицы \ref{tab:measurements}}} \\
+          \hline
+          \textbf{№} & \textbf{Наименование образца} & \textbf{Масса, г} \\
+          \hline
+          \endhead
+
+          % 3. Подвал на промежуточных страницах (необязательно: ГОСТ его не требует)
+          \hline
+          \multicolumn{3}{|r|}{\small Продолжение на следующей странице...} \\
+          \hline
+          \endfoot
+
+          % 4. Завершающий подвал на последней странице
+          \hline
+          \endlastfoot
+
+          % ТЕЛО ТАБЛИЦЫ
+          1 & Образец кремниевой пластины марки А-1 & 14.52 \\ \hline
+          2 & Образец кремниевой пластины марки А-2 & 14.88 \\ \hline
+          % ... сотни строк данных ...
+      \end{longtable}</code></pre>
+                              </div>
+  - id: "headers-footers"
+    title: "Специальные блоки шапок и подвалов longtable"
+    html: |2-
+                              <p>Ключевая особенность синтаксиса longtable заключается в
+      предварительном объявлении шапок перед строками данных:</p>
+                              <ul>
+                                  <li><code>\endfirsthead</code> — фиксирует шапку, которая
+      отобразится исключительно в начале таблицы на первом листе.</li>
+                                  <li><code>\endhead</code> — дублирует шапку на каждом новом листе,
+      куда продолжается таблица.</li>
+                                  <li><code>\endfoot</code> — нижняя строка промежуточных листов.</li>
+                                  <li><code>\endlastfoot</code> — финал таблицы (закрывающая
+      горизонтальная черта <code>\hline</code>).</li>
+                              </ul>
+  - id: "gost-pagination"
+    title: "Перенос таблицы на следующий лист latex: подписи по ГОСТ"
+    html: |2-
+                              <p>Российский ГОСТ 7.32-2017 строго регламентирует, как должен выглядеть
+      <strong>перенос таблицы на следующий лист latex</strong> (подробный разбор правил смотрите в
+      статье о <a href="/blog/table-continuation-multipage-gost-diploma">переносе таблицы на следующий
+      лист в дипломе</a>):</p>
+                              <ul>
+                                  <li>На первом листе над таблицей пишется полное название: «Таблица 1
+      — Название».</li>
+                                  <li>На всех следующих листах перед повторной шапкой слева пишется
+      надпись <em>«Продолжение таблицы 1»</em>.</li>
+                                  <li>Использование связки
+      <code>\multicolumn{N}{l}{\textit{Продолжение таблицы \ref{...}}}</code> в блоке
+      <code>\endhead</code> закрывает строку «Продолжение таблицы». Первую подпись так же набирайте
+      вручную: <code>\caption</code> даёт «Таблица 1:» с двоеточием, а не «Таблица 1 — Название».</li>
+                                  <li>Подвал «Продолжение на следующей странице…» ГОСТ не требует:
+      добавляйте его, только если об этом просит методичка.</li>
+                              </ul>
+  - id: "alignment"
+    title: "Ширина колонок и переносы строк внутри ячеек"
+    html: |2-
+                              <p>Чтобы текст внутри ячеек автоматически переносился по словам,
+      используйте колонки с фиксированной шириной <code>p{ширина}</code> (например,
+      <code>p{6cm}</code>) вместо стандартных <code>l</code>, <code>c</code>, <code>r</code> (базовые
+      приемы верстки описаны в руководстве по <a
+      href="/blog/table-continuation-multipage-gost-diploma">переносу таблиц по ГОСТ</a>).</p>
+                              <p>Для центрирования текста в таких ячейках используйте пакет
+      <code>array</code> с модификатором <code>>{\centering\arraybackslash}p{4cm}</code>.</p>
+tips:
+  - title: "Двойная компиляция для расчета колонок"
+    html: |2-
+      <p>Движок LaTeX рассчитывает ширину столбцов longtable в два прохода. Если при первой сборке
+      границы колонок «поплыли», запустите компиляцию повторно.</p>
+  - title: "Принудительный разрыв страницы"
+    html: |2-
+      <p>Если нужно разорвать longtable в строго определенном месте до заполнения листа, вставьте
+      команду <code>\pagebreak</code> прямо между строк данных.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{longtable}\usepackage[textheight=55mm]{geometry}
+    \begin{document}
+    \begin{longtable}{cc}Index & Result\\\hline\endfirsthead
+    Index & Result (continued)\\\hline\endhead
+    1 & 10\\2 & 20\\3 & 30\\4 & 40\\5 & 50\\6 & 60\\7 & 70\\8 & 80\\9 & 90\\10 & 100\\11 & 110\\12 &
+    120\\
+    \end{longtable}
+    \end{document}

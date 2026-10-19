@@ -1,0 +1,142 @@
+catalogIndex: 60
+slug: "latex-prevent-hyphenation-linebreaks"
+batch: 2
+title: "Как запретить разрыв слова и перенос на новую строку в LaTeX"
+pageTitle: "Запретить перенос слова в LaTeX: неразрывный пробел тильда — Labkeeper"
+metaDescription: |2-
+  Как запретить перенос слова в LaTeX, зафиксировать неразрывный пробел тильдой ~, использовать
+  mbox, hyphenation и избежать висячих предлогов.
+breadcrumbTitle: "Запрет переносов и неразрывный пробел"
+h1: "Как запретить разрыв слова и&nbsp;перенос на&nbsp;новую строку в&nbsp;LaTeX"
+categories:
+  - "latex"
+keywords:
+  - "запретить перенос слова в latex"
+  - "неразрывный пробел в latex тильда"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "6 мин"
+cardTitle: "Управление переносами и неразрывными пробелами в LaTeX"
+cardDescription: |2-
+  Как убрать нежелательные переносы терминов, склеить предлоги с именами через неразрывный пробел
+  ~, запретить разбиение формул через mbox.
+sliderTitle: "Запрет переносов и тильда в LaTeX"
+sliderText: "Неразрывные пробелы, запрет дефисных переносов и связывание формул."
+sidebarText: "Контролируйте академическую типографику и оформление списков в веб-редакторе Labkeeper."
+ctaTitle: "Вёрстка по ГОСТ без висячих строк в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор документов LaTeX: сборка PDF в браузере и полный контроль переносов прямо в
+  коде.
+toc:
+  - id: "intro"
+    title: "Зачем управлять переносами слов"
+  - id: "tilde-space"
+    title: "Неразрывный пробел в latex тильда: защита от висячих предлогов"
+  - id: "mbox-block"
+    title: "Запретить перенос слова в latex: команда mbox"
+  - id: "global-hyphenation"
+    title: "Глобальный список исключений через hyphenation"
+  - id: "math-breaks"
+    title: "Запрет разрывов математических выражений в строке"
+sections:
+  - id: "intro"
+    title: "Зачем управлять переносами слов"
+    html: |2-
+                              <p>LaTeX славится лучшим в мире алгоритмом выключки строк (алгоритм
+      Кнута-Пласса). Однако автоматический перенос иногда дает сбои на сложных технических терминах,
+      аббревиатурах (ГОСТ, ЮНЕСКО, СПбГУ) и фамилиях с инициалами (подробнее о различиях верстки
+      читайте в статье о <a href="/blog/justified-text-spacing-hyphenation-latex-vs-word">выравнивании
+      по ширине и переносах в LaTeX против Word</a>).</p>
+                              <p>Особое внимание нормоконтроль уделяет «висячим предлогам»:
+      однобуквенные союзы и предлоги (<em>и, в, с, к, о, на</em>) по правилам русской типографики
+      категорически нельзя оставлять в самом конце строки.</p>
+  - id: "tilde-space"
+    title: "Неразрывный пробел в latex тильда: защита от висячих предлогов"
+    html: |2-
+                              <p>Главный инструмент типографа — <strong>неразрывный пробел в latex
+      тильда</strong> (символ <code>~</code>). Он заменяет стандартный пробел и сообщает компилятору:
+      <em>эти два элемента должны остаться на одной строке ни при каких обстоятельствах</em> (это
+      особенно важно соблюдать вместе с правильным <a href="/blog/paragraph-indent-1-25-gost">абзацным
+      отступом 1.25 см по ГОСТ</a>).</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>В~соответствии с~требованиями ГОСТ~7.32-2017, приведенными в~разделе~4...
+      Профессор Иванов~И.~И. провел измерения на~стенде.
+      Длина волны составила 532~нм при температуре 20~$^\circ$C.</code></pre>
+                              </div>
+                              <p>Обязательно ставьте тильду:</p>
+                              <ul>
+                                  <li>Между числом и единицей измерения: <code>10~кг</code>,
+      <code>250~В</code>, <code>5~мин</code>.</li>
+                                  <li>Между инициалами и фамилией: <code>А.~С.~Пушкин</code>.</li>
+                                  <li>Перед ссылками на формулы, рисунки и литературу:
+      <code>рисунок~\ref{fig:1}</code>, <code>в работе~\cite{lit1}</code>.</li>
+                              </ul>
+  - id: "mbox-block"
+    title: "Запретить перенос слова в latex: команда mbox"
+    html: |2-
+                              <p>Если вам нужно <strong>запретить перенос слова в latex</strong>
+      локально в конкретном месте, оберните его в команду <code>\mbox{...}</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>Новейший чипсет \mbox{GeForce-RTX-5090} не будет разрываться дефисом.
+      Команда \mbox{\textbf{sudo systemctl restart}} останется единым блоком.</code></pre>
+                              </div>
+                              <p>Команда <code>\mbox</code> создает неделимый горизонтальный бокс,
+      запрещая перенос в любом месте внутри фигурных скобок.</p>
+  - id: "global-hyphenation"
+    title: "Глобальный список исключений через hyphenation"
+    html: |2-
+                              <p>Чтобы не оборачивать термин в <code>\mbox</code> десятки раз по всему
+      тексту, задайте словарь исключений в преамбуле с помощью команды <code>\hyphenation</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Слова без дефисов вообще не будут переноситься
+      \hyphenation{микроконтроллер блокчейн интерфейс}
+
+      % Слова с дефисами будут переноситься строго в указанных слогах
+      \hyphenation{мик-ро-процес-сор диссер-та-ция}</code></pre>
+                              </div>
+  - id: "math-breaks"
+    title: "Запрет разрывов математических выражений в строке"
+    html: |2-
+                              <p>В строчных формулах $a + b = c$ LaTeX может разорвать строку на знаке
+      равенства или сложения. Чтобы запретить такой перенос:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Локально через фигурные скобки:
+      ${a + b = c}$
+
+      % Или глобально в преамбуле через штрафы за перенос:
+      \binoppenalty=10000 % Запрет разрыва на бинарных операциях (+, -)
+      \relpenalty=10000   % Запрет разрыва на отношениях (=, <, >)</code></pre>
+                              </div>
+tips:
+  - title: "Пакет microtype"
+    html: |2-
+      <p>Подключение <code>\usepackage{microtype}</code> включает оптическое выравнивание полей и
+      микромасштабирование глифов, заметно сокращая число переносов естественным путем.</p>
+  - title: "Перенос слов с уже имеющимся дефисом"
+    html: |2-
+      <p>В русских составных словах (интернет-магазин) используйте специальный макрос пакета babel
+      <code>интернет"=магазин</code>, чтобы разрешить перенос как в месте дефиса, так и в словах
+      вокруг него.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+
+    \begin{document}
+    \begin{minipage}{5cm}
+    Keep a name together: \mbox{Anna Petrova}.\par
+    Keep a number with its unit: 25~mm.\par
+    Prevent a product name from breaking: \mbox{LabkeeperEditor}.
+    \end{minipage}
+    \end{document}

@@ -1,0 +1,142 @@
+catalogIndex: 75
+slug: "markdown-to-pdf-export"
+batch: 2
+title: "Быстрый экспорт Markdown-заметок в формат PDF"
+pageTitle: "Конвертировать Markdown в PDF онлайн: экспорт md в PDF — Labkeeper"
+metaDescription: |2-
+  Как конвертировать Markdown в PDF онлайн: экспорт md в PDF через печать браузера или
+  LaTeX-проект Labkeeper с формулами, таблицами, сносками и оглавлением.
+breadcrumbTitle: "Экспорт Markdown в PDF"
+h1: "Быстрый экспорт Markdown-заметок в&nbsp;формат PDF"
+categories:
+  - "markdown"
+  - "labs"
+keywords:
+  - "конвертировать markdown в pdf онлайн"
+  - "экспорт md в pdf"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "6 мин"
+cardTitle: "Экспорт Markdown в PDF: генерация аккуратных документов для печати"
+cardDescription: |2-
+  Как преобразовать текстовые заметки .md в аккуратный типографический PDF-документ с поддержкой
+  математики LaTeX, таблиц и разрыва страниц.
+sliderTitle: "Конвертация Markdown в&nbsp;PDF онлайн"
+sliderText: "Экспорт .md в PDF: печать браузера или LaTeX-проект с формулами, таблицами и сносками."
+sidebarText: |2-
+  Собирайте PDF из Markdown-сегментов в LaTeX-проекте Labkeeper прямо в браузере, без установки
+  Pandoc и TeX Live.
+ctaTitle: "Собирайте PDF из Markdown в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор Markdown и LaTeX: печать Markdown-проекта в PDF через браузер или PDF из
+  Markdown-сегментов в LaTeX-проекте с формулами, таблицами и сносками.
+toc:
+  - id: "why-pdf"
+    title: "Зачем конвертировать Markdown в PDF"
+  - id: "tools-overview"
+    title: "Способы экспорта: CLI (Pandoc) против онлайн-редакторов"
+  - id: "page-breaks"
+    title: "Управление разрывами страниц в PDF"
+  - id: "math-tables"
+    title: "Рендеринг формул LaTeX и таблиц при экспорте"
+sections:
+  - id: "why-pdf"
+    title: "Зачем конвертировать Markdown в PDF"
+    html: |2-
+                              <p>Формат Markdown идеален для быстрого написания текстов, конспектов и
+      черновиков, но не подходит для итоговой сдачи преподавателю или публикации: у него нет
+      фиксированного формата страниц, полей и колонтитулов. Именно поэтому задача
+      <strong>конвертировать markdown в pdf онлайн</strong> возникает у каждого студента и инженера,
+      особенно когда требуется распечатать конспект с формулами, таблицами и <a
+      href="/blog/markdown-code-syntax-highlighting">блоками кода в Markdown</a>.</p>
+  - id: "tools-overview"
+    title: "Способы экспорта: CLI (Pandoc) против онлайн-редакторов"
+    html: |2-
+                              <p>Традиционный путь требует локальной установки утилиты Pandoc и
+      дистрибутива TeX Live весом в несколько гигабайт. Это сложно настроить на рабочем или мобильном
+      устройстве.</p>
+                              <p>В веб-редакторе <strong>Labkeeper</strong> <strong>экспорт md в
+      pdf</strong> возможен двумя способами:</p>
+                              <ul>
+                                  <li><strong>Markdown-проект и печать браузера.</strong> Кнопка
+      «Сохранить в PDF» открывает диалог печати браузера. Выберите «Сохранить как PDF», выключите
+      колонтитулы, чтобы на листе не было адреса страницы и даты, а для заливок и выделений включите
+      «Фоновую графику». Лист повторяет превью: полей по методичке, сносок внизу страницы и оглавления
+      здесь не будет.</li>
+                                  <li><strong>LaTeX-проект с Markdown-сегментами.</strong> Текст
+      пишется в Markdown-сегментах, а после нажатия «Выполнить» сервер переводит их в LaTeX через
+      Pandoc и собирает pdfLaTeX в файл <code>result.pdf</code>. Сноски встают внизу страницы, формулы
+      и таблицы набирает LaTeX, оглавление добавляет команда <code>\tableofcontents</code> в
+      LaTeX-сегменте. Сырой HTML из Markdown при этом выбрасывается.</li>
+                              </ul>
+                              <p>Стандартная преамбула LaTeX-проекта оставляет поля всего 3–5 мм. Если
+      нужны поля по методичке, начните проект с LaTeX-сегмента со своей преамбулой и командой
+      <code>\begin{document}</code>: тогда стандартная преамбула отключится, а закрывающую команду
+      <code>\end{document}</code> сервер добавит сам. Пакеты, которые нужны тексту из Markdown,
+      подключите в той же преамбуле:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\documentclass[a4paper,12pt]{article}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{amsmath,graphicx,longtable,booktabs,hyperref}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \begin{document}</code></pre>
+                              </div>
+                              <p><strong>Пример в редакторе</strong> открывает LaTeX-проект:
+      LaTeX-сегмент с оглавлением и разрывом страницы, затем Markdown-сегмент с формулой, таблицей и
+      сноской. Нажмите «Выполнить», чтобы получить PDF.</p>
+  - id: "page-breaks"
+    title: "Управление разрывами страниц в PDF"
+    html: |2-
+                              <p>Чтобы при печати Markdown-проекта начать новый раздел со следующего
+      листа, вставьте между абзацами HTML-разделитель:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">HTML / Markdown</span></div>
+                                  <pre><code>&lt;div style="page-break-after: always;"&gt;&lt;/div&gt;</code></pre>
+                              </div>
+                              <p>Это правило CSS для печати: в превью разрыва не видно, а браузер
+      учитывает его в диалоге печати. Поддержка зависит от браузера, поэтому проверьте результат в
+      окне предпросмотра печати.</p>
+                              <p>В LaTeX-проекте HTML из Markdown-сегментов выбрасывается, поэтому
+      разрыв делают отдельным LaTeX-сегментом с командой <code>\newpage</code> между
+      Markdown-сегментами.</p>
+  - id: "math-tables"
+    title: "Рендеринг формул LaTeX и таблиц при экспорте"
+    html: |2-
+                              <p>Главная сложность простых онлайн-конвертеров — потеря сложных
+      математических конструкций. В Markdown-проекте Labkeeper формулы, оформленные по правилам <a
+      href="/blog/markdown-mathjax-katex-latex-math">формул в Markdown с MathJax</a>, набирает MathJax
+      прямо в превью, и при печати они попадают в PDF такими же, как на экране.</p>
+                              <p>В LaTeX-проекте формулы из Markdown-сегментов набирает pdfLaTeX, а
+      таблицы становятся таблицами <code>longtable</code>, которые переносятся на следующую
+      страницу.</p>
+tips:
+  - title: "Настройки печати для чистого PDF"
+    html: |2-
+      <p>В Markdown-проекте кнопка «Сохранить в PDF» и есть печать браузера. В диалоге выберите
+      «Сохранить как PDF», выключите колонтитулы, чтобы на листе не было адреса страницы и даты, и
+      включите «Фоновую графику», если в тексте есть заливки или выделение маркером.</p>
+editorExample:
+  latex: |2-
+    \tableofcontents
+    \newpage
+  markdown: |2-
+    # Средняя скорость
+
+    ## Цель
+
+    Измерить среднюю скорость тележки[^1].
+
+    $$v=\frac{s}{t}=\frac{100}{20}=5\ \text{м/с}$$
+
+    ## Результаты
+
+    | Путь, м | Время, с |
+    |---:|---:|
+    | 100 | 20 |
+
+    [^1]: Сноска встанет внизу страницы PDF.

@@ -1,0 +1,177 @@
+catalogIndex: 57
+slug: "algorithm-flowcharts-gost-markdown-latex"
+batch: 2
+title: "Рисование ГОСТ блок-схем алгоритмов прямо в отчете (LaTeX и TikZ)"
+pageTitle: "Блок-схемы для лабораторной по ГОСТу: схема алгоритма ГОСТ 19.701 онлайн — Labkeeper"
+metaDescription: |2-
+  Как рисовать блок-схемы для лабораторной по ГОСТ 19.701 онлайн: символы процессов, решений,
+  ввода-вывода и подписи «Да/Нет» в TikZ прямо в LaTeX-отчете в Labkeeper.
+breadcrumbTitle: "Блок-схемы алгоритмов по ГОСТ"
+h1: "Рисование ГОСТ блок-схем алгоритмов прямо в&nbsp;отчете (LaTeX и&nbsp;TikZ)"
+categories:
+  - "labs"
+keywords:
+  - "блок схемы для лабораторной по госту"
+  - "схема алгоритма по гост 19.701 онлайн"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "7 мин"
+cardTitle: "Блок-схемы алгоритмов по ГОСТ 19.701 в отчетах: гайд по TikZ"
+cardDescription: |2-
+  Как оформлять блок-схемы программ по ГОСТ 19.701-90 (ЕСПД): прямоугольники действий, ромбы
+  ветвлений, скругленные терминаторы и стрелки.
+sliderTitle: "Блок-схемы по ГОСТ в отчетах"
+sliderText: "Стандарт ГОСТ 19.701, отрисовка схем в TikZ и подписи «Да/Нет» на ветвлениях."
+sidebarText: |2-
+  Создавайте чистые блок-схемы прямо в коде отчета без сторонних графических редакторов в
+  Labkeeper.
+ctaTitle: "Верстайте отчеты с блок-схемами в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с пакетом TikZ: блок-схемы алгоритмов прямо в коде отчета и PDF после
+  нажатия «Выполнить».
+toc:
+  - id: "standard"
+    title: "Требования стандарта ГОСТ 19.701-90 (ИСО 5807-85)"
+  - id: "tikz-flowchart"
+    title: "Блок схемы для лабораторной по госту: шаблон на TikZ"
+  - id: "mermaid-flowchart"
+    title: "Схема алгоритма по гост 19.701 онлайн: Mermaid для GitHub, GitLab и Obsidian"
+  - id: "symbols"
+    title: "Таблица стандартных геометрических фигур и их значение"
+  - id: "best-practices"
+    title: "Правила размещения линий связи и подписей «Да/Нет»"
+sections:
+  - id: "standard"
+    title: "Требования стандарта ГОСТ 19.701-90 (ИСО 5807-85)"
+    html: |2-
+                              <p>В курсовых работах, дипломах и отчетах по практике блок-схемы
+      алгоритмов проверяются на соответствие <strong>ГОСТ 19.701-90</strong> («Схемы алгоритмов,
+      программ, данных и систем»). Наряду со <a
+      href="/blog/software-screenshots-report-gost-caption">скриншотами интерфейса программ по
+      ГОСТ</a>, нормоконтроль строго следит за геометрией элементов схем:</p>
+                              <ul>
+                                  <li><strong>Процесс (действие, операция):</strong>
+      прямоугольник.</li>
+                                  <li><strong>Решение (условие, ветвление):</strong> ромб. Линии
+      выходов подписываются («Да» / «Нет» или «1» / «0»).</li>
+                                  <li><strong>Данные (ввод/вывод):</strong> параллелограмм.</li>
+                                  <li><strong>Пуск/останов (терминатор):</strong> овал или
+      прямоугольник с закругленными боковыми сторонами.</li>
+                                  <li><strong>Предопределенный процесс (вызов функции):</strong>
+      прямоугольник с двойными вертикальными линиями по бокам.</li>
+                              </ul>
+  - id: "tikz-flowchart"
+    title: "Блок схемы для лабораторной по госту: шаблон на TikZ"
+    html: |2-
+                              <p>Чтобы получить векторные <strong>блок схемы для лабораторной по
+      госту</strong> прямо внутри LaTeX-отчета, используйте библиотеки пакета TikZ:
+      <code>shapes.geometric</code> дает ромб и параллелограмм, а <code>shapes.misc</code> —
+      скругленный терминатор <code>rounded rectangle</code> (аналогично строятся диаграммы состояний в
+      <a href="/blog/latex-tikz-automata-graphs">конечных автоматах и графах TikZ</a>). Текст в блоках
+      набран прямым шрифтом, как требует правило из раздела о фигурах ниже:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{tikz}
+      \usetikzlibrary{shapes.geometric, shapes.misc, arrows.meta, positioning}
+
+      % Определение стилей блоков по ГОСТ
+      \tikzstyle{startstop} = [draw, rounded rectangle, minimum width=3cm, minimum height=1cm, align=center, thick]
+      \tikzstyle{process}   = [draw, rectangle, minimum width=3.5cm, minimum height=1cm, align=center, thick]
+      \tikzstyle{decision}  = [draw, diamond, aspect=2, minimum width=3.5cm, minimum height=1cm, align=center, thick]
+      \tikzstyle{io}        = [draw, trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, align=center, thick]
+      \tikzstyle{arrow}     = [-{Latex[length=3mm]}, thick]
+
+      \begin{tikzpicture}[node distance=1.8cm]
+          \node (start) [startstop] {Начало};
+          \node (in)    [io, below=of start] {Ввод A, B};
+          \node (dec)   [decision, below=of in] {A > B?};
+          \node (p1)    [process, below left=1.5cm and 0.5cm of dec] {Max := A};
+          \node (p2)    [process, below right=1.5cm and 0.5cm of dec] {Max := B};
+          \node (out)   [io, below=3.5cm of dec] {Вывод Max};
+          \node (stop)  [startstop, below=of out] {Конец};
+
+          \draw [arrow] (start) -- (in);
+          \draw [arrow] (in) -- (dec);
+          \draw [arrow] (dec) -| node[above left] {Да} (p1);
+          \draw [arrow] (dec) -| node[above right] {Нет} (p2);
+          \draw [arrow] (p1) |- (out);
+          \draw [arrow] (p2) |- (out);
+          \draw [arrow] (out) -- (stop);
+      \end{tikzpicture}</code></pre>
+                              </div>
+  - id: "mermaid-flowchart"
+    title: "Схема алгоритма по гост 19.701 онлайн: Mermaid для GitHub, GitLab и Obsidian"
+    html: |2-
+                              <p>Если документация живет в репозитории GitHub или GitLab либо в
+      заметках Obsidian, наглядная <strong>схема алгоритма по гост 19.701 онлайн</strong> строится
+      блоком диаграмм Mermaid: эти платформы сами рисуют схему по тексту. В Labkeeper рендерера
+      Mermaid нет, и такой блок покажется обычным кодом, поэтому для PDF-отчета используйте TikZ из
+      раздела выше.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown (Mermaid)</span></div>
+                                  <pre><code>```mermaid
+      flowchart TD
+          Start([Начало]) --> Input[/Ввод массива A/]
+          Input --> Loop{"i < N"}
+          Loop -- Да --> Calc["Сумма = Сумма + A[i]"]
+          Calc --> Step["i = i + 1"]
+          Step --> Loop
+          Loop -- Нет --> Output[/Вывод Суммы/]
+          Output --> Stop([Конец])
+      ```</code></pre>
+                              </div>
+                              <p>Синтаксис <code>([текст])</code> создает терминатор,
+      <code>[/текст/]</code> — блок ввода/вывода, а <code>{"условие"}</code> — блок проверки
+      ветвления.</p>
+  - id: "symbols"
+    title: "Таблица стандартных геометрических фигур и их значение"
+    html: |2-
+                              <p>Общие правила оформления графики:</p>
+                              <ul>
+                                  <li>Все линии потока должны быть параллельны границам листа (строго
+      вертикальные и горизонтальные сегменты под прямым углом).</li>
+                                  <li>Стрелки на линиях обязательны только тогда, когда поток
+      направлен снизу вверх или справа налево (против стандартного чтения).</li>
+                                  <li>Текст внутри блоков центрируется и пишется шрифтом без
+      курсива.</li>
+                              </ul>
+  - id: "best-practices"
+    title: "Правила размещения линий связи и подписей «Да/Нет»"
+    html: |2-
+                              <p>Подписи «Да» и «Нет» размещаются над или сбоку от выходящих из ромба
+      линий связи. Если схема не помещается на одну страницу, используются круглые соединители с
+      цифрами внутри (межстраничные соединители).</p>
+tips:
+  - title: "Единый размер блоков"
+    html: |2-
+      <p>В TikZ задавайте фиксированный <code>minimum width=3.5cm</code>, чтобы блоки одного
+      смыслового уровня имели одинаковую ширину независимо от длины текста внутри.</p>
+  - title: "Подрисуночная подпись по ГОСТ"
+    html: |2-
+      <p>Обязательно оборачивайте схему в окружение <code>figure</code> с подписью:
+      <code>\caption{Схема алгоритма вычисления корней уравнения}</code>. С babel подпись по умолчанию
+      выходит как «Рис. 1:»; слово «Рисунок» и тире настраиваются пакетом caption, как в статье об <a
+      href="/blog/software-screenshots-report-gost-caption">оформлении скриншотов по ГОСТ</a>.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[russian]{babel}
+    \usepackage{tikz}
+    \usetikzlibrary{shapes.geometric,shapes.misc,positioning}
+    \begin{document}
+    \begin{tikzpicture}[node distance=8mm,b/.style={draw,align=center,minimum width=28mm,minimum
+    height=8mm}]
+    \node[b,rounded rectangle] (s) {Начало};
+    \node[b,trapezium,trapezium left angle=70,trapezium right angle=110,below=of s] (i) {Ввод A, B};
+    \node[b,diamond,aspect=2,below=of i] (d) {A > B?};
+    \node[b,below left=8mm and 2mm of d] (y) {Max := A};
+    \node[b,below right=8mm and 2mm of d] (n) {Max := B};
+    \draw[->] (s)--(i);
+    \draw[->] (i)--(d);
+    \draw[->] (d.west) -| node[above] {Да} (y);
+    \draw[->] (d.east) -| node[above] {Нет} (n);
+    \end{tikzpicture}
+    \end{document}

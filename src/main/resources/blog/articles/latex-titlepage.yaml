@@ -1,0 +1,301 @@
+catalogIndex: 82
+slug: "latex-titlepage"
+batch: 1
+title: "Как создать титульный лист по российским стандартам в онлайн LaTeX"
+pageTitle: "Титульный лист по ГОСТ в онлайн LaTeX: шаблон и пример — Labkeeper"
+metaDescription: |2-
+  Как создать титульный лист по российским стандартам в онлайн LaTeX: готовый шаблон titlepage
+  ГОСТ с полным примером кода, логотипом вуза и подписями.
+ogDescription: |2-
+  Готовый шаблон титульного листа по ГОСТ в LaTeX онлайн: вуз, кафедра, тема работы, подписи
+  руководителя и студента.
+twitterDescription: "Готовый шаблон титульного листа по ГОСТ в LaTeX онлайн."
+schemaDescription: |2-
+  Готовый шаблон титульного листа по ГОСТ в LaTeX онлайн: вуз, кафедра, тема работы, подписи
+  руководителя и студента.
+breadcrumbTitle: |2-
+  Титульный лист по
+                                  ГОСТ в LaTeX
+schemaBreadcrumbTitle: "Титульный лист по ГОСТ в LaTeX"
+h1: |2-
+  Как создать титульный лист по&nbsp;российским стандартам
+                          в&nbsp;онлайн LaTeX
+categories:
+  - "diploma"
+  - "latex"
+keywords:
+  - "титульный лист latex онлайн"
+  - "оформить титульный лист гост latex"
+datePublished: "2026-08-20"
+dateModified: "2026-10-18"
+readingTime: "7 мин"
+cardTitle: "Как создать титульный лист по российским стандартам в онлайн LaTeX"
+cardDescription: |2-
+  Создание титульного листа для курсовых, дипломов и диссертаций: разметка
+                          шапки, утверждений, подписей и номера.
+sliderTitle: "Титульный лист по&nbsp;ГОСТ в&nbsp;LaTeX"
+sliderText: "Как создать титульный лист по российским стандартам в онлайн LaTeX."
+sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sidebarText: |2-
+  Создавайте титульные листы по&nbsp;ГОСТ в&nbsp;онлайн-редакторе
+                          Labkeeper — без установки LaTeX.
+ctaTitle: "Создавайте титульные листы в&nbsp;Labkeeper"
+ctaText: |2-
+  Набирайте и&nbsp;компилируйте титульные листы и&nbsp;отчеты по&nbsp;российским стандартам
+  в&nbsp;онлайн-редакторе LaTeX без&nbsp;лишних настроек.
+toc:
+  - id: "intro"
+    title: |2-
+      Что должен содержать титульный лист по
+                                          ГОСТ
+  - id: "titlepage-env"
+    title: "Окружение titlepage в LaTeX"
+  - id: "template"
+    title: "Полный шаблон титульного листа"
+  - id: "logo"
+    title: "Вставка логотипа вуза"
+  - id: "signatures"
+    title: "Строки для подписей"
+  - id: "tips"
+    title: "Практические советы"
+sections:
+  - id: "intro"
+    title: "Что должен содержать титульный лист по ГОСТ"
+    html: |2-
+                              <p>Требования к титульному листу курсовых и дипломных работ задают
+      методические указания вуза,
+                                  которые обычно опираются на ГОСТ 7.32-2017, а титульный лист
+      диссертации регулирует ГОСТ Р
+                                  7.0.11-2011 (комплексный процесс
+                                  подготовки выпускной работы описан в нашем <a
+      href="/blog/latex-diploma-gost">гайде по
+                                      оформлению диплома по ГОСТ</a>, а для кандидатских — в <a
+                                      href="/blog/latex-dissertation">статье по верстке диссертаций
+      ВАК</a>). Стандартный
+                                  состав элементов:</p>
+                              <ul>
+                                  <li>Наименование министерства и учебного заведения;</li>
+                                  <li>Наименование кафедры;</li>
+                                  <li>Тип работы (курсовая, дипломная, диссертация);</li>
+                                  <li>Тема работы;</li>
+                                  <li>Дисциплина (для курсовых);</li>
+                                  <li>Сведения об авторе (ФИО, группа, курс);</li>
+                                  <li>Сведения о научном руководителе (ФИО, должность, учёная
+      степень);</li>
+                                  <li>Место и год написания.</li>
+                              </ul>
+  - id: "titlepage-env"
+    title: "Окружение titlepage в LaTeX"
+    html: |2-
+                              <p>Окружение <code>\begin{titlepage}...\end{titlepage}</code> создаёт
+      отдельную страницу без
+                                  номера. Всё содержимое внутри него полностью свободно
+      позиционируется с помощью команд
+                                  выравнивания и вертикальных отступов. Для инженерных и технических
+      проектов вместо
+                                  стандартного титульного листа часто требуются специализированные
+      рамки и угловые штампы
+                                  (подробнее об этом читайте в <a href="/blog/latex-eskd">руководстве
+      по оформлению документов
+                                      по ЕСКД</a>).</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{titlepage}
+          % Верхняя часть
+          \begin{center}
+              {\large Министерство науки и высшего образования РФ}\\[0.5cm]
+              {\large ФГБОУ ВО «Московский государственный университет»}\\[0.5cm]
+              {\large Кафедра прикладной математики}
+          \end{center}
+
+          \vfill   % вертикальное заполнение
+
+          % Центральная часть — тема
+          \begin{center}
+              {\LARGE \bfseries Дипломная работа}\\[1cm]
+              {\Large \bfseries Тема дипломной работы}
+          \end{center}
+
+          \vfill   % второе вертикальное заполнение
+
+          % Нижняя часть — сведения
+          ...
+
+          \begin{center}
+              Москва --- 2026
+          \end{center}
+      \end{titlepage}</code></pre>
+                              </div>
+  - id: "template"
+    title: "Полный шаблон титульного листа"
+    html: |2-
+                              <p>Ниже приведён готовый шаблон титульного листа по ГОСТ, адаптированный
+      для дипломной работы.
+                                  Замените содержимое переменных на свои данные:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Преамбула
+      \documentclass[a4paper,14pt]{extreport}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage{graphicx}
+
+      % Переменные для удобного редактирования
+      \newcommand{\university}{ФГБОУ ВО «Московский государственный университет»}
+      \newcommand{\faculty}{Факультет вычислительной математики и кибернетики}
+      \newcommand{\department}{Кафедра прикладной математики}
+      \newcommand{\worktitle}{Применение нейронных сетей в задачах распознавания образов}
+      \newcommand{\worktype}{Выпускная квалификационная работа}
+      \newcommand{\studentname}{Иванов Иван Иванович}
+      \newcommand{\studentgroup}{426}
+      \newcommand{\supervisorname}{проф., д-р физ.-мат. наук Петров С.А.}
+      \newcommand{\city}{Москва}
+      \newcommand{\workyear}{2026}
+
+      \begin{document}
+      \begin{titlepage}
+          \begin{center}
+              \textbf{Министерство науки и высшего образования Российской Федерации}\\[6pt]
+              \textbf{\university}\\[6pt]
+              \faculty\\[6pt]
+              \department
+          \end{center}
+
+          \vfill
+
+          \begin{center}
+              {\large \textbf{\worktype}}\\[24pt]
+              {\Large \textbf{\worktitle}}
+          \end{center}
+
+          \vfill
+
+          \begin{flushright}
+              \begin{tabular}{ll}
+                  Выполнил: &amp; студент гр.~\studentgroup \\
+                            &amp; \studentname \\[12pt]
+                  Научный руководитель: &amp; \supervisorname \\
+              \end{tabular}
+          \end{flushright}
+
+          \vfill
+
+          \begin{center}
+              \city~---~\workyear
+          \end{center}
+      \end{titlepage}
+      \end{document}</code></pre>
+                              </div>
+  - id: "logo"
+    title: "Вставка логотипа вуза"
+    html: |2-
+                              <p>Многие вузы требуют размещать герб или логотип на титульном листе.
+      Для этого загрузите
+                                  изображение в проект и используйте команду
+      <code>\includegraphics</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{center}
+          \includegraphics[width=3cm]{university-logo.png}\\[12pt]
+          \textbf{ФГБОУ ВО «...»}
+      \end{center}</code></pre>
+                              </div>
+                              <div class="article-note">
+                                  <strong>💡 Совет:</strong> Загрузите логотип в проект в формате PNG,
+      JPG или PDF; векторный
+                                  логотип лучше сохранить в PDF. SVG pdfLaTeX вставить не может. EPS
+      загрузить можно, но pdfLaTeX без
+                                  shell-escape его не вставит — сконвертируйте в PDF или PNG.
+                              </div>
+  - id: "signatures"
+    title: "Строки для подписей"
+    html: |2-
+                              <p>Для строк подписей удобно использовать окружение <code>tabular</code>
+      или команды
+                                  <code>\underline</code>. Вот типичный блок с местом для подписи и
+      даты:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{flushright}
+          \begin{tabular}{p{5cm} p{4cm}}
+              Научный руководитель: &amp; \\[18pt]
+              \underline{\hspace{4cm}} &amp; \underline{\hspace{3cm}} \\
+              \small (подпись) &amp; \small (дата) \\[12pt]
+              \supervisorname &amp; \\
+          \end{tabular}
+      \end{flushright}</code></pre>
+                              </div>
+  - id: "tips"
+    title: "Практические советы"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Используйте переменные для данных</h3>
+                                          <p>Определяйте ФИО, тему и другие данные через
+      <code>\newcommand</code> в начале
+                                              документа — это позволяет менять информацию в одном
+      месте, не трогая вёрстку.
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Проверьте требования методички</h3>
+                                          <p>Стандартный ГОСТ задаёт лишь минимальные требования.
+      Конкретная кафедра может
+                                              добавлять обязательные поля: код УДК, гриф допуска к
+      защите, рецензента.</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">3</div>
+                                      <div class="article-tip__content">
+                                          <h3>Вынесите titlepage в отдельный файл</h3>
+                                          <p>При модульной структуре проекта создайте файл
+      <code>titlepage.tex</code> и
+                                              подключайте его через <code>\input{titlepage}</code>.
+      Это упрощает
+                                              редактирование и повторное использование.</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">4</div>
+                                      <div class="article-tip__content">
+                                          <h3>Нумерация последующих страниц</h3>
+                                          <p>Титульный лист входит в нумерацию, но номер на нём не
+      печатают. Окружение <code>titlepage</code> в одностороннем <code>report</code> в конце снова
+      ставит счётчик в 1, поэтому после <code>\end{titlepage}</code> нужна
+      <code>\setcounter{page}{2}</code>. Для
+                                              настройки колонтитулов следующих разделов ознакомьтесь с
+      <a
+                                                  href="/blog/latex-fancyhdr">инструкцией по нумерации
+      страниц в fancyhdr</a>.
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+
+    \begin{document}
+    \begin{titlepage}\centering
+    Университет\par\vfill
+    {\Large Лабораторная работа\par}
+    Измерение сопротивления\par\vfill
+    Студент: Иван Иванов\par\vfill 2026
+    \end{titlepage}
+    \end{document}

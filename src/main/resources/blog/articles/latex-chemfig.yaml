@@ -1,0 +1,297 @@
+catalogIndex: 85
+slug: "latex-chemfig"
+batch: 1
+title: "Интеграция химических формул и реакций в LaTeX, пакет chemfig"
+pageTitle: "Интеграция химических формул и реакций в LaTeX, пакет chemfig — Labkeeper"
+metaDescription: |2-
+  Полное руководство по пакету chemfig в LaTeX онлайн: редактор химических формул, рисование
+  циклических молекул, бензольных колец, механизмов реакций и полимеров с примерами кода.
+ogDescription: |2-
+  Узнайте, как верстать химические формулы и реакции в онлайн LaTeX: пакет chemfig онлайн примеры,
+  схемы молекул, связи и механизмы реакций.
+twitterDescription: "Пакет chemfig в онлайн LaTeX: примеры химических реакций и структурных формул."
+schemaDescription: |2-
+  Руководство по созданию структурных формул, механизмов реакций и циклических молекул в LaTeX с
+  помощью пакета chemfig.
+breadcrumbTitle: |2-
+  Химические формулы
+                                  и chemfig в LaTeX
+schemaBreadcrumbTitle: "Химические формулы в LaTeX (chemfig)"
+h1: |2-
+  Интеграция химических формул и&nbsp;реакций в&nbsp;LaTeX,
+                          пакет chemfig
+categories:
+  - "labs"
+  - "latex"
+keywords:
+  - "редактор химических формул latex онлайн"
+  - "пакет chemfig онлайн примеры"
+datePublished: "2026-08-20"
+dateModified: "2026-10-18"
+readingTime: "9 мин"
+cardTitle: "Интеграция химических формул и реакций в LaTeX, пакет chemfig"
+cardDescription: |2-
+  Редактор химических формул: рисование циклических молекул, бензольных
+                          колец, механизмов реакций и полимеров.
+sliderTitle: "Химические формулы и&nbsp;реакции (chemfig)"
+sliderText: "Редактор химических формул: циклические молекулы, реакции и полимеры."
+sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sidebarText: |2-
+  Редактируйте химические формулы и&nbsp;структуры в&nbsp;Labkeeper
+                          — компиляция chemfig и&nbsp;mhchem в&nbsp;PDF без&nbsp;установки софта.
+ctaTitle: "Набирайте химические формулы в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с&nbsp;поддержкой пакета chemfig и&nbsp;быстрой компиляцией структурных
+  формул и&nbsp;реакций в&nbsp;PDF.
+toc:
+  - id: "intro"
+    title: "Зачем нужен chemfig и как его подключить"
+  - id: "basics"
+    title: "Базовый синтаксис связей и углов"
+  - id: "branches"
+    title: |2-
+      Разветвленные цепи и функциональные
+                                          группы
+  - id: "rings"
+    title: "Циклические молекулы и бензольное кольцо"
+  - id: "reactions"
+    title: "Схемы химических реакций и стрелки"
+  - id: "electrons"
+    title: "Электронные пары и механизмы реакций"
+  - id: "tips"
+    title: |2-
+      Практические советы и интеграция в
+                                          онлайн-редактор
+sections:
+  - id: "intro"
+    title: "Зачем нужен chemfig и как его подключить"
+    html: |2-
+                              <p>Набор химических структур в научных статьях, дипломах и <a
+                                      href="/blog/latex-lab-reports">отчетах по лабораторным
+      работам</a> часто вызывает
+                                  сложности. Пакет <code>chemfig</code> — это мощный инструмент на
+      базе графического движка
+                                  TikZ, позволяющий создавать векторные структурные формулы
+      органических и неорганических
+                                  веществ прямо в коде документа.</p>
+                              <p>Используя <strong>редактор химических формул latex онлайн</strong> в
+      Labkeeper, вам не нужно
+                                  вручную экспортировать растровые изображения из внешних программ
+      вроде ChemDraw — векторная
+                                  графика собирается вместе с документом и сохраняет качество при
+      печати.</p>
+                              <p>Для подключения пакета добавьте в преамбулу:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{chemfig}
+      % atom sep — расстояние между атомами, bond offset — зазор до линии.
+      % Толщину линии задаёт bond style.
+      \setchemfig{atom sep=2em, bond offset=1pt}</code></pre>
+                              </div>
+  - id: "basics"
+    title: "Базовый синтаксис связей и углов"
+    html: |2-
+                              <p>Формула создается командой <code>\chemfig{...}</code>. Связи между
+      атомами обозначаются
+                                  специальными символами:</p>
+                              <div class="article-table-wrapper">
+                                  <table class="article-table">
+                                      <thead>
+                                          <tr>
+                                              <th>Тип связи</th>
+                                              <th>Символ в chemfig</th>
+                                              <th>Описание</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td>Одинарная</td>
+                                              <td><code>-</code></td>
+                                              <td>Стандартная ковалентная связь</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Двойная</td>
+                                              <td><code>=</code></td>
+                                              <td>Двойная связь</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Тройная</td>
+                                              <td><code>~</code></td>
+                                              <td>Тройная связь</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Клиновидная (вперед)</td>
+                                              <td><code>&gt;</code></td>
+                                              <td>Стереохимическая связь над плоскостью</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Клиновидная (обратная)</td>
+                                              <td><code>&lt;</code></td>
+                                              <td>Тот же клин, направленный в обратную сторону</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Штриховая</td>
+                                              <td><code>&gt;:</code> или <code>&lt;:</code></td>
+                                              <td>Стереохимическая связь за плоскостью</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Полый клин</td>
+                                              <td><code>&gt;|</code></td>
+                                              <td>Клин без заливки</td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <p>Направление связи задается абсолютным или относительным углом с
+      помощью двоеточия
+                                  <code>[:угол]</code> (в градусах от 0 до 360 против часовой
+      стрелки):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Молекула воды H2O с углом связей:
+      \chemfig{H-[:30]O-[:-30]H}
+
+      % Молекула этанола CH3-CH2-OH:
+      \chemfig{H_3C-CH_2-OH}</code></pre>
+                              </div>
+  - id: "branches"
+    title: "Разветвленные цепи и функциональные группы"
+    html: |2-
+                              <p>Для создания ответвлений используются круглые скобки
+      <code>(...)</code>. Внутри скобок
+                                  описывается боковая цепочка с указанием направления связи:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Изобутан с боковой метильной группой:
+      \chemfig{H_3C-CH(-[:90]CH_3)-CH_3}
+
+      % Аминокислота аланин:
+      \chemfig{H_2N-CH(-[:90]CH_3)-C(=[:45]O)-[:-45]OH}</code></pre>
+                              </div>
+                              <div class="article-note">
+                                  <strong>💡 Совет:</strong> Для симметричных молекул рекомендуется
+      использовать углы
+                                  <code>[:30]</code>, <code>[:-30]</code>, <code>[:90]</code>,
+      <code>[:-90]</code>, что дает
+                                  классическую зигзагообразную углеродную цепочку.
+                              </div>
+  - id: "rings"
+    title: "Циклические молекулы и бензольное кольцо"
+    html: |2-
+                              <p>Для циклов используется синтаксис <code>*N(...)</code>, где N — число
+      вершин многоугольника.
+                                  Для бензола применяется встроенная конструкция
+      <code>*6(=-=-=-)</code> или кольцо внутри
+                                  шестиугольника:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Бензол с чередующимися двойными связями:
+      \chemfig{*6(=-=-=-)}
+
+      % Толуол (метилбензол):
+      \chemfig{*6(=-=-(-CH_3)=-)}
+
+      % Аспирин (ацетилсалициловая кислота):
+      \chemfig{*6(-=-(-C(=[1]O)-[7]OH)=(-O-[1]C(=[3]O)-[7]CH_3)-=)}</code></pre>
+                              </div>
+  - id: "reactions"
+    title: "Схемы химических реакций и стрелки"
+    html: |2-
+                              <p>В пакете chemfig схемы реакций составляются с помощью макроса
+                                  <code>\schemestart ... \schemestop</code> и стрелок
+      <code>\arrow{-&gt;[над][под]}</code>:
+                              </p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\schemestart
+      \chemfig{CH_4} \+ \chemfig{2 O_2}
+      \arrow{-&gt;[$\Delta t$][катализатор]}
+      \chemfig{CO_2} \+ \chemfig{2 H_2O}
+      \schemestop</code></pre>
+                              </div>
+                              <p>Поддерживаются различные виды стрелок: равновесные
+      <code>\arrow{&lt;=&gt;}</code>, обратимые
+                                  с разной скоростью <code>\arrow{&lt;-&gt;&gt;}</code>, а также
+      вертикальные и разветвленные
+                                  переходы. Для описания кинетики и термодинамических уравнений
+      реакций используйте <a
+                                      href="/blog/latex-formulas">выравнивание формул в amsmath</a>, а
+      для набора молярных
+                                  концентраций и температурных условий — <a
+      href="/blog/latex-siunitx">пакет размерностей
+                                      siunitx</a>.</p>
+  - id: "electrons"
+    title: "Электронные пары и механизмы реакций"
+    html: |2-
+                              <p>Для органической химии критически важно отображение неподеленных
+      электронных пар и
+                                  перемещения электронов. Команда <code>\charge</code> и модуль
+      <code>\chemmove</code>
+                                  позволяют рисовать электронные пары и изогнутые стрелки атаки
+      нуклеофила. Узлы, к которым
+                                  ведёт стрелка, получают имена через <code>@{имя}</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Неподелённая пара у азота, узлы N и H получают имена:
+      \chemfig{@{N}\charge{90=\:}{N}(-[:210]@{H}H)(-[:330]H)-H}
+
+      % Смещение электронной плотности от N к H:
+      \chemmove{\draw[-&gt;,red,shorten &lt;=2pt,shorten &gt;=2pt] (N) to[bend left=30] (H);}</code></pre>
+                              </div>
+  - id: "tips"
+    title: "Практические советы и пакет chemfig онлайн примеры"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Совместное использование с mhchem</h3>
+                                          <p>Для простых брутто-формул (например,
+      <code>\ce{H2SO4}</code> или
+                                              <code>\ce{Fe^{3+}}</code>) быстрее использовать пакет
+      <code>mhchem</code>, а
+                                              <code>chemfig</code> применять для пространственных
+      структур.</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Подготовка статей для международных журналов</h3>
+                                          <p>При оформлении химических публикаций для журналов
+      издательств Elsevier, Springer
+                                              или Wiley используйте <a
+      href="/blog/latex-scopus-wos">шаблон статьи для Scopus
+                                                  и Web of Science</a>.</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">3</div>
+                                      <div class="article-tip__content">
+                                          <h3>Масштабирование сложных молекул</h3>
+                                          <p>Если макромолекула не помещается в колонку, отрегулируйте
+      параметр
+                                              <code>atom sep=1.5em</code> или оберните структуру в
+      блок
+                                              <code>\scalebox{0.8}{\chemfig{...}}</code>.</p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{chemfig}
+    \begin{document}
+    Ethanol: \chemfig{CH_3-CH_2-OH}
+    \qquad Benzene: \chemfig{*6(=-=-=-)}
+    \end{document}

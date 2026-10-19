@@ -1,0 +1,423 @@
+catalogIndex: 80
+slug: "latex-gost-bibliography"
+batch: 1
+title: "Как быстро оформить список литературы по ГОСТ 7.0.5 в LaTeX без ошибок"
+pageTitle: "Список литературы по ГОСТ 7.0.5 в LaTeX: оформление без ошибок — Labkeeper"
+metaDescription: |2-
+  Как оформить библиографию по ГОСТ 7.0.5 в LaTeX онлайн: записи по ГОСТ Р 7.0.100 в
+  thebibliography, ссылки [1, с. 45] и biblatex-gost для локальной сборки.
+ogDescription: |2-
+  Пошаговый гайд по оформлению библиографии по ГОСТ 7.0.5 в LaTeX онлайн: записи по ГОСТ Р
+  7.0.100, ссылки на страницы и список через thebibliography.
+twitterDescription: "Пошаговый гайд по оформлению библиографии ГОСТ 7.0.5 в LaTeX онлайн."
+schemaDescription: |2-
+  Пошаговый гайд по оформлению библиографии по ГОСТ 7.0.5 в LaTeX: записи по ГОСТ Р 7.0.100-2018,
+  ссылки на страницы, список через thebibliography и biblatex-gost для локальной сборки.
+breadcrumbTitle: |2-
+  Список литературы
+                                  по ГОСТ 7.0.5 в LaTeX
+schemaBreadcrumbTitle: "Список литературы по ГОСТ 7.0.5 в LaTeX"
+h1: |2-
+  Как быстро оформить список литературы по&nbsp;ГОСТ&nbsp;7.0.5
+                          в&nbsp;LaTeX без&nbsp;ошибок
+categories:
+  - "diploma"
+  - "latex"
+  - "articles"
+keywords:
+  - "библиография гост 7 0 5 latex онлайн"
+  - "оформление списка литературы latex гост"
+datePublished: "2026-08-20"
+dateModified: "2026-10-18"
+readingTime: "10 мин"
+cardTitle: "Как быстро оформить список литературы по ГОСТ 7.0.5 в LaTeX без ошибок"
+cardDescription: |2-
+  Пошаговый гайд: записи по ГОСТ Р 7.0.100 в thebibliography, ссылки на страницы, порядок
+  источников и biblatex-gost для локальной сборки.
+sliderTitle: "Список литературы по&nbsp;ГОСТ 7.0.5"
+sliderText: "Записи по ГОСТ в thebibliography, ссылки на страницы и biblatex-gost для локальной сборки."
+sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sidebarText: |2-
+  Оформляйте список литературы по&nbsp;ГОСТ в&nbsp;онлайн-редакторе Labkeeper: ссылки
+  и&nbsp;список собираются в&nbsp;PDF без&nbsp;установки LaTeX.
+ctaTitle: "Оформляйте список литературы в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX: список литературы по&nbsp;ГОСТ через thebibliography и&nbsp;сборка PDF
+  в&nbsp;браузере без&nbsp;установки программ.
+toc:
+  - id: "intro"
+    title: |2-
+      Что такое ГОСТ Р 7.0.5-2008 и зачем он
+                                          нужен
+  - id: "package"
+    title: "Оформление списка литературы в LaTeX по ГОСТ: thebibliography"
+  - id: "bib-file"
+    title: "Правила записи источника по ГОСТ Р 7.0.100-2018"
+  - id: "numeric"
+    title: "Ссылки в тексте: [1] и [1, с. 45]"
+  - id: "authoryear"
+    title: "Для локальной установки: biblatex-gost"
+  - id: "sorting"
+    title: "Порядок источников и сортировка"
+  - id: "tips"
+    title: "Практические советы"
+sections:
+  - id: "intro"
+    title: "Что такое ГОСТ Р&nbsp;7.0.5-2008 и зачем он нужен"
+    html: |2-
+                              <p>ГОСТ Р 7.0.5-2008 «Библиографическая ссылка» описывает, как
+      составлять ссылки на источники:
+                                  порядок элементов, разделители, обозначения томов и страниц. На него
+      опираются методички по
+                                  оформлению <a href="/blog/latex-diploma-gost">дипломных и курсовых
+      работ</a>, требования к <a
+                                      href="/blog/latex-dissertation">диссертациям</a> и правила
+      многих отечественных журналов.
+                                  Саму запись источника в списке литературы обычно составляют по ГОСТ
+      Р 7.0.100-2018
+                                  «Библиографическая запись. Библиографическое описание». Вуз или
+      журнал вправе задать свой
+                                  стиль, поэтому сверяйтесь с их требованиями.</p>
+                              <p>В отличие от международных стилей (APA, IEEE), ГОСТ использует
+      специфические разделители
+                                  («//», «. —», « : ») и требует указывать общее число страниц для
+      книг. Порядок записей стандарт
+                                  ссылок не задаёт: в отчётах по ГОСТ 7.32-2017 (п. 6.16) источники
+      нумеруют в порядке
+                                  появления ссылок в тексте, а алфавитный порядок «сначала русские,
+      затем иностранные» —
+                                  требование отдельных вузов.</p>
+                              <div class="article-note">
+                                  <strong>💡 Как это работает в Labkeeper:</strong> онлайн-редактор
+      собирает PDF через
+                                  pdfLaTeX, а Biber и BibTeX на сервере пока не запускаются. Поэтому
+      основной способ в этой
+                                  статье — окружение <code>thebibliography</code>, где каждая запись
+      оформлена вручную по
+                                  ГОСТ Р 7.0.100-2018. Настройка <code>biblatex-gost</code> вынесена в
+      отдельный раздел для
+                                  локальной установки TeX Live или MiKTeX.
+                              </div>
+  - id: "package"
+    title: "Оформление списка литературы в LaTeX по ГОСТ: thebibliography"
+    html: |2-
+                              <p>Стандартное окружение <code>thebibliography</code> работает без
+      внешних программ: LaTeX
+                                  нумерует записи, а команда <code>\cite</code> ставит в тексте ссылку
+      на номер. Записи
+                                  располагайте в том порядке, который требует методичка, например в
+      порядке первого упоминания
+                                  в тексте. Аргумент окружения задаёт ширину метки, а не число
+      источников: <code>{9}</code>
+                                  подходит для списка до 9 записей, <code>{99}</code> — до 99.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>По данным работы~\cite{ivanov2023}… Подробнее см.~\cite[с.~45]{smirnov2021}.
+
+      \renewcommand{\refname}{Список использованных источников} % в классе report — \bibname
+      \begin{thebibliography}{9}
+      \bibitem{ivanov2023} Иванов,~И.~И. Методы оптимизации в~задачах машинного обучения
+        / И.~И.~Иванов, С.~Н.~Петров // Журнал вычислительной математики. --- 2023.
+        --- Т.~63, №~4. --- С.~589--602.
+      \bibitem{smirnov2021} Смирнов,~А.~В. Введение в~численные методы / А.~В.~Смирнов.
+        --- Москва : Наука, 2021. --- 320~с.
+      \bibitem{labkeeper} Labkeeper : онлайн-редактор LaTeX и Markdown : [сайт].
+        --- URL: \url{https://labkeeper.io} (дата обращения: 18.10.2026). --- Текст : электронный.
+      \end{thebibliography}</code></pre>
+                              </div>
+                              <p>Команду <code>\url</code> дают пакеты <code>url</code> или
+      <code>hyperref</code>. Если в
+                                  проекте Labkeeper нет своей преамбулы, <code>hyperref</code> уже
+      подключён в
+                                  автоматической преамбуле; в собственной преамбуле добавьте
+      <code>\usepackage{url}</code>.
+                                  Заголовок списка задаёт команда <code>\refname</code> (класс
+      <code>article</code>) или
+                                  <code>\bibname</code> (классы <code>report</code> и
+      <code>book</code>). Переопределяйте её
+                                  после <code>\begin{document}</code>: иначе babel вернёт стандартное
+      название.</p>
+  - id: "bib-file"
+    title: "Правила записи источника по ГОСТ Р 7.0.100-2018"
+    html: |2-
+                              <p>Запись в списке собирается из областей описания, которые разделяются
+      точкой и тире («. —»).
+                                  Сначала идёт заголовок — фамилия и инициалы первого автора, затем
+      заглавие, после косой черты —
+                                  сведения об ответственности, дальше выходные данные и объём. Для
+      статьи после двойной косой
+                                  черты («//») указывают журнал, год, том, номер и страницы.</p>
+                              <div class="article-table-wrapper">
+                                  <table class="article-table">
+                                      <thead>
+                                          <tr><th>Источник</th><th>Схема записи</th></tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr><td>Книга</td><td>Смирнов, А. В. Введение в численные
+      методы / А. В. Смирнов. — Москва : Наука, 2021. — 320 с.</td></tr>
+                                          <tr><td>Статья в журнале</td><td>Иванов, И. И. Методы
+      оптимизации в задачах машинного обучения / И. И. Иванов, С. Н. Петров // Журнал вычислительной
+      математики. — 2023. — Т. 63, № 4. — С. 589–602.</td></tr>
+                                          <tr><td>Сайт</td><td>Labkeeper : онлайн-редактор LaTeX и
+      Markdown : [сайт]. — URL: https://labkeeper.io (дата обращения: 18.10.2026). — Текст :
+      электронный.</td></tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <p>В LaTeX длинное тире набирается как <code>---</code>, а неразрывный
+      пробел — тильдой
+                                  <code>~</code>. Ставьте её между инициалами и фамилией, перед «с.» и
+      после «Т.» и «№», чтобы
+                                  запись не разрывалась в неудачном месте. Подробнее об описании
+      сайтов и электронных документов —
+                                  в статье об <a
+      href="/blog/electronic-resources-bibliography-gost-7-0-100">электронных
+                                      ресурсах по ГОСТ 7.0.100</a>.</p>
+  - id: "numeric"
+    title: "Ссылки в тексте: [1] и [1, с. 45]"
+    html: |2-
+                              <p>Команда <code>\cite</code> ставит в тексте номер записи в квадратных
+      скобках. Страницу
+                                  указывают в необязательном аргументе:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Одна ссылка: [1]
+      По данным работы~\cite{ivanov2023} установлено, что...
+
+      % Несколько ссылок: [1, 2]
+      Ряд исследований~\cite{ivanov2023, smirnov2021} подтверждает...
+
+      % Ссылка с указанием страницы: [2, с. 45]
+      \cite[с.~45]{smirnov2021}</code></pre>
+                              </div>
+                              <p>ГОСТ Р 7.0.5-2008 допускает как формат <strong>[1]</strong>, так и
+      формат <strong>[1, с.
+                                      45]</strong> при указании конкретных страниц. Если помимо
+      библиографии в документе
+                                  требуется оформить перечень графического материала, изучите нашу
+      статью по <a
+                                      href="/blog/latex-list-of-figures-tables">генерации списков
+      иллюстраций и
+                                      таблиц</a>.</p>
+  - id: "authoryear"
+    title: "Для локальной установки: biblatex-gost"
+    html: |2-
+                              <div class="article-note">
+                                  <strong>⚠️ Только для локальной сборки.</strong> Пакет
+      <code>biblatex-gost</code> работает
+                                  вместе с программой Biber, а в Labkeeper Biber пока не запускается:
+      без него команды
+                                  <code>\cite</code> дают «[?]», а список остаётся пустым. Настройка
+      ниже подойдёт для TeX Live
+                                  или MiKTeX на компьютере. Подробнее о связке biblatex и Biber — в
+      статье о <a
+                                     
+      href="/blog/biblatex-biber-advanced-bibliography-management">продвинутом управлении
+                                      библиографией</a>.
+                              </div>
+                              <p>Стиль <code>gost-numeric</code> из пакета <code>biblatex-gost</code>
+      оформляет числовые
+                                  ссылки, <code>gost-authoryear</code> — именные (автор, год).
+      Подключите в преамбуле:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+
+      \usepackage[
+          backend=biber,
+          style=gost-numeric,   % числовые ссылки [1], [2]
+          sorting=none,         % порядок первого упоминания в тексте
+          language=auto,
+          autolang=other
+      ]{biblatex}
+
+      \addbibresource{references.bib}</code></pre>
+                              </div>
+                              <p>Язык записи biblatex определяет по полю <code>langid</code>: от него
+      зависят разделители и
+                                  сокращения («и», «с.», «Т.»). Поле <code>language</code> только
+      печатается в записи как
+                                  сведения о языке документа. Общее число страниц книги задаёт поле
+      <code>pagetotal</code>, а
+                                  <code>pages</code> — диапазон страниц статьи. Примеры записей в
+      файле
+                                  <code>references.bib</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">BibTeX</span></div>
+                                  <pre><code>@article{ivanov2023,
+          author  = {Иванов, Иван Иванович and Петров, Сергей Николаевич},
+          title   = {Методы оптимизации в задачах машинного обучения},
+          journal = {Журнал вычислительной математики},
+          year    = {2023},
+          volume  = {63},
+          number  = {4},
+          pages   = {589--602},
+          langid  = {russian}
+      }
+
+      @book{smirnov2021,
+          author    = {Смирнов, Алексей Владимирович},
+          title     = {Введение в численные методы},
+          publisher = {Наука},
+          year      = {2021},
+          location  = {Москва},
+          pagetotal = {320},
+          langid    = {russian}
+      }
+
+      @online{labkeeper2026,
+          author  = {{Labkeeper}},
+          title   = {Онлайн-редактор LaTeX},
+          url     = {https://labkeeper.io},
+          urldate = {2026-10-18},
+          year    = {2026},
+          langid  = {russian}
+      }</code></pre>
+                              </div>
+                              <p>Список выводит команда
+                                  <code>\printbibliography[title={Список использованных
+      источников}]</code>. Для именного
+                                  стиля замените <code>gost-numeric</code> на
+      <code>gost-authoryear</code> и используйте команды
+                                  цитирования:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Ссылка в скобках: (Иванов, 2023)
+      \parencite{ivanov2023}
+
+      % Ссылка в тексте: Иванов (2023) показал, что...
+      \textcite{ivanov2023}
+
+      % Только год: 2023
+      \citeyear{ivanov2023}</code></pre>
+                              </div>
+  - id: "sorting"
+    title: "Порядок источников и сортировка"
+    html: |2-
+                              <p>ГОСТ Р 7.0.5-2008 не устанавливает порядок записей в списке. В
+      отчётах по ГОСТ 7.32-2017
+                                  (п. 6.16) источники располагают в порядке появления ссылок в тексте.
+      Правило «сначала
+                                  русскоязычные источники по алфавиту, затем иностранные» встречается
+      в методичках отдельных
+                                  вузов, поэтому сверяйтесь с требованиями кафедры.</p>
+                              <p>В <code>thebibliography</code> порядок задаёте вы сами: LaTeX
+      нумерует записи так, как они
+                                  стоят в окружении. При локальной сборке с biblatex порядок задаёт
+      параметр
+                                  <code>sorting</code>:</p>
+                              <div class="article-table-wrapper">
+                                  <table class="article-table">
+                                      <thead>
+                                          <tr>
+                                              <th>Параметр sorting</th>
+                                              <th>Порядок сортировки</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td><code>none</code></td>
+                                              <td>Порядок цитирования в тексте</td>
+                                          </tr>
+                                          <tr>
+                                              <td><code>nty</code></td>
+                                              <td>Автор → название → год</td>
+                                          </tr>
+                                          <tr>
+                                              <td><code>nyt</code></td>
+                                              <td>Автор → год → название</td>
+                                          </tr>
+                                          <tr>
+                                              <td><code>ynt</code></td>
+                                              <td>Год → автор → название</td>
+                                          </tr>
+                                          <tr>
+                                              <td><code>ntvy</code></td>
+                                              <td>Автор → название → том → год</td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <p>Если методичка требует алфавитный порядок с кириллическими записями
+      перед латинскими, задайте
+                                  сортировку по автору и русскую локаль:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage[
+          backend=biber,
+          style=gost-numeric,
+          sorting=nty,
+          language=auto,
+          autolang=other,
+          sortlocale=ru_RU   % кириллица перед латиницей
+      ]{biblatex}</code></pre>
+                              </div>
+  - id: "tips"
+    title: "Практические советы"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Используйте Zotero для экспорта</h3>
+                                          <p>Менеджер источников Zotero умеет экспортировать
+      библиотеку в формат
+                                              <code>.bib</code> — это пригодится при локальной сборке
+      с biblatex. После
+                                              экспорта проверьте поле <code>langid</code> у
+      русскоязычных источников.</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Перенос источников из Word</h3>
+                                          <p>Если вы конвертируете готовую статью или диплом из
+      текстового редактора,
+                                              ознакомьтесь с <a
+      href="/blog/latex-word-to-latex">руководством по переносу
+                                                  документов из Word в LaTeX</a>, чтобы не потерять
+      ссылки и формулы.</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">3</div>
+                                      <div class="article-tip__content">
+                                          <h3>Разделение на подразделы</h3>
+                                          <p>Если нужно разделить список на «Нормативные акты» и
+      «Научную литературу», в
+                                              <code>thebibliography</code> добавьте перед группой
+      строку
+                                              <code>\item[] \textbf{Нормативные правовые акты}</code>:
+      она не получит номер, а
+                                              нумерация записей останется сквозной. При локальной
+      сборке с biblatex
+                                              используйте
+      <code>\printbibliography[keyword=normative]</code> и поле
+                                              <code>keywords</code> в .bib-записях.</p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+
+    \begin{document}
+    Метод описан в работе~\cite[с.~45]{book}.
+    \renewcommand{\refname}{Список использованных источников}
+    \begin{thebibliography}{9}
+    \bibitem{book}Иванов,~И.~И. Методы расчета / И.~И.~Иванов. --- Москва : Наука, 2024. --- 120~с.
+    \end{thebibliography}
+    \end{document}

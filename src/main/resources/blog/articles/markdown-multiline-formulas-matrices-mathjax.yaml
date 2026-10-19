@@ -1,0 +1,158 @@
+catalogIndex: 37
+slug: "markdown-multiline-formulas-matrices-mathjax"
+batch: 2
+title: "Вставка формул с матрицами и дробями в Markdown (MathJax)"
+pageTitle: "Многострочные формулы в Markdown MathJax: написать матрицу онлайн — Labkeeper"
+metaDescription: |2-
+  Многострочные формулы в Markdown через MathJax: как написать матрицу в Markdown, выравнивание по
+  знаку равно align, фигурные скобки cases в Labkeeper.
+breadcrumbTitle: "Многострочные формулы и матрицы (MathJax)"
+h1: "Вставка формул с&nbsp;матрицами и&nbsp;дробями в&nbsp;Markdown (MathJax)"
+categories:
+  - "markdown"
+keywords:
+  - "многострочные формулы в markdown mathjax"
+  - "написать матрицу в markdown"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "7 мин"
+cardTitle: "Матрицы и многострочные формулы в Markdown: гайд по MathJax"
+cardDescription: |2-
+  Как оформлять сложные математические расчеты в Markdown: матрицы pmatrix и bmatrix, многоэтажные
+  дроби, системы уравнений cases и выравнивание aligned.
+sliderTitle: "Матрицы и длинные формулы в Markdown"
+sliderText: "Окружения pmatrix, bmatrix, выравнивание aligned и системы cases."
+sidebarText: "Набирайте высшую математику и матрицы в чистом Markdown в веб-редакторе Labkeeper."
+ctaTitle: "Ведите математические заметки в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор Markdown: многострочные формулы MathJax в превью при наборе и сохранение
+  конспекта в PDF через печать браузера.
+toc:
+  - id: "intro"
+    title: "Возможности MathJax для расширенной математики"
+  - id: "multiline-align"
+    title: "Многострочные формулы в markdown mathjax: окружение aligned"
+  - id: "matrices-guide"
+    title: "Написать матрицу в markdown: pmatrix, bmatrix и определители"
+  - id: "nested-fractions"
+    title: "Многоэтажные дроби и непрерывные вычисления"
+  - id: "systems-cases"
+    title: "Кусочные функции и системы уравнений с фигурной скобкой (cases)"
+sections:
+  - id: "intro"
+    title: "Возможности MathJax для расширенной математики"
+    html: |2-
+                              <p>Одиночные формулы вроде $y = kx + b$ легко помещаются в строку
+      (подробнее см. руководство по <a href="/blog/markdown-mathjax-katex-latex-math">формулам в
+      Markdown с MathJax и KaTeX</a>). Однако в линейной алгебре, теории вероятностей и математическом
+      анализе постоянно требуются матрицы произвольной размерности, длинные цепочки преобразований и
+      разветвленные системы уравнений.</p>
+                              <p>Библиотеки MathJax и KaTeX поддерживают продвинутые окружения пакета
+      <code>amsmath</code> прямо внутри стандартных выключных блоков Markdown <code>$$ ... $$</code>.
+      В превью Labkeeper формулы набирает MathJax.</p>
+  - id: "multiline-align"
+    title: "Многострочные формулы в markdown mathjax: окружение aligned"
+    html: |2-
+                              <p>Когда выкладка не помещается в одну строку, используют
+      <strong>многострочные формулы в markdown mathjax</strong> с выравниванием по знаку равенства
+      через окружение <code>aligned</code> (что особенно полезно при соблюдении правил <a
+      href="/blog/formula-numbering-lab-reports-gost">нумерации формул в отчетах по ГОСТ</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown</span></div>
+                                  <pre><code>$$
+      \begin{aligned}
+      (x + y)^3 &= (x + y)(x + y)^2 \\
+                &= (x + y)(x^2 + 2xy + y^2) \\
+                &= x^3 + 2x^2y + xy^2 + x^2y + 2xy^2 + y^3 \\
+                &= x^3 + 3x^2y + 3xy^2 + y^3
+      \end{aligned}
+      $$</code></pre>
+                              </div>
+                              <p>Символ амперсанда <code>&</code> задает точку вертикального
+      выравнивания (обычно перед знаком равенства), а двойной обратный слэш <code>\\</code> разрывает
+      строку.</p>
+  - id: "matrices-guide"
+    title: "Написать матрицу в markdown: pmatrix, bmatrix и определители"
+    html: |2-
+                              <p>Быстро <strong>написать матрицу в markdown</strong> позволяют
+      специализированные матричные окружения:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown</span></div>
+                                  <pre><code>$$
+      \begin{pmatrix}
+      1 & 0 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 1
+      \end{pmatrix}
+      \quad
+      \begin{bmatrix}
+      a_{11} & a_{12} \\
+      a_{21} & a_{22}
+      \end{bmatrix}
+      \quad
+      \begin{vmatrix}
+      \lambda - 1 & 2 \\
+      3 & \lambda - 4
+      \end{vmatrix}
+      $$</code></pre>
+                              </div>
+                              <ul>
+                                  <li><code>pmatrix</code> — матрица в круглых скобках;</li>
+                                  <li><code>bmatrix</code> — матрица в квадратных скобках (наиболее
+      частый выбор в РФ);</li>
+                                  <li><code>vmatrix</code> — определитель (детерминант) с прямыми
+      вертикальными линиями;</li>
+                                  <li><code>Vmatrix</code> — норма матрицы (двойные вертикальные
+      линии).</li>
+                              </ul>
+  - id: "nested-fractions"
+    title: "Многоэтажные дроби и непрерывные вычисления"
+    html: |2-
+                              <p>Для верстки цепных дробей обычная команда <code>\frac</code> делает
+      вложенные шрифты слишком мелкими. Используйте команду <code>\cfrac</code> (continued
+      fraction):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown</span></div>
+                                  <pre><code>$$
+      x = a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3}}}
+      $$</code></pre>
+                              </div>
+  - id: "systems-cases"
+    title: "Кусочные функции и системы уравнений с фигурной скобкой (cases)"
+    html: |2-
+                              <p>Окружение <code>cases</code> автоматически создает большую фигурную
+      скобку слева:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown</span></div>
+                                  <pre><code>$$
+      f(x) = \begin{cases}
+          -x^2, & \text{если } x < 0, \\
+          0,    & \text{если } x = 0, \\
+          2x,   & \text{если } x > 0.
+      \end{cases}
+      $$</code></pre>
+                              </div>
+tips:
+  - title: "Многоточия в матрицах"
+    html: |2-
+      <p>Для пропуска строк и столбцов в матрицах используйте: <code>\cdots</code> (горизонтальное),
+      <code>\vdots</code> (вертикальное) и <code>\ddots</code> (диагональное многоточие).</p>
+  - title: "Кириллические комментарии в cases"
+    html: |2-
+      <p>Русский текст условий внутри формулы всегда оборачивайте в <code>\text{...}</code>, иначе
+      буквы слипнутся или вызовут ошибку рендера.</p>
+editorExample:
+  markdown: |2-
+    ## Матрица и система
+
+    $$
+    A=\begin{pmatrix}1&2\\3&4\end{pmatrix}
+    $$
+
+    $$
+    \begin{aligned}2x+y&=5\\x-y&=1\end{aligned}
+    $$

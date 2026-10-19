@@ -1,0 +1,207 @@
+catalogIndex: 67
+slug: "latex-pgfplots-function-graphs"
+batch: 2
+title: "Вставка точных графиков функций с помощью пакета pgfplots"
+pageTitle: "Построение графиков функций LaTeX pgfplots: график по точкам онлайн — Labkeeper"
+metaDescription: |2-
+  Полный гайд: построение графиков функций в LaTeX через pgfplots и график по точкам онлайн.
+  Настройка осей, стилей, легенды и формул в Labkeeper.
+breadcrumbTitle: "Графики pgfplots в LaTeX"
+h1: "Вставка точных графиков функций с&nbsp;помощью пакета pgfplots"
+categories:
+  - "latex"
+keywords:
+  - "построение графиков функций latex pgfplots"
+  - "график по точкам latex онлайн"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "Построение графиков функций в LaTeX: руководство по пакету pgfplots"
+cardDescription: |2-
+  Как строить векторные графики математических функций, строить кривые по точкам из таблиц данных,
+  кастомизировать оси, сетку и легенду.
+sliderTitle: "Точные графики с pgfplots в LaTeX"
+sliderText: "Векторные математические функции, графики по точкам и полная кастомизация осей."
+sidebarText: |2-
+  Создавайте чистые векторные графики pgfplots в онлайн-редакторе Labkeeper со сборкой PDF без
+  установки TeX Live.
+ctaTitle: "Стройте точные графики в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с поддержкой пакета pgfplots, предпросмотром PDF после сборки и
+  скачиванием готового файла.
+toc:
+  - id: "intro"
+    title: "Зачем использовать pgfplots вместо растровых картинок"
+  - id: "setup"
+    title: "Подключение pgfplots и базовое окружение axis"
+  - id: "functions"
+    title: "Построение графиков функций latex pgfplots: математические выражения"
+  - id: "points"
+    title: "График по точкам latex онлайн: импорт координат и таблиц"
+  - id: "styling"
+    title: "Стилизация: сетка grid, подписи осей и легенда"
+  - id: "faq"
+    title: "Типичные проблемы и оптимизация компиляции"
+sections:
+  - id: "intro"
+    title: "Зачем использовать pgfplots вместо растровых картинок"
+    html: |2-
+                              <p>При подготовке курсовых, дипломных и научных публикаций графики,
+      экспортированные из Excel или сторонних программ в формате PNG/JPG, часто выглядят размытыми или
+      теряют читаемость при масштабировании. Пакет <strong>pgfplots</strong> генерирует <em>истинно
+      векторную графику</em> прямо во время компиляции документа LaTeX.</p>
+                              <p>Все шрифты подписей, засечек и легенды идеально согласуются с
+      гарнитурой основного текста документа, а формулы рендерятся стандартным математическим движком
+      TeX (подробные правила набора уравнений смотрите в нашем <a
+      href="/blog/latex-formulas">руководстве по формулам amsmath в LaTeX</a>).</p>
+  - id: "setup"
+    title: "Подключение pgfplots и базовое окружение axis"
+    html: |2-
+                              <p>Для работы подключите пакет в преамбуле документа и зафиксируйте
+      уровень совместимости (рекомендуется <code>compat=1.18</code> или новее):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{pgfplots}
+      \pgfplotsset{compat=1.18}</code></pre>
+                              </div>
+                              <p>Внутри документа график размещается внутри окружения
+      <code>tikzpicture</code> с использованием блока <code>axis</code> (а если вам требуется
+      компактно встроить иллюстрацию в середину текста, рекомендуем ознакомиться с <a
+      href="/blog/latex-wrapfig-text-flow">обтеканием картинок текстом wrapfig</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{figure}[htbp]
+          \centering
+          \begin{tikzpicture}
+              \begin{axis}[
+                  width=10cm, height=6cm,
+                  xlabel={$x$},
+                  ylabel={$y$},
+                  grid=major
+              ]
+                  \addplot[color=blue, thick, domain=-2*pi:2*pi, samples=150] {sin(deg(x))};
+                  \addlegendentry{$\sin(x)$}
+              \end{axis}
+          \end{tikzpicture}
+          \caption{График тригонометрической функции}
+          \label{fig:sin-plot}
+      \end{figure}</code></pre>
+                              </div>
+  - id: "functions"
+    title: "Построение графиков функций latex pgfplots: математические выражения"
+    html: |2-
+                              <p>Грамотное <strong>построение графиков функций latex pgfplots</strong>
+      позволяет задавать алгебраические, показательные, логарифмические и кусочно-непрерывные
+      зависимости. При использовании тригонометрических функций (например, <code>sin</code> или
+      <code>cos</code>) аргумент по умолчанию интерпретируется в градусах, поэтому для радианов
+      применяется функция <code>deg(x)</code>.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{axis}[
+          xmin=-3, xmax=3,
+          ymin=-1, ymax=10,
+          axis lines = middle,
+          xlabel={$x$}, ylabel={$f(x)$},
+          legend pos=north west
+      ]
+          \addplot[color=red, domain=-3:3, samples=100, ultra thick] {x^2 + 1};
+          \addlegendentry{$f(x) = x^2 + 1$}
+
+          \addplot[color=teal, dashed, domain=-3:3, samples=100, thick] {exp(x)};
+          \addlegendentry{$f(x) = e^x$}
+      \end{axis}</code></pre>
+                              </div>
+                              <p>Параметр <code>samples</code> задает частоту дискретизации. Для
+      гладких парабол и прямых достаточно 50–100 точек, для высокочастотных колебаний значение
+      увеличивают до 200–300.</p>
+  - id: "points"
+    title: "График по точкам latex онлайн: импорт координат и таблиц"
+    html: |2-
+                              <p>Для экспериментальных исследований и лабораторных измерений требуется
+      построить <strong>график по точкам latex онлайн</strong> с погрешностями или маркерами
+      измерений. Координаты можно передать непосредственно в коде или считать из файла
+      <code>.csv</code> или <code>.txt</code> (файлы <code>.dat</code> загрузить можно, для pgfplots
+      удобнее CSV).</p>
+                              <p>Пример построения точек вручную с помощью команды
+      <code>coordinates</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{axis}[
+          xlabel={Температура $T$, $^\circ\text{C}$},
+          ylabel={Давление $P$, кПа},
+          scatter,
+          only marks,
+          mark=square*,
+          mark size=2.5pt
+      ]
+          \addplot coordinates {
+              (20, 101.3)
+              (30, 104.2)
+              (40, 108.1)
+              (50, 112.5)
+              (60, 117.8)
+          };
+          \addlegendentry{Эксперимент}
+      \end{axis}</code></pre>
+                              </div>
+                              <p>Если данные хранятся во внешнем файле (например,
+      <code>measurements.csv</code>), используется директива <code>\addplot table[x=T, y=P, col
+      sep=comma] {measurements.csv};</code>, что избавляет от ручного набора сотен строк.</p>
+  - id: "styling"
+    title: "Стилизация: сетка grid, подписи осей и легенда"
+    html: |2-
+                              <p>Для соответствия ГОСТ и публикационным требованиям научных журналов
+      настройте оформление координатных осей:</p>
+                              <ul>
+                                  <li><code>grid=both</code> или <code>grid=major</code> — отображение
+      основной или вспомогательной координатной сетки.</li>
+                                  <li><code>axis lines = left</code> (или <code>box</code>,
+      <code>middle</code>) — классическая рамка графика или пересекающиеся в нуле оси.</li>
+                                  <li><code>tick label style={font=\small}</code> — единый кегль цифр
+      на делениях.</li>
+                                  <li><code>legend style={at={(0.95,0.05)}, anchor=south east}</code>
+      — точное позиционирование блока легенды.</li>
+                              </ul>
+  - id: "faq"
+    title: "Типичные проблемы и оптимизация компиляции"
+    html: |2-
+                              <p>Сложные графики с тысячами точек могут замедлять компиляцию
+      документа. Чтобы ускорить сборку:</p>
+                              <ul>
+                                  <li>Не завышайте <code>samples</code> без необходимости: 100–150
+      точек визуально неотличимы от 1000 для большинства аналитических функций.</li>
+                                  <li>Тяжёлые зависимости посчитайте заранее и загрузите готовые точки
+      в CSV: <code>\addplot table</code> рисует координаты быстрее, чем pgfplots вычисляет функцию при
+      каждой сборке.</li>
+                                  <li>Учитывайте лимит времени: в веб-редакторе
+      <strong>Labkeeper</strong> одна сборка длится до 30 секунд у гостя и до 60 секунд после
+      входа.</li>
+                              </ul>
+tips:
+  - title: "Планки погрешностей (Error Bars)"
+    html: |2-
+      <p>Для отображения доверительных интервалов добавьте <code>error bars/y dir=both, error bars/y
+      explicit</code> к команде <code>\addplot</code> и передайте значения погрешности через
+      координаты <code>+- (dy)</code>.</p>
+  - title: "Логарифмические шкалы"
+    html: |2-
+      <p>Для амплитудно-частотных характеристик и графиков в логарифмическом масштабе замените
+      окружение <code>axis</code> на <code>semilogyaxis</code> (лог по Y) или <code>loglogaxis</code>
+      (лог по обеим осям).</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{pgfplots}\pgfplotsset{compat=1.18}
+    \begin{document}
+    \begin{tikzpicture}\begin{axis}[width=9cm,xlabel=$x$,ylabel=$y$,grid=major]
+    \addplot[blue,domain=-2:2,samples=40]{x^2};
+    \end{axis}\end{tikzpicture}
+    \end{document}

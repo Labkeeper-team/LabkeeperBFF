@@ -1,0 +1,161 @@
+catalogIndex: 3
+slug: "latex-multicol-multi-column-layout-journal"
+batch: 2
+title: "Создание многоколоночного текста для газет и журналов (multicol)"
+pageTitle: "Текст в 3 колонки LaTeX multicol: верстка газеты в LaTeX онлайн — Labkeeper"
+metaDescription: |2-
+  Как сделать текст в 2 или 3 колонки в LaTeX с помощью пакета multicol. Разделительные линии,
+  балансировка колонок и верстка газеты онлайн в Labkeeper.
+breadcrumbTitle: "Многоколоночный текст multicol в LaTeX"
+h1: "Создание многоколоночного текста для&nbsp;газет и&nbsp;журналов (multicol)"
+categories:
+  - "latex"
+keywords:
+  - "текст в 3 колонки latex multicol"
+  - "верстка газеты в latex онлайн"
+datePublished: "2026-09-06"
+dateModified: "2026-10-18"
+readingTime: "7 мин"
+cardTitle: "Многоколоночная верстка в LaTeX: пакет multicol для журналов и газет"
+cardDescription: |2-
+  Как разбить текст на 2, 3 или 4 колонки, добавить вертикальные разделительные линии и
+  динамически переключаться между колонками без разрыва страницы.
+sliderTitle: "Многоколоночный текст (multicol)"
+sliderText: "Как верстать текст в 2 и 3 колонки с балансировкой высоты в LaTeX."
+sidebarText: |2-
+  В Labkeeper вы можете верстать статьи в журнальном двухколоночном и трехколоночном формате с
+  предпросмотром PDF.
+ctaTitle: "Верстайте журнальные статьи в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор с поддержкой многоколоночной разметки multicol, автоматической расстановкой
+  переносов и экспортом в PDF.
+toc:
+  - id: "why-multicol"
+    title: "Преимущества multicol над стандартной опцией twocolumn"
+  - id: "three-columns"
+    title: "Текст в 3 колонки LaTeX multicol: подключение и базовый синтаксис"
+  - id: "styling-columns"
+    title: "Настройка разделительных линий columnseprule и отступов"
+  - id: "newspaper-layout"
+    title: "Верстка газеты в LaTeX онлайн: врезки, шапки и сбалансированные колонки"
+  - id: "wide-elements"
+    title: "Широкие рисунки и формулы на всю ширину страницы"
+sections:
+  - id: "why-multicol"
+    title: "Преимущества multicol над стандартной опцией twocolumn"
+    html: |2-
+                              <p>В стандартном LaTeX есть базовый режим
+      <code>\documentclass[twocolumn]{article}</code>. Однако он негибок: делит весь документ ровно на
+      две колонки от начала до конца и не поддерживает верстку в 3 и более колонок. Шапку на всю
+      ширину в нем сделать можно — <code>\maketitle</code> в режиме twocolumn занимает всю ширину, а
+      команда <code>\twocolumn[…]</code> выводит над колонками любой текст, например аннотацию. Но
+      переключиться с одной колонки на две посреди страницы нельзя: <code>\onecolumn</code> и
+      <code>\twocolumn</code> начинают новую страницу.</p>
+                              <p>Пакет <strong>multicol</strong> решает эту задачу идеально: вы можете
+      переключаться между любым количеством колонок прямо посреди страницы без принудительного разрыва
+      листа. Это особенно ценно при <a
+      href="/blog/rinc-vak-scientific-article-template-fonts-margins">оформлении научных статей для
+      РИНЦ и ВАК</a>, где шапка статьи традиционно набирается в одну колонку, а текст исследования — в
+      две.</p>
+  - id: "three-columns"
+    title: "Текст в 3 колонки LaTeX multicol: подключение и базовый синтаксис"
+    html: |2-
+                              <p>Чтобы организовать <strong>текст в 3 колонки latex multicol</strong>,
+      подключите пакет в преамбуле и используйте окружение <code>multicols</code>, передав число
+      колонок первым аргументом:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX 3 Колонки</span></div>
+                                  <pre><code>\usepackage{multicol}
+
+      % В теле документа:
+      \begin{multicols}{3}
+      Здесь располагается непрерывный поток текста. Пакет автоматически 
+      рассчитывает высоту каждой колонки и балансирует их так, чтобы 
+      нижний край на последней странице был идеально ровным.
+      \end{multicols}</code></pre>
+                              </div>
+                              <p><em>Особенность:</em> по умолчанию пакет <code>multicol</code>
+      автоматически выравнивает высоту всех колонок по нижнему краю (балансировка). Если вам нужно,
+      чтобы текст заполнял сначала первую колонку до самого низа страницы, а затем перетекал во
+      вторую, используйте окружение со звездочкой <code>multicols*</code>.</p>
+  - id: "styling-columns"
+    title: "Настройка разделительных линий columnseprule и отступов"
+    html: |2-
+                              <p>В газетной и журнальной верстке между колонками часто добавляют
+      элегантную тонкую вертикальную черту и настраивают расстояние между колонками:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Стилизация multicol</span></div>
+                                  <pre><code>\setlength{\columnsep}{18pt}      % Расстояние между колонками (по умолчанию 10pt)
+      \setlength{\columnseprule}{0.4pt}  % Толщина вертикальной разделительной линии (0pt = невидима)</code></pre>
+                              </div>
+                              <p>В электронных версиях таких изданий критически важно сохранять
+      интерактивность — ознакомьтесь с принципами <a
+      href="/blog/latex-hyperref-pdf-bookmarks-navigation">навигации по разделам документа через
+      hyperref</a>.</p>
+  - id: "newspaper-layout"
+    title: "Верстка газеты в LaTeX онлайн: врезки, шапки и сбалансированные колонки"
+    html: |2-
+                              <p>Полноценная <strong>верстка газеты в latex онлайн</strong> строится
+      по комбинированной схеме: шапка издания и заголовок передовицы идут на всю ширину страницы, а
+      основной материал разбивается на 3 колонки:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Газетная полоса</span></div>
+                                  <pre><code>\documentclass[a4paper,10pt]{article}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{multicol}
+      \usepackage[margin=1.5cm]{geometry}
+
+      \begin{document}
+
+      \begin{center}
+      {\Huge\bfseries ВЕСТНИК НАУКИ И ТЕХНОЛОГИЙ}\\
+      \vspace{0.2cm}
+      {\small Выпуск № 12 (245) \hfill 6 сентября 2026 г. \hfill Издается с 2020 года}\\
+      \hrulefill
+      \end{center}
+
+      \begin{multicols}{3}[\section*{Прорыв в квантовых вычислениях: кубиты при комнатной температуре}]
+      Исследователи из объединенной лаборатории объявили об успешной стабилизации спиновых состояний...
+      \end{multicols}
+
+      \end{document}</code></pre>
+                              </div>
+                              <p>Параметр в квадратных скобках <code>[\section*{...}]</code>
+      печатается на всю ширину листа прямо над началом многоколоночного блока!</p>
+  - id: "wide-elements"
+    title: "Широкие рисунки и формулы на всю ширину страницы"
+    html: |2-
+                              <p>Если внутри многоколоночного текста требуется разместить широкую
+      формулу или схему, в режиме <code>twocolumn</code> используют окружения со звездочкой
+      (<code>\begin{figure*}</code>, <code>\begin{table*}</code>). Внутри <code>multicols</code> пакет
+      флоаты не поддерживает, и звёздные окружения ширину его колонок не занимают.</p>
+tips:
+  - title: "Принудительный переход в новую колонку"
+    html: |2-
+      <p>Чтобы принудительно оборвать текущую колонку и перенести текст в следующую, используйте
+      команду <code>\columnbreak</code>.</p>
+  - title: "Верстка журналов в Labkeeper"
+    html: |2-
+      <p>Классы журналов IEEEtran и acmart есть в TeX Live Labkeeper: подключите нужный класс в своей
+      преамбуле, и колонки задаст сам класс журнала.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{multicol}
+    \begin{document}
+    \begin{multicols}{2}
+    \section*{First column}A short newspaper-style article. The package balances the text across
+    columns.
+    \columnbreak\section*{Second column}An explicit column break starts this section in the next
+    column.
+    \end{multicols}
+    \end{document}

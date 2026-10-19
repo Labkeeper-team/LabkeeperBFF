@@ -1,0 +1,262 @@
+catalogIndex: 87
+slug: "latex-siunitx"
+batch: 1
+title: "Верстка формул для физических величин с размерностями, пакет siunitx"
+pageTitle: "Верстка формул для физических величин с размерностями (siunitx) — Labkeeper"
+metaDescription: |2-
+  Как правильно писать физические единицы в LaTeX: размерности величин siunitx LaTeX онлайн,
+  оформление погрешностей, диапазонов и таблиц по ГОСТ 8.417.
+ogTitle: "Верстка формул для физических величин с размерностями, пакет siunitx — Labkeeper"
+ogDescription: |2-
+  Размерности величин siunitx LaTeX онлайн: набор физических единиц СИ, неразрывные пробелы,
+  погрешности и выравнивание чисел в таблицах.
+twitterDescription: "Размерности величин siunitx LaTeX онлайн: как правильно писать физические единицы в LaTeX."
+schemaDescription: |2-
+  Полное руководство по использованию пакета siunitx в LaTeX для оформления физических величин,
+  единиц измерения СИ и погрешностей.
+breadcrumbTitle: |2-
+  Физические единицы
+                                  и siunitx в LaTeX
+schemaBreadcrumbTitle: "Физические величины и siunitx"
+h1: |2-
+  Верстка формул для физических величин с&nbsp;размерностями,
+                          пакет siunitx
+categories:
+  - "labs"
+  - "latex"
+keywords:
+  - "размерности величин siunitx latex онлайн"
+  - "как правильно писать физические единицы в latex"
+datePublished: "2026-08-20"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "Верстка формул для физических величин с размерностями, пакет siunitx"
+cardDescription: |2-
+  Правильный набор единиц СИ, неразрывные пробелы, погрешности и
+                          автоматическое выравнивание чисел в таблицах по ГОСТ.
+sliderTitle: "Физические величины и&nbsp;единицы (siunitx)"
+sliderText: "Единицы СИ, погрешности и автоматическое выравнивание чисел в таблицах по ГОСТ."
+sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sidebarText: |2-
+  Набирайте расчеты и&nbsp;физические величины в&nbsp;Labkeeper
+                          с&nbsp;полной поддержкой siunitx и&nbsp;ГОСТ 8.417.
+ctaTitle: "Набирайте физические величины в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с&nbsp;полной поддержкой пакета siunitx: правильное оформление
+  размерностей, погрешностей и&nbsp;чисел в&nbsp;таблицах.
+toc:
+  - id: "intro"
+    title: "Проблема ручного набора единиц измерения"
+  - id: "setup"
+    title: |2-
+      Подключение siunitx и настройка русской
+                                          локализации
+  - id: "commands"
+    title: "Команды \\qty, \\unit, \\num и \\ang"
+  - id: "uncertainty"
+    title: |2-
+      Погрешности измерений и диапазоны
+                                          чисел
+  - id: "tables"
+    title: |2-
+      Таблицы с выравниванием чисел (колонка
+                                          S)
+  - id: "tips"
+    title: "Практические советы по ГОСТ 8.417"
+sections:
+  - id: "intro"
+    title: "Проблема ручного набора единиц измерения"
+    html: |2-
+                              <p>В математическом режиме LaTeX буквы по умолчанию отображаются
+      курсивом: если написать
+                                  <code>$v = 100 km/h$</code>, переменные «k», «m», «h» будут
+      наклонены, а пробел между числом
+                                  и размерностью нарушится. Согласно международной системе СИ и ГОСТ
+      8.417-2002,
+                                  <strong>размерности величин должны набираться прямым
+      шрифтом</strong> с обязательным тонким
+                                  неразрывным пробелом после числа.</p>
+                              <p>Чтобы понять, <strong>как правильно писать физические единицы в
+      LaTeX</strong> при подготовке
+                                  <a href="/blog/latex-lab-reports">отчетов по лабораторным
+      работам</a> и <a
+                                      href="/blog/latex-diploma-gost">дипломных проектов по ГОСТ</a>,
+      был создан пакет
+                                  <code>siunitx</code> — признанный золотой стандарт научной
+      типографики.</p>
+  - id: "setup"
+    title: "Подключение siunitx и настройка русской локализации"
+    html: |2-
+                              <p>Подключите пакет в преамбуле документа:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{siunitx}
+
+      % Настройка для русскоязычных документов (десятичная запятая):
+      \sisetup{
+          output-decimal-marker = {,},
+          exponent-product = \cdot,
+          inter-unit-product = \cdot,
+          separate-uncertainty = true
+      }</code></pre>
+                              </div>
+  - id: "commands"
+    title: "Команды \\qty, \\unit, \\num и \\ang"
+    html: |2-
+                              <p>В версии <code>siunitx</code> v3 используются универсальные
+      макросы:</p>
+                              <div class="article-table-wrapper">
+                                  <table class="article-table">
+                                      <thead>
+                                          <tr>
+                                              <th>Команда</th>
+                                              <th>Пример синтаксиса</th>
+                                              <th>Результат отображения</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td><code>\qty{число}{единица}</code></td>
+                                             
+      <td><code>\qty{9.81}{\meter\per\second\squared}</code></td>
+                                              <td>9,81 m·s⁻² (число с размерностью)</td>
+                                          </tr>
+                                          <tr>
+                                              <td><code>\unit{единица}</code></td>
+                                              <td><code>\unit{\kilo\gram\per\cubic\meter}</code></td>
+                                              <td>kg·m⁻³ (только единица)</td>
+                                          </tr>
+                                          <tr>
+                                              <td><code>\num{число}</code></td>
+                                              <td><code>\num{1.23e-4}</code></td>
+                                              <td>1,23 · 10⁻⁴ (форматированное число)</td>
+                                          </tr>
+                                          <tr>
+                                              <td><code>\ang{градусы;минуты;секунды}</code></td>
+                                              <td><code>\ang{45;30;15}</code></td>
+                                              <td>45° 30′ 15″ (угловые величины)</td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>Скорость звука в воздухе составляет \qty{343}{\meter\per\second}.
+      Напряжение в сети: \qty{220}{\volt}, частота: \qty{50}{\hertz}.
+      Плотность воды: \qty{1000}{\kilo\gram\per\cubic\meter}.</code></pre>
+                              </div>
+                              <div class="article-note">
+                                  <strong>💡 Обозначения единиц:</strong> siunitx печатает
+      международные обозначения (m, s,
+                                  kg), а единицу в знаменателе по умолчанию записывает отрицательной
+      степенью: m·s⁻². Косую черту
+                                  включает опция <code>per-mode=symbol</code>. ГОСТ 8.417-2002
+      допускает международные
+                                  обозначения наравне с русскими, но не вперемешку в одном документе.
+      Если методичка требует
+                                  русские обозначения, объявите их командой
+      <code>\DeclareSIUnit</code>, например
+                                  <code>\DeclareSIUnit{\meter}{м}</code>.
+                              </div>
+                              <p>Для интеграции размерностей в сложные аналитические выкладки и дроби
+      обратитесь к нашему <a
+                                      href="/blog/latex-formulas">руководству по математическим
+      формулам amsmath</a>.</p>
+  - id: "uncertainty"
+    title: "Погрешности измерений и диапазоны чисел"
+    html: |2-
+                              <p>Для отчетов по физическим и химическим лабораторным работам важно
+      корректно оформлять
+                                  абсолютную погрешность:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Значение с абсолютной погрешностью: (12,45 ± 0,05) m·s⁻¹
+      \qty{12.45 +- 0.05}{\meter\per\second}
+
+      % Диапазон величин: от 10 до 50 °C
+      \qtyrange{10}{50}{\celsius}
+
+      % Список значений с общей единицей:
+      \qtylist{10; 20; 30}{\volt}</code></pre>
+                              </div>
+  - id: "tables"
+    title: "Таблицы с выравниванием чисел (колонка S)"
+    html: |2-
+                              <p>Пакет <code>siunitx</code> предоставляет специальный тип колонки
+      <code>S</code> для таблиц.
+                                  Числа автоматически выравниваются по десятичной запятой, что делает
+      экспериментальные данные
+                                  легко читаемыми:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{table}[ht]
+      \centering
+      \begin{tabular}{l S[table-format=2.3] S[table-format=4.2]}
+      \hline
+      Образец &amp; {Плотность, \unit{\gram\per\cubic\centi\meter}} &amp; {Температура, \unit{\celsius}} \\
+      \hline
+      Алюминий &amp; 2.700 &amp; 660.32 \\
+      Медь     &amp; 8.960 &amp; 1084.62 \\
+      Свинец   &amp; 11.340 &amp; 327.46 \\
+      \hline
+      \end{tabular}
+      \end{table}</code></pre>
+                              </div>
+                              <p>Если в вашем документе накапливается много экспериментальных таблиц и
+      графиков,
+                                  автоматизируйте их перечень с помощью нашего <a
+                                      href="/blog/latex-list-of-figures-tables">гайда по спискам
+      иллюстраций и таблиц</a>.</p>
+                              <div class="article-note">
+                                  <strong>💡 Совет:</strong> Заголовки столбцов над колонками
+      <code>S</code> обязательно
+                                  оборачивайте в фигурные скобки <code>{...}</code>, чтобы LaTeX не
+      пытался парсить их как
+                                  числа.
+                              </div>
+  - id: "tips"
+    title: "Практические советы по ГОСТ 8.417"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Единицы в знаменателе</h3>
+                                          <p>Используйте опцию <code>per-mode = fraction</code> для
+      дроби или
+                                              <code>per-mode = symbol</code> для косой черты
+      (например,
+                                              <code>\unit[per-mode=symbol]{\meter\per\second}</code>
+      или
+                                             
+      <code>\qty[per-mode=symbol]{10}{\meter\per\second}</code>).</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Проценты и промилле</h3>
+                                          <p>Команда <code>\qty{15}{\percent}</code> гарантирует
+      правильный неразрывный
+                                              полупробел перед знаком процента по стандарту ГОСТ.</p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{siunitx}
+    \sisetup{output-decimal-marker={,}}
+    \begin{document}
+    \qty{9.81}{\metre\per\second\squared}
+    \quad\num{12345.6789}
+    \begin{tabular}{S[table-format=2.2]}1.25\\12.30\\3.40\end{tabular}
+    \end{document}

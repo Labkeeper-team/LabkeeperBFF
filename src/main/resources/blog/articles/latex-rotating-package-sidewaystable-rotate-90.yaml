@@ -1,0 +1,162 @@
+catalogIndex: 4
+slug: "latex-rotating-package-sidewaystable-rotate-90"
+batch: 2
+title: "Вращение текста и широких таблиц на 90 градусов (пакет rotating)"
+pageTitle: "Повернуть таблицу на 90 градусов LaTeX: пакет rotating sidewaystable — Labkeeper"
+metaDescription: |2-
+  Как повернуть таблицу на 90 градусов в LaTeX: пакет rotating, окружение sidewaystable, альбомные
+  таблицы в книжном документе и ГОСТ в Labkeeper.
+breadcrumbTitle: "Вращение таблиц rotating в LaTeX"
+h1: "Вращение текста и&nbsp;широких таблиц на&nbsp;90&nbsp;градусов (пакет rotating)"
+categories:
+  - "latex"
+keywords:
+  - "повернуть таблицу на 90 градусов latex"
+  - "пакет rotating sidewaystable"
+datePublished: "2026-09-06"
+dateModified: "2026-10-18"
+readingTime: "7 мин"
+cardTitle: "Вращение таблиц на 90 градусов в LaTeX: пакет rotating и sidewaystable"
+cardDescription: |2-
+  Как разместить широкую таблицу на альбомном развороте внутри книжного документа без сбоя
+  нумерации страниц по ГОСТ 7.32.
+sliderTitle: "Вращение таблиц (rotating)"
+sliderText: "Как повернуть широкую таблицу на 90 градусов с помощью sidewaystable."
+sidebarText: |2-
+  В Labkeeper широкие таблицы и схемы легко верстаются в альбомной ориентации с автоматическим
+  экспортом в PDF.
+ctaTitle: "Верстайте сложные таблицы в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор с поддержкой пакета rotating: альбомные страницы, точные поля и безупречная
+  ГОСТ-типографика.
+toc:
+  - id: "problem"
+    title: "Проблема широких таблиц в книжной ориентации А4"
+  - id: "rotating-package"
+    title: "Пакет rotating sidewaystable: подключение и синтаксис"
+  - id: "turn-90"
+    title: "Повернуть таблицу на 90 градусов LaTeX: полный пример кода"
+  - id: "gost-rules"
+    title: "Требования ГОСТ к расположению альбомных таблиц"
+  - id: "single-cell-rotation"
+    title: "Вращение отдельных заголовков колонок через turn и rotatebox"
+sections:
+  - id: "problem"
+    title: "Проблема широких таблиц в книжной ориентации А4"
+    html: |2-
+                              <p>В дипломных проектах, диссертациях и экономических отчетах часто
+      встречаются таблицы из 8–15 колонок с подробными числовыми данными. В стандартный книжный лист
+      формата А4 (ширина 210 мм за вычетом полей 30 мм и 15 мм оставляет всего 165 мм полезного
+      пространства) такая таблица физически не помещается: текст начинает безобразно сжиматься, слова
+      переносятся по буквам, либо таблица вылезает за пределы правого поля.</p>
+                              <p>Удобное решение, которое допускают ГОСТ 7.32 и ГОСТ 2.105, —
+      повернуть таблицу на 90 градусов, расположив ее на альбомном развороте, но сохранив при этом
+      стандартное положение колонтитулов и номера страницы. Дополнительно улучшить читаемость
+      повернутой таблицы можно с помощью настройки <a
+      href="/blog/latex-arraystretch-table-row-height-spacing">межстрочного интервала в ячейках через
+      arraystretch</a>.</p>
+  - id: "rotating-package"
+    title: "Пакет rotating sidewaystable: подключение и синтаксис"
+    html: |2-
+                              <p>Для реализации альбомного поворота используется специализированный
+      <strong>пакет rotating sidewaystable</strong>. Подключите его в преамбуле документа:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Преамбула</span></div>
+                                  <pre><code>\usepackage{rotating}</code></pre>
+                              </div>
+                              <p>Пакет предоставляет два мощных окружения:</p>
+                              <ul>
+                                  <li><code>sidewaystable</code> — для размещения широких таблиц на
+      отдельной повернутой странице;</li>
+                                  <li><code>sidewaysfigure</code> — для размещения широких чертежей,
+      графов и схем.</li>
+                              </ul>
+  - id: "turn-90"
+    title: "Повернуть таблицу на 90 градусов LaTeX: полный пример кода"
+    html: |2-
+                              <p>Чтобы <strong>повернуть таблицу на 90 градусов latex</strong>,
+      замените стандартное окружение <code>\begin{table}</code> на
+      <code>\begin{sidewaystable}</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Альбомная таблица</span></div>
+                                  <pre><code>\begin{sidewaystable}[htbp]
+      \centering
+      \caption{Сравнительный анализ производительности распределенных баз данных}
+      \label{tab:db-comparison}
+      \begin{tabular}{|l|c|c|c|c|c|c|}
+      \hline
+      СУБД & Модель данных & Макс. RPS & Задержка p99, мс & Масштабируемость & Лицензия & Поддержка SQL \\
+      \hline
+      PostgreSQL & Реляционная & 12 000 & 8.5 & Вертикальная / шардинг & Open Source & Полная \\
+      ClickHouse & Колоночная & 150 000 & 1.2 & Горизонтальная кластерная & Apache 2.0 & Диалект SQL \\
+      MongoDB & Документная & 45 000 & 4.1 & Шардинг из коробки & SSPL & Нет (MQL) \\
+      Redis & Key-Value & 850 000 & 0.3 & Redis Cluster & Redis Source & Нет \\
+      \hline
+      \end{tabular}
+      \end{sidewaystable}</code></pre>
+                              </div>
+                              <p>LaTeX автоматически выделит под таблицу отдельный лист, повернет саму
+      таблицу и ее заголовок на 90 градусов, а колонтитул с номером листа оставит на стандартном
+      месте. Если в таблице много численных данных из расчетов, вы можете комбинировать ее с
+      автоматизацией при <a href="/blog/latex-pgfplotstable-import-excel-csv-tables">чтении CSV-таблиц
+      пакетом pgfplotstable</a>.</p>
+  - id: "gost-rules"
+    title: "Требования ГОСТ к расположению альбомных таблиц"
+    html: |2-
+                              <p>ГОСТ 7.32-2017 направление поворота таблицы не задаёт. Методички
+      часто требуют так:</p>
+                              <ul>
+                                  <li>Таблицу поворачивают так, чтобы ее чтение осуществлялось
+      поворотом документа <strong>по часовой стрелке</strong> (то есть верх таблицы оказывается у
+      левого поля страницы);</li>
+                                  <li>Пакет <code>rotating</code> по умолчанию соблюдает это правило
+      для нечетных страниц;</li>
+                                  <li>Если документ с двухсторонней печатью, используйте опцию
+      <code>\usepackage[figuresright]{rotating}</code>, чтобы все таблицы были повернуты в одну
+      сторону.</li>
+                              </ul>
+  - id: "single-cell-rotation"
+    title: "Вращение отдельных заголовков колонок через turn и rotatebox"
+    html: |2-
+                              <p>Если повернуть нужно не всю таблицу целиком, а только длинные подписи
+      узких столбцов в шапке, используйте команду <code>\rotatebox{90}{...}</code> из пакета
+      <code>graphicx</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Поворот текста в шапке</span></div>
+                                  <pre><code>\usepackage{graphicx}
+
+      \begin{tabular}{|l|c|c|}
+      \hline
+      Студент & \rotatebox{90}{Теория вероятностей} & \rotatebox{90}{Дискретная математика} \\
+      \hline
+      Иванов & 5 & 4 \\
+      Петров & 4 & 5 \\
+      \hline
+      \end{tabular}</code></pre>
+                              </div>
+tips:
+  - title: "Размещение на отдельной странице"
+    html: |2-
+      <p>Окружение <code>sidewaystable</code> всегда занимает всю страницу целиком. Не пытайтесь
+      разместить обычный текст до или после нее на том же листе.</p>
+  - title: "Экспорт в PDF в Labkeeper"
+    html: |2-
+      <p>В Labkeeper поворот таблиц компилируется корректно без искажения размеров шрифта и смещения
+      рамок.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{rotating}
+    \begin{document}
+    \begin{sidewaystable}\centering
+    \begin{tabular}{lrrrr}Sensor & Trial 1 & Trial 2 & Trial 3 & Mean\\
+    A & 10 & 11 & 12 & 11\\B & 20 & 21 & 22 & 21\end{tabular}
+    \caption{Wide results table}\end{sidewaystable}
+    \end{document}

@@ -1,0 +1,162 @@
+catalogIndex: 59
+slug: "latex-tikz-automata-graphs"
+batch: 2
+title: "Рисование конечных автоматов и графов с помощью TikZ"
+pageTitle: "Нарисовать граф в LaTeX TikZ automata: конечный автомат онлайн — Labkeeper"
+metaDescription: |2-
+  Пошаговый гайд: как нарисовать граф в LaTeX через TikZ automata, построить конечный автомат
+  онлайн, задать начальные и финальные состояния, переходы.
+breadcrumbTitle: "Графы и автоматы в TikZ"
+h1: "Рисование конечных автоматов и&nbsp;графов с&nbsp;помощью TikZ"
+categories:
+  - "latex"
+keywords:
+  - "нарисовать граф в latex tikz automata"
+  - "конечный автомат latex онлайн"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "Конечные автоматы и графы в LaTeX: руководство по библиотеке TikZ automata"
+cardDescription: |2-
+  Как строить ориентированные графы, диаграммы состояний (DFA/NFA), настраивать петли, радиусы
+  узлов и переходы в академических работах.
+sliderTitle: "Конечные автоматы и графы (TikZ)"
+sliderText: "Библиотека automata, узлы состояний, дуги переходов и стильные петли."
+sidebarText: "Рисуйте сложные математические графы и конечные автоматы прямо в браузере с Labkeeper."
+ctaTitle: "Создавайте векторные схемы в&nbsp;Labkeeper"
+ctaText: "Онлайн-редактор LaTeX с полной поддержкой TikZ и сборкой векторных схем в PDF."
+toc:
+  - id: "intro"
+    title: "Библиотека TikZ automata для теории автоматов"
+  - id: "setup"
+    title: "Подключение библиотек и базовые стили"
+  - id: "automata-example"
+    title: "Конечный автомат latex онлайн: начальные и допускающие состояния"
+  - id: "graph-drawing"
+    title: "Нарисовать граф в latex tikz automata: изогнутые ребра и петли"
+  - id: "styling-tips"
+    title: "Позиционирование узлов относительно друг друга"
+sections:
+  - id: "intro"
+    title: "Библиотека TikZ automata для теории автоматов"
+    html: |2-
+                              <p>В курсах дискретной математики, теории компиляторов и теоретической
+      информатики постоянной задачей является отрисовка детерминированных (ДКА) и недетерминированных
+      (НКА) конечных автоматов, сетей Петри и графов переходов (в смежных задачах программирования
+      также полезен навык <a href="/blog/algorithm-flowcharts-gost-markdown-latex">создания блок-схем
+      алгоритмов по ГОСТ</a>).</p>
+                              <p>Специализированная библиотека TikZ <strong>automata</strong>
+      предоставляет готовые семантические примитивы: начальные состояния со стрелкой входа
+      (<code>initial</code>), финальные допускающие состояния с двойной окружностью
+      (<code>accepting</code>), а также петли и дуги переходов.</p>
+  - id: "setup"
+    title: "Подключение библиотек и базовые стили"
+    html: |2-
+                              <p>В преамбуле документа подключите TikZ и расширения для
+      позиционирования и автоматов:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{tikz}
+      \usetikzlibrary{automata, positioning, arrows.meta}</code></pre>
+                              </div>
+                              <p>Библиотека <code>positioning</code> позволяет размещать состояния
+      фразами вида <code>right=of q0</code> вместо ручного высчитывания сантиметров.</p>
+  - id: "automata-example"
+    title: "Конечный автомат latex онлайн: начальные и допускающие состояния"
+    html: |2-
+                              <p>Ниже приведен готовый код, собирающий рабочий <strong>конечный
+      автомат latex онлайн</strong>, распознающий бинарные цепочки с четным числом нулей (а
+      иерархические структуры графов удобно строить через <a href="/blog/latex-forest-trees">пакет
+      синтаксических деревьев forest</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{tikzpicture}[
+          shorten >=1pt,
+          node distance=3cm,
+          on grid,
+          auto,
+          every state/.style={thick, fill=blue!10}
+      ]
+          % Состояния
+          \node[state, initial, accepting] (q_0)   {$q_0$};
+          \node[state]                    (q_1) [right=of q_0] {$q_1$};
+
+          % Переходы
+          \path[-{Stealth}]
+              (q_0) edge [loop above] node {1} (q_0)
+                    edge [bend left]  node {0} (q_1)
+              (q_1) edge [loop above] node {1} (q_1)
+                    edge [bend left]  node {0} (q_0);
+      \end{tikzpicture}</code></pre>
+                              </div>
+                              <p>Ключевые директивы:</p>
+                              <ul>
+                                  <li><code>state, initial</code> — рисует состояние $q_0$ с входящей
+      стартовой стрелкой слева.</li>
+                                  <li><code>accepting</code> — автоматически отрисовывает двойную
+      концентрическую окружность допускающего состояния.</li>
+                                  <li><code>bend left</code> — изгибает ребро дугой, чтобы прямая и
+      обратная стрелки между узлами не сливались.</li>
+                              </ul>
+  - id: "graph-drawing"
+    title: "Нарисовать граф в latex tikz automata: изогнутые ребра и петли"
+    html: |2-
+                              <p>Если требуется <strong>нарисовать граф в latex tikz automata</strong>
+      общего вида (взвешенный, ориентированный или неориентированный), используют стили весов на
+      дугах:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{tikzpicture}[node distance=2.5cm, main/.style = {draw, circle, thick, minimum size=8mm}]
+          \node[main] (1) {$v_1$};
+          \node[main] (2) [right=of 1] {$v_2$};
+          \node[main] (3) [below right=of 1] {$v_3$};
+
+          \path[->, >=stealth, thick]
+              (1) edge node[above] {$w=4$} (2)
+              (2) edge [bend right] node[right] {$w=2$} (3)
+              (3) edge node[below left] {$w=7$} (1)
+              (1) edge [loop left] node {$w=1$} (1);
+      \end{tikzpicture}</code></pre>
+                              </div>
+                              <p>Опция <code>loop left</code> / <code>loop above</code> формирует
+      аккуратную петлю перехода узла в самого себя.</p>
+  - id: "styling-tips"
+    title: "Позиционирование узлов относительно друг друга"
+    html: |2-
+                              <p>Советы для создания чистых схем:</p>
+                              <ul>
+                                  <li>Используйте <code>node distance=2.5cm and 3cm</code>, чтобы
+      раздельно управлять шагом сетки: первое число задаёт расстояние по вертикали, второе — по
+      горизонтали.</li>
+                                  <li>Для русскоязычных надписей на стрелках используйте стандартные
+      текстовые ноды: <code>node[midway, above] {сигнал}</code>.</li>
+                                  <li>Цветные заливки состояний (<code>fill=green!20</code>) помогают
+      визуализировать текущее состояние алгоритма при пошаговом объяснении в презентациях.</li>
+                              </ul>
+tips:
+  - title: "Скрытие стартового текста \"start\""
+    html: |2-
+      <p>По умолчанию над стрелкой входа пишется слово «start». Чтобы убрать его или заменить на
+      русское «вход», добавьте параметр: <code>initial text={вход}</code> или <code>initial
+      text={}</code>.</p>
+  - title: "Толщина линий переходов"
+    html: |2-
+      <p>Для полиграфической четкости используйте глобальный модификатор стрелок
+      <code>-Latex[length=3mm, width=2mm]</code>.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{tikz}\usetikzlibrary{automata,positioning}
+    \begin{document}
+    \begin{tikzpicture}[node distance=3cm,>=stealth]
+    \node[state,initial] (a) {$q_0$};\node[state,accepting,right of=a] (b) {$q_1$};
+    \path[->] (a) edge[bend left] node[above]{1} (b) (b) edge[bend left] node[below]{0} (a);
+    \end{tikzpicture}
+    \end{document}

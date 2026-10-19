@@ -1,0 +1,150 @@
+catalogIndex: 62
+slug: "latex-sans-serif-fonts"
+batch: 2
+title: "Использование шрифтов без засечек (Sans Serif) во всем документе LaTeX"
+pageTitle: "Как поменять шрифт на весь документ LaTeX: шрифт без засечек онлайн — Labkeeper"
+metaDescription: |2-
+  Как поменять шрифт на весь документ в LaTeX: шрифт без засечек (Sans Serif) онлайн, PT Sans и
+  DejaVu Sans с кириллицей, helvet для латиницы и формулы.
+breadcrumbTitle: "Шрифты без засечек (Sans Serif)"
+h1: "Использование шрифтов без засечек (Sans Serif) во&nbsp;всем документе LaTeX"
+categories:
+  - "latex"
+keywords:
+  - "как поменять шрифт на весь документ latex"
+  - "шрифт без засечек latex онлайн"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "6 мин"
+cardTitle: "Шрифты без засечек в LaTeX: как сменить семейство шрифта для всего документа"
+cardDescription: |2-
+  Пошаговый гайд по переключению стандартного Computer Modern на гротески с кириллицей (PT Sans,
+  DejaVu Sans) и латинскую Helvetica, настройке масштабирования и математических символов.
+sliderTitle: "Шрифты без засечек (Sans Serif) в LaTeX"
+sliderText: "Глобальная смена шрифта на гротеск, пакеты PT Sans, DejaVu Sans, cmbright и математика."
+sidebarText: "Меняйте шрифт всего документа одной строкой преамбулы в онлайн-редакторе Labkeeper."
+ctaTitle: "Настраивайте типографику в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор с поддержкой кириллических гротесков, математических шрифтов и чистого экспорта
+  в PDF.
+toc:
+  - id: "intro"
+    title: "Зачем переключаться на шрифт без засечек"
+  - id: "global-switch"
+    title: "Как поменять шрифт на весь документ latex: команда renewcommand"
+  - id: "sans-packages"
+    title: "Шрифт без засечек latex онлайн: пакеты Helvetica, DejaVu и PT Sans"
+  - id: "math-fonts"
+    title: "Шрифты без засечек в математических формулах"
+  - id: "faq"
+    title: "Совместимость с кириллицей и ГОСТ"
+sections:
+  - id: "intro"
+    title: "Зачем переключаться на шрифт без засечек"
+    html: |2-
+                              <p>По умолчанию LaTeX использует классическую антикву Computer Modern
+      Roman с выраженными засечками (Serif). Однако в современных презентациях Beamer, корпоративных
+      регламентах, IT-руководствах и при чтении с экранов мобильных устройств гротески (Sans Serif)
+      читаются значительно легче (а верстать такие документы удобно в современных <a
+      href="/blog/overleaf-alternatives-russia-online-latex">альтернативах Overleaf в России</a>).</p>
+                              <p>Переход на шрифт без засечек часто требуется и по внутренним
+      стандартам компаний, где в брендбуках закреплены шрифты типа Arial, Roboto или Helvetica.</p>
+  - id: "global-switch"
+    title: "Как поменять шрифт на весь документ latex: команда renewcommand"
+    html: |2-
+                              <p>Самый быстрый способ, <strong>как поменять шрифт на весь документ
+      latex</strong> без подключения сторонних тяжелых библиотек — переопределить семейство шрифта по
+      умолчанию (<code>\familydefault</code>) в преамбуле:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\documentclass[12pt,a4paper]{article}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+
+      % Переключаем семейство по умолчанию на Sans Serif (sfdefault)
+      \renewcommand{\familydefault}{\sfdefault}</code></pre>
+                              </div>
+                              <p>После этой строчки весь обычный текст, заголовки, оглавление и
+      подрисуночные подписи автоматически отобразятся без засечек.</p>
+  - id: "sans-packages"
+    title: "Шрифт без засечек latex онлайн: пакеты Helvetica, DejaVu и PT Sans"
+    html: |2-
+                              <p>Стандартный <code>\sfdefault</code> в TeX выглядит как Computer
+      Modern Sans. Если вам нужен более современный <strong>шрифт без засечек latex онлайн</strong>,
+      подключите пакет шрифтов. Для русского текста проверьте кириллицу: она есть не во всех
+      пакетах.</p>
+                              <ul>
+                                  <li><strong>PT Sans — свободный шрифт ParaType с полной
+      кириллицей:</strong>
+                                      <pre><code>\usepackage{paratype}
+      \renewcommand{\familydefault}{\sfdefault}</code></pre>
+                                      Пакет <code>paratype</code> подключает всё семейство PT (Serif,
+      Sans и Mono). Если нужен только гротеск, используйте <code>\usepackage{PTSans}</code>.
+                                  </li>
+                                  <li><strong>DejaVu Sans (кириллица и широкий набор
+      символов):</strong>
+                                      <pre><code>\usepackage{DejaVuSans}
+      \renewcommand{\familydefault}{\sfdefault}</code></pre>
+                                  </li>
+                                  <li><strong>Helvetica (аналог Arial, только латиница):</strong>
+                                      <pre><code>\usepackage[scaled=0.92]{helvet}
+      \renewcommand{\familydefault}{\sfdefault}</code></pre>
+                                      Опция <code>scaled=0.92</code> выравнивает оптический размер с
+      большинством стандартных гарнитур. Кириллицы в <code>helvet</code> нет: с <code>T2A</code>
+      русский текст наберётся другим шрифтом, а в логе появится предупреждение <code>Font shape
+      T2A/phv/m/n undefined</code>. Используйте Helvetica для англоязычных документов.
+                                  </li>
+                              </ul>
+  - id: "math-fonts"
+    title: "Шрифты без засечек в математических формулах"
+    html: |2-
+                              <p>Стандартная команда
+      <code>\renewcommand{\familydefault}{\sfdefault}</code> затрагивает только текстовый режим.
+      Формулы внутри <code>$...$</code> останутся с засечками. Чтобы формулы гармонировали с общим
+      стилем, подключите пакет <strong>sansmath</strong> или <strong>cmbright</strong>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{sansmath}
+      \sansmath % Включает математику без засечек для всех формул</code></pre>
+                              </div>
+                              <p>В результате даже интегралы, греческие буквы $\alpha, \beta$ и
+      переменные будут отображаться в стильном едином гротескном начертании.</p>
+  - id: "faq"
+    title: "Совместимость с кириллицей и ГОСТ"
+    html: |2-
+                              <p>При использовании гротесков в академических отчетах:</p>
+                              <ul>
+                                  <li>Убедитесь, что в преамбуле подключен
+      <code>\usepackage[T2A]{fontenc}</code>, чтобы русские буквы корректно выгружались в векторный
+      PDF с возможностью поиска и копирования.</li>
+                                  <li>Для дипломных работ по ГОСТ 7.32 традиционно требуют Times New
+      Roman (с засечками), о чем мы подробно рассказываем в руководстве по <a
+      href="/blog/latex-diploma-gost">оформлению диплома в LaTeX по ГОСТ</a>, но для приложений,
+      плакатов и презентаций к защите ВКР шрифты без засечек являются абсолютным стандартом.</li>
+                              </ul>
+tips:
+  - title: "Локальное использование гротеска"
+    html: |2-
+      <p>Если вам нужен шрифт без засечек только для одного фрагмента или врезки, используйте команду
+      <code>\textsf{Текст без засечек}</code> или окружение <code>{\sffamily ...}</code>.</p>
+  - title: "Подбор межстрочного интервала"
+    html: |2-
+      <p>Шрифты без засечек визуально кажутся крупнее обычных. Рекомендуется слегка увеличить базовый
+      интервал через <code>\usepackage{setspace}\setstretch{1.15}</code> для улучшения читаемости.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{PTSans}
+    \renewcommand{\familydefault}{\sfdefault}
+    \begin{document}
+    \section{Документ без засечек}
+    Основной текст и заголовки набраны шрифтом PT Sans.
+    \textbf{Полужирный} и \textit{курсив} тоже доступны.
+    \end{document}

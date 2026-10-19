@@ -1,0 +1,148 @@
+catalogIndex: 39
+slug: "latex-tcolorbox-theorems-callouts"
+batch: 2
+title: "Оформление теорем, лемм и определений в цветных рамках (tcolorbox)"
+pageTitle: "Красивые рамки для теорем LaTeX tcolorbox: цветной блок с текстом — Labkeeper"
+metaDescription: |2-
+  Красивые рамки для теорем в LaTeX через tcolorbox: цветной блок с текстом онлайн, определения,
+  формулы, иконки и скругленные углы в Labkeeper.
+breadcrumbTitle: "Цветные рамки и блоки (tcolorbox)"
+h1: "Оформление теорем, лемм и&nbsp;определений в&nbsp;цветных рамках (tcolorbox)"
+categories:
+  - "latex"
+keywords:
+  - "красивые рамки для теорем latex tcolorbox"
+  - "цветной блок с текстом latex"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "Цветные блоки и рамки для теорем в LaTeX: руководство по пакету tcolorbox"
+cardDescription: |2-
+  Как выделить важные правила, замечания, теоремы и примеры в современные цветные плашки со
+  скругленными углами, тенями и заголовками.
+sliderTitle: "Цветные рамки и теоремы (tcolorbox)"
+sliderText: "Современные плашки callouts, стилизация теорем, определения и тени."
+sidebarText: |2-
+  Создавайте учебники и конспекты университетского уровня с красивыми блоками tcolorbox в
+  Labkeeper.
+ctaTitle: "Выделяйте главное в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с поддержкой пакета tcolorbox и сборкой PDF в браузере: цветные блоки,
+  теоремы и рамки.
+toc:
+  - id: "intro"
+    title: "Возможности современного пакета tcolorbox"
+  - id: "basic-box"
+    title: "Цветной блок с текстом latex: базовое окружение"
+  - id: "theorems-setup"
+    title: "Красивые рамки для теорем latex tcolorbox: счетчики и заголовки"
+  - id: "custom-callouts"
+    title: "Создание блоков Замечание, Внимание и Пример (Callouts)"
+  - id: "pagebreak-boxes"
+    title: "Перенос длинных рамок через разрывы страниц (breakable)"
+sections:
+  - id: "intro"
+    title: "Возможности современного пакета tcolorbox"
+    html: |2-
+                              <p>Стандартное математическое окружение <code>amsthm</code> выводит
+      теоремы обычным курсивом, без рамок и линий (подробнее о базовой настройке читайте в статье об
+      <a href="/blog/latex-amsthm">оформлении теорем и определений в amsthm</a>). В современных
+      учебных пособиях, конспектах и методичках для лучшей читаемости применяют стильные цветные
+      плашки (callouts) с градиентами, скругленными углами и акцентными иконками.</p>
+                              <p>Пакет <strong>tcolorbox</strong> — это непревзойденный стандарт для
+      создания презентабельных рамок любого уровня сложности на базе векторного движка TikZ.</p>
+  - id: "basic-box"
+    title: "Цветной блок с текстом latex: базовое окружение"
+    html: |2-
+                              <p>Подключите пакет: <code>\usepackage{tcolorbox}</code>. Чтобы создать
+      аккуратный <strong>цветной блок с текстом latex</strong>, используется простое окружение
+      (оттенки рамки и фона можно тонко настроить через <a
+      href="/blog/latex-custom-rgb-hex-colors-xcolor">пользовательские цвета RGB и HEX в
+      xcolor</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{tcolorbox}[
+          colback=blue!5!white,    % Фоновый цвет (светло-голубой)
+          colframe=blue!75!black,  % Цвет рамки
+          title=Ключевой вывод,   % Заголовок плашки
+          arc=3mm                  % Радиус скругления углов
+      ]
+          Энтропия изолированной термодинамической системы не может убывать в самопроизвольных процессах.
+      \end{tcolorbox}</code></pre>
+                              </div>
+  - id: "theorems-setup"
+    title: "Красивые рамки для теорем latex tcolorbox: счетчики и заголовки"
+    html: |2-
+                              <p>Для создания полноценной математической типографики используют
+      библиотеку <code>theorems</code>. Она формирует <strong>красивые рамки для теорем latex
+      tcolorbox</strong> с автоматической нумерацией и связкой со списком теорем:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage[most]{tcolorbox}
+
+      % Создаем окружение теоремы
+      \newtcbtheorem[number within=section]{mytheorem}{Теорема}%
+      {colback=green!5,colframe=green!50!black,fonttitle=\bfseries}{th}
+
+      % Использование в тексте:
+      \begin{mytheorem}{Пифагора}{pythagoras}
+          В прямоугольном треугольнике квадрат длины гипотенузы равен сумме квадратов длин катетов:
+          \[ c^2 = a^2 + b^2 \]
+      \end{mytheorem}</code></pre>
+                              </div>
+                              <p>Команда <code>\ref{th:pythagoras}</code> автоматически сошлется на
+      номер этой теоремы в тексте (например, <em>«согласно Теореме 2.1»</em>).</p>
+  - id: "custom-callouts"
+    title: "Создание блоков Замечание, Внимание и Пример (Callouts)"
+    html: |2-
+                              <p>Для создания блоков в стиле документации GitHub / Notion настраивают
+      минималистичные стили с акцентной левой полосой:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\newtcolorbox{warningbox}{
+          colback=red!5!white,
+          colframe=red!75!black,
+          leftrule=5mm, % Толстая цветная полоса слева
+          rightrule=0.5mm, toprule=0.5mm, bottomrule=0.5mm,
+          arc=1mm,
+          title=\textbf{Внимание!}
+      }</code></pre>
+                              </div>
+  - id: "pagebreak-boxes"
+    title: "Перенос длинных рамок через разрывы страниц (breakable)"
+    html: |2-
+                              <p>По умолчанию tcolorbox не разрывается страницей и целиком переносится
+      на следующий лист, оставляя пустоту. Чтобы блок плавно перетекал через границу страниц, добавьте
+      опцию <code>breakable</code> (требует библиотеки <code>\tcbuselibrary{breakable}</code>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{tcolorbox}[breakable, colback=gray!10, colframe=black]
+          ... очень длинный текст доказательства на 2 страницы ...
+      \end{tcolorbox}</code></pre>
+                              </div>
+tips:
+  - title: "Подключение [most]"
+    html: |2-
+      <p>Всегда подключайте пакет как <code>\usepackage[most]{tcolorbox}</code> — это активирует
+      библиотеки theorems, breakable, skins и xparse в одном флаконе.</p>
+  - title: "Тени и объем"
+    html: |2-
+      <p>Опция <code>drop shadow</code> или <code>fuzzy shadow</code> добавляет реалистичную мягкую
+      тень под блоком для оформления презентаций.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{tcolorbox}
+    \begin{document}
+    \begin{tcolorbox}[title=Pythagorean theorem,colback=blue!5,colframe=blue!60!black]
+    For a right triangle, $a^2+b^2=c^2$.
+    \end{tcolorbox}
+    \end{document}

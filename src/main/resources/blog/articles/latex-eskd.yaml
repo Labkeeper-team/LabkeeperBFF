@@ -1,0 +1,267 @@
+catalogIndex: 94
+slug: "latex-eskd"
+batch: 1
+title: "Оформление рамок и штампов основной надписи по ЕСКД в LaTeX онлайн"
+pageTitle: "Оформление рамок и штампов по ЕСКД в LaTeX онлайн (TikZ) — Labkeeper"
+metaDescription: |2-
+  Рамка со штампом ЕСКД в LaTeX онлайн: основная надпись по ГОСТ 2.104 на TikZ, формы 2 и 2а,
+  заполнение граф. Почему eskdx не собирается в TeX Live 2025.
+ogTitle: "Оформление рамок и штампов основной надписи по ЕСКД в LaTeX онлайн — Labkeeper"
+ogDescription: |2-
+  Рамка со штампом ЕСКД в LaTeX онлайн: основная надпись по ГОСТ 2.104 на TikZ, формы 2 и 2а и
+  листы РПЗ в онлайн-редакторе Labkeeper.
+twitterTitle: "Оформление рамок и штампов по ЕСКД в LaTeX — Labkeeper"
+twitterDescription: "Рамка со штампом ЕСКД LaTeX онлайн: основная надпись ГОСТ LaTeX онлайн редактор."
+schemaDescription: |2-
+  Гайд по оформлению расчетно-пояснительных записок, рамок и штампов основной надписи по ЕСКД в
+  LaTeX: рамка и формы 2 и 2а на TikZ.
+breadcrumbTitle: "Рамки и штампы по ЕСКД"
+schemaBreadcrumbTitle: "Рамки и штампы по ЕСКД в LaTeX"
+h1: "Оформление рамок и&nbsp;штампов основной надписи по&nbsp;ЕСКД в&nbsp;LaTeX онлайн"
+categories:
+  - "diploma"
+  - "labs"
+  - "latex"
+keywords:
+  - "рамка со штампом ескд latex онлайн"
+  - "основная надпись гост latex онлайн редактор"
+datePublished: "2026-08-20"
+dateModified: "2026-10-18"
+readingTime: "10 мин"
+cardTitle: "Оформление рамок и штампов основной надписи по ЕСКД в LaTeX онлайн"
+cardDescription: |2-
+  Верстка расчетно-пояснительных записок (РПЗ), рамки 20-5-5-5 мм и штампы
+                          Формы 2 и 2а по ГОСТ 2.104 на TikZ.
+sliderTitle: "Рамки и&nbsp;штампы по&nbsp;ЕСКД в&nbsp;LaTeX"
+sliderText: "Верстка расчетно-пояснительных записок, рамки 20-5-5-5 мм и штампы по ГОСТ 2.104."
+sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sidebarText: |2-
+  Формируйте расчетно-пояснительные записки с&nbsp;рамками ЕСКД в&nbsp;Labkeeper без&nbsp;ручной
+  разметки в&nbsp;Word или AutoCAD.
+ctaTitle: "Оформляйте пояснительные записки по&nbsp;ЕСКД в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX: рамки и&nbsp;основные надписи на&nbsp;TikZ
+  для&nbsp;расчетно-пояснительных записок по&nbsp;ГОСТ прямо в&nbsp;браузере.
+toc:
+  - id: "intro"
+    title: "Стандарты ЕСКД и ГОСТ 2.104-2006"
+  - id: "eskdx"
+    title: "Класс eskdx и TeX Live 2025"
+  - id: "stamps"
+    title: "Формы основной надписи (Форма 2 и 2а)"
+  - id: "fields"
+    title: "Заполнение граф штампа (разработчик, проверил, шифр)"
+  - id: "template"
+    title: "Шаблон РПЗ с рамкой и штампом на TikZ"
+  - id: "tips"
+    title: "Советы по настройке полей и шрифтов"
+sections:
+  - id: "intro"
+    title: "Стандарты ЕСКД и ГОСТ 2.104-2006"
+    html: |2-
+                              <p><strong>Пример в редакторе:</strong> кнопка открывает небольшой
+      документ с рамкой на TikZ и упрощенной подписью. Он показывает размещение рамки и не заменяет
+      полный нормативный бланк: код рамки с основной надписью приведён ниже.</p>
+                              <p>Во многих инженерных, строительных и технических вузах курсовые и <a
+      href="/blog/latex-diploma-gost">дипломные проекты</a> оформляют по правилам Единой системы
+      конструкторской документации (ЕСКД); нужна ли рамка, решает методичка направления. Лист окружает
+      рамка с отступами 20 мм слева и по 5 мм сверху, справа и снизу, а в правом нижнем углу стоит
+      основная надпись (штамп).</p>
+                              <p>Основные надписи много лет задавал ГОСТ 2.104-2006, и многие
+      методички ссылаются именно на него. С 1 марта 2024 года в России вместо него действует ГОСТ Р
+      2.104-2023: формы 2 и 2а для текстовых документов в нём сохранились, добавилась форма 2б для
+      двусторонней печати. Какой номер стандарта указывать и какие размеры граф брать, решает
+      методичка.</p>
+                              <p>Специализированный класс <code>eskdx</code> когда-то автоматизировал
+      эту работу, но в TeX Live 2025 без правок не собирается. Поэтому в статье <strong>рамка со
+      штампом ЕСКД в LaTeX онлайн</strong> рисуется пакетом TikZ: так Labkeeper становится удобным
+      <strong>онлайн-редактором основной надписи ГОСТ в LaTeX</strong> без сторонних классов.</p>
+  - id: "eskdx"
+    title: "Класс eskdx и TeX Live 2025"
+    html: |2-
+                              <p>Пакет <code>eskdx</code> предоставляет класс документа
+      <code>eskdtext</code> для текстовых расчетно-пояснительных записок (РПЗ). Его последняя версия
+      0.98 вышла в 2010 году и с TeX Live 2025 не совместима: сборка останавливается на
+      <code>\begin{document}</code>, потому что класс использует команды <code>\cyr</code> и
+      <code>\No</code>, которых в современных пакетах кириллицы нет. Заглушки
+      <code>\providecommand\cyr{}</code> и <code>\providecommand\No{\textnumero}</code> позволяют
+      получить PDF, но вёрстка страниц всё равно ломается с ошибкой <code>Output routine didn't use
+      all of \box255</code>.</p>
+                              <p>Если кафедра выдаёт исправленную версию класса, её можно загрузить в
+      проект как файл <code>.cls</code>. В остальных случаях надёжнее нарисовать рамку и штамп
+      самостоятельно — так, как показано ниже.</p>
+  - id: "stamps"
+    title: "Формы основной надписи (Форма 2 и 2а)"
+    html: |2-
+                              <p>Для текстовых документов ГОСТ 2.104-2006 и заменивший его ГОСТ Р
+      2.104-2023 предусматривают две основные формы основной надписи:</p>
+                              <ul>
+                                  <li><strong>Форма 2 (185 × 40 мм):</strong> на первом (заглавном)
+      листе пояснительной записки — обычно это лист содержания.</li>
+                                  <li><strong>Форма 2а (185 × 15 мм):</strong> на всех последующих
+      листах. Графы шириной 7, 10, 23, 15 и 10 мм отведены под изменения и подписи (три строки по 5
+      мм), графа 110 мм — под обозначение документа, последняя графа 10 мм — под номер листа.</li>
+                                  <li><strong>Титульный лист и задание</strong> оформляют по
+      требованиям методички.</li>
+                              </ul>
+                              <p>Сама рамка на листе А4 занимает 185 × 287 мм: 210 − 20 − 5 мм по
+      ширине и 297 − 5 − 5 мм по высоте. В шаблоне ниже первый лист получает форму 2, остальные —
+      форму 2а.</p>
+  - id: "fields"
+    title: "Заполнение граф штампа (разработчик, проверил, шифр)"
+    html: |2-
+                              <p>Данные штампа удобно вынести в макросы преамбулы: шифр, название и
+      фамилии меняются в одном месте, а TikZ подставляет их в графы на каждом листе:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Обозначение документа (шифр)
+      \newcommand{\docnum}{КП 09.03.01.026 ПЗ}
+
+      % Наименование документа
+      \newcommand{\doctitle}{Проектирование микропроцессорной\\системы управления}
+
+      % Организация: вуз и кафедра
+      \newcommand{\docorg}{МГТУ им. Н.~Э.~Баумана\\каф. ИУ-6}
+
+      % Исполнители и число листов
+      \newcommand{\docauthor}{Иванов}   % Разраб.
+      \newcommand{\docchecker}{Петров}  % Пров.
+      \newcommand{\docsheets}{24}       % Листов</code></pre>
+                              </div>
+                              <p>Литера «У» в графе «Лит.» обозначает учебный документ. Подписи и даты
+      на распечатанном листе ставят от руки.</p>
+  - id: "template"
+    title: "Готовый шаблон расчетно-пояснительной записки (РПЗ)"
+    html: |2-
+                              <p>Полный код документа: рамка рисуется на каждом листе через хук
+      <code>shipout/background</code>, первый лист получает основную надпись по форме 2, остальные —
+      по форме 2а. Размеры граф взяты по формам ГОСТ 2.104-2006, на которые ссылается большинство
+      методичек; перед сдачей сверьте их с вашей методичкой и ГОСТ Р 2.104-2023 (для титульного листа
+      смотрите также наш <a href="/blog/latex-titlepage">гайд по титульным листам</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\documentclass[a4paper,12pt]{article}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{amsmath}
+      \usepackage[left=25mm,right=10mm,top=15mm,bottom=25mm]{geometry}
+      \usepackage{tikz}
+      \pagestyle{empty} % номер листа печатается в штампе, а не в подвале
+
+      % Данные штампа
+      \newcommand{\docnum}{ВКР 15.03.01.026 ПЗ}
+      \newcommand{\doctitle}{Расчёт привода\\технологического оборудования}
+      \newcommand{\docorg}{СПбПУ\\каф. машиностроения}
+      \newcommand{\docauthor}{Иванов}
+      \newcommand{\docchecker}{Васильев}
+      \newcommand{\docsheets}{12}
+
+      % Координаты — в миллиметрах от левого нижнего угла листа
+      % Рамка: 20 мм слева, по 5 мм с остальных сторон
+      \newcommand{\eskdframe}{\draw[line width=0.5mm] (20,5) rectangle (205,292);}
+
+      % Форма 2а (последующие листы): 185 x 15 мм
+      \newcommand{\eskdsmall}{%
+        \draw[line width=0.5mm] (20,20) -- (205,20);
+        \foreach \x in {27,37,60,75,85,195} \draw[line width=0.5mm] (\x,5) -- (\x,20);
+        \draw (20,10) -- (85,10) (20,15) -- (85,15) (195,13) -- (205,13);
+        \foreach \x/\lbl in {23.5/Изм., 32/Лист, 48.5/№ докум., 67.5/Подп., 80/Дата}
+          \node[font=\tiny] at (\x,7.5) {\lbl};
+        \node at (140,12.5) {\docnum};
+        \node[font=\tiny] at (200,16.5) {Лист};
+        \node[font=\small] at (200,9) {\thepage};
+      }
+
+      % Форма 2 (первый лист): 185 x 40 мм
+      \newcommand{\eskdbig}{%
+        \draw[line width=0.5mm] (20,45) -- (205,45) (85,5) -- (85,45)
+          (20,30) -- (205,30) (155,5) -- (155,30) (155,20) -- (205,20)
+          (155,25) -- (205,25) (170,20) -- (170,30) (185,20) -- (185,30);
+        \foreach \x in {27,37,60,75} \draw[line width=0.5mm] (\x,30) -- (\x,45);
+        \foreach \x in {37,60,75} \draw[line width=0.5mm] (\x,5) -- (\x,30);
+        \foreach \y in {10,15,20,25,35,40} \draw (20,\y) -- (85,\y);
+        \draw (160,20) -- (160,25) (165,20) -- (165,25);
+        \foreach \x/\lbl in {23.5/Изм., 32/Лист, 48.5/№ докум., 67.5/Подп., 80/Дата}
+          \node[font=\tiny] at (\x,32.5) {\lbl};
+        \foreach \y/\lbl in {27.5/Разраб., 22.5/Пров., 12.5/Н. контр., 7.5/Утв.}
+          \node[font=\tiny,anchor=west] at (20.5,\y) {\lbl};
+        \node[font=\tiny,anchor=west] at (37.5,27.5) {\docauthor};
+        \node[font=\tiny,anchor=west] at (37.5,22.5) {\docchecker};
+        \node[font=\large] at (145,37.5) {\docnum};
+        \node[align=center,font=\small] at (120,17.5) {\doctitle};
+        \foreach \x/\lbl in {162.5/Лит., 177.5/Лист, 195/Листов}
+          \node[font=\tiny] at (\x,27.5) {\lbl};
+        \node[font=\small] at (157.5,22.5) {У};
+        \node[font=\small] at (177.5,22.5) {\thepage};
+        \node[font=\small] at (195,22.5) {\docsheets};
+        \node[align=center,font=\small] at (180,12.5) {\docorg};
+      }
+
+      \AddToHook{shipout/background}{%
+        \begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm,line width=0.25mm]
+          \begin{scope}[shift={(current page.south west)}]
+            \eskdframe
+            \ifnum\value{page}=1 \eskdbig \else \eskdsmall \fi
+          \end{scope}
+        \end{tikzpicture}}
+
+      \begin{document}
+      \enlargethispage{-25mm} % на первом листе штамп выше: 40 мм вместо 15
+      \section{Введение}
+      В данном курсовом проекте выполнен кинематический и прочностной расчёт привода.
+
+      \section{Кинематический расчёт}
+      Мощность на выходном валу определяется по формуле:
+      \begin{equation}
+          P = \frac{T \cdot \omega}{1000 \cdot \eta}
+      \end{equation}
+      \end{document}</code></pre>
+                              </div>
+                              <p>Нижнее поле 25 мм оставляет место под штамп формы 2а, а команда
+      <code>\enlargethispage{-25mm}</code> на первом листе освобождает место под более высокий штамп
+      формы 2. Графы «Подп.» и «Дата» остаются пустыми: их заполняют от руки.</p>
+  - id: "tips"
+    title: "Советы по настройке полей и шрифтов"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Шрифт в штампе</h3>
+                                          <p>В шаблоне выше штамп набран основным шрифтом документа.
+      Если методичка требует чертёжный шрифт по ГОСТ 2.304, уточните у нормоконтролёра, допускается ли
+      замена.</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Физические величины и отчеты</h3>
+                                          <p>При оформлении инженерных расчетов рекомендуем
+      использовать <a href="/blog/latex-siunitx">пакет размерностей siunitx</a>, а для типовых
+      студенческих работ — наш <a href="/blog/latex-lab-reports">шаблон лабораторных отчетов</a>.</p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage[left=23mm,right=8mm,top=15mm,bottom=15mm]{geometry}
+    \usepackage{tikz}
+    \pagestyle{empty}
+    \AddToHook{shipout/background}{\begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=.4mm] ([xshift=20mm,yshift=5mm]current page.south west)
+    rectangle ([xshift=-5mm,yshift=-5mm]current page.north east);
+    \end{tikzpicture}}
+    \begin{document}
+    \section{Назначение}Описание изделия.
+    \section{Характеристики}Напряжение питания: 12 В.
+    \vfill\noindent\fbox{\parbox{.9\linewidth}{AB.001\hfill Лист \thepage\\Источник питания}}
+    \end{document}

@@ -1,0 +1,168 @@
+catalogIndex: 46
+slug: "github-readme-template-badges-spoilers"
+batch: 2
+title: "Оформление README.md для GitHub: структура, бейджи и спойлеры"
+pageTitle: "Шаблон README md для GitHub: как сделать спойлер в Markdown — Labkeeper"
+metaDescription: |2-
+  Шаблон README.md для GitHub: как сделать спойлер в Markdown, бейджи Shields.io, анимации,
+  быстрый старт и структура идеального репозитория.
+breadcrumbTitle: "Оформление README.md для GitHub"
+h1: "Оформление README.md для GitHub: структура, бейджи и&nbsp;спойлеры"
+categories:
+  - "markdown"
+keywords:
+  - "шаблон readme md для github"
+  - "как сделать спойлер в markdown"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "7 мин"
+cardTitle: "Идеальный README.md для GitHub: структура, бейджи, спойлеры и гифки"
+cardDescription: |2-
+  Как презентовать свой проект на GitHub: бейджи статуса сборки, лицензии, раскрывающиеся спойлеры
+  details/summary и шаблон документации.
+sliderTitle: "Оформление README.md на GitHub"
+sliderText: "Бейджи Shields.io, спойлеры details, структура проекта и блок установки."
+sidebarText: "Создавайте читаемую техническую документацию и README в удобном редакторе Labkeeper."
+ctaTitle: "Ведите документацию проектов в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор Markdown: черновик README с бейджами, спойлерами и формулами MathJax в превью
+  при наборе — готовый текст останется скопировать в репозиторий.
+toc:
+  - id: "importance"
+    title: "Почему README — это лицо разработчика и open-source проекта"
+  - id: "template"
+    title: "Шаблон readme md для github: 7 обязательных блоков"
+  - id: "spoilers"
+    title: "Как сделать спойлер в markdown: сворачивание длинных логов"
+  - id: "badges"
+    title: "Бейджи Shields.io: версия, статус CI/CD, лицензия и тесты"
+  - id: "media"
+    title: "Вставка демонстрационных GIF и скриншотов"
+sections:
+  - id: "importance"
+    title: "Почему README — это лицо разработчика и open-source проекта"
+    html: |2-
+                              <p>Файл <code>README.md</code> в корне репозитория — это первое, что
+      видит потенциальный работодатель, контрибьютор или пользователь библиотеки. Если в репозитории
+      нет четкой инструкции по запуску и скриншотов, многие посетители закроют страницу в первые же
+      секунды.</p>
+                              <p>Хороший README отвечает на три вопроса: <em>что делает этот проект?
+      как его запустить прямо сейчас? как с ним работать?</em></p>
+  - id: "template"
+    title: "Шаблон readme md для github: 7 обязательных блоков"
+    html: |2-
+                              <p>Используйте проверенный <strong>шаблон readme md для github</strong>,
+      покрывающий все этапы знакомства с проектом:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown</span></div>
+                                  <pre><code># 🚀 Project Name
+
+      Краткое емкое описание проекта в 1-2 предложения (какую проблему решает).
+
+      ![Build Status](https://img.shields.io/github/actions/workflow/status/user/repo/ci.yml?branch=main)
+      ![License](https://img.shields.io/github/license/user/repo)
+      ![Version](https://img.shields.io/github/v/release/user/repo)
+
+      ## ✨ Особенности
+      - ⚡ Высокая производительность и асинхронность
+      - 🛡️ 100% покрытие типами TypeScript
+      - 📦 Нулевые внешние зависимости
+
+      ## 📦 Установка и быстрый запуск
+      ```bash
+      git clone https://github.com/user/repo.git
+      cd repo
+      npm install
+      npm run dev
+      ```
+
+      ## 🛠️ Переменные окружения (.env)
+      Создайте файл `.env` в корне проекта:
+      ```env
+      PORT=3000
+      DATABASE_URL=postgresql://user:pass@localhost:5432/mydb
+      ```</code></pre>
+                              </div>
+  - id: "spoilers"
+    title: "Как сделать спойлер в markdown: сворачивание длинных логов"
+    html: |2-
+                              <p>Длинные дампы ошибок, простыни JSON-ответов API или примеры логов
+      перегружают страницу. Разберем, <strong>как сделать спойлер в markdown</strong> с помощью
+      стандартных HTML5 тегов <code>details</code> и <code>summary</code> (подробнее об этом читайте в
+      статье о <a href="/blog/markdown-spoilers-details-summary">спойлерах details и summary в
+      Markdown</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown</span></div>
+                                  <pre><code><details>
+      <summary>👉 Нажмите, чтобы развернуть полный пример ответа API (JSON)</summary>
+
+      ```json
+      {
+        "status": "success",
+        "data": {
+          "userId": 42,
+          "role": "admin",
+          "permissions": ["read", "write", "deploy"]
+        }
+      }
+      ```
+
+      </details></code></pre>
+                              </div>
+                              <p>Обязательно оставляйте пустую строку перед и после блока кода внутри
+      <code>details</code>, чтобы Markdown-парсер GitHub корректно раскрасил синтаксис.</p>
+  - id: "badges"
+    title: "Бейджи Shields.io: версия, статус CI/CD, лицензия и тесты"
+    html: |2-
+                              <p>Динамические бейджи сервиса <strong>Shields.io</strong> мгновенно
+      придают проекту профессиональный вид. Они обновляются автоматически при каждом коммите:</p>
+                              <ul>
+                                  <li>Статус тестов:
+      <code>https://img.shields.io/github/actions/workflow/status/:user/:repo/test.yml</code></li>
+                                  <li>Количество звезд:
+      <code>https://img.shields.io/github/stars/:user/:repo?style=social</code></li>
+                                  <li>Язык проекта:
+      <code>https://img.shields.io/badge/Python-3.11+-blue.svg</code></li>
+                              </ul>
+                              <p>В превью Labkeeper бейдж остаётся маленьким и не растягивается до 500
+      px. Настоящий вид на GitHub всё равно стоит проверить: у Shields.io свой кэш.</p>
+  - id: "media"
+    title: "Вставка демонстрационных GIF и скриншотов"
+    html: |2-
+                              <p>Ничто не привлекает внимание так эффективно, как короткая 5-секундная
+      анимация работы интерфейса или консольной утилиты. Загрузите файл <code>demo.gif</code> в папку
+      <code>assets/</code> репозитория и подключите относительной ссылкой:
+      <code>![Demo](assets/demo.gif)</code> (а настроить масштаб иллюстраций поможет гайд по <a
+      href="/blog/markdown-image-size-width-height">размерам картинок в Markdown</a>).</p>
+tips:
+  - title: "Таблица участников (Contributors)"
+    html: |2-
+      <p>Используйте бота all-contributors для автоматического добавления аватарок контрибьюторов в
+      раздел «Благодарности».</p>
+  - title: "Раздел лицензии"
+    html: |2-
+      <p>Всегда добавляйте ссылку на файл LICENSE (MIT, Apache 2.0, GPL-3.0) в самом низу README:</p><pre><code>## 📄 Лицензия
+      Данный проект распространяется под лицензией MIT. Подробнее см. [LICENSE](LICENSE).</code></pre>
+editorExample:
+  markdown: |2-
+    # Measurement toolkit
+
+    A small project for repeatable calculations.
+
+    ## Usage
+
+        npm install
+        npm test
+
+    ## Features
+    - CSV input
+    - Reproducible reports
+
+    <details>
+    <summary>Development notes</summary>
+
+    Run the tests before submitting a change.
+
+    </details>

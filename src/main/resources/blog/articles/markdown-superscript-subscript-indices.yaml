@@ -1,0 +1,208 @@
+catalogIndex: 24
+slug: "markdown-superscript-subscript-indices"
+batch: 2
+title: "Написание надстрочных и подстрочных индексов (sup / sub) в Markdown"
+pageTitle: "Индексы в Markdown sub sup: нижний индекс в Markdown онлайн — Labkeeper"
+metaDescription: |2-
+  Как писать надстрочные и подстрочные индексы в Markdown: HTML-теги sub и sup, математический
+  синтаксис LaTeX, химические формулы и примеры в Labkeeper.
+breadcrumbTitle: "Индексы sup и sub в Markdown"
+h1: "Написание надстрочных и&nbsp;подстрочных индексов (sup / sub) в&nbsp;Markdown"
+categories:
+  - "markdown"
+keywords:
+  - "индексы в markdown sub sup"
+  - "нижний индекс в markdown"
+datePublished: "2026-09-06"
+dateModified: "2026-10-18"
+readingTime: "6 мин"
+cardTitle: "Надстрочные и подстрочные индексы в Markdown: HTML теги и формулы"
+cardDescription: |2-
+  Как правильно оформлять индексы sup и sub, химические формулы и математические степени в
+  Markdown-документах без сбоев верстки.
+sliderTitle: "Индексы sup и sub в Markdown"
+sliderText: "Как писать верхние и нижние индексы через теги sub/sup и формульный синтаксис."
+sidebarText: |2-
+  Пишите научные заметки и отчеты в Labkeeper: формулы MathJax, таблицы и HTML-теги видны в превью
+  при наборе.
+ctaTitle: "Форматируйте формулы и&nbsp;индексы в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор Markdown и LaTeX: теги sub/sup, формулы MathJax и сохранение заметок в PDF через
+  печать браузера.
+toc:
+  - id: "intro"
+    title: "Зачем нужны индексы в текстовых документах"
+  - id: "html-tags"
+    title: "Индексы в Markdown sub sup: использование базовых HTML-тегов"
+  - id: "subscript-math"
+    title: "Нижний индекс в Markdown через математический блок KaTeX/MathJax"
+  - id: "flavors"
+    title: "Расширения Pandoc и GitHub Flavored Markdown"
+  - id: "examples"
+    title: "Практические примеры: химия, физика и сноски"
+  - id: "tips-faq"
+    title: "Типичные ошибки верстки индексов"
+sections:
+  - id: "intro"
+    title: "Зачем нужны индексы в текстовых документах"
+    html: |2-
+                              <p>При подготовке научно-технических заметок, отчетов по лабораторным
+      работам и технической документации регулярно возникает необходимость вставить степень величины
+      ($x^2$, $10^5$), записать химическую формулу ($\mathrm{H_2O}$, $\mathrm{CO_2}$) или указать
+      номер итерации в алгоритме ($a_{i+1}$). В чистой спецификации CommonMark нет встроенного символа
+      для таких операций, однако существует несколько надёжных подходов.</p>
+                              <p>В этой статье мы подробно разберем, как органично внедрить
+      <strong>индексы в markdown sub sup</strong> с помощью стандартных HTML-тегов, математических
+      вставок KaTeX/MathJax и специальных расширений синтаксиса. А если вы готовите структурированные
+      данные, рекомендуем также посмотреть наше руководство по созданию <a
+      href="/blog/complex-markdown-tables-syntax-online-generator">сложных таблиц в Markdown</a>.</p>
+  - id: "html-tags"
+    title: "Индексы в Markdown sub sup: использование базовых HTML-тегов"
+    html: |2-
+                              <p>Поскольку спецификация Markdown полностью поддерживает прозрачную
+      вставку HTML-тегов, самый кроссплатформенный и универсальный способ проставить верхний или
+      <strong>нижний индекс в markdown</strong> — использовать парные теги <code>&lt;sup&gt;</code> и
+      <code>&lt;sub&gt;</code>.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown</span></div>
+                                  <pre><code>Верхний индекс (степень): x&lt;sup&gt;2&lt;/sup&gt; + y&lt;sup&gt;2&lt;/sup&gt; = z&lt;sup&gt;2&lt;/sup&gt;
+      Нижний индекс (вещество): H&lt;sub&gt;2&lt;/sub&gt;SO&lt;sub&gt;4&lt;/sub&gt;
+      Комбинированный индекс: A&lt;sub&gt;i&lt;/sub&gt;&lt;sup&gt;(k)&lt;/sup&gt;
+      Текстовая сноска: Данные исследования&lt;sup&gt;[1]&lt;/sup&gt; подтверждены.</code></pre>
+                              </div>
+                              <p>Результат визуализации в браузере:</p>
+                              <ul>
+                                  <li>Верхний индекс: x<sup>2</sup> + y<sup>2</sup> =
+      z<sup>2</sup></li>
+                                  <li>Нижний индекс: H<sub>2</sub>SO<sub>4</sub></li>
+                                  <li>Комбинированный индекс: A<sub>i</sub><sup>(k)</sup></li>
+                                  <li>Текстовая сноска: Данные исследования<sup>[1]</sup>
+      подтверждены.</li>
+                              </ul>
+                              <p>Этот метод работает во всех современных движках: GitHub, GitLab,
+      Obsidian, Notion, а также в веб-редакторе <a href="/blog/markdown-raw-html-integration">при
+      интеграции чистого HTML внутрь Markdown</a>.</p>
+  - id: "subscript-math"
+    title: "Нижний индекс в Markdown через математический блок KaTeX/MathJax"
+    html: |2-
+                              <p>Если индекс является частью математического выражения или физической
+      формулы, предпочтительно использовать синтаксис LaTeX-математики, обрамленный знаками доллара
+      <code>$...$</code>. Для нижнего индекса служит символ подчеркивания <code>_</code>, а для
+      верхнего — крышка <code>^</code>.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Math в Markdown</span></div>
+                                  <pre><code>В строке: Скорость тела равна $v_0 = 12\text{ м/с}$, а ускорение $a = 9.8\text{ м/с}^2$.
+      Сложный индекс в фигурных скобках: $T_{max} = 300\text{ K}$, $x_{i,j}^{(n+1)}$.
+
+      В отдельном блоке:
+      $$
+      \sum_{i=1}^{n} x_i^2 = \sigma_{total}^2
+      $$</code></pre>
+                              </div>
+                              <p><strong>Важное правило:</strong> если в индексе содержится более
+      одного символа (например, <code>max</code> или <code>i+1</code>), его обязательно нужно
+      заключать в фигурные скобки: <code>$x_{max}$</code>, иначе нижним индексом станет только первый
+      символ, а остальное останется обычным текстом (<code>$x_max$</code> превратится в $x_m$ax).</p>
+  - id: "flavors"
+    title: "Расширения Pandoc и GitHub Flavored Markdown"
+    html: |2-
+                              <p>В академическом конвертере Pandoc и ряде специализированных
+      редакторов поддерживается компактный сокращенный синтаксис:</p>
+                              <ul>
+                                  <li>Тильды для нижнего индекса: <code>H~2~O</code> превращается в
+      H<sub>2</sub>O;</li>
+                                  <li>Крышки для верхнего индекса: <code>x^2^</code> превращается в
+      x<sup>2</sup>.</li>
+                              </ul>
+                              <p>Однако в GitHub Flavored Markdown и в превью Markdown-проекта
+      Labkeeper этот синтаксис не работает: одиночные тильды GFM понимает как зачеркивание, и
+      <code>H~2~O</code> превратится в H<del>2</del>O, а <code>x^2^</code> останется обычным текстом.
+      В LaTeX-проекте Labkeeper Markdown-сегменты переводит Pandoc, и там оба варианта работают.
+      Поэтому связка <code>&lt;sup&gt;</code> / <code>&lt;sub&gt;</code> либо формульный блок
+      <code>$...$</code> остаются наиболее надежным выбором для превью. Подобная аккуратность особенно
+      важна при <a href="/blog/modern-it-resume-markdown-cv-as-code">верстке резюме в Markdown</a>,
+      где символы должны парситься корректно любыми сканерами.</p>
+  - id: "examples"
+    title: "Практические примеры: химия, физика и сноски"
+    html: |2-
+                              <p>Сравним типовые сценарии оформления в таблице:</p>
+                              <div class="article-table-wrapper">
+                                  <table class="article-table">
+                                      <thead>
+                                          <tr>
+                                              <th>Сфера</th>
+                                              <th>Синтаксис в исходнике</th>
+                                              <th>Отображаемый результат</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td>Химическая реакция</td>
+                                              <td><code>2H&lt;sub&gt;2&lt;/sub&gt; +
+      O&lt;sub&gt;2&lt;/sub&gt; &amp;rarr; 2H&lt;sub&gt;2&lt;/sub&gt;O</code></td>
+                                              <td>2H<sub>2</sub> + O<sub>2</sub> &rarr;
+      2H<sub>2</sub>O</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Физические единицы</td>
+                                              <td><code>Плотность: 1000
+      кг/м&lt;sup&gt;3&lt;/sup&gt;</code></td>
+                                              <td>Плотность: 1000 кг/м<sup>3</sup></td>
+                                          </tr>
+                                          <tr>
+                                              <td>Математическая последовательность</td>
+                                              <td><code>$a_1, a_2, \dots, a_n$</code></td>
+                                              <td>a<sub>1</sub>, a<sub>2</sub>, ...,
+      a<sub>n</sub></td>
+                                          </tr>
+                                          <tr>
+                                              <td>Энергия покоя</td>
+                                              <td><code>$E_0 = m_0 c^2$</code></td>
+                                              <td>E<sub>0</sub> = m<sub>0</sub>c<sup>2</sup></td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+  - id: "tips-faq"
+    title: "Типичные ошибки верстки индексов"
+    html: |2-
+                              <p>Чтобы верстка выглядела аккуратно и не разрывала межстрочный интервал
+      абзаца, обратите внимание на следующие нюансы:</p>
+                              <ul>
+                                  <li><strong>Лишние пробелы внутри тегов:</strong> конструкция
+      <code>&lt;sub&gt; 2 &lt;/sub&gt;</code> может вызвать нежелательные отступы вокруг цифры. Пишите
+      слитно: <code>&lt;sub&gt;2&lt;/sub&gt;</code>.</li>
+                                  <li><strong>Смещение высоты строки в браузере:</strong> теги
+      <code>sup</code> и <code>sub</code> могут слегка увеличивать <code>line-height</code> строки.
+      Если индексов в абзаце много, формульный блок <code>$...$</code> обычно выглядит ровнее.</li>
+                                  <li><strong>HTML в LaTeX-проекте:</strong> при сборке PDF из
+      Markdown-сегментов теги <code>sub</code> и <code>sup</code> выбрасываются, и индекс станет
+      обычной цифрой. Для PDF используйте формулы или синтаксис Pandoc <code>H~2~O</code>.</li>
+                                  <li><strong>Кириллица в формулах:</strong> если вам нужен поясняющий
+      русский индекс в формуле LaTeX, оборачивайте его в <code>\text{...}</code>: <code>$F_{\text{тр}}
+      = \mu N$</code>.</li>
+                              </ul>
+tips:
+  - title: "Используйте LaTeX-блок для математики"
+    html: |2-
+      <p>Для простых химических формул удобнее теги <code>&lt;sub&gt;</code>, а для математических
+      уравнений со степенями и дробями выбирайте формулы LaTeX между знаками доллара: так соблюдаются
+      типографические правила набора символов курсивом.</p>
+  - title: "Индексы в Labkeeper"
+    html: |2-
+      <p>В Markdown-проекте Labkeeper можно комбинировать текст, HTML-теги и формулы MathJax и сразу
+      видеть результат в превью. Для PDF с полями и сносками используйте LaTeX-проект: там индексы
+      набирайте формулами, потому что HTML-теги из Markdown-сегментов при сборке выбрасываются.</p>
+editorExample:
+  markdown: |2-
+    ## Индексы
+
+    Вода: H<sub>2</sub>O или $\mathrm{H_2O}$.
+
+    Энергия: $E_0=mc^2$, степень: x<sup>2</sup>.
+
+    Последовательность: $a_1,a_2,\ldots,a_n$.
+
+    Ловушка: H~2~O в превью дает зачеркнутую двойку.

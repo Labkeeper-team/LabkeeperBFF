@@ -1,0 +1,181 @@
+catalogIndex: 14
+slug: "one-page-resume-cv-template-condensing-experience"
+batch: 2
+title: "Одностраничное резюме (One-Pager CV): как уместить 10 лет опыта"
+pageTitle: "Одностраничное резюме шаблон онлайн: как уместить CV на 1 страницу — Labkeeper"
+metaDescription: |2-
+  Полный гид: как уместить CV на одну страницу при солидном стаже. Одностраничное резюме: шаблон
+  онлайн, правила сокращения и верстка на одну страницу в LaTeX-проекте Labkeeper.
+breadcrumbTitle: "Одностраничное резюме (One-Pager)"
+h1: "Одностраничное резюме (One-Pager CV): как уместить 10&nbsp;лет опыта"
+categories:
+  - "cv"
+keywords:
+  - "одностраничное резюме шаблон онлайн"
+  - "как уместить cv на одну страницу"
+datePublished: "2026-09-06"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "Одностраничное резюме (One-Pager): как сжать опыт без потери ценности"
+cardDescription: |2-
+  Золотой стандарт зарубежного найма: как упаковать 10 лет карьеры в 1 страницу А4, убрать воду и
+  выделить ключевые метрики.
+sliderTitle: "Одностраничное резюме (One-Pager)"
+sliderText: "Как уместить 10 лет стажа на одной странице А4 по стандартам FAANG."
+sidebarText: |2-
+  В LaTeX-проекте Labkeeper поля, кегль и интервалы резюме задаются в преамбуле, а результат виден
+  в PDF после нажатия «Выполнить».
+ctaTitle: "Сверстайте четкий One-Pager в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX: поля geometry, кегль 10pt и плотные списки для резюме на одну страницу,
+  PDF после нажатия «Выполнить».
+toc:
+  - id: "why-one-page"
+    title: "Почему западные компании требуют 1 страницу"
+  - id: "cut-rules"
+    title: "Как уместить CV на одну страницу: безжалостное редактирование"
+  - id: "typography"
+    title: "Типографические приемы: поля, кегль и интервалы"
+  - id: "one-pager-template"
+    title: "Одностраничное резюме: готовый шаблон в Markdown"
+  - id: "senior-metrics"
+    title: "Как писать о руководящем опыте и архитектуре"
+sections:
+  - id: "why-one-page"
+    title: "Почему западные компании требуют 1 страницу"
+    html: |2-
+                              <p>В технологических компаниях Кремниевой долины, Европе и топовом
+      российском финтехе действует негласный закон: если вы не можете кратко и емко сформулировать
+      ценность своего опыта на одной странице, вы не умеете расставлять приоритеты. Рекрутер тратит на
+      первичный просмотр от 6 до 15 секунд.</p>
+                              <p>Многостраничные резюме на 4–5 листов с перечислением должностных
+      обязанностей из трудовой книжки моментально отправляются в архив. <strong>Одностраничное резюме
+      (One-Pager CV)</strong> демонстрирует зрелость, фокус на бизнес-результатах и уважение к времени
+      нанимающего менеджера. Для достижения максимального визуального порядка опытные разработчики
+      часто выбирают <a href="/blog/modern-it-resume-markdown-cv-as-code">верстку резюме в чистом
+      Markdown</a>.</p>
+  - id: "cut-rules"
+    title: "Как уместить CV на одну страницу: безжалостное редактирование"
+    html: |2-
+                              <p>Если перед вами стоит вопрос, <strong>как уместить cv на одну
+      страницу</strong> при солидном стаже в 8–12 лет, примените эти 4 правила фильтрации:</p>
+                              <ol>
+                                  <li><strong>Правило последних 3–5 лет:</strong> максимально подробно
+      (по 3–4 буллета с метриками) описывайте только 2 последних места работы. Именно эти технологии
+      актуальны для рынка прямо сейчас.</li>
+                                  <li><strong>Агрегация раннего опыта:</strong> первые позиции
+      (Junior-разработчик, стажер, системный администратор 2014–2017 годов) объединяйте в одну общую
+      строчку: <em>«2014–2017: Разработка клиентских приложений на C++/Qt в ряде компаний»</em>.</li>
+                                  <li><strong>Удаление очевидных обязанностей:</strong> фразы «писал
+      код», «участвовал в дейли», «исправлял баги» не несут информации. Оставляйте только
+      архитектурные решения и бизнес-метрики.</li>
+                                  <li><strong>Отказ от хобби и школьных грамот:</strong> разделы
+      «Интересы», «Личные качества», а также домашний адрес и семейное положение безжалостно
+      удаляются.</li>
+                              </ol>
+  - id: "typography"
+    title: "Типографические приемы: поля, кегль и интервалы"
+    html: |2-
+                              <p>Техническая верстка One-Pager требует подгонки геометрии страницы. В
+      Markdown-проекте Labkeeper этого не сделать: печать браузера выводит текст шрифтом превью (Inter
+      18 px), а CSS-стили вроде <code>margin-bottom</code> там не задаются. Для одностраничного резюме
+      используйте LaTeX-проект:</p>
+                              <ul>
+                                  <li><strong>Поля документа (Margins):</strong> пакет
+      <code>geometry</code> с полями 12–15 мм по всему периметру страницы;</li>
+                                  <li><strong>Размер шрифта (Font size):</strong> класс с кеглем 10pt
+      для основного текста, <code>\large</code> для подзаголовков секций и <code>\LARGE</code> для
+      имени;</li>
+                                  <li><strong>Плотность строк:</strong> <code>\linespread{1.05}</code>
+      и списки без лишних отступов через пакет <code>enumitem</code> с параметром
+      <code>nosep</code>.</li>
+                              </ul>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\documentclass[10pt,a4paper]{article}
+      \usepackage[T2A]{fontenc}
+      \usepackage[english,russian]{babel}
+      \usepackage[margin=13mm]{geometry}
+      \usepackage{enumitem}
+      \setlist{nosep}        % списки без вертикальных отступов
+      \linespread{1.05}      % чуть плотнее одинарного интервала
+      \pagestyle{empty}      % без номера страницы</code></pre>
+                              </div>
+                              <p>Также важно предельно компактно оформить <a
+      href="/blog/resume-language-skills-cefr-scale-a1-c2">раздел языков по шкале CEFR</a>, уместив
+      его в 1–2 строчки без раздувания блока.</p>
+  - id: "one-pager-template"
+    title: "Одностраничное резюме: готовый шаблон в Markdown"
+    html: |2-
+                              <p>Ниже — <strong>одностраничное резюме шаблон онлайн</strong> в формате
+      Markdown: скопируйте текст и адаптируйте под свой профиль. Для печати ровно на одну страницу
+      перенесите его в LaTeX-проект с настройками из раздела выше.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Markdown One-Pager Template</span></div>
+                                  <pre><code># Ivan Petrov — Staff Software Engineer
+      iv.petrov@email.com | +7 (999) 000-00-00 | github.com/petrov-dev | linkedin.com/in/ipetrov | Moscow / Remote
+
+      **Core Stack:** Go, Python, Kubernetes, PostgreSQL, Kafka, Redis, Distributed Systems, Highload (100k+ RPS)
+
+      ## Professional Experience
+
+      ### Lead / Staff Backend Engineer — FinTech Cloud Platform *(2022 — Present)*
+      - Architected high-throughput ledger service in Go, scaling system throughput from 12k to 85k TPS with zero data loss.
+      - Reduced cloud infrastructure spending by $180,000/year by migrating workloads to autoscaling Kubernetes clusters with spot instances.
+      - Led an engineering team of 9 developers, establishing RFC design review processes and automated trunk-based CI/CD.
+
+      ### Senior Backend Engineer — Global E-Commerce Core *(2019 — 2022)*
+      - Designed event-driven inventory tracking microservice with Apache Kafka and Redis, cutting inventory drift incidents by 92%.
+      - Optimized database query planner bottlenecks in PostgreSQL, dropping 99th percentile search latency from 680ms to 95ms.
+      - Mentored 6 engineers to Middle/Senior grade and drove adoption of OpenTelemetry distributed tracing across 40+ microservices.
+
+      ### Software Engineer — Enterprise Telecom Solutions *(2015 — 2019)*
+      - Built asynchronous network mediation pipelines in Python/C++ processing 500M daily telemetry events.
+      - Delivered carrier-grade reliability with 99.999% uptime compliance.
+
+      ## Skills & Technologies
+      - **Languages & Frameworks:** Go, Python (FastAPI, AsyncIO), C++, SQL, Bash
+      - **Data & Infra:** PostgreSQL, Redis, ClickHouse, Apache Kafka, Docker, Kubernetes, Terraform, Prometheus, Grafana
+
+      ## Education
+      **Bauman Moscow State Technical University** — M.S. in Computer Science *(2013 — 2019)*</code></pre>
+                              </div>
+  - id: "senior-metrics"
+    title: "Как писать о руководящем опыте и архитектуре"
+    html: |2-
+                              <p>На уровне Senior / Lead важно подчеркивать влияние на команду и
+      процессы компании:</p>
+                              <ul>
+                                  <li>Пишите об <em>управлении рисками</em> и внедрении инженерных
+      стандартов (код-ревью, документация RFC);</li>
+                                  <li>Указывайте масштаб: число инженеров в подчинении, количество
+      микросервисов, объем пользовательской базы и сохраненный бюджет.</li>
+                              </ul>
+tips:
+  - title: "Никогда не допускайте «хвоста» на 2-й лист"
+    html: |2-
+      <p>Худшая ошибка верстки — когда резюме не поместилось на один лист буквально на 2–3 строчки, и
+      они уехали на вторую страницу. Либо ужмите поля, либо дотяните контент до полноценных двух
+      страниц.</p>
+  - title: "Проверка одной страницы в Labkeeper"
+    html: |2-
+      <p>В LaTeX-проекте Labkeeper страница PDF видна после нажатия «Выполнить». Если резюме вылезло
+      на второй лист, уменьшите поля <code>geometry</code>, кегль или интервалы и соберите документ
+      еще раз.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,10pt]{article}
+    \usepackage[margin=13mm]{geometry}
+    \usepackage{enumitem}\setlist{nosep}
+    \linespread{1.05}\pagestyle{empty}
+    \begin{document}
+    \section*{Alex Ivanov | Software Engineer}
+    alex@example.com
+    \section*{Selected experience}
+    \textbf{Team lead, 2022--2026}: led 5 engineers; delivery time reduced by 25\%.
+    \par\textbf{Developer, 2016--2022}: built reporting services.
+    \section*{Skills}Python, SQL, system design.
+    \section*{Education}BSc Computer Science.
+    \end{document}

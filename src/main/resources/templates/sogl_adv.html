@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests">
+    <title>Согласие на получение рекламных материалов — Labkeeper</title>
+    <meta name="description"
+        content="Согласие на получение информационных и рекламных материалов от сервиса Labkeeper." />
+    <link rel="canonical" href="https://labkeeper.io/sogl_adv" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://labkeeper.io/sogl_adv" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Labkeeper" />
+    <meta property="og:title" content="Согласие на получение рекламных материалов — Labkeeper" />
+    <meta property="og:description"
+        content="Согласие на получение информационных и рекламных материалов от сервиса Labkeeper." />
+    <meta property="og:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta name="twitter:title" content="Согласие на получение рекламных материалов — Labkeeper" />
+    <meta name="twitter:description"
+        content="Согласие на получение информационных и рекламных материалов от сервиса Labkeeper." />
+    <script type="text/javascript">
+        (function () {
+            function hasAcceptedCookieConsent() {
+                try {
+                    return localStorage.getItem('labkeeper_cookie_consent') === 'accepted';
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            window.initLabkeeperYandexMetrika = function () {
+                if (
+                    window.__labkeeperYandexMetrikaInitialized ||
+                    !hasAcceptedCookieConsent() ||
+                    typeof [(${yandexMetrikaKey})] === 'undefined'
+                ) {
+                    return;
+                }
+
+                (function (m, e, t, r, i, k, a) {
+                    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+                    m[i].l = 1 * new Date();
+                    for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+                })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+                ym([(${yandexMetrikaKey})], "init", {
+                    webvisor: true,
+                    clickmap: true,
+                    referrer: document.referrer,
+                    url: location.href,
+                    accurateTrackBounce: true,
+                    trackLinks: true
+                });
+
+                window.__labkeeperYandexMetrikaInitialized = true;
+            };
+
+            window.initLabkeeperYandexMetrika();
+        })();
+    </script>
+
+    <!-- Preconnect & Async Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="page">
+    <header class="header js-header">
+        <div class="header__container">
+            <div class="header__left">
+                <!-- Кнопка мобильного меню -->
+                <button class="header__burger js-burger-btn" aria-label="Открыть меню">
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                </button>
+                <a href="/" class="header__logo">
+                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="header__logo-icon" width="36"
+                        height="36">
+                    <span class="header__logo-text">Labkeeper</span>
+                </a>
+                <div class="header__lang js-lang-switcher">
+                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
+                    <button class="header__lang-btn" data-lang="en">En</button>
+                </div>
+            </div>
+
+            <nav class="header__nav js-nav">
+                <div class="header__mobile-lang js-lang-switcher">
+                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
+                    <button class="header__lang-btn" data-lang="en">En</button>
+                </div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/#examples" class="header__nav-link"
+                            data-i18n="nav-examples"></a></li>
+                    <li class="header__nav-item"><a href="/#advantages" class="header__nav-link"
+                            data-i18n="nav-features"></a>
+                    </li>
+                    <li class="header__nav-item"><a href="/tokens" class="header__nav-link" data-i18n="nav-tokens"></a>
+                    </li>
+                    <li class="header__nav-item"><a href="/blog" class="header__nav-link" data-i18n="nav-blog"></a></li>
+
+                    <li class="header__nav-item"><a href="/about" class="header__nav-link" data-i18n="nav-about"></a>
+                    </li>
+                </ul>
+                <div class="header__mobile-contact">
+                    <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
+                    <a href="mailto:labkeeper.io@gmail.com"
+                        class="header__mobile-contact-link">labkeeper.io@gmail.com</a>
+                </div>
+            </nav>
+
+            <div class="header__right">
+                <a href="/project/default?open=login" class="button button--outline header__login"
+                    data-i18n="btn-login"></a>
+                <a href="/projects" class="button button--outline header__projects" data-i18n="btn-projects"
+                    style="display: none;"></a>
+                <a href="/project/default" class="button button--primary header__editor" data-i18n="btn-editor"></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main page-policy">
+
+        <!-- Навигация по документам -->
+        <div class="policy-nav">
+            <div class="policy-nav__container">
+                <ul class="header__nav-list2 policy-nav__list">
+                    <li class="header__nav-item">
+                        <a href="privacy" class="header__nav-link" data-i18n="policy-nav-privacy">Политика
+                            конфиденциальности</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="soglas" class="header__nav-link" data-i18n="policy-nav-consent">Согласие об
+                            обработке персональных данных</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="oferta" class="header__nav-link" data-i18n="policy-nav-oferta">Публичная
+                            оферта</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="sogl_yam" class="header__nav-link" data-i18n="policy-nav-yam">Согласие на
+                            использование сервиса ЯМ</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="sogl_adv" class="header__nav-link header__nav-link--active"
+                            data-i18n="policy-nav-adv">Согласие на получение
+                            рекламных
+                            рассылок</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="sogl_ds" class="header__nav-link" data-i18n="policy-nav-ds">Согласие на
+                            трансграничную передачу</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Контент документа -->
+        <div class="policy-article">
+            <div class="policy-article__container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <p class="policy-article__consent-appendix"><em>Приложение № 4 к Политике обработки персональных данных
+                        для сайта <a href="https://labkeeper.io/"
+                            class="policy-article__link">https://labkeeper.io/</a></em></p>
+
+
+
+                <div class="policy-article__consent-operator">
+
+
+
+                    <p class="p"><strong>Оператору:</strong></p>
+
+
+
+                    <p class="p">Индивидуальному предпринимателю</p>
+
+
+
+                    <p class="p"><strong>Трофименко Анастасии Алексеевны</strong></p>
+
+
+
+                    <p class="p">(ОГРНИП 326508100352548,</p>
+
+
+
+                    <p class="p">ИНН 502910548283),</p>
+
+
+
+                    <p class="p">Email: <a href="mailto:labkeeper.io@gmail.com"
+                            class="policy-article__link">labkeeper.io@gmail.com</a></p>
+
+
+
+                </div>
+
+
+
+                <h1 class="policy-article__title">Согласие на получение рекламных рассылок</h1>
+
+
+
+                <div class="policy-article__section">
+
+
+
+                    <p class="p policy-article__consent-intro">Я, субъект персональных данных (далее – ПДн), свободно,
+                        своей волей и в своем интересе даю Оператору отдельное согласие на получение рекламных рассылок,
+                        а также на обработку моих ПДн для указанных ниже целей.</p>
+
+
+
+                    <div class="policy-article__consent-grid">
+
+
+
+                        <div class="policy-article__consent-row">
+
+
+
+                            <div class="policy-article__consent-label-col">Основание и способ выражения согласия</div>
+
+
+
+                            <div class="policy-article__consent-content-col">
+                                <p class="p">Настоящее согласие считается предоставленным только после моего активного
+                                    действия – проставления отдельной, специально выделенной отметки (чекбокса) на Сайте
+                                    <a href="https://labkeeper.io/"
+                                        class="policy-article__link">https://labkeeper.io/</a>. Данное согласие не
+                                    является обязательным условием для регистрации и использования основных функций
+                                    Сервиса.</p>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <div class="policy-article__consent-row">
+
+
+
+                            <div class="policy-article__consent-label-col">Цели обработки:</div>
+
+
+
+                            <div class="policy-article__consent-content-col">
+                                <p class="p">Информирование о новостях Оператора, обновлениях функционала Сайта,
+                                    специальных предложениях, акциях и иных событиях, связанных с деятельностью
+                                    Оператора.</p>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <div class="policy-article__consent-row">
+
+
+
+                            <div class="policy-article__consent-label-col">Перечень обрабатываемых ПДн</div>
+
+
+
+                            <div class="policy-article__consent-content-col">
+                                <ul>
+
+
+
+                                    <li>имя (для персонализации сообщений);</li>
+
+
+
+                                    <li>адрес электронной почты (e-mail);</li>
+
+
+
+                                </ul>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <div class="policy-article__consent-row">
+
+
+
+                            <div class="policy-article__consent-label-col">Каналы коммуникации:</div>
+
+
+
+                            <div class="policy-article__consent-content-col">
+                                <p class="p">Рассылки будут осуществляться автоматизированным способом на адрес моей
+                                    электронной почты;</p>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <div class="policy-article__consent-row">
+
+
+
+                            <div class="policy-article__consent-label-col">Срок действия согласия:</div>
+
+
+
+                            <div class="policy-article__consent-content-col">
+                                <p class="p">Настоящее согласие действует до момента его отзыва мной.</p>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <div class="policy-article__consent-row">
+
+
+
+                            <div class="policy-article__consent-label-col">Отозвать согласие я могу:</div>
+
+
+
+                            <div class="policy-article__consent-content-col">
+                                <ul>
+
+
+
+                                    <li>нажав на ссылку «<strong>Отписаться</strong>» в конце любого полученного
+                                        электронного письма;</li>
+
+
+
+                                    <li>направив письменное заявление на электронный адрес Оператора
+                                        labkeeper.io@gmail.com с пометкой «Отказ от рассылки».</li>
+
+
+
+                                </ul>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <div class="policy-article__consent-row">
+
+
+
+                            <div class="policy-article__consent-label-col">После отзыва согласия</div>
+
+
+
+                            <div class="policy-article__consent-content-col">
+                                <p class="p">Оператор прекратит рассылку в течение <strong>3 (трех) </strong>рабочих
+                                    дней<strong>,</strong> а мои ПДн будут удалены в срок, не превышающий <strong>30
+                                        (тридцати) </strong>календарных дней.</p>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <div class="policy-article__consent-row">
+
+
+
+                            <div class="policy-article__consent-label-col">Политика обработки ПДн:</div>
+
+
+
+                            <div class="policy-article__consent-content-col">
+                                <p class="p">Я подтверждаю, что ознакомлен(а) с Политикой обработки персональных данных
+                                    Оператора, расположенной по ссылке <a href="https://labkeeper.io/privacy"
+                                        class="policy-article__link">https://labkeeper.io/privacy</a>, понимаю свои
+                                    права и обязанности как субъекта ПДн и согласен(а) с условиями обработки.</p>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__top">
+                <nav class="footer__nav">
+                    <a href="/#features" class="footer__link" data-i18n="nav-advantages"></a>
+                    <a href="/#advantages" class="footer__link" data-i18n="nav-features"></a>
+                    <a href="/tokens" class="footer__link" data-i18n="nav-tokens"></a>
+                    <a href="https://github.com/Labkeeper-team/Docs/wiki/ru" target="_blank"
+                        class="footer__link footer__link--external">
+                        <span data-i18n="nav-wiki"></span>
+                        <img src="assets/img/target.svg" alt="target icon" class="footer__link-icon"
+                            style="margin-left: 4px; vertical-align: middle;" width="16" height="16" loading="lazy">
+                    </a>
+                    <a href="/#examples" class="footer__link" data-i18n="nav-examples"></a>
+                    <a href="/blog" class="footer__link" data-i18n="nav-blog"></a>
+
+                    <a href="/about" class="footer__link" data-i18n="nav-about"></a>
+                </nav>
+                <a href="/" class="footer__logo-link">
+                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="footer__logo" width="40" height="40"
+                        loading="lazy">
+                </a>
+                <div class="footer__contact">
+                    <span class="footer__contact-label" data-i18n="footer-contact"></span>
+                    <a href="mailto:labkeeper.io@gmail.com" class="footer__contact-link">labkeeper.io@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer__middle">
+                <img src="assets/img/img-for-footer.svg" alt="Labkeeper" class="footer__huge-logo" aria-hidden="true"
+                    loading="lazy">
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__copyright">© 2024—2026</div>
+                <a href="privacy" class="footer__policy" data-i18n="footer-policy"></a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner hidden">
+        <div class="cookie-banner__container">
+            <p class="cookie-banner__text">
+                Мы используем cookie и сервис Яндекс.Метрика для улучшения работы сайта. Обязательные cookie работают
+                всегда. Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс», Россия) требуют вашего согласия.
+                Подробнее — в <a href="privacy" class="cookie-banner__link" target="_blank">Политике обработки
+                    персональных данных</a> и <a href="sogl_yam" class="cookie-banner__link" target="_blank">Согласии на
+                    использование сервиса Яндекс.Метрика</a>.
+            </p>
+            <div class="cookie-banner__actions">
+                <button id="cookie-accept" class="button button--primary">Принять</button>
+                <button id="cookie-decline" class="button button--outline">Отказаться</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script>
+        window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
+        window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
+        window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
+    </script>
+    <script src="assets/js/auth.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/openpanel.js" defer></script>
+    <script src="assets/js/lang.js" defer></script>
+</body>
+
+</html>

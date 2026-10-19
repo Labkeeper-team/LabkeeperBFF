@@ -1,0 +1,152 @@
+catalogIndex: 29
+slug: "figure-double-numbering-chapters-gost"
+batch: 2
+title: "Нумерация рисунков двойными цифрами (Рисунок 1.1) по ГОСТ"
+pageTitle: "Двойная нумерация рисунков ГОСТ ВКР: нумерация по главам диплом — Labkeeper"
+metaDescription: |2-
+  Двойная нумерация рисунков по ГОСТ в ВКР: как настроить нумерацию Рисунок 1.1 по главам
+  дипломной работы в LaTeX, счетчики chngcntr в Labkeeper.
+breadcrumbTitle: "Двойная нумерация рисунков (Рисунок 1.1)"
+h1: "Нумерация рисунков двойными цифрами (Рисунок 1.1) по&nbsp;ГОСТ"
+categories:
+  - "diploma"
+  - "labs"
+keywords:
+  - "двойная нумерация рисунков гост вкр"
+  - "нумерация по главам дипломная работа"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "6 мин"
+cardTitle: "Нумерация рисунков по главам в дипломе по ГОСТ 7.32"
+cardDescription: |2-
+  Как включить двухуровневую нумерацию иллюстраций (Рисунок 2.1, Рисунок 2.2), автоматически
+  сбрасывать счетчик картинок в новой главе и настроить подписи в LaTeX.
+sliderTitle: "Двойная нумерация рисунков по ГОСТ"
+sliderText: "Нумерация по главам (Рисунок 1.1), сброс счетчиков и пакет caption."
+sidebarText: |2-
+  Настраивайте нумерацию рисунков по главам и подписи «Рисунок 1.1 — …» в онлайн-редакторе
+  Labkeeper.
+ctaTitle: "Верстайте диплом по ГОСТ в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX: нумерация рисунков по главам, подписи по ГОСТ через пакет caption и
+  ссылки на рисунки в тексте.
+toc:
+  - id: "gost-rules"
+    title: "Требования стандарта ГОСТ 7.32 к нумерации иллюстраций"
+  - id: "double-numbering"
+    title: "Двойная нумерация рисунков гост вкр: первая и вторая цифры"
+  - id: "chapter-setup"
+    title: "Нумерация по главам дипломная работа: настройка в LaTeX"
+  - id: "caption-pkg"
+    title: "Кастомизация разделителя тире через пакет caption"
+  - id: "cross-references"
+    title: "Точные ссылки на рисунки по главам в тексте"
+sections:
+  - id: "gost-rules"
+    title: "Требования стандарта ГОСТ 7.32 к нумерации иллюстраций"
+    html: |2-
+                              <p>В академических документах большого объема (дипломные проекты,
+      магистерские и докторские диссертации, объемные отчеты о НИР) сквозная нумерация иллюстраций от
+      1 до 80 становится неудобной: при добавлении рисунка в начало приходится перенумеровывать все
+      последующие ссылки.</p>
+                              <p>ГОСТ 7.32-2017 основным вариантом называет сквозную нумерацию, а
+      нумерацию в пределах раздела (главы) <strong>допускает</strong> (п. 6.5.6): номер рисунка
+      состоит из номера главы и порядкового номера иллюстрации внутри этой главы, разделенных точкой.
+      Многие методички к дипломам требуют именно такой вариант.</p>
+  - id: "double-numbering"
+    title: "Двойная нумерация рисунков гост вкр: первая и вторая цифры"
+    html: |2-
+                              <p>Каноническая <strong>двойная нумерация рисунков гост вкр</strong>
+      выглядит следующим образом (в том числе при <a
+      href="/blog/software-screenshots-report-gost-caption">оформлении скриншотов программ в
+      отчете</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">Формат подписи</span></div>
+                                  <pre><code>Рисунок 1.1 — Структурная схема распределенной сети
+      Рисунок 1.2 — График пропускной способности канала
+      ...
+      Рисунок 2.1 — Диаграмма классов программного комплекса</code></pre>
+                              </div>
+                              <p>Здесь <strong>«2»</strong> — номер второго раздела/главы, а
+      <strong>«1»</strong> — первый рисунок этого раздела. При переходе к Главе 3 нумерация рисунков
+      автоматически начинается заново: <em>Рисунок 3.1</em>.</p>
+  - id: "chapter-setup"
+    title: "Нумерация по главам дипломная работа: настройка в LaTeX"
+    html: |2-
+                              <p>Чтобы активировалась <strong>нумерация по главам дипломная
+      работа</strong> в документе класса <code>report</code> или <code>book</code>, достаточно
+      стандартного механизма TeX:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% В классах report и book нумерация по главам включена по умолчанию.
+      % В классе article добавьте в преамбулу (команда есть в ядре LaTeX
+      % с 2018 года, пакет chngcntr не нужен):
+      \counterwithin{figure}{section} % Привязка рисунков к разделам section</code></pre>
+                              </div>
+                              <p>Команда <code>\counterwithin{figure}{section}</code> принудительно
+      переключает формат счетчика на двухуровневый и сбрасывает его при каждом вызове
+      <code>\section</code> (точно такой же принцип применяется для <a
+      href="/blog/formula-numbering-lab-reports-gost">нумерации формул по разделам</a>).</p>
+                              <p>В стандартной преамбуле Labkeeper разделы не нумеруются, поэтому
+      счетчик раздела остается нулевым и рисунки получат номера «Рисунок 0.1». Для двойной нумерации
+      начните проект со своей преамбулы, как в примере в редакторе.</p>
+  - id: "caption-pkg"
+    title: "Кастомизация разделителя тире через пакет caption"
+    html: |2-
+                              <p>С пакетом babel и русским языком LaTeX по умолчанию пишет <em>«Рис.
+      1.1: Подпись»</em> — сокращение и двоеточие. По ГОСТу нужны полное слово «Рисунок» и тире без
+      двоеточия. Настройка через пакет <code>caption</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{caption}
+      \DeclareCaptionLabelSeparator{emdash}{\ --- }
+      \captionsetup[figure]{
+          name=Рисунок,
+          labelsep=emdash,
+          justification=centering,
+          font=small
+      }</code></pre>
+                              </div>
+  - id: "cross-references"
+    title: "Точные ссылки на рисунки по главам в тексте"
+    html: |2-
+                              <p>В тексте отсылка делается через команду
+      <code>\ref{fig:...}</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>Как показано на~рисунке~\ref{fig:arch-diagram}, система состоит из трех узлов...</code></pre>
+                              </div>
+                              <p>В готовом PDF отобразится кликабельный номер: <em>«на рисунке
+      2.1»</em>.</p>
+tips:
+  - title: "Склонение слова «рисунок»"
+    html: |2-
+      <p>В тексте слово пишется со строчной буквы в нужном падеже: <em>«на рисунке 1.2»</em>,
+      <em>«согласно рисунку 2.3»</em>, а в подписи под картинкой — всегда с прописной в именительном
+      падеже: <em>«Рисунок 1.2 — ...»</em>.</p>
+  - title: "Рисунки в приложениях"
+    html: |2-
+      <p>В приложении А нумерация рисунков ведется с указанием буквы приложения: <em>Рисунок А.1</em>,
+      <em>Рисунок А.2</em>.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{report}
+    \usepackage[T2A]{fontenc}
+    \usepackage[russian]{babel}
+    \usepackage{caption}
+    \DeclareCaptionLabelSeparator{emdash}{\ --- }
+    \captionsetup[figure]{name=Рисунок,labelsep=emdash}
+    \begin{document}
+    \chapter{Методика}
+    Схема опыта показана на рисунке~\ref{fig:a}.
+    \begin{figure}[h]\centering\fbox{\rule{0pt}{15mm}\rule{40mm}{0pt}}
+    \caption{Схема опыта}\label{fig:a}\end{figure}
+    \chapter{Результаты}
+    График приведен на рисунке~\ref{fig:b}.
+    \begin{figure}[h]\centering\fbox{\rule{0pt}{15mm}\rule{40mm}{0pt}}
+    \caption{График зависимости}\label{fig:b}\end{figure}
+    \end{document}

@@ -1,0 +1,213 @@
+catalogIndex: 93
+slug: "latex-amsthm"
+batch: 1
+title: "Как оформить теоремы, леммы, доказательства и следствия в LaTeX (пакет amsthm)"
+pageTitle: "Теоремы, леммы и доказательства в LaTeX (пакет amsthm) — Labkeeper"
+metaDescription: |2-
+  Окружение теорема и доказательство LaTeX онлайн: оформление лемм и определений в amsthm, стили
+  plain, definition, remark, символ окончания доказательства Q.E.D.
+ogTitle: "Как оформить теоремы, леммы, доказательства и следствия в LaTeX (пакет amsthm) — Labkeeper"
+ogDescription: |2-
+  Окружение теорема и доказательство LaTeX онлайн: оформление лемм, определений, следствий и
+  qed-символов в онлайн-редакторе Labkeeper.
+twitterTitle: "Теоремы, леммы и доказательства в LaTeX (amsthm) — Labkeeper"
+twitterDescription: "Оформление лемм и определений в amsthm: окружение теорема и доказательство LaTeX онлайн."
+schemaDescription: |2-
+  Полное руководство по математическим теоремам, леммам, определениям и доказательствам в LaTeX с
+  пакетом amsthm.
+breadcrumbTitle: "Теоремы и amsthm в LaTeX"
+h1: "Как оформить теоремы, леммы, доказательства и&nbsp;следствия в&nbsp;LaTeX (пакет amsthm)"
+categories:
+  - "articles"
+  - "latex"
+keywords:
+  - "окружение теорема и доказательство latex онлайн"
+  - "оформление лемм и определений в amsthm"
+datePublished: "2026-08-20"
+dateModified: "2026-08-20"
+readingTime: "9 мин"
+cardTitle: |2-
+  Как оформить теоремы, леммы, доказательства и следствия в LaTeX (пакет
+                          amsthm)
+cardDescription: |2-
+  Оформление математических утверждений по стандартам AMS: стили plain,
+                          definition, remark и символ доказательства Q.E.D.
+sliderTitle: "Теоремы, леммы и&nbsp;доказательства (amsthm)"
+sliderText: "Оформление математических утверждений по стандартам AMS и знак доказательства Q.E.D."
+sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sidebarText: |2-
+  Оформляйте математические статьи, теоремы и&nbsp;доказательства в&nbsp;Labkeeper
+  с&nbsp;поддержкой amsthm и&nbsp;amssymb.
+ctaTitle: "Оформляйте математические доказательства в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с&nbsp;поддержкой пакета amsthm: оформляйте теоремы, леммы
+  и&nbsp;следствия с&nbsp;быстрой компиляцией в&nbsp;PDF.
+toc:
+  - id: "intro"
+    title: "Зачем нужен пакет amsthm"
+  - id: "newthm"
+    title: "Создание окружений теорем (\\newtheorem)"
+  - id: "styles"
+    title: "Стили оформления: plain, definition и remark"
+  - id: "numbering"
+    title: "Настройка нумерации (сквозная или по главам)"
+  - id: "proof"
+    title: "Окружение proof и символ доказательства Q.E.D."
+  - id: "qedhere"
+    title: "Позиционирование квадратика \\qedhere в формулах"
+  - id: "tips"
+    title: "Практические советы"
+sections:
+  - id: "intro"
+    title: "Зачем нужен пакет amsthm"
+    html: |2-
+                              <p>В академических статьях по математике, физике и информатике
+      утверждения делятся на теоремы, леммы, следствия, определения и замечания (при оформлении
+      публикаций для Elsevier, Springer и IEEE используйте также наш <a
+      href="/blog/latex-scopus-wos">шаблон статьи для Scopus и WoS</a>). Пакет <code>amsthm</code> от
+      Американского математического общества (AMS) автоматизирует их верстку, шрифтовое выделение и
+      нумерацию.</p>
+                              <p>Используя <strong>окружение теорема и доказательство latex
+      онлайн</strong>, вы получаете строгое типографическое оформление, принятое в ведущих мировых и
+      российских научных журналах.</p>
+  - id: "newthm"
+    title: "Создание окружений теорем (\\newtheorem)"
+    html: |2-
+                              <p>Для создания новых математических блоков используется команда
+      <code>\newtheorem{имя_окружения}{Заголовок}[счетчик]</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{amsmath,amssymb,amsthm}
+
+      % Объявление теоремы
+      \newtheorem{theorem}{Теорема}
+
+      % Использование в тексте:
+      \begin{theorem}[Пифагор]
+      В прямоугольном треугольнике квадрат длины гипотенузы равен сумме квадратов длин катетов:
+      \begin{equation}
+          a^2 + b^2 = c^2
+      \end{equation}
+      \end{theorem}</code></pre>
+                              </div>
+                              <p>Внутри формулировок теорем и лемм применяются стандартные
+      математические блоки (детальный разбор смотрите в нашем <a href="/blog/latex-formulas">гайде по
+      формулам в amsmath</a>, а для кусочных зависимостей — в <a
+      href="/blog/latex-systems-equations">статье по системам уравнений</a>).</p>
+  - id: "styles"
+    title: "Стили оформления: plain, definition и remark"
+    html: |2-
+                              <p>Команда <code>\theoremstyle{...}</code> задает типографический стиль
+      для всех последующих определений <code>\newtheorem</code>:</p>
+                              <div class="article-table-wrapper">
+                                  <table class="article-table">
+                                      <thead>
+                                          <tr><th>Стиль</th><th>Шрифт заголовка</th><th>Шрифт тела
+      блока</th><th>Назначение</th></tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr><td><code>plain</code> (по умолч.)</td><td>Полужирный
+      прямой</td><td>Курсив</td><td>Теоремы, леммы, следствия, гипотезы</td></tr>
+                                          <tr><td><code>definition</code></td><td>Полужирный
+      прямой</td><td>Прямой</td><td>Определения, условия, алгоритмы, примеры</td></tr>
+                                         
+      <tr><td><code>remark</code></td><td>Курсив</td><td>Прямой</td><td>Замечания, примечания,
+      выводы</td></tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Блоки в стиле plain (курсивный текст)
+      \theoremstyle{plain}
+      \newtheorem{theorem}{Теорема}[section]
+      \newtheorem{lemma}[theorem]{Лемма}
+      \newtheorem{corollary}[theorem]{Следствие}
+
+      % Блоки в стиле definition (прямой текст)
+      \theoremstyle{definition}
+      \newtheorem{definition}[theorem]{Определение}
+      \newtheorem{example}[theorem]{Пример}
+
+      % Блоки в стиле remark
+      \theoremstyle{remark}
+      \newtheorem{remark}{Замечание}</code></pre>
+                              </div>
+  - id: "numbering"
+    title: "Настройка нумерации (сквозная или по главам)"
+    html: |2-
+                              <p>В примере выше конструкция
+      <code>\newtheorem{lemma}[theorem]{Лемма}</code> указывает, что леммы и теоремы делят
+      <strong>общий сквозной счетчик</strong>. Это предотвращает путаницу между «Теоремой 1» и «Леммой
+      1».</p>
+                              <p>Параметр <code>[section]</code> включает поглавную нумерацию:
+      «Теорема 2.1», «Теорема 2.2».</p>
+  - id: "proof"
+    title: "Окружение proof и символ доказательства Q.E.D."
+    html: |2-
+                              <p>Для доказательств в пакете <code>amsthm</code> предусмотрено готовое
+      окружение <code>proof</code>. Оно автоматически начинает текст со слова <em>Доказательство.</em>
+      и ставит символ окончания доказательства (белый квадратик $\square$ или Q.E.D.) в конце
+      блока:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{proof}
+      Пусть треугольник $ABC$ прямоугольный с прямым углом $C$.
+      Построим квадраты на сторонах...
+      Следовательно, площадь квадрата на гипотенузе равна сумме площадей.
+      \end{proof}</code></pre>
+                              </div>
+  - id: "qedhere"
+    title: "Позиционирование квадратика \\qedhere в формулах"
+    html: |2-
+                              <p>Если доказательство завершается выделенной формулой или списком, знак
+      $\square$ может ошибочно перескочить на следующую пустую строку. Чтобы прикрепить символ прямо к
+      формуле, укажите <code>\qedhere</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{proof}
+      Подставляя значения в исходное соотношение, получаем:
+      \begin{equation}
+          f(x) \le M \cdot \|x\|^2 \qedhere
+      \end{equation}
+      \end{proof}</code></pre>
+                              </div>
+  - id: "tips"
+    title: "Практические советы (оформление лемм и определений в amsthm)"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Черный квадратик Q.E.D.</h3>
+                                          <p>Если вы хотите использовать закрашенный черный квадрат
+      вместо белого, добавьте в преамбулу: <code>\renewcommand{\qedsymbol}{$\blacksquare$}</code>
+      (требует <code>amssymb</code>).</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Теоремы в диссертационных работах</h3>
+                                          <p>При включении математических утверждений в диссертацию
+      ознакомьтесь с правилами оформления глав и разделов в нашем <a
+      href="/blog/latex-dissertation">гайде по диссертациям ВАК</a>.</p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{amsthm}\newtheorem{theorem}{Theorem}
+    \begin{document}
+    \begin{theorem}If $n$ is even, then $n^2$ is even.\end{theorem}
+    \begin{proof}Write $n=2k$. Then $n^2=4k^2$.\end{proof}
+    \end{document}

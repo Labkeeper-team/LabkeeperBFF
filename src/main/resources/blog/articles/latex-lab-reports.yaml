@@ -1,0 +1,282 @@
+catalogIndex: 84
+slug: "latex-lab-reports"
+batch: 1
+title: "Оформление лабораторных работ по физике и химии в LaTeX: таблицы, погрешности, формулы"
+pageTitle: "Оформление лабораторных работ в LaTeX: таблицы, погрешности, формулы — Labkeeper"
+metaDescription: |2-
+  Шаблон отчёта по лабораторной работе в LaTeX: таблицы данных, оформление погрешностей измерений,
+  физические и химические формулы. Попробуйте в онлайн-редакторе.
+ogDescription: "Шаблон отчёта по лабораторной работе в LaTeX: таблицы, погрешности измерений, формулы."
+twitterTitle: "Оформление лабораторных работ в LaTeX — Labkeeper"
+twitterDescription: "Шаблон отчёта по лабораторной работе в LaTeX: таблицы, погрешности, формулы."
+schemaDescription: |2-
+  Шаблон отчёта по лабораторной работе в LaTeX: таблицы данных, оформление погрешностей измерений,
+  физические и химические формулы.
+breadcrumbTitle: |2-
+  Лабораторные
+                                  работы в LaTeX
+schemaBreadcrumbTitle: "Лабораторные работы в LaTeX"
+h1: |2-
+  Оформление лабораторных работ по&nbsp;физике и&nbsp;химии
+                          в&nbsp;LaTeX: таблицы, погрешности, формулы
+categories:
+  - "labs"
+  - "latex"
+keywords:
+  - "шаблон отчета по лабораторной работе latex"
+  - "как оформить погрешности в latex"
+datePublished: "2026-08-20"
+dateModified: "2026-10-18"
+readingTime: "9 мин"
+cardTitle: |2-
+  Оформление лабораторных работ по физике и химии в LaTeX: таблицы,
+                          погрешности, формулы
+cardDescription: |2-
+  Таблицы измерений, расчет абсолютных и относительных погрешностей,
+                          графики и формулы по вузовским нормам.
+sliderTitle: "Оформление лабораторных работ"
+sliderText: "Таблицы, расчет погрешностей и формулы для отчетов по физике и химии."
+sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sidebarText: "Оформляйте лабораторные работы в&nbsp;онлайн-редакторе Labkeeper."
+ctaTitle: "Оформляйте отчеты по&nbsp;лабораторным в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX для&nbsp;студентов: таблицы измерений, формулы погрешностей
+  и&nbsp;компиляция чистого PDF без&nbsp;установки дистрибутивов.
+toc:
+  - id: "intro"
+    title: "Структура отчёта по лабораторной работе"
+  - id: "tables"
+    title: "Таблицы экспериментальных данных"
+  - id: "errors"
+    title: "Оформление погрешностей измерений"
+  - id: "formulas"
+    title: "Физические формулы и производные"
+  - id: "graphs"
+    title: "Графики и диаграммы"
+  - id: "tips"
+    title: "Практические советы"
+sections:
+  - id: "intro"
+    title: "Структура отчёта по лабораторной работе"
+    html: |2-
+                              <p>Отчёт по лабораторной работе включает несколько стандартных разделов:
+      цель работы,
+                                  теоретическая часть, описание оборудования, ход работы,
+      экспериментальные данные в таблицах,
+                                  обработка результатов с расчётом погрешностей, выводы. В LaTeX это
+      легко организовать с
+                                  помощью команд <code>\section</code> и <code>\subsection</code>.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\documentclass[12pt,a4paper]{article}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage{amsmath, amssymb}
+      \usepackage{siunitx}         % для единиц измерения
+      \usepackage{booktabs}        % красивые таблицы
+      \usepackage{pgfplots}        % графики
+
+      \sisetup{
+          output-decimal-marker = {,},  % запятая как десятичный разделитель
+          separate-uncertainty = true
+      }</code></pre>
+                              </div>
+  - id: "tables"
+    title: "Таблицы экспериментальных данных"
+    html: |2-
+                              <p>Для таблиц с числовыми данными в лабораторных работах рекомендуется
+      пакет
+                                  <code>booktabs</code> и колонки типа <code>S</code> из
+      <code>siunitx</code> для выравнивания
+                                  по десятичной точке (полное руководство по единицам СИ и таблицам
+      читайте в <a
+                                      href="/blog/latex-siunitx">нашей статье о пакете
+      siunitx</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{table}[h]
+          \centering
+          \caption{Результаты измерений периода колебаний}
+          \label{tab:results}
+          \begin{tabular}{c S[table-format=1.3] S[table-format=1.3] S[table-format=1.4]}
+              \toprule
+              № опыта &amp; {$T_1$, с} &amp; {$T_2$, с} &amp; {$\bar{T}$, с} \\
+              \midrule
+              1 &amp; 1.234 &amp; 1.241 &amp; 1.2375 \\
+              2 &amp; 1.228 &amp; 1.235 &amp; 1.2315 \\
+              3 &amp; 1.240 &amp; 1.238 &amp; 1.2390 \\
+              \midrule
+              \multicolumn{3}{l}{Среднее} &amp; 1.2360 \\
+              \bottomrule
+          \end{tabular}
+      \end{table}</code></pre>
+                              </div>
+  - id: "errors"
+    title: "Оформление погрешностей измерений"
+    html: |2-
+                              <p>Погрешности записываются в формате <strong>X ± ΔX</strong>. Пакет
+      <code>siunitx</code>
+                                  предоставляет удобный синтаксис:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Запись с погрешностью через siunitx:
+      $T = \SI{1.236 +- 0.003}{\second}$
+
+      % Абсолютная и относительная погрешности:
+      \begin{align*}
+          \Delta T &amp;= \sqrt{\Delta T_\text{сист}^2 + \Delta T_\text{случ}^2} \\
+          \delta T &amp;= \frac{\Delta T}{\bar{T}} \cdot 100\% = \SI{0.24}{\percent}
+      \end{align*}
+
+      % Запись результата с погрешностью:
+      $g = \SI{9.81 +- 0.04}{\meter\per\second\squared}$</code></pre>
+                              </div>
+                              <p>Для расчёта случайной погрешности через стандартное отклонение
+      среднего используйте формулу:
+                              </p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{equation}
+          \Delta T_\text{случ} = t_{n,\alpha} \cdot \frac{\sigma}{\sqrt{n}}
+          = t_{n,\alpha} \cdot \sqrt{\frac{\sum_{i=1}^{n}(T_i - \bar{T})^2}{n(n-1)}}
+      \end{equation}</code></pre>
+                              </div>
+                              <div class="article-note">
+                                  <strong>💡 Совет:</strong> При записи погрешности округляйте до 1–2
+      значащих цифр, а
+                                  результат — до того же разряда, что и погрешность: <em>T = 1,236 ±
+      0,003 с</em>.
+                              </div>
+                              <div class="article-note">
+                                  <strong>💡 Расчёт в Labkeeper:</strong> погрешность можно не
+      переносить вручную. Кнопка
+                                  «Просмотреть пример в редакторе» открывает расчёт ускорения
+      свободного падения по длине нити и
+                                  периоду маятника: вычислительный сегмент задаёт величины с
+      погрешностью через <code>#</code> и
+                                  сам переносит её на результат, а LaTeX-сегмент подставляет числа
+      через <code>${g}</code>.
+                                  Знак <code>#</code> задаёт стандартную неопределённость, а не
+      доверительный интервал.
+                              </div>
+  - id: "formulas"
+    title: "Физические формулы и производные"
+    html: |2-
+                              <p>В физических лабораторных работах часто встречаются производные,
+      интегралы и системы
+                                  уравнений (для кусочных зависимостей смотрите наш <a
+                                      href="/blog/latex-systems-equations">гайд по системам уравнений
+      в LaTeX</a>, а для
+                                  отчетов по химии — <a href="/blog/latex-chemfig">статью по
+      химическим формулам chemfig</a>).
+                                  Используйте стандартные команды <code>\frac</code> и
+      <code>\partial</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% Период математического маятника:
+      \begin{equation}
+          T = 2\pi\sqrt{\frac{l}{g}} \implies g = \frac{4\pi^2 l}{T^2}
+      \end{equation}
+
+      % Закон Ома для участка цепи:
+      \begin{equation}
+          U = IR, \quad R = \frac{U}{I}
+      \end{equation}
+
+      % Формула передачи погрешностей:
+      \begin{equation}
+          \Delta g = g \cdot \sqrt{
+              \left(\frac{\Delta l}{l}\right)^2 +
+              \left(2\frac{\Delta T}{T}\right)^2
+          }
+      \end{equation}</code></pre>
+                              </div>
+  - id: "graphs"
+    title: "Графики и диаграммы"
+    html: |2-
+                              <p>Для построения графиков непосредственно в LaTeX используйте пакет
+      <code>pgfplots</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\usepackage{pgfplots}
+      \pgfplotsset{compat=1.18}
+
+      \begin{figure}[h]
+          \centering
+          \begin{tikzpicture}
+              \begin{axis}[
+                  xlabel={Напряжение $U$, В},
+                  ylabel={Сила тока $I$, мА},
+                  grid=major,
+                  width=0.8\linewidth
+              ]
+              \addplot[
+                  only marks,
+                  error bars/.cd,
+                  y dir=both, y explicit
+              ] table [x=U, y=I, y error=dI, col sep=comma] {data.csv}; % положите data.csv в проект
+              \addplot[thick, domain=0:10] {2.5*x};
+              \end{axis}
+          \end{tikzpicture}
+          \caption{Вольт-амперная характеристика резистора}
+          \label{fig:vac}
+      \end{figure}</code></pre>
+                              </div>
+  - id: "tips"
+    title: "Практические советы"
+    html: |2-
+                              <div class="article-tips">
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">1</div>
+                                      <div class="article-tip__content">
+                                          <h3>Единицы всегда через siunitx</h3>
+                                          <p>Используйте
+      <code>\SI{9.81}{\meter\per\second\squared}</code> вместо ручного
+                                              набора. Пакет обеспечивает правильные пробелы и
+      форматирование единиц СИ.</p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">2</div>
+                                      <div class="article-tip__content">
+                                          <h3>Рамки и штампы по ГОСТ</h3>
+                                          <p>Для инженерных лабораторных работ, требующих оформления
+      по ЕСКД с основной
+                                              надписью, используйте <a href="/blog/latex-eskd">шаблон
+      рамок по ГОСТ 2.104</a>.
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <div class="article-tip">
+                                      <div class="article-tip__number">3</div>
+                                      <div class="article-tip__content">
+                                          <h3>Данные из CSV через pgfplotstable</h3>
+                                          <p>Пакет <code>pgfplotstable</code> позволяет загружать
+      экспериментальные данные из
+                                              .csv или .txt файлов напрямую в таблицы и графики LaTeX.
+      Файлы с расширением
+                                              .dat загрузить можно: проверка имени файла расширение не
+      запрещает. Для pgfplots удобнее CSV.</p>
+                                      </div>
+                                  </div>
+                              </div>
+editorExample:
+  compute: |2-
+    // Длина нити, м, и период колебаний, с
+    l = 1.000 # 0.002
+    T = 2.006 # 0.004
+    g = 4 * 3.141592653589793^2 * l / T^2
+    dg = err(g)
+  latex: |2-
+    \section*{Ускорение свободного падения}
+    \[g=\frac{4\pi^2 l}{T^2}\]
+    $l=(1{,}000\pm0{,}002)$~м, $T=(2{,}006\pm0{,}004)$~с.
+    \par $g$ = ${g}~м/с\textsuperscript{2}, погрешность ${dg}~м/с\textsuperscript{2}.

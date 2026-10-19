@@ -1,0 +1,227 @@
+catalogIndex: 23
+slug: "latex-russian-cyrillic-code-listings-minted"
+batch: 2
+title: "Русский язык в листингах кода (minted/listings) без ошибок компиляции"
+pageTitle: "Русский язык в листингах кода LaTeX: ошибка кириллицы listings — Labkeeper"
+metaDescription: |2-
+  Как победить ошибку кириллицы в listings LaTeX и включить русский язык в листингах кода: рабочая
+  преамбула для pdfLaTeX и Labkeeper, minted — для локальной сборки.
+breadcrumbTitle: "Русский язык в листингах LaTeX"
+h1: "Русский язык в&nbsp;листингах кода (minted/listings) без&nbsp;ошибок компиляции"
+categories:
+  - "latex"
+keywords:
+  - "русский язык в листингах кода latex"
+  - "ошибка кириллицы в listings latex"
+datePublished: "2026-09-06"
+dateModified: "2026-10-18"
+readingTime: "8 мин"
+cardTitle: "Кириллица в листингах кода LaTeX: решение проблем в listings и minted"
+cardDescription: |2-
+  Как вставлять комментарии и строки на русском языке в блоки кода без падений pdfLaTeX: таблица
+  literate для listings, а minted и XeLaTeX — при локальной сборке.
+sliderTitle: "Русский язык в коде LaTeX"
+sliderText: "Настройка listings для русских комментариев в pdfLaTeX и minted для локальной сборки."
+sidebarText: |2-
+  В Labkeeper листинги с русскими комментариями собираются через listings — без установки LaTeX и
+  Python.
+ctaTitle: "Компилируйте чистые листинги в&nbsp;Labkeeper"
+ctaText: "Онлайн-редактор LaTeX: листинги кода с кириллицей через listings и сборка PDF в браузере."
+toc:
+  - id: "problem"
+    title: "Почему возникает ошибка кириллицы в listings LaTeX"
+  - id: "listings-fix"
+    title: "Русский язык в листингах кода LaTeX: правильная настройка listings"
+  - id: "extendedchars"
+    title: "Символьная таблица literate для полного охвата русского алфавита"
+  - id: "minted-setup"
+    title: "Пакет minted с поддержкой UTF-8: только локальная сборка"
+  - id: "xelatex-lualatex"
+    title: "Движки XeLaTeX и LuaLaTeX при локальной сборке"
+  - id: "faq"
+    title: "Частые вопросы и рекомендации по ГОСТ"
+sections:
+  - id: "problem"
+    title: "Почему возникает ошибка кириллицы в listings LaTeX"
+    html: |2-
+                              <p>Каждый студент или разработчик при подготовке дипломного проекта
+      сталкивается с неприятным сбоем: при попытке скомпилировать исходный код с русскими
+      комментариями или строковыми литералами компилятор выдает сообщение вида <code>! Package
+      inputenc Error: Unicode character...</code> или превращает слова в нечитаемые кракозябры. Это
+      классическая <strong>ошибка кириллицы в listings latex</strong>.</p>
+                              <p>Причина кроется в архитектуре классического движка
+      <code>pdfLaTeX</code>: пакет <code>listings</code> обрабатывает текст побайтово как 8-битный
+      поток ASCII, тогда как русские символы в кодировке UTF-8 состоят из двух байтов. В результате
+      парсер кода разрывает двухбайтовую последовательность, что приводит к фатальной ошибке
+      компиляции. Если в вашей работе код описывает сложные структуры, рекомендуем также ознакомиться
+      с версткой <a href="/blog/latex-algorithm2e-pseudocode-algorithms">псевдокода алгоритмов в
+      algorithm2e</a>.</p>
+  - id: "listings-fix"
+    title: "Русский язык в листингах кода LaTeX: правильная настройка listings"
+    html: |2-
+                              <p>Параметры <code>inputencoding</code> и <code>extendedchars</code>
+      часто ставят первыми, но в pdfLaTeX их недостаточно для кириллицы внутри
+      <code>lstlisting</code>. Рабочий способ — таблица <code>literate</code> ниже. Для полноты
+      преамбула может выглядеть так:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Преамбула</span></div>
+                                  <pre><code>\usepackage{listings}
+      \usepackage{xcolor}
+
+      \lstset{
+          inputencoding=utf8,
+          extendedchars=true,
+          basicstyle=\ttfamily\small,
+          breaklines=true,
+          numbers=left,
+          numberstyle=\tiny\color{gray},
+          frame=single,
+          captionpos=b,
+          keepspaces=true,
+          showstringspaces=false
+      }</code></pre>
+                              </div>
+                              <p>Если вы хотите экранировать русские фрагменты или формулы прямо
+      внутри кода, добавьте директиву <code>escapeinside</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Исходник</span></div>
+                                  <pre><code>\lstset{escapeinside={(*@}{@*)}}
+
+      \begin{lstlisting}[language=Python]
+      def calculate_sum(a, b):
+          # (*@\textbf{Вычисление суммы двух чисел}@*)
+          return a + b
+      \end{lstlisting}</code></pre>
+                              </div>
+  - id: "extendedchars"
+    title: "Символьная таблица literate для полного охвата русского алфавита"
+    html: |2-
+                              <p>Наиболее надежный способ заставить <code>listings</code> в
+      <code>pdfLaTeX</code> понимать русский текст без экранирования — передать маппинг кириллических
+      букв через свойство <code>literate</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Конфигурация</span></div>
+                                  <pre><code>\lstset{
+          literate=
+              {а}{{\cyra}}1 {б}{{\cyrb}}1 {в}{{\cyrv}}1 {г}{{\cyrg}}1
+              {д}{{\cyrd}}1 {е}{{\cyre}}1 {ж}{{\cyrzh}}1 {з}{{\cyrz}}1
+              {и}{{\cyri}}1 {й}{{\cyrishrt}}1 {к}{{\cyrk}}1 {л}{{\cyrl}}1
+              {м}{{\cyrm}}1 {н}{{\cyrn}}1 {о}{{\cyro}}1 {п}{{\cyrp}}1
+              {р}{{\cyrr}}1 {с}{{\cyrs}}1 {т}{{\cyrt}}1 {у}{{\cyru}}1
+              {ф}{{\cyrf}}1 {х}{{\cyrh}}1 {ц}{{\cyrc}}1 {ч}{{\cyrch}}1
+              {ш}{{\cyrsh}}1 {щ}{{\cyrshch}}1 {ъ}{{\cyrhrdsn}}1 {ы}{{\cyrery}}1
+              {ь}{{\cyrsftsn}}1 {э}{{\cyrerev}}1 {ю}{{\cyryu}}1 {я}{{\cyrya}}1 {ё}{{\cyryo}}1
+              {А}{{\CYRA}}1 {Б}{{\CYRB}}1 {В}{{\CYRV}}1 {Г}{{\CYRG}}1
+              {Д}{{\CYRD}}1 {Е}{{\CYRE}}1 {Ж}{{\CYRZH}}1 {З}{{\CYRZ}}1
+              {И}{{\CYRI}}1 {Й}{{\CYRISHRT}}1 {К}{{\CYRK}}1 {Л}{{\CYRL}}1
+              {М}{{\CYRM}}1 {Н}{{\CYRN}}1 {О}{{\CYRO}}1 {П}{{\CYRP}}1
+              {Р}{{\CYRR}}1 {С}{{\CYRS}}1 {Т}{{\CYRT}}1 {У}{{\CYRU}}1
+              {Ф}{{\CYRF}}1 {Х}{{\CYRH}}1 {Ц}{{\CYRC}}1 {Ч}{{\CYRCH}}1
+              {Ш}{{\CYRSH}}1 {Щ}{{\CYRSHCH}}1 {Ъ}{{\CYRHRDSN}}1 {Ы}{{\CYRERY}}1
+              {Ь}{{\CYRSFTSN}}1 {Э}{{\CYREREV}}1 {Ю}{{\CYRYU}}1 {Я}{{\CYRYA}}1 {Ё}{{\CYRYO}}1
+      }</code></pre>
+                              </div>
+                              <p>После включения этой таблицы можно писать русские комментарии,
+      включая букву «ё»: без неё в таблице literate эта буква по-прежнему ломает сборку.</p>
+  - id: "minted-setup"
+    title: "Пакет minted с поддержкой UTF-8: только локальная сборка"
+    html: |2-
+                              <p>Более современная альтернатива <code>listings</code> — пакет
+      <code>minted</code>. Он использует мощный лексер <strong>Pygments</strong>, нативно поддерживает
+      Unicode и оформляет код так же красиво, как современные IDE:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX Minted (только локально)</span></div>
+                                  <pre><code>\usepackage{minted}
+      \usemintedstyle{friendly}
+
+      \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          linenos,
+          fontsize=\small
+      ]{python}
+      # Функция расчета факториала на русском языке
+      def factorial(n: int) -> int:
+          if n <= 1:
+              return 1
+          return n * factorial(n - 1)
+
+      print("Результат вычисления:", factorial(5))
+      \end{minted}</code></pre>
+                              </div>
+                              <p><em>Обратите внимание:</em> <code>minted</code> запускает внешнюю
+      программу — Python с библиотекой Pygments, поэтому для локальной сборки нужен флаг компиляции
+      <code>-shell-escape</code>. В Labkeeper minted не работает: серверная сборка запрещает запуск
+      внешних программ, и пакет останавливается с ошибкой <code>minted executable is unavailable or
+      disabled</code>. Используйте <code>listings</code> с таблицей <code>literate</code> из раздела
+      выше.</p>
+  - id: "xelatex-lualatex"
+    title: "Движки XeLaTeX и LuaLaTeX при локальной сборке"
+    html: |2-
+                              <p>Если у вас есть возможность переключить компилятор с
+      <code>pdfLaTeX</code> на <code>XeLaTeX</code> или <code>LuaLaTeX</code>, проблема с кодировками
+      исчезает полностью. Благодаря пакету <code>fontspec</code> движок нативно работает с кодировкой
+      UTF-8 и системными шрифтами OpenType/TrueType. Этот способ подходит только для локальной сборки:
+      в Labkeeper работает pdfLaTeX, и блок с <code>fontspec</code> остановит компиляцию с ошибкой
+      <code>fontspec requires XeTeX or LuaTeX</code>.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">XeLaTeX Преамбула (только локально)</span></div>
+                                  <pre><code>\usepackage{fontspec}
+      \setmainfont{Times New Roman}
+      \setmonofont{Courier New} % или Fira Code
+      \usepackage{listings}
+
+      \lstset{
+          basicstyle=\ttfamily\small,
+          breaklines=true
+      }</code></pre>
+                              </div>
+                              <p>Для интерактивного перехода к нужным листингам из текста работы не
+      забудьте ознакомиться с <a href="/blog/latex-hyperref-pdf-bookmarks-navigation">настройкой
+      кликабельных ссылок hyperref</a>.</p>
+  - id: "faq"
+    title: "Частые вопросы и рекомендации по ГОСТ"
+    html: |2-
+                              <p>Требования к листингам задают методические указания вуза; для
+      программной документации ориентиром служит ГОСТ 19.401-78 «Текст программы». Обычно листинги
+      кода в дипломе оформляют так:</p>
+                              <ul>
+                                  <li><strong>Шрифт моноширинный:</strong> используйте Courier New или
+      PT Mono кеглем 10–12 pt;</li>
+                                  <li><strong>Подпись к листингу:</strong> размещается снизу или
+      сверху с единообразным выравниванием («Листинг 3.1 — Метод авторизации пользователя»);</li>
+                                  <li><strong>Перенос строк:</strong> обязательно включите
+      <code>breaklines=true</code>, чтобы длинные строки кода не вылезали за границы правого
+      поля.</li>
+                              </ul>
+tips:
+  - title: "Компактные листинги в приложении"
+    html: |2-
+      <p>Длинные портянки кода объемом более 1 страницы по требованиям большинства методичек выносят в
+      «Приложения», оставляя в основном тексте только фрагменты ключевых алгоритмов на 15–30
+      строк.</p>
+  - title: "Листинги в автоматической преамбуле Labkeeper"
+    html: |2-
+      <p>Если в проекте нет своей преамбулы, Labkeeper подставляет автоматическую, в которой уже есть
+      <code>listings</code> и кодировка <code>T2A</code>. Достаточно добавить в LaTeX-сегмент команду
+      <code>\lstset</code> с таблицей <code>literate</code>: строка <code>\usepackage</code> в обычном
+      сегменте отключила бы автоматическую преамбулу целиком.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{listings}\lstset{basicstyle=\ttfamily,extendedchars=true,literate={П}{{\CYRP}}1
+    {р}{{\cyrr}}1 {и}{{\cyri}}1 {в}{{\cyrv}}1 {е}{{\cyre}}1 {т}{{\cyrt}}1}
+    \begin{document}
+    \begin{lstlisting}[language=Python]
+    print("Привет")
+    \end{lstlisting}
+    \end{document}

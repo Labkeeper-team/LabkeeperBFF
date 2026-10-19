@@ -1,0 +1,156 @@
+catalogIndex: 42
+slug: "latex-minipage-images-tables-side-by-side"
+batch: 2
+title: "Расположение нескольких картинок и таблиц рядом (minipage)"
+pageTitle: "Две картинки рядом в LaTeX minipage: текст рядом с таблицей — Labkeeper"
+metaDescription: |2-
+  Как расположить две картинки рядом в LaTeX через minipage, разместить текст рядом с таблицей,
+  настроить subcaption и точные ширины в Labkeeper.
+breadcrumbTitle: "Изображения и таблицы рядом (minipage)"
+h1: "Расположение нескольких картинок и&nbsp;таблиц рядом (minipage)"
+categories:
+  - "latex"
+keywords:
+  - "две картинки рядом latex minipage"
+  - "текст рядом с таблицей latex"
+datePublished: "2026-09-05"
+dateModified: "2026-10-18"
+readingTime: "7 мин"
+cardTitle: "Картинки и таблицы бок о бок в LaTeX: руководство по minipage"
+cardDescription: |2-
+  Как разместить два рисунка в одну строку, поставить таблицу параллельно тексту или пояснению,
+  настроить независимые подписи через окружение minipage.
+sliderTitle: "Картинки и таблицы рядом (minipage)"
+sliderText: "Окружение minipage, две картинки в строку и текст рядом с таблицей."
+sidebarText: "Верстайте сложные многоколоночные блоки и графики прямо в онлайн-редакторе Labkeeper."
+ctaTitle: "Управляйте версткой графики в&nbsp;Labkeeper"
+ctaText: |2-
+  Онлайн-редактор LaTeX с поддержкой многоколоночной верстки, окружения minipage и сборкой PDF в
+  браузере.
+toc:
+  - id: "intro"
+    title: "Зачем нужно окружение minipage"
+  - id: "two-images"
+    title: "Две картинки рядом latex minipage: пошаговый шаблон"
+  - id: "table-and-text"
+    title: "Текст рядом с таблицей latex: компактная верстка"
+  - id: "subcaption-pkg"
+    title: "Независимая нумерация подрисуночных подписей (subcaption)"
+  - id: "alignment-tips"
+    title: "Вертикальное выравнивание блоков (t, c, b)"
+sections:
+  - id: "intro"
+    title: "Зачем нужно окружение minipage"
+    html: |2-
+                              <p>В стандартном LaTeX каждый рисунок или таблица стремятся занять всю
+      горизонтальную полосу страницы. Если иллюстрации узкие или вытянуты вертикально, на листе
+      образуются огромные пустые поля, а объем документа неоправданно растет.</p>
+                              <p>Окружение <strong>minipage</strong> создает независимую
+      «мини-страницу» фиксированной ширины. Несколько таких блоков, поставленных друг за другом без
+      пустой строки, выстраиваются строго в одну горизонтальную линию.</p>
+  - id: "two-images"
+    title: "Две картинки рядом latex minipage: пошаговый шаблон"
+    html: |2-
+                              <p>Классический способ расположить <strong>две картинки рядом latex
+      minipage</strong> с общей или раздельными подписями (в отличие от <a
+      href="/blog/latex-wrapfig-text-flow">обтекания картинок текстом через wrapfig</a>):</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\begin{figure}[htbp]
+          \centering
+          % Первый блок (48% ширины текста)
+          \begin{minipage}[b]{0.48\textwidth}
+              \centering
+              \includegraphics[width=\textwidth]{chart1.pdf}
+              \caption{Эксперимент до оптимизации}
+              \label{fig:chart1}
+          \end{minipage}
+          \hfill % Резиновый горизонтальный пробел между блоками
+          % Второй блок (48% ширины текста)
+          \begin{minipage}[b]{0.48\textwidth}
+              \centering
+              \includegraphics[width=\textwidth]{chart2.pdf}
+              \caption{Эксперимент после оптимизации}
+              \label{fig:chart2}
+          \end{minipage}
+      \end{figure}</code></pre>
+                              </div>
+                              <p>Команда <code>\hfill</code> автоматически распределяет оставшиеся 4%
+      ширины в аккуратный равномерный зазор между двумя иллюстрациями.</p>
+  - id: "table-and-text"
+    title: "Текст рядом с таблицей latex: компактная верстка"
+    html: |2-
+                              <p>В методических указаниях и научных отчетах часто требуется разместить
+      <strong>текст рядом с таблицей latex</strong> — например, краткое пояснение к числовым
+      коэффициентам:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>\noindent
+      \begin{minipage}[c]{0.52\textwidth}
+          \begin{tabular}{|l|c|r|}
+              \hline
+              \textbf{Параметр} & \textbf{Символ} & \textbf{Значение} \\
+              \hline
+              Коэффициент трения & $\mu$ & 0.15 \\
+              Масса образца & $m$ & 2.45 кг \\
+              Ускорение & $a$ & 9.81 м/с$^2$ \\
+              \hline
+          \end{tabular}
+      \end{minipage}
+      \hfill
+      \begin{minipage}[c]{0.44\textwidth}
+          \small
+          Приведенные в таблице константы соответствуют стандартным атмосферным условиям ($T = 20~^\circ\text{C}$, $P = 101.3$~кПа). Расчет выполнен по формуле сухого трения.
+      \end{minipage}</code></pre>
+                              </div>
+  - id: "subcaption-pkg"
+    title: "Независимая нумерация подрисуночных подписей (subcaption)"
+    html: |2-
+                              <p>Если две картинки являются частями одной общей иллюстрации, лучше
+      подключить пакет <code>subcaption</code> и использовать окружения <code>subfigure</code>. Это
+      дает стандартную нумерацию вида «Рисунок 1 — Схема установки: а — вид спереди; б — вид сверху».
+      Это нумерация частей одного рисунка, а не <a
+      href="/blog/figure-double-numbering-chapters-gost">двойная нумерация по главам</a> вида «Рисунок
+      2.1».</p>
+  - id: "alignment-tips"
+    title: "Вертикальное выравнивание блоков (t, c, b)"
+    html: |2-
+                              <p>Опциональный параметр выравнивания определяет, по какой линии
+      центрируются соседние блоки minipage:</p>
+                              <ul>
+                                  <li><code>[t]</code> (top) — выравнивание по базовой линии первой
+      строки; у <code>\includegraphics</code> это низ картинки, а не верхний край;</li>
+                                  <li><code>[c]</code> (center) — выравнивание по геометрическому
+      центру (по умолчанию);</li>
+                                  <li><code>[b]</code> (bottom) — выравнивание по нижней базовой линии
+      (идеально для подрисуночных подписей).</li>
+                              </ul>
+tips:
+  - title: "Опасность пустой строки в коде"
+    html: |2-
+      <p>Никогда не оставляйте пустую строку между закрывающим <code>\end{minipage}</code> и следующим
+      <code>\begin{minipage}</code>, иначе LaTeX воспримет это как новый абзац и перенесет второй блок
+      на следующую строку.</p>
+  - title: "Сумма ширин менее 1.0\\textwidth"
+    html: |2-
+      <p>Суммарная ширина двух minipage плюс пробел не должна превышать <code>\textwidth</code>, иначе
+      возникнет ошибка переполнения <code>Overfull \hbox</code>.</p>
+editorExample:
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+
+    \begin{document}
+    \noindent
+    \begin{minipage}{.46\textwidth}\centering
+    \fbox{\rule{0pt}{25mm}\rule{35mm}{0pt}}\\Diagram
+    \end{minipage}\hfill
+    \begin{minipage}{.46\textwidth}\centering
+    \begin{tabular}{cc}Time & Value\\1 & 2\\2 & 4\end{tabular}\\Measurements
+    \end{minipage}
+    \end{document}
