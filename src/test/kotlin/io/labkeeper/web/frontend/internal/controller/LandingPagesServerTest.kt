@@ -154,6 +154,17 @@ class ClasspathLandingPagesTest(
             .exchange()
             .expectStatus().isOk
             .expectHeader().contentTypeCompatibleWith(MediaType.valueOf("text/css"))
+        webTestClient.get().uri("/assets/js/katex.js")
+            .exchange()
+            .expectStatus().isOk
+            .expectHeader().contentTypeCompatibleWith(MediaType.valueOf("text/javascript"))
+        webTestClient.get().uri("/assets/css/katex.css")
+            .exchange()
+            .expectStatus().isOk
+            .expectHeader().contentTypeCompatibleWith(MediaType.valueOf("text/css"))
+        webTestClient.get().uri("/assets/css/fonts/KaTeX_Main-Regular.woff2")
+            .exchange()
+            .expectStatus().isOk
 
         webTestClient.get().uri("/assets/css/style.css").exchange().expectStatus().isOk
     }

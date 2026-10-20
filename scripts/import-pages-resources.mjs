@@ -26,7 +26,11 @@ function copyAssets() {
         recursive: true,
         filter: (source) => {
             const relative = path.relative(assetsSrc, source);
-            return relative !== 'scss' && !relative.startsWith(`scss${path.sep}`);
+            const normalized = relative.split(path.sep).join('/');
+            return normalized !== 'scss'
+                && !normalized.startsWith('scss/')
+                && normalized !== 'vendor/katex'
+                && !normalized.startsWith('vendor/katex/');
         },
     });
     fs.copyFileSync(path.join(pagesSrc, 'robots.txt'), path.join(staticDir, 'robots.txt'));
