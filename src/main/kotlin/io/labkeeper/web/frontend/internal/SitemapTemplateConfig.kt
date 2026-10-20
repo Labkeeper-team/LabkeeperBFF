@@ -20,7 +20,7 @@ class SitemapTemplateConfig {
             characterEncoding = StandardCharsets.UTF_8.name()
             isCacheable = properties.isCache
             order = -1
-            setCheckExistence(true)
+            checkExistence = true
             setResolvablePatterns(setOf("sitemap"))
         }
 }
