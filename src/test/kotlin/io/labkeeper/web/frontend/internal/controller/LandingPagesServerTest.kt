@@ -1,171 +1,95 @@
 package io.labkeeper.web.frontend.internal.controller
 
+import io.kotest.matchers.string.shouldContain
+import io.kotest.matchers.string.shouldNotContain
+import io.kotest.matchers.string.shouldStartWith
 import io.labkeeper.web.frontend.local.LocalFrontendApplication
-import org.junit.jupiter.api.Assertions.assertFalse
-import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.reactive.server.WebTestClient
+import org.springframework.test.web.reactive.server.expectBody
 
 @ActiveProfiles("frontend-local")
 @SpringBootTest(
     classes = [LocalFrontendApplication::class],
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
     properties = [
-        "io.labkeeper.version.major=4",
+        "io.labkeeper.version.major=9",
         "io.labkeeper.frontend.yandex-metrika-key=123456",
         "io.labkeeper.frontend.openpanel-client-id=client",
         "io.labkeeper.frontend.openpanel-api-url=https://openpanel.example",
-        "io.labkeeper.host=http://localhost:8080",
     ],
 )
 class LandingPagesServerTest(
     @Autowired private val webTestClient: WebTestClient,
 ) {
     @Test
-    fun homePageRendersPlaceholders() {
-        val body = html("/")
+    fun homePageRendersSettingsAndFallbackProjects() {
+        val body = get("/", MediaType.TEXT_HTML)
 
-        assertTrue(body.contains("<!DOCTYPE html>"))
-        assertTrue(body.contains("Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF"))
-        assertTrue(body.contains("window.__LABKEEPER_API_VERSION = \"v4\";"))
-        assertTrue(body.contains("window.__LABKEEPER_OPENPANEL_CLIENT_ID = \"client\";"))
-        assertTrue(body.contains("window.__LABKEEPER_OPENPANEL_API_URL = \"https://openpanel.example\";"))
-        assertTrue(body.contains("ym(123456, \"init\""))
-        assertFalse(body.contains("IO_LABKEEPER_FRONTEND_"))
-        assertTrue(body.contains("href=\"assets/css/style.css\""))
-        assertTrue(body.contains("Измерение интенсивности радиационного фона"))
-        assertTrue(body.contains("header__projects"))
-        assertTrue(body.contains("display: none"))
+        body shouldContain "<!DOCTYPE html>"
+        body shouldContain "Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF"
+        body shouldContain "window.__LABKEEPER_API_VERSION = \"v9\";"
+        body shouldContain "window.__LABKEEPER_OPENPANEL_CLIENT_ID = \"client\";"
+        body shouldContain "window.__LABKEEPER_OPENPANEL_API_URL = \"https://openpanel.example\";"
+        body shouldContain "ym(123456, \"init\""
+        body shouldNotContain "IO_LABKEEPER_FRONTEND_"
+        body shouldContain "href=\"assets/css/style.css\""
+        body shouldContain "Измерение интенсивности радиационного фона"
+        body shouldContain "header__projects"
+        body shouldContain "display: none"
     }
 
     @Test
-    fun aboutAndBlogKeepMarkup() {
-        assertTrue(html("/about").contains("<title>О нас — онлайн-редактор Labkeeper</title>"))
-        val article = html("/blog/ideal-lab-report-template-gost-online")
-        assertTrue(article.contains("<code>\${R}</code>"))
-        assertTrue(article.contains("window.__LABKEEPER_API_VERSION = \"v4\";"))
-        assertFalse(article.contains("IO_LABKEEPER_FRONTEND_"))
+    fun blogPagesRenderArticlesFromYaml() {
+        get("/about", MediaType.TEXT_HTML) shouldContain "<title>О нас — онлайн-редактор Labkeeper</title>"
+        get("/blog", MediaType.TEXT_HTML) shouldContain "/blog/latex-formulas"
+        get("/blog/ideal-lab-report-template-gost-online", MediaType.TEXT_HTML) shouldContain "<code>\${R}</code>"
+
+        val article = get("/blog/latex-formulas", MediaType.TEXT_HTML)
+        article shouldContain "Формулы и уравнения в"
+        article shouldContain "amsmath"
+        article shouldContain "window.__LABKEEPER_API_VERSION = \"v9\";"
+        article shouldNotContain "IO_LABKEEPER_FRONTEND_"
+
+        val sitemap = get("/sitemap.xml", MediaType.APPLICATION_XML)
+        sitemap shouldStartWith "<?xml"
+        sitemap shouldContain "<loc>https://labkeeper.io/blog/latex-formulas</loc>"
     }
 
     @Test
-    fun staticAssetsAndRawHtml() {
-        val css = webTestClient.get().uri("/assets/css/style.css")
-            .exchange()
-            .expectStatus().isOk
-            .expectHeader().contentTypeCompatibleWith(MediaType.valueOf("text/css"))
-            .expectBody(String::class.java)
-            .returnResult()
-            .responseBody
-        assertTrue(css!!.contains("--c-primary"))
+    fun staticAssetsAreServed() {
+        get("/assets/css/style.css", MediaType.valueOf("text/css")) shouldContain "--c-primary"
+        get("/assets/img/logo.svg") shouldContain "<svg"
+        get("/robots.txt", MediaType.TEXT_PLAIN) shouldContain "Allow: /"
+        ok("/assets/js/swiper.js", MediaType.valueOf("text/javascript"))
+        ok("/assets/css/swiper.css", MediaType.valueOf("text/css"))
+        ok("/assets/js/katex.js", MediaType.valueOf("text/javascript"))
+        ok("/assets/css/katex.css", MediaType.valueOf("text/css"))
+        ok("/assets/css/fonts/KaTeX_Main-Regular.woff2")
+    }
 
-        webTestClient.get().uri("/assets/img/logo.svg")
-            .exchange()
-            .expectStatus().isOk
-            .expectBody(String::class.java)
-            .returnResult()
-            .responseBody
-            .let { assertTrue(it!!.contains("<svg")) }
-
-        webTestClient.get().uri("/robots.txt")
-            .exchange()
-            .expectStatus().isOk
-            .expectBody(String::class.java)
-            .returnResult()
-            .responseBody
-            .let { assertTrue(it!!.contains("Allow: /")) }
-
-        webTestClient.get().uri("/index.html").exchange().expectStatus().isNotFound
-        webTestClient.get().uri("/blog/missing-article").exchange().expectStatus().isNotFound
-        webTestClient.get().uri("/blog/Not_A_Slug").exchange().expectStatus().isNotFound
-
-        val article = html("/blog/latex-formulas")
-        assertTrue(article.contains("Формулы и уравнения в"))
-        assertTrue(article.contains("amsmath"))
-        assertFalse(article.contains("IO_LABKEEPER_FRONTEND_"))
-        assertTrue(html("/blog/ideal-lab-report-template-gost-online").contains("<code>\${R}</code>"))
-        assertTrue(html("/blog").contains("/blog/latex-formulas"))
-        val sitemap = webTestClient.get().uri("/sitemap.xml")
-            .exchange()
-            .expectStatus().isOk
-            .expectBody(String::class.java)
-            .returnResult()
-            .responseBody
-        assertTrue(sitemap!!.contains("https://labkeeper.io/blog/latex-formulas"))
+    @Test
+    fun unknownPagesAreNotFound() {
+        listOf("/index.html", "/blog/missing-article", "/blog/Not_A_Slug").forEach {
+            webTestClient.get().uri(it).exchange().expectStatus().isNotFound
+        }
     }
 
     @Test
     fun wikiRedirectsToTrailingSlash() {
-        webTestClient.get().uri("/wiki")
-            .exchange()
+        webTestClient.get().uri("/wiki").exchange()
             .expectStatus().isFound
-            .expectHeader().value("Location") { location -> assertTrue(location.endsWith("/wiki/")) }
+            .expectHeader().location("/wiki/")
     }
 
-    private fun html(path: String): String {
-        val body = webTestClient.get().uri(path)
-            .exchange()
-            .expectStatus().isOk
-            .expectHeader().contentTypeCompatibleWith(MediaType.TEXT_HTML)
-            .expectBody(String::class.java)
-            .returnResult()
-            .responseBody
-        assertTrue(body != null && body.isNotEmpty())
-        return body!!
-    }
-}
+    private fun ok(path: String, type: MediaType = MediaType.ALL) = webTestClient.get().uri(path).exchange()
+        .expectStatus().isOk
+        .expectHeader().contentTypeCompatibleWith(type)
 
-@SpringBootTest(
-    classes = [LocalFrontendApplication::class],
-    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-    properties = [
-        "io.labkeeper.frontend.local-application=true",
-        "io.labkeeper.frontend.static-directory=off",
-        "io.labkeeper.version.major=9",
-        "io.labkeeper.frontend.yandex-metrika-key=999",
-        "io.labkeeper.frontend.openpanel-client-id=classpath-client",
-        "io.labkeeper.frontend.openpanel-api-url=https://classpath.example",
-    ],
-)
-class ClasspathLandingPagesTest(
-    @Autowired private val webTestClient: WebTestClient,
-) {
-    @Test
-    fun packagedPagesRenderThroughThymeleaf() {
-        val body = webTestClient.get().uri("/")
-            .exchange()
-            .expectStatus().isOk
-            .expectHeader().contentTypeCompatibleWith(MediaType.TEXT_HTML)
-            .expectBody(String::class.java)
-            .returnResult()
-            .responseBody
-        assertTrue(body!!.contains("window.__LABKEEPER_API_VERSION = \"v9\";"))
-        assertTrue(body.contains("ym(999, \"init\""))
-        assertTrue(body.contains("classpath-client"))
-        assertFalse(body.contains("IO_LABKEEPER_FRONTEND_"))
-        webTestClient.get().uri("/assets/js/swiper.js")
-            .exchange()
-            .expectStatus().isOk
-            .expectHeader().contentTypeCompatibleWith(MediaType.valueOf("text/javascript"))
-        webTestClient.get().uri("/assets/css/swiper.css")
-            .exchange()
-            .expectStatus().isOk
-            .expectHeader().contentTypeCompatibleWith(MediaType.valueOf("text/css"))
-        webTestClient.get().uri("/assets/js/katex.js")
-            .exchange()
-            .expectStatus().isOk
-            .expectHeader().contentTypeCompatibleWith(MediaType.valueOf("text/javascript"))
-        webTestClient.get().uri("/assets/css/katex.css")
-            .exchange()
-            .expectStatus().isOk
-            .expectHeader().contentTypeCompatibleWith(MediaType.valueOf("text/css"))
-        webTestClient.get().uri("/assets/css/fonts/KaTeX_Main-Regular.woff2")
-            .exchange()
-            .expectStatus().isOk
-
-        webTestClient.get().uri("/assets/css/style.css").exchange().expectStatus().isOk
-    }
+    private fun get(path: String, type: MediaType = MediaType.ALL) =
+        ok(path, type).expectBody<String>().returnResult().responseBody.orEmpty()
 }

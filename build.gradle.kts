@@ -59,7 +59,7 @@ tasks.register<Exec>("landingNpmInstall") {
     outputs.dir(landingDir.dir("node_modules"))
 }
 
-tasks.register<Exec>("landingSwiperBuild") {
+tasks.register<Exec>("landingNpmBuild") {
     workingDir = landingDir.asFile
     commandLine(npmCommand, "run", "build")
     dependsOn("landingNpmInstall")
@@ -71,22 +71,14 @@ val frontendBootRunOnly = gradle.startParameter.taskNames
     .let { names -> names.isNotEmpty() && names.all { it == "bootRun" } }
 
 tasks.named<ProcessResources>("processResources") {
-    dependsOn("landingSwiperBuild")
-    from(layout.buildDirectory.dir("landing")) {
-        into("static/assets")
-    }
+    dependsOn("landingNpmBuild")
+    // The editor and the wiki take long to build, so bootRun alone serves whatever was built before.
     if (!frontendBootRunOnly) {
         dependsOn("npmBuild", "wikiNpmBuild")
-        from(editorFrontendDir.dir("dist")) { into("editor") }
-        from(wikiFrontendDir.dir("_site")) { into("wiki") }
-    } else {
-        if (editorFrontendDir.dir("dist").asFile.exists()) {
-            from(editorFrontendDir.dir("dist")) { into("editor") }
-        }
-        if (wikiFrontendDir.dir("_site").asFile.exists()) {
-            from(wikiFrontendDir.dir("_site")) { into("wiki") }
-        }
     }
+    from(layout.buildDirectory.dir("landing")) { into("static/assets") }
+    from(editorFrontendDir.dir("dist")) { into("editor") }
+    from(wikiFrontendDir.dir("_site")) { into("wiki") }
 }
 
 tasks.named<Jar>("jar") {
@@ -99,11 +91,9 @@ tasks.named<BootJar>("bootJar") {
 }
 
 tasks.named<BootRun>("bootRun") {
-    dependsOn("testClasses")
-    classpath = sourceSets.named("test").get().runtimeClasspath
     mainClass.set("io.labkeeper.web.frontend.local.LocalFrontendApplicationKt")
-    val versionMajor = rootProject.findProperty("version.major")?.toString() ?: "4"
-    systemProperty("io.labkeeper.version.major", versionMajor)
+    // Sources come first, so edited templates and static files show up without a restart.
+    classpath = files("src/main/resources") + sourceSets["test"].runtimeClasspath
 }
 
 tasks.named("clean") {

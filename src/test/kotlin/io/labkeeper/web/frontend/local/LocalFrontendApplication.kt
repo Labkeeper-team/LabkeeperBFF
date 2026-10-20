@@ -1,14 +1,13 @@
 package io.labkeeper.web.frontend.local
 
-import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
-@SpringBootApplication(scanBasePackages = ["io.labkeeper.web.frontend.local"])
+/** Landing pages without the backend: `gradlew :Web:Frontend:bootRun`. */
+@SpringBootApplication
 class LocalFrontendApplication
 
 fun main(args: Array<String>) {
-    val application = SpringApplication(LocalFrontendApplication::class.java)
-    application.setAdditionalProfiles("frontend-local")
     @Suppress("SpreadOperator")
-    application.run(*args)
+    runApplication<LocalFrontendApplication>(*args) { setAdditionalProfiles("frontend-local") }
 }

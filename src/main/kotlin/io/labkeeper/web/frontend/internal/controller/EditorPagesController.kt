@@ -1,20 +1,42 @@
 package io.labkeeper.web.frontend.internal.controller
 
+import io.labkeeper.web.frontend.FrontendProperties
+import io.labkeeper.web.frontend.internal.project.ProjectSource
+import org.springframework.core.io.ClassPathResource
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
-import reactor.core.publisher.Mono
+import org.springframework.web.util.HtmlUtils
 
 @RestController
 class EditorPagesController(
-    private val editorIndexPage: EditorIndexPage,
+    private val properties: FrontendProperties,
+    private val projectSource: ProjectSource?,
 ) {
-    @GetMapping(
-        "/projects",
-        "/project/default",
-        "/project/default/agent",
-        "/oauth2/code",
-        "/tokens",
-        "/pay",
-    )
-    fun spa(): Mono<String> = editorIndexPage.content()
+    private val indexHtml by lazy {
+        ClassPathResource("editor/index.html").getContentAsString(Charsets.UTF_8)
+            .replace("IO_LABKEEPER_FRONTEND_SENTRY_DSN", properties.sentryDsn)
+            .replace("IO_LABKEEPER_FRONTEND_YANDEX_METRIKA_KEY", properties.yandexMetrikaKey)
+            .replace("IO_LABKEEPER_FRONTEND_YANDEX_CAPTCHA_SITE_KEY", properties.yandexCaptchaSiteKey)
+            .replace("IO_LABKEEPER_FRONTEND_OPENPANEL_CLIENT_ID", properties.openpanelClientId)
+            .replace("IO_LABKEEPER_FRONTEND_OPENPANEL_API_URL", properties.openpanelApiUrl)
+    }
+
+    @GetMapping("/projects", "/project/default", "/project/default/agent", "/oauth2/code", "/tokens", "/pay")
+    fun spa() = indexHtml
+
+    /** Link previews of a shared project show its title instead of the generic one. */
+    @GetMapping("/project/{id}", "/project/{id}/agent")
+    suspend fun project(@PathVariable id: String): String {
+        val title = runCatching { projectSource?.title(id) }.getOrNull() ?: return indexHtml
+        return indexHtml
+            .replace(DEFAULT_TITLE, HtmlUtils.htmlEscape(title, Charsets.UTF_8.name()))
+            .replace(DEFAULT_DESCRIPTION, "")
+    }
+
+    private companion object {
+        const val DEFAULT_TITLE = "Labkeeper — online pdf editor with a built-in scientific calculator"
+        const val DEFAULT_DESCRIPTION =
+            "Compose documents, formulas, and plots, convert to pdf. Editor and calculations in one place"
+    }
 }
