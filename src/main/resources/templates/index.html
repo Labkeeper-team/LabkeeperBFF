@@ -5,28 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru https://labkeeper.io [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests">
+        content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru [(${publicUrl})] [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests">
     <title>Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF</title>
     <!-- Social / Open Graph -->
     <meta name="description"
         content="Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF, научным калькулятором высокой точности, готовыми шаблонами по ГОСТ и AI-ассистентом." />
-    <link rel="canonical" href="https://labkeeper.io/" />
+    <link rel="canonical" href="[(${publicUrl})]/" />
     <link rel="stylesheet" href="assets/css/swiper.css" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://labkeeper.io/" />
+    <meta property="og:url" content="[(${publicUrl})]/" />
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="Labkeeper" />
     <meta property="og:title" content="Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF" />
     <meta property="og:description"
         content="Верстайте LaTeX и Markdown документы, выполняйте высокоточные расчеты и генерируйте PDF прямо в браузере с Labkeeper." />
-    <meta property="og:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta property="og:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Labkeeper preview" />
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta name="twitter:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
     <meta name="twitter:title" content="Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF" />
     <meta name="twitter:description"
         content="Верстайте LaTeX и Markdown документы, выполняйте высокоточные расчеты и генерируйте PDF прямо в браузере с Labkeeper." />
@@ -36,7 +36,7 @@
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Labkeeper",
-        "url": "https://labkeeper.io/",
+        "url": "[(${publicUrl})]/",
         "description": "Онлайн-редактор LaTeX и Markdown с компиляцией в PDF, встроенным научным калькулятором и AI-ассистентом.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "All",
@@ -48,10 +48,10 @@
         "publisher": {
             "@type": "Organization",
             "name": "Labkeeper",
-            "url": "https://labkeeper.io",
+            "url": "[(${publicUrl})]",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://labkeeper.io/assets/img/logo.svg"
+                "url": "[(${publicUrl})]/assets/img/logo.svg"
             }
         }
     }
@@ -225,8 +225,8 @@
                 </ul>
                 <div class="header__mobile-contact">
                     <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:labkeeper.io@gmail.com"
-                        class="header__mobile-contact-link">labkeeper.io@gmail.com</a>
+                    <a href="mailto:[(${contactEmail})]"
+                        class="header__mobile-contact-link">[(${contactEmail})]</a>
                 </div>
             </nav>
 
@@ -567,7 +567,7 @@
                 </a>
                 <div class="footer__contact">
                     <span class="footer__contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:labkeeper.io@gmail.com" class="footer__contact-link">labkeeper.io@gmail.com</a>
+                    <a href="mailto:[(${contactEmail})]" class="footer__contact-link">[(${contactEmail})]</a>
                 </div>
             </div>
             <div class="footer__middle">
@@ -615,6 +615,9 @@
         window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
         window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
         window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
+        window.__LABKEEPER_PUBLIC_URL = "[(${publicUrl})]";
+        window.__LABKEEPER_CONTACT_EMAIL = "[(${contactEmail})]";
+        window.__LABKEEPER_CONTACT_PHONE = "[(${contactPhone})]";
     </script>
     <script src="assets/js/auth.js" defer></script>
     <script src="assets/js/script.js" defer></script>

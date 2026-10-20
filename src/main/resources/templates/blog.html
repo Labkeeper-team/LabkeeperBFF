@@ -9,17 +9,17 @@
     <title>Блог Labkeeper — статьи, шаблоны и руководства по LaTeX и Markdown</title>
     <meta name="description"
         content="Полезные статьи, практические руководства, готовые шаблоны по ГОСТ, формулы amsmath, химические структуры chemfig, таблицы и оформление научных работ в LaTeX." />
-    <link rel="canonical" href="https://labkeeper.io/blog" />
+    <link rel="canonical" href="[(${publicUrl})]/blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://labkeeper.io/blog" />
+    <meta property="og:url" content="[(${publicUrl})]/blog" />
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:site_name" content="Labkeeper" />
     <meta property="og:title" content="Блог Labkeeper — статьи, шаблоны и руководства по LaTeX и Markdown" />
     <meta property="og:description"
         content="Полезные статьи, практические руководства, готовые шаблоны по ГОСТ, формулы amsmath, таблицы и оформление научных работ в онлайн-редакторе Labkeeper." />
-    <meta property="og:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta property="og:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta name="twitter:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
     <meta name="twitter:title" content="Блог Labkeeper — статьи и руководства по LaTeX и Markdown" />
     <meta name="twitter:description"
         content="Полезные статьи, практические руководства и шаблоны по ГОСТ в онлайн-редакторе Labkeeper." />
@@ -33,14 +33,14 @@
         "author": {
             "@type": "Organization",
             "name": "Labkeeper",
-            "url": "https://labkeeper.io"
+            "url": "[(${publicUrl})]"
         },
         "publisher": {
             "@type": "Organization",
             "name": "Labkeeper",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://labkeeper.io/assets/img/logo.svg"
+                "url": "[(${publicUrl})]/assets/img/logo.svg"
             }
         },
         "inLanguage": "ru"
@@ -55,13 +55,13 @@
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Главная",
-                "item": "https://labkeeper.io/"
+                "item": "[(${publicUrl})]/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Блог",
-                "item": "https://labkeeper.io/blog"
+                "item": "[(${publicUrl})]/blog"
             }
         ]
     }
@@ -159,8 +159,8 @@
                 </ul>
                 <div class="header__mobile-contact">
                     <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:labkeeper.io@gmail.com"
-                        class="header__mobile-contact-link">labkeeper.io@gmail.com</a>
+                    <a href="mailto:[(${contactEmail})]"
+                        class="header__mobile-contact-link">[(${contactEmail})]</a>
                 </div>
             </nav>
 
@@ -314,7 +314,7 @@
                 </a>
                 <div class="footer__contact">
                     <span class="footer__contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:labkeeper.io@gmail.com" class="footer__contact-link">labkeeper.io@gmail.com</a>
+                    <a href="mailto:[(${contactEmail})]" class="footer__contact-link">[(${contactEmail})]</a>
                 </div>
             </div>
             <div class="footer__middle">
@@ -361,6 +361,9 @@
         window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
         window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
         window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
+        window.__LABKEEPER_PUBLIC_URL = "[(${publicUrl})]";
+        window.__LABKEEPER_CONTACT_EMAIL = "[(${contactEmail})]";
+        window.__LABKEEPER_CONTACT_PHONE = "[(${contactPhone})]";
     </script>
     <script src="assets/js/auth.js" defer></script>
     <script src="assets/js/script.js" defer></script>

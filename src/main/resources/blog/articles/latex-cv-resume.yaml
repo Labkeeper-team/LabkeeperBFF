@@ -113,7 +113,7 @@ sections:
       \email{ivanov@example.com}
       \social[linkedin]{ivan-ivanov}
       \social[github]{ivan-ivanov}
-      \homepage{labkeeper.io}
+      \homepage{{{publicHost}}}
 
       \begin{document}
       \makecvtitle

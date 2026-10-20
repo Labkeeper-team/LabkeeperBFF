@@ -32,28 +32,28 @@ class LandingPreviewProject(
                 "Измерение интенсивности радиационного фона",
                 "Radiation background intensity measurement",
                 "lab",
-                "https://labkeeper.io/assets/img/case1.png",
+                "/assets/img/case1.png",
             ),
             LandingPreviewProject(
                 "1acb4436-d4d6-4f40-9fc2-92039adff180",
                 "Статистическая обработка результатов многократных измерений",
                 "Statistical processing of multiple measurement results",
                 "lab",
-                "https://labkeeper.io/assets/img/case2.png",
+                "/assets/img/case2.png",
             ),
             LandingPreviewProject(
                 "c4c71322-14da-4394-b546-2ed0ace1ebfa",
                 "Определение систематических и случайных погрешностей",
                 "Determination of systematic and random errors",
                 "lab",
-                "https://labkeeper.io/assets/img/case4.png",
+                "/assets/img/case4.png",
             ),
             LandingPreviewProject(
                 "d24a814f-ff8f-4b8c-8267-f824cf8c7b6b",
                 "Изучение линейной временной модальной логики",
                 "Study of linear temporal modal logic",
                 "diploma",
-                "https://labkeeper.io/assets/img/case3.png",
+                "/assets/img/case3.png",
             ),
         )
     }

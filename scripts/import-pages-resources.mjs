@@ -180,7 +180,10 @@ function writeArticles() {
             catalogIndex: order.get(article.slug) ?? 10000,
             ...article,
         };
-        fs.writeFileSync(path.join(yamlDir, `${article.slug}.yaml`), `${emitObject(document, 0)}\n`);
+        const yaml = `${emitObject(document, 0)}\n`
+            .replaceAll('https://labkeeper.io', '{{publicUrl}}')
+            .replaceAll('labkeeper.io', '{{publicHost}}');
+        fs.writeFileSync(path.join(yamlDir, `${article.slug}.yaml`), yaml);
     }
     return slugs.size;
 }
@@ -204,10 +207,30 @@ function replaceInnerDiv(html, openTagStart, replacement) {
     throw new Error('Unbalanced div');
 }
 
+function usePublicSite(text) {
+    return text
+        .replaceAll('labkeeper.io@gmail.com', '[(${contactEmail})]')
+        .replaceAll('+7 (963) 768-55-90', '[(${contactPhone})]')
+        .replaceAll('+7(963)768-55-90', '[(${contactPhone})]')
+        .replaceAll('https://labkulture.design', '[(${publicUrl})]')
+        .replaceAll('https://labkeeper.io', '[(${publicUrl})]');
+}
+
 function applyCommon(html) {
-    let result = html;
+    let result = usePublicSite(html);
     for (const [token, expression] of PLACEHOLDERS) {
         result = result.split(token).join(expression);
+    }
+    if (!result.includes('__LABKEEPER_PUBLIC_URL')) {
+        result = result.replace(
+            /([ \t]*)window\.__LABKEEPER_OPENPANEL_API_URL = "\[\(\$\{openpanelApiUrl\}\)\]";/g,
+            (match, indent) => [
+                match,
+                `${indent}window.__LABKEEPER_PUBLIC_URL = "[(\${publicUrl})]";`,
+                `${indent}window.__LABKEEPER_CONTACT_EMAIL = "[(\${contactEmail})]";`,
+                `${indent}window.__LABKEEPER_CONTACT_PHONE = "[(\${contactPhone})]";`,
+            ].join('\n'),
+        );
     }
     result = result.replace(
         /(<a\b[^>]*class="[^"]*header__login"[^>]*)(>)/g,
@@ -404,9 +427,47 @@ function patchLandingScripts() {
     fs.writeFileSync(sliderPath, `${slider.slice(0, start)}${replacement}${slider.slice(end)}`);
 }
 
+function patchLang() {
+    const file = path.join(staticDir, 'assets/js/lang.js');
+    let text = fs.readFileSync(file, 'utf8')
+        .replaceAll('https://labkulture.design', '__PUBLIC_URL__')
+        .replaceAll('https://labkeeper.io', '__PUBLIC_URL__')
+        .replaceAll('labkeeper.io@gmail.com', '__CONTACT_EMAIL__');
+    text = text.replace(
+        'el.innerHTML = i18n[lang][key]; // используем innerHTML, так как некоторые строки содержат HTML-теги, например <br> или <span>',
+        `el.innerHTML = i18n[lang][key]
+                                    .replaceAll('__PUBLIC_URL__', window.__LABKEEPER_PUBLIC_URL || '')
+                                    .replaceAll('__CONTACT_EMAIL__', window.__LABKEEPER_CONTACT_EMAIL || '')
+                                    .replaceAll('__CONTACT_PHONE__', window.__LABKEEPER_CONTACT_PHONE || '');`,
+    );
+    fs.writeFileSync(file, text);
+}
+
+function patchSiteFiles() {
+    const generator = path.join(staticDir, 'assets/js/generate-sitemap.js');
+    if (fs.existsSync(generator)) {
+        const text = fs.readFileSync(generator, 'utf8').replace(
+            "const DOMAIN = 'https://labkeeper.io';",
+            `const DOMAIN = process.env.LABKEEPER_PUBLIC_URL;
+if (!DOMAIN) {
+    throw new Error('LABKEEPER_PUBLIC_URL is not set');
+}`,
+        );
+        fs.writeFileSync(generator, text);
+    }
+    const robots = path.join(staticDir, 'robots.txt');
+    if (fs.existsSync(robots)) {
+        const text = fs.readFileSync(robots, 'utf8')
+            .replace(/\r?\nSitemap: https:\/\/labkeeper\.io\/sitemap\.xml\r?\n?/, '\n');
+        fs.writeFileSync(robots, text);
+    }
+}
+
 copyAssets();
 patchSlider();
 patchLandingScripts();
+patchLang();
+patchSiteFiles();
 const articleCount = writeArticles();
 writePage('index.html', (html) => {
     const marker = html.indexOf('<div class="swiper knowledge__swiper">');

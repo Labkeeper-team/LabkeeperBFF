@@ -108,7 +108,7 @@ sections:
       class="article-code__lang">LaTeX</span></div>
                                   <pre><code>\begin{thebibliography}{9}
       \bibitem{labkeeper} Labkeeper : онлайн-редактор LaTeX и Markdown : [сайт]. ---
-        URL: \url{https://labkeeper.io} (дата обращения: 08.10.2026). --- Текст : электронный.
+        URL: \url{{{publicUrl}}} (дата обращения: 08.10.2026). --- Текст : электронный.
       \end{thebibliography}</code></pre>
                               </div>
                               <p>При локальной сборке можно использовать библиографический пакет
@@ -162,7 +162,7 @@ editorExample:
     Редактор описан в~\cite{site}, пример статьи --- в~\cite{habr}.
     \begin{thebibliography}{9}
     \bibitem{site} Labkeeper : онлайн-редактор LaTeX и Markdown : [сайт]. --- URL:
-    \url{https://labkeeper.io} (дата обращения: 08.10.2026). --- Текст : электронный.
+    \url{{{publicUrl}}} (дата обращения: 08.10.2026). --- Текст : электронный.
     \bibitem{habr} Иванов, А.~В. Архитектура микросервисов на Python / А.~В.~Иванов. --- Текст :
     электронный // Хабр : [сайт]. --- 2025. --- URL: \url{https://habr.com/ru/articles/891234/}
     (дата обращения: 12.04.2026).

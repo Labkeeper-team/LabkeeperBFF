@@ -134,8 +134,8 @@ editorExample:
   markdown: |2-
     ## Размер изображения
 
-    <img src="https://labkeeper.io/assets/img/logo.svg" alt="width 100" width="100">
+    <img src="{{publicUrl}}/assets/img/logo.svg" alt="width 100" width="100">
 
-    <img src="https://labkeeper.io/assets/img/logo.svg" alt="width 300" width="300">
+    <img src="{{publicUrl}}/assets/img/logo.svg" alt="width 300" width="300">
 
     В превью Labkeeper ширины 100 и 300 сохранятся, пока колонка не уже картинки.

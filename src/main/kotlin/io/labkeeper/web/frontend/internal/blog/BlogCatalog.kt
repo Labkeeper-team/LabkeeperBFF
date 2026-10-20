@@ -1,5 +1,6 @@
 package io.labkeeper.web.frontend.internal.blog
 
+import io.labkeeper.web.frontend.FrontendProperties
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver
 import org.springframework.stereotype.Component
@@ -10,9 +11,16 @@ import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 @Component
-class BlogCatalog {
+class BlogCatalog(properties: FrontendProperties) {
+    private val siteUrl = properties.siteUrl
+    private val siteHost = properties.siteHost
     val articles = PathMatchingResourcePatternResolver().getResources("classpath:blog/articles/*.yaml")
-        .map { resource -> resource.inputStream.use { BlogArticle(Yaml().load(it)) } }
+        .map { resource ->
+            val text = resource.inputStream.bufferedReader().use { it.readText() }
+                .replace(PUBLIC_URL_TOKEN, siteUrl)
+                .replace(PUBLIC_HOST_TOKEN, siteHost)
+            BlogArticle(Yaml().load(text), siteUrl)
+        }
         .sortedBy { it.catalogIndex }
 
     val sliderJson = scriptJson(
@@ -23,7 +31,7 @@ class BlogCatalog {
 }
 
 @Suppress("UNCHECKED_CAST")
-class BlogArticle(yaml: Map<String, Any?>) {
+class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
     val slug: String by yaml
     val catalogIndex: Int by yaml
     val pageTitle: String by yaml
@@ -54,7 +62,7 @@ class BlogArticle(yaml: Map<String, Any?>) {
     private val dateModified = yaml["dateModified"] as String
     val dateDisplay: String = LocalDate.parse(dateModified).format(DATE_FORMAT)
     val editorExampleUrl = exampleUrl(yaml["editorExample"] as Map<String, String>)
-    private val url = "https://labkeeper.io/blog/$slug"
+    private val url = "$siteUrl/blog/$slug"
 
     val articleJsonLd = scriptJson(
         mapOf(
@@ -62,11 +70,11 @@ class BlogArticle(yaml: Map<String, Any?>) {
             "@type" to "Article",
             "headline" to yaml["title"],
             "description" to (yaml["schemaDescription"] ?: metaDescription),
-            "author" to mapOf("@type" to "Organization", "name" to "Labkeeper", "url" to "https://labkeeper.io"),
+            "author" to mapOf("@type" to "Organization", "name" to "Labkeeper", "url" to siteUrl),
             "publisher" to mapOf(
                 "@type" to "Organization",
                 "name" to "Labkeeper",
-                "logo" to mapOf("@type" to "ImageObject", "url" to "https://labkeeper.io/assets/img/logo.svg"),
+                "logo" to mapOf("@type" to "ImageObject", "url" to "$siteUrl/assets/img/logo.svg"),
             ),
             "mainEntityOfPage" to mapOf("@type" to "WebPage", "@id" to url),
             "datePublished" to yaml["datePublished"],
@@ -81,8 +89,8 @@ class BlogArticle(yaml: Map<String, Any?>) {
             "@context" to "https://schema.org",
             "@type" to "BreadcrumbList",
             "itemListElement" to listOf(
-                "Главная" to "https://labkeeper.io/",
-                "Блог" to "https://labkeeper.io/blog",
+                "Главная" to "$siteUrl/",
+                "Блог" to "$siteUrl/blog",
                 (yaml["schemaBreadcrumbTitle"] ?: breadcrumbTitle) to url,
             ).mapIndexed { index, (name, item) ->
                 mapOf("@type" to "ListItem", "position" to index + 1, "name" to name, "item" to item)
@@ -93,6 +101,8 @@ class BlogArticle(yaml: Map<String, Any?>) {
 
 data class ArticleTag(val id: String, val name: String)
 
+private const val PUBLIC_URL_TOKEN = "{{publicUrl}}"
+private const val PUBLIC_HOST_TOKEN = "{{publicHost}}"
 private val JSON = ObjectMapper()
 private val WHITESPACE = Regex("\\s+")
 private val DATE_FORMAT = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.forLanguageTag("ru"))

@@ -32,8 +32,13 @@ class FrontendConfig(
 
     @Bean
     fun staticResourceRouter(properties: FrontendProperties) = router {
-        if (properties.disallowIndexing) {
-            GET("/robots.txt") { ok().contentType(MediaType.TEXT_PLAIN).bodyValue(DISALLOW_ALL_ROBOTS) }
+        GET("/robots.txt") {
+            val body = if (properties.disallowIndexing) {
+                DISALLOW_ALL_ROBOTS
+            } else {
+                "User-agent: *\nAllow: /\n\nSitemap: ${properties.siteUrl}/sitemap.xml\n"
+            }
+            ok().contentType(MediaType.TEXT_PLAIN).bodyValue(body)
         }
         // editor/index.html has unfilled placeholders, EditorPagesController serves the filled one.
         GET("/index.html") { notFound().build() }

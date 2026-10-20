@@ -9,18 +9,18 @@
     <title>О нас — онлайн-редактор Labkeeper</title>
     <meta name="description"
         content="О команде и миссии сервиса Labkeeper: единая онлайн-среда для верстки документов LaTeX и Markdown, точных математических вычислений и научных публикаций." />
-    <link rel="canonical" href="https://labkeeper.io/about" />
+    <link rel="canonical" href="[(${publicUrl})]/about" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://labkeeper.io/about" />
+    <meta property="og:url" content="[(${publicUrl})]/about" />
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="Labkeeper" />
     <meta property="og:title" content="О нас — онлайн-редактор Labkeeper" />
     <meta property="og:description"
         content="Узнайте о миссии Labkeeper и возможностях единой платформы для расчетов и подготовки научных документов." />
-    <meta property="og:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta property="og:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+    <meta name="twitter:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
     <meta name="twitter:title" content="О нас — онлайн-редактор Labkeeper" />
     <meta name="twitter:description"
         content="Узнайте о миссии Labkeeper и возможностях единой платформы для расчетов и подготовки научных документов." />
@@ -31,14 +31,14 @@
         "@type": "AboutPage",
         "name": "О нас — Labkeeper",
         "description": "О команде и миссии сервиса Labkeeper: единая онлайн-среда для верстки документов LaTeX и Markdown, точных математических вычислений и научных публикаций.",
-        "url": "https://labkeeper.io/about",
+        "url": "[(${publicUrl})]/about",
         "publisher": {
             "@type": "Organization",
             "name": "Labkeeper",
-            "url": "https://labkeeper.io",
+            "url": "[(${publicUrl})]",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://labkeeper.io/assets/img/logo.svg"
+                "url": "[(${publicUrl})]/assets/img/logo.svg"
             }
         }
     }
@@ -52,13 +52,13 @@
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Главная",
-                "item": "https://labkeeper.io/"
+                "item": "[(${publicUrl})]/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "О нас",
-                "item": "https://labkeeper.io/about"
+                "item": "[(${publicUrl})]/about"
             }
         ]
     }
@@ -154,8 +154,8 @@
                 </ul>
                 <div class="header__mobile-contact">
                     <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:labkeeper.io@gmail.com"
-                        class="header__mobile-contact-link">labkeeper.io@gmail.com</a>
+                    <a href="mailto:[(${contactEmail})]"
+                        class="header__mobile-contact-link">[(${contactEmail})]</a>
                 </div>
             </nav>
 
@@ -270,7 +270,7 @@
                     </div>
                     <div class="about-docs__row">
                         <div class="about-docs__label" data-i18n="docs-label-email"></div>
-                        <div class="about-docs__value">labkeeper.io@gmail.com
+                        <div class="about-docs__value">[(${contactEmail})]
                             <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
                                     viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -281,7 +281,7 @@
                     </div>
                     <div class="about-docs__row">
                         <div class="about-docs__label" data-i18n="docs-label-phone"></div>
-                        <div class="about-docs__value">+7 (963) 768-55-90
+                        <div class="about-docs__value">[(${contactPhone})]
                             <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
                                     viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -345,7 +345,7 @@
                 </a>
                 <div class="footer__contact">
                     <span class="footer__contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:labkeeper.io@gmail.com" class="footer__contact-link">labkeeper.io@gmail.com</a>
+                    <a href="mailto:[(${contactEmail})]" class="footer__contact-link">[(${contactEmail})]</a>
                 </div>
             </div>
             <div class="footer__middle">
@@ -381,6 +381,9 @@
         window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
         window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
         window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
+        window.__LABKEEPER_PUBLIC_URL = "[(${publicUrl})]";
+        window.__LABKEEPER_CONTACT_EMAIL = "[(${contactEmail})]";
+        window.__LABKEEPER_CONTACT_PHONE = "[(${contactPhone})]";
     </script>
     <script src="assets/js/auth.js" defer></script>
     <script src="assets/js/script.js" defer></script>

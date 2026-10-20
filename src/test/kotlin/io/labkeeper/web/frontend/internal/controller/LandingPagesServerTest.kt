@@ -21,6 +21,9 @@ import org.springframework.test.web.reactive.server.expectBody
         "io.labkeeper.frontend.yandex-metrika-key=123456",
         "io.labkeeper.frontend.openpanel-client-id=client",
         "io.labkeeper.frontend.openpanel-api-url=https://openpanel.example",
+        "io.labkeeper.frontend.public-url=https://labkeeper.test",
+        "io.labkeeper.frontend.contact-email=hello@labkeeper.test",
+        "io.labkeeper.frontend.contact-phone=+1-555-0100",
     ],
 )
 class LandingPagesServerTest(
@@ -41,6 +44,10 @@ class LandingPagesServerTest(
         body shouldContain "Измерение интенсивности радиационного фона"
         body shouldContain "header__projects"
         body shouldContain "display: none"
+        body shouldContain "https://labkeeper.test/"
+        body shouldContain "hello@labkeeper.test"
+        body shouldContain "window.__LABKEEPER_PUBLIC_URL = \"https://labkeeper.test\";"
+        body shouldNotContain "labkeeper.io"
     }
 
     @Test
@@ -53,18 +60,28 @@ class LandingPagesServerTest(
         article shouldContain "Формулы и уравнения в"
         article shouldContain "amsmath"
         article shouldContain "window.__LABKEEPER_API_VERSION = \"v9\";"
+        article shouldContain "https://labkeeper.test/blog/latex-formulas"
         article shouldNotContain "IO_LABKEEPER_FRONTEND_"
+        article shouldNotContain "labkeeper.io"
+
+        val cited = get("/blog/latex-hyperref-pdf-bookmarks-navigation", MediaType.TEXT_HTML)
+        cited shouldContain "https://labkeeper.test"
+        cited shouldNotContain "{{publicUrl}}"
+        cited shouldNotContain "labkeeper.io"
 
         val sitemap = get("/sitemap.xml", MediaType.APPLICATION_XML)
         sitemap shouldStartWith "<?xml"
-        sitemap shouldContain "<loc>https://labkeeper.io/blog/latex-formulas</loc>"
+        sitemap shouldContain "<loc>https://labkeeper.test/blog/latex-formulas</loc>"
+        sitemap shouldNotContain "labkeeper.io"
     }
 
     @Test
     fun staticAssetsAreServed() {
         get("/assets/css/style.css", MediaType.valueOf("text/css")) shouldContain "--c-primary"
         get("/assets/img/logo.svg") shouldContain "<svg"
-        get("/robots.txt", MediaType.TEXT_PLAIN) shouldContain "Allow: /"
+        val robots = get("/robots.txt", MediaType.TEXT_PLAIN)
+        robots shouldContain "Allow: /"
+        robots shouldContain "Sitemap: https://labkeeper.test/sitemap.xml"
         ok("/assets/js/swiper.js", MediaType.valueOf("text/javascript"))
         ok("/assets/css/swiper.css", MediaType.valueOf("text/css"))
         ok("/assets/js/katex.js", MediaType.valueOf("text/javascript"))

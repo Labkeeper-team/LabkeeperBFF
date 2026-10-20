@@ -148,23 +148,23 @@ const i18n = {
                 "privacy-s1": `<h2 class="policy-article__section-title">1. Общие положения</h2>
 <p class="p">Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных, предпринимаемые ИП Подгорбунских Алексеем Сергеевичем (далее – Оператор).</p>
 <p class="p">1.1. Оператор ставит своей важнейшей целью и условием осуществления своей деятельности соблюдение прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну.</p>
-<p class="p">1.2. Настоящая политика Оператора в отношении обработки персональных данных (далее – Политика) применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>`,
+<p class="p">1.2. Настоящая политика Оператора в отношении обработки персональных данных (далее – Политика) применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>`,
                 "privacy-s2": `<h2 class="policy-article__section-title">2. Основные понятия, используемые в Политике</h2>
 <p class="p">2.1. Автоматизированная обработка персональных данных – обработка персональных данных с помощью средств вычислительной техники.</p>
 <p class="p">2.2. Блокирование персональных данных – временное прекращение обработки персональных данных (за исключением случаев, если обработка необходима для уточнения персональных данных).</p>
-<p class="p">2.3. Веб-сайт – совокупность графических и информационных материалов, а также программ для ЭВМ и баз данных, обеспечивающих их доступность в сети интернет по сетевому адресу <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>
+<p class="p">2.3. Веб-сайт – совокупность графических и информационных материалов, а также программ для ЭВМ и баз данных, обеспечивающих их доступность в сети интернет по сетевому адресу <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>
 <p class="p">2.4. Информационная система персональных данных — совокупность содержащихся в базах данных персональных данных и обеспечивающих их обработку информационных технологий и технических средств.</p>
 <p class="p">2.5. Обезличивание персональных данных — действия, в результате которых невозможно определить без использования дополнительной информации принадлежность персональных данных конкретному Пользователю или иному субъекту персональных данных.</p>
 <p class="p">2.6. Обработка персональных данных – любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных.</p>
 <p class="p">2.7. Оператор – государственный орган, муниципальный орган, юридическое или физическое лицо, самостоятельно или совместно с другими лицами организующие и (или) осуществляющие обработку персональных данных, а также определяющие цели обработки персональных данных, состав персональных данных, подлежащих обработке, действия (операции), совершаемые с персональными данными.</p>
-<p class="p">2.8. Персональные данные – любая информация, относящаяся прямо или косвенно к определённому или определяемому Пользователю веб-сайта <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>
-<p class="p">2.9. Пользователь – любой посетитель веб-сайта <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>
+<p class="p">2.8. Персональные данные – любая информация, относящаяся прямо или косвенно к определённому или определяемому Пользователю веб-сайта <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>
+<p class="p">2.9. Пользователь – любой посетитель веб-сайта <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>
 <p class="p">2.10. Предоставление персональных данных – действия, направленные на раскрытие персональных данных определённому лицу или определённому кругу лиц.</p>
 <p class="p">2.11. Распространение персональных данных – любые действия, направленные на раскрытие персональных данных неопределённому кругу лиц (передача персональных данных) или на ознакомление с персональными данными неограниченного круга лиц, в том числе обнародование персональных данных в средствах массовой информации, размещение в информационно-телекоммуникационных сетях или предоставление доступа к персональным данным каким-либо иным способом.</p>
 <p class="p">2.12. Трансграничная передача персональных данных – передача персональных данных на территорию иностранного государства органу власти иностранного государства, иностранному физическому или иностранному юридическому лицу.</p>
 <p class="p">2.13. Уничтожение персональных данных – любые действия, в результате которых персональные данные уничтожаются безвозвратно с невозможностью дальнейшего восстановления содержания персональных данных в информационной системе персональных данных и (или) результате которых уничтожаются материальные носители персональных данных.</p>`,
 
-                "soglas-s0": `<p class="p">Настоящим я, далее «Субъект персональных данных», во исполнение требований Федерального закона от 27.07.2006 г. № 152-ФЗ «О персональных данных» (с изменениями и дополнениями) свободно, своей волей и в своём интересе даю своё согласие ИП Подгорбунских Алексею Сергеевичу (далее — Оператор) на обработку своих персональных данных, указанных при регистрации/оформлении заказа на сайте <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>`,
+                "soglas-s0": `<p class="p">Настоящим я, далее «Субъект персональных данных», во исполнение требований Федерального закона от 27.07.2006 г. № 152-ФЗ «О персональных данных» (с изменениями и дополнениями) свободно, своей волей и в своём интересе даю своё согласие ИП Подгорбунских Алексею Сергеевичу (далее — Оператор) на обработку своих персональных данных, указанных при регистрации/оформлении заказа на сайте <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>`,
                 "soglas-s1": `<h2 class="policy-article__section-title">Перечень персональных данных</h2>
 <p class="p">Под персональными данными я понимаю следующую информацию:</p>
 <p class="p">— фамилия, имя, отчество;</p>
@@ -175,7 +175,7 @@ const i18n = {
 <p class="p">Обработка персональных данных Субъекта персональных данных осуществляется исключительно в целях регистрации Субъекта персональных данных в базе данных Оператора с последующим направлением Субъекту персональных данных почтовых сообщений и смс-уведомлений (в том числе рекламного содержания) от Оператора, его аффилированных лиц и / или субподрядчиков информационного характера сообщений, а также проверки, исследования и анализа подобных данных, позволяющих поддерживать и улучшать сервисы и разделы сайта.</p>`,
                 "soglas-s3": `<h2 class="policy-article__section-title">Срок действия согласия</h2>
 <p class="p">Настоящее согласие действует с момента его подписания и в течение всего периода пользования мной сайтом и сервисами Оператора.</p>
-<p class="p">Согласие может быть мною отозвано путём направления Оператору письменного заявления по адресу электронной почты: <a href="mailto:labkeeper.io@gmail.com" class="policy-article__link">labkeeper.io@gmail.com</a>.</p>
+<p class="p">Согласие может быть мною отозвано путём направления Оператору письменного заявления по адресу электронной почты: <a href="mailto:__CONTACT_EMAIL__" class="policy-article__link">__CONTACT_EMAIL__</a>.</p>
 <p class="p">В случае отзыва мною согласия на обработку персональных данных Оператор вправе продолжить обработку персональных данных без моего согласия при наличии оснований, указанных в пунктах 2 — 11 части 1 статьи 6, части 2 статьи 10 и части 2 статьи 11 Федерального закона №152-ФЗ «О персональных данных» от 27.07.2006 г.</p>`,
 
                 "oferta-s0": `<p class="p">Настоящий документ является официальным предложением (офертой) ИП Подгорбунских Алексея Сергеевича, именуемого в дальнейшем «Исполнитель», заключить Договор об оказании услуг по предоставлению доступа к программному обеспечению Labkeeper на условиях настоящей Оферты.</p>
@@ -185,7 +185,7 @@ const i18n = {
 <p class="p">1.2. <strong>Акцепт</strong> — полное и безоговорочное принятие условий Оферты путём совершения действий, предусмотренных Офертой, в частности оплата услуг.</p>
 <p class="p">1.3. <strong>Заказчик</strong> — физическое или юридическое лицо, осуществившее акцепт Оферты.</p>
 <p class="p">1.4. <strong>Исполнитель</strong> — ИП Подгорбунских Алексей Сергеевич.</p>
-<p class="p">1.5. <strong>Сервис</strong> — программное обеспечение Labkeeper, доступное по адресу <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>
+<p class="p">1.5. <strong>Сервис</strong> — программное обеспечение Labkeeper, доступное по адресу <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>
 <p class="p">1.6. <strong>Токены</strong> — внутренняя расчётная единица Сервиса, используемая для оплаты вычислительных ресурсов.</p>`,
                 "oferta-s2": `<h2 class="policy-article__section-title">2. Предмет договора</h2>
 <p class="p">2.1. Исполнитель обязуется предоставить Заказчику доступ к Сервису, а Заказчик обязуется оплатить услуги согласно выбранному тарифу.</p>
@@ -216,7 +216,7 @@ const i18n = {
 <p class="p">ИП Подгорбунских Алексей Сергеевич</p>
 <p class="p">ИНН: 526019549488</p>
 <p class="p">ОГРНИП: 325527500070020</p>
-<p class="p">Email: <a href="mailto:labkeeper.io@gmail.com" class="policy-article__link">labkeeper.io@gmail.com</a></p>`,
+<p class="p">Email: <a href="mailto:__CONTACT_EMAIL__" class="policy-article__link">__CONTACT_EMAIL__</a></p>`,
 
                 // Блок Примеры проектов
                 "ex-title": "Примеры проектов",
@@ -383,24 +383,24 @@ const i18n = {
                 "privacy-s1": `<h2 class="policy-article__section-title">1. General Provisions</h2>
 <p class="p">This personal data processing policy has been drawn up in accordance with the requirements of Federal Law No. 152-FZ of 27.07.2006 "On Personal Data" and defines the procedure for processing personal data and the measures taken to ensure the security of personal data by IE Podgorbunsky Alexey Sergeevich (hereinafter – the Operator).</p>
 <p class="p">1.1. The Operator's primary goal and condition for carrying out its activities is to observe the rights and freedoms of individuals when processing their personal data, including protecting the right to privacy, personal and family secrecy.</p>
-<p class="p">1.2. This Operator's policy on personal data processing (hereinafter – the Policy) applies to all information the Operator may receive about visitors to the website <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>`,
+<p class="p">1.2. This Operator's policy on personal data processing (hereinafter – the Policy) applies to all information the Operator may receive about visitors to the website <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>`,
                 "privacy-s2": `<h2 class="policy-article__section-title">2. Key Terms Used in the Policy</h2>
 <p class="p">2.1. Automated personal data processing – processing of personal data using computing technology.</p>
 <p class="p">2.2. Blocking of personal data – temporary suspension of personal data processing (except where processing is necessary to clarify personal data).</p>
-<p class="p">2.3. Website – a collection of graphic and informational materials, as well as computer programs and databases that make them accessible on the internet at <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>
+<p class="p">2.3. Website – a collection of graphic and informational materials, as well as computer programs and databases that make them accessible on the internet at <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>
 <p class="p">2.4. Personal data information system — a set of personal data contained in databases and the information technologies and technical means that process them.</p>
 <p class="p">2.5. Anonymisation of personal data — actions as a result of which it is impossible to determine, without additional information, whether personal data belongs to a specific User or another data subject.</p>
 <p class="p">2.6. Processing of personal data – any action or set of actions performed using or without automated means on personal data, including collection, recording, systematisation, accumulation, storage, clarification (updating, modification), retrieval, use, transfer (distribution, provision, access), anonymisation, blocking, deletion, destruction of personal data.</p>
 <p class="p">2.7. Operator – a state body, municipal body, legal entity or individual that, independently or jointly with others, organises and/or carries out the processing of personal data, as well as determines the purposes of processing, the composition of personal data to be processed, and actions performed on personal data.</p>
-<p class="p">2.8. Personal data – any information relating directly or indirectly to a specific or identifiable User of the website <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>
-<p class="p">2.9. User – any visitor to the website <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>
+<p class="p">2.8. Personal data – any information relating directly or indirectly to a specific or identifiable User of the website <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>
+<p class="p">2.9. User – any visitor to the website <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>
 <p class="p">2.10. Provision of personal data – actions aimed at disclosing personal data to a specific person or group of persons.</p>
 <p class="p">2.11. Dissemination of personal data – any actions aimed at disclosing personal data to an unspecified group of persons or allowing an unlimited number of persons to access personal data, including publishing personal data in the media, placing it on information and telecommunications networks, or providing access by any other means.</p>
 <p class="p">2.12. Cross-border transfer of personal data – transfer of personal data to the territory of a foreign state, to a foreign state authority, foreign individual, or foreign legal entity.</p>
 <p class="p">2.13. Destruction of personal data – any actions resulting in the irreversible destruction of personal data, making it impossible to restore the content of personal data in the personal data information system, and/or the destruction of material data carriers.</p>`,
 
                 // Soglashenie sections
-                "soglas-s0": `<p class="p">I hereby, hereinafter referred to as the "Data Subject", in compliance with the requirements of Federal Law No. 152-FZ of 27.07.2006 "On Personal Data" (as amended), freely, of my own will and in my own interest, give my consent to IE Podgorbunsky Alexey Sergeevich (hereinafter – the Operator) to process my personal data provided during registration/placing an order on the website <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>`,
+                "soglas-s0": `<p class="p">I hereby, hereinafter referred to as the "Data Subject", in compliance with the requirements of Federal Law No. 152-FZ of 27.07.2006 "On Personal Data" (as amended), freely, of my own will and in my own interest, give my consent to IE Podgorbunsky Alexey Sergeevich (hereinafter – the Operator) to process my personal data provided during registration/placing an order on the website <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>`,
                 "soglas-s1": `<h2 class="policy-article__section-title">List of Personal Data</h2>
 <p class="p">By personal data I mean the following information:</p>
 <p class="p">— surname, first name, patronymic;</p>
@@ -411,7 +411,7 @@ const i18n = {
 <p class="p">Processing of the Data Subject's personal data is carried out exclusively for the purpose of registering the Data Subject in the Operator's database, with subsequent sending of email and SMS notifications (including promotional content) from the Operator, its affiliates and/or subcontractors, as well as verification, research, and analysis of such data to support and improve the services and sections of the website.</p>`,
                 "soglas-s3": `<h2 class="policy-article__section-title">Term of Consent</h2>
 <p class="p">This consent is valid from the moment of its signing and for the entire period of my use of the Operator's website and services.</p>
-<p class="p">I may withdraw my consent by sending a written request to the Operator's email address: <a href="mailto:labkeeper.io@gmail.com" class="policy-article__link">labkeeper.io@gmail.com</a>.</p>
+<p class="p">I may withdraw my consent by sending a written request to the Operator's email address: <a href="mailto:__CONTACT_EMAIL__" class="policy-article__link">__CONTACT_EMAIL__</a>.</p>
 <p class="p">In the event of withdrawal of consent to the processing of personal data, the Operator is entitled to continue processing personal data without my consent if there are grounds specified in clauses 2–11 of Part 1, Article 6, Part 2, Article 10, and Part 2, Article 11 of Federal Law No. 152-FZ "On Personal Data" of 27.07.2006.</p>`,
 
                 // Oferta sections
@@ -422,7 +422,7 @@ const i18n = {
 <p class="p">1.2. <strong>Acceptance</strong> — full and unconditional acceptance of the Offer terms by performing the actions stipulated herein, in particular by paying for services.</p>
 <p class="p">1.3. <strong>Customer</strong> — an individual or legal entity that has accepted the Offer.</p>
 <p class="p">1.4. <strong>Service Provider</strong> — IE Podgorbunsky Alexey Sergeevich.</p>
-<p class="p">1.5. <strong>Service</strong> — the Labkeeper software, available at <a href="https://labkulture.design" class="policy-article__link">https://labkulture.design</a>.</p>
+<p class="p">1.5. <strong>Service</strong> — the Labkeeper software, available at <a href="__PUBLIC_URL__" class="policy-article__link">__PUBLIC_URL__</a>.</p>
 <p class="p">1.6. <strong>Tokens</strong> — the internal unit of account of the Service, used to pay for computational resources.</p>`,
                 "oferta-s2": `<h2 class="policy-article__section-title">2. Subject of Agreement</h2>
 <p class="p">2.1. The Service Provider undertakes to grant the Customer access to the Service, and the Customer undertakes to pay for the services in accordance with the selected plan.</p>
@@ -453,7 +453,7 @@ const i18n = {
 <p class="p">IE Podgorbunsky Alexey Sergeevich</p>
 <p class="p">TIN: 526019549488</p>
 <p class="p">OGRNIP: 325527500070020</p>
-<p class="p">Email: <a href="mailto:labkeeper.io@gmail.com" class="policy-article__link">labkeeper.io@gmail.com</a></p>`,
+<p class="p">Email: <a href="mailto:__CONTACT_EMAIL__" class="policy-article__link">__CONTACT_EMAIL__</a></p>`,
 
                 // Examples block
                 "ex-title": "Project Examples",
@@ -488,7 +488,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 translatableElements.forEach(el => {
                         const key = el.getAttribute('data-i18n');
                         if (i18n[lang] && i18n[lang][key]) {
-                                el.innerHTML = i18n[lang][key]; // используем innerHTML, так как некоторые строки содержат HTML-теги, например <br> или <span>
+                                el.innerHTML = i18n[lang][key]
+                                    .replaceAll('__PUBLIC_URL__', window.__LABKEEPER_PUBLIC_URL || '')
+                                    .replaceAll('__CONTACT_EMAIL__', window.__LABKEEPER_CONTACT_EMAIL || '')
+                                    .replaceAll('__CONTACT_PHONE__', window.__LABKEEPER_CONTACT_PHONE || '');
                         }
                 });
 

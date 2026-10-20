@@ -33,6 +33,9 @@ class LandingPagesController(
         model.addAttribute("yandexMetrikaKey", properties.yandexMetrikaKey.ifBlank { "undefined" })
         model.addAttribute("openpanelClientId", properties.openpanelClientId)
         model.addAttribute("openpanelApiUrl", properties.openpanelApiUrl)
+        model.addAttribute("publicUrl", properties.siteUrl)
+        model.addAttribute("contactEmail", properties.contactEmail)
+        model.addAttribute("contactPhone", properties.contactPhone)
         model.addAttribute("articles", blogCatalog.articles)
         model.addAttribute("blogSliderJson", blogCatalog.sliderJson)
         model.addAttribute(
@@ -64,6 +67,7 @@ class LandingPagesController(
     fun sitemap(): String {
         val context = Context()
         context.setVariable("articles", blogCatalog.articles)
+        context.setVariable("publicUrl", properties.siteUrl)
         return templateEngine.process("sitemap", context)
     }
 

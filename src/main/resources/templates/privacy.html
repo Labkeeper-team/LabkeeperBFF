@@ -8,17 +8,17 @@
     content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests">
   <title>Labkeeper — Политика обработки персональных данных</title>
   <meta name="description" content="Политика обработки персональных данных сервиса Labkeeper." />
-  <link rel="canonical" href="https://labkeeper.io/privacy" />
+  <link rel="canonical" href="[(${publicUrl})]/privacy" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://labkeeper.io/privacy" />
+  <meta property="og:url" content="[(${publicUrl})]/privacy" />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:site_name" content="Labkeeper" />
   <meta property="og:title" content="Labkeeper — Политика обработки персональных данных" />
   <meta property="og:description" content="Политика обработки персональных данных сервиса Labkeeper." />
-  <meta property="og:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+  <meta property="og:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://labkeeper.io/assets/img/og-image.svg" />
+  <meta name="twitter:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
   <meta name="twitter:title" content="Labkeeper — Политика обработки персональных данных" />
   <meta name="twitter:description" content="Политика обработки персональных данных сервиса Labkeeper." />
   <script type="text/javascript">
@@ -110,7 +110,7 @@
         </ul>
         <div class="header__mobile-contact">
           <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
-          <a href="mailto:labkeeper.io@gmail.com" class="header__mobile-contact-link">labkeeper.io@gmail.com</a>
+          <a href="mailto:[(${contactEmail})]" class="header__mobile-contact-link">[(${contactEmail})]</a>
         </div>
       </nav>
 
@@ -263,8 +263,8 @@
                 <td><strong>Политика</strong></td>
 
                 <td>Настоящий документ «Политика обработки персональных данных», размещенный в постоянном доступе на
-                  Сайте по адресу: <a href="https://labkeeper.io/privacy"
-                    class="policy-article__link">https://labkeeper.io/privacy</a></td>
+                  Сайте по адресу: <a href="[(${publicUrl})]/privacy"
+                    class="policy-article__link">[(${publicUrl})]/privacy</a></td>
 
               </tr>
 
@@ -272,8 +272,8 @@
 
                 <td><strong>Сайт</strong></td>
 
-                <td>Интернет-сайт, расположенный по адресу <a href="https://labkeeper.io/"
-                    class="policy-article__link">https://labkeeper.io/</a>, предоставляющий доступ к Сервису.</td>
+                <td>Интернет-сайт, расположенный по адресу <a href="[(${publicUrl})]/"
+                    class="policy-article__link">[(${publicUrl})]/</a>, предоставляющий доступ к Сервису.</td>
 
               </tr>
 
@@ -329,7 +329,7 @@
 
                 <td><strong>Электронный адрес Оператора</strong></td>
 
-                <td><a href="mailto:labkeeper.io@gmail.com" class="policy-article__link">labkeeper.io@gmail.com</a>,
+                <td><a href="mailto:[(${contactEmail})]" class="policy-article__link">[(${contactEmail})]</a>,
                   адрес для направления запросов, касающихся обработки ПДн, в том числе для отзыва согласий.</td>
 
               </tr>
@@ -2289,13 +2289,13 @@
 
           <p class="p policy-article__subsection"><span class="policy-article__num">22.1.</span> Субъект может получить
             любые разъяснения по вопросам обработки его ПДн, обратившись к Оператору по электронному адресу <a
-              href="mailto:labkeeper.io@gmail.com" class="policy-article__link">labkeeper.io@gmail.com</a>.</p>
+              href="mailto:[(${contactEmail})]" class="policy-article__link">[(${contactEmail})]</a>.</p>
 
 
 
           <p class="p policy-article__subsection"><span class="policy-article__num">22.2.</span> Настоящая Политика
             является общедоступным документом и подлежит размещению на Сайте по ссылке  <a
-              href="https://labkeeper.io/privacy" class="policy-article__link">https://labkeeper.io/privacy</a>.</p>
+              href="[(${publicUrl})]/privacy" class="policy-article__link">[(${publicUrl})]/privacy</a>.</p>
 
 
 
@@ -2336,8 +2336,8 @@
 
 
           <p class="p"><strong>Контактная информация:</strong><br>Электронная почта: <a
-              href="mailto:labkeeper.io@gmail.com" class="policy-article__link">labkeeper.io@gmail.com</a><br>Телефон:
-            +7(963)768-55-90</p>
+              href="mailto:[(${contactEmail})]" class="policy-article__link">[(${contactEmail})]</a><br>Телефон:
+            [(${contactPhone})]</p>
 
 
 
@@ -2590,7 +2590,7 @@
         </a>
         <div class="footer__contact">
           <span class="footer__contact-label" data-i18n="footer-contact"></span>
-          <a href="mailto:labkeeper.io@gmail.com" class="footer__contact-link">labkeeper.io@gmail.com</a>
+          <a href="mailto:[(${contactEmail})]" class="footer__contact-link">[(${contactEmail})]</a>
         </div>
       </div>
       <div class="footer__middle">
@@ -2627,6 +2627,9 @@
     window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
     window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
     window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
+    window.__LABKEEPER_PUBLIC_URL = "[(${publicUrl})]";
+    window.__LABKEEPER_CONTACT_EMAIL = "[(${contactEmail})]";
+    window.__LABKEEPER_CONTACT_PHONE = "[(${contactPhone})]";
   </script>
   <script src="assets/js/auth.js" defer></script>
   <script src="assets/js/script.js" defer></script>

@@ -123,7 +123,7 @@ sections:
       \bibitem{smirnov2021} Смирнов,~А.~В. Введение в~численные методы / А.~В.~Смирнов.
         --- Москва : Наука, 2021. --- 320~с.
       \bibitem{labkeeper} Labkeeper : онлайн-редактор LaTeX и Markdown : [сайт].
-        --- URL: \url{https://labkeeper.io} (дата обращения: 18.10.2026). --- Текст : электронный.
+        --- URL: \url{{{publicUrl}}} (дата обращения: 18.10.2026). --- Текст : электронный.
       \end{thebibliography}</code></pre>
                               </div>
                               <p>Команду <code>\url</code> дают пакеты <code>url</code> или
@@ -160,7 +160,7 @@ sections:
       оптимизации в задачах машинного обучения / И. И. Иванов, С. Н. Петров // Журнал вычислительной
       математики. — 2023. — Т. 63, № 4. — С. 589–602.</td></tr>
                                           <tr><td>Сайт</td><td>Labkeeper : онлайн-редактор LaTeX и
-      Markdown : [сайт]. — URL: https://labkeeper.io (дата обращения: 18.10.2026). — Текст :
+      Markdown : [сайт]. — URL: {{publicUrl}} (дата обращения: 18.10.2026). — Текст :
       электронный.</td></tr>
                                       </tbody>
                                   </table>
@@ -274,7 +274,7 @@ sections:
       @online{labkeeper2026,
           author  = {{Labkeeper}},
           title   = {Онлайн-редактор LaTeX},
-          url     = {https://labkeeper.io},
+          url     = {{{publicUrl}}},
           urldate = {2026-10-18},
           year    = {2026},
           langid  = {russian}

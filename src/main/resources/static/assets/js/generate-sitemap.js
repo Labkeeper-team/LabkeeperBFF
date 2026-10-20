@@ -2,7 +2,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const DOMAIN = 'https://labkeeper.io';
+const DOMAIN = process.env.LABKEEPER_PUBLIC_URL;
+if (!DOMAIN) {
+    throw new Error('LABKEEPER_PUBLIC_URL is not set');
+}
 // Путь к src: файл лежит в src/assets/js -> поднимаемся на 2 уровня выше до src
 const SRC_DIR = path.resolve(__dirname, '..', '..');
 const BLOG_DIR = path.join(SRC_DIR, 'blog');

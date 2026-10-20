@@ -166,6 +166,6 @@ editorExample:
     \begin{document}
     \tableofcontents
     \section{Introduction}\label{intro}
-    Visit \href{https://labkeeper.io}{Labkeeper}.
+    Visit \href{{{publicUrl}}}{Labkeeper}.
     \newpage\section{Results}Back to Section~\ref{intro}.
     \end{document}

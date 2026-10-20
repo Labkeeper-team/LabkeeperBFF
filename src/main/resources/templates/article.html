@@ -9,16 +9,16 @@
     <title th:text="${article.pageTitle}">Статья — Labkeeper</title>
     <meta name="description" th:content="${article.metaDescription}">
     <meta th:if="${!article.keywordsText.isEmpty()}" name="keywords" th:content="${article.keywordsText}">
-    <link rel="canonical" th:href="|https://labkeeper.io/blog/${article.slug}|">
+    <link rel="canonical" th:href="|${publicUrl}/blog/${article.slug}|">
     <meta property="og:type" content="article">
-    <meta property="og:url" th:content="|https://labkeeper.io/blog/${article.slug}|">
+    <meta property="og:url" th:content="|${publicUrl}/blog/${article.slug}|">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="Labkeeper">
     <meta property="og:title" th:content="${article.ogTitle}">
     <meta property="og:description" th:content="${article.ogDescription}">
-    <meta property="og:image" content="https://labkeeper.io/assets/img/og-image.svg">
+    <meta property="og:image" content="[(${publicUrl})]/assets/img/og-image.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://labkeeper.io/assets/img/og-image.svg">
+    <meta name="twitter:image" content="[(${publicUrl})]/assets/img/og-image.svg">
     <meta name="twitter:title" th:content="${article.twitterTitle}">
     <meta name="twitter:description" th:content="${article.twitterDescription}">
     <script type="application/ld+json" th:utext="${article.articleJsonLd}"></script>
@@ -105,7 +105,7 @@
                 </ul>
                 <div class="header__mobile-contact">
                     <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:labkeeper.io@gmail.com" class="header__mobile-contact-link">labkeeper.io@gmail.com</a>
+                    <a href="mailto:[(${contactEmail})]" class="header__mobile-contact-link">[(${contactEmail})]</a>
                 </div>
             </nav>
             <div class="header__right">
@@ -237,7 +237,7 @@
                 </a>
                 <div class="footer__contact">
                     <span class="footer__contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:labkeeper.io@gmail.com" class="footer__contact-link">labkeeper.io@gmail.com</a>
+                    <a href="mailto:[(${contactEmail})]" class="footer__contact-link">[(${contactEmail})]</a>
                 </div>
             </div>
             <div class="footer__middle">
@@ -279,6 +279,9 @@
         window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
         window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
         window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
+        window.__LABKEEPER_PUBLIC_URL = "[(${publicUrl})]";
+        window.__LABKEEPER_CONTACT_EMAIL = "[(${contactEmail})]";
+        window.__LABKEEPER_CONTACT_PHONE = "[(${contactPhone})]";
         window.LABKEEPER_BLOG_ARTICLES = [(${blogSliderJson})];
     </script>
     <script src="/assets/js/auth.js" defer></script>
