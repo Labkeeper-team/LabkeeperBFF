@@ -13,6 +13,8 @@ class FrontendProperties(
     val publicUrl: String,
     val contactEmail: String,
     val contactPhone: String,
+    val defaultTitle: String,
+    val defaultDescription: String,
     val disallowIndexing: Boolean,
 ) {
     val siteUrl: String = publicUrl.trim().trimEnd('/')

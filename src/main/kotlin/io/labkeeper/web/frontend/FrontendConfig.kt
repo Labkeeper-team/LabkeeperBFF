@@ -20,7 +20,7 @@ import java.net.URI
 @EnableWebFlux
 @Configuration
 @ComponentScan
-@PropertySource("classpath:frontend.properties")
+@PropertySource(value = ["classpath:frontend.properties"], encoding = "UTF-8")
 @EnableConfigurationProperties(FrontendProperties::class)
 class FrontendConfig(
     @Qualifier("thymeleafViewResolver")

@@ -30,13 +30,7 @@ class EditorPagesController(
     suspend fun project(@PathVariable id: String): String {
         val title = runCatching { projectSource?.title(id) }.getOrNull() ?: return indexHtml
         return indexHtml
-            .replace(DEFAULT_TITLE, HtmlUtils.htmlEscape(title, Charsets.UTF_8.name()))
-            .replace(DEFAULT_DESCRIPTION, "")
-    }
-
-    private companion object {
-        const val DEFAULT_TITLE = "Labkeeper — online pdf editor with a built-in scientific calculator"
-        const val DEFAULT_DESCRIPTION =
-            "Compose documents, formulas, and plots, convert to pdf. Editor and calculations in one place"
+            .replace(properties.defaultTitle, HtmlUtils.htmlEscape(title, Charsets.UTF_8.name()))
+            .replace(properties.defaultDescription, "")
     }
 }
