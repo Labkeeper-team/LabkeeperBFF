@@ -14,7 +14,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.mapstruct:mapstruct:${property("mapstruct.version")}")
     implementation("org.hibernate.validator:hibernate-validator-annotation-processor:${property("hibernate.validator.version")}")
-    compileOnly(project(":BusinessLogic:Operation"))
     testImplementation("com.microsoft.playwright:playwright:${property("playwright.version")}")
     testImplementation("org.springframework.security:spring-security-test")
     annotationProcessor("org.mapstruct:mapstruct-processor:${property("mapstruct.version")}")

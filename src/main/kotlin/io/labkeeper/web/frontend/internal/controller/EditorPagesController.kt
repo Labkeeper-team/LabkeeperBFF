@@ -1,7 +1,7 @@
 package io.labkeeper.web.frontend.internal.controller
 
 import io.labkeeper.web.frontend.FrontendProperties
-import io.labkeeper.web.frontend.internal.project.ProjectSource
+import io.labkeeper.web.frontend.spi.ProjectSource
 import org.springframework.core.io.ClassPathResource
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

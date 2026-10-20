@@ -3,7 +3,7 @@ package io.labkeeper.web.frontend.internal.controller
 import io.labkeeper.web.frontend.FrontendProperties
 import io.labkeeper.web.frontend.internal.blog.BlogCatalog
 import io.labkeeper.web.frontend.internal.project.LandingPreviewProject
-import io.labkeeper.web.frontend.internal.project.ProjectSource
+import io.labkeeper.web.frontend.spi.ProjectSource
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -45,6 +45,7 @@ class LandingPagesController(
     @GetMapping("/")
     suspend fun index(model: Model): String {
         val projects = projectSource?.let { runCatching { it.previewProjects() }.getOrNull() }
+            ?.map { LandingPreviewProject(it) }
         model.addAttribute("previewProjects", projects ?: LandingPreviewProject.FALLBACK)
         return "index"
     }

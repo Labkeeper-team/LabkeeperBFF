@@ -1,11 +1,6 @@
 package io.labkeeper.web.frontend.internal.project
 
-/** Projects from BusinessLogic:Operation. The bean is missing when the frontend runs without that module. */
-interface ProjectSource {
-    suspend fun previewProjects(): List<LandingPreviewProject>
-
-    suspend fun title(projectId: String): String
-}
+import io.labkeeper.web.frontend.spi.PreviewProject
 
 class LandingPreviewProject(
     val id: String,
@@ -14,6 +9,14 @@ class LandingPreviewProject(
     val category: String,
     val logoUrl: String?,
 ) {
+    constructor(project: PreviewProject) : this(
+        project.id,
+        project.nameRu,
+        project.nameEn,
+        project.category,
+        project.logoUrl,
+    )
+
     val categoryRu = when (category) {
         "lab" -> "Лабораторная работа"
         "diploma" -> "Дипломный проект"
