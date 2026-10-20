@@ -1,7 +1,7 @@
 package io.labkeeper.web.frontend.internal.blog
 
-import io.labkeeper.web.frontend.FrontendProperties
 import com.fasterxml.jackson.databind.ObjectMapper
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver
 import org.springframework.stereotype.Component
 import org.yaml.snakeyaml.Yaml
@@ -11,15 +11,13 @@ import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 @Component
-class BlogCatalog(properties: FrontendProperties) {
-    private val siteUrl = properties.siteUrl
-    private val siteHost = properties.siteHost
+class BlogCatalog(@Value($$"${io.labkeeper.host}") host: String) {
     val articles = PathMatchingResourcePatternResolver().getResources("classpath:blog/articles/*.yaml")
         .map { resource ->
             val text = resource.inputStream.bufferedReader().use { it.readText() }
-                .replace(PUBLIC_URL_TOKEN, siteUrl)
-                .replace(PUBLIC_HOST_TOKEN, siteHost)
-            BlogArticle(Yaml().load(text), siteUrl)
+                .replace(PUBLIC_URL_TOKEN, host)
+                .replace(PUBLIC_HOST_TOKEN, host)
+            BlogArticle(Yaml().load(text), host)
         }
         .sortedBy { it.catalogIndex }
 

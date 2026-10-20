@@ -21,7 +21,7 @@ import org.springframework.test.web.reactive.server.expectBody
         "io.labkeeper.frontend.yandex-metrika-key=123456",
         "io.labkeeper.frontend.openpanel-client-id=client",
         "io.labkeeper.frontend.openpanel-api-url=https://openpanel.example",
-        "io.labkeeper.frontend.public-url=https://labkeeper.test",
+        "io.labkeeper.host=https://labkeeper.test",
         "io.labkeeper.frontend.contact-email=hello@labkeeper.test",
         "io.labkeeper.frontend.contact-phone=+1-555-0100",
     ],

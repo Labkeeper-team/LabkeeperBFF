@@ -21,6 +21,7 @@ class LandingPagesController(
     private val blogCatalog: BlogCatalog,
     private val projectSource: ProjectSource?,
     private val properties: FrontendProperties,
+    @Value($$"${io.labkeeper.host}") private val host: String,
     @Value($$"${io.labkeeper.version.major}") private val versionMajor: String,
 ) {
     @ModelAttribute
@@ -29,7 +30,7 @@ class LandingPagesController(
         model.addAttribute("yandexMetrikaKey", properties.yandexMetrikaKey.ifBlank { "undefined" })
         model.addAttribute("openpanelClientId", properties.openpanelClientId)
         model.addAttribute("openpanelApiUrl", properties.openpanelApiUrl)
-        model.addAttribute("publicUrl", properties.siteUrl)
+        model.addAttribute("publicUrl", host)
         model.addAttribute("contactEmail", properties.contactEmail)
         model.addAttribute("contactPhone", properties.contactPhone)
         model.addAttribute("articles", blogCatalog.articles)

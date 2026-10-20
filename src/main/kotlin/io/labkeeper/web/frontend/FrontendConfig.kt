@@ -1,6 +1,7 @@
 package io.labkeeper.web.frontend
 
 import org.springframework.beans.factory.annotation.Qualifier
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
@@ -35,12 +36,15 @@ class FrontendConfig(
     }
 
     @Bean
-    fun staticResourceRouter(properties: FrontendProperties) = router {
+    fun staticResourceRouter(
+        properties: FrontendProperties,
+        @Value($$"${io.labkeeper.host}") host: String,
+    ) = router {
         GET("/robots.txt") {
             val body = if (properties.disallowIndexing) {
                 DISALLOW_ALL_ROBOTS
             } else {
-                "User-agent: *\nAllow: /\n\nSitemap: ${properties.siteUrl}/sitemap.xml\n"
+                "User-agent: *\nAllow: /\n\nSitemap: $host/sitemap.xml\n"
             }
             ok().contentType(MediaType.TEXT_PLAIN).bodyValue(body)
         }
