@@ -97,10 +97,17 @@ class LandingPagesServerTest(
     }
 
     @Test
-    fun wikiRedirectsToTrailingSlash() {
-        webTestClient.get().uri("/wiki").exchange()
-            .expectStatus().isFound
-            .expectHeader().location("/wiki/")
+    fun wikiIsServedAsStaticFiles() {
+        listOf("/wiki", "/wiki/").forEach { path ->
+            webTestClient.get().uri(path).exchange()
+                .expectStatus().isFound
+                .expectHeader().location("/wiki/index.html")
+        }
+
+        get("/wiki/index.html", MediaType.TEXT_HTML) shouldContain "<title>Labkeeper.io — документация"
+        get("/wiki/language/syntax.html", MediaType.TEXT_HTML) shouldContain "<title>Синтаксис"
+        ok("/wiki/toc.js", MediaType.valueOf("text/javascript"))
+        webTestClient.get().uri("/wiki/language/syntax").exchange().expectStatus().isNotFound
     }
 
     private fun ok(path: String, type: MediaType = MediaType.ALL) = webTestClient.get().uri(path).exchange()
