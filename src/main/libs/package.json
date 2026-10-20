@@ -1,5 +1,5 @@
 {
-  "name": "labkeeper-landing-assets",
+  "name": "labkeeper-frontend-libs",
   "private": true,
   "type": "module",
   "scripts": {

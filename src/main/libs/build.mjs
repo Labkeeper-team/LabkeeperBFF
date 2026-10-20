@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import * as esbuild from 'esbuild';
 
 const root = dirname(fileURLToPath(import.meta.url));
-const outDir = resolve(root, '../build/landing');
+const outDir = resolve(root, '../../../build/generated/libs');
 mkdirSync(outDir, { recursive: true });
 
 await esbuild.build({

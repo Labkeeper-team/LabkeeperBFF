@@ -22,7 +22,7 @@ dependencies {
 
 val editorFrontendDir = layout.projectDirectory.dir("src/main/editor")
 val wikiFrontendDir = layout.projectDirectory.dir("src/main/wiki")
-val landingDir = layout.projectDirectory.dir("landing")
+val libsDir = layout.projectDirectory.dir("src/main/libs")
 val npmCommand = if (System.getProperty("os.name").startsWith("Windows", ignoreCase = true)) {
     "npm.cmd"
 } else {
@@ -51,18 +51,18 @@ tasks.register<Exec>("wikiNpmBuild") {
     dependsOn("wikiNpmInstall")
 }
 
-tasks.register<Exec>("landingNpmInstall") {
-    workingDir = landingDir.asFile
+tasks.register<Exec>("libsNpmInstall") {
+    workingDir = libsDir.asFile
     commandLine(npmCommand, "ci")
-    inputs.file(landingDir.file("package.json"))
-    inputs.file(landingDir.file("package-lock.json"))
-    outputs.dir(landingDir.dir("node_modules"))
+    inputs.file(libsDir.file("package.json"))
+    inputs.file(libsDir.file("package-lock.json"))
+    outputs.dir(libsDir.dir("node_modules"))
 }
 
-tasks.register<Exec>("landingNpmBuild") {
-    workingDir = landingDir.asFile
+tasks.register<Exec>("libsNpmBuild") {
+    workingDir = libsDir.asFile
     commandLine(npmCommand, "run", "build")
-    dependsOn("landingNpmInstall")
+    dependsOn("libsNpmInstall")
 }
 
 val frontendBootRunOnly = gradle.startParameter.taskNames
@@ -71,12 +71,12 @@ val frontendBootRunOnly = gradle.startParameter.taskNames
     .let { names -> names.isNotEmpty() && names.all { it == "bootRun" } }
 
 tasks.named<ProcessResources>("processResources") {
-    dependsOn("landingNpmBuild")
+    dependsOn("libsNpmBuild")
     // The editor and the wiki take long to build, so bootRun alone serves whatever was built before.
     if (!frontendBootRunOnly) {
         dependsOn("npmBuild", "wikiNpmBuild")
     }
-    from(layout.buildDirectory.dir("landing")) { into("static/assets") }
+    from(layout.buildDirectory.dir("generated/libs")) { into("static/assets") }
     from(editorFrontendDir.dir("dist")) { into("editor") }
     from(wikiFrontendDir.dir("_site")) { into("wiki") }
 }
