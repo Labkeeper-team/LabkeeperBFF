@@ -16,12 +16,15 @@ import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.server.ResponseStatusException
+import org.thymeleaf.context.Context
+import org.thymeleaf.spring6.ISpringWebFluxTemplateEngine
 
 @Controller
 class LandingPagesController(
     private val blogCatalog: BlogCatalog,
     private val projectSource: ProjectSource?,
     private val properties: FrontendProperties,
+    private val templateEngine: ISpringWebFluxTemplateEngine,
     @Value($$"${io.labkeeper.version.major}") private val versionMajor: String,
 ) {
     @ModelAttribute
@@ -58,14 +61,13 @@ class LandingPagesController(
 
     @GetMapping("/sitemap.xml", produces = [MediaType.APPLICATION_XML_VALUE])
     @ResponseBody
-    fun sitemap() = (SITEMAP_PAGES + blogCatalog.articles.map { "/blog/${it.slug}" }).joinToString(
-        separator = "\n",
-        prefix = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n",
-        postfix = "\n</urlset>",
-    ) { "  <url><loc>https://labkeeper.io$it</loc></url>" }
+    fun sitemap(): String {
+        val context = Context()
+        context.setVariable("articles", blogCatalog.articles)
+        return templateEngine.process("sitemap", context)
+    }
 
     private companion object {
         val TRUST_RESOLVER = AuthenticationTrustResolverImpl()
-        val SITEMAP_PAGES = listOf("/", "/about", "/blog", "/privacy", "/soglas", "/oferta")
     }
 }
