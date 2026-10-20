@@ -1,5 +1,6 @@
 package io.labkeeper.web.frontend
 
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
@@ -22,10 +23,14 @@ import java.net.URI
 @PropertySource("classpath:frontend.properties")
 @EnableConfigurationProperties(FrontendProperties::class)
 class FrontendConfig(
+    @Qualifier("thymeleafViewResolver")
     private val thymeleafViewResolver: ThymeleafReactiveViewResolver,
+    @Qualifier("sitemapViewResolver")
+    private val sitemapViewResolver: ThymeleafReactiveViewResolver,
 ) : WebFluxConfigurer {
     // @EnableWebFlux switches off WebFluxAutoConfiguration, which would otherwise register the resolver.
     override fun configureViewResolvers(registry: ViewResolverRegistry) {
+        registry.viewResolver(sitemapViewResolver)
         registry.viewResolver(thymeleafViewResolver)
     }
 

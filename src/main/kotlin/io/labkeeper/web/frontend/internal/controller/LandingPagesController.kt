@@ -14,17 +14,13 @@ import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.server.ResponseStatusException
-import org.thymeleaf.context.Context
-import org.thymeleaf.spring6.ISpringWebFluxTemplateEngine
 
 @Controller
 class LandingPagesController(
     private val blogCatalog: BlogCatalog,
     private val projectSource: ProjectSource?,
     private val properties: FrontendProperties,
-    private val templateEngine: ISpringWebFluxTemplateEngine,
     @Value($$"${io.labkeeper.version.major}") private val versionMajor: String,
 ) {
     @ModelAttribute
@@ -63,13 +59,7 @@ class LandingPagesController(
     }
 
     @GetMapping("/sitemap.xml", produces = [MediaType.APPLICATION_XML_VALUE])
-    @ResponseBody
-    fun sitemap(): String {
-        val context = Context()
-        context.setVariable("articles", blogCatalog.articles)
-        context.setVariable("publicUrl", properties.siteUrl)
-        return templateEngine.process("sitemap", context)
-    }
+    fun sitemap() = "sitemap"
 
     private companion object {
         val TRUST_RESOLVER = AuthenticationTrustResolverImpl()
