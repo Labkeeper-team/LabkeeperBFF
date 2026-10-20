@@ -22,6 +22,7 @@ dependencies {
 
 val editorFrontendDir = layout.projectDirectory.dir("src/main/editor")
 val wikiFrontendDir = layout.projectDirectory.dir("src/main/wiki")
+val landingDir = layout.projectDirectory.dir("landing")
 val npmCommand = if (System.getProperty("os.name").startsWith("Windows", ignoreCase = true)) {
     "npm.cmd"
 } else {
@@ -50,12 +51,30 @@ tasks.register<Exec>("wikiNpmBuild") {
     dependsOn("wikiNpmInstall")
 }
 
+tasks.register<Exec>("landingNpmInstall") {
+    workingDir = landingDir.asFile
+    commandLine(npmCommand, "ci")
+    inputs.file(landingDir.file("package.json"))
+    inputs.file(landingDir.file("package-lock.json"))
+    outputs.dir(landingDir.dir("node_modules"))
+}
+
+tasks.register<Exec>("landingSwiperBuild") {
+    workingDir = landingDir.asFile
+    commandLine(npmCommand, "run", "build")
+    dependsOn("landingNpmInstall")
+}
+
 val frontendBootRunOnly = gradle.startParameter.taskNames
     .filter { !it.startsWith("-") }
     .map { it.substringAfterLast(':') }
     .let { names -> names.isNotEmpty() && names.all { it == "bootRun" } }
 
 tasks.named<ProcessResources>("processResources") {
+    dependsOn("landingSwiperBuild")
+    from(layout.buildDirectory.dir("landing")) {
+        into("static/assets")
+    }
     if (!frontendBootRunOnly) {
         dependsOn("npmBuild", "wikiNpmBuild")
         from(editorFrontendDir.dir("dist")) { into("editor") }

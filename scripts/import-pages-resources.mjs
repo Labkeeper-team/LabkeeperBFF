@@ -217,9 +217,16 @@ function applyCommon(html) {
         /(<a\b[^>]*class="[^"]*header__projects"[^>]*?)\sstyle="display:\s*none;?"/g,
         `$1 th:style="\${viewerAuthenticated} ? null : 'display: none'"`,
     );
+    result = result
+        .replaceAll('assets/css/swiper-bundle.min.css', 'assets/css/swiper.css')
+        .replaceAll('assets/js/swiper-bundle.min.js', 'assets/js/swiper.js');
+    result = result.replace(
+        /<script src="(?:\.\.\/)?assets\/js\/slider\.js" defer><\/script>\s*<script src="(?:\.\.\/)?assets\/js\/swiper\.js"><\/script>/g,
+        `${SLIDER_BOOT}<script src="assets/js/swiper.js" defer></script>\n    <script src="assets/js/slider.js" defer></script>`,
+    );
     return result.replace(
         /<script src="(?:\.\.\/)?assets\/js\/slider\.js" defer><\/script>/g,
-        `${SLIDER_BOOT}<script src="assets/js/slider.js" defer></script>`,
+        `${SLIDER_BOOT}<script src="assets/js/swiper.js" defer></script>\n    <script src="assets/js/slider.js" defer></script>`,
     );
 }
 

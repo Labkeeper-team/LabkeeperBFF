@@ -146,6 +146,15 @@ class ClasspathLandingPagesTest(
         assertTrue(body.contains("ym(999, \"init\""))
         assertTrue(body.contains("classpath-client"))
         assertFalse(body.contains("IO_LABKEEPER_FRONTEND_"))
+        webTestClient.get().uri("/assets/js/swiper.js")
+            .exchange()
+            .expectStatus().isOk
+            .expectHeader().contentTypeCompatibleWith(MediaType.valueOf("text/javascript"))
+        webTestClient.get().uri("/assets/css/swiper.css")
+            .exchange()
+            .expectStatus().isOk
+            .expectHeader().contentTypeCompatibleWith(MediaType.valueOf("text/css"))
+
         webTestClient.get().uri("/assets/css/style.css").exchange().expectStatus().isOk
     }
 }
