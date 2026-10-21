@@ -1,9 +1,59 @@
+import org.gradle.api.plugins.JavaPluginExtension
+import org.gradle.api.tasks.compile.JavaCompile
+import org.gradle.jvm.toolchain.JavaLanguageVersion
 import org.gradle.language.jvm.tasks.ProcessResources
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 import org.springframework.boot.gradle.tasks.run.BootRun
 
 plugins {
+    id("java-library")
+    id("org.jetbrains.kotlin.jvm")
+    id("org.jetbrains.kotlin.plugin.spring")
     id("org.springframework.boot")
+}
+
+// Versions and shared libraries come from the server build. A checkout of this folder brings its own.
+if (parent == null) {
+    group = property("group").toString()
+
+    repositories {
+        mavenCentral()
+    }
+
+    extensions.configure<JavaPluginExtension> {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
+    }
+
+    tasks.withType<KotlinCompile>().configureEach {
+        compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
+        compilerOptions.javaParameters.set(true)
+        compilerOptions.freeCompilerArgs.add("-Xjsr305=warn")
+        compilerOptions.freeCompilerArgs.add("-Xjspecify-annotations=ignore")
+    }
+
+    tasks.withType<JavaCompile>().configureEach {
+        options.encoding = "UTF-8"
+    }
+
+    tasks.withType<Test>().configureEach {
+        useJUnitPlatform()
+    }
+
+    dependencies {
+        val bootBom = "org.springframework.boot:spring-boot-dependencies:3.5.10"
+        implementation(platform(bootBom))
+        testImplementation(platform(bootBom))
+        implementation("org.jetbrains.kotlin:kotlin-reflect")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+        testImplementation("io.kotest:kotest-assertions-core-jvm:6.1.10")
+        testImplementation("org.springframework.boot:spring-boot-starter-test")
+        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    }
 }
 
 dependencies {
@@ -12,11 +62,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-    implementation("org.mapstruct:mapstruct:${property("mapstruct.version")}")
-    implementation("org.hibernate.validator:hibernate-validator-annotation-processor:${property("hibernate.validator.version")}")
-    testImplementation("com.microsoft.playwright:playwright:${property("playwright.version")}")
     testImplementation("org.springframework.security:spring-security-test")
-    annotationProcessor("org.mapstruct:mapstruct-processor:${property("mapstruct.version")}")
 }
 
 val editorFrontendDir = layout.projectDirectory.dir("src/main/editor")
