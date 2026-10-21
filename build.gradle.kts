@@ -63,6 +63,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     testImplementation("org.springframework.security:spring-security-test")
+    // bootRun uses the test classpath. The published jar does not pull the gateway in.
+    testImplementation(platform("org.springframework.cloud:spring-cloud-dependencies:2025.0.3"))
+    testImplementation("org.springframework.cloud:spring-cloud-starter-gateway-server-webflux")
 }
 
 val editorFrontendDir = layout.projectDirectory.dir("src/main/editor")

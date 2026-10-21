@@ -24,6 +24,7 @@ import org.springframework.test.web.reactive.server.expectBody
         "io.labkeeper.host=https://labkeeper.test",
         "io.labkeeper.frontend.contact-email=hello@labkeeper.test",
         "io.labkeeper.frontend.contact-phone=+1-555-0100",
+        "io.labkeeper.frontend.proxy-host=",
     ],
 )
 class LandingPagesServerTest(
