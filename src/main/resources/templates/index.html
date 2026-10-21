@@ -1,633 +1,1124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru [(${publicUrl})] [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests"
+        />
+        <title>
+            Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF
+        </title>
+        <!-- Social / Open Graph -->
+        <meta
+            name="description"
+            content="Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF, научным калькулятором высокой точности, готовыми шаблонами по ГОСТ и AI-ассистентом."
+        />
+        <link rel="canonical" href="[(${publicUrl})]/" />
+        <link rel="stylesheet" href="assets/css/swiper.css" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="[(${publicUrl})]/" />
+        <meta property="og:locale" content="ru_RU" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:site_name" content="Labkeeper" />
+        <meta
+            property="og:title"
+            content="Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF"
+        />
+        <meta
+            property="og:description"
+            content="Верстайте LaTeX и Markdown документы, выполняйте высокоточные расчеты и генерируйте PDF прямо в браузере с Labkeeper."
+        />
+        <meta
+            property="og:image"
+            content="[(${publicUrl})]/assets/img/og-image.svg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Labkeeper preview" />
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:image"
+            content="[(${publicUrl})]/assets/img/og-image.svg"
+        />
+        <meta
+            name="twitter:title"
+            content="Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF"
+        />
+        <meta
+            name="twitter:description"
+            content="Верстайте LaTeX и Markdown документы, выполняйте высокоточные расчеты и генерируйте PDF прямо в браузере с Labkeeper."
+        />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru [(${publicUrl})] [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests">
-    <title>Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF</title>
-    <!-- Social / Open Graph -->
-    <meta name="description"
-        content="Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF, научным калькулятором высокой точности, готовыми шаблонами по ГОСТ и AI-ассистентом." />
-    <link rel="canonical" href="[(${publicUrl})]/" />
-    <link rel="stylesheet" href="assets/css/swiper.css" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="[(${publicUrl})]/" />
-    <meta property="og:locale" content="ru_RU" />
-    <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:site_name" content="Labkeeper" />
-    <meta property="og:title" content="Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF" />
-    <meta property="og:description"
-        content="Верстайте LaTeX и Markdown документы, выполняйте высокоточные расчеты и генерируйте PDF прямо в браузере с Labkeeper." />
-    <meta property="og:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Labkeeper preview" />
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
-    <meta name="twitter:title" content="Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF" />
-    <meta name="twitter:description"
-        content="Верстайте LaTeX и Markdown документы, выполняйте высокоточные расчеты и генерируйте PDF прямо в браузере с Labkeeper." />
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Labkeeper",
-        "url": "[(${publicUrl})]/",
-        "description": "Онлайн-редактор LaTeX и Markdown с компиляцией в PDF, встроенным научным калькулятором и AI-ассистентом.",
-        "applicationCategory": "EducationalApplication",
-        "operatingSystem": "All",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "RUB"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Labkeeper",
-            "url": "[(${publicUrl})]",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "[(${publicUrl})]/assets/img/logo.svg"
-            }
-        }
-    }
-    </script>
-    <script type="text/javascript">
-        (function () {
-            function hasAcceptedCookieConsent() {
-                try {
-                    return localStorage.getItem('labkeeper_cookie_consent') === 'accepted';
-                } catch (e) {
-                    return false;
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                "name": "Labkeeper",
+                "url": "[(${publicUrl})]/",
+                "description": "Онлайн-редактор LaTeX и Markdown с компиляцией в PDF, встроенным научным калькулятором и AI-ассистентом.",
+                "applicationCategory": "EducationalApplication",
+                "operatingSystem": "All",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "RUB"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Labkeeper",
+                    "url": "[(${publicUrl})]",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "[(${publicUrl})]/assets/img/logo.svg"
+                    }
                 }
             }
-
-            window.initLabkeeperYandexMetrika = function () {
-                if (
-                    window.__labkeeperYandexMetrikaInitialized ||
-                    !hasAcceptedCookieConsent() ||
-                    typeof [(${yandexMetrikaKey})] === 'undefined'
-                ) {
-                    return;
+        </script>
+        <script type="text/javascript">
+            (function () {
+                function hasAcceptedCookieConsent() {
+                    try {
+                        return localStorage.getItem('labkeeper_cookie_consent') === 'accepted';
+                    } catch (e) {
+                        return false;
+                    }
                 }
 
-                (function (m, e, t, r, i, k, a) {
-                    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
-                    m[i].l = 1 * new Date();
-                    for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-                    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
-                })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+                window.initLabkeeperYandexMetrika = function () {
+                    if (
+                        window.__labkeeperYandexMetrikaInitialized ||
+                        !hasAcceptedCookieConsent() ||
+                        typeof [(${yandexMetrikaKey})] === 'undefined'
+                    ) {
+                        return;
+                    }
 
-                ym([(${yandexMetrikaKey})], "init", {
-                    webvisor: true,
-                    clickmap: true,
-                    referrer: document.referrer,
-                    url: location.href,
-                    accurateTrackBounce: true,
-                    trackLinks: true
-                });
+                    (function (m, e, t, r, i, k, a) {
+                        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+                        m[i].l = 1 * new Date();
+                        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+                    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-                window.__labkeeperYandexMetrikaInitialized = true;
-            };
+                    ym([(${yandexMetrikaKey})], "init", {
+                        webvisor: true,
+                        clickmap: true,
+                        referrer: document.referrer,
+                        url: location.href,
+                        accurateTrackBounce: true,
+                        trackLinks: true
+                    });
 
-            window.initLabkeeperYandexMetrika();
-        })();
-    </script>
+                    window.__labkeeperYandexMetrikaInitialized = true;
+                };
 
-    <!-- Preload LCP Image -->
-    <link rel="preload" as="image" href="assets/img/img-for-firstScreen.webp" fetchpriority="high">
+                window.initLabkeeperYandexMetrika();
+            })();
+        </script>
 
-    <!-- Preconnect & Async Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-    </noscript>
+        <!-- Preload LCP Image -->
+        <link
+            rel="preload"
+            as="image"
+            href="assets/img/img-for-firstScreen.webp"
+            fetchpriority="high"
+        />
 
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+        <!-- Preconnect & Async Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+            media="print"
+            onload="this.media = 'all'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+            />
+        </noscript>
 
-    <!-- Inline Preloader CSS to avoid render blocking -->
-    <style>
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #ffffff;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-        }
+        <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
 
-        .preloader.preloader--hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
+        <!-- Inline Preloader CSS to avoid render blocking -->
+        <style>
+            .preloader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: #ffffff;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 1;
+                visibility: visible;
+                transition:
+                    opacity 0.5s ease-out,
+                    visibility 0.5s ease-out;
+            }
 
-        .preloader__logo {
-            width: 80px;
-            height: 80px;
-            position: relative;
-        }
+            .preloader.preloader--hidden {
+                opacity: 0;
+                visibility: hidden;
+            }
 
-        .preloader__logo svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
+            .preloader__logo {
+                width: 80px;
+                height: 80px;
+                position: relative;
+            }
 
-        .preloader__path--bg {
-            fill: #F1F5FF;
-        }
+            .preloader__logo svg {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
 
-        .preloader__path--fill {
-            fill: #4469E0;
-            clip-path: inset(100% 0 0 0);
-            animation: preloaderFill 1.5s ease-in-out infinite alternate;
-        }
+            .preloader__path--bg {
+                fill: #f1f5ff;
+            }
 
-        @keyframes preloaderFill {
-            from {
+            .preloader__path--fill {
+                fill: #4469e0;
                 clip-path: inset(100% 0 0 0);
+                animation: preloaderFill 1.5s ease-in-out infinite alternate;
             }
 
-            to {
-                clip-path: inset(0 0 0 0);
+            @keyframes preloaderFill {
+                from {
+                    clip-path: inset(100% 0 0 0);
+                }
+
+                to {
+                    clip-path: inset(0 0 0 0);
+                }
             }
-        }
-    </style>
+        </style>
 
-    <!-- Deferred Main CSS -->
-    <link rel="preload" href="assets/css/style.css" as="style">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
+        <!-- Deferred Main CSS -->
+        <link rel="preload" href="assets/css/style.css" as="style" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
 
-<body class="page">
-    <!-- Прелоадер -->
-    <div class="preloader js-preloader">
-        <div class="preloader__logo">
-            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="preloader__path preloader__path--bg"
-                    d="M21.2034 31.0139C21.2034 30.4764 20.7677 30.0406 20.2301 30.0406H17.8274C17.2898 30.0406 16.854 30.4764 16.854 31.0139V36.8296C16.854 37.3672 16.4182 37.8029 15.8807 37.8029H13.4779C12.9404 37.8029 12.5046 37.3672 12.5046 36.8296V25.7579H25.5529V36.8296C25.5529 37.3672 25.1171 37.8029 24.5795 37.8029H22.1768C21.6392 37.8029 21.2034 37.3672 21.2034 36.8296V31.0139ZM8.15517 25.7579V29.0672C8.15517 29.6048 7.71939 30.0406 7.18183 30.0406H0.973337C0.435778 30.0406 0 29.6048 0 29.0672V26.7312C0 26.1937 0.435778 25.7579 0.973337 25.7579H8.15517ZM37.0841 25.7579C37.6217 25.7579 38.0575 26.1937 38.0575 26.7312V29.0672C38.0575 29.6048 37.6217 30.0406 37.0841 30.0406H30.8756C30.3381 30.0406 29.9023 29.6048 29.9023 29.0672V25.7579H37.0841ZM20.2301 9.69784C20.7677 9.69784 21.2034 9.26206 21.2034 8.72451V2.37348C21.2034 1.83592 21.6392 1.40015 22.1768 1.40015H24.5795C25.1171 1.40015 25.5529 1.83592 25.5529 2.37348V13.9805H13.4779C12.9404 13.9805 12.5046 14.4163 12.5046 14.9539V25.7579H8.15517V14.9539C8.15517 14.4163 7.71939 13.9805 7.18183 13.9805H0.973337C0.435778 13.9805 0 13.5447 0 13.0072V10.6712C0 10.1336 0.435778 9.69784 0.973337 9.69784H20.2301ZM29.9023 13.9805V25.7579H25.5529V13.9805H29.9023ZM37.0841 9.69784C37.6217 9.69784 38.0575 10.1336 38.0575 10.6712V13.0072C38.0575 13.5447 37.6217 13.9805 37.0841 13.9805H29.9023V10.6712C29.9023 10.1336 30.3381 9.69784 30.8756 9.69784H37.0841ZM15.8807 1.40015C16.4182 1.40015 16.854 1.83592 16.854 2.37348V6.04783C16.854 6.58539 16.4182 7.02117 15.8807 7.02117H13.4779C12.9404 7.02117 12.5046 6.58539 12.5046 6.04783V2.37348C12.5046 1.83592 12.9404 1.40015 13.4779 1.40015H15.8807Z" />
-                <path class="preloader__path preloader__path--fill"
-                    d="M21.2034 31.0139C21.2034 30.4764 20.7677 30.0406 20.2301 30.0406H17.8274C17.2898 30.0406 16.854 30.4764 16.854 31.0139V36.8296C16.854 37.3672 16.4182 37.8029 15.8807 37.8029H13.4779C12.9404 37.8029 12.5046 37.3672 12.5046 36.8296V25.7579H25.5529V36.8296C25.5529 37.3672 25.1171 37.8029 24.5795 37.8029H22.1768C21.6392 37.8029 21.2034 37.3672 21.2034 36.8296V31.0139ZM8.15517 25.7579V29.0672C8.15517 29.6048 7.71939 30.0406 7.18183 30.0406H0.973337C0.435778 30.0406 0 29.6048 0 29.0672V26.7312C0 26.1937 0.435778 25.7579 0.973337 25.7579H8.15517ZM37.0841 25.7579C37.6217 25.7579 38.0575 26.1937 38.0575 26.7312V29.0672C38.0575 29.6048 37.6217 30.0406 37.0841 30.0406H30.8756C30.3381 30.0406 29.9023 29.6048 29.9023 29.0672V25.7579H37.0841ZM20.2301 9.69784C20.7677 9.69784 21.2034 9.26206 21.2034 8.72451V2.37348C21.2034 1.83592 21.6392 1.40015 22.1768 1.40015H24.5795C25.1171 1.40015 25.5529 1.83592 25.5529 2.37348V13.9805H13.4779C12.9404 13.9805 12.5046 14.4163 12.5046 14.9539V25.7579H8.15517V14.9539C8.15517 14.4163 7.71939 13.9805 7.18183 13.9805H0.973337C0.435778 13.9805 0 13.5447 0 13.0072V10.6712C0 10.1336 0.435778 9.69784 0.973337 9.69784H20.2301ZM29.9023 13.9805V25.7579H25.5529V13.9805H29.9023ZM37.0841 9.69784C37.6217 9.69784 38.0575 10.1336 38.0575 10.6712V13.0072C38.0575 13.5447 37.6217 13.9805 37.0841 13.9805H29.9023V10.6712C29.9023 10.1336 30.3381 9.69784 30.8756 9.69784H37.0841ZM15.8807 1.40015C16.4182 1.40015 16.854 1.83592 16.854 2.37348V6.04783C16.854 6.58539 16.4182 7.02117 15.8807 7.02117H13.4779C12.9404 7.02117 12.5046 6.58539 12.5046 6.04783V2.37348C12.5046 1.83592 12.9404 1.40015 13.4779 1.40015H15.8807Z" />
-            </svg>
-        </div>
-    </div>
-    <header class="header js-header">
-        <div class="header__container">
-            <div class="header__left">
-                <!-- Кнопка мобильного меню -->
-                <button class="header__burger js-burger-btn" aria-label="Открыть меню">
-                    <span class="header__burger-line"></span>
-                    <span class="header__burger-line"></span>
-                    <span class="header__burger-line"></span>
-                </button>
-                <a href="/" class="header__logo">
-                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="header__logo-icon" width="36"
-                        height="36">
-                    <span class="header__logo-text">Labkeeper</span>
-                </a>
-                <div class="header__lang js-lang-switcher">
-                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
-                    <button class="header__lang-btn" data-lang="en">En</button>
-                </div>
-            </div>
-
-            <nav class="header__nav js-nav">
-                <div class="header__mobile-lang js-lang-switcher">
-                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
-                    <button class="header__lang-btn" data-lang="en">En</button>
-                </div>
-                <ul class="header__nav-list">
-                    <li class="header__nav-item"><a href="#examples" class="header__nav-link  js-scroll-link"
-                            data-i18n="nav-examples"></a></li>
-                    <li class="header__nav-item"><a href="#advantages" class="header__nav-link  js-scroll-link"
-                            data-i18n="nav-features"></a></li>
-                    <li class="header__nav-item"><a href="/tokens" class="header__nav-link" data-i18n="nav-tokens"></a>
-                    </li>
-                    <li class="header__nav-item"><a href="/blog" class="header__nav-link" data-i18n="nav-blog"></a></li>
-
-                    <li class="header__nav-item"><a href="/about" class="header__nav-link" data-i18n="nav-about"></a>
-                    </li>
-                </ul>
-                <div class="header__mobile-contact">
-                    <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:[(${contactEmail})]"
-                        class="header__mobile-contact-link">[(${contactEmail})]</a>
-                </div>
-            </nav>
-
-            <div class="header__right">
-                <a href="/project/default?open=login" class="button button--outline header__login"
-                    data-i18n="btn-login" th:style="${viewerAuthenticated} ? 'display: none' : null"></a>
-                <a href="/projects" class="button button--outline header__projects" data-i18n="btn-projects"
-                    th:style="${viewerAuthenticated} ? null : 'display: none'"></a>
-                <a href="/project/default" class="button button--primary header__editor" data-i18n="btn-editor"></a>
-            </div>
-        </div>
-    </header>
-
-    <main class="main">
-        <!-- Блок 1: Hero -->
-        <section class="hero" id="hero">
-            <div class="hero__container">
-                <div class="hero__content">
-                    <h1 class="hero__title h1" data-i18n="hero-title"></h1>
-                    <div class="hero__description">
-                        <div class="hero__labels">
-                            <span class="hero__label">LaTeX</span>
-                            <span class="hero__label">Markdown</span>
-                            <span class="hero__label">Вычисления</span>
-                        </div>
-                        <p class="hero__text" data-i18n="hero-text"></p>
-                        <div class="hero__actions">
-                            <a href="/project/default" class="button button--primary hero__btn"
-                                data-i18n="hero-btn"></a>
-                            <a href="/project/default/agent" class="button button--ai"
-                                data-i18n="hero-btn-ai"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="26" viewBox="0 0 17 26" fill="none">
-<path d="M7.47626 3.96309C7.64099 3.48821 8.33885 3.48821 8.50358 3.96309L9.46951 6.75049C9.68212 7.36323 10.0403 7.91996 10.5158 8.37656C10.9912 8.83316 11.5708 9.17707 12.2085 9.38104L15.1078 10.3092C15.602 10.4675 15.602 11.1381 15.1078 11.2964L12.207 12.2246C11.5694 12.4289 10.99 12.7731 10.5148 13.2299C10.0397 13.6868 9.68177 14.2437 9.46951 14.8565L8.50358 17.6425C8.46807 17.7465 8.39928 17.837 8.30704 17.9012C8.2148 17.9654 8.10382 18 7.98992 18C7.87603 18 7.76504 17.9654 7.6728 17.9012C7.58056 17.837 7.51178 17.7465 7.47626 17.6425L6.51034 14.8551C6.29788 14.2425 5.93989 13.6859 5.46473 13.2293C4.98958 12.7727 4.4103 12.4287 3.7728 12.2246L0.872038 11.2964C0.763823 11.2623 0.669588 11.1962 0.602779 11.1075C0.53597 11.0189 0.5 10.9122 0.5 10.8028C0.5 10.6934 0.53597 10.5867 0.602779 10.4981C0.669588 10.4094 0.763823 10.3433 0.872038 10.3092L3.7728 9.38104C4.4103 9.17688 4.98958 8.83288 5.46473 8.3763C5.93989 7.91971 6.29788 7.36308 6.51034 6.75049L7.47626 3.96309ZM13.302 0.140309C13.3167 0.0993346 13.3445 0.0638045 13.3812 0.0386584C13.418 0.0135123 13.462 0 13.5071 0C13.5523 0 13.5963 0.0135123 13.633 0.0386584C13.6698 0.0638045 13.6975 0.0993346 13.7123 0.140309L14.0987 1.25412C14.2709 1.75202 14.6767 2.142 15.1949 2.30749L16.354 2.67876C16.3966 2.69296 16.4336 2.71958 16.4598 2.75491C16.4859 2.79025 16.5 2.83254 16.5 2.8759C16.5 2.91927 16.4859 2.96156 16.4598 2.99689C16.4336 3.03222 16.3966 3.05884 16.354 3.07305L15.1949 3.44432C14.9395 3.52595 14.7075 3.66365 14.5172 3.8465C14.3269 4.02935 14.1836 4.25232 14.0987 4.49769L13.7123 5.6115C13.6975 5.65247 13.6698 5.688 13.633 5.71315C13.5963 5.73829 13.5523 5.75181 13.5071 5.75181C13.462 5.75181 13.418 5.73829 13.3812 5.71315C13.3445 5.688 13.3167 5.65247 13.302 5.6115L12.9156 4.49769C12.8306 4.25232 12.6873 4.02935 12.4971 3.8465C12.3068 3.66365 12.0747 3.52595 11.8194 3.44432L10.6618 3.07305C10.6191 3.05884 10.5822 3.03222 10.556 2.99689C10.5298 2.96156 10.5158 2.91927 10.5158 2.8759C10.5158 2.83254 10.5298 2.79025 10.556 2.75491C10.5822 2.71958 10.6191 2.69296 10.6618 2.67876L11.8209 2.30749C12.339 2.142 12.7449 1.75202 12.9171 1.25412L13.302 0.141748V0.140309Z" fill="#4469E0"/>
-</svg></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero__image-wrapper">
-                    <img src="assets/img/img-for-firstScreen.webp" alt="Labkeeper Interface" class="hero__image"
-                        fetchpriority="high">
-                </div>
-            </div>
-            <a href="#features" class="hero__scroll-arrow" aria-label="Scroll down">
-                <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2 2L12 12L22 2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round" />
+    <body class="page">
+        <!-- Прелоадер -->
+        <div class="preloader js-preloader">
+            <div class="preloader__logo">
+                <svg
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        class="preloader__path preloader__path--bg"
+                        d="M21.2034 31.0139C21.2034 30.4764 20.7677 30.0406 20.2301 30.0406H17.8274C17.2898 30.0406 16.854 30.4764 16.854 31.0139V36.8296C16.854 37.3672 16.4182 37.8029 15.8807 37.8029H13.4779C12.9404 37.8029 12.5046 37.3672 12.5046 36.8296V25.7579H25.5529V36.8296C25.5529 37.3672 25.1171 37.8029 24.5795 37.8029H22.1768C21.6392 37.8029 21.2034 37.3672 21.2034 36.8296V31.0139ZM8.15517 25.7579V29.0672C8.15517 29.6048 7.71939 30.0406 7.18183 30.0406H0.973337C0.435778 30.0406 0 29.6048 0 29.0672V26.7312C0 26.1937 0.435778 25.7579 0.973337 25.7579H8.15517ZM37.0841 25.7579C37.6217 25.7579 38.0575 26.1937 38.0575 26.7312V29.0672C38.0575 29.6048 37.6217 30.0406 37.0841 30.0406H30.8756C30.3381 30.0406 29.9023 29.6048 29.9023 29.0672V25.7579H37.0841ZM20.2301 9.69784C20.7677 9.69784 21.2034 9.26206 21.2034 8.72451V2.37348C21.2034 1.83592 21.6392 1.40015 22.1768 1.40015H24.5795C25.1171 1.40015 25.5529 1.83592 25.5529 2.37348V13.9805H13.4779C12.9404 13.9805 12.5046 14.4163 12.5046 14.9539V25.7579H8.15517V14.9539C8.15517 14.4163 7.71939 13.9805 7.18183 13.9805H0.973337C0.435778 13.9805 0 13.5447 0 13.0072V10.6712C0 10.1336 0.435778 9.69784 0.973337 9.69784H20.2301ZM29.9023 13.9805V25.7579H25.5529V13.9805H29.9023ZM37.0841 9.69784C37.6217 9.69784 38.0575 10.1336 38.0575 10.6712V13.0072C38.0575 13.5447 37.6217 13.9805 37.0841 13.9805H29.9023V10.6712C29.9023 10.1336 30.3381 9.69784 30.8756 9.69784H37.0841ZM15.8807 1.40015C16.4182 1.40015 16.854 1.83592 16.854 2.37348V6.04783C16.854 6.58539 16.4182 7.02117 15.8807 7.02117H13.4779C12.9404 7.02117 12.5046 6.58539 12.5046 6.04783V2.37348C12.5046 1.83592 12.9404 1.40015 13.4779 1.40015H15.8807Z"
+                    />
+                    <path
+                        class="preloader__path preloader__path--fill"
+                        d="M21.2034 31.0139C21.2034 30.4764 20.7677 30.0406 20.2301 30.0406H17.8274C17.2898 30.0406 16.854 30.4764 16.854 31.0139V36.8296C16.854 37.3672 16.4182 37.8029 15.8807 37.8029H13.4779C12.9404 37.8029 12.5046 37.3672 12.5046 36.8296V25.7579H25.5529V36.8296C25.5529 37.3672 25.1171 37.8029 24.5795 37.8029H22.1768C21.6392 37.8029 21.2034 37.3672 21.2034 36.8296V31.0139ZM8.15517 25.7579V29.0672C8.15517 29.6048 7.71939 30.0406 7.18183 30.0406H0.973337C0.435778 30.0406 0 29.6048 0 29.0672V26.7312C0 26.1937 0.435778 25.7579 0.973337 25.7579H8.15517ZM37.0841 25.7579C37.6217 25.7579 38.0575 26.1937 38.0575 26.7312V29.0672C38.0575 29.6048 37.6217 30.0406 37.0841 30.0406H30.8756C30.3381 30.0406 29.9023 29.6048 29.9023 29.0672V25.7579H37.0841ZM20.2301 9.69784C20.7677 9.69784 21.2034 9.26206 21.2034 8.72451V2.37348C21.2034 1.83592 21.6392 1.40015 22.1768 1.40015H24.5795C25.1171 1.40015 25.5529 1.83592 25.5529 2.37348V13.9805H13.4779C12.9404 13.9805 12.5046 14.4163 12.5046 14.9539V25.7579H8.15517V14.9539C8.15517 14.4163 7.71939 13.9805 7.18183 13.9805H0.973337C0.435778 13.9805 0 13.5447 0 13.0072V10.6712C0 10.1336 0.435778 9.69784 0.973337 9.69784H20.2301ZM29.9023 13.9805V25.7579H25.5529V13.9805H29.9023ZM37.0841 9.69784C37.6217 9.69784 38.0575 10.1336 38.0575 10.6712V13.0072C38.0575 13.5447 37.6217 13.9805 37.0841 13.9805H29.9023V10.6712C29.9023 10.1336 30.3381 9.69784 30.8756 9.69784H37.0841ZM15.8807 1.40015C16.4182 1.40015 16.854 1.83592 16.854 2.37348V6.04783C16.854 6.58539 16.4182 7.02117 15.8807 7.02117H13.4779C12.9404 7.02117 12.5046 6.58539 12.5046 6.04783V2.37348C12.5046 1.83592 12.9404 1.40015 13.4779 1.40015H15.8807Z"
+                    />
                 </svg>
-            </a>
-        </section>
-        <!-- Блок 2: Преимущества (Табы со слайдами) -->
-        <section class="features" id="features">
-            <div class="feature__bg" aria-hidden="true">
-                <img src="assets/img/bg.svg" alt="bg" loading="lazy">
             </div>
-            <div class="features__container">
-
-                <!-- Заголовки табов с прогресс-баром -->
-                <div class="features__tabs-nav" role="tablist">
-                    <button class="features__tab-btn is-active" data-tab="0" role="tab" aria-selected="true">
-                        <span class="h1 features__tab-title" data-i18n="features-tab-0">LaTeX</span>
-                        <span class="features__tab-line"><span class="features__tab-progress"></span></span>
+        </div>
+        <header class="header js-header">
+            <div class="header__container">
+                <div class="header__left">
+                    <!-- Кнопка мобильного меню -->
+                    <button
+                        class="header__burger js-burger-btn"
+                        aria-label="Открыть меню"
+                    >
+                        <span class="header__burger-line"></span>
+                        <span class="header__burger-line"></span>
+                        <span class="header__burger-line"></span>
                     </button>
-                    <button class="features__tab-btn" data-tab="1" role="tab" aria-selected="false">
-                        <span class="h1 features__tab-title" data-i18n="features-tab-1">ИИ-агент</span>
-                        <span class="features__tab-line"><span class="features__tab-progress"></span></span>
-                    </button>
-                    <button class="features__tab-btn" data-tab="2" role="tab" aria-selected="false">
-                        <span class="h1 features__tab-title" data-i18n="features-tab-2">Вычисления</span>
-                        <span class="features__tab-line"><span class="features__tab-progress"></span></span>
-                    </button>
-                </div>
-
-                <!-- Контент слайдов -->
-                <div class="features__tabs-content">
-
-                    <!-- Таб 1: LaTeX -->
-                    <div class="features__slide is-active" data-slide="0" role="tabpanel">
-                        <div class="features__slide-grid">
-                            <div class="features__slide-visual">
-                                <img src="assets/img/origin/latex-editor.webp" alt="LaTeX editor screenshot"
-                                    class="features__slide-img js-popup-trigger"
-                                    data-origin="assets/img/origin/latex-editor.webp" loading="lazy">
-                            </div>
-                            <div class="features__slide-info">
-                                <ul class="features__bullet-list">
-                                    <li class="features__bullet-item" data-i18n="features-latex-1">Автоматическая
-                                        конвертация Markdown в LaTeX</li>
-                                    <li class="features__bullet-item" data-i18n="features-latex-2">Полновесный LaTeX
-                                        компилятор</li>
-                                    <li class="features__bullet-item" data-i18n="features-latex-3">Возможность
-                                        настраивать формат документа для
-                                        Markdown так же гибко, как для LaTeX</li>
-                                    <li class="features__bullet-item" data-i18n="features-latex-4">Поддержка иерархии
-                                        файлов в проекте</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Таб 2: ИИ-агент -->
-                    <div class="features__slide" data-slide="1" role="tabpanel">
-                        <div class="features__slide-grid features__slide-grid--reverse">
-                            <div class="features__slide-visual">
-                                <img src="assets/img/origin/for-tab2.webp" alt="ИИ-агент screenshot"
-                                    class="features__slide-img js-popup-trigger"
-                                    data-origin="assets/img/origin/for-tab2.webp" loading="lazy">
-                            </div>
-                            <div class="features__slide-info">
-                                <ul class="features__bullet-list">
-                                    <li class="features__bullet-item" data-i18n="features-ai-1">Отображение истории
-                                        изменений ИИ с возможностью
-                                        откатить или принять правки</li>
-                                    <li class="features__bullet-item" data-i18n="features-ai-2">ИИ обучен специально
-                                        работать с LaTeX и
-                                        специфическими вычислениями</li>
-                                    <li class="features__bullet-item" data-i18n="features-ai-3">ИИ-агент на базе
-                                        DeepSeek</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Таб 3: Вычисления -->
-                    <div class="features__slide" data-slide="2" role="tabpanel">
-                        <div class="features__slide-grid">
-                            <div class="features__slide-visual">
-                                <img src="assets/img/origin/markdown-editor.webp" alt="Вычисления screenshot"
-                                    class="features__slide-img js-popup-trigger"
-                                    data-origin="assets/img/origin/markdown-editor.webp" loading="lazy">
-                            </div>
-                            <div class="features__slide-info">
-                                <ul class="features__bullet-list">
-                                    <li class="features__bullet-item" data-i18n="features-calc-1">Встроенная поддержка
-                                        высокоточных вычислений</li>
-                                    <li class="features__bullet-item" data-i18n="features-calc-2">Возможность вставлять
-                                        данные прямо в LaTeX</li>
-                                    <li class="features__bullet-item" data-i18n="features-calc-3">Поддержка вычисления
-                                        гауссовых погрешностей</li>
-                                    <li class="features__bullet-item" data-i18n="features-calc-4">Встроенные механизмы
-                                        визуализации данных</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Кнопка перехода к редактору -->
-                <div class="features__action">
-                    <a href="/project/default" class="button button--outline-light features__btn"
-                        data-i18n="features-btn">
-                        Перейти к редактору <span class="button__arrow">→</span>
+                    <a href="/" class="header__logo">
+                        <img
+                            src="assets/img/logo.svg"
+                            alt="Labkeeper Logo"
+                            class="header__logo-icon"
+                            width="36"
+                            height="36"
+                        />
+                        <span class="header__logo-text">Labkeeper</span>
                     </a>
-                </div>
-
-            </div>
-        </section>
-        <!-- Блок 3: Примеры проектов -->
-        <section class="examples" id="examples">
-            <div class="examples__container">
-
-                <!-- Верхняя панель: Заголовок + Категории -->
-                <div class="examples__header">
-                    <h2 class="examples__title h1" data-i18n="ex-title">Примеры проектов</h2>
-
-                    <!-- Таб бар категорий (адаптирован из вашего кода) -->
-                    <div class="policy-nav examples__nav">
-                        <ul class="header__nav-list2 policy-nav__list" id="project-categories">
-                            <li class="header__nav-item">
-                                <a href="#" class="header__nav-link header__nav-link--active" data-category="all"
-                                    data-i18n="cat-all">Все</a>
-                            </li>
-                            <li class="header__nav-item">
-                                <a href="#" class="header__nav-link" data-category="lab"
-                                    data-i18n="cat-lab">Лабораторные</a>
-                            </li>
-                            <li class="header__nav-item">
-                                <a href="#" class="header__nav-link" data-category="diploma"
-                                    data-i18n="cat-diploma">Дипломные</a>
-                            </li>
-                            <li class="header__nav-item">
-                                <a href="#" class="header__nav-link" data-category="cv" data-i18n="cat-cv">CV</a>
-                            </li>
-                        </ul>
+                    <div class="header__lang js-lang-switcher">
+                        <button
+                            class="header__lang-btn header__lang-btn--active"
+                            data-lang="ru"
+                        >
+                            Ru
+                        </button>
+                        <button class="header__lang-btn" data-lang="en">
+                            En
+                        </button>
                     </div>
                 </div>
 
-                <!-- Оболочка слайдера -->
-                <div class="examples__slider-wrapper">
-                    <!-- Кнопки управления (скрыты на мобильных через CSS) -->
-                    <button class="examples__arrow examples__arrow--prev" aria-label="Previous slide"></button>
-                    <button class="examples__arrow examples__arrow--next" aria-label="Next slide"></button>
-
-                    <!-- Контейнер Swiper -->
-                    <div class="swiper examples__swiper">
-                        <div class="swiper-wrapper" id="projects-container">
-                            <div class="swiper-slide" th:each="project : ${previewProjects}"
-                                th:data-category="${project.category}"
-                                th:attr="data-name-ru=${project.nameRu},data-name-en=${project.nameEn},data-category-ru=${project.categoryRu},data-category-en=${project.categoryEn}">
-                                <a class="example-card" target="_blank" th:href="@{/project/{id}(id=${project.id})}">
-                                    <div class="example-card__visual">
-                                        <img class="example-card__image" loading="lazy"
-                                            th:src="${project.logoUrl != null ? project.logoUrl : 'assets/img/logo.svg'}"
-                                            th:alt="${project.nameRu}"
-                                            th:classappend="${project.logoUrl == null} ? 'example-card__image--placeholder'">
-                                        <img src="assets/img/target.svg" alt="open" class="example-card__external-icon" width="16" height="16">
-                                    </div>
-                                    <div class="example-card__content">
-                                        <h3 class="example-card__title" th:text="${project.nameRu}">Проект</h3>
-                                        <p class="example-card__text" th:text="${project.categoryRu}">Категория</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="loading-placeholder" th:if="${previewProjects.isEmpty()}">Нет проектов в данной категории</div>
-</div>
+                <nav class="header__nav js-nav">
+                    <div class="header__mobile-lang js-lang-switcher">
+                        <button
+                            class="header__lang-btn header__lang-btn--active"
+                            data-lang="ru"
+                        >
+                            Ru
+                        </button>
+                        <button class="header__lang-btn" data-lang="en">
+                            En
+                        </button>
                     </div>
-                </div>
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item">
+                            <a
+                                href="#examples"
+                                class="header__nav-link js-scroll-link"
+                                data-i18n="nav-examples"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="#advantages"
+                                class="header__nav-link js-scroll-link"
+                                data-i18n="nav-features"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/tokens"
+                                class="header__nav-link"
+                                data-i18n="nav-tokens"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/blog"
+                                class="header__nav-link"
+                                data-i18n="nav-blog"
+                            ></a>
+                        </li>
 
-                <div class="examples__action">
-                    <a href="/project/default" class="button button--primary examples__btn" data-i18n="ex-btn">Все
-                        проекты</a>
-                </div>
-            </div>
-        </section>
-        <!-- Блок 4: Возможности -->
-        <section class="advantages" id="advantages">
-            <div class="advantages__container">
-                <div class="advantages__logo-wrapper">
-                    <img src="assets/img/logo.svg" alt="Labkeeper Icon" class="advantages__logo" width="40" height="40"
-                        loading="lazy">
-                </div>
-                <h2 class="advantages__title h2" data-i18n="adv-title"></h2>
-                <ul class="advantages__list js-advantages-list">
-                    <li class="advantages__item" data-i18n="adv-item-1"></li>
-                    <li class="advantages__item" data-i18n="adv-item-2"></li>
-                    <li class="advantages__item" data-i18n="adv-item-3"></li>
-                    <li class="advantages__item" data-i18n="adv-item-4"></li>
-                    <li class="advantages__item" data-i18n="adv-item-5"></li>
-                </ul>
-                <a href="https://github.com/Labkeeper-team/Docs/wiki/ru" class="button button--outline advantages__btn"
-                    target="_blank">
-                    <span data-i18n="adv-btn"></span>
-                    <img src="assets/img/target.svg" alt="target" class="button__external-icon" width="16" height="16"
-                        loading="lazy">
-                </a>
-            </div>
-        </section>
-
-        <!-- Блок 5: Audience (Для кого) -->
-        <section class="audience" id="audience">
-            <div class="audience__container">
-                <h2 class="audience__title h1" data-i18n="aud-title"></h2>
-                <div class="audience__cards">
-                    <div class="audience-card">
-                        <h3 class="audience-card__title" data-i18n="aud-c1-title"></h3>
-                        <p class="audience-card__text" data-i18n="aud-c1-text"></p>
+                        <li class="header__nav-item">
+                            <a
+                                href="/about"
+                                class="header__nav-link"
+                                data-i18n="nav-about"
+                            ></a>
+                        </li>
+                    </ul>
+                    <div class="header__mobile-contact">
+                        <span
+                            class="header__mobile-contact-label"
+                            data-i18n="footer-contact"
+                        ></span>
+                        <a
+                            href="mailto:[(${contactEmail})]"
+                            class="header__mobile-contact-link"
+                            >[(${contactEmail})]</a
+                        >
                     </div>
-                    <div class="audience-card">
-                        <h3 class="audience-card__title" data-i18n="aud-c2-title"></h3>
-                        <p class="audience-card__text" data-i18n="aud-c2-text"></p>
-                    </div>
-                    <div class="audience-card">
-                        <h3 class="audience-card__title" data-i18n="aud-c3-title"></h3>
-                        <p class="audience-card__text" data-i18n="aud-c3-text"></p>
-                    </div>
-                </div>
-                <div class="audience__action">
-                    <a href="/about" class="button button--outline audience__btn" data-i18n="aud-btn"></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Блок 6: База знаний (Слайдер) -->
-        <section class="knowledge" id="knowledge">
-            <div class="feature__bg" aria-hidden="true">
-                <img src="assets/img/bg.svg" alt="bg" loading="lazy">
-            </div>
-            <div class="knowledge__container">
-
-                <h2 class="knowledge__title h1" data-i18n="knowledge-title">База знаний</h2>
-
-                <div class="examples__slider-wrapper knowledge__slider-wrapper">
-                    <button class="examples__arrow examples__arrow--prev knowledge__arrow--prev"
-                        aria-label="Предыдущий слайд"></button>
-                    <button class="examples__arrow examples__arrow--next knowledge__arrow--next"
-                        aria-label="Следующий слайд"></button>
-                    <div class="swiper knowledge__swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide" th:each="article : ${articles}">
-                                <article class="blog-card">
-                                    <div class="blog-card__top">
-                                        <span class="blog-card__tag" th:each="tag : ${article.categoryNames}" th:text="${tag}">Категория</span>
-                                    </div>
-                                    <h3 class="blog-card__title" th:text="${article.cardTitle}">Статья</h3>
-                                    <p class="blog-card__text" th:text="${article.cardDescription}">Описание</p>
-                                    <a class="blog-card__footer" th:href="@{/blog/{slug}(slug=${article.slug})}">
-                                        <span>Читать статью</span>
-                                        <span class="blog-card__arrow">→</span>
-                                    </a>
-                                </article>
-                            </div>
-</div>
-                    </div>
-                </div>
-
-                <div class="knowledge__action">
-                    <a href="/blog" class="button button--primary knowledge__btn" data-i18n="knowledge-btn">
-                        <span>Все статьи</span>
-                        <span class="button__arrow">→</span>
-                    </a>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__top">
-                <nav class="footer__nav">
-                    <a href="/#features" class="footer__link" data-i18n="nav-advantages"></a>
-                    <a href="/#advantages" class="footer__link" data-i18n="nav-features"></a>
-                    <a href="/tokens" class="footer__link" data-i18n="nav-tokens"></a>
-                    <a href="https://github.com/Labkeeper-team/Docs/wiki/ru" target="_blank"
-                        class="footer__link footer__link--external">
-                        <span data-i18n="nav-wiki"></span>
-                        <img src="assets/img/target.svg" alt="target icon" class="footer__link-icon"
-                            style="margin-left: 4px; vertical-align: middle;" width="16" height="16" loading="lazy">
-                    </a>
-                    <a href="/#examples" class="footer__link" data-i18n="nav-examples"></a>
-                    <a href="/blog" class="footer__link" data-i18n="nav-blog"></a>
-
-                    <a href="/about" class="footer__link" data-i18n="nav-about"></a>
                 </nav>
-                <a href="/" class="footer__logo-link">
-                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="footer__logo" width="40" height="40"
-                        loading="lazy">
-                </a>
-                <div class="footer__contact">
-                    <span class="footer__contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:[(${contactEmail})]" class="footer__contact-link">[(${contactEmail})]</a>
+
+                <div class="header__right">
+                    <a
+                        href="/project/default?open=login"
+                        class="button button--outline header__login"
+                        data-i18n="btn-login"
+                        th:style="${viewerAuthenticated} ? 'display: none' : null"
+                    ></a>
+                    <a
+                        href="/projects"
+                        class="button button--outline header__projects"
+                        data-i18n="btn-projects"
+                        th:style="${viewerAuthenticated} ? null : 'display: none'"
+                    ></a>
+                    <a
+                        href="/project/default"
+                        class="button button--primary header__editor"
+                        data-i18n="btn-editor"
+                    ></a>
                 </div>
             </div>
-            <div class="footer__middle">
-                <img src="assets/img/img-for-footer.svg" alt="Labkeeper" class="footer__huge-logo" aria-hidden="true"
-                    loading="lazy">
+        </header>
+
+        <main class="main">
+            <!-- Блок 1: Hero -->
+            <section class="hero" id="hero">
+                <div class="hero__container">
+                    <div class="hero__content">
+                        <h1 class="hero__title h1" data-i18n="hero-title"></h1>
+                        <div class="hero__description">
+                            <div class="hero__labels">
+                                <span class="hero__label">LaTeX</span>
+                                <span class="hero__label">Markdown</span>
+                                <span class="hero__label">Вычисления</span>
+                            </div>
+                            <p class="hero__text" data-i18n="hero-text"></p>
+                            <div class="hero__actions">
+                                <a
+                                    href="/project/default"
+                                    class="button button--primary hero__btn"
+                                    data-i18n="hero-btn"
+                                ></a>
+                                <a
+                                    href="/project/default/agent"
+                                    class="button button--ai"
+                                    data-i18n="hero-btn-ai"
+                                    ><svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="17"
+                                        height="26"
+                                        viewBox="0 0 17 26"
+                                        fill="none"
+                                    >
+                                        <path
+                                            d="M7.47626 3.96309C7.64099 3.48821 8.33885 3.48821 8.50358 3.96309L9.46951 6.75049C9.68212 7.36323 10.0403 7.91996 10.5158 8.37656C10.9912 8.83316 11.5708 9.17707 12.2085 9.38104L15.1078 10.3092C15.602 10.4675 15.602 11.1381 15.1078 11.2964L12.207 12.2246C11.5694 12.4289 10.99 12.7731 10.5148 13.2299C10.0397 13.6868 9.68177 14.2437 9.46951 14.8565L8.50358 17.6425C8.46807 17.7465 8.39928 17.837 8.30704 17.9012C8.2148 17.9654 8.10382 18 7.98992 18C7.87603 18 7.76504 17.9654 7.6728 17.9012C7.58056 17.837 7.51178 17.7465 7.47626 17.6425L6.51034 14.8551C6.29788 14.2425 5.93989 13.6859 5.46473 13.2293C4.98958 12.7727 4.4103 12.4287 3.7728 12.2246L0.872038 11.2964C0.763823 11.2623 0.669588 11.1962 0.602779 11.1075C0.53597 11.0189 0.5 10.9122 0.5 10.8028C0.5 10.6934 0.53597 10.5867 0.602779 10.4981C0.669588 10.4094 0.763823 10.3433 0.872038 10.3092L3.7728 9.38104C4.4103 9.17688 4.98958 8.83288 5.46473 8.3763C5.93989 7.91971 6.29788 7.36308 6.51034 6.75049L7.47626 3.96309ZM13.302 0.140309C13.3167 0.0993346 13.3445 0.0638045 13.3812 0.0386584C13.418 0.0135123 13.462 0 13.5071 0C13.5523 0 13.5963 0.0135123 13.633 0.0386584C13.6698 0.0638045 13.6975 0.0993346 13.7123 0.140309L14.0987 1.25412C14.2709 1.75202 14.6767 2.142 15.1949 2.30749L16.354 2.67876C16.3966 2.69296 16.4336 2.71958 16.4598 2.75491C16.4859 2.79025 16.5 2.83254 16.5 2.8759C16.5 2.91927 16.4859 2.96156 16.4598 2.99689C16.4336 3.03222 16.3966 3.05884 16.354 3.07305L15.1949 3.44432C14.9395 3.52595 14.7075 3.66365 14.5172 3.8465C14.3269 4.02935 14.1836 4.25232 14.0987 4.49769L13.7123 5.6115C13.6975 5.65247 13.6698 5.688 13.633 5.71315C13.5963 5.73829 13.5523 5.75181 13.5071 5.75181C13.462 5.75181 13.418 5.73829 13.3812 5.71315C13.3445 5.688 13.3167 5.65247 13.302 5.6115L12.9156 4.49769C12.8306 4.25232 12.6873 4.02935 12.4971 3.8465C12.3068 3.66365 12.0747 3.52595 11.8194 3.44432L10.6618 3.07305C10.6191 3.05884 10.5822 3.03222 10.556 2.99689C10.5298 2.96156 10.5158 2.91927 10.5158 2.8759C10.5158 2.83254 10.5298 2.79025 10.556 2.75491C10.5822 2.71958 10.6191 2.69296 10.6618 2.67876L11.8209 2.30749C12.339 2.142 12.7449 1.75202 12.9171 1.25412L13.302 0.141748V0.140309Z"
+                                            fill="#4469E0"
+                                        /></svg
+                                ></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__image-wrapper">
+                        <img
+                            src="assets/img/img-for-firstScreen.webp"
+                            alt="Labkeeper Interface"
+                            class="hero__image"
+                            fetchpriority="high"
+                        />
+                    </div>
+                </div>
+                <a
+                    href="#features"
+                    class="hero__scroll-arrow"
+                    aria-label="Scroll down"
+                >
+                    <svg
+                        width="24"
+                        height="14"
+                        viewBox="0 0 24 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M2 2L12 12L22 2"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+            </section>
+            <!-- Блок 2: Преимущества (Табы со слайдами) -->
+            <section class="features" id="features">
+                <div class="feature__bg" aria-hidden="true">
+                    <img src="assets/img/bg.svg" alt="bg" loading="lazy" />
+                </div>
+                <div class="features__container">
+                    <!-- Заголовки табов с прогресс-баром -->
+                    <div class="features__tabs-nav" role="tablist">
+                        <button
+                            class="features__tab-btn is-active"
+                            data-tab="0"
+                            role="tab"
+                            aria-selected="true"
+                        >
+                            <span
+                                class="h1 features__tab-title"
+                                data-i18n="features-tab-0"
+                                >LaTeX</span
+                            >
+                            <span class="features__tab-line"
+                                ><span class="features__tab-progress"></span
+                            ></span>
+                        </button>
+                        <button
+                            class="features__tab-btn"
+                            data-tab="1"
+                            role="tab"
+                            aria-selected="false"
+                        >
+                            <span
+                                class="h1 features__tab-title"
+                                data-i18n="features-tab-1"
+                                >ИИ-агент</span
+                            >
+                            <span class="features__tab-line"
+                                ><span class="features__tab-progress"></span
+                            ></span>
+                        </button>
+                        <button
+                            class="features__tab-btn"
+                            data-tab="2"
+                            role="tab"
+                            aria-selected="false"
+                        >
+                            <span
+                                class="h1 features__tab-title"
+                                data-i18n="features-tab-2"
+                                >Вычисления</span
+                            >
+                            <span class="features__tab-line"
+                                ><span class="features__tab-progress"></span
+                            ></span>
+                        </button>
+                    </div>
+
+                    <!-- Контент слайдов -->
+                    <div class="features__tabs-content">
+                        <!-- Таб 1: LaTeX -->
+                        <div
+                            class="features__slide is-active"
+                            data-slide="0"
+                            role="tabpanel"
+                        >
+                            <div class="features__slide-grid">
+                                <div class="features__slide-visual">
+                                    <img
+                                        src="assets/img/origin/latex-editor.webp"
+                                        alt="LaTeX editor screenshot"
+                                        class="features__slide-img js-popup-trigger"
+                                        data-origin="assets/img/origin/latex-editor.webp"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div class="features__slide-info">
+                                    <ul class="features__bullet-list">
+                                        <li
+                                            class="features__bullet-item"
+                                            data-i18n="features-latex-1"
+                                        >
+                                            Автоматическая конвертация Markdown
+                                            в LaTeX
+                                        </li>
+                                        <li
+                                            class="features__bullet-item"
+                                            data-i18n="features-latex-2"
+                                        >
+                                            Полновесный LaTeX компилятор
+                                        </li>
+                                        <li
+                                            class="features__bullet-item"
+                                            data-i18n="features-latex-3"
+                                        >
+                                            Возможность настраивать формат
+                                            документа для Markdown так же гибко,
+                                            как для LaTeX
+                                        </li>
+                                        <li
+                                            class="features__bullet-item"
+                                            data-i18n="features-latex-4"
+                                        >
+                                            Поддержка иерархии файлов в проекте
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Таб 2: ИИ-агент -->
+                        <div
+                            class="features__slide"
+                            data-slide="1"
+                            role="tabpanel"
+                        >
+                            <div
+                                class="features__slide-grid features__slide-grid--reverse"
+                            >
+                                <div class="features__slide-visual">
+                                    <img
+                                        src="assets/img/origin/for-tab2.webp"
+                                        alt="ИИ-агент screenshot"
+                                        class="features__slide-img js-popup-trigger"
+                                        data-origin="assets/img/origin/for-tab2.webp"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div class="features__slide-info">
+                                    <ul class="features__bullet-list">
+                                        <li
+                                            class="features__bullet-item"
+                                            data-i18n="features-ai-1"
+                                        >
+                                            Отображение истории изменений ИИ с
+                                            возможностью откатить или принять
+                                            правки
+                                        </li>
+                                        <li
+                                            class="features__bullet-item"
+                                            data-i18n="features-ai-2"
+                                        >
+                                            ИИ обучен специально работать с
+                                            LaTeX и специфическими вычислениями
+                                        </li>
+                                        <li
+                                            class="features__bullet-item"
+                                            data-i18n="features-ai-3"
+                                        >
+                                            ИИ-агент на базе DeepSeek
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Таб 3: Вычисления -->
+                        <div
+                            class="features__slide"
+                            data-slide="2"
+                            role="tabpanel"
+                        >
+                            <div class="features__slide-grid">
+                                <div class="features__slide-visual">
+                                    <img
+                                        src="assets/img/origin/markdown-editor.webp"
+                                        alt="Вычисления screenshot"
+                                        class="features__slide-img js-popup-trigger"
+                                        data-origin="assets/img/origin/markdown-editor.webp"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div class="features__slide-info">
+                                    <ul class="features__bullet-list">
+                                        <li
+                                            class="features__bullet-item"
+                                            data-i18n="features-calc-1"
+                                        >
+                                            Встроенная поддержка высокоточных
+                                            вычислений
+                                        </li>
+                                        <li
+                                            class="features__bullet-item"
+                                            data-i18n="features-calc-2"
+                                        >
+                                            Возможность вставлять данные прямо в
+                                            LaTeX
+                                        </li>
+                                        <li
+                                            class="features__bullet-item"
+                                            data-i18n="features-calc-3"
+                                        >
+                                            Поддержка вычисления гауссовых
+                                            погрешностей
+                                        </li>
+                                        <li
+                                            class="features__bullet-item"
+                                            data-i18n="features-calc-4"
+                                        >
+                                            Встроенные механизмы визуализации
+                                            данных
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Кнопка перехода к редактору -->
+                    <div class="features__action">
+                        <a
+                            href="/project/default"
+                            class="button button--outline-light features__btn"
+                            data-i18n="features-btn"
+                        >
+                            Перейти к редактору
+                            <span class="button__arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Блок 3: Примеры проектов -->
+            <section class="examples" id="examples">
+                <div class="examples__container">
+                    <!-- Верхняя панель: Заголовок + Категории -->
+                    <div class="examples__header">
+                        <h2 class="examples__title h1" data-i18n="ex-title">
+                            Примеры проектов
+                        </h2>
+
+                        <!-- Таб бар категорий (адаптирован из вашего кода) -->
+                        <div class="policy-nav examples__nav">
+                            <ul
+                                class="header__nav-list2 policy-nav__list"
+                                id="project-categories"
+                            >
+                                <li class="header__nav-item">
+                                    <a
+                                        href="#"
+                                        class="header__nav-link header__nav-link--active"
+                                        data-category="all"
+                                        data-i18n="cat-all"
+                                        >Все</a
+                                    >
+                                </li>
+                                <li class="header__nav-item">
+                                    <a
+                                        href="#"
+                                        class="header__nav-link"
+                                        data-category="lab"
+                                        data-i18n="cat-lab"
+                                        >Лабораторные</a
+                                    >
+                                </li>
+                                <li class="header__nav-item">
+                                    <a
+                                        href="#"
+                                        class="header__nav-link"
+                                        data-category="diploma"
+                                        data-i18n="cat-diploma"
+                                        >Дипломные</a
+                                    >
+                                </li>
+                                <li class="header__nav-item">
+                                    <a
+                                        href="#"
+                                        class="header__nav-link"
+                                        data-category="cv"
+                                        data-i18n="cat-cv"
+                                        >CV</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Оболочка слайдера -->
+                    <div class="examples__slider-wrapper">
+                        <!-- Кнопки управления (скрыты на мобильных через CSS) -->
+                        <button
+                            class="examples__arrow examples__arrow--prev"
+                            aria-label="Previous slide"
+                        ></button>
+                        <button
+                            class="examples__arrow examples__arrow--next"
+                            aria-label="Next slide"
+                        ></button>
+
+                        <!-- Контейнер Swiper -->
+                        <div class="swiper examples__swiper">
+                            <div class="swiper-wrapper" id="projects-container">
+                                <div
+                                    class="swiper-slide"
+                                    th:each="project : ${previewProjects}"
+                                    th:data-category="${project.category}"
+                                    th:attr="data-name-ru=${project.nameRu},data-name-en=${project.nameEn},data-category-ru=${project.categoryRu},data-category-en=${project.categoryEn}"
+                                >
+                                    <a
+                                        class="example-card"
+                                        target="_blank"
+                                        th:href="@{/project/{id}(id=${project.id})}"
+                                    >
+                                        <div class="example-card__visual">
+                                            <img
+                                                class="example-card__image"
+                                                loading="lazy"
+                                                th:src="${project.logoUrl != null ? project.logoUrl : 'assets/img/logo.svg'}"
+                                                th:alt="${project.nameRu}"
+                                                th:classappend="${project.logoUrl == null} ? 'example-card__image--placeholder'"
+                                            />
+                                            <img
+                                                src="assets/img/target.svg"
+                                                alt="open"
+                                                class="example-card__external-icon"
+                                                width="16"
+                                                height="16"
+                                            />
+                                        </div>
+                                        <div class="example-card__content">
+                                            <h3
+                                                class="example-card__title"
+                                                th:text="${project.nameRu}"
+                                            >
+                                                Проект
+                                            </h3>
+                                            <p
+                                                class="example-card__text"
+                                                th:text="${project.categoryRu}"
+                                            >
+                                                Категория
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div
+                                    class="loading-placeholder"
+                                    th:if="${previewProjects.isEmpty()}"
+                                >
+                                    Нет проектов в данной категории
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="examples__action">
+                        <a
+                            href="/project/default"
+                            class="button button--primary examples__btn"
+                            data-i18n="ex-btn"
+                            >Все проекты</a
+                        >
+                    </div>
+                </div>
+            </section>
+            <!-- Блок 4: Возможности -->
+            <section class="advantages" id="advantages">
+                <div class="advantages__container">
+                    <div class="advantages__logo-wrapper">
+                        <img
+                            src="assets/img/logo.svg"
+                            alt="Labkeeper Icon"
+                            class="advantages__logo"
+                            width="40"
+                            height="40"
+                            loading="lazy"
+                        />
+                    </div>
+                    <h2 class="advantages__title h2" data-i18n="adv-title"></h2>
+                    <ul class="advantages__list js-advantages-list">
+                        <li
+                            class="advantages__item"
+                            data-i18n="adv-item-1"
+                        ></li>
+                        <li
+                            class="advantages__item"
+                            data-i18n="adv-item-2"
+                        ></li>
+                        <li
+                            class="advantages__item"
+                            data-i18n="adv-item-3"
+                        ></li>
+                        <li
+                            class="advantages__item"
+                            data-i18n="adv-item-4"
+                        ></li>
+                        <li
+                            class="advantages__item"
+                            data-i18n="adv-item-5"
+                        ></li>
+                    </ul>
+                    <a
+                        href="https://github.com/Labkeeper-team/Docs/wiki/ru"
+                        class="button button--outline advantages__btn"
+                        target="_blank"
+                    >
+                        <span data-i18n="adv-btn"></span>
+                        <img
+                            src="assets/img/target.svg"
+                            alt="target"
+                            class="button__external-icon"
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                        />
+                    </a>
+                </div>
+            </section>
+
+            <!-- Блок 5: Audience (Для кого) -->
+            <section class="audience" id="audience">
+                <div class="audience__container">
+                    <h2 class="audience__title h1" data-i18n="aud-title"></h2>
+                    <div class="audience__cards">
+                        <div class="audience-card">
+                            <h3
+                                class="audience-card__title"
+                                data-i18n="aud-c1-title"
+                            ></h3>
+                            <p
+                                class="audience-card__text"
+                                data-i18n="aud-c1-text"
+                            ></p>
+                        </div>
+                        <div class="audience-card">
+                            <h3
+                                class="audience-card__title"
+                                data-i18n="aud-c2-title"
+                            ></h3>
+                            <p
+                                class="audience-card__text"
+                                data-i18n="aud-c2-text"
+                            ></p>
+                        </div>
+                        <div class="audience-card">
+                            <h3
+                                class="audience-card__title"
+                                data-i18n="aud-c3-title"
+                            ></h3>
+                            <p
+                                class="audience-card__text"
+                                data-i18n="aud-c3-text"
+                            ></p>
+                        </div>
+                    </div>
+                    <div class="audience__action">
+                        <a
+                            href="/about"
+                            class="button button--outline audience__btn"
+                            data-i18n="aud-btn"
+                        ></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 6: База знаний (Слайдер) -->
+            <section class="knowledge" id="knowledge">
+                <div class="feature__bg" aria-hidden="true">
+                    <img src="assets/img/bg.svg" alt="bg" loading="lazy" />
+                </div>
+                <div class="knowledge__container">
+                    <h2 class="knowledge__title h1" data-i18n="knowledge-title">
+                        База знаний
+                    </h2>
+
+                    <div
+                        class="examples__slider-wrapper knowledge__slider-wrapper"
+                    >
+                        <button
+                            class="examples__arrow examples__arrow--prev knowledge__arrow--prev"
+                            aria-label="Предыдущий слайд"
+                        ></button>
+                        <button
+                            class="examples__arrow examples__arrow--next knowledge__arrow--next"
+                            aria-label="Следующий слайд"
+                        ></button>
+                        <div class="swiper knowledge__swiper">
+                            <div class="swiper-wrapper">
+                                <div
+                                    class="swiper-slide"
+                                    th:each="article : ${articles}"
+                                >
+                                    <article class="blog-card">
+                                        <div class="blog-card__top">
+                                            <span
+                                                class="blog-card__tag"
+                                                th:each="tag : ${article.categoryNames}"
+                                                th:text="${tag}"
+                                                >Категория</span
+                                            >
+                                        </div>
+                                        <h3
+                                            class="blog-card__title"
+                                            th:text="${article.cardTitle}"
+                                        >
+                                            Статья
+                                        </h3>
+                                        <p
+                                            class="blog-card__text"
+                                            th:text="${article.cardDescription}"
+                                        >
+                                            Описание
+                                        </p>
+                                        <a
+                                            class="blog-card__footer"
+                                            th:href="@{/blog/{slug}(slug=${article.slug})}"
+                                        >
+                                            <span>Читать статью</span>
+                                            <span class="blog-card__arrow"
+                                                >→</span
+                                            >
+                                        </a>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="knowledge__action">
+                        <a
+                            href="/blog"
+                            class="button button--primary knowledge__btn"
+                            data-i18n="knowledge-btn"
+                        >
+                            <span>Все статьи</span>
+                            <span class="button__arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Подвал -->
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__top">
+                    <nav class="footer__nav">
+                        <a
+                            href="/#features"
+                            class="footer__link"
+                            data-i18n="nav-advantages"
+                        ></a>
+                        <a
+                            href="/#advantages"
+                            class="footer__link"
+                            data-i18n="nav-features"
+                        ></a>
+                        <a
+                            href="/tokens"
+                            class="footer__link"
+                            data-i18n="nav-tokens"
+                        ></a>
+                        <a
+                            href="https://github.com/Labkeeper-team/Docs/wiki/ru"
+                            target="_blank"
+                            class="footer__link footer__link--external"
+                        >
+                            <span data-i18n="nav-wiki"></span>
+                            <img
+                                src="assets/img/target.svg"
+                                alt="target icon"
+                                class="footer__link-icon"
+                                style="margin-left: 4px; vertical-align: middle"
+                                width="16"
+                                height="16"
+                                loading="lazy"
+                            />
+                        </a>
+                        <a
+                            href="/#examples"
+                            class="footer__link"
+                            data-i18n="nav-examples"
+                        ></a>
+                        <a
+                            href="/blog"
+                            class="footer__link"
+                            data-i18n="nav-blog"
+                        ></a>
+
+                        <a
+                            href="/about"
+                            class="footer__link"
+                            data-i18n="nav-about"
+                        ></a>
+                    </nav>
+                    <a href="/" class="footer__logo-link">
+                        <img
+                            src="assets/img/logo.svg"
+                            alt="Labkeeper Logo"
+                            class="footer__logo"
+                            width="40"
+                            height="40"
+                            loading="lazy"
+                        />
+                    </a>
+                    <div class="footer__contact">
+                        <span
+                            class="footer__contact-label"
+                            data-i18n="footer-contact"
+                        ></span>
+                        <a
+                            href="mailto:[(${contactEmail})]"
+                            class="footer__contact-link"
+                            >[(${contactEmail})]</a
+                        >
+                    </div>
+                </div>
+                <div class="footer__middle">
+                    <img
+                        src="assets/img/img-for-footer.svg"
+                        alt="Labkeeper"
+                        class="footer__huge-logo"
+                        aria-hidden="true"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__copyright">© 2024—2026</div>
+                    <a
+                        href="privacy"
+                        class="footer__policy"
+                        data-i18n="footer-policy"
+                    ></a>
+                </div>
             </div>
-            <div class="footer__bottom">
-                <div class="footer__copyright">© 2024—2026</div>
-                <a href="privacy" class="footer__policy" data-i18n="footer-policy"></a>
+        </footer>
+
+        <!-- Попап -->
+        <div class="popup js-popup" id="image-popup" aria-hidden="true">
+            <div class="popup__overlay js-popup-close"></div>
+            <div class="popup__content">
+                <button
+                    class="popup__close js-popup-close"
+                    aria-label="Закрыть"
+                >
+                    <img
+                        src="assets/img/close.svg"
+                        alt="Close"
+                        width="24"
+                        height="24"
+                    />
+                </button>
+                <img
+                    src=""
+                    alt="Enlarged screenshot"
+                    class="popup__image js-popup-img"
+                    loading="lazy"
+                />
             </div>
         </div>
-    </footer>
 
-    <!-- Попап -->
-    <div class="popup js-popup" id="image-popup" aria-hidden="true">
-        <div class="popup__overlay js-popup-close"></div>
-        <div class="popup__content">
-            <button class="popup__close js-popup-close" aria-label="Закрыть">
-                <img src="assets/img/close.svg" alt="Close" width="24" height="24">
-            </button>
-            <img src="" alt="Enlarged screenshot" class="popup__image js-popup-img" loading="lazy">
-        </div>
-    </div>
-
-
-    <!-- Cookie Banner -->
-    <div id="cookie-banner" class="cookie-banner hidden">
-        <div class="cookie-banner__container">
-            <p class="cookie-banner__text">
-                Мы используем cookie и сервис Яндекс.Метрика для улучшения работы сайта. Обязательные cookie работают
-                всегда. Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс», Россия) требуют вашего согласия.
-                Подробнее — в <a href="privacy" class="cookie-banner__link" target="_blank">Политике обработки
-                    персональных данных</a> и <a href="sogl_yam" class="cookie-banner__link" target="_blank">Согласии на
-                    использование сервиса Яндекс.Метрика</a>.
-            </p>
-            <div class="cookie-banner__actions">
-                <button id="cookie-accept" class="button button--primary">Принять</button>
-                <button id="cookie-decline" class="button button--outline">Отказаться</button>
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" class="cookie-banner hidden">
+            <div class="cookie-banner__container">
+                <p class="cookie-banner__text">
+                    Мы используем cookie и сервис Яндекс.Метрика для улучшения
+                    работы сайта. Обязательные cookie работают всегда.
+                    Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс»,
+                    Россия) требуют вашего согласия. Подробнее — в
+                    <a
+                        href="privacy"
+                        class="cookie-banner__link"
+                        target="_blank"
+                        >Политике обработки персональных данных</a
+                    >
+                    и
+                    <a
+                        href="sogl_yam"
+                        class="cookie-banner__link"
+                        target="_blank"
+                        >Согласии на использование сервиса Яндекс.Метрика</a
+                    >.
+                </p>
+                <div class="cookie-banner__actions">
+                    <button id="cookie-accept" class="button button--primary">
+                        Принять
+                    </button>
+                    <button id="cookie-decline" class="button button--outline">
+                        Отказаться
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Скрипты -->
-    <script>
-        window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
-        window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
-        window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
-        window.__LABKEEPER_PUBLIC_URL = "[(${publicUrl})]";
-        window.__LABKEEPER_CONTACT_EMAIL = "[(${contactEmail})]";
-        window.__LABKEEPER_CONTACT_PHONE = "[(${contactPhone})]";
-    </script>
-    <script src="assets/js/auth.js" defer></script>
-    <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/openpanel.js" defer></script>
-    <script src="assets/js/lang.js" defer></script>
-    <script th:inline="javascript">
-        window.LABKEEPER_BLOG_ARTICLES = [(${blogSliderJson})];
-    </script>
-    <script src="assets/js/swiper.js" defer></script>
-    <script src="assets/js/slider.js" defer></script>
-</body>
-
+        <!-- Скрипты -->
+        <script>
+            window.__LABKEEPER_API_VERSION = '[(${apiVersion})]';
+            window.__LABKEEPER_OPENPANEL_CLIENT_ID = '[(${openpanelClientId})]';
+            window.__LABKEEPER_OPENPANEL_API_URL = '[(${openpanelApiUrl})]';
+            window.__LABKEEPER_PUBLIC_URL = '[(${publicUrl})]';
+            window.__LABKEEPER_CONTACT_EMAIL = '[(${contactEmail})]';
+            window.__LABKEEPER_CONTACT_PHONE = '[(${contactPhone})]';
+        </script>
+        <script src="assets/js/auth.js" defer></script>
+        <script src="assets/js/script.js" defer></script>
+        <script src="assets/js/openpanel.js" defer></script>
+        <script src="assets/js/lang.js" defer></script>
+        <script th:inline="javascript">
+            window.LABKEEPER_BLOG_ARTICLES = [(${blogSliderJson})];
+        </script>
+        <script src="assets/js/swiper.js" defer></script>
+        <script src="assets/js/slider.js" defer></script>
+    </body>
 </html>

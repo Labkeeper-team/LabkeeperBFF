@@ -1,664 +1,819 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests">
-    <title>Согласие на сбор данных через Яндекс.Метрику — Labkeeper</title>
-    <meta name="description"
-        content="Согласие на обработку данных с использованием сервиса веб-аналитики Яндекс.Метрика на сайте Labkeeper." />
-    <link rel="canonical" href="[(${publicUrl})]/sogl_yam" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="[(${publicUrl})]/sogl_yam" />
-    <meta property="og:locale" content="ru_RU" />
-    <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:site_name" content="Labkeeper" />
-    <meta property="og:title" content="Согласие на сбор данных через Яндекс.Метрику — Labkeeper" />
-    <meta property="og:description"
-        content="Согласие на обработку данных с использованием сервиса веб-аналитики Яндекс.Метрика на сайте Labkeeper." />
-    <meta property="og:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
-    <meta name="twitter:title" content="Согласие на сбор данных через Яндекс.Метрику — Labkeeper" />
-    <meta name="twitter:description"
-        content="Согласие на обработку данных с использованием сервиса веб-аналитики Яндекс.Метрика на сайте Labkeeper." />
-    <script type="text/javascript">
-        (function () {
-            function hasAcceptedCookieConsent() {
-                try {
-                    return localStorage.getItem('labkeeper_cookie_consent') === 'accepted';
-                } catch (e) {
-                    return false;
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests"
+        />
+        <title>Согласие на сбор данных через Яндекс.Метрику — Labkeeper</title>
+        <meta
+            name="description"
+            content="Согласие на обработку данных с использованием сервиса веб-аналитики Яндекс.Метрика на сайте Labkeeper."
+        />
+        <link rel="canonical" href="[(${publicUrl})]/sogl_yam" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="[(${publicUrl})]/sogl_yam" />
+        <meta property="og:locale" content="ru_RU" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:site_name" content="Labkeeper" />
+        <meta
+            property="og:title"
+            content="Согласие на сбор данных через Яндекс.Метрику — Labkeeper"
+        />
+        <meta
+            property="og:description"
+            content="Согласие на обработку данных с использованием сервиса веб-аналитики Яндекс.Метрика на сайте Labkeeper."
+        />
+        <meta
+            property="og:image"
+            content="[(${publicUrl})]/assets/img/og-image.svg"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:image"
+            content="[(${publicUrl})]/assets/img/og-image.svg"
+        />
+        <meta
+            name="twitter:title"
+            content="Согласие на сбор данных через Яндекс.Метрику — Labkeeper"
+        />
+        <meta
+            name="twitter:description"
+            content="Согласие на обработку данных с использованием сервиса веб-аналитики Яндекс.Метрика на сайте Labkeeper."
+        />
+        <script type="text/javascript">
+            (function () {
+                function hasAcceptedCookieConsent() {
+                    try {
+                        return localStorage.getItem('labkeeper_cookie_consent') === 'accepted';
+                    } catch (e) {
+                        return false;
+                    }
                 }
-            }
 
-            window.initLabkeeperYandexMetrika = function () {
-                if (
-                    window.__labkeeperYandexMetrikaInitialized ||
-                    !hasAcceptedCookieConsent() ||
-                    typeof [(${yandexMetrikaKey})] === 'undefined'
-                ) {
-                    return;
-                }
+                window.initLabkeeperYandexMetrika = function () {
+                    if (
+                        window.__labkeeperYandexMetrikaInitialized ||
+                        !hasAcceptedCookieConsent() ||
+                        typeof [(${yandexMetrikaKey})] === 'undefined'
+                    ) {
+                        return;
+                    }
 
-                (function (m, e, t, r, i, k, a) {
-                    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
-                    m[i].l = 1 * new Date();
-                    for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-                    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
-                })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+                    (function (m, e, t, r, i, k, a) {
+                        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+                        m[i].l = 1 * new Date();
+                        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+                    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-                ym([(${yandexMetrikaKey})], "init", {
-                    webvisor: true,
-                    clickmap: true,
-                    referrer: document.referrer,
-                    url: location.href,
-                    accurateTrackBounce: true,
-                    trackLinks: true
-                });
+                    ym([(${yandexMetrikaKey})], "init", {
+                        webvisor: true,
+                        clickmap: true,
+                        referrer: document.referrer,
+                        url: location.href,
+                        accurateTrackBounce: true,
+                        trackLinks: true
+                    });
 
-                window.__labkeeperYandexMetrikaInitialized = true;
-            };
+                    window.__labkeeperYandexMetrikaInitialized = true;
+                };
 
-            window.initLabkeeperYandexMetrika();
-        })();
-    </script>
+                window.initLabkeeperYandexMetrika();
+            })();
+        </script>
 
-    <!-- Preconnect & Async Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <!-- Preconnect & Async Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
 
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
+        <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
 
-<body class="page">
-    <header class="header js-header">
-        <div class="header__container">
-            <div class="header__left">
-                <!-- Кнопка мобильного меню -->
-                <button class="header__burger js-burger-btn" aria-label="Открыть меню">
-                    <span class="header__burger-line"></span>
-                    <span class="header__burger-line"></span>
-                    <span class="header__burger-line"></span>
-                </button>
-                <a href="/" class="header__logo">
-                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="header__logo-icon" width="36"
-                        height="36">
-                    <span class="header__logo-text">Labkeeper</span>
-                </a>
-                <div class="header__lang js-lang-switcher">
-                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
-                    <button class="header__lang-btn" data-lang="en">En</button>
+    <body class="page">
+        <header class="header js-header">
+            <div class="header__container">
+                <div class="header__left">
+                    <!-- Кнопка мобильного меню -->
+                    <button
+                        class="header__burger js-burger-btn"
+                        aria-label="Открыть меню"
+                    >
+                        <span class="header__burger-line"></span>
+                        <span class="header__burger-line"></span>
+                        <span class="header__burger-line"></span>
+                    </button>
+                    <a href="/" class="header__logo">
+                        <img
+                            src="assets/img/logo.svg"
+                            alt="Labkeeper Logo"
+                            class="header__logo-icon"
+                            width="36"
+                            height="36"
+                        />
+                        <span class="header__logo-text">Labkeeper</span>
+                    </a>
+                    <div class="header__lang js-lang-switcher">
+                        <button
+                            class="header__lang-btn header__lang-btn--active"
+                            data-lang="ru"
+                        >
+                            Ru
+                        </button>
+                        <button class="header__lang-btn" data-lang="en">
+                            En
+                        </button>
+                    </div>
+                </div>
+
+                <nav class="header__nav js-nav">
+                    <div class="header__mobile-lang js-lang-switcher">
+                        <button
+                            class="header__lang-btn header__lang-btn--active"
+                            data-lang="ru"
+                        >
+                            Ru
+                        </button>
+                        <button class="header__lang-btn" data-lang="en">
+                            En
+                        </button>
+                    </div>
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item">
+                            <a
+                                href="/#examples"
+                                class="header__nav-link"
+                                data-i18n="nav-examples"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/#advantages"
+                                class="header__nav-link"
+                                data-i18n="nav-features"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/tokens"
+                                class="header__nav-link"
+                                data-i18n="nav-tokens"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/blog"
+                                class="header__nav-link"
+                                data-i18n="nav-blog"
+                            ></a>
+                        </li>
+
+                        <li class="header__nav-item">
+                            <a
+                                href="/about"
+                                class="header__nav-link"
+                                data-i18n="nav-about"
+                            ></a>
+                        </li>
+                    </ul>
+                    <div class="header__mobile-contact">
+                        <span
+                            class="header__mobile-contact-label"
+                            data-i18n="footer-contact"
+                        ></span>
+                        <a
+                            href="mailto:[(${contactEmail})]"
+                            class="header__mobile-contact-link"
+                            >[(${contactEmail})]</a
+                        >
+                    </div>
+                </nav>
+
+                <div class="header__right">
+                    <a
+                        href="/project/default?open=login"
+                        class="button button--outline header__login"
+                        data-i18n="btn-login"
+                        th:style="${viewerAuthenticated} ? 'display: none' : null"
+                    ></a>
+                    <a
+                        href="/projects"
+                        class="button button--outline header__projects"
+                        data-i18n="btn-projects"
+                        th:style="${viewerAuthenticated} ? null : 'display: none'"
+                    ></a>
+                    <a
+                        href="/project/default"
+                        class="button button--primary header__editor"
+                        data-i18n="btn-editor"
+                    ></a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main page-policy">
+            <!-- Навигация по документам -->
+            <div class="policy-nav">
+                <div class="policy-nav__container">
+                    <ul class="header__nav-list2 policy-nav__list">
+                        <li class="header__nav-item">
+                            <a
+                                href="privacy"
+                                class="header__nav-link"
+                                data-i18n="policy-nav-privacy"
+                                >Политика конфиденциальности</a
+                            >
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="soglas"
+                                class="header__nav-link"
+                                data-i18n="policy-nav-consent"
+                                >Согласие об обработке персональных данных</a
+                            >
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="oferta"
+                                class="header__nav-link"
+                                data-i18n="policy-nav-oferta"
+                                >Публичная оферта</a
+                            >
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="sogl_yam"
+                                class="header__nav-link header__nav-link--active"
+                                data-i18n="policy-nav-yam"
+                                >Согласие на использование сервиса ЯМ</a
+                            >
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="sogl_adv"
+                                class="header__nav-link"
+                                data-i18n="policy-nav-adv"
+                                >Согласие на получение рекламных рассылок</a
+                            >
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="sogl_ds"
+                                class="header__nav-link"
+                                data-i18n="policy-nav-ds"
+                                >Согласие на трансграничную передачу</a
+                            >
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <nav class="header__nav js-nav">
-                <div class="header__mobile-lang js-lang-switcher">
-                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
-                    <button class="header__lang-btn" data-lang="en">En</button>
-                </div>
-                <ul class="header__nav-list">
-                    <li class="header__nav-item"><a href="/#examples" class="header__nav-link"
-                            data-i18n="nav-examples"></a></li>
-                    <li class="header__nav-item"><a href="/#advantages" class="header__nav-link"
-                            data-i18n="nav-features"></a>
-                    </li>
-                    <li class="header__nav-item"><a href="/tokens" class="header__nav-link" data-i18n="nav-tokens"></a>
-                    </li>
-                    <li class="header__nav-item"><a href="/blog" class="header__nav-link" data-i18n="nav-blog"></a></li>
-
-                    <li class="header__nav-item"><a href="/about" class="header__nav-link" data-i18n="nav-about"></a>
-                    </li>
-                </ul>
-                <div class="header__mobile-contact">
-                    <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:[(${contactEmail})]"
-                        class="header__mobile-contact-link">[(${contactEmail})]</a>
-                </div>
-            </nav>
-
-            <div class="header__right">
-                <a href="/project/default?open=login" class="button button--outline header__login"
-                    data-i18n="btn-login" th:style="${viewerAuthenticated} ? 'display: none' : null"></a>
-                <a href="/projects" class="button button--outline header__projects" data-i18n="btn-projects"
-                    th:style="${viewerAuthenticated} ? null : 'display: none'"></a>
-                <a href="/project/default" class="button button--primary header__editor" data-i18n="btn-editor"></a>
-            </div>
-        </div>
-    </header>
-
-    <main class="main page-policy">
-
-        <!-- Навигация по документам -->
-        <div class="policy-nav">
-            <div class="policy-nav__container">
-                <ul class="header__nav-list2 policy-nav__list">
-                    <li class="header__nav-item">
-                        <a href="privacy" class="header__nav-link" data-i18n="policy-nav-privacy">Политика
-                            конфиденциальности</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="soglas" class="header__nav-link" data-i18n="policy-nav-consent">Согласие об
-                            обработке персональных данных</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="oferta" class="header__nav-link" data-i18n="policy-nav-oferta">Публичная
-                            оферта</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="sogl_yam" class="header__nav-link header__nav-link--active"
-                            data-i18n="policy-nav-yam">Согласие на
-                            использование сервиса ЯМ</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="sogl_adv" class="header__nav-link" data-i18n="policy-nav-adv">Согласие на получение рекламных
-                            рассылок</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="sogl_ds" class="header__nav-link" data-i18n="policy-nav-ds">Согласие на
-                            трансграничную передачу</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Контент документа -->
-        <div class="policy-article">
-            <div class="policy-article__container">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <p class="policy-article__consent-appendix"><em>Приложение № 3 к Политике обработки персональных данных
-                        для сайта <a href="[(${publicUrl})]/"
-                            class="policy-article__link">[(${publicUrl})]/</a></em></p>
-
-
-
-                <div class="policy-article__consent-operator">
-
-
-
-                    <p class="p"><strong>Оператору:</strong></p>
-
-
-
-                    <p class="p">Индивидуальному предпринимателю</p>
-
-
-
-                    <p class="p"><strong>Трофименко Анастасии Алексеевны</strong></p>
-
-
-
-                    <p class="p">(ОГРНИП 326508100352548,</p>
-
-
-
-                    <p class="p">ИНН 502910548283),</p>
-
-
-
-                    <p class="p">Email: <a href="mailto:[(${contactEmail})]"
-                            class="policy-article__link">[(${contactEmail})]</a></p>
-
-
-
-                </div>
-
-
-
-                <h1 class="policy-article__title">Согласие на обработку персональных данных<br>Посредством сервисов
-                    «Яндекс.Метрика»</h1>
-
-
-
-                <div class="policy-article__section">
-
-
-
-                    <p class="p policy-article__consent-intro">Нажимая кнопку «ПРИНЯТЬ ВСЕ» в cookie-баннере при первом
-                        посещении Сайта <a href="[(${publicUrl})]/"
-                            class="policy-article__link">[(${publicUrl})]/</a>, я даю полное, безоговорочное и
-                        однозначное согласие Оператору на обработку моих персональных данных (далее — ПДн) с
-                        использованием сервиса Яндекс.Метрика (далее — Сервис).</p>
-
-
-
-                    <div class="policy-article__consent-grid">
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Основание и способ выражения
-                                    согласия</strong></div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">При первом входе на Сайт отображается cookie-баннер с текстом: «Мы
-                                    используем cookie и сервис Яндекс.Метрика для улучшения работы сайта. Обязательные
-                                    cookie работают всегда. Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс»,
-                                    Россия) требуют вашего согласия. Подробнее – в <a
-                                        href="[(${publicUrl})]/privacy" class="policy-article__link">Политике
-                                        обработки персональных данных</a> и Согласии на использование сервиса
-                                    Яндекс.Метрика».</p>
-
-
-
-                                <p class="p">Баннер содержит кнопки:<br>— <strong>«ПРИНЯТЬ ВСЕ»</strong> — включает все
-                                    категории cookie, загружается скрипт Яндекс.Метрики;<br>— <strong>«ОТКЛОНИТЬ
-                                        ВСЕ»</strong> — включает только обязательные cookie, Метрика не
-                                    используется;<br>До нажатия <strong>«ПРИНЯТЬ ВСЕ</strong>» данные в Метрику не
-                                    передаются.</p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Цель обработки</strong></div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">Сбор обезличенной статистической информации о действиях Пользователей на
-                                    Сайте с использованием Сервиса для анализа поведения, улучшения качества работы,
-                                    оптимизации интерфейса, функционала Сайта и анализа его индексации в поисковой
-                                    системе.</p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Оператор сервиса обработки</strong>
-                            </div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">ООО «Яндекс» (119021, г. Москва, ул. Льва Толстого, д.16, ИНН 7736207543,
-                                    ОГРН 1027700229193). Правила обработки данных размещены по ссылке: <a
-                                        href="https://yandex.ru/legal/metrica_termsofuse/ru/"
-                                        class="policy-article__link">https://yandex.ru/legal/metrica_termsofuse/ru/</a>.
-                                </p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Перечень обрабатываемых персональных
-                                    данных</strong></div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">Данные, собираемые Сервисом, включая, но не ограничиваясь:</p>
-
-
-
-                                <ul>
-
-
-
-                                    <li>технические данные устройства и программного обеспечения (тип браузера, ОС,
-                                        разрешение экрана, настройки JavaScript/Flash);</li>
-
-
-
-                                    <li>сетевые данные (обезличенный IP-адрес, интернет-провайдер);</li>
-
-
-
-                                    <li>идентификаторы (cookie-файлы, идентификаторы пользователей и сессий, формируемые
-                                        Сервисами);</li>
-
-
-
-                                    <li>данные о посещении (реферер, просмотренные страницы, время на сайте, клики,
-                                        события);</li>
-
-
-
-                                    <li>геолокация (страна, регион, город, определяемые по IP-адресу);</li>
-
-
-
-                                </ul>
-
-
-
-                                <p class="p">Полный перечень доступен по ссылке: <a
-                                        href="https://yandex.ru/support/metrica/ru/code/data-collected"
-                                        class="policy-article__link">https://yandex.ru/support/metrica/ru/code/data-collected</a>
-                                </p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Способы обработки</strong></div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">Автоматизированная обработка, включающая сбор, запись, систематизацию,
-                                    накопление, хранение, уточнение, извлечение, использование, обезличивание,
-                                    блокирование, удаление, уничтожение ПДн.</p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Передача третьим лицам</strong></div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">Я согласен, что мои ПДн передаются и обрабатываются оператору Сервиса — ООО
-                                    «Яндекс» в процессе использования Сайта. Данные хранятся на серверах Яндекса в
-                                    Российской Федерации.</p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Срок действия согласия </strong>
-                            </div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">Согласие действует с момента подтверждения и до его отзыва Пользователем.
-                                </p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Хранение данных Яндексом:</strong>
-                            </div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">ООО «Яндекс» хранит собранные данные в соответствии со своей политикой.
-                                    Стандартный срок хранения данных в Яндекс.Метрике составляет <strong>26 (двадцати
-                                        шесть) месяцев</strong> с момента сбора. После окончания этого срока Яндекс
-                                    анонимизирует или удаляет данные.</p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Отзыв согласия</strong></div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">Согласие может быть отозвано:</p>
-
-
-
-                                <p class="p">Путем направления письменного запроса Оператору на электронный адрес
-                                    [(${contactEmail})] с пометкой «<strong>Отзыв согласия на использование сервиса
-                                        Яндекс.Метрика</strong>».</p>
-
-
-
-                                <p class="p">Через настройки cookie в футере (нижней части) Сайта.</p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Последствия отзыва</strong></div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">В случае отзыва Оператор обязуется прекратить дальнейший сбор ПДн
-                                    Пользователя с помощью Сервиса в срок, не превышающий <strong>30 (тридцати)
-                                        календарных дней.</strong></p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Удаление данных</strong></div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">В связи с особенностями работы Сервиса (агрегация и обезличивание данных)
-                                    техническое выделение и удаление конкретных данных, собранных до отзыва, может быть
-                                    затруднено. Гарантированно все данные, обрабатываемые Сервисом, обезличиваются или
-                                    удаляются ООО «Яндекс» по истечении <strong>26 месяцев</strong> с момента сбора, что
-                                    соответствует установленному Яндексом стандартному сроку.</p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Рекомендация Пользователю</strong>
-                            </div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">Для полного и немедленного прекращения любой обработки данных, Пользователю
-                                    рекомендуется самостоятельно<strong> </strong>очистить файлы cookie и данные сайта в
-                                    настройках своего браузера.</p>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="policy-article__consent-row">
-
-
-
-                            <div class="policy-article__consent-label-col"><strong>Политика обработки персональных
-                                    данных</strong></div>
-
-
-
-                            <div class="policy-article__consent-content-col">
-                                <p class="p">Я подтверждаю, что ознакомлен(а) с Политикой обработки персональных данных
-                                    Оператора, расположенной по ссылке <a href="[(${publicUrl})]/privacy"
-                                        class="policy-article__link">[(${publicUrl})]/privacy</a>, понимаю свои
-                                    права и обязанности как субъекта ПДн и согласен(а) с условиями обработки.</p>
-                            </div>
-
-
-
-                        </div>
-
-
-
+            <!-- Контент документа -->
+            <div class="policy-article">
+                <div class="policy-article__container">
+                    <p class="policy-article__consent-appendix">
+                        <em
+                            >Приложение № 3 к Политике обработки персональных
+                            данных для сайта
+                            <a
+                                href="[(${publicUrl})]/"
+                                class="policy-article__link"
+                                >[(${publicUrl})]/</a
+                            ></em
+                        >
+                    </p>
+
+                    <div class="policy-article__consent-operator">
+                        <p class="p"><strong>Оператору:</strong></p>
+
+                        <p class="p">Индивидуальному предпринимателю</p>
+
+                        <p class="p">
+                            <strong>Трофименко Анастасии Алексеевны</strong>
+                        </p>
+
+                        <p class="p">(ОГРНИП 326508100352548,</p>
+
+                        <p class="p">ИНН 502910548283),</p>
+
+                        <p class="p">
+                            Email:
+                            <a
+                                href="mailto:[(${contactEmail})]"
+                                class="policy-article__link"
+                                >[(${contactEmail})]</a
+                            >
+                        </p>
                     </div>
 
+                    <h1 class="policy-article__title">
+                        Согласие на обработку персональных данных<br />Посредством
+                        сервисов «Яндекс.Метрика»
+                    </h1>
 
+                    <div class="policy-article__section">
+                        <p class="p policy-article__consent-intro">
+                            Нажимая кнопку «ПРИНЯТЬ ВСЕ» в cookie-баннере при
+                            первом посещении Сайта <a
+                                href="[(${publicUrl})]/"
+                                class="policy-article__link"
+                                >[(${publicUrl})]/</a
+                            >, я даю полное, безоговорочное и однозначное
+                            согласие Оператору на обработку моих персональных
+                            данных (далее — ПДн) с использованием сервиса
+                            Яндекс.Метрика (далее — Сервис).
+                        </p>
 
+                        <div class="policy-article__consent-grid">
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong
+                                        >Основание и способ выражения
+                                        согласия</strong
+                                    >
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        При первом входе на Сайт отображается
+                                        cookie-баннер с текстом: «Мы используем
+                                        cookie и сервис Яндекс.Метрика для
+                                        улучшения работы сайта. Обязательные
+                                        cookie работают всегда. Аналитические
+                                        cookie (сервис Яндекс.Метрика от ООО
+                                        «Яндекс», Россия) требуют вашего
+                                        согласия. Подробнее – в
+                                        <a
+                                            href="[(${publicUrl})]/privacy"
+                                            class="policy-article__link"
+                                            >Политике обработки персональных
+                                            данных</a
+                                        >
+                                        и Согласии на использование сервиса
+                                        Яндекс.Метрика».
+                                    </p>
+
+                                    <p class="p">
+                                        Баннер содержит кнопки:<br />— <strong
+                                            >«ПРИНЯТЬ ВСЕ»</strong
+                                        > — включает все категории cookie,
+                                        загружается скрипт Яндекс.Метрики;<br />— <strong
+                                            >«ОТКЛОНИТЬ ВСЕ»</strong
+                                        > — включает только обязательные cookie,
+                                        Метрика не используется;<br />До нажатия
+                                        <strong>«ПРИНЯТЬ ВСЕ</strong>» данные в
+                                        Метрику не передаются.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong>Цель обработки</strong>
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        Сбор обезличенной статистической
+                                        информации о действиях Пользователей на
+                                        Сайте с использованием Сервиса для
+                                        анализа поведения, улучшения качества
+                                        работы, оптимизации интерфейса,
+                                        функционала Сайта и анализа его
+                                        индексации в поисковой системе.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong>Оператор сервиса обработки</strong>
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        ООО «Яндекс» (119021, г. Москва, ул.
+                                        Льва Толстого, д.16, ИНН 7736207543,
+                                        ОГРН 1027700229193). Правила обработки
+                                        данных размещены по ссылке: <a
+                                            href="https://yandex.ru/legal/metrica_termsofuse/ru/"
+                                            class="policy-article__link"
+                                            >https://yandex.ru/legal/metrica_termsofuse/ru/</a
+                                        >.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong
+                                        >Перечень обрабатываемых персональных
+                                        данных</strong
+                                    >
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        Данные, собираемые Сервисом, включая, но
+                                        не ограничиваясь:
+                                    </p>
+
+                                    <ul>
+                                        <li>
+                                            технические данные устройства и
+                                            программного обеспечения (тип
+                                            браузера, ОС, разрешение экрана,
+                                            настройки JavaScript/Flash);
+                                        </li>
+
+                                        <li>
+                                            сетевые данные (обезличенный
+                                            IP-адрес, интернет-провайдер);
+                                        </li>
+
+                                        <li>
+                                            идентификаторы
+                                            (cookie-файлы, идентификаторы
+                                            пользователей и сессий, формируемые
+                                            Сервисами);
+                                        </li>
+
+                                        <li>
+                                            данные о посещении (реферер,
+                                            просмотренные страницы, время на
+                                            сайте, клики, события);
+                                        </li>
+
+                                        <li>
+                                            геолокация (страна, регион, город,
+                                            определяемые по IP-адресу);
+                                        </li>
+                                    </ul>
+
+                                    <p class="p">
+                                        Полный перечень доступен по ссылке: <a
+                                            href="https://yandex.ru/support/metrica/ru/code/data-collected"
+                                            class="policy-article__link"
+                                            >https://yandex.ru/support/metrica/ru/code/data-collected</a
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong>Способы обработки</strong>
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        Автоматизированная обработка, включающая
+                                        сбор, запись, систематизацию,
+                                        накопление, хранение, уточнение,
+                                        извлечение, использование,
+                                        обезличивание, блокирование, удаление,
+                                        уничтожение ПДн.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong>Передача третьим лицам</strong>
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        Я согласен, что мои ПДн передаются и
+                                        обрабатываются оператору Сервиса — ООО
+                                        «Яндекс» в процессе использования Сайта.
+                                        Данные хранятся на серверах Яндекса в
+                                        Российской Федерации.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong>Срок действия согласия </strong>
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        Согласие действует с момента
+                                        подтверждения и до его отзыва
+                                        Пользователем.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong>Хранение данных Яндексом:</strong>
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        ООО «Яндекс» хранит собранные данные в
+                                        соответствии со своей политикой.
+                                        Стандартный срок хранения данных в
+                                        Яндекс.Метрике составляет
+                                        <strong
+                                            >26 (двадцати шесть) месяцев</strong
+                                        >
+                                        с момента сбора. После окончания этого
+                                        срока Яндекс анонимизирует или удаляет
+                                        данные.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong>Отзыв согласия</strong>
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        Согласие может быть отозвано:
+                                    </p>
+
+                                    <p class="p">
+                                        Путем направления письменного запроса
+                                        Оператору на электронный адрес
+                                        [(${contactEmail})] с пометкой «<strong
+                                            >Отзыв согласия на использование
+                                            сервиса Яндекс.Метрика</strong
+                                        >».
+                                    </p>
+
+                                    <p class="p">
+                                        Через настройки cookie в футере (нижней
+                                        части) Сайта.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong>Последствия отзыва</strong>
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        В случае отзыва Оператор обязуется
+                                        прекратить дальнейший сбор ПДн
+                                        Пользователя с помощью Сервиса в срок,
+                                        не превышающий
+                                        <strong
+                                            >30 (тридцати) календарных
+                                            дней.</strong
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong>Удаление данных</strong>
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        В связи с особенностями работы Сервиса
+                                        (агрегация и обезличивание данных)
+                                        техническое выделение и удаление
+                                        конкретных данных, собранных до отзыва,
+                                        может быть затруднено. Гарантированно
+                                        все данные, обрабатываемые Сервисом,
+                                        обезличиваются или удаляются ООО
+                                        «Яндекс» по истечении
+                                        <strong>26 месяцев</strong> с момента
+                                        сбора, что соответствует установленному
+                                        Яндексом стандартному сроку.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong>Рекомендация Пользователю</strong>
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        Для полного и немедленного прекращения
+                                        любой обработки данных, Пользователю
+                                        рекомендуется самостоятельно<strong
+                                        > </strong>очистить файлы cookie и
+                                        данные сайта в настройках своего
+                                        браузера.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="policy-article__consent-row">
+                                <div class="policy-article__consent-label-col">
+                                    <strong
+                                        >Политика обработки персональных
+                                        данных</strong
+                                    >
+                                </div>
+
+                                <div
+                                    class="policy-article__consent-content-col"
+                                >
+                                    <p class="p">
+                                        Я подтверждаю, что ознакомлен(а) с
+                                        Политикой обработки персональных данных
+                                        Оператора, расположенной по ссылке
+                                        <a
+                                            href="[(${publicUrl})]/privacy"
+                                            class="policy-article__link"
+                                            >[(${publicUrl})]/privacy</a
+                                        >, понимаю свои права и обязанности как
+                                        субъекта ПДн и согласен(а) с условиями
+                                        обработки.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-
             </div>
-        </div>
+        </main>
 
-    </main>
+        <!-- Подвал -->
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__top">
+                    <nav class="footer__nav">
+                        <a
+                            href="/#features"
+                            class="footer__link"
+                            data-i18n="nav-advantages"
+                        ></a>
+                        <a
+                            href="/#advantages"
+                            class="footer__link"
+                            data-i18n="nav-features"
+                        ></a>
+                        <a
+                            href="/tokens"
+                            class="footer__link"
+                            data-i18n="nav-tokens"
+                        ></a>
+                        <a
+                            href="https://github.com/Labkeeper-team/Docs/wiki/ru"
+                            target="_blank"
+                            class="footer__link footer__link--external"
+                        >
+                            <span data-i18n="nav-wiki"></span>
+                            <img
+                                src="assets/img/target.svg"
+                                alt="target icon"
+                                class="footer__link-icon"
+                                style="margin-left: 4px; vertical-align: middle"
+                                width="16"
+                                height="16"
+                                loading="lazy"
+                            />
+                        </a>
+                        <a
+                            href="/#examples"
+                            class="footer__link"
+                            data-i18n="nav-examples"
+                        ></a>
+                        <a
+                            href="/blog"
+                            class="footer__link"
+                            data-i18n="nav-blog"
+                        ></a>
 
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__top">
-                <nav class="footer__nav">
-                    <a href="/#features" class="footer__link" data-i18n="nav-advantages"></a>
-                    <a href="/#advantages" class="footer__link" data-i18n="nav-features"></a>
-                    <a href="/tokens" class="footer__link" data-i18n="nav-tokens"></a>
-                    <a href="https://github.com/Labkeeper-team/Docs/wiki/ru" target="_blank"
-                        class="footer__link footer__link--external">
-                        <span data-i18n="nav-wiki"></span>
-                        <img src="assets/img/target.svg" alt="target icon" class="footer__link-icon"
-                            style="margin-left: 4px; vertical-align: middle;" width="16" height="16" loading="lazy">
+                        <a
+                            href="/about"
+                            class="footer__link"
+                            data-i18n="nav-about"
+                        ></a>
+                    </nav>
+                    <a href="/" class="footer__logo-link">
+                        <img
+                            src="assets/img/logo.svg"
+                            alt="Labkeeper Logo"
+                            class="footer__logo"
+                            width="40"
+                            height="40"
+                            loading="lazy"
+                        />
                     </a>
-                    <a href="/#examples" class="footer__link" data-i18n="nav-examples"></a>
-                    <a href="/blog" class="footer__link" data-i18n="nav-blog"></a>
-
-                    <a href="/about" class="footer__link" data-i18n="nav-about"></a>
-                </nav>
-                <a href="/" class="footer__logo-link">
-                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="footer__logo" width="40" height="40"
-                        loading="lazy">
-                </a>
-                <div class="footer__contact">
-                    <span class="footer__contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:[(${contactEmail})]" class="footer__contact-link">[(${contactEmail})]</a>
+                    <div class="footer__contact">
+                        <span
+                            class="footer__contact-label"
+                            data-i18n="footer-contact"
+                        ></span>
+                        <a
+                            href="mailto:[(${contactEmail})]"
+                            class="footer__contact-link"
+                            >[(${contactEmail})]</a
+                        >
+                    </div>
+                </div>
+                <div class="footer__middle">
+                    <img
+                        src="assets/img/img-for-footer.svg"
+                        alt="Labkeeper"
+                        class="footer__huge-logo"
+                        aria-hidden="true"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__copyright">© 2024—2026</div>
+                    <a
+                        href="privacy"
+                        class="footer__policy"
+                        data-i18n="footer-policy"
+                    ></a>
                 </div>
             </div>
-            <div class="footer__middle">
-                <img src="assets/img/img-for-footer.svg" alt="Labkeeper" class="footer__huge-logo" aria-hidden="true"
-                    loading="lazy">
-            </div>
-            <div class="footer__bottom">
-                <div class="footer__copyright">© 2024—2026</div>
-                <a href="privacy" class="footer__policy" data-i18n="footer-policy"></a>
+        </footer>
+
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" class="cookie-banner hidden">
+            <div class="cookie-banner__container">
+                <p class="cookie-banner__text">
+                    Мы используем cookie и сервис Яндекс.Метрика для улучшения
+                    работы сайта. Обязательные cookie работают всегда.
+                    Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс»,
+                    Россия) требуют вашего согласия. Подробнее — в
+                    <a
+                        href="privacy"
+                        class="cookie-banner__link"
+                        target="_blank"
+                        >Политике обработки персональных данных</a
+                    >
+                    и
+                    <a
+                        href="sogl_yam"
+                        class="cookie-banner__link"
+                        target="_blank"
+                        >Согласии на использование сервиса Яндекс.Метрика</a
+                    >.
+                </p>
+                <div class="cookie-banner__actions">
+                    <button id="cookie-accept" class="button button--primary">
+                        Принять
+                    </button>
+                    <button id="cookie-decline" class="button button--outline">
+                        Отказаться
+                    </button>
+                </div>
             </div>
         </div>
-    </footer>
 
-
-    <!-- Cookie Banner -->
-    <div id="cookie-banner" class="cookie-banner hidden">
-        <div class="cookie-banner__container">
-            <p class="cookie-banner__text">
-                Мы используем cookie и сервис Яндекс.Метрика для улучшения работы сайта. Обязательные cookie работают
-                всегда. Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс», Россия) требуют вашего согласия.
-                Подробнее — в <a href="privacy" class="cookie-banner__link" target="_blank">Политике обработки
-                    персональных данных</a> и <a href="sogl_yam" class="cookie-banner__link" target="_blank">Согласии на
-                    использование сервиса Яндекс.Метрика</a>.
-            </p>
-            <div class="cookie-banner__actions">
-                <button id="cookie-accept" class="button button--primary">Принять</button>
-                <button id="cookie-decline" class="button button--outline">Отказаться</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Скрипты -->
-    <script>
-        window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
-        window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
-        window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
-        window.__LABKEEPER_PUBLIC_URL = "[(${publicUrl})]";
-        window.__LABKEEPER_CONTACT_EMAIL = "[(${contactEmail})]";
-        window.__LABKEEPER_CONTACT_PHONE = "[(${contactPhone})]";
-    </script>
-    <script src="assets/js/auth.js" defer></script>
-    <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/openpanel.js" defer></script>
-    <script src="assets/js/lang.js" defer></script>
-</body>
-
+        <!-- Скрипты -->
+        <script>
+            window.__LABKEEPER_API_VERSION = '[(${apiVersion})]';
+            window.__LABKEEPER_OPENPANEL_CLIENT_ID = '[(${openpanelClientId})]';
+            window.__LABKEEPER_OPENPANEL_API_URL = '[(${openpanelApiUrl})]';
+            window.__LABKEEPER_PUBLIC_URL = '[(${publicUrl})]';
+            window.__LABKEEPER_CONTACT_EMAIL = '[(${contactEmail})]';
+            window.__LABKEEPER_CONTACT_PHONE = '[(${contactPhone})]';
+        </script>
+        <script src="assets/js/auth.js" defer></script>
+        <script src="assets/js/script.js" defer></script>
+        <script src="assets/js/openpanel.js" defer></script>
+        <script src="assets/js/lang.js" defer></script>
+    </body>
 </html>

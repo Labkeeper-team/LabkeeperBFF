@@ -1,297 +1,595 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy"
-        th:content="|default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru ${openpanelApiUrl}; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests|">
-    <title th:text="${article.pageTitle}">Статья — Labkeeper</title>
-    <meta name="description" th:content="${article.metaDescription}">
-    <meta th:if="${!article.keywordsText.isEmpty()}" name="keywords" th:content="${article.keywordsText}">
-    <link rel="canonical" th:href="|${publicUrl}/blog/${article.slug}|">
-    <meta property="og:type" content="article">
-    <meta property="og:url" th:content="|${publicUrl}/blog/${article.slug}|">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:site_name" content="Labkeeper">
-    <meta property="og:title" th:content="${article.ogTitle}">
-    <meta property="og:description" th:content="${article.ogDescription}">
-    <meta property="og:image" content="[(${publicUrl})]/assets/img/og-image.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="[(${publicUrl})]/assets/img/og-image.svg">
-    <meta name="twitter:title" th:content="${article.twitterTitle}">
-    <meta name="twitter:description" th:content="${article.twitterDescription}">
-    <script type="application/ld+json" th:utext="${article.articleJsonLd}"></script>
-    <script type="application/ld+json" th:utext="${article.breadcrumbJsonLd}"></script>
-    <script type="text/javascript">
-        (function () {
-            function hasAcceptedCookieConsent() {
-                try {
-                    return localStorage.getItem('labkeeper_cookie_consent') === 'accepted';
-                } catch (e) {
-                    return false;
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            th:content="|default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru ${openpanelApiUrl}; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests|"
+        />
+        <title th:text="${article.pageTitle}">Статья — Labkeeper</title>
+        <meta name="description" th:content="${article.metaDescription}" />
+        <meta
+            th:if="${!article.keywordsText.isEmpty()}"
+            name="keywords"
+            th:content="${article.keywordsText}"
+        />
+        <link rel="canonical" th:href="|${publicUrl}/blog/${article.slug}|" />
+        <meta property="og:type" content="article" />
+        <meta
+            property="og:url"
+            th:content="|${publicUrl}/blog/${article.slug}|"
+        />
+        <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content="Labkeeper" />
+        <meta property="og:title" th:content="${article.ogTitle}" />
+        <meta property="og:description" th:content="${article.ogDescription}" />
+        <meta
+            property="og:image"
+            content="[(${publicUrl})]/assets/img/og-image.svg"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:image"
+            content="[(${publicUrl})]/assets/img/og-image.svg"
+        />
+        <meta name="twitter:title" th:content="${article.twitterTitle}" />
+        <meta
+            name="twitter:description"
+            th:content="${article.twitterDescription}"
+        />
+        <script
+            type="application/ld+json"
+            th:utext="${article.articleJsonLd}"
+        ></script>
+        <script
+            type="application/ld+json"
+            th:utext="${article.breadcrumbJsonLd}"
+        ></script>
+        <script type="text/javascript">
+            (function () {
+                function hasAcceptedCookieConsent() {
+                    try {
+                        return localStorage.getItem('labkeeper_cookie_consent') === 'accepted';
+                    } catch (e) {
+                        return false;
+                    }
                 }
-            }
 
-            window.initLabkeeperYandexMetrika = function () {
-                if (
-                    window.__labkeeperYandexMetrikaInitialized ||
-                    !hasAcceptedCookieConsent() ||
-                    typeof [(${yandexMetrikaKey})] === 'undefined'
-                ) {
-                    return;
-                }
+                window.initLabkeeperYandexMetrika = function () {
+                    if (
+                        window.__labkeeperYandexMetrikaInitialized ||
+                        !hasAcceptedCookieConsent() ||
+                        typeof [(${yandexMetrikaKey})] === 'undefined'
+                    ) {
+                        return;
+                    }
 
-                (function (m, e, t, r, i, k, a) {
-                    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
-                    m[i].l = 1 * new Date();
-                    for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-                    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
-                })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+                    (function (m, e, t, r, i, k, a) {
+                        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+                        m[i].l = 1 * new Date();
+                        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+                    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-                ym([(${yandexMetrikaKey})], "init", {
-                    webvisor: true,
-                    clickmap: true,
-                    referrer: document.referrer,
-                    url: location.href,
-                    accurateTrackBounce: true,
-                    trackLinks: true
-                });
+                    ym([(${yandexMetrikaKey})], "init", {
+                        webvisor: true,
+                        clickmap: true,
+                        referrer: document.referrer,
+                        url: location.href,
+                        accurateTrackBounce: true,
+                        trackLinks: true
+                    });
 
-                window.__labkeeperYandexMetrikaInitialized = true;
-            };
+                    window.__labkeeperYandexMetrikaInitialized = true;
+                };
 
-            window.initLabkeeperYandexMetrika();
-        })();
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
-    <link rel="stylesheet" href="/assets/css/swiper.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/katex.css">
-</head>
+                window.initLabkeeperYandexMetrika();
+            })();
+        </script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+        <link rel="stylesheet" href="/assets/css/swiper.css" />
+        <link rel="stylesheet" href="/assets/css/style.css" />
+        <link rel="stylesheet" href="/assets/css/katex.css" />
+    </head>
 
-<body class="page blog__article">
-    <header class="header js-header">
-        <div class="header__container">
-            <div class="header__left">
-                <button class="header__burger js-burger-btn" aria-label="Открыть меню">
-                    <span class="header__burger-line"></span>
-                    <span class="header__burger-line"></span>
-                    <span class="header__burger-line"></span>
-                </button>
-                <a href="/" class="header__logo">
-                    <img src="/assets/img/logo.svg" alt="Labkeeper Logo" class="header__logo-icon" width="36" height="36">
-                    <span class="header__logo-text">Labkeeper</span>
-                </a>
-                <div class="header__lang js-lang-switcher">
-                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
-                    <button class="header__lang-btn" data-lang="en">En</button>
-                </div>
-            </div>
-            <nav class="header__nav js-nav">
-                <div class="header__mobile-lang js-lang-switcher">
-                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
-                    <button class="header__lang-btn" data-lang="en">En</button>
-                </div>
-                <ul class="header__nav-list">
-                    <li class="header__nav-item"><a href="/#examples" class="header__nav-link" data-i18n="nav-examples"></a></li>
-                    <li class="header__nav-item"><a href="/#advantages" class="header__nav-link" data-i18n="nav-features"></a></li>
-                    <li class="header__nav-item"><a href="/tokens" class="header__nav-link" data-i18n="nav-tokens"></a></li>
-                    <li class="header__nav-item"><a href="/blog" class="header__nav-link" data-i18n="nav-blog"></a></li>
-                    <li class="header__nav-item"><a href="/about" class="header__nav-link" data-i18n="nav-about"></a></li>
-                </ul>
-                <div class="header__mobile-contact">
-                    <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:[(${contactEmail})]" class="header__mobile-contact-link">[(${contactEmail})]</a>
-                </div>
-            </nav>
-            <div class="header__right">
-                <a href="/project/default?open=login" class="button button--outline header__login" data-i18n="btn-login" th:style="${viewerAuthenticated} ? 'display: none' : null"></a>
-                <a href="/projects" class="button button--outline header__projects" data-i18n="btn-projects" th:style="${viewerAuthenticated} ? null : 'display: none'"></a>
-                <a href="/project/default" class="button button--primary header__editor" data-i18n="btn-editor"></a>
-            </div>
-        </div>
-    </header>
-
-    <main class="main page-article">
-        <div class="article-breadcrumbs">
-            <div class="article-breadcrumbs__container">
-                <nav class="article-breadcrumbs__nav" aria-label="Breadcrumb">
-                    <ol class="article-breadcrumbs__list">
-                        <li class="article-breadcrumbs__item"><a href="/" class="article-breadcrumbs__link">Главная</a></li>
-                        <li class="article-breadcrumbs__item"><a href="/blog" class="article-breadcrumbs__link">Блог</a></li>
-                        <li class="article-breadcrumbs__item article-breadcrumbs__item--active">
-                            <span th:text="${article.breadcrumbTitle}">Статья</span>
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-
-        <div class="article-layout">
-            <article class="article-content">
-                <div class="article-content__container">
-                    <h1 class="article-content__title h1" th:utext="${article.h1}">Статья</h1>
-                    <div class="article-content__tags">
-                        <a class="article-tag" th:each="tag : ${article.tags}" th:href="|/blog#${tag.id}|" th:text="${tag.name}">Категория</a>
+    <body class="page blog__article">
+        <header class="header js-header">
+            <div class="header__container">
+                <div class="header__left">
+                    <button
+                        class="header__burger js-burger-btn"
+                        aria-label="Открыть меню"
+                    >
+                        <span class="header__burger-line"></span>
+                        <span class="header__burger-line"></span>
+                        <span class="header__burger-line"></span>
+                    </button>
+                    <a href="/" class="header__logo">
+                        <img
+                            src="/assets/img/logo.svg"
+                            alt="Labkeeper Logo"
+                            class="header__logo-icon"
+                            width="36"
+                            height="36"
+                        />
+                        <span class="header__logo-text">Labkeeper</span>
+                    </a>
+                    <div class="header__lang js-lang-switcher">
+                        <button
+                            class="header__lang-btn header__lang-btn--active"
+                            data-lang="ru"
+                        >
+                            Ru
+                        </button>
+                        <button class="header__lang-btn" data-lang="en">
+                            En
+                        </button>
                     </div>
-                    <p class="article-content__meta" th:text="|Обновлено: ${article.dateDisplay} · Время чтения: ~${article.readingTime}|">Обновлено</p>
-                    <nav class="article-toc" aria-label="Содержание статьи">
-                        <h3 class="article-toc__title">Содержание</h3>
-                        <ol class="article-toc__list">
-                            <li th:each="item : ${article.toc}">
-                                <a class="article-toc__link" th:href="'#' + ${item.id}" th:text="${item.title}">Раздел</a>
+                </div>
+                <nav class="header__nav js-nav">
+                    <div class="header__mobile-lang js-lang-switcher">
+                        <button
+                            class="header__lang-btn header__lang-btn--active"
+                            data-lang="ru"
+                        >
+                            Ru
+                        </button>
+                        <button class="header__lang-btn" data-lang="en">
+                            En
+                        </button>
+                    </div>
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item">
+                            <a
+                                href="/#examples"
+                                class="header__nav-link"
+                                data-i18n="nav-examples"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/#advantages"
+                                class="header__nav-link"
+                                data-i18n="nav-features"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/tokens"
+                                class="header__nav-link"
+                                data-i18n="nav-tokens"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/blog"
+                                class="header__nav-link"
+                                data-i18n="nav-blog"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/about"
+                                class="header__nav-link"
+                                data-i18n="nav-about"
+                            ></a>
+                        </li>
+                    </ul>
+                    <div class="header__mobile-contact">
+                        <span
+                            class="header__mobile-contact-label"
+                            data-i18n="footer-contact"
+                        ></span>
+                        <a
+                            href="mailto:[(${contactEmail})]"
+                            class="header__mobile-contact-link"
+                            >[(${contactEmail})]</a
+                        >
+                    </div>
+                </nav>
+                <div class="header__right">
+                    <a
+                        href="/project/default?open=login"
+                        class="button button--outline header__login"
+                        data-i18n="btn-login"
+                        th:style="${viewerAuthenticated} ? 'display: none' : null"
+                    ></a>
+                    <a
+                        href="/projects"
+                        class="button button--outline header__projects"
+                        data-i18n="btn-projects"
+                        th:style="${viewerAuthenticated} ? null : 'display: none'"
+                    ></a>
+                    <a
+                        href="/project/default"
+                        class="button button--primary header__editor"
+                        data-i18n="btn-editor"
+                    ></a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main page-article">
+            <div class="article-breadcrumbs">
+                <div class="article-breadcrumbs__container">
+                    <nav
+                        class="article-breadcrumbs__nav"
+                        aria-label="Breadcrumb"
+                    >
+                        <ol class="article-breadcrumbs__list">
+                            <li class="article-breadcrumbs__item">
+                                <a href="/" class="article-breadcrumbs__link"
+                                    >Главная</a
+                                >
+                            </li>
+                            <li class="article-breadcrumbs__item">
+                                <a
+                                    href="/blog"
+                                    class="article-breadcrumbs__link"
+                                    >Блог</a
+                                >
+                            </li>
+                            <li
+                                class="article-breadcrumbs__item article-breadcrumbs__item--active"
+                            >
+                                <span th:text="${article.breadcrumbTitle}"
+                                    >Статья</span
+                                >
                             </li>
                         </ol>
                     </nav>
-                    <section class="article-section" th:each="section : ${article.sections}" th:id="${section.id}">
-                        <h2 class="article-section__title" th:text="${section.title}">Раздел</h2>
-                        <th:block th:utext="${section.html}"></th:block>
-                    </section>
-                    <section class="article-section" id="tips" th:if="${!article.tips.isEmpty()}">
-                        <h2 class="article-section__title">Практические советы</h2>
-                        <div class="article-tips">
-                            <div class="article-tip" th:each="tip, state : ${article.tips}">
-                                <div class="article-tip__number" th:text="${state.count}">1</div>
-                                <div class="article-tip__content">
-                                    <h3 th:text="${tip.title}">Совет</h3>
-                                    <th:block th:utext="${tip.html}"></th:block>
+                </div>
+            </div>
+
+            <div class="article-layout">
+                <article class="article-content">
+                    <div class="article-content__container">
+                        <h1
+                            class="article-content__title h1"
+                            th:utext="${article.h1}"
+                        >
+                            Статья
+                        </h1>
+                        <div class="article-content__tags">
+                            <a
+                                class="article-tag"
+                                th:each="tag : ${article.tags}"
+                                th:href="|/blog#${tag.id}|"
+                                th:text="${tag.name}"
+                                >Категория</a
+                            >
+                        </div>
+                        <p
+                            class="article-content__meta"
+                            th:text="|Обновлено: ${article.dateDisplay} · Время чтения: ~${article.readingTime}|"
+                        >
+                            Обновлено
+                        </p>
+                        <nav class="article-toc" aria-label="Содержание статьи">
+                            <h3 class="article-toc__title">Содержание</h3>
+                            <ol class="article-toc__list">
+                                <li th:each="item : ${article.toc}">
+                                    <a
+                                        class="article-toc__link"
+                                        th:href="'#' + ${item.id}"
+                                        th:text="${item.title}"
+                                        >Раздел</a
+                                    >
+                                </li>
+                            </ol>
+                        </nav>
+                        <section
+                            class="article-section"
+                            th:each="section : ${article.sections}"
+                            th:id="${section.id}"
+                        >
+                            <h2
+                                class="article-section__title"
+                                th:text="${section.title}"
+                            >
+                                Раздел
+                            </h2>
+                            <th:block th:utext="${section.html}"></th:block>
+                        </section>
+                        <section
+                            class="article-section"
+                            id="tips"
+                            th:if="${!article.tips.isEmpty()}"
+                        >
+                            <h2 class="article-section__title">
+                                Практические советы
+                            </h2>
+                            <div class="article-tips">
+                                <div
+                                    class="article-tip"
+                                    th:each="tip, state : ${article.tips}"
+                                >
+                                    <div
+                                        class="article-tip__number"
+                                        th:text="${state.count}"
+                                    >
+                                        1
+                                    </div>
+                                    <div class="article-tip__content">
+                                        <h3 th:text="${tip.title}">Совет</h3>
+                                        <th:block
+                                            th:utext="${tip.html}"
+                                        ></th:block>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                </div>
-            </article>
-
-            <aside class="article-sidebar">
-                <div class="article-sidebar__sticky">
-                    <div class="article-sidebar__media">
-                        <img src="/assets/img/img-for-firstScreen.webp" th:alt="${article.sidebarImageAlt}" width="220" height="135" loading="lazy" class="article-sidebar__img">
+                        </section>
                     </div>
-                    <p class="article-sidebar__title" th:utext="${article.sidebarText}">Labkeeper</p>
-                    <a class="button button--primary article-sidebar__btn" id="sidebar-cta-btn" data-blog-example th:href="${article.editorExampleUrl}">
+                </article>
+
+                <aside class="article-sidebar">
+                    <div class="article-sidebar__sticky">
+                        <div class="article-sidebar__media">
+                            <img
+                                src="/assets/img/img-for-firstScreen.webp"
+                                th:alt="${article.sidebarImageAlt}"
+                                width="220"
+                                height="135"
+                                loading="lazy"
+                                class="article-sidebar__img"
+                            />
+                        </div>
+                        <p
+                            class="article-sidebar__title"
+                            th:utext="${article.sidebarText}"
+                        >
+                            Labkeeper
+                        </p>
+                        <a
+                            class="button button--primary article-sidebar__btn"
+                            id="sidebar-cta-btn"
+                            data-blog-example
+                            th:href="${article.editorExampleUrl}"
+                        >
+                            <span class="article-example__label">
+                                <span data-i18n="blog-example"
+                                    >Просмотреть пример</span
+                                >
+                                <span
+                                    class="article-example__hint"
+                                    data-i18n="blog-example-context"
+                                    >в редакторе</span
+                                >
+                            </span>
+                            <span class="button__arrow" aria-hidden="true"
+                                >→</span
+                            >
+                        </a>
+                    </div>
+                </aside>
+            </div>
+
+            <section class="cta-features" id="cta-features">
+                <div class="cta-features__intro">
+                    <p class="cta-features__intro-label">
+                        Попробуйте прямо сейчас
+                    </p>
+                    <h2
+                        class="cta-features__intro-title"
+                        th:utext="${article.ctaTitle}"
+                    >
+                        Labkeeper
+                    </h2>
+                    <p
+                        class="cta-features__intro-text"
+                        th:utext="${article.ctaText}"
+                    >
+                        Редактор
+                    </p>
+                </div>
+                <div class="cta-features__footer">
+                    <a
+                        class="button button--outline-light cta-features__intro-btn"
+                        data-blog-example
+                        th:href="${article.editorExampleUrl}"
+                    >
                         <span class="article-example__label">
-                            <span data-i18n="blog-example">Просмотреть пример</span>
-                            <span class="article-example__hint" data-i18n="blog-example-context">в редакторе</span>
+                            <span data-i18n="blog-example"
+                                >Просмотреть пример</span
+                            >
+                            <span
+                                class="article-example__hint"
+                                data-i18n="blog-example-context"
+                                >в редакторе</span
+                            >
                         </span>
                         <span class="button__arrow" aria-hidden="true">→</span>
                     </a>
                 </div>
-            </aside>
-        </div>
+            </section>
+        </main>
 
-        <section class="cta-features" id="cta-features">
-            <div class="cta-features__intro">
-                <p class="cta-features__intro-label">Попробуйте прямо сейчас</p>
-                <h2 class="cta-features__intro-title" th:utext="${article.ctaTitle}">Labkeeper</h2>
-                <p class="cta-features__intro-text" th:utext="${article.ctaText}">Редактор</p>
-            </div>
-            <div class="cta-features__footer">
-                <a class="button button--outline-light cta-features__intro-btn" data-blog-example th:href="${article.editorExampleUrl}">
-                    <span class="article-example__label">
-                        <span data-i18n="blog-example">Просмотреть пример</span>
-                        <span class="article-example__hint" data-i18n="blog-example-context">в редакторе</span>
-                    </span>
-                    <span class="button__arrow" aria-hidden="true">→</span>
-                </a>
+        <section class="audience">
+            <div class="audience__container">
+                <h2 class="audience__title h1">Другие статьи</h2>
+                <div class="audience__slider-wrapper">
+                    <button
+                        class="audience__arrow audience__arrow--prev"
+                        aria-label="Previous slide"
+                    ></button>
+                    <button
+                        class="audience__arrow audience__arrow--next"
+                        aria-label="Next slide"
+                    ></button>
+                    <div class="swiper audience__swiper">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+                <div class="audience__action">
+                    <a href="/blog" class="button button--outline audience__btn"
+                        >Все статьи <span class="button__arrow">→</span></a
+                    >
+                </div>
             </div>
         </section>
-    </main>
 
-    <section class="audience">
-        <div class="audience__container">
-            <h2 class="audience__title h1">Другие статьи</h2>
-            <div class="audience__slider-wrapper">
-                <button class="audience__arrow audience__arrow--prev" aria-label="Previous slide"></button>
-                <button class="audience__arrow audience__arrow--next" aria-label="Next slide"></button>
-                <div class="swiper audience__swiper">
-                    <div class="swiper-wrapper"></div>
-                </div>
-            </div>
-            <div class="audience__action">
-                <a href="/blog" class="button button--outline audience__btn">Все статьи <span class="button__arrow">→</span></a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__top">
-                <nav class="footer__nav">
-                    <a href="/#features" class="footer__link" data-i18n="nav-advantages"></a>
-                    <a href="/#advantages" class="footer__link" data-i18n="nav-features"></a>
-                    <a href="/tokens" class="footer__link" data-i18n="nav-tokens"></a>
-                    <a href="https://github.com/Labkeeper-team/Docs/wiki/ru" target="_blank" class="footer__link footer__link--external">
-                        <span data-i18n="nav-wiki"></span>
-                        <img src="/assets/img/target.svg" alt="" class="footer__link-icon" width="16" height="16" loading="lazy">
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__top">
+                    <nav class="footer__nav">
+                        <a
+                            href="/#features"
+                            class="footer__link"
+                            data-i18n="nav-advantages"
+                        ></a>
+                        <a
+                            href="/#advantages"
+                            class="footer__link"
+                            data-i18n="nav-features"
+                        ></a>
+                        <a
+                            href="/tokens"
+                            class="footer__link"
+                            data-i18n="nav-tokens"
+                        ></a>
+                        <a
+                            href="https://github.com/Labkeeper-team/Docs/wiki/ru"
+                            target="_blank"
+                            class="footer__link footer__link--external"
+                        >
+                            <span data-i18n="nav-wiki"></span>
+                            <img
+                                src="/assets/img/target.svg"
+                                alt=""
+                                class="footer__link-icon"
+                                width="16"
+                                height="16"
+                                loading="lazy"
+                            />
+                        </a>
+                        <a
+                            href="/#examples"
+                            class="footer__link"
+                            data-i18n="nav-examples"
+                        ></a>
+                        <a
+                            href="/blog"
+                            class="footer__link"
+                            data-i18n="nav-blog"
+                        ></a>
+                        <a
+                            href="/about"
+                            class="footer__link"
+                            data-i18n="nav-about"
+                        ></a>
+                    </nav>
+                    <a href="/" class="footer__logo-link">
+                        <img
+                            src="/assets/img/logo.svg"
+                            alt="Labkeeper Logo"
+                            class="footer__logo"
+                            width="40"
+                            height="40"
+                            loading="lazy"
+                        />
                     </a>
-                    <a href="/#examples" class="footer__link" data-i18n="nav-examples"></a>
-                    <a href="/blog" class="footer__link" data-i18n="nav-blog"></a>
-                    <a href="/about" class="footer__link" data-i18n="nav-about"></a>
-                </nav>
-                <a href="/" class="footer__logo-link">
-                    <img src="/assets/img/logo.svg" alt="Labkeeper Logo" class="footer__logo" width="40" height="40" loading="lazy">
-                </a>
-                <div class="footer__contact">
-                    <span class="footer__contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:[(${contactEmail})]" class="footer__contact-link">[(${contactEmail})]</a>
+                    <div class="footer__contact">
+                        <span
+                            class="footer__contact-label"
+                            data-i18n="footer-contact"
+                        ></span>
+                        <a
+                            href="mailto:[(${contactEmail})]"
+                            class="footer__contact-link"
+                            >[(${contactEmail})]</a
+                        >
+                    </div>
+                </div>
+                <div class="footer__middle">
+                    <img
+                        src="/assets/img/img-for-footer.svg"
+                        alt=""
+                        class="footer__huge-logo"
+                        aria-hidden="true"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__copyright">© 2024—2026</div>
+                    <a
+                        href="/privacy"
+                        class="footer__policy"
+                        data-i18n="footer-policy"
+                    ></a>
                 </div>
             </div>
-            <div class="footer__middle">
-                <img src="/assets/img/img-for-footer.svg" alt="" class="footer__huge-logo" aria-hidden="true" loading="lazy">
-            </div>
-            <div class="footer__bottom">
-                <div class="footer__copyright">© 2024—2026</div>
-                <a href="/privacy" class="footer__policy" data-i18n="footer-policy"></a>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
-    <div class="popup js-popup" id="image-popup" aria-hidden="true">
-        <div class="popup__overlay js-popup-close"></div>
-        <div class="popup__content">
-            <button class="popup__close js-popup-close" aria-label="Закрыть">
-                <img src="/assets/img/close.svg" alt="Close" width="24" height="24">
-            </button>
-            <img src="" alt="" class="popup__image js-popup-img">
-        </div>
-    </div>
-
-    <div id="cookie-banner" class="cookie-banner hidden">
-        <div class="cookie-banner__container">
-            <p class="cookie-banner__text">
-                Мы используем cookie и сервис Яндекс.Метрика для улучшения работы сайта. Подробнее — в
-                <a href="/privacy" class="cookie-banner__link" target="_blank">Политике обработки персональных данных</a>.
-            </p>
-            <div class="cookie-banner__actions">
-                <button id="cookie-accept" class="button button--primary">Принять</button>
-                <button id="cookie-decline" class="button button--outline">Отказаться</button>
+        <div class="popup js-popup" id="image-popup" aria-hidden="true">
+            <div class="popup__overlay js-popup-close"></div>
+            <div class="popup__content">
+                <button
+                    class="popup__close js-popup-close"
+                    aria-label="Закрыть"
+                >
+                    <img
+                        src="/assets/img/close.svg"
+                        alt="Close"
+                        width="24"
+                        height="24"
+                    />
+                </button>
+                <img src="" alt="" class="popup__image js-popup-img" />
             </div>
         </div>
-    </div>
 
-    <button class="scroll-top js-scroll-top" aria-label="Наверх" title="Наверх"></button>
+        <div id="cookie-banner" class="cookie-banner hidden">
+            <div class="cookie-banner__container">
+                <p class="cookie-banner__text">
+                    Мы используем cookie и сервис Яндекс.Метрика для улучшения
+                    работы сайта. Подробнее — в
+                    <a
+                        href="/privacy"
+                        class="cookie-banner__link"
+                        target="_blank"
+                        >Политике обработки персональных данных</a
+                    >.
+                </p>
+                <div class="cookie-banner__actions">
+                    <button id="cookie-accept" class="button button--primary">
+                        Принять
+                    </button>
+                    <button id="cookie-decline" class="button button--outline">
+                        Отказаться
+                    </button>
+                </div>
+            </div>
+        </div>
 
-    <script>
-        window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
-        window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
-        window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
-        window.__LABKEEPER_PUBLIC_URL = "[(${publicUrl})]";
-        window.__LABKEEPER_CONTACT_EMAIL = "[(${contactEmail})]";
-        window.__LABKEEPER_CONTACT_PHONE = "[(${contactPhone})]";
-        window.LABKEEPER_BLOG_ARTICLES = [(${blogSliderJson})];
-    </script>
-    <script src="/assets/js/auth.js" defer></script>
-    <script src="/assets/js/script.js" defer></script>
-    <script src="/assets/js/openpanel.js" defer></script>
-    <script src="/assets/js/lang.js" defer></script>
-    <script src="/assets/js/swiper.js" defer></script>
-    <script src="/assets/js/slider.js" defer></script>
-    <script src="/assets/js/katex.js" defer></script>
-    <script src="/assets/js/blog.js" defer></script>
-</body>
+        <button
+            class="scroll-top js-scroll-top"
+            aria-label="Наверх"
+            title="Наверх"
+        ></button>
 
+        <script>
+            window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
+            window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
+            window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
+            window.__LABKEEPER_PUBLIC_URL = "[(${publicUrl})]";
+            window.__LABKEEPER_CONTACT_EMAIL = "[(${contactEmail})]";
+            window.__LABKEEPER_CONTACT_PHONE = "[(${contactPhone})]";
+            window.LABKEEPER_BLOG_ARTICLES = [(${blogSliderJson})];
+        </script>
+        <script src="/assets/js/auth.js" defer></script>
+        <script src="/assets/js/script.js" defer></script>
+        <script src="/assets/js/openpanel.js" defer></script>
+        <script src="/assets/js/lang.js" defer></script>
+        <script src="/assets/js/swiper.js" defer></script>
+        <script src="/assets/js/slider.js" defer></script>
+        <script src="/assets/js/katex.js" defer></script>
+        <script src="/assets/js/blog.js" defer></script>
+    </body>
 </html>

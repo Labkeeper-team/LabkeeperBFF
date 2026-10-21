@@ -31,32 +31,33 @@ function generateSitemap() {
     const urls = [];
 
     // 1. Статические страницы
-    STATIC_PAGES.forEach(page => urls.push(page));
+    STATIC_PAGES.forEach((page) => urls.push(page));
 
     // 2. Все статьи из папки src/blog/
     if (fs.existsSync(BLOG_DIR)) {
-        const blogFiles = fs.readdirSync(BLOG_DIR)
-            .filter(file => file.endsWith('.html'))
+        const blogFiles = fs
+            .readdirSync(BLOG_DIR)
+            .filter((file) => file.endsWith('.html'))
             .sort();
 
-        blogFiles.forEach(file => {
+        blogFiles.forEach((file) => {
             const slug = file.replace('.html', '');
             urls.push({
                 url: `/blog/${slug}`,
                 priority: '0.8',
-                changefreq: 'monthly'
+                changefreq: 'monthly',
             });
         });
     }
 
     // 3. Юридические страницы
-    LEGAL_PAGES.forEach(page => urls.push(page));
+    LEGAL_PAGES.forEach((page) => urls.push(page));
 
     // Генерация XML
     let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
-    urls.forEach(item => {
+    urls.forEach((item) => {
         xml += '  <url>\n';
         xml += `    <loc>${DOMAIN}${item.url}</loc>\n`;
         xml += `    <changefreq>${item.changefreq}</changefreq>\n`;
@@ -67,7 +68,9 @@ function generateSitemap() {
     xml += '</urlset>\n';
 
     fs.writeFileSync(SITEMAP_PATH, xml, 'utf8');
-    console.log(`[Sitemap] Успешно сгенерирован ${SITEMAP_PATH} (${urls.length} страниц)`);
+    console.log(
+        `[Sitemap] Успешно сгенерирован ${SITEMAP_PATH} (${urls.length} страниц)`
+    );
 }
 
 generateSitemap();

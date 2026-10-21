@@ -5,12 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     const projectsContainer = document.getElementById('projects-container');
     if (projectsContainer) {
-        const categoryLinks = document.querySelectorAll('#project-categories .header__nav-link');
-        const allSlides = Array.from(projectsContainer.querySelectorAll('.swiper-slide'));
+        const categoryLinks = document.querySelectorAll(
+            '#project-categories .header__nav-link'
+        );
+        const allSlides = Array.from(
+            projectsContainer.querySelectorAll('.swiper-slide')
+        );
         let swiperInstance = null;
 
-        const activeLangBtn = document.querySelector('.js-lang-switcher .header__lang-btn--active');
-        let currentLang = activeLangBtn ? activeLangBtn.getAttribute('data-lang') : (document.documentElement.lang || 'ru');
+        const activeLangBtn = document.querySelector(
+            '.js-lang-switcher .header__lang-btn--active'
+        );
+        let currentLang = activeLangBtn
+            ? activeLangBtn.getAttribute('data-lang')
+            : document.documentElement.lang || 'ru';
 
         function initSwiper() {
             if (swiperInstance) {
@@ -24,26 +32,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 grabCursor: true,
                 navigation: {
                     nextEl: '#examples .examples__arrow--next',
-                    prevEl: '#examples .examples__arrow--prev'
+                    prevEl: '#examples .examples__arrow--prev',
                 },
                 breakpoints: {
                     1024: {
                         slidesPerView: 4,
                         spaceBetween: 30,
-                        allowTouchMove: true
-                    }
-                }
+                        allowTouchMove: true,
+                    },
+                },
             });
         }
 
         function getActiveCategory() {
-            const activeTab = document.querySelector('#project-categories .header__nav-link--active');
+            const activeTab = document.querySelector(
+                '#project-categories .header__nav-link--active'
+            );
             return activeTab ? activeTab.getAttribute('data-category') : 'all';
         }
 
         function applyLanguage() {
             const nameKey = currentLang === 'en' ? 'nameEn' : 'nameRu';
-            const categoryKey = currentLang === 'en' ? 'categoryEn' : 'categoryRu';
+            const categoryKey =
+                currentLang === 'en' ? 'categoryEn' : 'categoryRu';
             allSlides.forEach((slide) => {
                 const title = slide.querySelector('.example-card__title');
                 const text = slide.querySelector('.example-card__text');
@@ -58,13 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function renderProjects(category) {
             projectsContainer.innerHTML = '';
-            const visible = category === 'all'
-                ? allSlides
-                : allSlides.filter((slide) => slide.dataset.category === category);
+            const visible =
+                category === 'all'
+                    ? allSlides
+                    : allSlides.filter(
+                          (slide) => slide.dataset.category === category
+                      );
             if (visible.length === 0) {
-                const noProjectsText = currentLang === 'ru'
-                    ? 'Нет проектов в данной категории'
-                    : 'No projects in this category';
+                const noProjectsText =
+                    currentLang === 'ru'
+                        ? 'Нет проектов в данной категории'
+                        : 'No projects in this category';
                 projectsContainer.innerHTML = `<div class="loading-placeholder">${noProjectsText}</div>`;
                 if (swiperInstance) {
                     swiperInstance.destroy(true, true);
@@ -79,7 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryLinks.forEach((link) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                categoryLinks.forEach((item) => item.classList.remove('header__nav-link--active'));
+                categoryLinks.forEach((item) =>
+                    item.classList.remove('header__nav-link--active')
+                );
                 link.classList.add('header__nav-link--active');
                 renderProjects(getActiveCategory());
             });
@@ -114,10 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     const audienceSwiperEl = document.querySelector('.audience__swiper');
     if (audienceSwiperEl) {
-        const currentPath = window.location.pathname.replace(/\/+$/, '').replace(/\.html$/, '');
+        const currentPath = window.location.pathname
+            .replace(/\/+$/, '')
+            .replace(/\.html$/, '');
 
         const eligibleArticles = ALL_BLOG_ARTICLES.filter((article) => {
-            const articleNormalized = article.url.replace(/\/+$/, '').replace(/\.html$/, '');
+            const articleNormalized = article.url
+                .replace(/\/+$/, '')
+                .replace(/\.html$/, '');
             return !currentPath.endsWith(articleNormalized);
         });
 
@@ -134,14 +155,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const swiperWrapper = audienceSwiperEl.querySelector('.swiper-wrapper');
         if (swiperWrapper && randomArticles.length > 0) {
-            swiperWrapper.innerHTML = randomArticles.map((article) => `
+            swiperWrapper.innerHTML = randomArticles
+                .map(
+                    (article) => `
                 <div class="swiper-slide">
                     <a href="${article.url}" class="audience-card">
                         <p class="audience-card__title">${article.title}</p>
                         <p class="audience-card__text">${article.text}</p>
                     </a>
                 </div>
-            `).join('');
+            `
+                )
+                .join('');
         }
 
         new Swiper(audienceSwiperEl, {
@@ -151,19 +176,19 @@ document.addEventListener('DOMContentLoaded', () => {
             grabCursor: true,
             navigation: {
                 nextEl: '.audience__arrow--next',
-                prevEl: '.audience__arrow--prev'
+                prevEl: '.audience__arrow--prev',
             },
             breakpoints: {
                 768: {
                     slidesPerView: 2,
-                    spaceBetween: 20
+                    spaceBetween: 20,
                 },
                 1024: {
                     slidesPerView: 3,
                     spaceBetween: 24,
-                    allowTouchMove: true
-                }
-            }
+                    allowTouchMove: true,
+                },
+            },
         });
     }
 
@@ -175,19 +200,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (blogTickerTrack) {
         let totalCount = 0;
-        const existingItems = blogTickerTrack.querySelectorAll('.blog-ticker__item');
+        const existingItems =
+            blogTickerTrack.querySelectorAll('.blog-ticker__item');
         if (existingItems.length > 0) {
             const itemsHtml = blogTickerTrack.innerHTML;
             blogTickerTrack.innerHTML = itemsHtml + itemsHtml;
             totalCount = existingItems.length * 2;
-        } else if (Array.isArray(ALL_BLOG_ARTICLES) && ALL_BLOG_ARTICLES.length > 0) {
+        } else if (
+            Array.isArray(ALL_BLOG_ARTICLES) &&
+            ALL_BLOG_ARTICLES.length > 0
+        ) {
             const latestArticles = ALL_BLOG_ARTICLES.slice(-50);
-            const itemsHtml = latestArticles.map((article) => `
+            const itemsHtml = latestArticles
+                .map(
+                    (article) => `
                 <a href="${article.url}" class="blog-ticker__item">
                     <span class="blog-ticker__text">${article.title}</span>
                     <span class="blog-ticker__arrow">→</span>
                 </a>
-            `).join('');
+            `
+                )
+                .join('');
 
             const repeatCount = latestArticles.length < 10 ? 4 : 2;
             let trackHtml = '';
@@ -250,55 +283,66 @@ document.addEventListener('DOMContentLoaded', () => {
                 blogTickerTrack.style.transform = '';
             };
 
-            blogTickerViewport.addEventListener('touchstart', (e) => {
-                if (e.touches.length !== 1) {
-                    return;
-                }
-                isDragging = true;
-                isHorizontalSwipe = false;
-                dragDistance = 0;
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
-                initialTranslateX = getCurrentTranslateX();
-
-                blogTickerTrack.style.animation = 'none';
-                blogTickerTrack.style.transform = `translateX(${initialTranslateX}px)`;
-            }, { passive: true });
-
-            blogTickerViewport.addEventListener('touchmove', (e) => {
-                if (!isDragging || e.touches.length !== 1) {
-                    return;
-                }
-                const currentX = e.touches[0].clientX;
-                const currentY = e.touches[0].clientY;
-                const diffX = currentX - startX;
-                const diffY = currentY - startY;
-
-                if (!isHorizontalSwipe) {
-                    if (Math.abs(diffX) > 8 && Math.abs(diffX) > Math.abs(diffY)) {
-                        isHorizontalSwipe = true;
-                    } else if (Math.abs(diffY) > 8) {
-                        isDragging = false;
-                        applyAnimationAtPosition(initialTranslateX);
+            blogTickerViewport.addEventListener(
+                'touchstart',
+                (e) => {
+                    if (e.touches.length !== 1) {
                         return;
                     }
-                }
+                    isDragging = true;
+                    isHorizontalSwipe = false;
+                    dragDistance = 0;
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                    initialTranslateX = getCurrentTranslateX();
 
-                if (isHorizontalSwipe) {
-                    dragDistance = diffX;
-                    const halfWidth = blogTickerTrack.scrollWidth / 2;
-                    let targetX = initialTranslateX + diffX;
-                    if (halfWidth > 0) {
-                        while (targetX > 0) {
-                            targetX -= halfWidth;
-                        }
-                        while (targetX < -halfWidth) {
-                            targetX += halfWidth;
+                    blogTickerTrack.style.animation = 'none';
+                    blogTickerTrack.style.transform = `translateX(${initialTranslateX}px)`;
+                },
+                { passive: true }
+            );
+
+            blogTickerViewport.addEventListener(
+                'touchmove',
+                (e) => {
+                    if (!isDragging || e.touches.length !== 1) {
+                        return;
+                    }
+                    const currentX = e.touches[0].clientX;
+                    const currentY = e.touches[0].clientY;
+                    const diffX = currentX - startX;
+                    const diffY = currentY - startY;
+
+                    if (!isHorizontalSwipe) {
+                        if (
+                            Math.abs(diffX) > 8 &&
+                            Math.abs(diffX) > Math.abs(diffY)
+                        ) {
+                            isHorizontalSwipe = true;
+                        } else if (Math.abs(diffY) > 8) {
+                            isDragging = false;
+                            applyAnimationAtPosition(initialTranslateX);
+                            return;
                         }
                     }
-                    blogTickerTrack.style.transform = `translateX(${targetX}px)`;
-                }
-            }, { passive: true });
+
+                    if (isHorizontalSwipe) {
+                        dragDistance = diffX;
+                        const halfWidth = blogTickerTrack.scrollWidth / 2;
+                        let targetX = initialTranslateX + diffX;
+                        if (halfWidth > 0) {
+                            while (targetX > 0) {
+                                targetX -= halfWidth;
+                            }
+                            while (targetX < -halfWidth) {
+                                targetX += halfWidth;
+                            }
+                        }
+                        blogTickerTrack.style.transform = `translateX(${targetX}px)`;
+                    }
+                },
+                { passive: true }
+            );
 
             const handleTouchEnd = () => {
                 if (!isDragging) {
@@ -309,15 +353,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 applyAnimationAtPosition(finalX);
             };
 
-            blogTickerViewport.addEventListener('touchend', handleTouchEnd, { passive: true });
-            blogTickerViewport.addEventListener('touchcancel', handleTouchEnd, { passive: true });
+            blogTickerViewport.addEventListener('touchend', handleTouchEnd, {
+                passive: true,
+            });
+            blogTickerViewport.addEventListener('touchcancel', handleTouchEnd, {
+                passive: true,
+            });
 
-            blogTickerTrack.addEventListener('click', (e) => {
-                if (Math.abs(dragDistance) > 10) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-            }, true);
+            blogTickerTrack.addEventListener(
+                'click',
+                (e) => {
+                    if (Math.abs(dragDistance) > 10) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                },
+                true
+            );
         }
     }
 
@@ -363,19 +415,19 @@ document.addEventListener('DOMContentLoaded', () => {
             observeParents: true,
             navigation: {
                 nextEl: '#knowledge .knowledge__arrow--next',
-                prevEl: '#knowledge .knowledge__arrow--prev'
+                prevEl: '#knowledge .knowledge__arrow--prev',
             },
             breakpoints: {
                 768: {
                     slidesPerView: 2,
-                    spaceBetween: 20
+                    spaceBetween: 20,
                 },
                 1024: {
                     slidesPerView: 3,
                     spaceBetween: 24,
-                    allowTouchMove: true
-                }
-            }
+                    allowTouchMove: true,
+                },
+            },
         });
 
         window.addEventListener('load', () => {

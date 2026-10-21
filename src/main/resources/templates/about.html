@@ -1,398 +1,754 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests"
+        />
+        <title>О нас — онлайн-редактор Labkeeper</title>
+        <meta
+            name="description"
+            content="О команде и миссии сервиса Labkeeper: единая онлайн-среда для верстки документов LaTeX и Markdown, точных математических вычислений и научных публикаций."
+        />
+        <link rel="canonical" href="[(${publicUrl})]/about" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="[(${publicUrl})]/about" />
+        <meta property="og:locale" content="ru_RU" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:site_name" content="Labkeeper" />
+        <meta property="og:title" content="О нас — онлайн-редактор Labkeeper" />
+        <meta
+            property="og:description"
+            content="Узнайте о миссии Labkeeper и возможностях единой платформы для расчетов и подготовки научных документов."
+        />
+        <meta
+            property="og:image"
+            content="[(${publicUrl})]/assets/img/og-image.svg"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:image"
+            content="[(${publicUrl})]/assets/img/og-image.svg"
+        />
+        <meta
+            name="twitter:title"
+            content="О нас — онлайн-редактор Labkeeper"
+        />
+        <meta
+            name="twitter:description"
+            content="Узнайте о миссии Labkeeper и возможностях единой платформы для расчетов и подготовки научных документов."
+        />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests">
-    <title>О нас — онлайн-редактор Labkeeper</title>
-    <meta name="description"
-        content="О команде и миссии сервиса Labkeeper: единая онлайн-среда для верстки документов LaTeX и Markdown, точных математических вычислений и научных публикаций." />
-    <link rel="canonical" href="[(${publicUrl})]/about" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="[(${publicUrl})]/about" />
-    <meta property="og:locale" content="ru_RU" />
-    <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:site_name" content="Labkeeper" />
-    <meta property="og:title" content="О нас — онлайн-редактор Labkeeper" />
-    <meta property="og:description"
-        content="Узнайте о миссии Labkeeper и возможностях единой платформы для расчетов и подготовки научных документов." />
-    <meta property="og:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="[(${publicUrl})]/assets/img/og-image.svg" />
-    <meta name="twitter:title" content="О нас — онлайн-редактор Labkeeper" />
-    <meta name="twitter:description"
-        content="Узнайте о миссии Labkeeper и возможностях единой платформы для расчетов и подготовки научных документов." />
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "name": "О нас — Labkeeper",
-        "description": "О команде и миссии сервиса Labkeeper: единая онлайн-среда для верстки документов LaTeX и Markdown, точных математических вычислений и научных публикаций.",
-        "url": "[(${publicUrl})]/about",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Labkeeper",
-            "url": "[(${publicUrl})]",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "[(${publicUrl})]/assets/img/logo.svg"
-            }
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
+        <script type="application/ld+json">
             {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Главная",
-                "item": "[(${publicUrl})]/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "О нас",
-                "item": "[(${publicUrl})]/about"
-            }
-        ]
-    }
-    </script>
-    <script type="text/javascript">
-        (function () {
-            function hasAcceptedCookieConsent() {
-                try {
-                    return localStorage.getItem('labkeeper_cookie_consent') === 'accepted';
-                } catch (e) {
-                    return false;
+                "@context": "https://schema.org",
+                "@type": "AboutPage",
+                "name": "О нас — Labkeeper",
+                "description": "О команде и миссии сервиса Labkeeper: единая онлайн-среда для верстки документов LaTeX и Markdown, точных математических вычислений и научных публикаций.",
+                "url": "[(${publicUrl})]/about",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Labkeeper",
+                    "url": "[(${publicUrl})]",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "[(${publicUrl})]/assets/img/logo.svg"
+                    }
                 }
             }
-
-            window.initLabkeeperYandexMetrika = function () {
-                if (
-                    window.__labkeeperYandexMetrikaInitialized ||
-                    !hasAcceptedCookieConsent() ||
-                    typeof [(${yandexMetrikaKey})] === 'undefined'
-                ) {
-                    return;
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Главная",
+                        "item": "[(${publicUrl})]/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "О нас",
+                        "item": "[(${publicUrl})]/about"
+                    }
+                ]
+            }
+        </script>
+        <script type="text/javascript">
+            (function () {
+                function hasAcceptedCookieConsent() {
+                    try {
+                        return localStorage.getItem('labkeeper_cookie_consent') === 'accepted';
+                    } catch (e) {
+                        return false;
+                    }
                 }
 
-                (function (m, e, t, r, i, k, a) {
-                    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
-                    m[i].l = 1 * new Date();
-                    for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-                    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
-                })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+                window.initLabkeeperYandexMetrika = function () {
+                    if (
+                        window.__labkeeperYandexMetrikaInitialized ||
+                        !hasAcceptedCookieConsent() ||
+                        typeof [(${yandexMetrikaKey})] === 'undefined'
+                    ) {
+                        return;
+                    }
 
-                ym([(${yandexMetrikaKey})], "init", {
-                    webvisor: true,
-                    clickmap: true,
-                    referrer: document.referrer,
-                    url: location.href,
-                    accurateTrackBounce: true,
-                    trackLinks: true
-                });
+                    (function (m, e, t, r, i, k, a) {
+                        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+                        m[i].l = 1 * new Date();
+                        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+                    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-                window.__labkeeperYandexMetrikaInitialized = true;
-            };
+                    ym([(${yandexMetrikaKey})], "init", {
+                        webvisor: true,
+                        clickmap: true,
+                        referrer: document.referrer,
+                        url: location.href,
+                        accurateTrackBounce: true,
+                        trackLinks: true
+                    });
 
-            window.initLabkeeperYandexMetrika();
-        })();
-    </script>
+                    window.__labkeeperYandexMetrikaInitialized = true;
+                };
 
-    <!-- Preconnect & Async Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+                window.initLabkeeperYandexMetrika();
+            })();
+        </script>
 
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
+        <!-- Preconnect & Async Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
 
-<body class="page">
-    <header class="header js-header">
-        <div class="header__container">
-            <div class="header__left">
-                <!-- Кнопка мобильного меню -->
-                <button class="header__burger js-burger-btn" aria-label="Открыть меню">
-                    <span class="header__burger-line"></span>
-                    <span class="header__burger-line"></span>
-                    <span class="header__burger-line"></span>
-                </button>
-                <a href="/" class="header__logo">
-                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="header__logo-icon" width="36"
-                        height="36">
-                    <span class="header__logo-text">Labkeeper</span>
-                </a>
-                <div class="header__lang js-lang-switcher">
-                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
-                    <button class="header__lang-btn" data-lang="en">En</button>
-                </div>
-            </div>
+        <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
 
-            <nav class="header__nav js-nav">
-                <div class="header__mobile-lang js-lang-switcher">
-                    <button class="header__lang-btn header__lang-btn--active" data-lang="ru">Ru</button>
-                    <button class="header__lang-btn" data-lang="en">En</button>
-                </div>
-                <ul class="header__nav-list">
-                    <li class="header__nav-item"><a href="/#examples" class="header__nav-link"
-                            data-i18n="nav-examples"></a></li>
-                    <li class="header__nav-item"><a href="/#advantages" class="header__nav-link"
-                            data-i18n="nav-features"></a></li>
-                    <li class="header__nav-item"><a href="/tokens" class="header__nav-link" data-i18n="nav-tokens"></a>
-                    </li>
-                    <li class="header__nav-item"><a href="/blog" class="header__nav-link" data-i18n="nav-blog"></a></li>
-
-                    <li class="header__nav-item"><a href="/about" class="header__nav-link header__nav-link--active"
-                            data-i18n="nav-about"></a></li>
-                </ul>
-                <div class="header__mobile-contact">
-                    <span class="header__mobile-contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:[(${contactEmail})]"
-                        class="header__mobile-contact-link">[(${contactEmail})]</a>
-                </div>
-            </nav>
-
-            <div class="header__right">
-                <a href="/project/default?open=login" class="button button--outline header__login"
-                    data-i18n="btn-login" th:style="${viewerAuthenticated} ? 'display: none' : null"></a>
-                <a href="/projects" class="button button--outline header__projects" data-i18n="btn-projects"
-                    th:style="${viewerAuthenticated} ? null : 'display: none'"></a>
-                <a href="/project/default" class="button button--primary header__editor" data-i18n="btn-editor"></a>
-            </div>
-        </div>
-    </header>
-
-    <main class="main page-about">
-        <!-- Блок 1: Hero и Миссия -->
-        <section class="about-hero">
-            <div class="about-hero__container">
-                <!-- Описание -->
-                <div class="about-hero__row">
-                    <div class="about-hero__content">
-                        <h1 class="about-hero__title h1" data-i18n="about-title"></h1>
-                        <p class="about-hero__text" data-i18n="about-text-1"></p>
-                        <p class="about-hero__text" data-i18n="about-text-2"></p>
-                    </div>
-                    <img src="assets/img/logo.svg" alt="Labkeeper decorative pattern" class="about-hero__logo"
-                        loading="lazy">
-                </div>
-
-                <!-- Миссия -->
-                <div class="about-hero__row about-hero__row--reverse">
-                    <div class="about-hero__content">
-                        <h2 class="about-hero__subtitle h1" data-i18n="about-mission"></h2>
-                        <p class="about-hero__text" data-i18n="about-mission-text"></p>
-                    </div>
-                    <img src="assets/img/logo.svg" alt="Labkeeper decorative pattern"
-                        class="about-hero__logo about-hero__logo--small" loading="lazy">
-                </div>
-            </div>
-        </section>
-
-        <!-- Блок 2: Для кого (клонировано с мода) -->
-        <section class="audience audience--about" id="audience">
-            <div class="audience__container">
-                <h2 class="audience__title h1" data-i18n="aud-title"></h2>
-                <div class="audience__cards">
-                    <div class="audience-card">
-                        <h3 class="audience-card__title" data-i18n="aud-c1-title"></h3>
-                        <p class="audience-card__text" data-i18n="aud-c1-text"></p>
-                    </div>
-                    <div class="audience-card">
-                        <h3 class="audience-card__title" data-i18n="aud-c2-title"></h3>
-                        <p class="audience-card__text" data-i18n="aud-c2-text"></p>
-                    </div>
-                    <div class="audience-card">
-                        <h3 class="audience-card__title" data-i18n="aud-c3-title"></h3>
-                        <p class="audience-card__text" data-i18n="aud-c3-text"></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="about-docs">
-            <div class="about-docs__container">
-                <h2 class="about-docs__title h2" data-i18n="docs-title"></h2>
-
-                <div class="about-docs__table">
-                    <div class="about-docs__row">
-                        <div class="about-docs__label" data-i18n="docs-label-name"></div>
-                        <div class="about-docs__value">ИП ТРОФИМЕНКО АНАСТАСИЯ АЛЕКСЕЕВНА
-                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
-                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
-                                        fill="#4469E0" />
-                                </svg></button>
-                        </div>
-                    </div>
-                    <div class="about-docs__row">
-                        <div class="about-docs__label" data-i18n="docs-label-inn"></div>
-                        <div class="about-docs__value">502910548283
-                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
-                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
-                                        fill="#4469E0" />
-                                </svg></button>
-                        </div>
-                    </div>
-                    <div class="about-docs__row">
-                        <div class="about-docs__label" data-i18n="docs-label-ogrnip"></div>
-                        <div class="about-docs__value">326508100352548
-                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
-                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
-                                        fill="#4469E0" />
-                                </svg></button>
-                        </div>
-                    </div>
-                    <div class="about-docs__row">
-                        <div class="about-docs__label" data-i18n="docs-label-address"></div>
-                        <div class="about-docs__value">141014, РОССИЯ, МОСКОВСКАЯ ОБЛ, Г МЫТИЩИ, УЛ ПИОНЕРСКАЯ, Д 1А КВ
-                            127
-                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
-                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
-                                        fill="#4469E0" />
-                                </svg></button>
-                        </div>
-                    </div>
-                    <div class="about-docs__row">
-                        <div class="about-docs__label" data-i18n="docs-label-email"></div>
-                        <div class="about-docs__value">[(${contactEmail})]
-                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
-                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
-                                        fill="#4469E0" />
-                                </svg></button>
-                        </div>
-                    </div>
-                    <div class="about-docs__row">
-                        <div class="about-docs__label" data-i18n="docs-label-phone"></div>
-                        <div class="about-docs__value">[(${contactPhone})]
-                            <button class="about-docs__copy" aria-label="Скопировать"><svg width="16" height="16"
-                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
-                                        fill="#4469E0" />
-                                </svg></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-docs__links">
-                    <a href="soglas" class="button button--outline about-docs__link" target="_blank"><span
-                            data-i18n="docs-link-consent"></span> <img src="assets/img/target.svg" alt="external link"
-                            class="button__external-icon" width="16" height="16"></a>
-                    <a href="oferta" class="button button--outline about-docs__link" target="_blank"><span
-                            data-i18n="docs-link-oferta"></span> <img src="assets/img/target.svg" alt="external link"
-                            class="button__external-icon" width="16" height="16"></a>
-                    <a href="privacy" class="button button--outline about-docs__link" target="_blank"><span
-                            data-i18n="docs-link-privacy"></span> <img src="assets/img/target.svg" alt="external link"
-                            class="button__external-icon" width="16" height="16"></a>
-                    <a href="sogl_yam" class="button button--outline about-docs__link" target="_blank"><span
-                            data-i18n="docs-link-yam"></span> <img src="assets/img/target.svg" alt="external link"
-                            class="button__external-icon" width="16" height="16"></a>
-                    <a href="sogl_adv" class="button button--outline about-docs__link" target="_blank"><span
-                            data-i18n="docs-link-adv"></span> <img src="assets/img/target.svg" alt="external link"
-                            class="button__external-icon" width="16" height="16"></a>
-                    <a href="sogl_ds" class="button button--outline about-docs__link" target="_blank"><span
-                            data-i18n="docs-link-ds"></span> <img src="assets/img/target.svg" alt="external link"
-                            class="button__external-icon" width="16" height="16"></a>
-                    <a href="/" class="button button--outline about-docs__link"><span
-                            data-i18n="docs-link-cookies"></span>
+    <body class="page">
+        <header class="header js-header">
+            <div class="header__container">
+                <div class="header__left">
+                    <!-- Кнопка мобильного меню -->
+                    <button
+                        class="header__burger js-burger-btn"
+                        aria-label="Открыть меню"
+                    >
+                        <span class="header__burger-line"></span>
+                        <span class="header__burger-line"></span>
+                        <span class="header__burger-line"></span>
+                    </button>
+                    <a href="/" class="header__logo">
+                        <img
+                            src="assets/img/logo.svg"
+                            alt="Labkeeper Logo"
+                            class="header__logo-icon"
+                            width="36"
+                            height="36"
+                        />
+                        <span class="header__logo-text">Labkeeper</span>
                     </a>
+                    <div class="header__lang js-lang-switcher">
+                        <button
+                            class="header__lang-btn header__lang-btn--active"
+                            data-lang="ru"
+                        >
+                            Ru
+                        </button>
+                        <button class="header__lang-btn" data-lang="en">
+                            En
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-    </main>
+                <nav class="header__nav js-nav">
+                    <div class="header__mobile-lang js-lang-switcher">
+                        <button
+                            class="header__lang-btn header__lang-btn--active"
+                            data-lang="ru"
+                        >
+                            Ru
+                        </button>
+                        <button class="header__lang-btn" data-lang="en">
+                            En
+                        </button>
+                    </div>
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item">
+                            <a
+                                href="/#examples"
+                                class="header__nav-link"
+                                data-i18n="nav-examples"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/#advantages"
+                                class="header__nav-link"
+                                data-i18n="nav-features"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/tokens"
+                                class="header__nav-link"
+                                data-i18n="nav-tokens"
+                            ></a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a
+                                href="/blog"
+                                class="header__nav-link"
+                                data-i18n="nav-blog"
+                            ></a>
+                        </li>
 
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__top">
-                <nav class="footer__nav">
-                    <a href="/#features" class="footer__link" data-i18n="nav-advantages"></a>
-                    <a href="/#advantages" class="footer__link" data-i18n="nav-features"></a>
-                    <a href="/tokens" class="footer__link" data-i18n="nav-tokens"></a>
-                    <a href="https://github.com/Labkeeper-team/Docs/wiki/ru" target="_blank"
-                        class="footer__link footer__link--external">
-                        <span data-i18n="nav-wiki"></span>
-                        <img src="assets/img/target.svg" alt="target icon" class="footer__link-icon"
-                            style="margin-left: 4px; vertical-align: middle;" width="16" height="16" loading="lazy">
-                    </a>
-                    <a href="/#examples" class="footer__link" data-i18n="nav-examples"></a>
-                    <a href="/blog" class="footer__link" data-i18n="nav-blog"></a>
-
-                    <a href="/about" class="footer__link" data-i18n="nav-about"></a>
+                        <li class="header__nav-item">
+                            <a
+                                href="/about"
+                                class="header__nav-link header__nav-link--active"
+                                data-i18n="nav-about"
+                            ></a>
+                        </li>
+                    </ul>
+                    <div class="header__mobile-contact">
+                        <span
+                            class="header__mobile-contact-label"
+                            data-i18n="footer-contact"
+                        ></span>
+                        <a
+                            href="mailto:[(${contactEmail})]"
+                            class="header__mobile-contact-link"
+                            >[(${contactEmail})]</a
+                        >
+                    </div>
                 </nav>
-                <a href="/" class="footer__logo-link">
-                    <img src="assets/img/logo.svg" alt="Labkeeper Logo" class="footer__logo" width="40" height="40"
-                        loading="lazy">
-                </a>
-                <div class="footer__contact">
-                    <span class="footer__contact-label" data-i18n="footer-contact"></span>
-                    <a href="mailto:[(${contactEmail})]" class="footer__contact-link">[(${contactEmail})]</a>
+
+                <div class="header__right">
+                    <a
+                        href="/project/default?open=login"
+                        class="button button--outline header__login"
+                        data-i18n="btn-login"
+                        th:style="${viewerAuthenticated} ? 'display: none' : null"
+                    ></a>
+                    <a
+                        href="/projects"
+                        class="button button--outline header__projects"
+                        data-i18n="btn-projects"
+                        th:style="${viewerAuthenticated} ? null : 'display: none'"
+                    ></a>
+                    <a
+                        href="/project/default"
+                        class="button button--primary header__editor"
+                        data-i18n="btn-editor"
+                    ></a>
                 </div>
             </div>
-            <div class="footer__middle">
-                <img src="assets/img/img-for-footer.svg" alt="Labkeeper" class="footer__huge-logo" aria-hidden="true"
-                    loading="lazy">
+        </header>
+
+        <main class="main page-about">
+            <!-- Блок 1: Hero и Миссия -->
+            <section class="about-hero">
+                <div class="about-hero__container">
+                    <!-- Описание -->
+                    <div class="about-hero__row">
+                        <div class="about-hero__content">
+                            <h1
+                                class="about-hero__title h1"
+                                data-i18n="about-title"
+                            ></h1>
+                            <p
+                                class="about-hero__text"
+                                data-i18n="about-text-1"
+                            ></p>
+                            <p
+                                class="about-hero__text"
+                                data-i18n="about-text-2"
+                            ></p>
+                        </div>
+                        <img
+                            src="assets/img/logo.svg"
+                            alt="Labkeeper decorative pattern"
+                            class="about-hero__logo"
+                            loading="lazy"
+                        />
+                    </div>
+
+                    <!-- Миссия -->
+                    <div class="about-hero__row about-hero__row--reverse">
+                        <div class="about-hero__content">
+                            <h2
+                                class="about-hero__subtitle h1"
+                                data-i18n="about-mission"
+                            ></h2>
+                            <p
+                                class="about-hero__text"
+                                data-i18n="about-mission-text"
+                            ></p>
+                        </div>
+                        <img
+                            src="assets/img/logo.svg"
+                            alt="Labkeeper decorative pattern"
+                            class="about-hero__logo about-hero__logo--small"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 2: Для кого (клонировано с мода) -->
+            <section class="audience audience--about" id="audience">
+                <div class="audience__container">
+                    <h2 class="audience__title h1" data-i18n="aud-title"></h2>
+                    <div class="audience__cards">
+                        <div class="audience-card">
+                            <h3
+                                class="audience-card__title"
+                                data-i18n="aud-c1-title"
+                            ></h3>
+                            <p
+                                class="audience-card__text"
+                                data-i18n="aud-c1-text"
+                            ></p>
+                        </div>
+                        <div class="audience-card">
+                            <h3
+                                class="audience-card__title"
+                                data-i18n="aud-c2-title"
+                            ></h3>
+                            <p
+                                class="audience-card__text"
+                                data-i18n="aud-c2-text"
+                            ></p>
+                        </div>
+                        <div class="audience-card">
+                            <h3
+                                class="audience-card__title"
+                                data-i18n="aud-c3-title"
+                            ></h3>
+                            <p
+                                class="audience-card__text"
+                                data-i18n="aud-c3-text"
+                            ></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-docs">
+                <div class="about-docs__container">
+                    <h2
+                        class="about-docs__title h2"
+                        data-i18n="docs-title"
+                    ></h2>
+
+                    <div class="about-docs__table">
+                        <div class="about-docs__row">
+                            <div
+                                class="about-docs__label"
+                                data-i18n="docs-label-name"
+                            ></div>
+                            <div class="about-docs__value">
+                                ИП ТРОФИМЕНКО АНАСТАСИЯ АЛЕКСЕЕВНА
+                                <button
+                                    class="about-docs__copy"
+                                    aria-label="Скопировать"
+                                >
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                            fill="#4469E0"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="about-docs__row">
+                            <div
+                                class="about-docs__label"
+                                data-i18n="docs-label-inn"
+                            ></div>
+                            <div class="about-docs__value">
+                                502910548283
+                                <button
+                                    class="about-docs__copy"
+                                    aria-label="Скопировать"
+                                >
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                            fill="#4469E0"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="about-docs__row">
+                            <div
+                                class="about-docs__label"
+                                data-i18n="docs-label-ogrnip"
+                            ></div>
+                            <div class="about-docs__value">
+                                326508100352548
+                                <button
+                                    class="about-docs__copy"
+                                    aria-label="Скопировать"
+                                >
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                            fill="#4469E0"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="about-docs__row">
+                            <div
+                                class="about-docs__label"
+                                data-i18n="docs-label-address"
+                            ></div>
+                            <div class="about-docs__value">
+                                141014, РОССИЯ, МОСКОВСКАЯ ОБЛ, Г МЫТИЩИ, УЛ
+                                ПИОНЕРСКАЯ, Д 1А КВ 127
+                                <button
+                                    class="about-docs__copy"
+                                    aria-label="Скопировать"
+                                >
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                            fill="#4469E0"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="about-docs__row">
+                            <div
+                                class="about-docs__label"
+                                data-i18n="docs-label-email"
+                            ></div>
+                            <div class="about-docs__value">
+                                [(${contactEmail})]
+                                <button
+                                    class="about-docs__copy"
+                                    aria-label="Скопировать"
+                                >
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                            fill="#4469E0"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="about-docs__row">
+                            <div
+                                class="about-docs__label"
+                                data-i18n="docs-label-phone"
+                            ></div>
+                            <div class="about-docs__value">
+                                [(${contactPhone})]
+                                <button
+                                    class="about-docs__copy"
+                                    aria-label="Скопировать"
+                                >
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M12.6667 0.666656H4.66665C3.93332 0.666656 3.33332 1.26666 3.33332 1.99999V4.66666H1.99999C1.26666 4.66666 0.666656 5.26666 0.666656 5.99999V14C0.666656 14.7333 1.26666 15.3333 1.99999 15.3333H9.99999C10.7333 15.3333 11.3333 14.7333 11.3333 14V11.3333H12.6667C13.4 11.3333 14 10.7333 14 9.99999V1.99999C14 1.26666 13.4 0.666656 12.6667 0.666656ZM9.99999 14H1.99999V5.99999H9.99999V14ZM4.66665 4.66666H11.3333V9.99999H12.6667V1.99999H4.66665V4.66666Z"
+                                            fill="#4469E0"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-docs__links">
+                        <a
+                            href="soglas"
+                            class="button button--outline about-docs__link"
+                            target="_blank"
+                            ><span data-i18n="docs-link-consent"></span>
+                            <img
+                                src="assets/img/target.svg"
+                                alt="external link"
+                                class="button__external-icon"
+                                width="16"
+                                height="16"
+                        /></a>
+                        <a
+                            href="oferta"
+                            class="button button--outline about-docs__link"
+                            target="_blank"
+                            ><span data-i18n="docs-link-oferta"></span>
+                            <img
+                                src="assets/img/target.svg"
+                                alt="external link"
+                                class="button__external-icon"
+                                width="16"
+                                height="16"
+                        /></a>
+                        <a
+                            href="privacy"
+                            class="button button--outline about-docs__link"
+                            target="_blank"
+                            ><span data-i18n="docs-link-privacy"></span>
+                            <img
+                                src="assets/img/target.svg"
+                                alt="external link"
+                                class="button__external-icon"
+                                width="16"
+                                height="16"
+                        /></a>
+                        <a
+                            href="sogl_yam"
+                            class="button button--outline about-docs__link"
+                            target="_blank"
+                            ><span data-i18n="docs-link-yam"></span>
+                            <img
+                                src="assets/img/target.svg"
+                                alt="external link"
+                                class="button__external-icon"
+                                width="16"
+                                height="16"
+                        /></a>
+                        <a
+                            href="sogl_adv"
+                            class="button button--outline about-docs__link"
+                            target="_blank"
+                            ><span data-i18n="docs-link-adv"></span>
+                            <img
+                                src="assets/img/target.svg"
+                                alt="external link"
+                                class="button__external-icon"
+                                width="16"
+                                height="16"
+                        /></a>
+                        <a
+                            href="sogl_ds"
+                            class="button button--outline about-docs__link"
+                            target="_blank"
+                            ><span data-i18n="docs-link-ds"></span>
+                            <img
+                                src="assets/img/target.svg"
+                                alt="external link"
+                                class="button__external-icon"
+                                width="16"
+                                height="16"
+                        /></a>
+                        <a
+                            href="/"
+                            class="button button--outline about-docs__link"
+                            ><span data-i18n="docs-link-cookies"></span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Подвал -->
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__top">
+                    <nav class="footer__nav">
+                        <a
+                            href="/#features"
+                            class="footer__link"
+                            data-i18n="nav-advantages"
+                        ></a>
+                        <a
+                            href="/#advantages"
+                            class="footer__link"
+                            data-i18n="nav-features"
+                        ></a>
+                        <a
+                            href="/tokens"
+                            class="footer__link"
+                            data-i18n="nav-tokens"
+                        ></a>
+                        <a
+                            href="https://github.com/Labkeeper-team/Docs/wiki/ru"
+                            target="_blank"
+                            class="footer__link footer__link--external"
+                        >
+                            <span data-i18n="nav-wiki"></span>
+                            <img
+                                src="assets/img/target.svg"
+                                alt="target icon"
+                                class="footer__link-icon"
+                                style="margin-left: 4px; vertical-align: middle"
+                                width="16"
+                                height="16"
+                                loading="lazy"
+                            />
+                        </a>
+                        <a
+                            href="/#examples"
+                            class="footer__link"
+                            data-i18n="nav-examples"
+                        ></a>
+                        <a
+                            href="/blog"
+                            class="footer__link"
+                            data-i18n="nav-blog"
+                        ></a>
+
+                        <a
+                            href="/about"
+                            class="footer__link"
+                            data-i18n="nav-about"
+                        ></a>
+                    </nav>
+                    <a href="/" class="footer__logo-link">
+                        <img
+                            src="assets/img/logo.svg"
+                            alt="Labkeeper Logo"
+                            class="footer__logo"
+                            width="40"
+                            height="40"
+                            loading="lazy"
+                        />
+                    </a>
+                    <div class="footer__contact">
+                        <span
+                            class="footer__contact-label"
+                            data-i18n="footer-contact"
+                        ></span>
+                        <a
+                            href="mailto:[(${contactEmail})]"
+                            class="footer__contact-link"
+                            >[(${contactEmail})]</a
+                        >
+                    </div>
+                </div>
+                <div class="footer__middle">
+                    <img
+                        src="assets/img/img-for-footer.svg"
+                        alt="Labkeeper"
+                        class="footer__huge-logo"
+                        aria-hidden="true"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__copyright">© 2024—2026</div>
+                    <a
+                        href="privacy"
+                        class="footer__policy"
+                        data-i18n="footer-policy"
+                    ></a>
+                </div>
             </div>
-            <div class="footer__bottom">
-                <div class="footer__copyright">© 2024—2026</div>
-                <a href="privacy" class="footer__policy" data-i18n="footer-policy"></a>
+        </footer>
+
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" class="cookie-banner hidden">
+            <div class="cookie-banner__container">
+                <p class="cookie-banner__text">
+                    Мы используем cookie и сервис Яндекс.Метрика для улучшения
+                    работы сайта. Обязательные cookie работают всегда.
+                    Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс»,
+                    Россия) требуют вашего согласия. Подробнее — в
+                    <a
+                        href="privacy"
+                        class="cookie-banner__link"
+                        target="_blank"
+                        >Политике обработки персональных данных</a
+                    >
+                    и
+                    <a
+                        href="sogl_yam"
+                        class="cookie-banner__link"
+                        target="_blank"
+                        >Согласии на использование сервиса Яндекс.Метрика</a
+                    >.
+                </p>
+                <div class="cookie-banner__actions">
+                    <button id="cookie-accept" class="button button--primary">
+                        Принять
+                    </button>
+                    <button id="cookie-decline" class="button button--outline">
+                        Отказаться
+                    </button>
+                </div>
             </div>
         </div>
-    </footer>
 
-    <!-- Cookie Banner -->
-    <div id="cookie-banner" class="cookie-banner hidden">
-        <div class="cookie-banner__container">
-            <p class="cookie-banner__text">
-                Мы используем cookie и сервис Яндекс.Метрика для улучшения работы сайта. Обязательные cookie работают
-                всегда. Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс», Россия) требуют вашего согласия.
-                Подробнее — в <a href="privacy" class="cookie-banner__link" target="_blank">Политике обработки
-                    персональных данных</a> и <a href="sogl_yam" class="cookie-banner__link" target="_blank">Согласии на
-                    использование сервиса Яндекс.Метрика</a>.
-            </p>
-            <div class="cookie-banner__actions">
-                <button id="cookie-accept" class="button button--primary">Принять</button>
-                <button id="cookie-decline" class="button button--outline">Отказаться</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Скрипты -->
-    <script>
-        window.__LABKEEPER_API_VERSION = "[(${apiVersion})]";
-        window.__LABKEEPER_OPENPANEL_CLIENT_ID = "[(${openpanelClientId})]";
-        window.__LABKEEPER_OPENPANEL_API_URL = "[(${openpanelApiUrl})]";
-        window.__LABKEEPER_PUBLIC_URL = "[(${publicUrl})]";
-        window.__LABKEEPER_CONTACT_EMAIL = "[(${contactEmail})]";
-        window.__LABKEEPER_CONTACT_PHONE = "[(${contactPhone})]";
-    </script>
-    <script src="assets/js/auth.js" defer></script>
-    <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/openpanel.js" defer></script>
-    <script src="assets/js/lang.js" defer></script>
-    <script th:inline="javascript">
-        window.LABKEEPER_BLOG_ARTICLES = [(${blogSliderJson})];
-    </script>
-    <script src="assets/js/slider.js" defer></script>
-</body>
-
+        <!-- Скрипты -->
+        <script>
+            window.__LABKEEPER_API_VERSION = '[(${apiVersion})]';
+            window.__LABKEEPER_OPENPANEL_CLIENT_ID = '[(${openpanelClientId})]';
+            window.__LABKEEPER_OPENPANEL_API_URL = '[(${openpanelApiUrl})]';
+            window.__LABKEEPER_PUBLIC_URL = '[(${publicUrl})]';
+            window.__LABKEEPER_CONTACT_EMAIL = '[(${contactEmail})]';
+            window.__LABKEEPER_CONTACT_PHONE = '[(${contactPhone})]';
+        </script>
+        <script src="assets/js/auth.js" defer></script>
+        <script src="assets/js/script.js" defer></script>
+        <script src="assets/js/openpanel.js" defer></script>
+        <script src="assets/js/lang.js" defer></script>
+        <script th:inline="javascript">
+            window.LABKEEPER_BLOG_ARTICLES = [(${blogSliderJson})];
+        </script>
+        <script src="assets/js/slider.js" defer></script>
+    </body>
 </html>
