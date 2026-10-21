@@ -36,9 +36,9 @@ class LandingPagesServerTest(
 
         body shouldContain "<!doctype html>"
         body shouldContain "Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF"
-        body shouldContain "window.__LABKEEPER_API_VERSION = \"v9\";"
-        body shouldContain "window.__LABKEEPER_OPENPANEL_CLIENT_ID = \"client\";"
-        body shouldContain "window.__LABKEEPER_OPENPANEL_API_URL = \"https://openpanel.example\";"
+        body shouldContain "window.__LABKEEPER_API_VERSION = 'v9';"
+        body shouldContain "window.__LABKEEPER_OPENPANEL_CLIENT_ID = 'client';"
+        body shouldContain "window.__LABKEEPER_OPENPANEL_API_URL = 'https://openpanel.example';"
         body shouldContain "ym(123456, \"init\""
         body shouldNotContain "IO_LABKEEPER_FRONTEND_"
         body shouldContain "href=\"assets/css/style.css\""
@@ -47,7 +47,7 @@ class LandingPagesServerTest(
         body shouldContain "display: none"
         body shouldContain "https://labkeeper.test/"
         body shouldContain "hello@labkeeper.test"
-        body shouldContain "window.__LABKEEPER_PUBLIC_URL = \"https://labkeeper.test\";"
+        body shouldContain "window.__LABKEEPER_PUBLIC_URL = 'https://labkeeper.test';"
         body shouldNotContain "labkeeper.io"
     }
 
