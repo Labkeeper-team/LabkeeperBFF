@@ -3,15 +3,15 @@ package io.labkeeper.web.frontend
 import org.springframework.boot.context.properties.ConfigurationProperties
 
 @ConfigurationProperties(prefix = "io.labkeeper.frontend")
-class FrontendProperties(
-    val yandexCaptchaSiteKey: String,
-    val sentryDsn: String,
-    val yandexMetrikaKey: String,
-    val openpanelClientId: String,
-    val openpanelApiUrl: String,
-    val contactEmail: String,
-    val contactPhone: String,
-    val defaultTitle: String,
-    val defaultDescription: String,
-    val disallowIndexing: Boolean,
-)
+class FrontendProperties {
+    var yandexCaptchaSiteKey: String = ""
+    var sentryDsn: String = ""
+    var yandexMetrikaKey: String = ""
+    var openpanelClientId: String = ""
+    var openpanelApiUrl: String = ""
+    var contactEmail: String = ""
+    var contactPhone: String = ""
+    var defaultTitle: String = ""
+    var defaultDescription: String = ""
+    var disallowIndexing: Boolean = false
+}

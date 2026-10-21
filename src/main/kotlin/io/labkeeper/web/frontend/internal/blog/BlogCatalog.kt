@@ -44,7 +44,7 @@ class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
     val ctaText: String by yaml
     val toc: List<Map<String, String>> by yaml
     val sections: List<Map<String, String>> by yaml
-    val tips = yaml["tips"] as List<Map<String, String>>? ?: emptyList()
+    val tips = (yaml["tips"] as List<Map<String, String>>?).orEmpty()
     val sidebarImageAlt = yaml["sidebarImageAlt"] as String? ?: "Интерфейс онлайн-редактора LaTeX Labkeeper"
     val ogTitle = yaml["ogTitle"] as String? ?: pageTitle
     val ogDescription = yaml["ogDescription"] as String? ?: metaDescription

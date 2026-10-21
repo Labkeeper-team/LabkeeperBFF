@@ -12,6 +12,7 @@ plugins {
     id("org.jetbrains.kotlin.jvm")
     id("org.jetbrains.kotlin.plugin.spring")
     id("org.springframework.boot")
+    id("dev.detekt")
 }
 
 // Versions and shared libraries come from the server build. A checkout of this folder brings its own.
@@ -139,6 +140,19 @@ tasks.named<Jar>("jar") {
 
 tasks.named<BootJar>("bootJar") {
     enabled = false
+}
+
+detekt {
+    parallel = true
+    buildUponDefaultConfig = true
+    config.setFrom(files("config/detekt/detekt.yml"))
+    basePath.set(layout.projectDirectory)
+}
+
+tasks.withType<dev.detekt.gradle.Detekt>().configureEach {
+    jvmTarget.set("17")
+    // The IDEA action passes -Pdetekt.autoCorrect=true. A normal detekt run only reports.
+    autoCorrect.set(providers.gradleProperty("detekt.autoCorrect").map { it.toBoolean() }.orElse(false))
 }
 
 tasks.named<BootRun>("bootRun") {

@@ -12,5 +12,5 @@ class FrontendRedirectController(
     @Value($$"${io.labkeeper.host}") private val host: String,
 ) {
     @GetMapping("/qr/{version}")
-    fun qr(): ResponseEntity<Void> = ResponseEntity.status(HttpStatus.FOUND).location(URI.create(host)).build()
+    fun qr(): ResponseEntity<Unit> = ResponseEntity.status(HttpStatus.FOUND).location(URI.create(host)).build()
 }
