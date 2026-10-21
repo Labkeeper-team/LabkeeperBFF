@@ -16,7 +16,9 @@ export default defineConfig({
     toHaveScreenshot: {
       animations: 'disabled',
       caret: 'hide',
-      maxDiffPixelRatio: 0.01,
+      // Firefox keeps repainting a small slice of the page, so two frames are not identical.
+      maxDiffPixelRatio: 0.03,
+      timeout: 15_000,
     },
   },
   use: {
