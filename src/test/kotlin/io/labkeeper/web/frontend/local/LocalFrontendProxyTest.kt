@@ -68,7 +68,7 @@ class LocalFrontendProxyTest(
         webTestClient.get().uri("/").exchange()
             .expectStatus().isOk
             .expectHeader().contentTypeCompatibleWith(MediaType.TEXT_HTML)
-            .expectBody<String>().returnResult().responseBody.orEmpty() shouldContain "<!DOCTYPE html>"
+            .expectBody<String>().returnResult().responseBody.orEmpty() shouldContain "<!doctype html>"
         webTestClient.get().uri("/blog/missing-article").exchange().expectStatus().isNotFound
         webTestClient.get().uri("/index.html").exchange().expectStatus().isNotFound
         webTestClient.get().uri("/assets/css/style.css").exchange()

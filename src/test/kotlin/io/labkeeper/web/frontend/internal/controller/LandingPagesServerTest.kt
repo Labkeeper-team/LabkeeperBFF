@@ -34,7 +34,7 @@ class LandingPagesServerTest(
     fun homePageRendersSettingsAndFallbackProjects() {
         val body = get("/", MediaType.TEXT_HTML)
 
-        body shouldContain "<!DOCTYPE html>"
+        body shouldContain "<!doctype html>"
         body shouldContain "Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF"
         body shouldContain "window.__LABKEEPER_API_VERSION = \"v9\";"
         body shouldContain "window.__LABKEEPER_OPENPANEL_CLIENT_ID = \"client\";"
