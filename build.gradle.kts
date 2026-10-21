@@ -63,6 +63,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     testImplementation("org.springframework.security:spring-security-test")
+    // Reloads changed templates and static files during bootRun. Left out of the published jar.
+    developmentOnly(platform("org.springframework.boot:spring-boot-dependencies:3.5.10"))
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
     // bootRun uses the test classpath. The published jar does not pull the gateway in.
     testImplementation(platform("org.springframework.cloud:spring-cloud-dependencies:2025.0.3"))
     testImplementation("org.springframework.cloud:spring-cloud-starter-gateway-server-webflux")
@@ -140,7 +143,7 @@ tasks.named<BootJar>("bootJar") {
 
 tasks.named<BootRun>("bootRun") {
     mainClass.set("io.labkeeper.web.frontend.local.LocalFrontendApplicationKt")
-    // Sources come first, so edited templates and static files show up without a restart.
+    // Sources come first, so DevTools can see an edited template without a restart.
     classpath = files("src/main/resources") + sourceSets["test"].runtimeClasspath
 }
 
