@@ -1,0 +1,6 @@
+[submodule "src/main/editor"]
+	path = src/main/editor
+	url = https://github.com/Labkeeper-team/LabkeeperEditor
+[submodule "src/main/wiki"]
+	path = src/main/wiki
+	url = https://github.com/Labkeeper-team/Docs
