@@ -183,7 +183,13 @@ function writeArticles() {
         const yaml = `${emitObject(document, 0)}\n`
             .replaceAll('https://labkeeper.io', '{{publicUrl}}')
             .replaceAll('labkeeper.io', '{{publicHost}}');
-        fs.writeFileSync(path.join(yamlDir, `${article.slug}.yaml`), yaml);
+        const category = article.categories?.[0];
+        if (!category) {
+            throw new Error(`Article ${article.slug} has no category`);
+        }
+        const dir = path.join(yamlDir, category);
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, `${article.slug}.yaml`), yaml);
     }
     return slugs.size;
 }

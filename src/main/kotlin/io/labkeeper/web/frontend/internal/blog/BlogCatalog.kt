@@ -12,7 +12,7 @@ import java.util.Locale
 
 @Component
 class BlogCatalog(@Value($$"${io.labkeeper.host}") host: String) {
-    val articles = PathMatchingResourcePatternResolver().getResources("classpath:blog/articles/*.yaml")
+    val articles = PathMatchingResourcePatternResolver().getResources("classpath:blog/articles/**/*.yaml")
         .map { resource ->
             val text = resource.inputStream.bufferedReader().use { it.readText() }
                 .replace(PUBLIC_URL_TOKEN, host)
