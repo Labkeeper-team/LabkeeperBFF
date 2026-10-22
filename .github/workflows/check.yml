@@ -22,20 +22,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-          cache-dependency-path: src/main/libs/package-lock.json
-
-      - name: Install formatter
-        working-directory: src/main/libs
-        run: npm ci
-
-      - name: Check Prettier
-        working-directory: src/main/libs
-        run: npm run format:check
+      - name: Check formatting
+        uses: ./.github/actions/formatting
 
   kotlin:
     name: Check · Kotlin
@@ -44,28 +32,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: Set up Java 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 17
-          cache: gradle
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-          cache-dependency-path: |
-            src/main/libs/package-lock.json
-            src/main/editor/package-lock.json
-            src/main/wiki/package-lock.json
 
       - name: Run Gradle check
-        run: ./gradlew check --no-daemon
+        uses: ./.github/actions/kotlin-check
 
   browser:
     name: Tests · Playwright
@@ -74,39 +43,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
-      - name: Set up Java 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 17
-          cache: gradle
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-          cache-dependency-path: src/main/libs/package-lock.json
-
-      - name: Serve the app and compare screenshots
-        run: |
-          ./gradlew bootRun --no-daemon --args='--server.port=8080' > boot.log 2>&1 &
-          echo $! > boot.pid
-          for _ in $(seq 1 120); do
-            if curl -fsS http://localhost:8080/ >/dev/null; then
-              echo "Labkeeper is up on port 8080"
-              break
-            fi
-            if ! kill -0 "$(cat boot.pid)" 2>/dev/null; then
-              echo "Labkeeper exited before it was ready"
-              cat boot.log
-              exit 1
-            fi
-            sleep 5
-          done
-          curl -fsS http://localhost:8080/ >/dev/null
-          cd src/main/libs
-          FRONTEND_URL=http://localhost:8080 npm run snapshots
+      - name: Compare screenshots
+        uses: ./.github/actions/playwright

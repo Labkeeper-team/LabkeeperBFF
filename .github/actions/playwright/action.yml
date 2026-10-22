@@ -1,0 +1,59 @@
+name: Playwright
+description: Start Labkeeper and compare the home page screenshots
+
+inputs:
+  java-version:
+    description: JDK version
+    required: false
+    default: "17"
+  node-version:
+    description: Node.js version
+    required: false
+    default: "22"
+  port:
+    description: Port the test server listens on
+    required: false
+    default: "8080"
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: ${{ inputs.java-version }}
+        cache: gradle
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: npm
+        cache-dependency-path: src/main/libs/package-lock.json
+
+    - name: Serve the app and compare screenshots
+      shell: bash
+      run: |
+        ./gradlew bootRun --no-daemon --args="--server.port=${{ inputs.port }}" > boot.log 2>&1 &
+        echo $! > boot.pid
+        for _ in $(seq 1 120); do
+          if curl -fsS "http://localhost:${{ inputs.port }}/" >/dev/null; then
+            echo "Labkeeper is up on port ${{ inputs.port }}"
+            break
+          fi
+          if ! kill -0 "$(cat boot.pid)" 2>/dev/null; then
+            echo "Labkeeper exited before it was ready"
+            cat boot.log
+            exit 1
+          fi
+          sleep 5
+        done
+        curl -fsS "http://localhost:${{ inputs.port }}/" >/dev/null
+        cd src/main/libs
+        FRONTEND_URL="http://localhost:${{ inputs.port }}" npm run snapshots

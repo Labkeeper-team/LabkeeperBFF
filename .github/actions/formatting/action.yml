@@ -1,0 +1,31 @@
+name: Formatting
+description: Check HTML and JS formatting with Prettier
+
+inputs:
+  node-version:
+    description: Node.js version
+    required: false
+    default: "22"
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: npm
+        cache-dependency-path: src/main/libs/package-lock.json
+
+    - name: Install formatter
+      shell: bash
+      working-directory: src/main/libs
+      run: npm ci
+
+    - name: Check Prettier
+      shell: bash
+      working-directory: src/main/libs
+      run: npm run format:check
