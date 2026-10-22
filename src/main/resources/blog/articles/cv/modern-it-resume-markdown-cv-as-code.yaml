@@ -1,49 +1,49 @@
 catalogIndex: 9
-slug: "modern-it-resume-markdown-cv-as-code"
+slug: 'modern-it-resume-markdown-cv-as-code'
 batch: 2
-title: "Шаблон современного IT-резюме в Markdown: пишем CV как код"
-pageTitle: "Markdown шаблон резюме разработчика: создать CV в Markdown онлайн — Labkeeper"
+title: 'Шаблон современного IT-резюме в Markdown: пишем CV как код'
+pageTitle: 'Markdown шаблон резюме разработчика: создать CV в Markdown онлайн — Labkeeper'
 metaDescription: |2-
   Современный Markdown шаблон резюме разработчика под концепцию CV-as-Code. Как создать CV в
   Markdown онлайн и сохранить его в PDF, который читают ATS-системы, в Labkeeper.
-breadcrumbTitle: "Резюме в Markdown (CV as Code)"
-h1: "Шаблон современного IT-резюме в&nbsp;Markdown: пишем CV как&nbsp;код"
+breadcrumbTitle: 'Резюме в Markdown (CV as Code)'
+h1: 'Шаблон современного IT-резюме в&nbsp;Markdown: пишем CV как&nbsp;код'
 categories:
-  - "cv"
-  - "markdown"
+  - 'cv'
+  - 'markdown'
 keywords:
-  - "markdown шаблон резюме разработчика"
-  - "создать cv в markdown онлайн"
-datePublished: "2026-09-06"
-dateModified: "2026-10-18"
-readingTime: "8 мин"
-cardTitle: "IT-резюме в Markdown: пишем CV как код с контролем версий в Git"
+  - 'markdown шаблон резюме разработчика'
+  - 'создать cv в markdown онлайн'
+datePublished: '2026-09-06'
+dateModified: '2026-10-18'
+readingTime: '8 мин'
+cardTitle: 'IT-резюме в Markdown: пишем CV как код с контролем версий в Git'
 cardDescription: |2-
   Философия Resume-as-Code: чистый текстовый исходник, сборка PDF из Markdown, отсутствие
   визуального шума и хорошая читаемость для ATS.
-sliderTitle: "IT-резюме в Markdown (CV as Code)"
-sliderText: "Как писать резюме разработчика как код с контролем версий и ATS-версткой."
+sliderTitle: 'IT-резюме в Markdown (CV as Code)'
+sliderText: 'Как писать резюме разработчика как код с контролем версий и ATS-версткой.'
 sidebarText: |2-
   Пишите IT-резюме в чистом Markdown в Labkeeper: превью при наборе и сохранение в PDF без
   установки программ.
-ctaTitle: "Напишите CV как код в&nbsp;Labkeeper"
+ctaTitle: 'Напишите CV как код в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор для инженеров: резюме в Markdown, превью при наборе и PDF через печать браузера
   или LaTeX-проект.
 toc:
-  - id: "concept"
-    title: "Концепция «CV как код» (Resume as Code)"
-  - id: "benefits"
-    title: "Почему Markdown превосходит Canva, Figma и Word"
-  - id: "markdown-template"
-    title: "Markdown шаблон резюме разработчика: готовый образец"
-  - id: "online-creator"
-    title: "Создать CV в Markdown онлайн: пошаговая настройка в Labkeeper"
-  - id: "git-automation"
-    title: "Автоматизация версий через Git и GitHub Actions"
+  - id: 'concept'
+    title: 'Концепция «CV как код» (Resume as Code)'
+  - id: 'benefits'
+    title: 'Почему Markdown превосходит Canva, Figma и Word'
+  - id: 'markdown-template'
+    title: 'Markdown шаблон резюме разработчика: готовый образец'
+  - id: 'online-creator'
+    title: 'Создать CV в Markdown онлайн: пошаговая настройка в Labkeeper'
+  - id: 'git-automation'
+    title: 'Автоматизация версий через Git и GitHub Actions'
 sections:
-  - id: "concept"
-    title: "Концепция «CV как код» (Resume as Code)"
+  - id: 'concept'
+    title: 'Концепция «CV как код» (Resume as Code)'
     html: |2-
                               <p>В инженерном сообществе подход <strong>«Резюме как код» (CV as
       Code)</strong> стал признанным стандартом хорошего тона. Вместо того чтобы тратить часы на
@@ -55,8 +55,8 @@ sections:
       сгруппировать навыки, читайте в нашей статье о том, как <a
       href="/blog/frontend-backend-developer-resume-tech-stack-ats">структурировать стек технологий
       разработчика</a>.</p>
-  - id: "benefits"
-    title: "Почему Markdown превосходит Canva, Figma и Word"
+  - id: 'benefits'
+    title: 'Почему Markdown превосходит Canva, Figma и Word'
     html: |2-
                               <ul>
                                   <li><strong>Совместимость с ATS:</strong> системы автоматического
@@ -74,8 +74,8 @@ sections:
                               <p>Кроме того, текстовая разметка позволяет легко придерживаться
       жесткого <a href="/blog/one-page-resume-cv-template-condensing-experience">одностраничного
       формата резюме One-Pager</a>, принятого в международных компаниях.</p>
-  - id: "markdown-template"
-    title: "Markdown шаблон резюме разработчика: готовый образец"
+  - id: 'markdown-template'
+    title: 'Markdown шаблон резюме разработчика: готовый образец'
     html: |2-
                               <p>Практический <strong>markdown шаблон резюме разработчика</strong> с
       разделением на ключевые секции:</p>
@@ -111,8 +111,8 @@ sections:
       ## Образование
       **МФТИ (ФПМИ)** — Бакалавр прикладной математики и информатики *(2015 — 2019)*</code></pre>
                               </div>
-  - id: "online-creator"
-    title: "Создать CV в Markdown онлайн: пошаговая настройка в Labkeeper"
+  - id: 'online-creator'
+    title: 'Создать CV в Markdown онлайн: пошаговая настройка в Labkeeper'
     html: |2-
                               <p>Чтобы быстро <strong>создать cv в markdown онлайн</strong> без
       установки локальных утилит Pandoc и Node.js, воспользуйтесь онлайн-редактором Labkeeper:</p>
@@ -126,20 +126,20 @@ sections:
                               <p>Если нужен PDF с заданными полями, создайте LaTeX-проект и вставьте
       тот же Markdown в Markdown-сегмент: сервер соберет его через Pandoc и pdfLaTeX, а ссылки на
       GitHub и портфолио останутся кликабельными.</p>
-  - id: "git-automation"
-    title: "Автоматизация версий через Git и GitHub Actions"
+  - id: 'git-automation'
+    title: 'Автоматизация версий через Git и GitHub Actions'
     html: |2-
                               <p>Продвинутый уровень: создайте приватный или публичный репозиторий
       <code>my-resume</code> на GitHub. Настройте GitHub Action, который при каждом пуше в ветку
       <code>main</code> компилирует ваш <code>resume.md</code> в свежий <code>resume.pdf</code> и
       публикует его в GitHub Releases.</p>
 tips:
-  - title: "Кликабельные ссылки в шапке"
+  - title: 'Кликабельные ссылки в шапке'
     html: |2-
       <p>Всегда делайте ссылки на почту, Telegram и GitHub кликабельными
       (<code>[github.com/nick](https://github.com/nick)</code>), чтобы рекрутер мог перейти в ваш
       профиль в один клик прямо из PDF-ридера.</p>
-  - title: "Один исходник — два вида PDF"
+  - title: 'Один исходник — два вида PDF'
     html: |2-
       <p>Храните в Git один файл <code>resume.md</code>. Для быстрой печати вставляйте его в
       Markdown-проект, а для PDF с полями — в Markdown-сегмент LaTeX-проекта: содержание остается

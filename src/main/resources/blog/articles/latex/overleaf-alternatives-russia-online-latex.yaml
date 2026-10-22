@@ -1,48 +1,48 @@
 catalogIndex: 38
-slug: "overleaf-alternatives-russia-online-latex"
+slug: 'overleaf-alternatives-russia-online-latex'
 batch: 2
-title: "Лучшие альтернативы Overleaf для работы с LaTeX в РФ"
-pageTitle: "Overleaf альтернативы в России: онлайн редактор LaTeX без блокировок — Labkeeper"
+title: 'Лучшие альтернативы Overleaf для работы с LaTeX в РФ'
+pageTitle: 'Overleaf альтернативы в России: онлайн редактор LaTeX без блокировок — Labkeeper'
 metaDescription: |2-
   Лучшие Overleaf альтернативы в России: онлайн редактор LaTeX без блокировок Labkeeper, оплата в
   рублях, работа с ГОСТ, кириллица и сравнение сервисов.
-breadcrumbTitle: "Альтернативы Overleaf в РФ"
-h1: "Лучшие альтернативы Overleaf для работы с&nbsp;LaTeX в&nbsp;РФ"
+breadcrumbTitle: 'Альтернативы Overleaf в РФ'
+h1: 'Лучшие альтернативы Overleaf для работы с&nbsp;LaTeX в&nbsp;РФ'
 categories:
-  - "latex"
+  - 'latex'
 keywords:
-  - "overleaf альтернативы в россии"
-  - "онлайн редактор latex без блокировок"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "7 мин"
-cardTitle: "Альтернативы Overleaf в России: подборка онлайн-редакторов LaTeX"
+  - 'overleaf альтернативы в россии'
+  - 'онлайн редактор latex без блокировок'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '7 мин'
+cardTitle: 'Альтернативы Overleaf в России: подборка онлайн-редакторов LaTeX'
 cardDescription: |2-
   Обзор решений для верстки научных статей и дипломов в условиях ограничений: сравнение платформ,
   скорость компиляции, примеры оформления по ГОСТ и возможности Labkeeper.
-sliderTitle: "Альтернативы Overleaf в России"
-sliderText: "Онлайн-редакторы LaTeX без блокировок, примеры по ГОСТ и оплата в рублях."
+sliderTitle: 'Альтернативы Overleaf в России'
+sliderText: 'Онлайн-редакторы LaTeX без блокировок, примеры по ГОСТ и оплата в рублях.'
 sidebarText: |2-
   Набирайте статьи и диссертации в российском облачном редакторе Labkeeper с примерами оформления
   по ГОСТ.
-ctaTitle: "Переходите на надежный редактор в&nbsp;Labkeeper"
+ctaTitle: 'Переходите на надежный редактор в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX и&nbsp;Markdown из&nbsp;России: сборка PDF в&nbsp;браузере, ИИ-агент
   и&nbsp;оплата в&nbsp;рублях.
 toc:
-  - id: "context"
-    title: "Почему российские исследователи ищут замену Overleaf"
-  - id: "overleaf-issues"
-    title: "Overleaf альтернативы в россии: доступность, платежи и пинг"
-  - id: "labkeeper-features"
-    title: "Онлайн редактор latex без блокировок: возможности Labkeeper"
-  - id: "desktop-alternatives"
-    title: "Локальные редакторы: VS Code, TeXstudio и сложности их настройки"
-  - id: "comparison-table"
-    title: "Сравнительная таблица платформ для научной работы"
+  - id: 'context'
+    title: 'Почему российские исследователи ищут замену Overleaf'
+  - id: 'overleaf-issues'
+    title: 'Overleaf альтернативы в россии: доступность, платежи и пинг'
+  - id: 'labkeeper-features'
+    title: 'Онлайн редактор latex без блокировок: возможности Labkeeper'
+  - id: 'desktop-alternatives'
+    title: 'Локальные редакторы: VS Code, TeXstudio и сложности их настройки'
+  - id: 'comparison-table'
+    title: 'Сравнительная таблица платформ для научной работы'
 sections:
-  - id: "context"
-    title: "Почему российские исследователи ищут замену Overleaf"
+  - id: 'context'
+    title: 'Почему российские исследователи ищут замену Overleaf'
     html: |2-
                               <p>Долгие годы британский сервис Overleaf оставался де-факто стандартом
       совместной верстки научных публикаций. Однако с 2022 года пользователи из РФ столкнулись с
@@ -52,8 +52,8 @@ sections:
       дистрибутив TeX Live, в том числе пакет biblatex-gost. Для исследователей из России важнее
       другое — стабильный доступ к сервису, оплата российскими картами в рублях, русский интерфейс и
       ИИ-агент, которому можно писать по-русски.</p>
-  - id: "overleaf-issues"
-    title: "Overleaf альтернативы в россии: доступность, платежи и пинг"
+  - id: 'overleaf-issues'
+    title: 'Overleaf альтернативы в россии: доступность, платежи и пинг'
     html: |2-
                               <p>При поиске надежной <strong>overleaf альтернативы в россии</strong>
       исследователи и кафедры оценивают ключевые факторы (включая предустановленные кириллические
@@ -68,8 +68,8 @@ sections:
                                   <li><strong>Оплата в рублях:</strong> возможность платить
       российскими картами МИР и через СБП — в Labkeeper это пакеты токенов без подписки.</li>
                               </ul>
-  - id: "labkeeper-features"
-    title: "Онлайн редактор latex без блокировок: возможности Labkeeper"
+  - id: 'labkeeper-features'
+    title: 'Онлайн редактор latex без блокировок: возможности Labkeeper'
     html: |2-
                               <p><strong>Labkeeper</strong> создавался как современный <strong>онлайн
       редактор latex без блокировок</strong>, специально адаптированный под потребности студентов,
@@ -88,15 +88,15 @@ sections:
       ассистент помогает исправлять ошибки синтаксиса и переводить статьи на академический английский
       язык.</li>
                               </ul>
-  - id: "desktop-alternatives"
-    title: "Локальные редакторы: VS Code, TeXstudio и сложности их настройки"
+  - id: 'desktop-alternatives'
+    title: 'Локальные редакторы: VS Code, TeXstudio и сложности их настройки'
     html: |2-
                               <p>Автономный путь — установка дистрибутива TeX Live / MiKTeX на
       домашний компьютер в связке с TeXstudio или VS Code (плагин LaTeX Workshop). Главные минусы
       такого подхода: объем дистрибутива свыше 8 Гб, сложные конфликты версий Perl/Python для minted и
       отсутствие синхронизации между домашним ПК и рабочим ноутбуком.</p>
-  - id: "comparison-table"
-    title: "Сравнительная таблица платформ для научной работы"
+  - id: 'comparison-table'
+    title: 'Сравнительная таблица платформ для научной работы'
     html: |2-
                               <div class="article-code">
                                   <div class="article-code__header"><span
@@ -110,12 +110,12 @@ sections:
       Оплата картами РФ   | Недоступна        | Бесплатно           | Доступна (МИР, СБП)</code></pre>
                               </div>
 tips:
-  - title: "Перенос из Overleaf"
+  - title: 'Перенос из Overleaf'
     html: |2-
       <p>Скачайте проект из Overleaf, распакуйте архив на компьютере и загрузите в Labkeeper
       .tex-файлы и картинки. Импорта проекта одним архивом нет, поэтому папки создайте в файловом
       менеджере проекта.</p>
-  - title: "Облачное автосохранение"
+  - title: 'Облачное автосохранение'
     html: |2-
       <p>У вошедшего пользователя правки в Labkeeper сохраняются автоматически примерно через секунду,
       поэтому случайное закрытие вкладки или обновление страницы их не сотрёт. Истории версий, как в

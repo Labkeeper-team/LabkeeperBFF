@@ -1,55 +1,55 @@
 catalogIndex: 73
-slug: "markdown-table-merge-cells-rowspan-colspan"
+slug: 'markdown-table-merge-cells-rowspan-colspan'
 batch: 2
-title: "Как объединять ячейки в таблицах Markdown (Colspan / Rowspan)"
-pageTitle: "Объединение ячеек в таблице Markdown: Rowspan и Colspan — Labkeeper"
+title: 'Как объединять ячейки в таблицах Markdown (Colspan / Rowspan)'
+pageTitle: 'Объединение ячеек в таблице Markdown: Rowspan и Colspan — Labkeeper'
 metaDescription: |2-
   Полный гайд: объединение ячеек в таблице Markdown, синтаксис Colspan и Rowspan через HTML-теги,
   работа с многострочными шапками таблиц в Labkeeper.
-breadcrumbTitle: "Объединение ячеек в таблицах Markdown"
-h1: "Как объединять ячейки в&nbsp;таблицах Markdown (Colspan / Rowspan)"
+breadcrumbTitle: 'Объединение ячеек в таблицах Markdown'
+h1: 'Как объединять ячейки в&nbsp;таблицах Markdown (Colspan / Rowspan)'
 categories:
-  - "markdown"
-  - "labs"
+  - 'markdown'
+  - 'labs'
 keywords:
-  - "объединение ячеек в таблице markdown"
-  - "markdown таблица rowspan"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "6 мин"
-cardTitle: "Объединение ячеек в таблицах Markdown: пошаговый гайд по Rowspan и Colspan"
+  - 'объединение ячеек в таблице markdown'
+  - 'markdown таблица rowspan'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '6 мин'
+cardTitle: 'Объединение ячеек в таблицах Markdown: пошаговый гайд по Rowspan и Colspan'
 cardDescription: |2-
   Как обходить ограничения стандартных Markdown-таблиц: создание составных шапок, объединение
   колонок и строк для научных отчетов.
-sliderTitle: "Объединение ячеек таблиц в&nbsp;Markdown"
-sliderText: "Синтаксис Colspan и Rowspan, составные шапки и таблицы сложных отчетов."
+sliderTitle: 'Объединение ячеек таблиц в&nbsp;Markdown'
+sliderText: 'Синтаксис Colspan и Rowspan, составные шапки и таблицы сложных отчетов.'
 sidebarText: |2-
   Верстайте комплексные матрицы данных и таблицы лабораторных отчетов в онлайн-редакторе
   Labkeeper.
-ctaTitle: "Создавайте сложные научные таблицы в&nbsp;Labkeeper"
+ctaTitle: 'Создавайте сложные научные таблицы в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор Markdown и LaTeX: HTML-таблицы с объединенными ячейками в превью, формулы
   MathJax и сохранение в PDF через печать браузера.
 toc:
-  - id: "limitation"
-    title: "Ограничения стандартных Markdown-таблиц (GFM)"
-  - id: "colspan-solution"
-    title: "Объединение по горизонтали (Colspan)"
-  - id: "rowspan-solution"
-    title: "Markdown таблица с Rowspan: объединение строк через HTML"
-  - id: "complex-example"
-    title: "Готовый шаблон сложной таблицы измерений"
+  - id: 'limitation'
+    title: 'Ограничения стандартных Markdown-таблиц (GFM)'
+  - id: 'colspan-solution'
+    title: 'Объединение по горизонтали (Colspan)'
+  - id: 'rowspan-solution'
+    title: 'Markdown таблица с Rowspan: объединение строк через HTML'
+  - id: 'complex-example'
+    title: 'Готовый шаблон сложной таблицы измерений'
 sections:
-  - id: "limitation"
-    title: "Ограничения стандартных Markdown-таблиц (GFM)"
+  - id: 'limitation'
+    title: 'Ограничения стандартных Markdown-таблиц (GFM)'
     html: |2-
                               <p>Стандартный синтаксис таблиц на вертикальных палочках <code>| колонка
       1 | колонка 2 |</code> строг: каждая строка обязана содержать равное число ячеек. Из-за этого
       прямое <strong>объединение ячеек в таблице markdown</strong> без использования дополнительных
       инструментов невозможно (здесь на помощь приходит <a
       href="/blog/markdown-raw-html-integration">интеграция чистого HTML в Markdown</a>).</p>
-  - id: "colspan-solution"
-    title: "Объединение по горизонтали (Colspan)"
+  - id: 'colspan-solution'
+    title: 'Объединение по горизонтали (Colspan)'
     html: |2-
                               <p>Некоторые диалекты позволяют объединять ячейки по горизонтали,
       оставляя соседнюю ячейку пустой или заполняя ее дефисами, но самым надежным и переносимым
@@ -60,8 +60,8 @@ sections:
       class="article-code__lang">HTML</span></div>
                                   <pre><code>&lt;th colspan="2"&gt;Параметры эксперимента&lt;/th&gt;</code></pre>
                               </div>
-  - id: "rowspan-solution"
-    title: "Markdown таблица с Rowspan: объединение строк через HTML"
+  - id: 'rowspan-solution'
+    title: 'Markdown таблица с Rowspan: объединение строк через HTML'
     html: |2-
                               <p>Когда требуется <strong>markdown таблица rowspan</strong> (например,
       для группировки нескольких строк измерений под одной категорией), таблица целиком оформляется
@@ -90,8 +90,8 @@ sections:
       ячеек, но без чередования фона строк. При печати в PDF длинная таблица переносится на следующий
       лист, а шапка повторяется на каждой странице, только если она стоит внутри тега
       <code>&lt;thead&gt;</code>.</p>
-  - id: "complex-example"
-    title: "Готовый шаблон сложной таблицы измерений"
+  - id: 'complex-example'
+    title: 'Готовый шаблон сложной таблицы измерений'
     html: |2-
                               <p>Шаблон таблицы измерений с составной шапкой: номер опыта объединяет
       две строки, а под каждой величиной стоят значение и погрешность. Шапка вынесена в
@@ -125,7 +125,7 @@ sections:
       руководстве по <a href="/blog/table-continuation-multipage-gost-diploma">переносу таблиц по
       ГОСТ</a>.</p>
 tips:
-  - title: "Инструменты-генераторы таблиц"
+  - title: 'Инструменты-генераторы таблиц'
     html: |2-
       <p>Для быстрого построения сложных HTML-таблиц с объединением ячеек удобно использовать
       визуальные редакторы таблиц, вставляя готовый код напрямую в документ.</p>

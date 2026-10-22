@@ -1,48 +1,48 @@
 catalogIndex: 10
-slug: "word-formatting-issues-diploma-lightweight-markup-alternative"
+slug: 'word-formatting-issues-diploma-lightweight-markup-alternative'
 batch: 2
-title: "Съезжает верстка в Word при написании диплома? Переходим на легковесную разметку"
-pageTitle: "Съезжает текст в Ворде при дипломе: альтернатива Word для диплома — Labkeeper"
+title: 'Съезжает верстка в Word при написании диплома? Переходим на легковесную разметку'
+pageTitle: 'Съезжает текст в Ворде при дипломе: альтернатива Word для диплома — Labkeeper'
 metaDescription: |2-
   Почему постоянно съезжает текст в Word при верстке диплома и курсовой. Лучшая альтернатива Word
   для написания диплома: переход на Markdown и LaTeX в Labkeeper.
-breadcrumbTitle: "Альтернатива Word для диплома"
-h1: "Съезжает верстка в&nbsp;Word при написании диплома? Переходим на&nbsp;легковесную разметку"
+breadcrumbTitle: 'Альтернатива Word для диплома'
+h1: 'Съезжает верстка в&nbsp;Word при написании диплома? Переходим на&nbsp;легковесную разметку'
 categories:
-  - "diploma"
+  - 'diploma'
 keywords:
-  - "съезжает текст в ворде при дипломе"
-  - "альтернатива word для написания диплома"
-datePublished: "2026-09-06"
-dateModified: "2026-10-18"
-readingTime: "8 мин"
-cardTitle: "Проблемы верстки в Word при написании диплома и переход на Markdown/LaTeX"
+  - 'съезжает текст в ворде при дипломе'
+  - 'альтернатива word для написания диплома'
+datePublished: '2026-09-06'
+dateModified: '2026-10-18'
+readingTime: '8 мин'
+cardTitle: 'Проблемы верстки в Word при написании диплома и переход на Markdown/LaTeX'
 cardDescription: |2-
   Почему в MS Word «прыгают» картинки, ломаются формулы и нумерация, и как легковесная разметка
   решает эти проблемы навсегда.
-sliderTitle: "Word съезжает в дипломе: решение"
-sliderText: "Почему ломается форматирование в Word и как спасает легкая разметка."
+sliderTitle: 'Word съезжает в дипломе: решение'
+sliderText: 'Почему ломается форматирование в Word и как спасает легкая разметка.'
 sidebarText: |2-
   Перейдите на редактор Labkeeper: текст отдельно от оформления, а верстку PDF рассчитывает LaTeX
   — она не съезжает на другом компьютере.
-ctaTitle: "Забудьте о багах Word с&nbsp;Labkeeper"
+ctaTitle: 'Забудьте о багах Word с&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-платформа для написания дипломов и статей: формулы, списки литературы и авто-нумерация
   без сюрпризов.
 toc:
-  - id: "word-pain"
-    title: "Классический студенческий кошмар за ночь до защиты"
-  - id: "why-breaks"
-    title: "Почему съезжает текст в Ворде при дипломе: архитектурные причины"
-  - id: "markup-alternative"
-    title: "Альтернатива Word для написания диплома: подход «Текст как код»"
-  - id: "comparison-table"
-    title: "Сравнение Microsoft Word, Markdown и LaTeX"
-  - id: "migration-steps"
-    title: "Пошаговый переход на Labkeeper без потери наработок"
+  - id: 'word-pain'
+    title: 'Классический студенческий кошмар за ночь до защиты'
+  - id: 'why-breaks'
+    title: 'Почему съезжает текст в Ворде при дипломе: архитектурные причины'
+  - id: 'markup-alternative'
+    title: 'Альтернатива Word для написания диплома: подход «Текст как код»'
+  - id: 'comparison-table'
+    title: 'Сравнение Microsoft Word, Markdown и LaTeX'
+  - id: 'migration-steps'
+    title: 'Пошаговый переход на Labkeeper без потери наработок'
 sections:
-  - id: "word-pain"
-    title: "Классический студенческий кошмар за ночь до защиты"
+  - id: 'word-pain'
+    title: 'Классический студенческий кошмар за ночь до защиты'
     html: |2-
                               <p>Знакомая ситуация: вы потратили полгода на написание дипломной
       работы, внесли последние правки в 80-страничный документ Microsoft Word, нажали «Сохранить» и
@@ -52,8 +52,8 @@ sections:
       страниц начинается заново с третьей главы.</p>
                               <p>Причина не в вашей неопытности, а в самой концепции классических
       офисных WYSIWYG-редакторов («What You See Is What You Get»).</p>
-  - id: "why-breaks"
-    title: "Почему съезжает текст в Ворде при дипломе: архитектурные причины"
+  - id: 'why-breaks'
+    title: 'Почему съезжает текст в Ворде при дипломе: архитектурные причины'
     html: |2-
                               <p>Почему Word системно ломается на объемных научных документах:</p>
                               <ul>
@@ -70,8 +70,8 @@ sections:
       редактор формул часто конфликтует со шрифтами при конвертации в PDF на разных версиях Windows и
       macOS.</li>
                               </ul>
-  - id: "markup-alternative"
-    title: "Альтернатива Word для написания диплома: подход «Текст как код»"
+  - id: 'markup-alternative'
+    title: 'Альтернатива Word для написания диплома: подход «Текст как код»'
     html: |2-
                               <p>Единственная надежная <strong>альтернатива word для написания
       диплома</strong> — переход на парадигму разделения контента и оформления (WYSIWYM — «What You
@@ -82,8 +82,8 @@ sections:
       вы автоматически получаете все преимущества <a
       href="/blog/latex-hyperref-pdf-bookmarks-navigation">интерактивной навигации и закладок в
       PDF</a>.</p>
-  - id: "comparison-table"
-    title: "Сравнение Microsoft Word, Markdown и LaTeX"
+  - id: 'comparison-table'
+    title: 'Сравнение Microsoft Word, Markdown и LaTeX'
     html: |2-
                               <div class="article-table-wrapper">
                                   <table class="article-table">
@@ -126,8 +126,8 @@ sections:
                                       </tbody>
                                   </table>
                               </div>
-  - id: "migration-steps"
-    title: "Пошаговый переход на Labkeeper без потери наработок"
+  - id: 'migration-steps'
+    title: 'Пошаговый переход на Labkeeper без потери наработок'
     html: |2-
                               <p>Если часть работы уже написана в Word, не обязательно перепечатывать
       ее заново:</p>
@@ -153,11 +153,11 @@ sections:
       href="/blog/latex-arraystretch-table-row-height-spacing">настройке интервалов в таблицах через
       arraystretch</a>.</p>
 tips:
-  - title: "Используйте Git для диплома"
+  - title: 'Используйте Git для диплома'
     html: |2-
       <p>Храня текст работы в текстовом формате, вы можете делать коммиты после каждого написанного
       раздела и никогда не потеряете наработки при сбое жесткого диска.</p>
-  - title: "Работайте в Labkeeper"
+  - title: 'Работайте в Labkeeper'
     html: |2-
       <p>Labkeeper сочетает простоту Markdown для быстрого набора текста с типографикой LaTeX: пишите
       текст в Markdown-сегментах LaTeX-проекта, а поля и шрифт задайте один раз в преамбуле.</p>

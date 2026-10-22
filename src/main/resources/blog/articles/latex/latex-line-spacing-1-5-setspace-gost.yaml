@@ -1,47 +1,47 @@
 catalogIndex: 68
-slug: "latex-line-spacing-1-5-setspace-gost"
+slug: 'latex-line-spacing-1-5-setspace-gost'
 batch: 2
-title: "Установка полуторного междустрочного интервала по ГОСТ в LaTeX"
-pageTitle: "Полуторный интервал в LaTeX setspace: интервал 1.5 по ГОСТ — Labkeeper"
+title: 'Установка полуторного междустрочного интервала по ГОСТ в LaTeX'
+pageTitle: 'Полуторный интервал в LaTeX setspace: интервал 1.5 по ГОСТ — Labkeeper'
 metaDescription: |2-
   Как правильно настроить полуторный интервал в LaTeX setspace по ГОСТ: разница между
   onehalfspacing и linespread, междустрочный интервал 1.5 без поломки сносок.
-breadcrumbTitle: "Полуторный интервал в LaTeX"
-h1: "Установка полуторного междустрочного интервала по&nbsp;ГОСТ в&nbsp;LaTeX"
+breadcrumbTitle: 'Полуторный интервал в LaTeX'
+h1: 'Установка полуторного междустрочного интервала по&nbsp;ГОСТ в&nbsp;LaTeX'
 categories:
-  - "latex"
-  - "diploma"
+  - 'latex'
+  - 'diploma'
 keywords:
-  - "полуторный интервал в latex setspace"
-  - "междустрочный интервал 1.5 latex"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "6 мин"
-cardTitle: "Междустрочный интервал 1.5 по ГОСТ в LaTeX: пакет setspace"
+  - 'полуторный интервал в latex setspace'
+  - 'междустрочный интервал 1.5 latex'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '6 мин'
+cardTitle: 'Междустрочный интервал 1.5 по ГОСТ в LaTeX: пакет setspace'
 cardDescription: |2-
   Правильная настройка полуторного интервала для дипломов и курсовых через setspace без искажения
   формул, сносок и таблиц.
-sliderTitle: "Полуторный интервал 1.5 в&nbsp;LaTeX (setspace)"
-sliderText: "Настройка полуторного интервала по ГОСТ без поломки таблиц и сносок."
+sliderTitle: 'Полуторный интервал 1.5 в&nbsp;LaTeX (setspace)'
+sliderText: 'Настройка полуторного интервала по ГОСТ без поломки таблиц и сносок.'
 sidebarText: |2-
   Пишите дипломные работы и статьи с корректным междустрочным интервалом по ГОСТ в
   онлайн-редакторе Labkeeper.
-ctaTitle: "Оформляйте дипломные работы по стандартам в&nbsp;Labkeeper"
+ctaTitle: 'Оформляйте дипломные работы по стандартам в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-платформа с предустановленным пакетом setspace, примерами дипломных работ и
   предпросмотром PDF.
 toc:
-  - id: "gost-spacing-rule"
-    title: "Требования ГОСТ: почему именно полуторный интервал"
-  - id: "linespread-problem"
+  - id: 'gost-spacing-rule'
+    title: 'Требования ГОСТ: почему именно полуторный интервал'
+  - id: 'linespread-problem'
     title: "Почему команда \\linespread{1.5} портит документ"
-  - id: "setspace-solution"
-    title: "Полуторный интервал в LaTeX через setspace: правильный метод"
-  - id: "tables-and-footnotes"
-    title: "Сохранение одинарного интервала в таблицах и сносках"
+  - id: 'setspace-solution'
+    title: 'Полуторный интервал в LaTeX через setspace: правильный метод'
+  - id: 'tables-and-footnotes'
+    title: 'Сохранение одинарного интервала в таблицах и сносках'
 sections:
-  - id: "gost-spacing-rule"
-    title: "Требования ГОСТ: почему именно полуторный интервал"
+  - id: 'gost-spacing-rule'
+    title: 'Требования ГОСТ: почему именно полуторный интервал'
     html: |2-
                               <p>Согласно ГОСТ 7.32-2017 и методическим указаниям большинства
       российских вузов (МГУ, СПбГУ, МГТУ им. Баумана, ВШЭ), основной текст курсовых, дипломов и
@@ -49,7 +49,7 @@ sections:
       правильной <a href="/blog/latex-geometry-margins-gost">настройкой полей страницы geometry в
       LaTeX</a>). При этом текст сносок, подписей к рисункам и содержимое таблиц должно оставаться с
       одинарным интервалом.</p>
-  - id: "linespread-problem"
+  - id: 'linespread-problem'
     title: "Почему команда \\linespread{1.5} портит документ"
     html: |2-
                               <p>Многие начинающие пользователи пишут в преамбуле команду
@@ -57,8 +57,8 @@ sections:
       умножает базовый интервал шрифта и визуально дает не полуторный, а почти <strong>двойной
       интервал</strong>! Кроме того, <code>\linespread</code> уродует интервалы в сносках и
       математических формулах.</p>
-  - id: "setspace-solution"
-    title: "Полуторный интервал в LaTeX через setspace: правильный метод"
+  - id: 'setspace-solution'
+    title: 'Полуторный интервал в LaTeX через setspace: правильный метод'
     html: |2-
                               <p>Единственно верный способ — использовать специализированный пакет
       <code>setspace</code>. Правильная настройка, реализующая <strong>полуторный интервал в latex
@@ -74,8 +74,8 @@ sections:
       нормоконтроль, сохраняя эталонное <a
       href="/blog/justified-text-spacing-hyphenation-latex-vs-word">выравнивание текста по ширине без
       огромных пробелов</a>.</p>
-  - id: "tables-and-footnotes"
-    title: "Сохранение одинарного интервала в таблицах и сносках"
+  - id: 'tables-and-footnotes'
+    title: 'Сохранение одинарного интервала в таблицах и сносках'
     html: |2-
                               <p>Главное преимущество пакета <code>setspace</code> заключается в том,
       что он автоматически возвращает одинарный интервал (single spacing) в сносках на нижнем поле
@@ -92,7 +92,7 @@ sections:
       \end{table}</code></pre>
                               </div>
 tips:
-  - title: "Размер шрифта 14pt для дипломов"
+  - title: 'Размер шрифта 14pt для дипломов'
     html: |2-
       <p>Если в документе используется шрифт 14pt (<code>\documentclass[14pt]{extreport}</code>),
       команда <code>\onehalfspacing</code> автоматически подстроится под увеличенный кегль.</p>

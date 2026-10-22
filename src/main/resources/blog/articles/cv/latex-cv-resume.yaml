@@ -1,63 +1,63 @@
 catalogIndex: 92
-slug: "latex-cv-resume"
+slug: 'latex-cv-resume'
 batch: 1
-title: "Верстка академического резюме (CV) для грантов и аспирантуры в онлайн LaTeX"
-pageTitle: "Верстка академического резюме (CV) в LaTeX для грантов и аспирантуры — Labkeeper"
+title: 'Верстка академического резюме (CV) для грантов и аспирантуры в онлайн LaTeX'
+pageTitle: 'Верстка академического резюме (CV) в LaTeX для грантов и аспирантуры — Labkeeper'
 metaDescription: |2-
   Шаблон академического резюме LaTeX онлайн: создать CV для аспирантуры в LaTeX с пакетом
   moderncv. Структура разделов, список публикаций, гранты и контакты.
-ogTitle: "Верстка академического резюме (CV) для грантов и аспирантуры в онлайн LaTeX — Labkeeper"
+ogTitle: 'Верстка академического резюме (CV) для грантов и аспирантуры в онлайн LaTeX — Labkeeper'
 ogDescription: |2-
   Создайте профессиональное академическое резюме (CV) в онлайн LaTeX: готовый шаблон moderncv для
   поступления в аспирантуру и подачи на гранты.
-twitterTitle: "Верстка академического резюме (CV) в LaTeX — Labkeeper"
-twitterDescription: "Шаблон академического резюме LaTeX онлайн: создать CV для аспирантуры в LaTeX."
+twitterTitle: 'Верстка академического резюме (CV) в LaTeX — Labkeeper'
+twitterDescription: 'Шаблон академического резюме LaTeX онлайн: создать CV для аспирантуры в LaTeX.'
 schemaDescription: |2-
   Полное руководство по созданию академического CV в LaTeX для аспирантуры, грантов и стипендий с
   пакетом moderncv.
-breadcrumbTitle: "Академическое резюме в LaTeX"
-h1: "Верстка академического резюме (CV) для грантов и&nbsp;аспирантуры в&nbsp;онлайн LaTeX"
+breadcrumbTitle: 'Академическое резюме в LaTeX'
+h1: 'Верстка академического резюме (CV) для грантов и&nbsp;аспирантуры в&nbsp;онлайн LaTeX'
 categories:
-  - "cv"
-  - "latex"
+  - 'cv'
+  - 'latex'
 keywords:
-  - "шаблон академического резюме latex онлайн"
-  - "создать cv для аспирантуры в latex"
-datePublished: "2026-08-20"
-dateModified: "2026-10-18"
-readingTime: "8 мин"
+  - 'шаблон академического резюме latex онлайн'
+  - 'создать cv для аспирантуры в latex'
+datePublished: '2026-08-20'
+dateModified: '2026-10-18'
+readingTime: '8 мин'
 cardTitle: |2-
   Верстка академического резюме (CV) для грантов и аспирантуры в онлайн
                           LaTeX
 cardDescription: |2-
   Шаблон Curriculum Vitae на пакете moderncv для аспирантуры, зарубежных
                           стажировок, стипендий и грантов.
-sliderTitle: "Академическое резюме (CV) в&nbsp;LaTeX"
-sliderText: "Верстка резюме на пакете moderncv для аспирантуры, стажировок и грантов."
-sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sliderTitle: 'Академическое резюме (CV) в&nbsp;LaTeX'
+sliderText: 'Верстка резюме на пакете moderncv для аспирантуры, стажировок и грантов.'
+sidebarImageAlt: 'Онлайн-редактор LaTeX Labkeeper'
 sidebarText: |2-
   Верстайте академическое CV на&nbsp;moderncv в&nbsp;онлайн-редакторе Labkeeper и&nbsp;сразу
   получайте PDF.
-ctaTitle: "Создавайте академические резюме в&nbsp;Labkeeper"
+ctaTitle: 'Создавайте академические резюме в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX с&nbsp;поддержкой moderncv: верстайте аккуратные CV для&nbsp;грантов
   и&nbsp;аспирантуры без&nbsp;установки программ на&nbsp;ПК.
 toc:
-  - id: "intro"
-    title: "Чем академическое CV отличается от обычного резюме"
-  - id: "moderncv"
-    title: "Класс moderncv: стили и цветовые темы"
-  - id: "template"
-    title: "Готовый шаблон академического резюме"
-  - id: "sections"
-    title: "Структура разделов: публикации, гранты, награды"
-  - id: "publications"
-    title: "Список публикаций без BibTeX"
-  - id: "tips"
-    title: "Советы для подачи в зарубежные университеты"
+  - id: 'intro'
+    title: 'Чем академическое CV отличается от обычного резюме'
+  - id: 'moderncv'
+    title: 'Класс moderncv: стили и цветовые темы'
+  - id: 'template'
+    title: 'Готовый шаблон академического резюме'
+  - id: 'sections'
+    title: 'Структура разделов: публикации, гранты, награды'
+  - id: 'publications'
+    title: 'Список публикаций без BibTeX'
+  - id: 'tips'
+    title: 'Советы для подачи в зарубежные университеты'
 sections:
-  - id: "intro"
-    title: "Чем академическое CV отличается от обычного резюме"
+  - id: 'intro'
+    title: 'Чем академическое CV отличается от обычного резюме'
     html: |2-
                               <p>В отличие от стандартного одностраничного бизнес-резюме (Resume),
       академическое <strong>Curriculum Vitae (CV)</strong> не ограничено по объему и ориентировано на
@@ -68,8 +68,8 @@ sections:
                               <p>Использование <strong>шаблона академического резюме latex
       онлайн</strong> подчеркивает вашу техническую грамотность и обеспечивает безупречный внешний вид
       документа при подаче заявки в аспирантуру или на гранты (РНФ, Erasmus, Fulbright).</p>
-  - id: "moderncv"
-    title: "Класс moderncv: стили и цветовые темы"
+  - id: 'moderncv'
+    title: 'Класс moderncv: стили и цветовые темы'
     html: |2-
                               <p>Наиболее популярным инструментом является класс
       <code>moderncv</code>. Он предлагает несколько вариантов визуального стиля
@@ -90,8 +90,8 @@ sections:
       \usepackage[utf8]{inputenc}
       \usepackage[russian,english]{babel}</code></pre>
                               </div>
-  - id: "template"
-    title: "Готовый шаблон: создать CV для аспирантуры в LaTeX"
+  - id: 'template'
+    title: 'Готовый шаблон: создать CV для аспирантуры в LaTeX'
     html: |2-
                               <p>Ниже приведен готовый образец академического резюме:</p>
                               <div class="article-code">
@@ -139,8 +139,8 @@ sections:
 
       \end{document}</code></pre>
                               </div>
-  - id: "sections"
-    title: "Структура разделов: публикации, гранты, награды"
+  - id: 'sections'
+    title: 'Структура разделов: публикации, гранты, награды'
     html: |2-
                               <p>В классе <code>moderncv</code> используются базовые команды
       форматирования:</p>
@@ -153,8 +153,8 @@ sections:
                                   <li><code>\cvitemwithcomment{язык}{уровень}{сертификат}</code> — для
       языковых компетенций.</li>
                               </ul>
-  - id: "publications"
-    title: "Список публикаций без BibTeX"
+  - id: 'publications'
+    title: 'Список публикаций без BibTeX'
     html: |2-
                               <p>Пакеты <code>bibentry</code> и <code>multibib</code> берут записи из
       .bib-файла через BibTeX, а в Labkeeper BibTeX пока не запускается: вместо записей получатся
@@ -173,8 +173,8 @@ sections:
         In \emph{Proceedings of the International Conference on Data Science}
         (pp.~112--118).}</code></pre>
                               </div>
-  - id: "tips"
-    title: "Советы для подачи в зарубежные университеты"
+  - id: 'tips'
+    title: 'Советы для подачи в зарубежные университеты'
     html: |2-
                               <div class="article-tips">
                                   <div class="article-tip">

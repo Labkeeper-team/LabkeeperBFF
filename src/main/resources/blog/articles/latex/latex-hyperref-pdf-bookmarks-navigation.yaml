@@ -1,48 +1,48 @@
 catalogIndex: 6
-slug: "latex-hyperref-pdf-bookmarks-navigation"
+slug: 'latex-hyperref-pdf-bookmarks-navigation'
 batch: 2
-title: "Создание закладок (bookmarks) и навигации в PDF (hyperref)"
-pageTitle: "Закладки в PDF LaTeX hyperref: навигация по оглавлению PDF — Labkeeper"
+title: 'Создание закладок (bookmarks) и навигации в PDF (hyperref)'
+pageTitle: 'Закладки в PDF LaTeX hyperref: навигация по оглавлению PDF — Labkeeper'
 metaDescription: |2-
   Как настроить пакет hyperref в LaTeX: интерактивные закладки в PDF, кликабельное оглавление,
   цветные ссылки и решение проблем с кириллицей в Labkeeper.
-breadcrumbTitle: "Закладки PDF и hyperref в LaTeX"
-h1: "Создание закладок (bookmarks) и&nbsp;навигации в&nbsp;PDF (hyperref)"
+breadcrumbTitle: 'Закладки PDF и hyperref в LaTeX'
+h1: 'Создание закладок (bookmarks) и&nbsp;навигации в&nbsp;PDF (hyperref)'
 categories:
-  - "latex"
+  - 'latex'
 keywords:
-  - "закладки в pdf latex hyperref"
-  - "навигация по оглавлению pdf latex"
-datePublished: "2026-09-06"
-dateModified: "2026-10-18"
-readingTime: "7 мин"
-cardTitle: "Пакет hyperref: закладки, ссылки и интерактивная навигация в PDF"
+  - 'закладки в pdf latex hyperref'
+  - 'навигация по оглавлению pdf latex'
+datePublished: '2026-09-06'
+dateModified: '2026-10-18'
+readingTime: '7 мин'
+cardTitle: 'Пакет hyperref: закладки, ссылки и интерактивная навигация в PDF'
 cardDescription: |2-
   Как сделать оглавление кликабельным, включить боковое дерево закладок в PDF-ридере и избавиться
   от кракозябр в русскоязычных названиях глав.
-sliderTitle: "Закладки в PDF (hyperref)"
-sliderText: "Интерактивная навигация по документу, дерево закладок и цветные ссылки."
+sliderTitle: 'Закладки в PDF (hyperref)'
+sliderText: 'Интерактивная навигация по документу, дерево закладок и цветные ссылки.'
 sidebarText: |2-
   Если в проекте Labkeeper нет своей преамбулы, PDF уже содержит закладки и кликабельные ссылки:
   hyperref подключается автоматически.
-ctaTitle: "Создавайте интерактивные PDF в&nbsp;Labkeeper"
+ctaTitle: 'Создавайте интерактивные PDF в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX с поддержкой hyperref: кликабельные ссылки на формулы, рисунки и
   оглавление в PDF.
 toc:
-  - id: "why-navigation"
-    title: "Зачем нужны интерактивные закладки в научных документах"
-  - id: "hyperref-setup"
-    title: "Закладки в PDF LaTeX hyperref: эталонная конфигурация"
-  - id: "cyrillic-encoding"
-    title: "Формулы в заголовках и закладки PDF"
-  - id: "toc-navigation"
-    title: "Навигация по оглавлению PDF LaTeX: ссылки на формулы и рисунки"
-  - id: "print-vs-screen"
-    title: "Черно-белые ссылки для печати против цветных для экрана"
+  - id: 'why-navigation'
+    title: 'Зачем нужны интерактивные закладки в научных документах'
+  - id: 'hyperref-setup'
+    title: 'Закладки в PDF LaTeX hyperref: эталонная конфигурация'
+  - id: 'cyrillic-encoding'
+    title: 'Формулы в заголовках и закладки PDF'
+  - id: 'toc-navigation'
+    title: 'Навигация по оглавлению PDF LaTeX: ссылки на формулы и рисунки'
+  - id: 'print-vs-screen'
+    title: 'Черно-белые ссылки для печати против цветных для экрана'
 sections:
-  - id: "why-navigation"
-    title: "Зачем нужны интерактивные закладки в научных документах"
+  - id: 'why-navigation'
+    title: 'Зачем нужны интерактивные закладки в научных документах'
     html: |2-
                               <p>Когда вы отправляете дипломную работу, диссертацию или отчет в
       электронную среду университета или рецензенту журнала, первое, на что обращает внимание читатель
@@ -55,8 +55,8 @@ sections:
       один из главных аргументов при <a
       href="/blog/word-formatting-issues-diploma-lightweight-markup-alternative">переходе с Word на
       профессиональную верстку</a>.</p>
-  - id: "hyperref-setup"
-    title: "Закладки в PDF LaTeX hyperref: эталонная конфигурация"
+  - id: 'hyperref-setup'
+    title: 'Закладки в PDF LaTeX hyperref: эталонная конфигурация'
     html: |2-
                               <p>Чтобы правильно сгенерировать <strong>закладки в pdf latex
       hyperref</strong>, подключите пакет <em>в самом конце преамбулы</em> (за редким исключением
@@ -96,8 +96,8 @@ sections:
       параметрами или допишите их в уже существующую строку <code>\usepackage{hyperref}</code> —
       второй <code>\usepackage{hyperref}</code> не нужен.
                               </div>
-  - id: "cyrillic-encoding"
-    title: "Формулы в заголовках и закладки PDF"
+  - id: 'cyrillic-encoding'
+    title: 'Формулы в заголовках и закладки PDF'
     html: |2-
                               <p>Если в заголовках глав содержатся математические формулы (например,
       <code>\section{Анализ функции $f(x) = x^2$}</code>), в боковых закладках PDF может появиться
@@ -113,8 +113,8 @@ sections:
                               <p>Также рекомендуется дополнительно подключить современный пакет
       <code>\usepackage{bookmark}</code> сразу после <code>hyperref</code> — он обновляет закладки за
       один проход компилятора вместо двух.</p>
-  - id: "toc-navigation"
-    title: "Навигация по оглавлению PDF LaTeX: ссылки на формулы и рисунки"
+  - id: 'toc-navigation'
+    title: 'Навигация по оглавлению PDF LaTeX: ссылки на формулы и рисунки'
     html: |2-
                               <p>Полноценная <strong>навигация по оглавлению pdf latex</strong>
       охватывает не только содержание, но и перекрестные ссылки в тексте. Используйте связку
@@ -129,8 +129,8 @@ sections:
       соответствующему объекту. Те же правила перекрестных ссылок действуют и при <a
       href="/blog/latex-russian-cyrillic-code-listings-minted">оформлении листингов кода в LaTeX без
       ошибок</a>.</p>
-  - id: "print-vs-screen"
-    title: "Черно-белые ссылки для печати против цветных для экрана"
+  - id: 'print-vs-screen'
+    title: 'Черно-белые ссылки для печати против цветных для экрана'
     html: |2-
                               <p>Для бумажной версии диплома нормоконтроль часто требует, чтобы текст
       был строго черным, без синих ссылок. Чтобы сохранить кликабельность в PDF, но сделать цвет
@@ -146,11 +146,11 @@ sections:
       }</code></pre>
                               </div>
 tips:
-  - title: "Подключайте hyperref последним"
+  - title: 'Подключайте hyperref последним'
     html: |2-
       <p>Почти всегда <code>hyperref</code> должен быть последним пакетом в преамбуле документа, иначе
       другие пакеты могут переопределить макросы ссылок и сломать переход по страницам.</p>
-  - title: "Готовая навигация в Labkeeper"
+  - title: 'Готовая навигация в Labkeeper'
     html: |2-
       <p>В автоматической преамбуле Labkeeper пакет hyperref уже подключён: внутренние ссылки в
       просмотрщике PDF прокручивают документ к нужному месту, а внешние открываются в новой вкладке. В

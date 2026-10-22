@@ -1,48 +1,48 @@
 catalogIndex: 13
-slug: "imrad-structure-scientific-article-scopus-template"
+slug: 'imrad-structure-scientific-article-scopus-template'
 batch: 2
-title: "Международная структура IMRAD для научных публикаций"
-pageTitle: "Структура IMRAD научной статьи шаблон: разделы Scopus IMRAD — Labkeeper"
+title: 'Международная структура IMRAD для научных публикаций'
+pageTitle: 'Структура IMRAD научной статьи шаблон: разделы Scopus IMRAD — Labkeeper'
 metaDescription: |2-
   Полный разбор структуры IMRAD для научных статей Scopus и Web of Science: разделы статьи,
   готовый LaTeX-шаблон, требования рецензентов в Labkeeper.
-breadcrumbTitle: "Структура IMRAD для Scopus"
-h1: "Международная структура IMRAD для научных публикаций"
+breadcrumbTitle: 'Структура IMRAD для Scopus'
+h1: 'Международная структура IMRAD для научных публикаций'
 categories:
-  - "articles"
+  - 'articles'
 keywords:
-  - "структура imrad научной статьи шаблон"
-  - "разделы статьи scopus imrad"
-datePublished: "2026-09-06"
-dateModified: "2026-10-18"
-readingTime: "9 мин"
-cardTitle: "Стандарт IMRAD для Scopus и WoS: архитектура научной статьи"
+  - 'структура imrad научной статьи шаблон'
+  - 'разделы статьи scopus imrad'
+datePublished: '2026-09-06'
+dateModified: '2026-10-18'
+readingTime: '9 мин'
+cardTitle: 'Стандарт IMRAD для Scopus и WoS: архитектура научной статьи'
 cardDescription: |2-
   Как логично выстроить разделы Introduction, Methods, Results, Discussion, избежать частых
   замечаний рецензентов и оформить публикацию.
-sliderTitle: "Структура IMRAD для Scopus"
-sliderText: "Международный стандарт научной статьи: правила наполнения блоков и шаблон."
+sliderTitle: 'Структура IMRAD для Scopus'
+sliderText: 'Международный стандарт научной статьи: правила наполнения блоков и шаблон.'
 sidebarText: |2-
   В LaTeX-проекте Labkeeper доступны классы журналов из TeX Live — elsarticle, IEEEtran, acmart:
   пишите статью по структуре IMRAD и собирайте PDF.
-ctaTitle: "Пишите публикации Scopus в&nbsp;Labkeeper"
+ctaTitle: 'Пишите публикации Scopus в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX: формулы amsmath, векторные графики, список литературы в thebibliography и
   PDF после нажатия «Выполнить».
 toc:
-  - id: "what-is-imrad"
-    title: "Что такое формат IMRAD и почему он обязателен"
-  - id: "sections-breakdown"
-    title: "Разделы статьи Scopus IMRAD: анатомия каждого блока"
-  - id: "imrad-template"
-    title: "Структура IMRAD научной статьи: шаблон LaTeX для международных журналов"
-  - id: "results-vs-discussion"
-    title: "Главная ошибка: как не перепутать Results и Discussion"
-  - id: "reviewer-checklist"
-    title: "Чек-лист перед отправкой рукописи в редакцию"
+  - id: 'what-is-imrad'
+    title: 'Что такое формат IMRAD и почему он обязателен'
+  - id: 'sections-breakdown'
+    title: 'Разделы статьи Scopus IMRAD: анатомия каждого блока'
+  - id: 'imrad-template'
+    title: 'Структура IMRAD научной статьи: шаблон LaTeX для международных журналов'
+  - id: 'results-vs-discussion'
+    title: 'Главная ошибка: как не перепутать Results и Discussion'
+  - id: 'reviewer-checklist'
+    title: 'Чек-лист перед отправкой рукописи в редакцию'
 sections:
-  - id: "what-is-imrad"
-    title: "Что такое формат IMRAD и почему он обязателен"
+  - id: 'what-is-imrad'
+    title: 'Что такое формат IMRAD и почему он обязателен'
     html: |2-
                               <p><strong>IMRAD</strong> — это общепринятый международный академический
       стандарт структурирования оригинальных исследовательских статей (Original Research Papers).
@@ -56,8 +56,8 @@ sections:
       IMRAD активно перенимаются и при <a
       href="/blog/rinc-vak-scientific-article-template-fonts-margins">подготовке статей для базы РИНЦ
       и журналов ВАК</a>.</p>
-  - id: "sections-breakdown"
-    title: "Разделы статьи Scopus IMRAD: анатомия каждого блока"
+  - id: 'sections-breakdown'
+    title: 'Разделы статьи Scopus IMRAD: анатомия каждого блока'
     html: |2-
                               <p>Рассмотрим, за что отвечают обязательные <strong>разделы статьи
       scopus imrad</strong>:</p>
@@ -83,8 +83,8 @@ sections:
                               <p>Перед введением обязательно размещается вводный реферат — обратите
       внимание на нюансы <a href="/blog/diploma-annotation-abstract-russian-english">составления
       двуязычной аннотации Abstract</a>.</p>
-  - id: "imrad-template"
-    title: "Структура IMRAD научной статьи: шаблон LaTeX для международных журналов"
+  - id: 'imrad-template'
+    title: 'Структура IMRAD научной статьи: шаблон LaTeX для международных журналов'
     html: |2-
                               <p>Эталонная <strong>структура imrad научной статьи шаблон</strong> в
       формате LaTeX:</p>
@@ -137,8 +137,8 @@ sections:
       <code>\bibliographystyle</code> и <code>\bibliography</code> работают только при локальной
       сборке. Записи оформляйте вручную по стилю журнала, а ссылки ставьте командой
       <code>\cite</code>.</p>
-  - id: "results-vs-discussion"
-    title: "Главная ошибка: как не перепутать Results и Discussion"
+  - id: 'results-vs-discussion'
+    title: 'Главная ошибка: как не перепутать Results и Discussion'
     html: |2-
                               <p>Самое частое замечание зарубежных рецензентов — смешивание
       результатов и обсуждения:</p>
@@ -170,8 +170,8 @@ sections:
                                       </tbody>
                                   </table>
                               </div>
-  - id: "reviewer-checklist"
-    title: "Чек-лист перед отправкой рукописи в редакцию"
+  - id: 'reviewer-checklist'
+    title: 'Чек-лист перед отправкой рукописи в редакцию'
     html: |2-
                               <ul>
                                   <li>Введение опирается на актуальные международные источники
@@ -184,13 +184,13 @@ sections:
       (Study Limitations).</li>
                               </ul>
 tips:
-  - title: "Список литературы: BibTeX локально, thebibliography онлайн"
+  - title: 'Список литературы: BibTeX локально, thebibliography онлайн'
     html: |2-
       <p>BibTeX автоматически форматирует ссылки по стилю журнала (IEEE, APA, Harvard, Springer), но
       требует отдельного запуска программы bibtex — это работает при локальной сборке. В Labkeeper
       список собирается окружением <code>thebibliography</code>, а если журнал просит .bib-файл,
       приложите его к рукописи отдельно.</p>
-  - title: "Подготовка рукописей в Labkeeper"
+  - title: 'Подготовка рукописей в Labkeeper'
     html: |2-
       <p>Классы издательств <code>elsarticle</code> (Elsevier), <code>IEEEtran</code> и
       <code>acmart</code> входят в TeX Live, поэтому их можно указать в <code>\documentclass</code>

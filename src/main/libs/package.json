@@ -5,8 +5,8 @@
   "scripts": {
     "build": "node build.mjs",
     "snapshots": "node snapshots/run.mjs",
-    "format": "prettier --write --config prettier.config.mjs \"../resources/**/*.{html,js}\"",
-    "format:check": "prettier --check --config prettier.config.mjs \"../resources/**/*.{html,js}\""
+    "format": "prettier --write --config prettier.config.mjs \"../resources/**/*.{html,js,yaml,yml}\"",
+    "format:check": "prettier --check --config prettier.config.mjs \"../resources/**/*.{html,js,yaml,yml}\""
   },
   "dependencies": {
     "katex": "0.19.0",

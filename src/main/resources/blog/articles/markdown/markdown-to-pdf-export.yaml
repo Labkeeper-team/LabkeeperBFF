@@ -1,47 +1,47 @@
 catalogIndex: 75
-slug: "markdown-to-pdf-export"
+slug: 'markdown-to-pdf-export'
 batch: 2
-title: "Быстрый экспорт Markdown-заметок в формат PDF"
-pageTitle: "Конвертировать Markdown в PDF онлайн: экспорт md в PDF — Labkeeper"
+title: 'Быстрый экспорт Markdown-заметок в формат PDF'
+pageTitle: 'Конвертировать Markdown в PDF онлайн: экспорт md в PDF — Labkeeper'
 metaDescription: |2-
   Как конвертировать Markdown в PDF онлайн: экспорт md в PDF через печать браузера или
   LaTeX-проект Labkeeper с формулами, таблицами, сносками и оглавлением.
-breadcrumbTitle: "Экспорт Markdown в PDF"
-h1: "Быстрый экспорт Markdown-заметок в&nbsp;формат PDF"
+breadcrumbTitle: 'Экспорт Markdown в PDF'
+h1: 'Быстрый экспорт Markdown-заметок в&nbsp;формат PDF'
 categories:
-  - "markdown"
-  - "labs"
+  - 'markdown'
+  - 'labs'
 keywords:
-  - "конвертировать markdown в pdf онлайн"
-  - "экспорт md в pdf"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "6 мин"
-cardTitle: "Экспорт Markdown в PDF: генерация аккуратных документов для печати"
+  - 'конвертировать markdown в pdf онлайн'
+  - 'экспорт md в pdf'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '6 мин'
+cardTitle: 'Экспорт Markdown в PDF: генерация аккуратных документов для печати'
 cardDescription: |2-
   Как преобразовать текстовые заметки .md в аккуратный типографический PDF-документ с поддержкой
   математики LaTeX, таблиц и разрыва страниц.
-sliderTitle: "Конвертация Markdown в&nbsp;PDF онлайн"
-sliderText: "Экспорт .md в PDF: печать браузера или LaTeX-проект с формулами, таблицами и сносками."
+sliderTitle: 'Конвертация Markdown в&nbsp;PDF онлайн'
+sliderText: 'Экспорт .md в PDF: печать браузера или LaTeX-проект с формулами, таблицами и сносками.'
 sidebarText: |2-
   Собирайте PDF из Markdown-сегментов в LaTeX-проекте Labkeeper прямо в браузере, без установки
   Pandoc и TeX Live.
-ctaTitle: "Собирайте PDF из Markdown в&nbsp;Labkeeper"
+ctaTitle: 'Собирайте PDF из Markdown в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор Markdown и LaTeX: печать Markdown-проекта в PDF через браузер или PDF из
   Markdown-сегментов в LaTeX-проекте с формулами, таблицами и сносками.
 toc:
-  - id: "why-pdf"
-    title: "Зачем конвертировать Markdown в PDF"
-  - id: "tools-overview"
-    title: "Способы экспорта: CLI (Pandoc) против онлайн-редакторов"
-  - id: "page-breaks"
-    title: "Управление разрывами страниц в PDF"
-  - id: "math-tables"
-    title: "Рендеринг формул LaTeX и таблиц при экспорте"
+  - id: 'why-pdf'
+    title: 'Зачем конвертировать Markdown в PDF'
+  - id: 'tools-overview'
+    title: 'Способы экспорта: CLI (Pandoc) против онлайн-редакторов'
+  - id: 'page-breaks'
+    title: 'Управление разрывами страниц в PDF'
+  - id: 'math-tables'
+    title: 'Рендеринг формул LaTeX и таблиц при экспорте'
 sections:
-  - id: "why-pdf"
-    title: "Зачем конвертировать Markdown в PDF"
+  - id: 'why-pdf'
+    title: 'Зачем конвертировать Markdown в PDF'
     html: |2-
                               <p>Формат Markdown идеален для быстрого написания текстов, конспектов и
       черновиков, но не подходит для итоговой сдачи преподавателю или публикации: у него нет
@@ -49,8 +49,8 @@ sections:
       <strong>конвертировать markdown в pdf онлайн</strong> возникает у каждого студента и инженера,
       особенно когда требуется распечатать конспект с формулами, таблицами и <a
       href="/blog/markdown-code-syntax-highlighting">блоками кода в Markdown</a>.</p>
-  - id: "tools-overview"
-    title: "Способы экспорта: CLI (Pandoc) против онлайн-редакторов"
+  - id: 'tools-overview'
+    title: 'Способы экспорта: CLI (Pandoc) против онлайн-редакторов'
     html: |2-
                               <p>Традиционный путь требует локальной установки утилиты Pandoc и
       дистрибутива TeX Live весом в несколько гигабайт. Это сложно настроить на рабочем или мобильном
@@ -88,8 +88,8 @@ sections:
                               <p><strong>Пример в редакторе</strong> открывает LaTeX-проект:
       LaTeX-сегмент с оглавлением и разрывом страницы, затем Markdown-сегмент с формулой, таблицей и
       сноской. Нажмите «Выполнить», чтобы получить PDF.</p>
-  - id: "page-breaks"
-    title: "Управление разрывами страниц в PDF"
+  - id: 'page-breaks'
+    title: 'Управление разрывами страниц в PDF'
     html: |2-
                               <p>Чтобы при печати Markdown-проекта начать новый раздел со следующего
       листа, вставьте между абзацами HTML-разделитель:</p>
@@ -104,8 +104,8 @@ sections:
                               <p>В LaTeX-проекте HTML из Markdown-сегментов выбрасывается, поэтому
       разрыв делают отдельным LaTeX-сегментом с командой <code>\newpage</code> между
       Markdown-сегментами.</p>
-  - id: "math-tables"
-    title: "Рендеринг формул LaTeX и таблиц при экспорте"
+  - id: 'math-tables'
+    title: 'Рендеринг формул LaTeX и таблиц при экспорте'
     html: |2-
                               <p>Главная сложность простых онлайн-конвертеров — потеря сложных
       математических конструкций. В Markdown-проекте Labkeeper формулы, оформленные по правилам <a
@@ -115,7 +115,7 @@ sections:
       таблицы становятся таблицами <code>longtable</code>, которые переносятся на следующую
       страницу.</p>
 tips:
-  - title: "Настройки печати для чистого PDF"
+  - title: 'Настройки печати для чистого PDF'
     html: |2-
       <p>В Markdown-проекте кнопка «Сохранить в PDF» и есть печать браузера. В диалоге выберите
       «Сохранить как PDF», выключите колонтитулы, чтобы на листе не было адреса страницы и даты, и

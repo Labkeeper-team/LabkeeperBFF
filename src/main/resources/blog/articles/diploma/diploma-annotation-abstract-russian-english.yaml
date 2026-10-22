@@ -1,49 +1,49 @@
 catalogIndex: 18
-slug: "diploma-annotation-abstract-russian-english"
+slug: 'diploma-annotation-abstract-russian-english'
 batch: 2
-title: "Написание аннотации к диплому на русском и английском языках"
-pageTitle: "Как написать аннотацию к ВКР пример: Abstract диплом перевод — Labkeeper"
+title: 'Написание аннотации к диплому на русском и английском языках'
+pageTitle: 'Как написать аннотацию к ВКР пример: Abstract диплом перевод — Labkeeper'
 metaDescription: |2-
   Пошаговый разбор: как написать аннотацию к ВКР и дипломной работе. Пример аннотации на русском и
   Abstract на английском языке, шаблон и ключевые слова в Labkeeper.
-breadcrumbTitle: "Аннотация и Abstract к диплому"
-h1: "Написание аннотации к&nbsp;диплому на&nbsp;русском и&nbsp;английском языках"
+breadcrumbTitle: 'Аннотация и Abstract к диплому'
+h1: 'Написание аннотации к&nbsp;диплому на&nbsp;русском и&nbsp;английском языках'
 categories:
-  - "diploma"
-  - "articles"
+  - 'diploma'
+  - 'articles'
 keywords:
-  - "как написать аннотацию к вкр пример"
-  - "abstract диплом перевод шаблон"
-datePublished: "2026-09-06"
-dateModified: "2026-10-18"
-readingTime: "8 мин"
-cardTitle: "Аннотация и Abstract к диплому: русская и английская версии по ГОСТ"
+  - 'как написать аннотацию к вкр пример'
+  - 'abstract диплом перевод шаблон'
+datePublished: '2026-09-06'
+dateModified: '2026-10-18'
+readingTime: '8 мин'
+cardTitle: 'Аннотация и Abstract к диплому: русская и английская версии по ГОСТ'
 cardDescription: |2-
   Структура академической аннотации, статистика ВКР (страницы, таблицы, источники), готовый
   перевод Abstract и подбор ключевых слов.
-sliderTitle: "Аннотация к диплому (Abstract)"
-sliderText: "Как грамотно составить аннотацию на русском и перевести Abstract для диплома."
+sliderTitle: 'Аннотация к диплому (Abstract)'
+sliderText: 'Как грамотно составить аннотацию на русском и перевести Abstract для диплома.'
 sidebarText: |2-
   В Labkeeper можно оформить двуязычный реферат и Abstract к диплому с формулами и аккуратной
   типографикой.
-ctaTitle: "Оформите аннотацию и&nbsp;диплом в&nbsp;Labkeeper"
+ctaTitle: 'Оформите аннотацию и&nbsp;диплом в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX: реферат и Abstract на одном листе, число страниц подставляет пакет
   lastpage, PDF — после нажатия «Выполнить».
 toc:
-  - id: "purpose"
-    title: "Что такое аннотация к ВКР и где она размещается"
-  - id: "structure"
-    title: "Обязательные элементы реферата (аннотации) по ГОСТ 7.32"
-  - id: "russian-example"
-    title: "Как написать аннотацию к ВКР: готовый пример на русском языке"
-  - id: "english-abstract"
-    title: "Abstract диплом перевод: шаблон и профессиональные термины"
-  - id: "keywords-selection"
-    title: "Правила подбора ключевых слов (Keywords)"
+  - id: 'purpose'
+    title: 'Что такое аннотация к ВКР и где она размещается'
+  - id: 'structure'
+    title: 'Обязательные элементы реферата (аннотации) по ГОСТ 7.32'
+  - id: 'russian-example'
+    title: 'Как написать аннотацию к ВКР: готовый пример на русском языке'
+  - id: 'english-abstract'
+    title: 'Abstract диплом перевод: шаблон и профессиональные термины'
+  - id: 'keywords-selection'
+    title: 'Правила подбора ключевых слов (Keywords)'
 sections:
-  - id: "purpose"
-    title: "Что такое аннотация к ВКР и где она размещается"
+  - id: 'purpose'
+    title: 'Что такое аннотация к ВКР и где она размещается'
     html: |2-
                               <p>Аннотация к выпускной квалификационной работе — это краткая
       академическая характеристика дипломного исследования, позволяющая комиссии за 60 секунд понять
@@ -60,8 +60,8 @@ sections:
       href="/blog/diploma-assignment-form-calendar-schedule-gost">задания на дипломную работу</a> или
       перед содержанием). Для магистерских диссертаций и ряда бакалаврских программ нормоконтроль
       требует дублирования аннотации на английском языке под заголовком <strong>Abstract</strong>.</p>
-  - id: "structure"
-    title: "Обязательные элементы реферата (аннотации) по ГОСТ 7.32"
+  - id: 'structure'
+    title: 'Обязательные элементы реферата (аннотации) по ГОСТ 7.32'
     html: |2-
                               <p>По ГОСТ 7.32-2017 (п. 5.3) реферат, который во многих вузах называют
       аннотацией, содержит три части в таком порядке:</p>
@@ -79,8 +79,8 @@ sections:
                               <p>Логика изложения во многом перекликается с принципами <a
       href="/blog/imrad-structure-scientific-article-scopus-template">международной структуры научных
       публикаций IMRAD</a>, где важно четко разделить контекст, методы и практический результат.</p>
-  - id: "russian-example"
-    title: "Как написать аннотацию к ВКР: готовый пример на русском языке"
+  - id: 'russian-example'
+    title: 'Как написать аннотацию к ВКР: готовый пример на русском языке'
     html: |2-
                               <p>Рассмотрим конкретный образец, наглядно иллюстрирующий, <strong>как
       написать аннотацию к вкр пример</strong> для дипломного проекта инженера-программиста:</p>
@@ -102,8 +102,8 @@ sections:
       языке Python/FastAPI с интеграцией Prometheus и Grafana. Внедрение позволило сократить время
       реакции на сбои на 38%.»</p>
                               </div>
-  - id: "english-abstract"
-    title: "Abstract диплом перевод: шаблон и профессиональные термины"
+  - id: 'english-abstract'
+    title: 'Abstract диплом перевод: шаблон и профессиональные термины'
     html: |2-
                               <p>При подготовке англоязычной версии важно избегать корявого дословного
       перевода онлайн-переводчиками. Используйте этот профессиональный <strong>abstract диплом перевод
@@ -123,8 +123,8 @@ sections:
       Results: A software suite was developed using Python and FastAPI framework, integrated with Prometheus and Grafana. Implementation reduced incident response time by 38%.
       Practical significance: The solution can be adopted by SaaS companies to optimize DevOps workloads.</code></pre>
                               </div>
-  - id: "keywords-selection"
-    title: "Правила подбора ключевых слов (Keywords)"
+  - id: 'keywords-selection'
+    title: 'Правила подбора ключевых слов (Keywords)'
     html: |2-
                               <p>Правила оформления ключевых слов реферата по ГОСТ 7.32-2017:</p>
                               <ul>
@@ -141,13 +141,13 @@ sections:
       href="/blog/scientific-article-annotation-abstract-keywords-vak">аннотации и ключевых словах к
       научной статье</a>.</p>
 tips:
-  - title: "Сверяйте точную статистику"
+  - title: 'Сверяйте точную статистику'
     html: |2-
       <p>Количество страниц и таблиц в реферате пересчитывайте в самый последний момент перед печатью,
       когда верстка диплома окончательно утверждена. В LaTeX общее число страниц подставляет команда
       <code>\pageref{LastPage}</code> пакета <code>lastpage</code>, а число рисунков и таблиц
       проверьте вручную.</p>
-  - title: "Двуязычная верстка в Labkeeper"
+  - title: 'Двуязычная верстка в Labkeeper'
     html: |2-
       <p>В LaTeX-проекте Labkeeper русский реферат и английский Abstract удобно разместить на одном
       листе. Английский текст оберните в окружение <code>otherlanguage</code>, чтобы переносы шли по

@@ -1,66 +1,66 @@
 catalogIndex: 82
-slug: "latex-titlepage"
+slug: 'latex-titlepage'
 batch: 1
-title: "Как создать титульный лист по российским стандартам в онлайн LaTeX"
-pageTitle: "Титульный лист по ГОСТ в онлайн LaTeX: шаблон и пример — Labkeeper"
+title: 'Как создать титульный лист по российским стандартам в онлайн LaTeX'
+pageTitle: 'Титульный лист по ГОСТ в онлайн LaTeX: шаблон и пример — Labkeeper'
 metaDescription: |2-
   Как создать титульный лист по российским стандартам в онлайн LaTeX: готовый шаблон titlepage
   ГОСТ с полным примером кода, логотипом вуза и подписями.
 ogDescription: |2-
   Готовый шаблон титульного листа по ГОСТ в LaTeX онлайн: вуз, кафедра, тема работы, подписи
   руководителя и студента.
-twitterDescription: "Готовый шаблон титульного листа по ГОСТ в LaTeX онлайн."
+twitterDescription: 'Готовый шаблон титульного листа по ГОСТ в LaTeX онлайн.'
 schemaDescription: |2-
   Готовый шаблон титульного листа по ГОСТ в LaTeX онлайн: вуз, кафедра, тема работы, подписи
   руководителя и студента.
 breadcrumbTitle: |2-
   Титульный лист по
                                   ГОСТ в LaTeX
-schemaBreadcrumbTitle: "Титульный лист по ГОСТ в LaTeX"
+schemaBreadcrumbTitle: 'Титульный лист по ГОСТ в LaTeX'
 h1: |2-
   Как создать титульный лист по&nbsp;российским стандартам
                           в&nbsp;онлайн LaTeX
 categories:
-  - "diploma"
-  - "latex"
+  - 'diploma'
+  - 'latex'
 keywords:
-  - "титульный лист latex онлайн"
-  - "оформить титульный лист гост latex"
-datePublished: "2026-08-20"
-dateModified: "2026-10-18"
-readingTime: "7 мин"
-cardTitle: "Как создать титульный лист по российским стандартам в онлайн LaTeX"
+  - 'титульный лист latex онлайн'
+  - 'оформить титульный лист гост latex'
+datePublished: '2026-08-20'
+dateModified: '2026-10-18'
+readingTime: '7 мин'
+cardTitle: 'Как создать титульный лист по российским стандартам в онлайн LaTeX'
 cardDescription: |2-
   Создание титульного листа для курсовых, дипломов и диссертаций: разметка
                           шапки, утверждений, подписей и номера.
-sliderTitle: "Титульный лист по&nbsp;ГОСТ в&nbsp;LaTeX"
-sliderText: "Как создать титульный лист по российским стандартам в онлайн LaTeX."
-sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sliderTitle: 'Титульный лист по&nbsp;ГОСТ в&nbsp;LaTeX'
+sliderText: 'Как создать титульный лист по российским стандартам в онлайн LaTeX.'
+sidebarImageAlt: 'Онлайн-редактор LaTeX Labkeeper'
 sidebarText: |2-
   Создавайте титульные листы по&nbsp;ГОСТ в&nbsp;онлайн-редакторе
                           Labkeeper — без установки LaTeX.
-ctaTitle: "Создавайте титульные листы в&nbsp;Labkeeper"
+ctaTitle: 'Создавайте титульные листы в&nbsp;Labkeeper'
 ctaText: |2-
   Набирайте и&nbsp;компилируйте титульные листы и&nbsp;отчеты по&nbsp;российским стандартам
   в&nbsp;онлайн-редакторе LaTeX без&nbsp;лишних настроек.
 toc:
-  - id: "intro"
+  - id: 'intro'
     title: |2-
       Что должен содержать титульный лист по
                                           ГОСТ
-  - id: "titlepage-env"
-    title: "Окружение titlepage в LaTeX"
-  - id: "template"
-    title: "Полный шаблон титульного листа"
-  - id: "logo"
-    title: "Вставка логотипа вуза"
-  - id: "signatures"
-    title: "Строки для подписей"
-  - id: "tips"
-    title: "Практические советы"
+  - id: 'titlepage-env'
+    title: 'Окружение titlepage в LaTeX'
+  - id: 'template'
+    title: 'Полный шаблон титульного листа'
+  - id: 'logo'
+    title: 'Вставка логотипа вуза'
+  - id: 'signatures'
+    title: 'Строки для подписей'
+  - id: 'tips'
+    title: 'Практические советы'
 sections:
-  - id: "intro"
-    title: "Что должен содержать титульный лист по ГОСТ"
+  - id: 'intro'
+    title: 'Что должен содержать титульный лист по ГОСТ'
     html: |2-
                               <p>Требования к титульному листу курсовых и дипломных работ задают
       методические указания вуза,
@@ -84,8 +84,8 @@ sections:
       степень);</li>
                                   <li>Место и год написания.</li>
                               </ul>
-  - id: "titlepage-env"
-    title: "Окружение titlepage в LaTeX"
+  - id: 'titlepage-env'
+    title: 'Окружение titlepage в LaTeX'
     html: |2-
                               <p>Окружение <code>\begin{titlepage}...\end{titlepage}</code> создаёт
       отдельную страницу без
@@ -127,8 +127,8 @@ sections:
           \end{center}
       \end{titlepage}</code></pre>
                               </div>
-  - id: "template"
-    title: "Полный шаблон титульного листа"
+  - id: 'template'
+    title: 'Полный шаблон титульного листа'
     html: |2-
                               <p>Ниже приведён готовый шаблон титульного листа по ГОСТ, адаптированный
       для дипломной работы.
@@ -190,8 +190,8 @@ sections:
       \end{titlepage}
       \end{document}</code></pre>
                               </div>
-  - id: "logo"
-    title: "Вставка логотипа вуза"
+  - id: 'logo'
+    title: 'Вставка логотипа вуза'
     html: |2-
                               <p>Многие вузы требуют размещать герб или логотип на титульном листе.
       Для этого загрузите
@@ -212,8 +212,8 @@ sections:
       загрузить можно, но pdfLaTeX без
                                   shell-escape его не вставит — сконвертируйте в PDF или PNG.
                               </div>
-  - id: "signatures"
-    title: "Строки для подписей"
+  - id: 'signatures'
+    title: 'Строки для подписей'
     html: |2-
                               <p>Для строк подписей удобно использовать окружение <code>tabular</code>
       или команды
@@ -231,8 +231,8 @@ sections:
           \end{tabular}
       \end{flushright}</code></pre>
                               </div>
-  - id: "tips"
-    title: "Практические советы"
+  - id: 'tips'
+    title: 'Практические советы'
     html: |2-
                               <div class="article-tips">
                                   <div class="article-tip">

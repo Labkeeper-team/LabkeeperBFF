@@ -1,48 +1,48 @@
 catalogIndex: 16
-slug: "frontend-backend-developer-resume-tech-stack-ats"
+slug: 'frontend-backend-developer-resume-tech-stack-ats'
 batch: 2
-title: "Резюме Frontend / Backend разработчика с четким выделением стека"
-pageTitle: "CV frontend разработчика пример Markdown: резюме backend ATS — Labkeeper"
+title: 'Резюме Frontend / Backend разработчика с четким выделением стека'
+pageTitle: 'CV frontend разработчика пример Markdown: резюме backend ATS — Labkeeper'
 metaDescription: |2-
   Шаблоны резюме Frontend и Backend разработчиков в Markdown с четким стеком технологий и
   оптимизацией под ATS-сканеры. Готовые структуры в Labkeeper.
-breadcrumbTitle: "Резюме разработчика (Стек и ATS)"
-h1: "Резюме Frontend / Backend разработчика с&nbsp;четким выделением стека"
+breadcrumbTitle: 'Резюме разработчика (Стек и ATS)'
+h1: 'Резюме Frontend / Backend разработчика с&nbsp;четким выделением стека'
 categories:
-  - "cv"
+  - 'cv'
 keywords:
-  - "cv frontend разработчика пример markdown"
-  - "резюме backend шаблон ats"
-datePublished: "2026-09-06"
-dateModified: "2026-10-18"
-readingTime: "8 мин"
-cardTitle: "Резюме Frontend и Backend разработчика: стек технологий и ATS-фильтры"
+  - 'cv frontend разработчика пример markdown'
+  - 'резюме backend шаблон ats'
+datePublished: '2026-09-06'
+dateModified: '2026-10-18'
+readingTime: '8 мин'
+cardTitle: 'Резюме Frontend и Backend разработчика: стек технологий и ATS-фильтры'
 cardDescription: |2-
   Как правильно группировать навыки, выделять ключевой технологический стек и проходить
   автоматические ATS-сканеры без потерь.
-sliderTitle: "Резюме Frontend/Backend в Markdown"
-sliderText: "Примеры оформления технологического стека и проектов в резюме под ATS."
+sliderTitle: 'Резюме Frontend/Backend в Markdown'
+sliderText: 'Примеры оформления технологического стека и проектов в резюме под ATS.'
 sidebarText: |2-
   Создавайте резюме разработчика в Markdown в Labkeeper: простой одноколоночный формат, который
   ATS-системы обычно читают без потерь.
-ctaTitle: "Соберите идеальное CV в&nbsp;Labkeeper"
+ctaTitle: 'Соберите идеальное CV в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор резюме: синтаксис Markdown, превью при наборе и сохранение в PDF через печать
   браузера.
 toc:
-  - id: "ats-reality"
-    title: "Как алгоритмы ATS и HR сканируют резюме программистов"
-  - id: "stack-grouping"
-    title: "Группировка стека: языки, фреймворки, БД и протоколы"
-  - id: "frontend-example"
-    title: "CV frontend разработчика: пример в Markdown"
-  - id: "backend-example"
-    title: "Резюме backend: шаблон с оптимизацией под ATS"
-  - id: "mistakes"
-    title: "Ошибки: графики скиллов в процентах и двухколоночные таблицы"
+  - id: 'ats-reality'
+    title: 'Как алгоритмы ATS и HR сканируют резюме программистов'
+  - id: 'stack-grouping'
+    title: 'Группировка стека: языки, фреймворки, БД и протоколы'
+  - id: 'frontend-example'
+    title: 'CV frontend разработчика: пример в Markdown'
+  - id: 'backend-example'
+    title: 'Резюме backend: шаблон с оптимизацией под ATS'
+  - id: 'mistakes'
+    title: 'Ошибки: графики скиллов в процентах и двухколоночные таблицы'
 sections:
-  - id: "ats-reality"
-    title: "Как алгоритмы ATS и HR сканируют резюме программистов"
+  - id: 'ats-reality'
+    title: 'Как алгоритмы ATS и HR сканируют резюме программистов'
     html: |2-
                               <p>В большинстве технологических компаний отклик на вакансию сначала
       проходит через <strong>ATS (Applicant Tracking System)</strong> — автоматическую систему
@@ -53,8 +53,8 @@ sections:
       автоматически. Чтобы увеличить шансы на отклик, всегда прикрепляйте персонализированное <a
       href="/blog/how-to-write-it-cover-letter-structure-template">сопроводительное письмо Cover
       Letter</a>.</p>
-  - id: "stack-grouping"
-    title: "Группировка стека: языки, фреймворки, БД и протоколы"
+  - id: 'stack-grouping'
+    title: 'Группировка стека: языки, фреймворки, БД и протоколы'
     html: |2-
                               <p>Список навыков через запятую на 5 строк выглядит нечитаемо.
       Разделяйте технологии по логическим блокам:</p>
@@ -70,8 +70,8 @@ sections:
                                   <li><strong>Architecture &amp; Protocols:</strong> REST API,
       GraphQL, gRPC, WebSocket, Microservices.</li>
                               </ul>
-  - id: "frontend-example"
-    title: "CV frontend разработчика: пример в Markdown"
+  - id: 'frontend-example'
+    title: 'CV frontend разработчика: пример в Markdown'
     html: |2-
                               <p>Ниже представлен выверенный <strong>cv frontend разработчика пример
       markdown</strong> с акцентом на современные технологии:</p>
@@ -102,8 +102,8 @@ sections:
       с правилами верстки <a
       href="/blog/one-page-resume-cv-template-condensing-experience">одностраничного резюме
       One-Pager</a>, позволяющими компактно упаковать многолетний опыт.</p>
-  - id: "backend-example"
-    title: "Резюме backend: шаблон с оптимизацией под ATS"
+  - id: 'backend-example'
+    title: 'Резюме backend: шаблон с оптимизацией под ATS'
     html: |2-
                               <p>Готовый <strong>резюме backend шаблон ats</strong> ориентированный на
       надежность, базы данных и высокие нагрузки:</p>
@@ -130,8 +130,8 @@ sections:
       - Built RESTful and gRPC microservices in Go and Python FastAPI for tracking delivery shipments across 12 countries.
       - Configured automated CI/CD pipelines in GitLab CI, reducing release deployment cycles from 2 hours to 15 minutes.</code></pre>
                               </div>
-  - id: "mistakes"
-    title: "Ошибки: графики скиллов в процентах и двухколоночные таблицы"
+  - id: 'mistakes'
+    title: 'Ошибки: графики скиллов в процентах и двухколоночные таблицы'
     html: |2-
                               <p>Чего категорически нельзя делать в резюме разработчика:</p>
                               <ul>
@@ -144,12 +144,12 @@ sections:
       реальный код скажет о вас в 10 раз больше, чем список технологий.</li>
                               </ul>
 tips:
-  - title: "Проверяйте читаемость текста в PDF"
+  - title: 'Проверяйте читаемость текста в PDF'
     html: |2-
       <p>Экспортируя резюме в PDF, выделите весь текст мышью и скопируйте в блокнот. Если слова
       скопировались в правильном порядке без разрывов, ATS, скорее всего, тоже прочитает резюме
       корректно.</p>
-  - title: "Сохранение в PDF в Labkeeper"
+  - title: 'Сохранение в PDF в Labkeeper'
     html: |2-
       <p>В Markdown-проекте Labkeeper резюме сохраняется в PDF через печать браузера: текст в таком
       PDF остается текстом, и ATS может его прочитать. Перед печатью выключите колонтитулы, иначе

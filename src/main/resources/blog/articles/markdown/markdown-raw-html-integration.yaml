@@ -1,46 +1,46 @@
 catalogIndex: 74
-slug: "markdown-raw-html-integration"
+slug: 'markdown-raw-html-integration'
 batch: 2
-title: "Интеграция чистого HTML-кода внутрь Markdown файлов"
-pageTitle: "Можно ли писать HTML в Markdown: вставка тегов — Labkeeper"
+title: 'Интеграция чистого HTML-кода внутрь Markdown файлов'
+pageTitle: 'Можно ли писать HTML в Markdown: вставка тегов — Labkeeper'
 metaDescription: |2-
   Разбираем: можно ли писать HTML в Markdown, вставка HTML тегов в Markdown документы,
   выравнивание текста по центру, цветные блоки и медиа-элементы.
-breadcrumbTitle: "HTML внутри Markdown"
-h1: "Интеграция чистого HTML-кода внутрь Markdown файлов"
+breadcrumbTitle: 'HTML внутри Markdown'
+h1: 'Интеграция чистого HTML-кода внутрь Markdown файлов'
 categories:
-  - "markdown"
+  - 'markdown'
 keywords:
-  - "можно ли писать html в markdown"
-  - "вставка html тегов в markdown"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "6 мин"
-cardTitle: "HTML внутри Markdown: возможности верстки и безопасная интеграция тегов"
+  - 'можно ли писать html в markdown'
+  - 'вставка html тегов в markdown'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '6 мин'
+cardTitle: 'HTML внутри Markdown: возможности верстки и безопасная интеграция тегов'
 cardDescription: |2-
   Когда возможностей базового синтаксиса не хватает: центрирование текста, изменение цвета шрифта,
   стилизация таблиц и адаптивные медиа-блоки.
-sliderTitle: "Вставка чистого HTML в&nbsp;Markdown"
-sliderText: "Кастомные стили, выравнивание текста, цветные блоки и мультимедиа."
+sliderTitle: 'Вставка чистого HTML в&nbsp;Markdown'
+sliderText: 'Кастомные стили, выравнивание текста, цветные блоки и мультимедиа.'
 sidebarText: |2-
   Объединяйте лаконичность Markdown с гибкостью HTML-верстки в онлайн-редакторе Labkeeper: теги
   видны в превью при наборе.
-ctaTitle: "Верстайте без ограничений в&nbsp;Labkeeper"
+ctaTitle: 'Верстайте без ограничений в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор Markdown с HTML-тегами в превью, формулами MathJax и сохранением в PDF через
   печать браузера.
 toc:
-  - id: "can-we-use-html"
-    title: "Можно ли писать HTML в Markdown: официальная спецификация"
-  - id: "common-use-cases"
-    title: "Вставка HTML тегов в Markdown: популярные сценарии"
-  - id: "text-align-color"
-    title: "Выравнивание по ширине/центру и цветной шрифт"
-  - id: "security-markdown-rules"
-    title: "Правила вложенности Markdown внутри блочных HTML-тегов"
+  - id: 'can-we-use-html'
+    title: 'Можно ли писать HTML в Markdown: официальная спецификация'
+  - id: 'common-use-cases'
+    title: 'Вставка HTML тегов в Markdown: популярные сценарии'
+  - id: 'text-align-color'
+    title: 'Выравнивание по ширине/центру и цветной шрифт'
+  - id: 'security-markdown-rules'
+    title: 'Правила вложенности Markdown внутри блочных HTML-тегов'
 sections:
-  - id: "can-we-use-html"
-    title: "Можно ли писать HTML в Markdown: официальная спецификация"
+  - id: 'can-we-use-html'
+    title: 'Можно ли писать HTML в Markdown: официальная спецификация'
     html: |2-
                               <p>Один из самых частых вопросов у новичков — <strong>можно ли писать
       html в markdown</strong> напрямую? Ответ: однозначно да. Создатель Markdown Джон Грубер
@@ -56,8 +56,8 @@ sections:
       внутри Pandoc выбрасывает целиком. С пустой строкой, о которой сказано ниже, тело остаётся
       обычным текстом, а обёртка тега пропадает.</li>
                               </ul>
-  - id: "common-use-cases"
-    title: "Вставка HTML тегов в Markdown: популярные сценарии"
+  - id: 'common-use-cases'
+    title: 'Вставка HTML тегов в Markdown: популярные сценарии'
     html: |2-
                               <p>Прямая <strong>вставка html тегов в markdown</strong> требуется там,
       где базового синтаксиса недостаточно:</p>
@@ -74,8 +74,8 @@ sections:
       см. руководство по <a href="/blog/markdown-image-size-width-height">настройке размеров картинок
       в Markdown</a>).</li>
                               </ul>
-  - id: "text-align-color"
-    title: "Выравнивание по ширине/центру и цветной шрифт"
+  - id: 'text-align-color'
+    title: 'Выравнивание по ширине/центру и цветной шрифт'
     html: |2-
                               <p>Для создания цветных предупреждающих рамок (а также при <a
       href="/blog/markdown-table-merge-cells-rowspan-colspan">объединении ячеек таблиц через rowspan и
@@ -89,8 +89,8 @@ sections:
                               </div>
                               <p>Браузер по умолчанию не печатает фон: чтобы цветная рамка сохранилась
       в PDF, включите в диалоге печати параметр «Фоновая графика».</p>
-  - id: "security-markdown-rules"
-    title: "Правила вложенности Markdown внутри блочных HTML-тегов"
+  - id: 'security-markdown-rules'
+    title: 'Правила вложенности Markdown внутри блочных HTML-тегов'
     html: |2-
                               <p>Важное правило: если вы открыли блочный тег (например,
       <code>&lt;div&gt;</code>), многие парсеры перестают обрабатывать Markdown-синтаксис внутри него.
@@ -100,7 +100,7 @@ sections:
       синтаксис Markdown Extra и kramdown: в GitHub Flavored Markdown и в Labkeeper он не
       работает.</p>
 tips:
-  - title: "Не злоупотребляйте сложными стилями"
+  - title: 'Не злоупотребляйте сложными стилями'
     html: |2-
       <p>Используйте HTML точечно, только когда стандартных средств Markdown не хватает. Избыточный
       HTML лишает исходник его главного преимущества — легкости чтения.</p>

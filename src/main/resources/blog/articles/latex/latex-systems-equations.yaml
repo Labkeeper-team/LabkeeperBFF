@@ -1,73 +1,73 @@
 catalogIndex: 91
-slug: "latex-systems-equations"
+slug: 'latex-systems-equations'
 batch: 1
-title: "Как вставить формулу с системой уравнений и фигурной скобкой (cases / aligned)"
-pageTitle: "Система уравнений с фигурной скобкой в LaTeX (cases, aligned) — Labkeeper"
+title: 'Как вставить формулу с системой уравнений и фигурной скобкой (cases / aligned)'
+pageTitle: 'Система уравнений с фигурной скобкой в LaTeX (cases, aligned) — Labkeeper'
 metaDescription: |2-
   Как написать систему уравнений в LaTeX: cases, aligned, dcases с фигурной скобкой онлайн.
   Кусочно-заданные функции, нумерация строк и выравнивание.
-ogTitle: "Как вставить формулу с системой уравнений и фигурной скобкой (cases / aligned) — Labkeeper"
+ogTitle: 'Как вставить формулу с системой уравнений и фигурной скобкой (cases / aligned) — Labkeeper'
 ogDescription: |2-
   Система уравнений с фигурной скобкой LaTeX онлайн: подробные примеры с cases, aligned,
   кусочно-заданными функциями и нумерацией строк.
-twitterDescription: "Как написать систему уравнений в LaTeX cases: система уравнений с фигурной скобкой онлайн."
+twitterDescription: 'Как написать систему уравнений в LaTeX cases: система уравнений с фигурной скобкой онлайн.'
 schemaDescription: |2-
   Руководство по набору систем уравнений, систем неравенств и кусочных функций с большой фигурной
   скобкой в LaTeX.
 breadcrumbTitle: |2-
   Система уравнений
                                   в LaTeX
-schemaBreadcrumbTitle: "Система уравнений в LaTeX"
+schemaBreadcrumbTitle: 'Система уравнений в LaTeX'
 h1: |2-
   Как вставить формулу с&nbsp;системой уравнений и&nbsp;фигурной
                           скобкой (cases / aligned)
 categories:
-  - "latex"
+  - 'latex'
 keywords:
-  - "система уравнений с фигурной скобкой latex онлайн"
-  - "как написать систему уравнений в latex cases"
-datePublished: "2026-08-20"
-dateModified: "2026-10-18"
-readingTime: "7 мин"
+  - 'система уравнений с фигурной скобкой latex онлайн'
+  - 'как написать систему уравнений в latex cases'
+datePublished: '2026-08-20'
+dateModified: '2026-10-18'
+readingTime: '7 мин'
 cardTitle: |2-
   Как вставить формулу с системой уравнений и фигурной скобкой (cases /
                           aligned)
 cardDescription: |2-
   Кусочно-заданные функции, выравнивание aligned, окружение dcases из
                           mathtools и нумерация строк subequations.
-sliderTitle: "Системы уравнений и&nbsp;фигурные скобки"
-sliderText: "Кусочные функции cases, выравнивание aligned и нумерация строк subequations."
-sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sliderTitle: 'Системы уравнений и&nbsp;фигурные скобки'
+sliderText: 'Кусочные функции cases, выравнивание aligned и нумерация строк subequations.'
+sidebarImageAlt: 'Онлайн-редактор LaTeX Labkeeper'
 sidebarText: |2-
   Набирайте сложные системы уравнений и&nbsp;матрицы
                           в&nbsp;онлайн-редакторе Labkeeper с&nbsp;поддержкой amsmath
   и&nbsp;mathtools.
-ctaTitle: "Набирайте математические формулы в&nbsp;Labkeeper"
+ctaTitle: 'Набирайте математические формулы в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX с&nbsp;полной поддержкой amsmath и&nbsp;mathtools: удобный набор систем
   уравнений, матриц и&nbsp;просмотр PDF после сборки.
 toc:
-  - id: "intro"
-    title: "Обзор подходов к набору систем уравнений"
-  - id: "cases"
-    title: "Окружение cases для кусочных функций"
-  - id: "aligned"
+  - id: 'intro'
+    title: 'Обзор подходов к набору систем уравнений'
+  - id: 'cases'
+    title: 'Окружение cases для кусочных функций'
+  - id: 'aligned'
     title: |2-
       Связка \left\{ и aligned для систем
                                           уравнений
-  - id: "mathtools"
+  - id: 'mathtools'
     title: |2-
       Пакет mathtools: окружения dcases и
                                           rcases
-  - id: "subequations"
+  - id: 'subequations'
     title: |2-
       Нумерация отдельных уравнений системы
                                           (subequations)
-  - id: "tips"
-    title: "Практические советы"
+  - id: 'tips'
+    title: 'Практические советы'
 sections:
-  - id: "intro"
-    title: "Обзор подходов к набору систем уравнений"
+  - id: 'intro'
+    title: 'Обзор подходов к набору систем уравнений'
     html: |2-
                               <p>Набор систем алгебраических и дифференциальных уравнений — одна из
       самых частых задач в
@@ -83,8 +83,8 @@ sections:
       LaTeX cases</strong> и
                                   получить идеальную <strong>систему уравнений с фигурной скобкой
       LaTeX онлайн</strong>.</p>
-  - id: "cases"
-    title: "Окружение cases для кусочных функций"
+  - id: 'cases'
+    title: 'Окружение cases для кусочных функций'
     html: |2-
                               <p>Для математических выражений с условиями (например, модуль числа или
       функция знака)
@@ -103,7 +103,7 @@ sections:
                               <p>Символ <code>&amp;</code> отделяет формулу от текстового пояснения, а
       две косые черты
                                   <code>\\</code> выполняют перенос на новую строку.</p>
-  - id: "aligned"
+  - id: 'aligned'
     title: "Связка \\left\\{ и aligned для систем уравнений"
     html: |2-
                               <p>Когда требуется решить систему уравнений с выравниванием по знакам
@@ -129,8 +129,8 @@ sections:
       в конце — точка
                                   указывает LaTeX, что закрывающая скобка отсутствует.
                               </div>
-  - id: "mathtools"
-    title: "Пакет mathtools: окружения dcases и rcases"
+  - id: 'mathtools'
+    title: 'Пакет mathtools: окружения dcases и rcases'
     html: |2-
                               <p>В стандартном <code>cases</code> дроби внутри строк отображаются в
       компактном текстовом
@@ -158,8 +158,8 @@ sections:
       \end{rcases} \implies a = 6, \ b = 4
       \end{equation}</code></pre>
                               </div>
-  - id: "subequations"
-    title: "Нумерация отдельных уравнений системы (subequations)"
+  - id: 'subequations'
+    title: 'Нумерация отдельных уравнений системы (subequations)'
     html: |2-
                               <p>Если каждому уравнению системы нужен свой буквенный индекс (например,
       (1a), (1b)), оберните
@@ -200,8 +200,8 @@ sections:
                                   преамбулой — от <code>\documentclass</code> до
       <code>\begin{document}</code>.
                               </div>
-  - id: "tips"
-    title: "Практические советы"
+  - id: 'tips'
+    title: 'Практические советы'
     html: |2-
                               <div class="article-tips">
                                   <div class="article-tip">

@@ -1,48 +1,48 @@
 catalogIndex: 66
-slug: "latex-xcolor-text-background"
+slug: 'latex-xcolor-text-background'
 batch: 2
-title: "Работа с цветом текста, ячеек и фона в LaTeX (пакет xcolor)"
-pageTitle: "Цвет текста в LaTeX xcolor: цветная таблица онлайн — Labkeeper"
+title: 'Работа с цветом текста, ячеек и фона в LaTeX (пакет xcolor)'
+pageTitle: 'Цвет текста в LaTeX xcolor: цветная таблица онлайн — Labkeeper'
 metaDescription: |2-
   Как изменить цвет текста в LaTeX через пакет xcolor, создать цветную таблицу онлайн, настроить
   фон ячеек и строк. Пошаговые примеры кода.
-breadcrumbTitle: "Цвет текста и таблиц (xcolor)"
-h1: "Работа с&nbsp;цветом текста, ячеек и&nbsp;фона в&nbsp;LaTeX (пакет xcolor)"
+breadcrumbTitle: 'Цвет текста и таблиц (xcolor)'
+h1: 'Работа с&nbsp;цветом текста, ячеек и&nbsp;фона в&nbsp;LaTeX (пакет xcolor)'
 categories:
-  - "latex"
+  - 'latex'
 keywords:
-  - "как изменить цвет текста в latex xcolor"
-  - "цветная таблица latex онлайн"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "7 мин"
-cardTitle: "Работа с цветом в LaTeX: текст, фон и ячейки таблиц через xcolor"
+  - 'как изменить цвет текста в latex xcolor'
+  - 'цветная таблица latex онлайн'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '7 мин'
+cardTitle: 'Работа с цветом в LaTeX: текст, фон и ячейки таблиц через xcolor'
 cardDescription: |2-
   Подробное руководство по пакету xcolor: как изменить цвет текста, подсветить строки и ячейки
   таблиц, задать RGB/HEX оттенки и избежать ошибок печати.
-sliderTitle: "Цвет текста и таблиц в LaTeX"
-sliderText: "Пакет xcolor, цветные таблицы и фон ячеек в академических документах."
-sidebarText: "Поддерживайте единый цветовой стиль научных документов и презентаций в веб-редакторе Labkeeper."
-ctaTitle: "Оформляйте стильные документы в&nbsp;Labkeeper"
+sliderTitle: 'Цвет текста и таблиц в LaTeX'
+sliderText: 'Пакет xcolor, цветные таблицы и фон ячеек в академических документах.'
+sidebarText: 'Поддерживайте единый цветовой стиль научных документов и презентаций в веб-редакторе Labkeeper.'
+ctaTitle: 'Оформляйте стильные документы в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX с поддержкой пакета xcolor и подсветкой синтаксиса: цветной текст, фон и
   таблицы в финальном PDF.
 toc:
-  - id: "intro"
-    title: "Возможности пакета xcolor"
-  - id: "setup"
-    title: "Подключение и опции пакета"
-  - id: "text-color"
-    title: "Как изменить цвет текста в latex xcolor: основные команды"
-  - id: "table-color"
-    title: "Цветная таблица latex онлайн: фон ячеек и зебра строк"
-  - id: "custom-colors"
-    title: "Создание собственных оттенков: RGB, CMYK и HTML-HEX"
-  - id: "faq"
-    title: "Советы по подготовке к черно-белой печати"
+  - id: 'intro'
+    title: 'Возможности пакета xcolor'
+  - id: 'setup'
+    title: 'Подключение и опции пакета'
+  - id: 'text-color'
+    title: 'Как изменить цвет текста в latex xcolor: основные команды'
+  - id: 'table-color'
+    title: 'Цветная таблица latex онлайн: фон ячеек и зебра строк'
+  - id: 'custom-colors'
+    title: 'Создание собственных оттенков: RGB, CMYK и HTML-HEX'
+  - id: 'faq'
+    title: 'Советы по подготовке к черно-белой печати'
 sections:
-  - id: "intro"
-    title: "Возможности пакета xcolor"
+  - id: 'intro'
+    title: 'Возможности пакета xcolor'
     html: |2-
                               <p>По умолчанию LaTeX ориентирован на монохромную полиграфию. Однако в
       презентациях (Beamer), отчетах по грантам, методических материалах и цветных публикациях
@@ -52,8 +52,8 @@ sections:
                               <p>Стандартом для работы с цветом является пакет
       <strong>xcolor</strong>. Он позволяет окрашивать отдельные слова, целые блоки, фоны абзацев, а
       также создавать контрастные цветные таблицы с автоматическим чередованием строк.</p>
-  - id: "setup"
-    title: "Подключение и опции пакета"
+  - id: 'setup'
+    title: 'Подключение и опции пакета'
     html: |2-
                               <p>Чтобы получить доступ к расширенным палитрам и поддержке таблиц,
       пакет подключается со специальными опциями:</p>
@@ -65,8 +65,8 @@ sections:
                               <p>Опция <code>table</code> загружает вспомогательный модуль для работы
       со средами <code>tabular</code> и <code>longtable</code>, а <code>dvipsnames</code> добавляет
       более 60 выразительных именных оттенков (NavyBlue, ForestGreen, Maroon, BurntOrange).</p>
-  - id: "text-color"
-    title: "Как изменить цвет текста в latex xcolor: основные команды"
+  - id: 'text-color'
+    title: 'Как изменить цвет текста в latex xcolor: основные команды'
     html: |2-
                               <p>Существует два базовых способа, <strong>как изменить цвет текста в
       latex xcolor</strong>:</p>
@@ -87,8 +87,8 @@ sections:
                               </div>
                               <p>Команда <code>\colorbox</code> заливает фон под текстом, а
       <code>\fcolorbox</code> дополнительно создает цветную границу вокруг выделенного блока.</p>
-  - id: "table-color"
-    title: "Цветная таблица latex онлайн: фон ячеек и зебра строк"
+  - id: 'table-color'
+    title: 'Цветная таблица latex онлайн: фон ячеек и зебра строк'
     html: |2-
                               <p>С помощью опции <code>table</code> создается удобная для восприятия
       <strong>цветная таблица latex онлайн</strong> с эффектом «зебры» (чередующиеся строки) или
@@ -116,8 +116,8 @@ sections:
                               <p>Команда <code>\cellcolor{цвет}</code> красит отдельную ячейку, а
       запись вида <code>red!25</code> означает смесь: 25% насыщенного красного и 75% белого цвета
       (пастельный оттенок).</p>
-  - id: "custom-colors"
-    title: "Создание собственных оттенков: RGB, CMYK и HTML-HEX"
+  - id: 'custom-colors'
+    title: 'Создание собственных оттенков: RGB, CMYK и HTML-HEX'
     html: |2-
                               <p>Если корпоративный стиль или требования журнала предписывают
       конкретные оттенки, объявите их в преамбуле командой <code>\definecolor</code>, например
@@ -125,8 +125,8 @@ sections:
       <code>\textcolor{BrandBlue}{Фирменный текст}</code>. Модели HTML-HEX, RGB и CMYK подробно
       разобраны в материале о <a href="/blog/latex-custom-rgb-hex-colors-xcolor">пользовательских
       цветах RGB и HEX в LaTeX</a>.</p>
-  - id: "faq"
-    title: "Советы по подготовке к черно-белой печати"
+  - id: 'faq'
+    title: 'Советы по подготовке к черно-белой печати'
     html: |2-
                               <p>Если работа будет распечатываться на монохромном принтере:</p>
                               <ul>
@@ -138,12 +138,12 @@ sections:
       исключительно на светлом фоне, а белый — на плотно залитом фоне.</li>
                               </ul>
 tips:
-  - title: "Устранение конфликта с пакетом tabularx"
+  - title: 'Устранение конфликта с пакетом tabularx'
     html: |2-
       <p>Всегда подключайте <code>\usepackage[table]{xcolor}</code> <em>до</em> пакетов
       <code>tabularx</code> или <code>colortbl</code>, чтобы избежать ошибки <code>Option clash for
       package xcolor</code>.</p>
-  - title: "Прозрачность и смешивание"
+  - title: 'Прозрачность и смешивание'
     html: |2-
       <p>Синтаксис <code>blue!40!red</code> создает плавное смешивание 40% синего и 60% красного цвета
       без необходимости высчитывать RGB вручную.</p>

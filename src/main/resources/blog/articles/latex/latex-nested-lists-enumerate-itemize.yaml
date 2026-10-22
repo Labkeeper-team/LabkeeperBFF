@@ -1,51 +1,51 @@
 catalogIndex: 69
-slug: "latex-nested-lists-enumerate-itemize"
+slug: 'latex-nested-lists-enumerate-itemize'
 batch: 2
-title: "Создание многоуровневых вложенных списков в LaTeX"
-pageTitle: "Вложенные списки в LaTeX: нумерация и маркеры itemize — Labkeeper"
+title: 'Создание многоуровневых вложенных списков в LaTeX'
+pageTitle: 'Вложенные списки в LaTeX: нумерация и маркеры itemize — Labkeeper'
 metaDescription: |2-
   Полный гид: вложенные нумерованные списки LaTeX (enumerate), как изменить маркер списка itemize
   в LaTeX, настройка отступов с пакетом enumitem по ГОСТ.
-breadcrumbTitle: "Вложенные списки в LaTeX"
-h1: "Создание многоуровневых вложенных списков в&nbsp;LaTeX"
+breadcrumbTitle: 'Вложенные списки в LaTeX'
+h1: 'Создание многоуровневых вложенных списков в&nbsp;LaTeX'
 categories:
-  - "latex"
+  - 'latex'
 keywords:
-  - "вложенные нумерованные списки latex"
-  - "изменить маркер списка itemize latex"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "6 мин"
-cardTitle: "Списки в LaTeX: многоуровневая вложенность и кастомизация пакетом enumitem"
+  - 'вложенные нумерованные списки latex'
+  - 'изменить маркер списка itemize latex'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '6 мин'
+cardTitle: 'Списки в LaTeX: многоуровневая вложенность и кастомизация пакетом enumitem'
 cardDescription: |2-
   Как настроить сквозную нумерацию 1.1, 1.2, изменить маркеры дефисов по ГОСТ и убрать лишние
   вертикальные отступы между пунктами.
-sliderTitle: "Многоуровневые списки в&nbsp;LaTeX"
-sliderText: "Настройка вложенности, иерархических меток и маркеров по ГОСТ."
+sliderTitle: 'Многоуровневые списки в&nbsp;LaTeX'
+sliderText: 'Настройка вложенности, иерархических меток и маркеров по ГОСТ.'
 sidebarText: |2-
   Верстайте списки любой степени вложенности со строгим соблюдением академических ГОСТ в
   Labkeeper.
-ctaTitle: "Настраивайте идеальные списки в&nbsp;Labkeeper"
-ctaText: "Онлайн-редактор с полной поддержкой пакета enumitem и предпросмотром PDF."
+ctaTitle: 'Настраивайте идеальные списки в&nbsp;Labkeeper'
+ctaText: 'Онлайн-редактор с полной поддержкой пакета enumitem и предпросмотром PDF.'
 toc:
-  - id: "basic-lists"
-    title: "Базовые окружения: itemize и enumerate"
-  - id: "nested-numbered"
-    title: "Вложенные нумерованные списки в LaTeX: уровни до 4"
-  - id: "customize-bullet"
-    title: "Как изменить маркер списка itemize в LaTeX по ГОСТ"
-  - id: "enumitem-power"
-    title: "Пакет enumitem: управление отступами и компактный вид (nosep)"
+  - id: 'basic-lists'
+    title: 'Базовые окружения: itemize и enumerate'
+  - id: 'nested-numbered'
+    title: 'Вложенные нумерованные списки в LaTeX: уровни до 4'
+  - id: 'customize-bullet'
+    title: 'Как изменить маркер списка itemize в LaTeX по ГОСТ'
+  - id: 'enumitem-power'
+    title: 'Пакет enumitem: управление отступами и компактный вид (nosep)'
 sections:
-  - id: "basic-lists"
-    title: "Базовые окружения: itemize и enumerate"
+  - id: 'basic-lists'
+    title: 'Базовые окружения: itemize и enumerate'
     html: |2-
                               <p>В LaTeX для перечислений используются окружения <code>itemize</code>
       (маркированный список) и <code>enumerate</code> (нумерованный список). Каждый пункт объявляется
       командой <code>\item</code> (если вы работаете в Markdown, ознакомьтесь с <a
       href="/blog/markdown-task-lists">чек-листами и списками задач в Markdown</a>).</p>
-  - id: "nested-numbered"
-    title: "Вложенные нумерованные списки в LaTeX: уровни до 4"
+  - id: 'nested-numbered'
+    title: 'Вложенные нумерованные списки в LaTeX: уровни до 4'
     html: |2-
                               <p>По умолчанию стандартный LaTeX поддерживает до 4 уровней вложенности.
       <strong>Вложенные нумерованные списки latex</strong> создаются простым помещением одного
@@ -62,8 +62,8 @@ sections:
         \item Второй этап: математическая обработка
       \end{enumerate}</code></pre>
                               </div>
-  - id: "customize-bullet"
-    title: "Как изменить маркер списка itemize в LaTeX по ГОСТ"
+  - id: 'customize-bullet'
+    title: 'Как изменить маркер списка itemize в LaTeX по ГОСТ'
     html: |2-
                               <p>По ГОСТ 2.105 и 7.32 маркированный список в русскоязычных работах
       должен начинаться с <strong>тире или дефиса</strong>, а не с жирной черной точки (bullet).
@@ -75,8 +75,8 @@ sections:
                                   <pre><code>\renewcommand{\labelitemi}{---}
       \renewcommand{\labelitemii}{--}</code></pre>
                               </div>
-  - id: "enumitem-power"
-    title: "Пакет enumitem: управление отступами и компактный вид (nosep)"
+  - id: 'enumitem-power'
+    title: 'Пакет enumitem: управление отступами и компактный вид (nosep)'
     html: |2-
                               <p>Стандартные списки LaTeX имеют слишком большие интервалы сверху и
       между пунктами, а их левый отступ часто не совпадает с требуемым по ГОСТ <a
@@ -92,7 +92,7 @@ sections:
       \end{enumerate}</code></pre>
                               </div>
 tips:
-  - title: "Сложная иерархическая нумерация 1.1, 1.2"
+  - title: 'Сложная иерархическая нумерация 1.1, 1.2'
     html: |2-
       <p>С пакетом enumitem создавайте нумерацию вида 1.1, 1.2 с помощью параметра
       <code>label*=\arabic*.</code> на втором уровне вложенности.</p>

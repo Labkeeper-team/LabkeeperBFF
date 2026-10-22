@@ -1,46 +1,46 @@
 catalogIndex: 41
-slug: "latex-custom-rgb-hex-colors-xcolor"
+slug: 'latex-custom-rgb-hex-colors-xcolor'
 batch: 2
-title: "Пользовательские цвета RGB и HEX для текста (пакет xcolor)"
-pageTitle: "Свой цвет HEX в LaTeX xcolor: цвета RGB и CMYK онлайн — Labkeeper"
+title: 'Пользовательские цвета RGB и HEX для текста (пакет xcolor)'
+pageTitle: 'Свой цвет HEX в LaTeX xcolor: цвета RGB и CMYK онлайн — Labkeeper'
 metaDescription: |2-
   Как задать свой цвет HEX в LaTeX через xcolor: цвета RGB и CMYK, HTML-коды и брендовые палитры
   для текста, рамок и фона в онлайн-редакторе Labkeeper.
-breadcrumbTitle: "Пользовательские цвета RGB и HEX (xcolor)"
-h1: "Пользовательские цвета RGB и&nbsp;HEX для текста (пакет xcolor)"
+breadcrumbTitle: 'Пользовательские цвета RGB и HEX (xcolor)'
+h1: 'Пользовательские цвета RGB и&nbsp;HEX для текста (пакет xcolor)'
 categories:
-  - "latex"
+  - 'latex'
 keywords:
-  - "свой цвет hex в latex xcolor"
-  - "цвет rgb в latex xcolor"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "6 мин"
-cardTitle: "Пользовательские цвета RGB и HEX в LaTeX: точная палитра через xcolor"
+  - 'свой цвет hex в latex xcolor'
+  - 'цвет rgb в latex xcolor'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '6 мин'
+cardTitle: 'Пользовательские цвета RGB и HEX в LaTeX: точная палитра через xcolor'
 cardDescription: |2-
   Как объявлять кастомные цвета по HTML-коду (#1A73E8) и модели RGB (0..255 или 0..1), красить
   текст, формулы, рамки и фоны без ограничений стандартной палитры.
-sliderTitle: "Пользовательские цвета RGB и HEX в LaTeX"
-sliderText: "Объявление HEX и RGB оттенков, брендовые цвета и палитры xcolor."
-sidebarText: "Создавайте брендовые презентации и отчеты с точными HEX и RGB цветами в веб-редакторе Labkeeper."
-ctaTitle: "Настраивайте палитру документов в&nbsp;Labkeeper"
+sliderTitle: 'Пользовательские цвета RGB и HEX в LaTeX'
+sliderText: 'Объявление HEX и RGB оттенков, брендовые цвета и палитры xcolor.'
+sidebarText: 'Создавайте брендовые презентации и отчеты с точными HEX и RGB цветами в веб-редакторе Labkeeper.'
+ctaTitle: 'Настраивайте палитру документов в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор с полной поддержкой пакета xcolor и подсветкой синтаксиса: цвета HEX, RGB и CMYK
   в PDF прямо в браузере.
 toc:
-  - id: "intro"
-    title: "Почему стандартных 8 цветов недостаточно"
-  - id: "hex-define"
-    title: "Свой цвет hex в latex xcolor: директива definecolor"
-  - id: "rgb-define"
-    title: "Цвет RGB в LaTeX xcolor: модели дробного и целочисленного RGB"
-  - id: "usage-examples"
-    title: "Применение кастомных цветов: текст, фон, рамки и ссылки"
-  - id: "cmyk-print"
-    title: "Особенности подготовки к полиграфической печати (CMYK)"
+  - id: 'intro'
+    title: 'Почему стандартных 8 цветов недостаточно'
+  - id: 'hex-define'
+    title: 'Свой цвет hex в latex xcolor: директива definecolor'
+  - id: 'rgb-define'
+    title: 'Цвет RGB в LaTeX xcolor: модели дробного и целочисленного RGB'
+  - id: 'usage-examples'
+    title: 'Применение кастомных цветов: текст, фон, рамки и ссылки'
+  - id: 'cmyk-print'
+    title: 'Особенности подготовки к полиграфической печати (CMYK)'
 sections:
-  - id: "intro"
-    title: "Почему стандартных 8 цветов недостаточно"
+  - id: 'intro'
+    title: 'Почему стандартных 8 цветов недостаточно'
     html: |2-
                               <p>Базовый TeX предоставляет всего несколько примитивных цветов: red,
       green, blue, cyan, magenta, yellow, black, white. В реальных проектах — презентациях Beamer,
@@ -51,8 +51,8 @@ sections:
       расширенный пакет снимает любые колористические ограничения, позволяя объявлять собственные
       именованные оттенки в цветовых пространствах HTML-HEX, RGB (дробном и 255) и полиграфическом
       CMYK.</p>
-  - id: "hex-define"
-    title: "Свой цвет hex в latex xcolor: директива definecolor"
+  - id: 'hex-define'
+    title: 'Свой цвет hex в latex xcolor: директива definecolor'
     html: |2-
                               <p>Самый удобный способ для веб-разработчиков и дизайнеров задать
       <strong>свой цвет hex в latex xcolor</strong> — использовать модель <code>HTML</code>
@@ -70,8 +70,8 @@ sections:
                               </div>
                               <p>После объявления в преамбуле новые цвета используются стандартными
       командами: <code>\textcolor{BrandBlue}{Фирменный текст}</code>.</p>
-  - id: "rgb-define"
-    title: "Цвет RGB в LaTeX xcolor: модели дробного и целочисленного RGB"
+  - id: 'rgb-define'
+    title: 'Цвет RGB в LaTeX xcolor: модели дробного и целочисленного RGB'
     html: |2-
                               <p>Чтобы задать <strong>цвет RGB в LaTeX xcolor</strong>, в пакете
       предусмотрены две разновидности модели:</p>
@@ -87,8 +87,8 @@ sections:
       <code>rgb(255, 112, 67)</code>.
                                   </li>
                               </ul>
-  - id: "usage-examples"
-    title: "Применение кастомных цветов: текст, фон, рамки и ссылки"
+  - id: 'usage-examples'
+    title: 'Применение кастомных цветов: текст, фон, рамки и ссылки'
     html: |2-
                               <p>Примеры комплексного оформления документа объявленными оттенками
       (такие цветовые палитры часто применяют при <a
@@ -108,19 +108,19 @@ sections:
           \textcolor{BrandBlue}{E} = \textcolor{WarningAmber}{m} \cdot \textcolor{EmeraldGreen}{c^2}
       \end{equation}</code></pre>
                               </div>
-  - id: "cmyk-print"
-    title: "Особенности подготовки к полиграфической печати (CMYK)"
+  - id: 'cmyk-print'
+    title: 'Особенности подготовки к полиграфической печати (CMYK)'
     html: |2-
                               <p>Если документ планируется отдавать в профессиональную типографию на
       офсетную печать, объявляйте цвета в четырехкрасочной модели:
       <code>\definecolor{PrintCyan}{cmyk}{1.0, 0.0, 0.0, 0.0}</code>, чтобы избежать цветовых
       искажений при конвертации из экранного RGB.</p>
 tips:
-  - title: "Плавное осветление цвета"
+  - title: 'Плавное осветление цвета'
     html: |2-
       <p>Синтаксис <code>BrandBlue!30</code> создает цвет, состоящий на 30% из BrandBlue и на 70% из
       белого, что идеально для фона таблиц и плашек.</p>
-  - title: "Интеграция с hyperref"
+  - title: 'Интеграция с hyperref'
     html: |2-
       <p>Задайте кастомный цвет для всех веб-ссылок в преамбуле: <code>\hypersetup{colorlinks=true,
       urlcolor=BrandBlue, linkcolor=DarkSlate}</code>.</p>

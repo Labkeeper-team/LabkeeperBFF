@@ -1,48 +1,48 @@
 catalogIndex: 23
-slug: "latex-russian-cyrillic-code-listings-minted"
+slug: 'latex-russian-cyrillic-code-listings-minted'
 batch: 2
-title: "Русский язык в листингах кода (minted/listings) без ошибок компиляции"
-pageTitle: "Русский язык в листингах кода LaTeX: ошибка кириллицы listings — Labkeeper"
+title: 'Русский язык в листингах кода (minted/listings) без ошибок компиляции'
+pageTitle: 'Русский язык в листингах кода LaTeX: ошибка кириллицы listings — Labkeeper'
 metaDescription: |2-
   Как победить ошибку кириллицы в listings LaTeX и включить русский язык в листингах кода: рабочая
   преамбула для pdfLaTeX и Labkeeper, minted — для локальной сборки.
-breadcrumbTitle: "Русский язык в листингах LaTeX"
-h1: "Русский язык в&nbsp;листингах кода (minted/listings) без&nbsp;ошибок компиляции"
+breadcrumbTitle: 'Русский язык в листингах LaTeX'
+h1: 'Русский язык в&nbsp;листингах кода (minted/listings) без&nbsp;ошибок компиляции'
 categories:
-  - "latex"
+  - 'latex'
 keywords:
-  - "русский язык в листингах кода latex"
-  - "ошибка кириллицы в listings latex"
-datePublished: "2026-09-06"
-dateModified: "2026-10-18"
-readingTime: "8 мин"
-cardTitle: "Кириллица в листингах кода LaTeX: решение проблем в listings и minted"
+  - 'русский язык в листингах кода latex'
+  - 'ошибка кириллицы в listings latex'
+datePublished: '2026-09-06'
+dateModified: '2026-10-18'
+readingTime: '8 мин'
+cardTitle: 'Кириллица в листингах кода LaTeX: решение проблем в listings и minted'
 cardDescription: |2-
   Как вставлять комментарии и строки на русском языке в блоки кода без падений pdfLaTeX: таблица
   literate для listings, а minted и XeLaTeX — при локальной сборке.
-sliderTitle: "Русский язык в коде LaTeX"
-sliderText: "Настройка listings для русских комментариев в pdfLaTeX и minted для локальной сборки."
+sliderTitle: 'Русский язык в коде LaTeX'
+sliderText: 'Настройка listings для русских комментариев в pdfLaTeX и minted для локальной сборки.'
 sidebarText: |2-
   В Labkeeper листинги с русскими комментариями собираются через listings — без установки LaTeX и
   Python.
-ctaTitle: "Компилируйте чистые листинги в&nbsp;Labkeeper"
-ctaText: "Онлайн-редактор LaTeX: листинги кода с кириллицей через listings и сборка PDF в браузере."
+ctaTitle: 'Компилируйте чистые листинги в&nbsp;Labkeeper'
+ctaText: 'Онлайн-редактор LaTeX: листинги кода с кириллицей через listings и сборка PDF в браузере.'
 toc:
-  - id: "problem"
-    title: "Почему возникает ошибка кириллицы в listings LaTeX"
-  - id: "listings-fix"
-    title: "Русский язык в листингах кода LaTeX: правильная настройка listings"
-  - id: "extendedchars"
-    title: "Символьная таблица literate для полного охвата русского алфавита"
-  - id: "minted-setup"
-    title: "Пакет minted с поддержкой UTF-8: только локальная сборка"
-  - id: "xelatex-lualatex"
-    title: "Движки XeLaTeX и LuaLaTeX при локальной сборке"
-  - id: "faq"
-    title: "Частые вопросы и рекомендации по ГОСТ"
+  - id: 'problem'
+    title: 'Почему возникает ошибка кириллицы в listings LaTeX'
+  - id: 'listings-fix'
+    title: 'Русский язык в листингах кода LaTeX: правильная настройка listings'
+  - id: 'extendedchars'
+    title: 'Символьная таблица literate для полного охвата русского алфавита'
+  - id: 'minted-setup'
+    title: 'Пакет minted с поддержкой UTF-8: только локальная сборка'
+  - id: 'xelatex-lualatex'
+    title: 'Движки XeLaTeX и LuaLaTeX при локальной сборке'
+  - id: 'faq'
+    title: 'Частые вопросы и рекомендации по ГОСТ'
 sections:
-  - id: "problem"
-    title: "Почему возникает ошибка кириллицы в listings LaTeX"
+  - id: 'problem'
+    title: 'Почему возникает ошибка кириллицы в listings LaTeX'
     html: |2-
                               <p>Каждый студент или разработчик при подготовке дипломного проекта
       сталкивается с неприятным сбоем: при попытке скомпилировать исходный код с русскими
@@ -56,8 +56,8 @@ sections:
       компиляции. Если в вашей работе код описывает сложные структуры, рекомендуем также ознакомиться
       с версткой <a href="/blog/latex-algorithm2e-pseudocode-algorithms">псевдокода алгоритмов в
       algorithm2e</a>.</p>
-  - id: "listings-fix"
-    title: "Русский язык в листингах кода LaTeX: правильная настройка listings"
+  - id: 'listings-fix'
+    title: 'Русский язык в листингах кода LaTeX: правильная настройка listings'
     html: |2-
                               <p>Параметры <code>inputencoding</code> и <code>extendedchars</code>
       часто ставят первыми, но в pdfLaTeX их недостаточно для кириллицы внутри
@@ -95,8 +95,8 @@ sections:
           return a + b
       \end{lstlisting}</code></pre>
                               </div>
-  - id: "extendedchars"
-    title: "Символьная таблица literate для полного охвата русского алфавита"
+  - id: 'extendedchars'
+    title: 'Символьная таблица literate для полного охвата русского алфавита'
     html: |2-
                               <p>Наиболее надежный способ заставить <code>listings</code> в
       <code>pdfLaTeX</code> понимать русский текст без экранирования — передать маппинг кириллических
@@ -126,8 +126,8 @@ sections:
                               </div>
                               <p>После включения этой таблицы можно писать русские комментарии,
       включая букву «ё»: без неё в таблице literate эта буква по-прежнему ломает сборку.</p>
-  - id: "minted-setup"
-    title: "Пакет minted с поддержкой UTF-8: только локальная сборка"
+  - id: 'minted-setup'
+    title: 'Пакет minted с поддержкой UTF-8: только локальная сборка'
     html: |2-
                               <p>Более современная альтернатива <code>listings</code> — пакет
       <code>minted</code>. Он использует мощный лексер <strong>Pygments</strong>, нативно поддерживает
@@ -159,8 +159,8 @@ sections:
       внешних программ, и пакет останавливается с ошибкой <code>minted executable is unavailable or
       disabled</code>. Используйте <code>listings</code> с таблицей <code>literate</code> из раздела
       выше.</p>
-  - id: "xelatex-lualatex"
-    title: "Движки XeLaTeX и LuaLaTeX при локальной сборке"
+  - id: 'xelatex-lualatex'
+    title: 'Движки XeLaTeX и LuaLaTeX при локальной сборке'
     html: |2-
                               <p>Если у вас есть возможность переключить компилятор с
       <code>pdfLaTeX</code> на <code>XeLaTeX</code> или <code>LuaLaTeX</code>, проблема с кодировками
@@ -184,8 +184,8 @@ sections:
                               <p>Для интерактивного перехода к нужным листингам из текста работы не
       забудьте ознакомиться с <a href="/blog/latex-hyperref-pdf-bookmarks-navigation">настройкой
       кликабельных ссылок hyperref</a>.</p>
-  - id: "faq"
-    title: "Частые вопросы и рекомендации по ГОСТ"
+  - id: 'faq'
+    title: 'Частые вопросы и рекомендации по ГОСТ'
     html: |2-
                               <p>Требования к листингам задают методические указания вуза; для
       программной документации ориентиром служит ГОСТ 19.401-78 «Текст программы». Обычно листинги
@@ -200,12 +200,12 @@ sections:
       поля.</li>
                               </ul>
 tips:
-  - title: "Компактные листинги в приложении"
+  - title: 'Компактные листинги в приложении'
     html: |2-
       <p>Длинные портянки кода объемом более 1 страницы по требованиям большинства методичек выносят в
       «Приложения», оставляя в основном тексте только фрагменты ключевых алгоритмов на 15–30
       строк.</p>
-  - title: "Листинги в автоматической преамбуле Labkeeper"
+  - title: 'Листинги в автоматической преамбуле Labkeeper'
     html: |2-
       <p>Если в проекте нет своей преамбулы, Labkeeper подставляет автоматическую, в которой уже есть
       <code>listings</code> и кодировка <code>T2A</code>. Достаточно добавить в LaTeX-сегмент команду

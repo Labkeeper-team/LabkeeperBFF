@@ -1,8 +1,8 @@
 catalogIndex: 95
-slug: "latex-formulas"
+slug: 'latex-formulas'
 batch: 1
-title: "Пакет amsmath в LaTeX: формулы, выравнивание align и дроби"
-pageTitle: "Пакет amsmath в LaTeX: формулы, выравнивание align и дроби — Labkeeper"
+title: 'Пакет amsmath в LaTeX: формулы, выравнивание align и дроби'
+pageTitle: 'Пакет amsmath в LaTeX: формулы, выравнивание align и дроби — Labkeeper'
 metaDescription: |2-
   Полное руководство по пакету amsmath в LaTeX с примерами: выравнивание формул по знаку равно
   (align), разница между frac, dfrac и tfrac, матрицы и скобки. Попробуйте в онлайн-редакторе
@@ -10,62 +10,62 @@ metaDescription: |2-
 schemaDescription: |2-
   Полное руководство по пакету amsmath в LaTeX с примерами: выравнивание формул по знаку равно
   (align), разница между frac, dfrac и tfrac, матрицы и скобки.
-breadcrumbTitle: "Формулы и уравнения в LaTeX"
+breadcrumbTitle: 'Формулы и уравнения в LaTeX'
 h1: |2-
   Формулы и уравнения в&nbsp;LaTeX: полное руководство
                           по&nbsp;пакету
                           amsmath
 categories:
-  - "latex"
-  - "articles"
+  - 'latex'
+  - 'articles'
 keywords:
-  - "формулы и уравнения в latex amsmath"
-  - "выравнивание формул по знаку равно latex align"
-datePublished: "2026-08-15"
-dateModified: "2026-10-18"
-readingTime: "8 мин"
-cardTitle: "Формулы и уравнения в LaTeX: полное руководство по пакету amsmath"
+  - 'формулы и уравнения в latex amsmath'
+  - 'выравнивание формул по знаку равно latex align'
+datePublished: '2026-08-15'
+dateModified: '2026-10-18'
+readingTime: '8 мин'
+cardTitle: 'Формулы и уравнения в LaTeX: полное руководство по пакету amsmath'
 cardDescription: |2-
   Полное руководство по математическому режиму: align, gather, дроби
                           dfrac/tfrac, матрицы и масштабирование скобок.
-sliderTitle: "Формулы и&nbsp;уравнения (пакет amsmath)"
-sliderText: "Полное руководство по математическому режиму, выравниванию формул и дробям в LaTeX."
-sidebarImageAlt: "Интерфейс онлайн-редактора LaTeX Labkeeper"
+sliderTitle: 'Формулы и&nbsp;уравнения (пакет amsmath)'
+sliderText: 'Полное руководство по математическому режиму, выравниванию формул и дробям в LaTeX.'
+sidebarImageAlt: 'Интерфейс онлайн-редактора LaTeX Labkeeper'
 sidebarText: |2-
   Онлайн-редактор LaTeX с&nbsp;компиляцией в&nbsp;PDF,
                           AI-ассистентом и&nbsp;поддержкой amsmath — без установки, сразу
   в&nbsp;браузере.
-ctaTitle: "Набирайте сложные формулы в&nbsp;Labkeeper"
+ctaTitle: 'Набирайте сложные формулы в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX с&nbsp;компиляцией в&nbsp;PDF, поддержкой
                       пакетов amsmath и&nbsp;AI-ассистентом — без&nbsp;установки программ, сразу
   в&nbsp;браузере.
 toc:
-  - id: "intro"
-    title: "Введение: зачем нужен amsmath"
-  - id: "inline"
-    title: "Inline-формулы в тексте"
-  - id: "equations"
-    title: "Окружения equation и equation*"
-  - id: "align"
+  - id: 'intro'
+    title: 'Введение: зачем нужен amsmath'
+  - id: 'inline'
+    title: 'Inline-формулы в тексте'
+  - id: 'equations'
+    title: 'Окружения equation и equation*'
+  - id: 'align'
     title: |2-
       Выравнивание формул по знаку равно
                                           (align)
-  - id: "gather"
-    title: "Группировка уравнений: gather"
-  - id: "fractions"
+  - id: 'gather'
+    title: 'Группировка уравнений: gather'
+  - id: 'fractions'
     title: |2-
       Разница между frac, dfrac и tfrac в
                                           LaTeX
-  - id: "matrices"
-    title: "Матрицы"
-  - id: "brackets"
-    title: "Масштабирование скобок"
-  - id: "tips"
-    title: "Практические советы"
+  - id: 'matrices'
+    title: 'Матрицы'
+  - id: 'brackets'
+    title: 'Масштабирование скобок'
+  - id: 'tips'
+    title: 'Практические советы'
 sections:
-  - id: "intro"
-    title: "Введение: зачем нужен amsmath"
+  - id: 'intro'
+    title: 'Введение: зачем нужен amsmath'
     html: |2-
                               <p>Пакет <code>amsmath</code> в LaTeX — это признанный стандарт для
       набора сложных
@@ -88,8 +88,8 @@ sections:
       поддерживают пакет
                                   <code>amsmath</code> по умолчанию.
                               </p>
-  - id: "inline"
-    title: "Inline-формулы в тексте"
+  - id: 'inline'
+    title: 'Inline-формулы в тексте'
     html: |2-
                               <p>Inline-формулы (внутристрочные выражения) позволяют вставлять формулы
       прямо в текст без
@@ -116,8 +116,8 @@ sections:
       используйте команду
                                   <code>\displaystyle</code>.
                               </div>
-  - id: "equations"
-    title: "Окружения equation и equation*"
+  - id: 'equations'
+    title: 'Окружения equation и equation*'
     html: |2-
                               <p>Для выделенных (выносных) математических выражений используется
       окружение
@@ -163,8 +163,8 @@ sections:
                                   <code>$$...$$</code> из plain TeX — в LaTeX она может нарушать
       вертикальные интервалы.
                               </div>
-  - id: "align"
-    title: "Выравнивание формул по знаку равно: LaTeX align"
+  - id: 'align'
+    title: 'Выравнивание формул по знаку равно: LaTeX align'
     html: |2-
                               <p>Окружение <code>align</code> из пакета <code>amsmath</code>
       предназначено для многострочных
@@ -204,8 +204,8 @@ sections:
                                   <code>\notag</code> или <code>\nonumber</code> перед переносом
       строки <code>\\</code>.
                               </p>
-  - id: "gather"
-    title: "Группировка уравнений: gather"
+  - id: 'gather'
+    title: 'Группировка уравнений: gather'
     html: |2-
                               <p>Окружение <code>gather</code> объединяет несколько уравнений в единый
       блок, центрируя каждое
@@ -220,8 +220,8 @@ sections:
           x^2 + y^2 = 8
       \end{gather}</code></pre>
                               </div>
-  - id: "fractions"
-    title: "Разница между frac, dfrac и tfrac в LaTeX"
+  - id: 'fractions'
+    title: 'Разница между frac, dfrac и tfrac в LaTeX'
     html: |2-
                               <p>Разница между командами <code>\frac</code>, <code>\dfrac</code> и
       <code>\tfrac</code>
@@ -271,8 +271,8 @@ sections:
           \frac{d}{dx} \left( \frac{1}{x} \right) = -\frac{1}{x^2}
       \end{equation}</code></pre>
                               </div>
-  - id: "matrices"
-    title: "Матрицы"
+  - id: 'matrices'
+    title: 'Матрицы'
     html: |2-
                               <p>Пакет <code>amsmath</code> предоставляет несколько окружений для
       матриц, отличающихся типом
@@ -292,8 +292,8 @@ sections:
           \end{pmatrix}
       \end{equation}</code></pre>
                               </div>
-  - id: "brackets"
-    title: "Масштабирование скобок"
+  - id: 'brackets'
+    title: 'Масштабирование скобок'
     html: |2-
                               <p>Когда формула содержит дроби, суммы или интегралы, стандартные скобки
       <code>( )</code>
@@ -308,8 +308,8 @@ sections:
       \left[ \frac{a}{b} \right]
       \left\{ \frac{a}{b} \right\}</code></pre>
                               </div>
-  - id: "tips"
-    title: "Практические советы"
+  - id: 'tips'
+    title: 'Практические советы'
     html: |2-
                               <div class="article-tips">
                                   <div class="article-tip">

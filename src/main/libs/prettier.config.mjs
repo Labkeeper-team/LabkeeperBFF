@@ -1,4 +1,4 @@
-/** Same style as the editor. Only the resource pages and scripts are formatted from this folder. */
+/** Same style as the editor. Resource pages, scripts, and article YAML are formatted from this folder. */
 export default {
     semi: true,
     singleQuote: true,
@@ -7,4 +7,13 @@ export default {
     bracketSpacing: true,
     bracketSameLine: false,
     endOfLine: 'auto',
+    overrides: [
+        {
+            files: '*.{yaml,yml}',
+            options: {
+                tabWidth: 2,
+                proseWrap: 'preserve',
+            },
+        },
+    ],
 };

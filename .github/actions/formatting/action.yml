@@ -1,5 +1,5 @@
 name: Formatting
-description: Check HTML and JS formatting with Prettier
+description: Check HTML, JS, and YAML formatting with Prettier
 
 inputs:
   node-version:

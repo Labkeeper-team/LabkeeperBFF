@@ -1,54 +1,54 @@
 catalogIndex: 72
-slug: "markdown-spoilers-details-summary"
+slug: 'markdown-spoilers-details-summary'
 batch: 2
-title: "Спойлеры и скрываемый текст в Markdown (теги details и summary)"
-pageTitle: "Скрытый текст details в Markdown: как сделать спойлер — Labkeeper"
+title: 'Спойлеры и скрываемый текст в Markdown (теги details и summary)'
+pageTitle: 'Скрытый текст details в Markdown: как сделать спойлер — Labkeeper'
 metaDescription: |2-
   Пошаговый гайд: как сделать скрытый текст details в Markdown, раскрывающиеся спойлеры через
   details и summary, блоки, открытые по умолчанию, и печать в PDF в Labkeeper.
-breadcrumbTitle: "Спойлеры details в Markdown"
-h1: "Спойлеры и&nbsp;скрываемый текст в&nbsp;Markdown (теги details и&nbsp;summary)"
+breadcrumbTitle: 'Спойлеры details в Markdown'
+h1: 'Спойлеры и&nbsp;скрываемый текст в&nbsp;Markdown (теги details и&nbsp;summary)'
 categories:
-  - "markdown"
+  - 'markdown'
 keywords:
-  - "скрытый текст details markdown"
-  - "как сделать спойлер в markdown"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "5 мин"
-cardTitle: "Спойлеры и раскрывающиеся блоки в Markdown: теги details и summary"
+  - 'скрытый текст details markdown'
+  - 'как сделать спойлер в markdown'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '5 мин'
+cardTitle: 'Спойлеры и раскрывающиеся блоки в Markdown: теги details и summary'
 cardDescription: |2-
   Как компактно спрятать длинные логи, ответы на контрольные вопросы или громоздкие листинги кода
   в аккуратные раскрывающиеся аккордеоны.
-sliderTitle: "Спойлеры и&nbsp;скрытый текст в&nbsp;Markdown"
-sliderText: "Оформление details и summary для компактных интерактивных конспектов."
+sliderTitle: 'Спойлеры и&nbsp;скрытый текст в&nbsp;Markdown'
+sliderText: 'Оформление details и summary для компактных интерактивных конспектов.'
 sidebarText: |2-
   Создавайте интерактивные конспекты лекций и методички со спойлерами в онлайн-редакторе
   Labkeeper.
-ctaTitle: "Оформляйте удобные методические материалы в&nbsp;Labkeeper"
+ctaTitle: 'Оформляйте удобные методические материалы в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор Markdown с раскрывающимися спойлерами в превью, формулами MathJax и сохранением
   в PDF через печать браузера.
 toc:
-  - id: "why-spoilers"
-    title: "Зачем нужны спойлеры в документации и конспектах"
-  - id: "details-syntax"
-    title: "Скрытый текст details в Markdown: базовый синтаксис"
-  - id: "open-state"
-    title: "Как сделать спойлер в Markdown раскрытым по умолчанию"
-  - id: "markdown-inside"
-    title: "Вложенность кода, списков и формул внутри спойлера"
+  - id: 'why-spoilers'
+    title: 'Зачем нужны спойлеры в документации и конспектах'
+  - id: 'details-syntax'
+    title: 'Скрытый текст details в Markdown: базовый синтаксис'
+  - id: 'open-state'
+    title: 'Как сделать спойлер в Markdown раскрытым по умолчанию'
+  - id: 'markdown-inside'
+    title: 'Вложенность кода, списков и формул внутри спойлера'
 sections:
-  - id: "why-spoilers"
-    title: "Зачем нужны спойлеры в документации и конспектах"
+  - id: 'why-spoilers'
+    title: 'Зачем нужны спойлеры в документации и конспектах'
     html: |2-
                               <p>В объемных учебных пособиях, отчетах и лабораторных руководствах
       часто нужно спрятать громоздкие листинги кода, длинные дампы логов или ответы на вопросы
       самопроверки (подобные спойлеры также активно применяются в <a
       href="/blog/github-readme-template-badges-spoilers">шаблонах GitHub README с бейджами и
       спойлерами</a>), чтобы читатель не пролистывал десятки экранов скролла.</p>
-  - id: "details-syntax"
-    title: "Скрытый текст details в Markdown: базовый синтаксис"
+  - id: 'details-syntax'
+    title: 'Скрытый текст details в Markdown: базовый синтаксис'
     html: |2-
                               <p>Чтобы организовать <strong>скрытый текст details markdown</strong>,
       используется нативная пара HTML5-тегов <code>&lt;details&gt;</code> и
@@ -70,21 +70,21 @@ sections:
       пропадают. Если после <code>&lt;/summary&gt;</code> есть пустая строка, тело спойлера остаётся
       обычным текстом. Без пустой строки Pandoc выбрасывает блок целиком, поэтому важный текст в
       спойлер для PDF не прячьте.</p>
-  - id: "open-state"
-    title: "Как сделать спойлер в Markdown раскрытым по умолчанию"
+  - id: 'open-state'
+    title: 'Как сделать спойлер в Markdown раскрытым по умолчанию'
     html: |2-
                               <p>Разбирая вопрос, <strong>как сделать спойлер в markdown</strong>
       сразу развернутым при загрузке документа, достаточно добавить атрибут <code>open</code>:
       <code>&lt;details open&gt;</code>. Пользователь сможет свернуть блок, если он ему мешает.</p>
-  - id: "markdown-inside"
-    title: "Вложенность кода, списков и формул внутри спойлера"
+  - id: 'markdown-inside'
+    title: 'Вложенность кода, списков и формул внутри спойлера'
     html: |2-
                               <p>Обязательно делайте пустую строку после закрывающего тега
       <code>&lt;/summary&gt;</code>! Если пустой строки нет, парсер может воспринять разметку Markdown
       (решетки заголовков, формулы TeX или <a href="/blog/markdown-footnotes">сноски в тексте
       Markdown</a>) как простой текст.</p>
 tips:
-  - title: "Поведение при сохранении в PDF"
+  - title: 'Поведение при сохранении в PDF'
     html: |2-
       <p>Печать браузера выводит страницу как есть: закрытый спойлер попадет в PDF свернутым, и его
       содержимое пропадет. Перед печатью раскройте нужные блоки или поставьте атрибут

@@ -1,49 +1,49 @@
 catalogIndex: 40
-slug: "latex-multi-file-document-input-include"
+slug: 'latex-multi-file-document-input-include'
 batch: 2
-title: "Сборка большого документа из нескольких файлов (input и include)"
-pageTitle: "Разбить диплом на несколько файлов LaTeX: команда include и input — Labkeeper"
+title: 'Сборка большого документа из нескольких файлов (input и include)'
+pageTitle: 'Разбить диплом на несколько файлов LaTeX: команда include и input — Labkeeper'
 metaDescription: |2-
   Как разбить диплом на несколько файлов в LaTeX: команда include и input, структура глав,
   выборочная компиляция includeonly в онлайн-редакторе Labkeeper.
-breadcrumbTitle: "Сборка из нескольких файлов (input / include)"
-h1: "Сборка большого документа из&nbsp;нескольких файлов (input и&nbsp;include)"
+breadcrumbTitle: 'Сборка из нескольких файлов (input / include)'
+h1: 'Сборка большого документа из&nbsp;нескольких файлов (input и&nbsp;include)'
 categories:
-  - "latex"
-  - "diploma"
+  - 'latex'
+  - 'diploma'
 keywords:
-  - "разбить диплом на несколько файлов latex"
-  - "команда include latex"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "7 мин"
-cardTitle: "Модульная структура проекта в LaTeX: команды include, input и includeonly"
+  - 'разбить диплом на несколько файлов latex'
+  - 'команда include latex'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '7 мин'
+cardTitle: 'Модульная структура проекта в LaTeX: команды include, input и includeonly'
 cardDescription: |2-
   Как грамотно организовать структуру диплома или диссертации: вынос глав, введения и приложений в
   отдельные файлы .tex, ускорение компиляции.
-sliderTitle: "Сборка документа из файлов (include)"
-sliderText: "Модульная структура диплома, команды include, input и includeonly."
+sliderTitle: 'Сборка документа из файлов (include)'
+sliderText: 'Модульная структура диплома, команды include, input и includeonly.'
 sidebarText: |2-
   Ведите многостраничные проекты в Labkeeper: главы в отдельных файлах и сборка всего документа в
   PDF — до 60 секунд на одну компиляцию.
-ctaTitle: "Организуйте структуру ВКР в&nbsp;Labkeeper"
+ctaTitle: 'Организуйте структуру ВКР в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор с поддержкой многофайловых проектов LaTeX, быстрым переключением глав и сборкой
   PDF по кнопке «Выполнить».
 toc:
-  - id: "why-modular"
-    title: "Зачем делить большой проект на отдельные файлы"
-  - id: "input-vs-include"
+  - id: 'why-modular'
+    title: 'Зачем делить большой проект на отдельные файлы'
+  - id: 'input-vs-include'
     title: "Разница между командами \\input и \\include"
-  - id: "diploma-structure"
-    title: "Разбить диплом на несколько файлов latex: эталонная иерархия папок"
-  - id: "includeonly-speed"
-    title: "Команда include latex и выборочная компиляция через includeonly"
-  - id: "subfiles-pkg"
-    title: "Продвинутый подход: пакет subfiles для автономной компиляции глав"
+  - id: 'diploma-structure'
+    title: 'Разбить диплом на несколько файлов latex: эталонная иерархия папок'
+  - id: 'includeonly-speed'
+    title: 'Команда include latex и выборочная компиляция через includeonly'
+  - id: 'subfiles-pkg'
+    title: 'Продвинутый подход: пакет subfiles для автономной компиляции глав'
 sections:
-  - id: "why-modular"
-    title: "Зачем делить большой проект на отдельные файлы"
+  - id: 'why-modular'
+    title: 'Зачем делить большой проект на отдельные файлы'
     html: |2-
                               <p>Дипломная работа, магистерская диссертация или монография содержит от
       60 до 200+ страниц, сотни формул, рисунков и таблиц. Вести такой объем в одном файле
@@ -52,7 +52,7 @@ sections:
                               <p>Модульная архитектура разбивает проект на логические части: введение,
       отдельные главы, заключение, список литературы и приложения лежат в изолированных файлах,
       собираемых главным корневым документом.</p>
-  - id: "input-vs-include"
+  - id: 'input-vs-include'
     title: "Разница между командами \\input и \\include"
     html: |2-
                               <p>В LaTeX существует две директивы подключения внешних файлов, имеющие
@@ -68,8 +68,8 @@ sections:
       Создает собственный вспомогательный файл <code>.aux</code>, что позволяет использовать механизм
       выборочной компиляции. Идеально для крупных глав (<code>chapter</code>).</li>
                               </ul>
-  - id: "diploma-structure"
-    title: "Разбить диплом на несколько файлов latex: эталонная иерархия папок"
+  - id: 'diploma-structure'
+    title: 'Разбить диплом на несколько файлов latex: эталонная иерархия папок'
     html: |2-
                               <p>Вот проверенная академическая структура проекта (<strong>разбить
       диплом на несколько файлов latex</strong>), рекомендованная при <a
@@ -114,8 +114,8 @@ sections:
       <code>gost-numeric</code> — стиль biblatex, а не BibTeX, поэтому связка
       <code>\bibliographystyle{gost-numeric}</code> и <code>\bibliography{biblio}</code> не сработает
       даже локально.</p>
-  - id: "includeonly-speed"
-    title: "Команда include latex и выборочная компиляция через includeonly"
+  - id: 'includeonly-speed'
+    title: 'Команда include latex и выборочная компиляция через includeonly'
     html: |2-
                               <p>Когда вы работаете над конкретной главой, нет смысла каждый раз
       перекомпилировать весь стостраничный документ. <strong>Команда include latex</strong>
@@ -132,19 +132,19 @@ sections:
       целиком, а сборка станет заметно быстрее. В Labkeeper служебные файлы между сборками сохраняются
       не всегда, поэтому перед финальной сборкой уберите <code>\includeonly</code> и соберите документ
       целиком.</p>
-  - id: "subfiles-pkg"
-    title: "Продвинутый подход: пакет subfiles для автономной компиляции глав"
+  - id: 'subfiles-pkg'
+    title: 'Продвинутый подход: пакет subfiles для автономной компиляции глав'
     html: |2-
                               <p>Пакет <code>subfiles</code> позволяет компилировать каждую главу
       <strong>как автономный независимый документ</strong>, так и в составе единого проекта
       <code>main.tex</code> без изменения кода. Автономная сборка главы работает при локальной
       установке LaTeX: в Labkeeper собирается весь проект целиком, отдельный файл собрать нельзя.</p>
 tips:
-  - title: "Не указывайте расширение .tex"
+  - title: 'Не указывайте расширение .tex'
     html: |2-
       <p>При вызове <code>\include{chapters/intro}</code> не дописывайте расширение <code>.tex</code>:
       LaTeX подставит его автоматически.</p>
-  - title: "Запрет вложенных include"
+  - title: 'Запрет вложенных include'
     html: |2-
       <p>Внутри файла, подключенного через <code>\include</code>, нельзя вызывать другой
       <code>\include</code>. Для вложенных подфайлов используйте команду <code>\input</code>.</p>

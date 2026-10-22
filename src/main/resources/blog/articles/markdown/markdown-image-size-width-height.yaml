@@ -1,48 +1,48 @@
 catalogIndex: 36
-slug: "markdown-image-size-width-height"
+slug: 'markdown-image-size-width-height'
 batch: 2
-title: "Настройка размера изображений в Markdown (ширина и высота)"
-pageTitle: "Изменить размер картинки в Markdown width: подгонка изображения — Labkeeper"
+title: 'Настройка размера изображений в Markdown (ширина и высота)'
+pageTitle: 'Изменить размер картинки в Markdown width: подгонка изображения — Labkeeper'
 metaDescription: |2-
   Как изменить размер картинки в Markdown: width, height, центрирование, подгонка изображения
   через HTML теги и стили на GitHub и в Obsidian, точный размер в LaTeX-проекте Labkeeper.
-breadcrumbTitle: "Размер изображений в Markdown"
-h1: "Настройка размера изображений в&nbsp;Markdown (ширина и&nbsp;высота)"
+breadcrumbTitle: 'Размер изображений в Markdown'
+h1: 'Настройка размера изображений в&nbsp;Markdown (ширина и&nbsp;высота)'
 categories:
-  - "markdown"
+  - 'markdown'
 keywords:
-  - "изменить размер картинки markdown width"
-  - "подгонка изображения md html"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "6 мин"
-cardTitle: "Управление размерами картинок в Markdown: ширина, высота и центрирование"
+  - 'изменить размер картинки markdown width'
+  - 'подгонка изображения md html'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '6 мин'
+cardTitle: 'Управление размерами картинок в Markdown: ширина, высота и центрирование'
 cardDescription: |2-
   Как уменьшить гигантский скриншот в Markdown: атрибуты width/height, чистый HTML-тег img,
   центрирование по центру страницы и экспорт в PDF.
-sliderTitle: "Размер изображений в Markdown"
-sliderText: "Настройка width и height, стили CSS, тег img и центрирование картинок."
+sliderTitle: 'Размер изображений в Markdown'
+sliderText: 'Настройка width и height, стили CSS, тег img и центрирование картинок.'
 sidebarText: |2-
   Вставляйте иллюстрации в заметки Labkeeper, а точный размер картинок в PDF задавайте в
   LaTeX-проекте.
-ctaTitle: "Оформляйте иллюстрированные заметки в&nbsp;Labkeeper"
+ctaTitle: 'Оформляйте иллюстрированные заметки в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор Markdown: вставка скриншотов из буфера обмена после входа, превью при наборе и
   сохранение в PDF через печать браузера.
 toc:
-  - id: "problem"
-    title: "Почему базовый синтаксис ![alt](url) не поддерживает размер"
-  - id: "html-tag"
-    title: "Изменить размер картинки markdown width: использование тега img"
-  - id: "percentage-fitting"
-    title: "Подгонка изображения md html: адаптивные проценты (width=\"50%\")"
-  - id: "centering-images"
-    title: "Центрирование иллюстраций и подрисуночные подписи"
-  - id: "extended-syntax"
-    title: "Расширенный синтаксис в Obsidian, Kramdown и Pandoc"
+  - id: 'problem'
+    title: 'Почему базовый синтаксис ![alt](url) не поддерживает размер'
+  - id: 'html-tag'
+    title: 'Изменить размер картинки markdown width: использование тега img'
+  - id: 'percentage-fitting'
+    title: 'Подгонка изображения md html: адаптивные проценты (width="50%")'
+  - id: 'centering-images'
+    title: 'Центрирование иллюстраций и подрисуночные подписи'
+  - id: 'extended-syntax'
+    title: 'Расширенный синтаксис в Obsidian, Kramdown и Pandoc'
 sections:
-  - id: "problem"
-    title: "Почему базовый синтаксис ![alt](url) не поддерживает размер"
+  - id: 'problem'
+    title: 'Почему базовый синтаксис ![alt](url) не поддерживает размер'
     html: |2-
                               <p>Классический синтаксис Джона Грубера
       <code>![Описание](image.png)</code> намеренно минималистичен: в нем вообще нет параметров ширины
@@ -50,8 +50,8 @@ sections:
       распахивается на всю ширину экрана или вовсе вылезает за границы печатной страницы PDF.</p>
                               <p>К счастью, спецификация CommonMark разрешает бесшовную интеграцию
       HTML-тегов прямо в тело Markdown-документа.</p>
-  - id: "html-tag"
-    title: "Изменить размер картинки markdown width: использование тега img"
+  - id: 'html-tag'
+    title: 'Изменить размер картинки markdown width: использование тега img'
     html: |2-
                               <p>Самый надежный и кроссплатформенный способ, <strong>как изменить
       размер картинки markdown width</strong> — заменить стандартную скобочную запись на тег
@@ -78,8 +78,8 @@ sections:
                               <p><strong>Пример в редакторе:</strong> две копии логотипа с атрибутами
       <code>width="100"</code> и <code>width="300"</code>. На GitHub они получились бы разного
       размера, а в превью Labkeeper ширины 100 и 300 сохранятся, пока колонка не уже картинки.</p>
-  - id: "percentage-fitting"
-    title: "Подгонка изображения md html: адаптивные проценты (width=\"50%\")"
+  - id: 'percentage-fitting'
+    title: 'Подгонка изображения md html: адаптивные проценты (width="50%")'
     html: |2-
                               <p>Для адаптивных документов и мобильного чтения идеальна
       <strong>подгонка изображения md html</strong> через относительные единицы измерения:</p>
@@ -94,8 +94,8 @@ sections:
       центру и сохраняет свой размер. Атрибут <code>width</code> учитывается, пока картинка не
       упирается в ширину колонки; <code>height</code> перекрывается правилом <code>height:
       auto</code>, а стили в атрибуте <code>style</code> не применяются.</p>
-  - id: "centering-images"
-    title: "Центрирование иллюстраций и подрисуночные подписи"
+  - id: 'centering-images'
+    title: 'Центрирование иллюстраций и подрисуночные подписи'
     html: |2-
                               <p>Чтобы выровнять уменьшенное изображение строго по центру страницы и
       добавить красивую подпись курсивом (по аналогии со стандартами <a
@@ -109,8 +109,8 @@ sections:
         <em>Рисунок 1 — Структурная схема микросервисов</em>
       </p></code></pre>
                               </div>
-  - id: "extended-syntax"
-    title: "Расширенный синтаксис в Obsidian, Kramdown и Pandoc"
+  - id: 'extended-syntax'
+    title: 'Расширенный синтаксис в Obsidian, Kramdown и Pandoc'
     html: |2-
                               <p>Obsidian понимает компактный синтаксис пайпа:
       <code>![Скриншот|400](image.png)</code>, а kramdown, Pandoc и Quarto — атрибуты в фигурных
@@ -121,12 +121,12 @@ sections:
       команду <code>\includegraphics</code> в LaTeX-сегменте; оба пути получить PDF разобраны в
       инструкции по <a href="/blog/markdown-to-pdf-export">экспорту Markdown в PDF</a>.</p>
 tips:
-  - title: "Векторный формат SVG"
+  - title: 'Векторный формат SVG'
     html: |2-
       <p>Формат <code>.svg</code> сохраняет векторную четкость схем и логотипов в превью Markdown и на
       GitHub. В LaTeX-проекте pdfLaTeX SVG не вставляет: для PDF сохраните схему в формате PDF или в
       PNG высокого разрешения.</p>
-  - title: "Пустые строки вокруг HTML"
+  - title: 'Пустые строки вокруг HTML'
     html: |2-
       <p>Всегда отделяйте теги <code>&lt;p align="center"&gt;</code> и <code>&lt;img&gt;</code>
       пустыми строками от предшествующего и последующего Markdown-текста.</p>

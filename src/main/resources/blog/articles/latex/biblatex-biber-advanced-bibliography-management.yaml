@@ -1,49 +1,49 @@
 catalogIndex: 25
-slug: "biblatex-biber-advanced-bibliography-management"
+slug: 'biblatex-biber-advanced-bibliography-management'
 batch: 2
-title: "Пакет biblatex и biber: продвинутое управление библиографией"
-pageTitle: "Настройка biblatex biber онлайн: сортировка списка литературы — Labkeeper"
+title: 'Пакет biblatex и biber: продвинутое управление библиографией'
+pageTitle: 'Настройка biblatex biber онлайн: сортировка списка литературы — Labkeeper'
 metaDescription: |2-
   Настройка biblatex и biber: сортировка списка литературы, стиль biblatex-gost, .bib-файлы и cite
   при локальной сборке, а онлайн в Labkeeper — thebibliography.
-breadcrumbTitle: "Продвинутая библиография (biblatex / biber)"
-h1: "Пакет biblatex и&nbsp;biber: продвинутое управление библиографией"
+breadcrumbTitle: 'Продвинутая библиография (biblatex / biber)'
+h1: 'Пакет biblatex и&nbsp;biber: продвинутое управление библиографией'
 categories:
-  - "latex"
-  - "articles"
+  - 'latex'
+  - 'articles'
 keywords:
-  - "настройка biblatex biber онлайн"
-  - "сортировка списка литературы biblatex"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "8 мин"
-cardTitle: "Современная библиография в LaTeX: связка biblatex + biber для ГОСТ"
+  - 'настройка biblatex biber онлайн'
+  - 'сортировка списка литературы biblatex'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '8 мин'
+cardTitle: 'Современная библиография в LaTeX: связка biblatex + biber для ГОСТ'
 cardDescription: |2-
   Почему устаревший bibtex уступает связке biblatex/biber: полная поддержка UTF-8 кириллицы, ГОСТ
   Р 7.0.5-2008, гибкие правила сортировки и типы @online, @thesis.
-sliderTitle: "Библиография biblatex и biber"
-sliderText: "Пакет biblatex, движок biber, стили biblatex-gost и сортировка источников."
+sliderTitle: 'Библиография biblatex и biber'
+sliderText: 'Пакет biblatex, движок biber, стили biblatex-gost и сортировка источников.'
 sidebarText: |2-
   Пишите статьи со списком литературы в онлайн-редакторе Labkeeper: ссылки через thebibliography
   собираются в PDF без установки LaTeX.
-ctaTitle: "Пишите статьи с&nbsp;библиографией в&nbsp;Labkeeper"
+ctaTitle: 'Пишите статьи с&nbsp;библиографией в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX: ссылки и&nbsp;список литературы через thebibliography, сборка PDF
   в&nbsp;браузере.
 toc:
-  - id: "why-biblatex"
-    title: "Почему связка biblatex + biber заменила классический BibTeX"
-  - id: "online-setup"
-    title: "Настройка biblatex biber онлайн: преамбула с поддержкой ГОСТ"
-  - id: "sorting-options"
-    title: "Сортировка списка литературы biblatex: по языку, алфавиту и цитированию"
-  - id: "modern-types"
-    title: "Современные типы записей в .bib файле (@online, @software, @thesis)"
-  - id: "compilation-flow"
-    title: "Цикл сборки: pdflatex → biber → pdflatex"
+  - id: 'why-biblatex'
+    title: 'Почему связка biblatex + biber заменила классический BibTeX'
+  - id: 'online-setup'
+    title: 'Настройка biblatex biber онлайн: преамбула с поддержкой ГОСТ'
+  - id: 'sorting-options'
+    title: 'Сортировка списка литературы biblatex: по языку, алфавиту и цитированию'
+  - id: 'modern-types'
+    title: 'Современные типы записей в .bib файле (@online, @software, @thesis)'
+  - id: 'compilation-flow'
+    title: 'Цикл сборки: pdflatex → biber → pdflatex'
 sections:
-  - id: "why-biblatex"
-    title: "Почему связка biblatex + biber заменила классический BibTeX"
+  - id: 'why-biblatex'
+    title: 'Почему связка biblatex + biber заменила классический BibTeX'
     html: |2-
                               <div class="article-note">
                                   <strong>⚠️ В Labkeeper Biber пока не запускается.</strong> Настройка
@@ -63,8 +63,8 @@ sections:
                               <p>Современный тандем пакета <strong>biblatex</strong> и бэкенда
       <strong>biber</strong> полностью написан с поддержкой UTF-8, понимает правила русской грамматики
       и поддерживает официальный пакет адаптации <code>biblatex-gost</code>.</p>
-  - id: "online-setup"
-    title: "Настройка biblatex biber онлайн: преамбула с поддержкой ГОСТ"
+  - id: 'online-setup'
+    title: 'Настройка biblatex biber онлайн: преамбула с поддержкой ГОСТ'
     html: |2-
                               <p>Если вы ищете <strong>настройку biblatex biber онлайн</strong>,
       учтите: она работает только там, где сервис запускает Biber. В Labkeeper Biber пока выключен,
@@ -85,8 +85,8 @@ sections:
                               </div>
                               <p>В конце документа список выводится одной командой:
       <code>\printbibliography[title={Список использованных источников}]</code>.</p>
-  - id: "sorting-options"
-    title: "Сортировка списка литературы biblatex: по языку, алфавиту и цитированию"
+  - id: 'sorting-options'
+    title: 'Сортировка списка литературы biblatex: по языку, алфавиту и цитированию'
     html: |2-
                               <p>Гибкая <strong>сортировка списка литературы biblatex</strong>
       настраивается параметром <code>sorting</code>:</p>
@@ -100,8 +100,8 @@ sections:
       Русские источники раньше иностранных получают только отдельной схемой сортировки. Такой порядок
       требуют некоторые вузы, ГОСТ его не предписывает.</li>
                               </ul>
-  - id: "modern-types"
-    title: "Современные типы записей в .bib файле (@online, @software, @thesis)"
+  - id: 'modern-types'
+    title: 'Современные типы записей в .bib файле (@online, @software, @thesis)'
     html: |2-
                               <p>В отличие от старого BibTeX, в biblatex доступны современные
       семантические типы данных, позволяющие точно описать <a
@@ -129,8 +129,8 @@ sections:
           langid      = {russian}
       }</code></pre>
                               </div>
-  - id: "compilation-flow"
-    title: "Цикл сборки: pdflatex → biber → pdflatex"
+  - id: 'compilation-flow'
+    title: 'Цикл сборки: pdflatex → biber → pdflatex'
     html: |2-
                               <p>Для генерации списка запускается цепочка: <code>pdflatex main</code>
       $\to$ <code>biber main</code> $\to$ <code>pdflatex main</code>. Так выглядит локальная сборка:
@@ -139,7 +139,7 @@ sections:
       список из .bib-файла останется пустым, а ссылки превратятся в «[?]». Для онлайн-сборки оформите
       список через <code>thebibliography</code>, как в примере для редактора.</p>
 tips:
-  - title: "Удаление вспомогательных файлов при локальной сборке"
+  - title: 'Удаление вспомогательных файлов при локальной сборке'
     html: |2-
       <p>Если при локальной сборке вы кардинально изменили ключи в .bib-файле, удалите файлы
       <code>.bbl</code> и <code>.bcf</code>, чтобы Biber пересобрал индекс начисто.</p>

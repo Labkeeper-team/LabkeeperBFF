@@ -1,46 +1,46 @@
 catalogIndex: 5
-slug: "latex-arraystretch-table-row-height-spacing"
+slug: 'latex-arraystretch-table-row-height-spacing'
 batch: 2
-title: "Настройка межстрочного интервала внутри таблиц (arraystretch)"
-pageTitle: "Увеличить высоту строки в таблице LaTeX: arraystretch настройка — Labkeeper"
+title: 'Настройка межстрочного интервала внутри таблиц (arraystretch)'
+pageTitle: 'Увеличить высоту строки в таблице LaTeX: arraystretch настройка — Labkeeper'
 metaDescription: |2-
   Как увеличить высоту строки в таблице LaTeX с помощью arraystretch. Настройка вертикальных
   интервалов, отступы в формульных ячейках и примеры в Labkeeper.
-breadcrumbTitle: "Интервал в таблицах arraystretch в LaTeX"
-h1: "Настройка межстрочного интервала внутри таблиц (arraystretch)"
+breadcrumbTitle: 'Интервал в таблицах arraystretch в LaTeX'
+h1: 'Настройка межстрочного интервала внутри таблиц (arraystretch)'
 categories:
-  - "latex"
+  - 'latex'
 keywords:
-  - "увеличить высоту строки в таблице latex"
-  - "arraystretch настройка интервала"
-datePublished: "2026-09-06"
-dateModified: "2026-10-18"
-readingTime: "6 мин"
-cardTitle: "Высота строк в таблицах LaTeX: команда arraystretch и вертикальные отступы"
+  - 'увеличить высоту строки в таблице latex'
+  - 'arraystretch настройка интервала'
+datePublished: '2026-09-06'
+dateModified: '2026-10-18'
+readingTime: '6 мин'
+cardTitle: 'Высота строк в таблицах LaTeX: команда arraystretch и вертикальные отступы'
 cardDescription: |2-
   Как избавиться от тесных ячеек, в которых дроби и символы касаются горизонтальных линий, с
   помощью локальной настройки arraystretch.
-sliderTitle: "Высота строк в таблицах (arraystretch)"
-sliderText: "Как сделать таблицы просторными и читаемыми с помощью переопределения arraystretch."
+sliderTitle: 'Высота строк в таблицах (arraystretch)'
+sliderText: 'Как сделать таблицы просторными и читаемыми с помощью переопределения arraystretch.'
 sidebarText: |2-
   Настраивайте высоту строк таблиц в онлайн-редакторе Labkeeper и проверяйте результат в PDF после
   сборки.
-ctaTitle: "Верстайте красивые таблицы в&nbsp;Labkeeper"
-ctaText: "Онлайн-редактор LaTeX с поддержкой пакетов booktabs и array и сборкой таблиц в PDF."
+ctaTitle: 'Верстайте красивые таблицы в&nbsp;Labkeeper'
+ctaText: 'Онлайн-редактор LaTeX с поддержкой пакетов booktabs и array и сборкой таблиц в PDF.'
 toc:
-  - id: "cramped-problem"
-    title: "Проблема «тесных» таблиц в стандартном LaTeX"
-  - id: "arraystretch-command"
-    title: "Увеличить высоту строки в таблице LaTeX: макрос arraystretch"
-  - id: "local-vs-global"
-    title: "Arraystretch настройка интервала: локальное против глобального применения"
-  - id: "booktabs-alternative"
-    title: "Пакет booktabs и микро-отступы aboverulesep / belowrulesep"
-  - id: "struts-method"
-    title: "Использование невидимых распорок (struts) для единичных ячеек"
+  - id: 'cramped-problem'
+    title: 'Проблема «тесных» таблиц в стандартном LaTeX'
+  - id: 'arraystretch-command'
+    title: 'Увеличить высоту строки в таблице LaTeX: макрос arraystretch'
+  - id: 'local-vs-global'
+    title: 'Arraystretch настройка интервала: локальное против глобального применения'
+  - id: 'booktabs-alternative'
+    title: 'Пакет booktabs и микро-отступы aboverulesep / belowrulesep'
+  - id: 'struts-method'
+    title: 'Использование невидимых распорок (struts) для единичных ячеек'
 sections:
-  - id: "cramped-problem"
-    title: "Проблема «тесных» таблиц в стандартном LaTeX"
+  - id: 'cramped-problem'
+    title: 'Проблема «тесных» таблиц в стандартном LaTeX'
     html: |2-
                               <p>По умолчанию стандартные окружения <code>tabular</code> и
       <code>array</code> в LaTeX используют довольно плотные межстрочные интервалы. Если в ячейках
@@ -53,8 +53,8 @@ sections:
       высоты строк. А если таблица не помещается по ширине страницы, на помощь приходит окружение для
       <a href="/blog/latex-rotating-package-sidewaystable-rotate-90">поворота широких таблиц на 90
       градусов</a>.</p>
-  - id: "arraystretch-command"
-    title: "Увеличить высоту строки в таблице LaTeX: макрос arraystretch"
+  - id: 'arraystretch-command'
+    title: 'Увеличить высоту строки в таблице LaTeX: макрос arraystretch'
     html: |2-
                               <p>Самый быстрый и надежный способ <strong>увеличить высоту строки в
       таблице latex</strong> — использовать команду:</p>
@@ -67,8 +67,8 @@ sections:
       Установка коэффициента <code>1.2–1.4</code> делает таблицу просторной, воздушной и визуально
       гармоничной. Для таблиц с крупными математическими формулами рекомендуется значение
       <code>1.5</code>.</p>
-  - id: "local-vs-global"
-    title: "Arraystretch настройка интервала: локальное против глобального применения"
+  - id: 'local-vs-global'
+    title: 'Arraystretch настройка интервала: локальное против глобального применения'
     html: |2-
                               <p>Грамотная <strong>arraystretch настройка интервала</strong> должна
       быть <em>локальной</em>. Если объявить <code>\renewcommand{\arraystretch}{1.4}</code> в
@@ -98,8 +98,8 @@ sections:
                               <p>Если вы автоматизируете расчеты, то можете комбинировать arraystretch
       при <a href="/blog/latex-pgfplotstable-import-excel-csv-tables">импорте таблиц из Excel через
       pgfplotstable</a>, получая идеальные отступы между строками данных.</p>
-  - id: "booktabs-alternative"
-    title: "Пакет booktabs и микро-отступы aboverulesep / belowrulesep"
+  - id: 'booktabs-alternative'
+    title: 'Пакет booktabs и микро-отступы aboverulesep / belowrulesep'
     html: |2-
                               <p>В современных научных статьях высокого уровня вместо сплошных линий
       <code>\hline</code> используется профессиональный пакет <code>booktabs</code> (команды
@@ -112,8 +112,8 @@ sections:
       \setlength{\aboverulesep}{0.8ex}
       \setlength{\belowrulesep}{0.8ex}</code></pre>
                               </div>
-  - id: "struts-method"
-    title: "Использование невидимых распорок (struts) для единичных ячеек"
+  - id: 'struts-method'
+    title: 'Использование невидимых распорок (struts) для единичных ячеек'
     html: |2-
                               <p>Если вам нужно увеличить высоту только одной конкретной строки
       (например, шапки таблицы), не меняя остальные строки, используйте невидимую вертикальную
@@ -126,12 +126,12 @@ sections:
       \hline</code></pre>
                               </div>
 tips:
-  - title: "Коэффициент 1.25–1.3 для отчетов"
+  - title: 'Коэффициент 1.25–1.3 для отчетов'
     html: |2-
       <p>Для отчетов и дипломных работ коэффициент от 1.25 до 1.3, например
       <code>\renewcommand{\arraystretch}{1.3}</code>, — оптимальный баланс между компактностью и
       читаемостью.</p>
-  - title: "booktabs в автоматической преамбуле Labkeeper"
+  - title: 'booktabs в автоматической преамбуле Labkeeper'
     html: |2-
       <p>Если в проекте Labkeeper нет своей преамбулы, пакеты <code>booktabs</code> и
       <code>longtable</code> уже подключены в автоматической: команды <code>\toprule</code>,

@@ -1,46 +1,46 @@
 catalogIndex: 46
-slug: "github-readme-template-badges-spoilers"
+slug: 'github-readme-template-badges-spoilers'
 batch: 2
-title: "Оформление README.md для GitHub: структура, бейджи и спойлеры"
-pageTitle: "Шаблон README md для GitHub: как сделать спойлер в Markdown — Labkeeper"
+title: 'Оформление README.md для GitHub: структура, бейджи и спойлеры'
+pageTitle: 'Шаблон README md для GitHub: как сделать спойлер в Markdown — Labkeeper'
 metaDescription: |2-
   Шаблон README.md для GitHub: как сделать спойлер в Markdown, бейджи Shields.io, анимации,
   быстрый старт и структура идеального репозитория.
-breadcrumbTitle: "Оформление README.md для GitHub"
-h1: "Оформление README.md для GitHub: структура, бейджи и&nbsp;спойлеры"
+breadcrumbTitle: 'Оформление README.md для GitHub'
+h1: 'Оформление README.md для GitHub: структура, бейджи и&nbsp;спойлеры'
 categories:
-  - "markdown"
+  - 'markdown'
 keywords:
-  - "шаблон readme md для github"
-  - "как сделать спойлер в markdown"
-datePublished: "2026-09-05"
-dateModified: "2026-10-18"
-readingTime: "7 мин"
-cardTitle: "Идеальный README.md для GitHub: структура, бейджи, спойлеры и гифки"
+  - 'шаблон readme md для github'
+  - 'как сделать спойлер в markdown'
+datePublished: '2026-09-05'
+dateModified: '2026-10-18'
+readingTime: '7 мин'
+cardTitle: 'Идеальный README.md для GitHub: структура, бейджи, спойлеры и гифки'
 cardDescription: |2-
   Как презентовать свой проект на GitHub: бейджи статуса сборки, лицензии, раскрывающиеся спойлеры
   details/summary и шаблон документации.
-sliderTitle: "Оформление README.md на GitHub"
-sliderText: "Бейджи Shields.io, спойлеры details, структура проекта и блок установки."
-sidebarText: "Создавайте читаемую техническую документацию и README в удобном редакторе Labkeeper."
-ctaTitle: "Ведите документацию проектов в&nbsp;Labkeeper"
+sliderTitle: 'Оформление README.md на GitHub'
+sliderText: 'Бейджи Shields.io, спойлеры details, структура проекта и блок установки.'
+sidebarText: 'Создавайте читаемую техническую документацию и README в удобном редакторе Labkeeper.'
+ctaTitle: 'Ведите документацию проектов в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор Markdown: черновик README с бейджами, спойлерами и формулами MathJax в превью
   при наборе — готовый текст останется скопировать в репозиторий.
 toc:
-  - id: "importance"
-    title: "Почему README — это лицо разработчика и open-source проекта"
-  - id: "template"
-    title: "Шаблон readme md для github: 7 обязательных блоков"
-  - id: "spoilers"
-    title: "Как сделать спойлер в markdown: сворачивание длинных логов"
-  - id: "badges"
-    title: "Бейджи Shields.io: версия, статус CI/CD, лицензия и тесты"
-  - id: "media"
-    title: "Вставка демонстрационных GIF и скриншотов"
+  - id: 'importance'
+    title: 'Почему README — это лицо разработчика и open-source проекта'
+  - id: 'template'
+    title: 'Шаблон readme md для github: 7 обязательных блоков'
+  - id: 'spoilers'
+    title: 'Как сделать спойлер в markdown: сворачивание длинных логов'
+  - id: 'badges'
+    title: 'Бейджи Shields.io: версия, статус CI/CD, лицензия и тесты'
+  - id: 'media'
+    title: 'Вставка демонстрационных GIF и скриншотов'
 sections:
-  - id: "importance"
-    title: "Почему README — это лицо разработчика и open-source проекта"
+  - id: 'importance'
+    title: 'Почему README — это лицо разработчика и open-source проекта'
     html: |2-
                               <p>Файл <code>README.md</code> в корне репозитория — это первое, что
       видит потенциальный работодатель, контрибьютор или пользователь библиотеки. Если в репозитории
@@ -48,8 +48,8 @@ sections:
       секунды.</p>
                               <p>Хороший README отвечает на три вопроса: <em>что делает этот проект?
       как его запустить прямо сейчас? как с ним работать?</em></p>
-  - id: "template"
-    title: "Шаблон readme md для github: 7 обязательных блоков"
+  - id: 'template'
+    title: 'Шаблон readme md для github: 7 обязательных блоков'
     html: |2-
                               <p>Используйте проверенный <strong>шаблон readme md для github</strong>,
       покрывающий все этапы знакомства с проектом:</p>
@@ -84,8 +84,8 @@ sections:
       DATABASE_URL=postgresql://user:pass@localhost:5432/mydb
       ```</code></pre>
                               </div>
-  - id: "spoilers"
-    title: "Как сделать спойлер в markdown: сворачивание длинных логов"
+  - id: 'spoilers'
+    title: 'Как сделать спойлер в markdown: сворачивание длинных логов'
     html: |2-
                               <p>Длинные дампы ошибок, простыни JSON-ответов API или примеры логов
       перегружают страницу. Разберем, <strong>как сделать спойлер в markdown</strong> с помощью
@@ -113,8 +113,8 @@ sections:
                               </div>
                               <p>Обязательно оставляйте пустую строку перед и после блока кода внутри
       <code>details</code>, чтобы Markdown-парсер GitHub корректно раскрасил синтаксис.</p>
-  - id: "badges"
-    title: "Бейджи Shields.io: версия, статус CI/CD, лицензия и тесты"
+  - id: 'badges'
+    title: 'Бейджи Shields.io: версия, статус CI/CD, лицензия и тесты'
     html: |2-
                               <p>Динамические бейджи сервиса <strong>Shields.io</strong> мгновенно
       придают проекту профессиональный вид. Они обновляются автоматически при каждом коммите:</p>
@@ -128,8 +128,8 @@ sections:
                               </ul>
                               <p>В превью Labkeeper бейдж остаётся маленьким и не растягивается до 500
       px. Настоящий вид на GitHub всё равно стоит проверить: у Shields.io свой кэш.</p>
-  - id: "media"
-    title: "Вставка демонстрационных GIF и скриншотов"
+  - id: 'media'
+    title: 'Вставка демонстрационных GIF и скриншотов'
     html: |2-
                               <p>Ничто не привлекает внимание так эффективно, как короткая 5-секундная
       анимация работы интерфейса или консольной утилиты. Загрузите файл <code>demo.gif</code> в папку
@@ -137,11 +137,11 @@ sections:
       <code>![Demo](assets/demo.gif)</code> (а настроить масштаб иллюстраций поможет гайд по <a
       href="/blog/markdown-image-size-width-height">размерам картинок в Markdown</a>).</p>
 tips:
-  - title: "Таблица участников (Contributors)"
+  - title: 'Таблица участников (Contributors)'
     html: |2-
       <p>Используйте бота all-contributors для автоматического добавления аватарок контрибьюторов в
       раздел «Благодарности».</p>
-  - title: "Раздел лицензии"
+  - title: 'Раздел лицензии'
     html: |2-
       <p>Всегда добавляйте ссылку на файл LICENSE (MIT, Apache 2.0, GPL-3.0) в самом низу README:</p><pre><code>## 📄 Лицензия
       Данный проект распространяется под лицензией MIT. Подробнее см. [LICENSE](LICENSE).</code></pre>

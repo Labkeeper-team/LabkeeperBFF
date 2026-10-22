@@ -1,46 +1,46 @@
 catalogIndex: 7
-slug: "latex-algorithm2e-pseudocode-algorithms"
+slug: 'latex-algorithm2e-pseudocode-algorithms'
 batch: 2
-title: "Написание алгоритмов и псевдокода в LaTeX (пакет algorithm2e)"
-pageTitle: "Псевдокод в LaTeX algorithm2e: оформление алгоритма — Labkeeper"
+title: 'Написание алгоритмов и псевдокода в LaTeX (пакет algorithm2e)'
+pageTitle: 'Псевдокод в LaTeX algorithm2e: оформление алгоритма — Labkeeper'
 metaDescription: |2-
   Полное руководство по пакету algorithm2e в LaTeX: написание псевдокода, русификация команд,
   нумерация строк, верстка условий и циклов в Labkeeper.
-breadcrumbTitle: "Алгоритмы algorithm2e в LaTeX"
-h1: "Написание алгоритмов и&nbsp;псевдокода в&nbsp;LaTeX (пакет algorithm2e)"
+breadcrumbTitle: 'Алгоритмы algorithm2e в LaTeX'
+h1: 'Написание алгоритмов и&nbsp;псевдокода в&nbsp;LaTeX (пакет algorithm2e)'
 categories:
-  - "latex"
+  - 'latex'
 keywords:
-  - "псевдокод в latex algorithm2e"
-  - "оформление алгоритма в latex"
-datePublished: "2026-09-06"
-dateModified: "2026-10-18"
-readingTime: "8 мин"
-cardTitle: "Псевдокод и алгоритмы в LaTeX: пакет algorithm2e от А до Я"
+  - 'псевдокод в latex algorithm2e'
+  - 'оформление алгоритма в latex'
+datePublished: '2026-09-06'
+dateModified: '2026-10-18'
+readingTime: '8 мин'
+cardTitle: 'Псевдокод и алгоритмы в LaTeX: пакет algorithm2e от А до Я'
 cardDescription: |2-
   Как оформлять математические алгоритмы, циклы, условия и структуры данных с красивыми
   вертикальными линиями и русской локализацией.
-sliderTitle: "Алгоритмы algorithm2e в LaTeX"
-sliderText: "Красивый псевдокод с нумерацией строк, условиями и циклами в LaTeX."
+sliderTitle: 'Алгоритмы algorithm2e в LaTeX'
+sliderText: 'Красивый псевдокод с нумерацией строк, условиями и циклами в LaTeX.'
 sidebarText: |2-
   В Labkeeper пакет algorithm2e уже есть в TeX Live: создавайте профессиональные описания
   алгоритмов для статей и дипломов.
-ctaTitle: "Верстайте алгоритмы в&nbsp;Labkeeper"
-ctaText: "Онлайн-редактор LaTeX с поддержкой algorithm2e, формул amsmath и предпросмотром PDF."
+ctaTitle: 'Верстайте алгоритмы в&nbsp;Labkeeper'
+ctaText: 'Онлайн-редактор LaTeX с поддержкой algorithm2e, формул amsmath и предпросмотром PDF.'
 toc:
-  - id: "why-algorithm2e"
-    title: "Почему algorithm2e — стандарт для научных публикаций"
-  - id: "setup"
-    title: "Подключение и базовые опции: linesnumbered, ruled, vlined"
-  - id: "control-structures"
-    title: "Псевдокод в LaTeX algorithm2e: условия If-Else, циклы While и For"
-  - id: "russian-localization"
-    title: "Русификация ключевых слов (Вход, Выход, Если, Иначе)"
-  - id: "complete-example"
-    title: "Оформление алгоритма в LaTeX: законченный пример"
+  - id: 'why-algorithm2e'
+    title: 'Почему algorithm2e — стандарт для научных публикаций'
+  - id: 'setup'
+    title: 'Подключение и базовые опции: linesnumbered, ruled, vlined'
+  - id: 'control-structures'
+    title: 'Псевдокод в LaTeX algorithm2e: условия If-Else, циклы While и For'
+  - id: 'russian-localization'
+    title: 'Русификация ключевых слов (Вход, Выход, Если, Иначе)'
+  - id: 'complete-example'
+    title: 'Оформление алгоритма в LaTeX: законченный пример'
 sections:
-  - id: "why-algorithm2e"
-    title: "Почему algorithm2e — стандарт для научных публикаций"
+  - id: 'why-algorithm2e'
+    title: 'Почему algorithm2e — стандарт для научных публикаций'
     html: |2-
                               <p>При написании дипломных работ по программной инженерии, диссертаций и
       статей в IEEE/ACM ключевые вычислительные методы принято представлять не длинными листингами
@@ -50,8 +50,8 @@ sections:
       href="/blog/latex-russian-cyrillic-code-listings-minted">листингов исходного кода с
       кириллицей</a>, algorithm2e ориентирован именно на математическую абстракцию алгоритма,
       обеспечивая строгую нумерацию строк и визуализацию вложенности условий.</p>
-  - id: "setup"
-    title: "Подключение и базовые опции: linesnumbered, ruled, vlined"
+  - id: 'setup'
+    title: 'Подключение и базовые опции: linesnumbered, ruled, vlined'
     html: |2-
                               <p>Для подключения пакета добавьте в преамбулу строку с полезными
       опциями:</p>
@@ -78,8 +78,8 @@ sections:
       <code>Command \algorithm already defined</code>. Ошибка <code>Environment algorithm
       undefined</code> бывает в другом случае: опция <code>algo2e</code> включена, а пакета
       <code>algorithm</code> нет.</p>
-  - id: "control-structures"
-    title: "Псевдокод в LaTeX algorithm2e: условия If-Else, циклы While и For"
+  - id: 'control-structures'
+    title: 'Псевдокод в LaTeX algorithm2e: условия If-Else, циклы While и For'
     html: |2-
                               <p>Создавая <strong>псевдокод в latex algorithm2e</strong>, вы
       используете интуитивные макросы для управляющих конструкций:</p>
@@ -95,8 +95,8 @@ sections:
                                   <li>Возврат значения: <code>\Return результат\;</code> (обратите
       внимание на обязательную точку с запятой <code>\;</code> в конце строки).</li>
                               </ul>
-  - id: "russian-localization"
-    title: "Русификация ключевых слов (Вход, Выход, Если, Иначе)"
+  - id: 'russian-localization'
+    title: 'Русификация ключевых слов (Вход, Выход, Если, Иначе)'
     html: |2-
                               <p>По умолчанию ключевые слова выводятся на английском языке. Чтобы
       перевести их на русский для русскоязычной работы, задайте переопределения в преамбуле:</p>
@@ -113,8 +113,8 @@ sections:
       \SetKwFor{ForEach}{для каждого}{выполнять}{конец цикла}
       \SetKw{Return}{вернуть}</code></pre>
                               </div>
-  - id: "complete-example"
-    title: "Оформление алгоритма в LaTeX: законченный пример"
+  - id: 'complete-example'
+    title: 'Оформление алгоритма в LaTeX: законченный пример'
     html: |2-
                               <p>Полный код алгоритма поиска кратчайшего пути Дейкстры. Качественное
       <strong>оформление алгоритма в LaTeX</strong> в виде псевдокода выглядит строго и
@@ -164,7 +164,7 @@ tips:
     html: |2-
       <p>В algorithm2e команда <code>\;</code> не просто печатает точку с запятой, а завершает
       логическую строку и осуществляет перенос на новую строку с сохранением нумерации.</p>
-  - title: "Компиляция в Labkeeper"
+  - title: 'Компиляция в Labkeeper'
     html: |2-
       <p>В онлайн-редакторе Labkeeper сложные многостраничные алгоритмы удобно отлаживать: ошибки
       компиляции показываются списком с привязкой к строке кода, а уже собранный PDF при этом не

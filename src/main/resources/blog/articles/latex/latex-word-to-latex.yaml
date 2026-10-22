@@ -1,71 +1,71 @@
 catalogIndex: 88
-slug: "latex-word-to-latex"
+slug: 'latex-word-to-latex'
 batch: 1
-title: "Как перенести документ из Word в LaTeX с сохранением формул"
-pageTitle: "Как перенести документ из Word в LaTeX с сохранением формул — Labkeeper"
+title: 'Как перенести документ из Word в LaTeX с сохранением формул'
+pageTitle: 'Как перенести документ из Word в LaTeX с сохранением формул — Labkeeper'
 metaDescription: |2-
   Перенос формул из Word в LaTeX онлайн и импорт docx в LaTeX без потери формул: Pandoc на
   компьютере, редактор уравнений Word и загрузка .tex в Labkeeper.
 ogDescription: |2-
   Перенос формул из Word в LaTeX онлайн: конвертация DOCX в TEX, сохранение таблиц, графиков и
   перекрестных ссылок без потери данных.
-twitterDescription: "Импорт docx в LaTeX без потери формул: редактор уравнений Word, Pandoc и очистка TeX-кода."
+twitterDescription: 'Импорт docx в LaTeX без потери формул: редактор уравнений Word, Pandoc и очистка TeX-кода.'
 schemaDescription: |2-
   Пошаговое руководство по переносу текстовых документов и формул из Microsoft Word (.docx) в
   LaTeX без ошибок.
 breadcrumbTitle: |2-
   Перенос из Word в
                                   LaTeX
-schemaBreadcrumbTitle: "Перенос из Word в LaTeX"
+schemaBreadcrumbTitle: 'Перенос из Word в LaTeX'
 h1: |2-
   Как перенести документ из&nbsp;Word в&nbsp;LaTeX
                           с&nbsp;сохранением формул
 categories:
-  - "latex"
+  - 'latex'
 keywords:
-  - "перенос формул из word в latex онлайн"
-  - "импорт docx в latex без потери формул"
-datePublished: "2026-08-20"
-dateModified: "2026-10-18"
-readingTime: "10 мин"
-cardTitle: "Как перенести документ из Word в LaTeX с сохранением формул"
+  - 'перенос формул из word в latex онлайн'
+  - 'импорт docx в latex без потери формул'
+datePublished: '2026-08-20'
+dateModified: '2026-10-18'
+readingTime: '10 мин'
+cardTitle: 'Как перенести документ из Word в LaTeX с сохранением формул'
 cardDescription: |2-
   Экспорт уравнений Word в TeX-синтаксис, конвертация через Pandoc и импорт
                           docx без потери таблиц и рисунков.
-sliderTitle: "Перенос документов из&nbsp;Word в&nbsp;LaTeX"
-sliderText: "Экспорт уравнений Word в TeX, конвертация через Pandoc и импорт docx без потерь."
-sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sliderTitle: 'Перенос документов из&nbsp;Word в&nbsp;LaTeX'
+sliderText: 'Экспорт уравнений Word в TeX, конвертация через Pandoc и импорт docx без потерь.'
+sidebarImageAlt: 'Онлайн-редактор LaTeX Labkeeper'
 sidebarText: |2-
   Переносите формулы и&nbsp;тексты в&nbsp;онлайн-редактор
                           Labkeeper — удобная среда без&nbsp;необходимости локальной установки.
-ctaTitle: "Работайте с&nbsp;LaTeX документами в&nbsp;Labkeeper"
+ctaTitle: 'Работайте с&nbsp;LaTeX документами в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX для&nbsp;быстрого старта: переносите тексты и&nbsp;формулы, компилируйте
   в&nbsp;PDF и&nbsp;используйте AI-помощника без&nbsp;установки программ.
 toc:
-  - id: "intro"
-    title: "Зачем переходить из Word в LaTeX"
-  - id: "word-builtin"
+  - id: 'intro'
+    title: 'Зачем переходить из Word в LaTeX'
+  - id: 'word-builtin'
     title: |2-
       Копирование формул напрямую из MS Word
                                           в LaTeX
-  - id: "pandoc"
+  - id: 'pandoc'
     title: |2-
       Автоматическая конвертация всего файла через
                                           Pandoc
-  - id: "tables-images"
+  - id: 'tables-images'
     title: |2-
       Перенос таблиц и изображений без
                                           потерь
-  - id: "cleanup"
+  - id: 'cleanup'
     title: |2-
       Постобработка и очистка полученного
                                           TeX-кода
-  - id: "tips"
-    title: "Лайфхаки и онлайн-редактор Labkeeper"
+  - id: 'tips'
+    title: 'Лайфхаки и онлайн-редактор Labkeeper'
 sections:
-  - id: "intro"
-    title: "Зачем переходить из Word в LaTeX"
+  - id: 'intro'
+    title: 'Зачем переходить из Word в LaTeX'
     html: |2-
                               <p>Написание <a href="/blog/latex-diploma-gost">дипломов по ГОСТ</a>, <a
                                       href="/blog/latex-dissertation">диссертаций ВАК</a> или <a
@@ -81,8 +81,8 @@ sections:
                                   не знать правильных инструментов конвертации и <strong>импорта docx
       в LaTeX без потери
                                       формул</strong>.</p>
-  - id: "word-builtin"
-    title: "Копирование формул напрямую из MS Word в LaTeX"
+  - id: 'word-builtin'
+    title: 'Копирование формул напрямую из MS Word в LaTeX'
     html: |2-
                               <p>Современные версии Word (начиная с Office 2016 / 365) имеют
       встроенный редактор уравнений с
@@ -104,8 +104,8 @@ sections:
       экспортировать весь документ
                                   пакетно.
                               </div>
-  - id: "pandoc"
-    title: "Автоматическая конвертация всего файла через Pandoc"
+  - id: 'pandoc'
+    title: 'Автоматическая конвертация всего файла через Pandoc'
     html: |2-
                               <p>Утилита <code>Pandoc</code> — самый надежный конвертер документов
       DOCX в файл
@@ -126,8 +126,8 @@ sections:
                                   <code>document.tex</code> и картинки из папки <code>images</code>
       загрузите в проект
                                   Labkeeper и соберите PDF уже там.</p>
-  - id: "tables-images"
-    title: "Перенос таблиц и изображений без потерь"
+  - id: 'tables-images'
+    title: 'Перенос таблиц и изображений без потерь'
     html: |2-
                               <p>Таблицы из Word часто конвертируются с фиксированной шириной ячеек.
       Для приведения их к
@@ -154,8 +154,8 @@ sections:
       \end{tabular}
       \end{table}</code></pre>
                               </div>
-  - id: "cleanup"
-    title: "Постобработка и очистка полученного TeX-кода"
+  - id: 'cleanup'
+    title: 'Постобработка и очистка полученного TeX-кода'
     html: |2-
                               <p>После автоматической конвертации выполните быструю проверку следующих
       элементов:</p>
@@ -177,8 +177,8 @@ sections:
       href="/blog/latex-systems-equations">статье по системам
                                           уравнений</a>).</li>
                               </ul>
-  - id: "tips"
-    title: "Лайфхаки и онлайн-редактор Labkeeper"
+  - id: 'tips'
+    title: 'Лайфхаки и онлайн-редактор Labkeeper'
     html: |2-
                               <div class="article-tips">
                                   <div class="article-tip">

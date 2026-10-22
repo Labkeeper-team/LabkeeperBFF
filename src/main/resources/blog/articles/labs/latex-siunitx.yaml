@@ -1,71 +1,71 @@
 catalogIndex: 87
-slug: "latex-siunitx"
+slug: 'latex-siunitx'
 batch: 1
-title: "Верстка формул для физических величин с размерностями, пакет siunitx"
-pageTitle: "Верстка формул для физических величин с размерностями (siunitx) — Labkeeper"
+title: 'Верстка формул для физических величин с размерностями, пакет siunitx'
+pageTitle: 'Верстка формул для физических величин с размерностями (siunitx) — Labkeeper'
 metaDescription: |2-
   Как правильно писать физические единицы в LaTeX: размерности величин siunitx LaTeX онлайн,
   оформление погрешностей, диапазонов и таблиц по ГОСТ 8.417.
-ogTitle: "Верстка формул для физических величин с размерностями, пакет siunitx — Labkeeper"
+ogTitle: 'Верстка формул для физических величин с размерностями, пакет siunitx — Labkeeper'
 ogDescription: |2-
   Размерности величин siunitx LaTeX онлайн: набор физических единиц СИ, неразрывные пробелы,
   погрешности и выравнивание чисел в таблицах.
-twitterDescription: "Размерности величин siunitx LaTeX онлайн: как правильно писать физические единицы в LaTeX."
+twitterDescription: 'Размерности величин siunitx LaTeX онлайн: как правильно писать физические единицы в LaTeX.'
 schemaDescription: |2-
   Полное руководство по использованию пакета siunitx в LaTeX для оформления физических величин,
   единиц измерения СИ и погрешностей.
 breadcrumbTitle: |2-
   Физические единицы
                                   и siunitx в LaTeX
-schemaBreadcrumbTitle: "Физические величины и siunitx"
+schemaBreadcrumbTitle: 'Физические величины и siunitx'
 h1: |2-
   Верстка формул для физических величин с&nbsp;размерностями,
                           пакет siunitx
 categories:
-  - "labs"
-  - "latex"
+  - 'labs'
+  - 'latex'
 keywords:
-  - "размерности величин siunitx latex онлайн"
-  - "как правильно писать физические единицы в latex"
-datePublished: "2026-08-20"
-dateModified: "2026-10-18"
-readingTime: "8 мин"
-cardTitle: "Верстка формул для физических величин с размерностями, пакет siunitx"
+  - 'размерности величин siunitx latex онлайн'
+  - 'как правильно писать физические единицы в latex'
+datePublished: '2026-08-20'
+dateModified: '2026-10-18'
+readingTime: '8 мин'
+cardTitle: 'Верстка формул для физических величин с размерностями, пакет siunitx'
 cardDescription: |2-
   Правильный набор единиц СИ, неразрывные пробелы, погрешности и
                           автоматическое выравнивание чисел в таблицах по ГОСТ.
-sliderTitle: "Физические величины и&nbsp;единицы (siunitx)"
-sliderText: "Единицы СИ, погрешности и автоматическое выравнивание чисел в таблицах по ГОСТ."
-sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sliderTitle: 'Физические величины и&nbsp;единицы (siunitx)'
+sliderText: 'Единицы СИ, погрешности и автоматическое выравнивание чисел в таблицах по ГОСТ.'
+sidebarImageAlt: 'Онлайн-редактор LaTeX Labkeeper'
 sidebarText: |2-
   Набирайте расчеты и&nbsp;физические величины в&nbsp;Labkeeper
                           с&nbsp;полной поддержкой siunitx и&nbsp;ГОСТ 8.417.
-ctaTitle: "Набирайте физические величины в&nbsp;Labkeeper"
+ctaTitle: 'Набирайте физические величины в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX с&nbsp;полной поддержкой пакета siunitx: правильное оформление
   размерностей, погрешностей и&nbsp;чисел в&nbsp;таблицах.
 toc:
-  - id: "intro"
-    title: "Проблема ручного набора единиц измерения"
-  - id: "setup"
+  - id: 'intro'
+    title: 'Проблема ручного набора единиц измерения'
+  - id: 'setup'
     title: |2-
       Подключение siunitx и настройка русской
                                           локализации
-  - id: "commands"
+  - id: 'commands'
     title: "Команды \\qty, \\unit, \\num и \\ang"
-  - id: "uncertainty"
+  - id: 'uncertainty'
     title: |2-
       Погрешности измерений и диапазоны
                                           чисел
-  - id: "tables"
+  - id: 'tables'
     title: |2-
       Таблицы с выравниванием чисел (колонка
                                           S)
-  - id: "tips"
-    title: "Практические советы по ГОСТ 8.417"
+  - id: 'tips'
+    title: 'Практические советы по ГОСТ 8.417'
 sections:
-  - id: "intro"
-    title: "Проблема ручного набора единиц измерения"
+  - id: 'intro'
+    title: 'Проблема ручного набора единиц измерения'
     html: |2-
                               <p>В математическом режиме LaTeX буквы по умолчанию отображаются
       курсивом: если написать
@@ -84,8 +84,8 @@ sections:
       был создан пакет
                                   <code>siunitx</code> — признанный золотой стандарт научной
       типографики.</p>
-  - id: "setup"
-    title: "Подключение siunitx и настройка русской локализации"
+  - id: 'setup'
+    title: 'Подключение siunitx и настройка русской локализации'
     html: |2-
                               <p>Подключите пакет в преамбуле документа:</p>
                               <div class="article-code">
@@ -101,7 +101,7 @@ sections:
           separate-uncertainty = true
       }</code></pre>
                               </div>
-  - id: "commands"
+  - id: 'commands'
     title: "Команды \\qty, \\unit, \\num и \\ang"
     html: |2-
                               <p>В версии <code>siunitx</code> v3 используются универсальные
@@ -164,8 +164,8 @@ sections:
       обратитесь к нашему <a
                                       href="/blog/latex-formulas">руководству по математическим
       формулам amsmath</a>.</p>
-  - id: "uncertainty"
-    title: "Погрешности измерений и диапазоны чисел"
+  - id: 'uncertainty'
+    title: 'Погрешности измерений и диапазоны чисел'
     html: |2-
                               <p>Для отчетов по физическим и химическим лабораторным работам важно
       корректно оформлять
@@ -182,8 +182,8 @@ sections:
       % Список значений с общей единицей:
       \qtylist{10; 20; 30}{\volt}</code></pre>
                               </div>
-  - id: "tables"
-    title: "Таблицы с выравниванием чисел (колонка S)"
+  - id: 'tables'
+    title: 'Таблицы с выравниванием чисел (колонка S)'
     html: |2-
                               <p>Пакет <code>siunitx</code> предоставляет специальный тип колонки
       <code>S</code> для таблиц.
@@ -218,8 +218,8 @@ sections:
       пытался парсить их как
                                   числа.
                               </div>
-  - id: "tips"
-    title: "Практические советы по ГОСТ 8.417"
+  - id: 'tips'
+    title: 'Практические советы по ГОСТ 8.417'
     html: |2-
                               <div class="article-tips">
                                   <div class="article-tip">

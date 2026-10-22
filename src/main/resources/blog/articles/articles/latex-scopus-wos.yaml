@@ -1,65 +1,65 @@
 catalogIndex: 89
-slug: "latex-scopus-wos"
+slug: 'latex-scopus-wos'
 batch: 1
-title: "Подготовка статьи для публикации в журнале Scopus/WoS: базовый шаблон LaTeX"
-pageTitle: "Подготовка статьи для публикации в журнале Scopus/WoS: шаблон LaTeX — Labkeeper"
+title: 'Подготовка статьи для публикации в журнале Scopus/WoS: базовый шаблон LaTeX'
+pageTitle: 'Подготовка статьи для публикации в журнале Scopus/WoS: шаблон LaTeX — Labkeeper'
 metaDescription: |2-
   Шаблон статьи Scopus LaTeX онлайн: подготовка публикации WoS в LaTeX, настройка классов
   IEEEtran, elsarticle, авторов, аффилиаций, аннотации и библиографии.
-ogTitle: "Подготовка статьи для публикации в журнале Scopus/WoS: базовый шаблон LaTeX — Labkeeper"
+ogTitle: 'Подготовка статьи для публикации в журнале Scopus/WoS: базовый шаблон LaTeX — Labkeeper'
 ogDescription: |2-
   Шаблон статьи Scopus LaTeX онлайн: верстка рукописи по международным стандартам WoS, IEEE и
   Elsevier в онлайн-редакторе Labkeeper.
-twitterDescription: "Подготовка публикации WoS в LaTeX: шаблон статьи, оформление Abstract и цитирований."
+twitterDescription: 'Подготовка публикации WoS в LaTeX: шаблон статьи, оформление Abstract и цитирований.'
 schemaDescription: |2-
   Полное руководство по оформлению научных статей для международных изданий Scopus и Web of
   Science в LaTeX.
-breadcrumbTitle: "Шаблон Scopus/WoS в LaTeX"
-schemaBreadcrumbTitle: "Статья Scopus/WoS в LaTeX"
-h1: "Подготовка статьи для публикации в&nbsp;журнале Scopus/WoS: базовый шаблон LaTeX"
+breadcrumbTitle: 'Шаблон Scopus/WoS в LaTeX'
+schemaBreadcrumbTitle: 'Статья Scopus/WoS в LaTeX'
+h1: 'Подготовка статьи для публикации в&nbsp;журнале Scopus/WoS: базовый шаблон LaTeX'
 categories:
-  - "articles"
-  - "latex"
+  - 'articles'
+  - 'latex'
 keywords:
-  - "шаблон статьи scopus latex онлайн"
-  - "подготовка публикации wos в latex"
-datePublished: "2026-08-20"
-dateModified: "2026-10-18"
-readingTime: "9 мин"
+  - 'шаблон статьи scopus latex онлайн'
+  - 'подготовка публикации wos в latex'
+datePublished: '2026-08-20'
+dateModified: '2026-10-18'
+readingTime: '9 мин'
 cardTitle: |2-
   Подготовка статьи для публикации в журнале Scopus/WoS: базовый шаблон
                           LaTeX
 cardDescription: |2-
   Подготовка публикации в международные издания: шаблоны IEEEtran,
                           elsarticle, авторы, Abstract, Keywords и ORCID.
-sliderTitle: "Шаблон статьи Scopus / Web of Science"
-sliderText: "Базовый шаблон LaTeX для публикации в международных журналах Scopus и WoS."
-sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sliderTitle: 'Шаблон статьи Scopus / Web of Science'
+sliderText: 'Базовый шаблон LaTeX для публикации в международных журналах Scopus и WoS.'
+sidebarImageAlt: 'Онлайн-редактор LaTeX Labkeeper'
 sidebarText: |2-
   Готовьте публикации для Scopus и&nbsp;WoS в&nbsp;Labkeeper — компиляция с&nbsp;классами
   IEEEtran, elsarticle и&nbsp;acmart.
-ctaTitle: "Готовьте научные статьи в&nbsp;Labkeeper"
+ctaTitle: 'Готовьте научные статьи в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX для&nbsp;исследователей: классы международных журналов, поддержка формул
   и&nbsp;AI-ассистент прямо в&nbsp;браузере.
 toc:
-  - id: "intro"
-    title: "Требования международных издательств к LaTeX-рукописям"
-  - id: "classes"
-    title: "Популярные классы документов (IEEEtran, elsarticle, Springer)"
-  - id: "structure"
-    title: "Базовый код шаблона статьи Scopus/WoS"
-  - id: "authors"
-    title: "Авторы, аффилиации и ORCID ID"
-  - id: "abstract"
-    title: "Аннотация (Abstract) и ключевые слова (Keywords)"
-  - id: "biblio"
-    title: "Библиография и цитирование (BibTeX / IEEE / APA)"
-  - id: "tips"
-    title: "Чек-лист перед отправкой в редакцию"
+  - id: 'intro'
+    title: 'Требования международных издательств к LaTeX-рукописям'
+  - id: 'classes'
+    title: 'Популярные классы документов (IEEEtran, elsarticle, Springer)'
+  - id: 'structure'
+    title: 'Базовый код шаблона статьи Scopus/WoS'
+  - id: 'authors'
+    title: 'Авторы, аффилиации и ORCID ID'
+  - id: 'abstract'
+    title: 'Аннотация (Abstract) и ключевые слова (Keywords)'
+  - id: 'biblio'
+    title: 'Библиография и цитирование (BibTeX / IEEE / APA)'
+  - id: 'tips'
+    title: 'Чек-лист перед отправкой в редакцию'
 sections:
-  - id: "intro"
-    title: "Требования международных издательств к LaTeX-рукописям"
+  - id: 'intro'
+    title: 'Требования международных издательств к LaTeX-рукописям'
     html: |2-
                               <p>Ведущие научные издательства (Elsevier, Springer Nature, IEEE, Wiley,
       MDPI), индексируемые в Scopus и Web of Science, принимают рукописи в формате LaTeX.
@@ -71,8 +71,8 @@ sections:
       класс журнала — вручную через <a href="/blog/latex-fancyhdr">fancyhdr</a> их настраивают только
       в собственных документах. Обязательны указание грантовой поддержки (Funding/Acknowledgments),
       качественные рисунки и список источников в стиле журнала.</p>
-  - id: "classes"
-    title: "Популярные классы документов (IEEEtran, elsarticle, Springer)"
+  - id: 'classes'
+    title: 'Популярные классы документов (IEEEtran, elsarticle, Springer)'
     html: |2-
                               <p>В зависимости от целевого журнала издательства предоставляют
       специализированные классы:</p>
@@ -88,8 +88,8 @@ sections:
                                   <li>Стандартный <code>article</code> с пакетом <code>geometry</code>
       — подходит для большинства журналов на этапе первичного рецензирования.</li>
                               </ul>
-  - id: "structure"
-    title: "Базовый код шаблона статьи Scopus/WoS"
+  - id: 'structure'
+    title: 'Базовый код шаблона статьи Scopus/WoS'
     html: |2-
                               <p>Ниже представлен проверенный шаблон универсальной англоязычной
       статьи, готовый к компиляции в Labkeeper (для математических статей с доказательствами
@@ -155,8 +155,8 @@ sections:
       BibTeX в Labkeeper пока не запускается, и команды <code>\bibliographystyle{IEEEtran}</code> и
       <code>\bibliography{references}</code> дали бы «[?]» вместо ссылки и пустой список. При
       локальной сборке их можно вернуть вместе с файлом <code>references.bib</code>.</p>
-  - id: "authors"
-    title: "Авторы, аффилиации и ORCID ID"
+  - id: 'authors'
+    title: 'Авторы, аффилиации и ORCID ID'
     html: |2-
                               <p>Для корректной индексации статьи в Scopus и Google Scholar крайне
       важно указывать уникальные идентификаторы авторов ORCID. Пакет <code>orcidlink</code> добавляет
@@ -168,14 +168,14 @@ sections:
       % В списке авторов:
       Ivan Ivanov \orcidlink{0000-0002-1825-0097}</code></pre>
                               </div>
-  - id: "abstract"
-    title: "Аннотация (Abstract) и ключевые слова (Keywords)"
+  - id: 'abstract'
+    title: 'Аннотация (Abstract) и ключевые слова (Keywords)'
     html: |2-
                               <p>Аннотация в международных статьях должна быть самодостаточной — в ней
       не допускаются ссылки на формулы или библиографические источники <code>\cite{}</code> без явного
       указания авторов и года.</p>
-  - id: "biblio"
-    title: "Библиография и цитирование (BibTeX / IEEE / APA)"
+  - id: 'biblio'
+    title: 'Библиография и цитирование (BibTeX / IEEE / APA)'
     html: |2-
                               <p>Для Scopus-статей рекомендуется использовать стандартные
       библиографические стили:</p>
@@ -200,8 +200,8 @@ sections:
                               </div>
                               <p>Стили BibTeX работают при локальной сборке. В Labkeeper оформляйте
       записи вручную в стиле журнала через <code>thebibliography</code>, как в шаблоне выше.</p>
-  - id: "tips"
-    title: "Чек-лист перед отправкой в редакцию"
+  - id: 'tips'
+    title: 'Чек-лист перед отправкой в редакцию'
     html: |2-
                               <div class="article-tips">
                                   <div class="article-tip">

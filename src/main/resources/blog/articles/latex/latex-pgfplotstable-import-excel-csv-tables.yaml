@@ -1,44 +1,44 @@
 catalogIndex: 2
-slug: "latex-pgfplotstable-import-excel-csv-tables"
+slug: 'latex-pgfplotstable-import-excel-csv-tables'
 batch: 2
-title: "Импорт данных из Excel в таблицы LaTeX (pgfplotstable)"
-pageTitle: "Конвертировать Excel в таблицу LaTeX: pgfplotstable чтение CSV — Labkeeper"
+title: 'Импорт данных из Excel в таблицы LaTeX (pgfplotstable)'
+pageTitle: 'Конвертировать Excel в таблицу LaTeX: pgfplotstable чтение CSV — Labkeeper'
 metaDescription: |2-
   Как конвертировать Excel в таблицу LaTeX с помощью пакета pgfplotstable. Прямое чтение
   CSV-файлов, форматирование чисел, запятая по ГОСТу в Labkeeper.
-breadcrumbTitle: "Импорт Excel и CSV в LaTeX"
-h1: "Импорт данных из&nbsp;Excel в&nbsp;таблицы LaTeX (pgfplotstable)"
+breadcrumbTitle: 'Импорт Excel и CSV в LaTeX'
+h1: 'Импорт данных из&nbsp;Excel в&nbsp;таблицы LaTeX (pgfplotstable)'
 categories:
-  - "latex"
+  - 'latex'
 keywords:
-  - "конвертировать excel в таблицу latex"
-  - "pgfplotstable чтение csv"
-datePublished: "2026-09-06"
-dateModified: "2026-10-18"
-readingTime: "8 мин"
-cardTitle: "Автоматический импорт таблиц из Excel и CSV в LaTeX: пакет pgfplotstable"
+  - 'конвертировать excel в таблицу latex'
+  - 'pgfplotstable чтение csv'
+datePublished: '2026-09-06'
+dateModified: '2026-10-18'
+readingTime: '8 мин'
+cardTitle: 'Автоматический импорт таблиц из Excel и CSV в LaTeX: пакет pgfplotstable'
 cardDescription: |2-
   Как забыть о ручном наборе таблиц: загрузка внешних CSV-файлов, округление знаков,
   форматирование заголовков и русская запятая в числах.
-sliderTitle: "Импорт Excel/CSV в LaTeX"
-sliderText: "Прямое чтение CSV-таблиц из Excel с пакетом pgfplotstable в LaTeX."
-sidebarText: "В Labkeeper вы можете загрузить CSV в проект и вывести его таблицей через pgfplotstable."
-ctaTitle: "Автоматизируйте таблицы в&nbsp;Labkeeper"
-ctaText: "Онлайн-платформа с поддержкой pgfplotstable: загрузка CSV из Excel и сборка таблиц в PDF."
+sliderTitle: 'Импорт Excel/CSV в LaTeX'
+sliderText: 'Прямое чтение CSV-таблиц из Excel с пакетом pgfplotstable в LaTeX.'
+sidebarText: 'В Labkeeper вы можете загрузить CSV в проект и вывести его таблицей через pgfplotstable.'
+ctaTitle: 'Автоматизируйте таблицы в&nbsp;Labkeeper'
+ctaText: 'Онлайн-платформа с поддержкой pgfplotstable: загрузка CSV из Excel и сборка таблиц в PDF.'
 toc:
-  - id: "why-automate"
-    title: "Почему ручной перенос таблиц из Excel в LaTeX — это тупик"
-  - id: "csv-export"
-    title: "Подготовка данных: экспорт из Microsoft Excel в формат CSV"
-  - id: "pgfplotstable-setup"
-    title: "Конвертировать Excel в таблицу LaTeX: базовый вызов pgfplotstable"
-  - id: "reading-csv"
-    title: "Pgfplotstable чтение CSV: разделители, кодировка и русская запятая"
-  - id: "styling-booktabs"
-    title: "Профессиональная стилизация: шапка, границы и округление"
+  - id: 'why-automate'
+    title: 'Почему ручной перенос таблиц из Excel в LaTeX — это тупик'
+  - id: 'csv-export'
+    title: 'Подготовка данных: экспорт из Microsoft Excel в формат CSV'
+  - id: 'pgfplotstable-setup'
+    title: 'Конвертировать Excel в таблицу LaTeX: базовый вызов pgfplotstable'
+  - id: 'reading-csv'
+    title: 'Pgfplotstable чтение CSV: разделители, кодировка и русская запятая'
+  - id: 'styling-booktabs'
+    title: 'Профессиональная стилизация: шапка, границы и округление'
 sections:
-  - id: "why-automate"
-    title: "Почему ручной перенос таблиц из Excel в LaTeX — это тупик"
+  - id: 'why-automate'
+    title: 'Почему ручной перенос таблиц из Excel в LaTeX — это тупик'
     html: |2-
                               <p>В ходе научных исследований и инженерных расчетов данные непрерывно
       меняются: провели новую серию измерений, пересчитали формулу в Excel — и вся таблица из 50 строк
@@ -49,15 +49,15 @@ sections:
       числами. А чтобы строки данных не выглядели тесно, используйте макрос для <a
       href="/blog/latex-arraystretch-table-row-height-spacing">настройки высоты строк в
       таблицах</a>.</p>
-  - id: "csv-export"
-    title: "Подготовка данных: экспорт из Microsoft Excel в формат CSV"
+  - id: 'csv-export'
+    title: 'Подготовка данных: экспорт из Microsoft Excel в формат CSV'
     html: |2-
                               <p>В Excel сохраните нужный лист через меню <em>«Сохранить как» &rarr;
       «CSV (разделители — запятые)»</em> или <em>«Текстовый файл с разделителями табуляции»</em>. В
       русскоязычной версии Excel разделителем столбцов традиционно выступает точка с запятой
       <code>;</code>, а десятичным разделителем — запятая <code>,</code>.</p>
-  - id: "pgfplotstable-setup"
-    title: "Конвертировать Excel в таблицу LaTeX: базовый вызов pgfplotstable"
+  - id: 'pgfplotstable-setup'
+    title: 'Конвертировать Excel в таблицу LaTeX: базовый вызов pgfplotstable'
     html: |2-
                               <p>Для чтения данных подключите пакет <strong>pgfplotstable</strong> (он
       входит в состав TeX Live и надстраивается над pgfplots):</p>
@@ -81,8 +81,8 @@ sections:
       оберните его в окружение для <a
       href="/blog/latex-rotating-package-sidewaystable-rotate-90">вращения широких таблиц
       sidewaystable</a>.</p>
-  - id: "reading-csv"
-    title: "Pgfplotstable чтение CSV: разделители, кодировка и русская запятая"
+  - id: 'reading-csv'
+    title: 'Pgfplotstable чтение CSV: разделители, кодировка и русская запятая'
     html: |2-
                               <p>При использовании <strong>pgfplotstable чтение csv</strong> можно
       настроить с ювелирной точностью под российские стандарты:</p>
@@ -130,8 +130,8 @@ sections:
                                   <pre><code>\pgfplotstabletypeset[col sep=semicolon, read comma as period,
         /pgf/number format/use comma]{data.csv}</code></pre>
                               </div>
-  - id: "styling-booktabs"
-    title: "Профессиональная стилизация: шапка, границы и округление"
+  - id: 'styling-booktabs'
+    title: 'Профессиональная стилизация: шапка, границы и округление'
     html: |2-
                               <p>Вы можете переименовывать столбцы таблицы прямо в LaTeX, не меняя
       заголовки в самом файле CSV:</p>
@@ -146,11 +146,11 @@ sections:
       ]{measurements.csv}</code></pre>
                               </div>
 tips:
-  - title: "Храните CSV рядом с исходником .tex"
+  - title: 'Храните CSV рядом с исходником .tex'
     html: |2-
       <p>Поместите файл <code>data.csv</code> в ту же папку проекта, что и основной файл
       <code>main.tex</code>, чтобы компилятор сразу находил его по относительному пути.</p>
-  - title: "Интеграция в Labkeeper"
+  - title: 'Интеграция в Labkeeper'
     html: |2-
       <p>В онлайн-редакторе Labkeeper загрузите CSV в файловый менеджер проекта (файлы доступны после
       входа) и нажмите «Выполнить»: таблица появится в PDF после сборки. Промежуточные суммы

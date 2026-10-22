@@ -1,69 +1,69 @@
 catalogIndex: 80
-slug: "latex-gost-bibliography"
+slug: 'latex-gost-bibliography'
 batch: 1
-title: "Как быстро оформить список литературы по ГОСТ 7.0.5 в LaTeX без ошибок"
-pageTitle: "Список литературы по ГОСТ 7.0.5 в LaTeX: оформление без ошибок — Labkeeper"
+title: 'Как быстро оформить список литературы по ГОСТ 7.0.5 в LaTeX без ошибок'
+pageTitle: 'Список литературы по ГОСТ 7.0.5 в LaTeX: оформление без ошибок — Labkeeper'
 metaDescription: |2-
   Как оформить библиографию по ГОСТ 7.0.5 в LaTeX онлайн: записи по ГОСТ Р 7.0.100 в
   thebibliography, ссылки [1, с. 45] и biblatex-gost для локальной сборки.
 ogDescription: |2-
   Пошаговый гайд по оформлению библиографии по ГОСТ 7.0.5 в LaTeX онлайн: записи по ГОСТ Р
   7.0.100, ссылки на страницы и список через thebibliography.
-twitterDescription: "Пошаговый гайд по оформлению библиографии ГОСТ 7.0.5 в LaTeX онлайн."
+twitterDescription: 'Пошаговый гайд по оформлению библиографии ГОСТ 7.0.5 в LaTeX онлайн.'
 schemaDescription: |2-
   Пошаговый гайд по оформлению библиографии по ГОСТ 7.0.5 в LaTeX: записи по ГОСТ Р 7.0.100-2018,
   ссылки на страницы, список через thebibliography и biblatex-gost для локальной сборки.
 breadcrumbTitle: |2-
   Список литературы
                                   по ГОСТ 7.0.5 в LaTeX
-schemaBreadcrumbTitle: "Список литературы по ГОСТ 7.0.5 в LaTeX"
+schemaBreadcrumbTitle: 'Список литературы по ГОСТ 7.0.5 в LaTeX'
 h1: |2-
   Как быстро оформить список литературы по&nbsp;ГОСТ&nbsp;7.0.5
                           в&nbsp;LaTeX без&nbsp;ошибок
 categories:
-  - "diploma"
-  - "latex"
-  - "articles"
+  - 'diploma'
+  - 'latex'
+  - 'articles'
 keywords:
-  - "библиография гост 7 0 5 latex онлайн"
-  - "оформление списка литературы latex гост"
-datePublished: "2026-08-20"
-dateModified: "2026-10-18"
-readingTime: "10 мин"
-cardTitle: "Как быстро оформить список литературы по ГОСТ 7.0.5 в LaTeX без ошибок"
+  - 'библиография гост 7 0 5 latex онлайн'
+  - 'оформление списка литературы latex гост'
+datePublished: '2026-08-20'
+dateModified: '2026-10-18'
+readingTime: '10 мин'
+cardTitle: 'Как быстро оформить список литературы по ГОСТ 7.0.5 в LaTeX без ошибок'
 cardDescription: |2-
   Пошаговый гайд: записи по ГОСТ Р 7.0.100 в thebibliography, ссылки на страницы, порядок
   источников и biblatex-gost для локальной сборки.
-sliderTitle: "Список литературы по&nbsp;ГОСТ 7.0.5"
-sliderText: "Записи по ГОСТ в thebibliography, ссылки на страницы и biblatex-gost для локальной сборки."
-sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sliderTitle: 'Список литературы по&nbsp;ГОСТ 7.0.5'
+sliderText: 'Записи по ГОСТ в thebibliography, ссылки на страницы и biblatex-gost для локальной сборки.'
+sidebarImageAlt: 'Онлайн-редактор LaTeX Labkeeper'
 sidebarText: |2-
   Оформляйте список литературы по&nbsp;ГОСТ в&nbsp;онлайн-редакторе Labkeeper: ссылки
   и&nbsp;список собираются в&nbsp;PDF без&nbsp;установки LaTeX.
-ctaTitle: "Оформляйте список литературы в&nbsp;Labkeeper"
+ctaTitle: 'Оформляйте список литературы в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX: список литературы по&nbsp;ГОСТ через thebibliography и&nbsp;сборка PDF
   в&nbsp;браузере без&nbsp;установки программ.
 toc:
-  - id: "intro"
+  - id: 'intro'
     title: |2-
       Что такое ГОСТ Р 7.0.5-2008 и зачем он
                                           нужен
-  - id: "package"
-    title: "Оформление списка литературы в LaTeX по ГОСТ: thebibliography"
-  - id: "bib-file"
-    title: "Правила записи источника по ГОСТ Р 7.0.100-2018"
-  - id: "numeric"
-    title: "Ссылки в тексте: [1] и [1, с. 45]"
-  - id: "authoryear"
-    title: "Для локальной установки: biblatex-gost"
-  - id: "sorting"
-    title: "Порядок источников и сортировка"
-  - id: "tips"
-    title: "Практические советы"
+  - id: 'package'
+    title: 'Оформление списка литературы в LaTeX по ГОСТ: thebibliography'
+  - id: 'bib-file'
+    title: 'Правила записи источника по ГОСТ Р 7.0.100-2018'
+  - id: 'numeric'
+    title: 'Ссылки в тексте: [1] и [1, с. 45]'
+  - id: 'authoryear'
+    title: 'Для локальной установки: biblatex-gost'
+  - id: 'sorting'
+    title: 'Порядок источников и сортировка'
+  - id: 'tips'
+    title: 'Практические советы'
 sections:
-  - id: "intro"
-    title: "Что такое ГОСТ Р&nbsp;7.0.5-2008 и зачем он нужен"
+  - id: 'intro'
+    title: 'Что такое ГОСТ Р&nbsp;7.0.5-2008 и зачем он нужен'
     html: |2-
                               <p>ГОСТ Р 7.0.5-2008 «Библиографическая ссылка» описывает, как
       составлять ссылки на источники:
@@ -98,8 +98,8 @@ sections:
       отдельный раздел для
                                   локальной установки TeX Live или MiKTeX.
                               </div>
-  - id: "package"
-    title: "Оформление списка литературы в LaTeX по ГОСТ: thebibliography"
+  - id: 'package'
+    title: 'Оформление списка литературы в LaTeX по ГОСТ: thebibliography'
     html: |2-
                               <p>Стандартное окружение <code>thebibliography</code> работает без
       внешних программ: LaTeX
@@ -138,8 +138,8 @@ sections:
       <code>book</code>). Переопределяйте её
                                   после <code>\begin{document}</code>: иначе babel вернёт стандартное
       название.</p>
-  - id: "bib-file"
-    title: "Правила записи источника по ГОСТ Р 7.0.100-2018"
+  - id: 'bib-file'
+    title: 'Правила записи источника по ГОСТ Р 7.0.100-2018'
     html: |2-
                               <p>Запись в списке собирается из областей описания, которые разделяются
       точкой и тире («. —»).
@@ -174,8 +174,8 @@ sections:
                                   в статье об <a
       href="/blog/electronic-resources-bibliography-gost-7-0-100">электронных
                                       ресурсах по ГОСТ 7.0.100</a>.</p>
-  - id: "numeric"
-    title: "Ссылки в тексте: [1] и [1, с. 45]"
+  - id: 'numeric'
+    title: 'Ссылки в тексте: [1] и [1, с. 45]'
     html: |2-
                               <p>Команда <code>\cite</code> ставит в тексте номер записи в квадратных
       скобках. Страницу
@@ -201,8 +201,8 @@ sections:
                                       href="/blog/latex-list-of-figures-tables">генерации списков
       иллюстраций и
                                       таблиц</a>.</p>
-  - id: "authoryear"
-    title: "Для локальной установки: biblatex-gost"
+  - id: 'authoryear'
+    title: 'Для локальной установки: biblatex-gost'
     html: |2-
                               <div class="article-note">
                                   <strong>⚠️ Только для локальной сборки.</strong> Пакет
@@ -298,8 +298,8 @@ sections:
       % Только год: 2023
       \citeyear{ivanov2023}</code></pre>
                               </div>
-  - id: "sorting"
-    title: "Порядок источников и сортировка"
+  - id: 'sorting'
+    title: 'Порядок источников и сортировка'
     html: |2-
                               <p>ГОСТ Р 7.0.5-2008 не устанавливает порядок записей в списке. В
       отчётах по ГОСТ 7.32-2017
@@ -360,8 +360,8 @@ sections:
           sortlocale=ru_RU   % кириллица перед латиницей
       ]{biblatex}</code></pre>
                               </div>
-  - id: "tips"
-    title: "Практические советы"
+  - id: 'tips'
+    title: 'Практические советы'
     html: |2-
                               <div class="article-tips">
                                   <div class="article-tip">

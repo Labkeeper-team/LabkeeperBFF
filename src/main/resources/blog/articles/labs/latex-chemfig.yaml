@@ -1,70 +1,70 @@
 catalogIndex: 85
-slug: "latex-chemfig"
+slug: 'latex-chemfig'
 batch: 1
-title: "Интеграция химических формул и реакций в LaTeX, пакет chemfig"
-pageTitle: "Интеграция химических формул и реакций в LaTeX, пакет chemfig — Labkeeper"
+title: 'Интеграция химических формул и реакций в LaTeX, пакет chemfig'
+pageTitle: 'Интеграция химических формул и реакций в LaTeX, пакет chemfig — Labkeeper'
 metaDescription: |2-
   Полное руководство по пакету chemfig в LaTeX онлайн: редактор химических формул, рисование
   циклических молекул, бензольных колец, механизмов реакций и полимеров с примерами кода.
 ogDescription: |2-
   Узнайте, как верстать химические формулы и реакции в онлайн LaTeX: пакет chemfig онлайн примеры,
   схемы молекул, связи и механизмы реакций.
-twitterDescription: "Пакет chemfig в онлайн LaTeX: примеры химических реакций и структурных формул."
+twitterDescription: 'Пакет chemfig в онлайн LaTeX: примеры химических реакций и структурных формул.'
 schemaDescription: |2-
   Руководство по созданию структурных формул, механизмов реакций и циклических молекул в LaTeX с
   помощью пакета chemfig.
 breadcrumbTitle: |2-
   Химические формулы
                                   и chemfig в LaTeX
-schemaBreadcrumbTitle: "Химические формулы в LaTeX (chemfig)"
+schemaBreadcrumbTitle: 'Химические формулы в LaTeX (chemfig)'
 h1: |2-
   Интеграция химических формул и&nbsp;реакций в&nbsp;LaTeX,
                           пакет chemfig
 categories:
-  - "labs"
-  - "latex"
+  - 'labs'
+  - 'latex'
 keywords:
-  - "редактор химических формул latex онлайн"
-  - "пакет chemfig онлайн примеры"
-datePublished: "2026-08-20"
-dateModified: "2026-10-18"
-readingTime: "9 мин"
-cardTitle: "Интеграция химических формул и реакций в LaTeX, пакет chemfig"
+  - 'редактор химических формул latex онлайн'
+  - 'пакет chemfig онлайн примеры'
+datePublished: '2026-08-20'
+dateModified: '2026-10-18'
+readingTime: '9 мин'
+cardTitle: 'Интеграция химических формул и реакций в LaTeX, пакет chemfig'
 cardDescription: |2-
   Редактор химических формул: рисование циклических молекул, бензольных
                           колец, механизмов реакций и полимеров.
-sliderTitle: "Химические формулы и&nbsp;реакции (chemfig)"
-sliderText: "Редактор химических формул: циклические молекулы, реакции и полимеры."
-sidebarImageAlt: "Онлайн-редактор LaTeX Labkeeper"
+sliderTitle: 'Химические формулы и&nbsp;реакции (chemfig)'
+sliderText: 'Редактор химических формул: циклические молекулы, реакции и полимеры.'
+sidebarImageAlt: 'Онлайн-редактор LaTeX Labkeeper'
 sidebarText: |2-
   Редактируйте химические формулы и&nbsp;структуры в&nbsp;Labkeeper
                           — компиляция chemfig и&nbsp;mhchem в&nbsp;PDF без&nbsp;установки софта.
-ctaTitle: "Набирайте химические формулы в&nbsp;Labkeeper"
+ctaTitle: 'Набирайте химические формулы в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX с&nbsp;поддержкой пакета chemfig и&nbsp;быстрой компиляцией структурных
   формул и&nbsp;реакций в&nbsp;PDF.
 toc:
-  - id: "intro"
-    title: "Зачем нужен chemfig и как его подключить"
-  - id: "basics"
-    title: "Базовый синтаксис связей и углов"
-  - id: "branches"
+  - id: 'intro'
+    title: 'Зачем нужен chemfig и как его подключить'
+  - id: 'basics'
+    title: 'Базовый синтаксис связей и углов'
+  - id: 'branches'
     title: |2-
       Разветвленные цепи и функциональные
                                           группы
-  - id: "rings"
-    title: "Циклические молекулы и бензольное кольцо"
-  - id: "reactions"
-    title: "Схемы химических реакций и стрелки"
-  - id: "electrons"
-    title: "Электронные пары и механизмы реакций"
-  - id: "tips"
+  - id: 'rings'
+    title: 'Циклические молекулы и бензольное кольцо'
+  - id: 'reactions'
+    title: 'Схемы химических реакций и стрелки'
+  - id: 'electrons'
+    title: 'Электронные пары и механизмы реакций'
+  - id: 'tips'
     title: |2-
       Практические советы и интеграция в
                                           онлайн-редактор
 sections:
-  - id: "intro"
-    title: "Зачем нужен chemfig и как его подключить"
+  - id: 'intro'
+    title: 'Зачем нужен chemfig и как его подключить'
     html: |2-
                               <p>Набор химических структур в научных статьях, дипломах и <a
                                       href="/blog/latex-lab-reports">отчетах по лабораторным
@@ -89,8 +89,8 @@ sections:
       % Толщину линии задаёт bond style.
       \setchemfig{atom sep=2em, bond offset=1pt}</code></pre>
                               </div>
-  - id: "basics"
-    title: "Базовый синтаксис связей и углов"
+  - id: 'basics'
+    title: 'Базовый синтаксис связей и углов'
     html: |2-
                               <p>Формула создается командой <code>\chemfig{...}</code>. Связи между
       атомами обозначаются
@@ -156,8 +156,8 @@ sections:
       % Молекула этанола CH3-CH2-OH:
       \chemfig{H_3C-CH_2-OH}</code></pre>
                               </div>
-  - id: "branches"
-    title: "Разветвленные цепи и функциональные группы"
+  - id: 'branches'
+    title: 'Разветвленные цепи и функциональные группы'
     html: |2-
                               <p>Для создания ответвлений используются круглые скобки
       <code>(...)</code>. Внутри скобок
@@ -178,8 +178,8 @@ sections:
       <code>[:-90]</code>, что дает
                                   классическую зигзагообразную углеродную цепочку.
                               </div>
-  - id: "rings"
-    title: "Циклические молекулы и бензольное кольцо"
+  - id: 'rings'
+    title: 'Циклические молекулы и бензольное кольцо'
     html: |2-
                               <p>Для циклов используется синтаксис <code>*N(...)</code>, где N — число
       вершин многоугольника.
@@ -198,8 +198,8 @@ sections:
       % Аспирин (ацетилсалициловая кислота):
       \chemfig{*6(-=-(-C(=[1]O)-[7]OH)=(-O-[1]C(=[3]O)-[7]CH_3)-=)}</code></pre>
                               </div>
-  - id: "reactions"
-    title: "Схемы химических реакций и стрелки"
+  - id: 'reactions'
+    title: 'Схемы химических реакций и стрелки'
     html: |2-
                               <p>В пакете chemfig схемы реакций составляются с помощью макроса
                                   <code>\schemestart ... \schemestop</code> и стрелок
@@ -225,8 +225,8 @@ sections:
                                   концентраций и температурных условий — <a
       href="/blog/latex-siunitx">пакет размерностей
                                       siunitx</a>.</p>
-  - id: "electrons"
-    title: "Электронные пары и механизмы реакций"
+  - id: 'electrons'
+    title: 'Электронные пары и механизмы реакций'
     html: |2-
                               <p>Для органической химии критически важно отображение неподеленных
       электронных пар и
@@ -244,8 +244,8 @@ sections:
       % Смещение электронной плотности от N к H:
       \chemmove{\draw[-&gt;,red,shorten &lt;=2pt,shorten &gt;=2pt] (N) to[bend left=30] (H);}</code></pre>
                               </div>
-  - id: "tips"
-    title: "Практические советы и пакет chemfig онлайн примеры"
+  - id: 'tips'
+    title: 'Практические советы и пакет chemfig онлайн примеры'
     html: |2-
                               <div class="article-tips">
                                   <div class="article-tip">
