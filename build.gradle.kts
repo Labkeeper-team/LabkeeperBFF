@@ -12,7 +12,8 @@ plugins {
     id("org.jetbrains.kotlin.jvm")
     id("org.jetbrains.kotlin.plugin.spring")
     id("org.springframework.boot")
-    id("dev.detekt")
+    // The server build already applies its own Detekt. This version is for a standalone checkout.
+    id("dev.detekt") version "2.0.0-alpha.4" apply false
 }
 
 // Versions and shared libraries come from the server build. A checkout of this folder brings its own.
@@ -42,6 +43,19 @@ if (parent == null) {
 
     tasks.withType<Test>().configureEach {
         useJUnitPlatform()
+    }
+
+    apply(plugin = "dev.detekt")
+    extensions.configure<dev.detekt.gradle.extensions.DetektExtension>("detekt") {
+        parallel = true
+        buildUponDefaultConfig = true
+        config.setFrom(files("config/detekt/detekt.yml"))
+        basePath.set(layout.projectDirectory)
+    }
+    tasks.withType<dev.detekt.gradle.Detekt>().configureEach {
+        jvmTarget.set("17")
+        // The IDEA action passes -Pdetekt.autoCorrect=true. A normal detekt run only reports.
+        autoCorrect.set(providers.gradleProperty("detekt.autoCorrect").map { it.toBoolean() }.orElse(false))
     }
 
     dependencies {
@@ -140,19 +154,6 @@ tasks.named<Jar>("jar") {
 
 tasks.named<BootJar>("bootJar") {
     enabled = false
-}
-
-detekt {
-    parallel = true
-    buildUponDefaultConfig = true
-    config.setFrom(files("config/detekt/detekt.yml"))
-    basePath.set(layout.projectDirectory)
-}
-
-tasks.withType<dev.detekt.gradle.Detekt>().configureEach {
-    jvmTarget.set("17")
-    // The IDEA action passes -Pdetekt.autoCorrect=true. A normal detekt run only reports.
-    autoCorrect.set(providers.gradleProperty("detekt.autoCorrect").map { it.toBoolean() }.orElse(false))
 }
 
 tasks.named<BootRun>("bootRun") {
