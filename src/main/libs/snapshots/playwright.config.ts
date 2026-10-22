@@ -13,12 +13,12 @@ export default defineConfig({
   reporter: 'list',
   snapshotPathTemplate: '{testDir}/__screenshots__/{projectName}/{arg}{ext}',
   expect: {
+    timeout: 20_000,
     toHaveScreenshot: {
       animations: 'disabled',
       caret: 'hide',
       // Firefox keeps repainting a small slice of the page, so two frames are not identical.
       maxDiffPixelRatio: 0.03,
-      timeout: 15_000,
     },
   },
   use: {

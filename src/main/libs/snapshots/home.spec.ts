@@ -19,6 +19,7 @@ test('home page', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('h1')).toHaveText(/\S/);
   await expect(page.locator('#cookie-banner')).not.toHaveClass(/hidden/);
+  await expect(page.locator('.js-preloader')).toHaveClass(/preloader--hidden/);
   await page.evaluate(() => document.fonts.ready);
   await expect(page).toHaveScreenshot('home.png', { fullPage: true });
 });
