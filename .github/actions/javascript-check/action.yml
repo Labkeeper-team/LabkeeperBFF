@@ -1,5 +1,5 @@
-name: Playwright
-description: Start Labkeeper and compare the home page screenshots
+name: JavaScript check
+description: Run JavaScript unit tests, compare the home page screenshots, and check blog articles
 
 inputs:
   java-version:
@@ -44,7 +44,7 @@ runs:
         npm ci
         npm test
 
-    - name: Serve the app and compare screenshots
+    - name: Serve the app and run browser tests
       shell: bash
       run: |
         ./gradlew bootRun --no-daemon --args="--server.port=${{ inputs.port }}" > boot.log 2>&1 &

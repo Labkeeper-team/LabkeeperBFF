@@ -46,11 +46,11 @@ npm --prefix src/test/javascript ci
 npm --prefix src/test/javascript test
 ```
 
-Проверяют ссылки примеров и разбор YAML-статей. В CI это шаг `Run JavaScript unit tests` в проверке Playwright.
+Проверяют ссылки примеров и разбор YAML-статей. В CI это шаг `Run JavaScript unit tests` в проверке JavaScript.
 
-## Снимки главной
+## Браузерные тесты
 
-Нужны запущенный сервер и Docker.
+Нужны запущенный сервер и Docker. Сравнивают снимок главной и проверяют статьи блога: вёрстку, формулы и ссылки на пример редактора.
 
 ```shell
 $env:FRONTEND_URL = "http://localhost"
