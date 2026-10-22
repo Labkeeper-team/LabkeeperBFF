@@ -38,7 +38,7 @@ jobs:
         run: npm run format:check
 
   kotlin:
-    name: Tests · Kotlin
+    name: Check · Kotlin
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -64,8 +64,8 @@ jobs:
             src/main/editor/package-lock.json
             src/main/wiki/package-lock.json
 
-      - name: Run Kotlin tests
-        run: ./gradlew test --no-daemon
+      - name: Run Gradle check
+        run: ./gradlew check --no-daemon
 
   browser:
     name: Tests · Playwright
