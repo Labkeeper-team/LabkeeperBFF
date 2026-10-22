@@ -6,7 +6,7 @@
 gradlew bootRun
 ```
 
-Из `src/main/libs`:
+Из `src/test/javascript`:
 
 ```shell
 npm run snapshots

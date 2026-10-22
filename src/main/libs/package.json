@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "snapshots": "node snapshots/run.mjs",
     "format": "prettier --write --config prettier.config.mjs \"../resources/**/*.{html,js,yaml,yml}\"",
     "format:check": "prettier --check --config prettier.config.mjs \"../resources/**/*.{html,js,yaml,yml}\""
   },
@@ -13,7 +12,6 @@
     "swiper": "14.3.0"
   },
   "devDependencies": {
-    "@playwright/test": "1.50.0",
     "esbuild": "0.25.11",
     "prettier": "3.9.10"
   }

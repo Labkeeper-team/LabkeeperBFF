@@ -39,11 +39,20 @@ npm --prefix src/main/libs run format:check
 
 `npm ci` нужен один раз, пока нет `src/main/libs/node_modules`.
 
+## JavaScript
+
+```shell
+npm --prefix src/test/javascript ci
+npm --prefix src/test/javascript test
+```
+
+Проверяют ссылки примеров и разбор YAML-статей. В CI это шаг `Run JavaScript unit tests` в проверке Playwright.
+
 ## Снимки главной
 
 Нужны запущенный сервер и Docker.
 
 ```shell
 $env:FRONTEND_URL = "http://localhost"
-npm --prefix src/main/libs run snapshots
+npm --prefix src/test/javascript run snapshots
 ```

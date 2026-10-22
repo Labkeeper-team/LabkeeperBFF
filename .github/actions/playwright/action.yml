@@ -35,7 +35,14 @@ runs:
       with:
         node-version: ${{ inputs.node-version }}
         cache: npm
-        cache-dependency-path: src/main/libs/package-lock.json
+        cache-dependency-path: src/test/javascript/package-lock.json
+
+    - name: Run JavaScript unit tests
+      shell: bash
+      working-directory: src/test/javascript
+      run: |
+        npm ci
+        npm test
 
     - name: Serve the app and compare screenshots
       shell: bash
@@ -55,5 +62,5 @@ runs:
           sleep 5
         done
         curl -fsS "http://localhost:${{ inputs.port }}/" >/dev/null
-        cd src/main/libs
+        cd src/test/javascript
         FRONTEND_URL="http://localhost:${{ inputs.port }}" npm run snapshots
