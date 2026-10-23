@@ -12,7 +12,7 @@ gradlew bootRun
 npm run snapshots
 ```
 
-Команда сравнивает главную с картинками в `snapshots/__screenshots__/` и проверяет статьи блога. Шесть профилей: Windows Chrome, Windows Edge, macOS Safari, iPhone Safari, Android Chrome, Windows Firefox. Их рисует образ Playwright (Chromium, Firefox и WebKit), не установленные системы и телефоны.
+Команда сравнивает главную с картинками в `snapshots/__screenshots__/` и в Chrome проверяет статьи блога. Снимки снимаются в шести профилях: Windows Chrome, Windows Edge, macOS Safari, iPhone Safari, Android Chrome, Windows Firefox. Их рисует образ Playwright (Chromium, Firefox и WebKit), не установленные системы и телефоны.
 
 Адрес по умолчанию — `http://localhost:8080`. Другой сервер:
 
