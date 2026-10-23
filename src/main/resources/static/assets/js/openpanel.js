@@ -1,9 +1,21 @@
-// Контракт вкладки общий с редактором: те же ключи sessionStorage.
+// Контракт гостя общий с редактором (src/web/session.ts в LabkeeperEditor): те же ключи
+// localStorage и то же окно сессии. Пока с последнего события прошло не больше 30 минут,
+// лендинг, редактор и все вкладки устройства идут одним гостем и одним стартом сессии.
 (function () {
     var OPENPANEL_PROFILE_KEY = 'labkeeper.openpanel.profileId';
     var OPENPANEL_SESSION_STARTED_KEY = 'labkeeper.openpanel.sessionStarted';
     var OPENPANEL_ATTRIBUTION_KEY = 'labkeeper.openpanel.attribution';
     var OPENPANEL_FIRST_NAME_KEY = 'labkeeper.openpanel.firstName';
+    var OPENPANEL_LAST_ACTIVITY_KEY = 'labkeeper.openpanel.lastActivity';
+    // столько OpenPanel держит сессию без событий: после такой паузы гость начинается заново
+    var SESSION_IDLE_MS = 30 * 60 * 1000;
+    var GUEST_KEYS = [
+        OPENPANEL_PROFILE_KEY,
+        OPENPANEL_SESSION_STARTED_KEY,
+        OPENPANEL_ATTRIBUTION_KEY,
+        OPENPANEL_FIRST_NAME_KEY,
+        OPENPANEL_LAST_ACTIVITY_KEY,
+    ];
 
     var CAMPAIGN_PARAMS = [
         'utm_source',
@@ -36,24 +48,66 @@
         return uuid.replace(/[^0-9A-Za-z]/g, '');
     }
 
-    function readStoredProfileId() {
+    // Хранилище гостя, из которого уже убрано всё от истёкшей сессии. Время из будущего
+    // тоже считается истёкшим: после перевода часов назад иначе гость жил бы лишние часы.
+    function guestStorage() {
         try {
-            var stored = sessionStorage.getItem(OPENPANEL_PROFILE_KEY);
-            if (stored && /^[0-9A-Za-z]+$/.test(stored)) {
-                return stored;
+            var storage = window.localStorage;
+            var lastActivity = Number(
+                storage.getItem(OPENPANEL_LAST_ACTIVITY_KEY)
+            );
+            var idle = Date.now() - lastActivity;
+            if (!(lastActivity > 0 && idle >= 0 && idle <= SESSION_IDLE_MS)) {
+                GUEST_KEYS.forEach(function (key) {
+                    storage.removeItem(key);
+                });
             }
+            return storage;
         } catch {
-            return '';
+            // приватный режим не должен ронять страницу: гость останется только в этом запросе
+            return null;
         }
-        return '';
+    }
+
+    function readStorage(key) {
+        try {
+            var storage = guestStorage();
+            return storage ? storage.getItem(key) : null;
+        } catch {
+            return null;
+        }
     }
 
     function writeStorage(key, value) {
-        try {
-            sessionStorage.setItem(key, value);
-        } catch {
-            // без хранилища редактор в этой вкладке не увидит профиль
+        var storage = guestStorage();
+        if (!storage) {
+            return;
         }
+        try {
+            storage.setItem(key, value);
+            // запись тоже продлевает окно: иначе следующее чтение сочло бы её истёкшей
+            storage.setItem(OPENPANEL_LAST_ACTIVITY_KEY, String(Date.now()));
+        } catch {
+            // без хранилища редактор и другие вкладки не увидят профиль
+        }
+    }
+
+    // каждое событие в OpenPanel продлевает окно гостя для всех вкладок и редактора
+    function markActivity() {
+        var storage = guestStorage();
+        if (!storage) {
+            return;
+        }
+        try {
+            storage.setItem(OPENPANEL_LAST_ACTIVITY_KEY, String(Date.now()));
+        } catch {
+            // без хранилища окно не продлится, а событие всё равно уйдёт
+        }
+    }
+
+    function readStoredProfileId() {
+        var stored = readStorage(OPENPANEL_PROFILE_KEY);
+        return stored && /^[0-9A-Za-z]+$/.test(stored) ? stored : '';
     }
 
     function newAnonymousDisplayName() {
@@ -62,13 +116,9 @@
     }
 
     function readOrCreateGuestDisplayName() {
-        try {
-            var stored = sessionStorage.getItem(OPENPANEL_FIRST_NAME_KEY);
-            if (stored && /^anonymous\d{6}$/.test(stored)) {
-                return stored;
-            }
-        } catch {
-            return newAnonymousDisplayName();
+        var stored = readStorage(OPENPANEL_FIRST_NAME_KEY);
+        if (stored && /^anonymous\d{6}$/.test(stored)) {
+            return stored;
         }
         var name = newAnonymousDisplayName();
         writeStorage(OPENPANEL_FIRST_NAME_KEY, name);
@@ -92,7 +142,7 @@
 
     function readStoredAttribution() {
         try {
-            var raw = sessionStorage.getItem(OPENPANEL_ATTRIBUTION_KEY);
+            var raw = readStorage(OPENPANEL_ATTRIBUTION_KEY);
             if (!raw) {
                 return null;
             }
@@ -116,18 +166,14 @@
         }
     }
 
+    // флаг ставит тот, кто первым отправил старт сессии гостя: лендинг или редактор
     function sessionAlreadyStarted() {
-        try {
-            return (
-                sessionStorage.getItem(OPENPANEL_SESSION_STARTED_KEY) === '1'
-            );
-        } catch {
-            return false;
-        }
+        return readStorage(OPENPANEL_SESSION_STARTED_KEY) === '1';
     }
 
     function postOpenPanel(apiUrl, clientId, body) {
         var base = apiUrl.replace(/\/$/, '');
+        markActivity();
         fetch(base + '/track', {
             method: 'POST',
             headers: {
@@ -143,28 +189,40 @@
         });
     }
 
+    // Гость и метки кампании заводятся и без ключей OpenPanel: редактор подхватит их,
+    // даже если на этом стенде аналитика лендинга не настроена.
+    function prepareGuest() {
+        var profileId = readStoredProfileId();
+        if (!profileId) {
+            profileId = profileIdFromUuid(crypto.randomUUID());
+            writeStorage(OPENPANEL_PROFILE_KEY, profileId);
+        }
+        var firstName = readOrCreateGuestDisplayName();
+
+        var fromUrl = campaignFromUrl();
+        if (fromUrl) {
+            writeStorage(OPENPANEL_ATTRIBUTION_KEY, JSON.stringify(fromUrl));
+        }
+        return {
+            profileId: profileId,
+            firstName: firstName,
+            attribution: fromUrl || readStoredAttribution(),
+        };
+    }
+
     function startOpenPanelSession() {
+        var guest = prepareGuest();
         var clientId = configuredSecret(window.__LABKEEPER_OPENPANEL_CLIENT_ID);
         var apiUrl = configuredSecret(window.__LABKEEPER_OPENPANEL_API_URL);
         if (!clientId || !apiUrl) {
             return;
         }
 
-        var profileId = readStoredProfileId();
-        if (!profileId) {
-            profileId = profileIdFromUuid(crypto.randomUUID());
-            writeStorage(OPENPANEL_PROFILE_KEY, profileId);
-        }
-
-        var fromUrl = campaignFromUrl();
-        if (fromUrl) {
-            writeStorage(OPENPANEL_ATTRIBUTION_KEY, JSON.stringify(fromUrl));
-        }
-        var attribution = fromUrl || readStoredAttribution();
-
+        var profileId = guest.profileId;
+        var attribution = guest.attribution;
         var identifyPayload = {
             profileId: profileId,
-            firstName: readOrCreateGuestDisplayName(),
+            firstName: guest.firstName,
         };
         if (attribution) {
             identifyPayload.properties = attribution;
