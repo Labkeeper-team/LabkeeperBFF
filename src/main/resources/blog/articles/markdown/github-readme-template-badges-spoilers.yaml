@@ -95,8 +95,8 @@ sections:
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">Markdown</span></div>
-                                  <pre><code><details>
-      <summary>👉 Нажмите, чтобы развернуть полный пример ответа API (JSON)</summary>
+                                  <pre><code>&lt;details&gt;
+      &lt;summary&gt;👉 Нажмите, чтобы развернуть полный пример ответа API (JSON)&lt;/summary&gt;
 
       ```json
       {
@@ -109,7 +109,7 @@ sections:
       }
       ```
 
-      </details></code></pre>
+      &lt;/details&gt;</code></pre>
                               </div>
                               <p>Обязательно оставляйте пустую строку перед и после блока кода внутри
       <code>details</code>, чтобы Markdown-парсер GitHub корректно раскрасил синтаксис.</p>

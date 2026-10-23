@@ -59,11 +59,11 @@ sections:
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">Markdown</span></div>
-                                  <pre><code><!-- Фиксированная ширина в пикселях -->
-      <img src="screenshot.png" alt="Панель настроек" width="450" />
+                                  <pre><code>&lt;!-- Фиксированная ширина в пикселях --&gt;
+      &lt;img src="screenshot.png" alt="Панель настроек" width="450" /&gt;
 
-      <!-- С ограничением по высоте -->
-      <img src="logo.svg" alt="Логотип проекта" height="80" /></code></pre>
+      &lt;!-- С ограничением по высоте --&gt;
+      &lt;img src="logo.svg" alt="Логотип проекта" height="80" /&gt;</code></pre>
                               </div>
                               <p>Браузер и PDF-генераторы автоматически сохраняют пропорции
       изображения: если вы указали только <code>width="450"</code>, высота пересчитается
@@ -86,8 +86,8 @@ sections:
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">Markdown</span></div>
-                                  <pre><code><!-- Занимает ровно половину ширины полосы чтения -->
-      <img src="chart.png" alt="График" style="width: 50%; max-width: 600px;" /></code></pre>
+                                  <pre><code>&lt;!-- Занимает ровно половину ширины полосы чтения --&gt;
+      &lt;img src="chart.png" alt="График" style="width: 50%; max-width: 600px;" /&gt;</code></pre>
                               </div>
                               <p>При таком подходе на смартфонах картинка красиво масштабируется, а на
       десктопе не растягивается до гигантских размытых размеров. В превью Labkeeper картинка стоит по
@@ -104,10 +104,10 @@ sections:
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">Markdown</span></div>
-                                  <pre><code><p align="center">
-        <img src="architecture.png" width="60%" alt="Архитектура сервиса" /><br>
-        <em>Рисунок 1 — Структурная схема микросервисов</em>
-      </p></code></pre>
+                                  <pre><code>&lt;p align="center"&gt;
+        &lt;img src="architecture.png" width="60%" alt="Архитектура сервиса" /&gt;&lt;br&gt;
+        &lt;em&gt;Рисунок 1 — Структурная схема микросервисов&lt;/em&gt;
+      &lt;/p&gt;</code></pre>
                               </div>
   - id: 'extended-syntax'
     title: 'Расширенный синтаксис в Obsidian, Kramdown и Pandoc'

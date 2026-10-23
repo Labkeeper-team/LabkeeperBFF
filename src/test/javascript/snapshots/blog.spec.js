@@ -19,6 +19,16 @@ function loadArticles() {
 }
 
 const articles = loadArticles();
+const siteHost = process.env.LABKEEPER_HOST ?? 'http://localhost:80';
+
+function renderedExample(example) {
+    return Object.fromEntries(
+        Object.entries(example).map(([key, value]) => [
+            key,
+            String(value).replaceAll('{{publicUrl}}', siteHost).replaceAll('{{publicHost}}', siteHost),
+        ]),
+    );
+}
 
 test.beforeEach(async ({ page }) => {
     // The page asks browsers to upgrade every request to HTTPS. The local server is plain HTTP.
@@ -84,7 +94,7 @@ for (const { slug, editorExample: example } of articles) {
         const links = page.locator('[data-blog-example]');
         await expect(links).toHaveCount(2);
         for (const link of await links.all()) {
-            await expect(link).toHaveAttribute('href', buildExampleUrl(example));
+            await expect(link).toHaveAttribute('href', buildExampleUrl(renderedExample(example)));
             await expectExampleLabel(link, 'ru');
         }
         await setLanguage(page, 'en');
@@ -124,7 +134,7 @@ test.describe('without JavaScript', () => {
     test.use({ javaScriptEnabled: false });
 
     test('example links work', async ({ page }) => {
-        const example = articles.find((article) => article.slug === 'latex-formulas').editorExample;
+        const example = renderedExample(articles.find((article) => article.slug === 'latex-formulas').editorExample);
         await page.goto('/blog/latex-formulas');
         await expect(page.locator('[data-blog-example]').last()).toHaveAttribute('href', buildExampleUrl(example));
         await page.locator('[data-blog-example]').last().click();
