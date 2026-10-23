@@ -5,7 +5,8 @@ import { test, expect } from '@playwright/test';
 import { parse } from 'yaml';
 import { buildExampleUrl } from '../unit/example-url.js';
 
-const articlesDir = join(dirname(fileURLToPath(import.meta.url)), '../../../../main/resources/blog/articles');
+const articlesDir = process.env.BLOG_ARTICLES_DIR
+    ?? join(dirname(fileURLToPath(import.meta.url)), '../../../main/resources/blog/articles');
 
 function loadArticles() {
     const articles = [];

@@ -3,6 +3,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const resources = resolve(root, '../../main/resources').replace(/\\/g, '/');
 const requested = process.env.FRONTEND_URL ?? 'http://localhost:8080';
 const frontendUrl = requested.replace(/\/\/(localhost|127\.0\.0\.1)(?=[:/]|$)/, '//host.docker.internal');
 const image = 'mcr.microsoft.com/playwright:v1.50.0-jammy';
@@ -18,8 +19,10 @@ const docker = spawn('docker', [
   'run', '--rm',
   '--add-host', 'host.docker.internal:host-gateway',
   '-e', `FRONTEND_URL=${frontendUrl}`,
+  '-e', 'BLOG_ARTICLES_DIR=/resources/blog/articles',
   '-e', 'PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1',
   '-v', `${mount}:/work`,
+  '-v', `${resources}:/resources:ro`,
   '-v', '/work/node_modules',
   '-w', '/work',
   image,

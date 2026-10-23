@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
@@ -24,6 +25,7 @@ import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import reactor.netty.DisposableServer
 import reactor.netty.http.server.HttpServer
+import reactor.netty.resources.LoopResources
 import java.net.URI
 import java.nio.charset.StandardCharsets
 import java.time.Duration
@@ -31,6 +33,7 @@ import java.util.concurrent.CopyOnWriteArrayList
 import java.util.concurrent.atomic.AtomicInteger
 
 @ActiveProfiles("frontend-local")
+@AutoConfigureWebTestClient(timeout = "PT15S")
 @SpringBootTest(
     classes = [LocalFrontendApplication::class],
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
@@ -69,8 +72,12 @@ class LocalFrontendProxyTest(
             .expectStatus().isOk
             .expectHeader().contentTypeCompatibleWith(MediaType.TEXT_HTML)
             .expectBody<String>().returnResult().responseBody.orEmpty() shouldContain "<!doctype html>"
-        webTestClient.get().uri("/blog/missing-article").exchange().expectStatus().isNotFound
-        webTestClient.get().uri("/index.html").exchange().expectStatus().isNotFound
+        webTestClient.get().uri("/blog/missing-article").exchange()
+            .expectStatus().isNotFound
+            .expectBody().returnResult()
+        webTestClient.get().uri("/index.html").exchange()
+            .expectStatus().isNotFound
+            .expectBody().returnResult()
         webTestClient.get().uri("/assets/css/style.css").exchange()
             .expectStatus().isOk
             .expectBody<String>().returnResult().responseBody.orEmpty() shouldContain "--c-primary"
@@ -103,12 +110,14 @@ class LocalFrontendProxyTest(
     private companion object {
         val captured = CopyOnWriteArrayList<Captured>()
         val backendPort = AtomicInteger()
+        val backendLoops: LoopResources = LoopResources.create("frontend-proxy-test", 1, true)
         val backend: DisposableServer = startBackend()
 
         @JvmStatic
         @AfterAll
         fun stopBackend() {
             backend.disposeNow()
+            backendLoops.disposeLater().block(Duration.ofSeconds(5))
         }
 
         @DynamicPropertySource
@@ -118,6 +127,7 @@ class LocalFrontendProxyTest(
         }
 
         private fun startBackend(): DisposableServer = HttpServer.create()
+            .runOn(backendLoops)
             .host("127.0.0.1")
             .port(0)
             .route { routes ->
@@ -128,7 +138,12 @@ class LocalFrontendProxyTest(
                     ).then()
                 }
                 routes.route({ true }) { request, response ->
-                    request.receive().aggregate().asString(StandardCharsets.UTF_8).defaultIfEmpty("").flatMap { body ->
+                    val incoming = if (request.method() == HttpMethod.GET || request.method() == HttpMethod.HEAD) {
+                        Mono.just("")
+                    } else {
+                        request.receive().aggregate().asString(StandardCharsets.UTF_8).defaultIfEmpty("")
+                    }
+                    incoming.flatMap { body ->
                         captured.add(
                             Captured(
                                 method = request.method().name(),
