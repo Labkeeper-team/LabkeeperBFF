@@ -46,7 +46,7 @@ function deviceWithGuest(idleMs, extra = {}) {
     });
 }
 
-function openPage({ storage = new MemoryStorage(), tabValues = {}, search = '', configured = true, windowOverrides = {} } = {}) {
+function openPage({ storage = new MemoryStorage(), tabValues = {}, search = '', configured = true, windowOverrides = {}, pageCrypto = webcrypto } = {}) {
     const requests = [];
     const sessionStorage = new MemoryStorage(tabValues);
     const window = {
@@ -62,7 +62,7 @@ function openPage({ storage = new MemoryStorage(), tabValues = {}, search = '', 
         window,
         sessionStorage,
         document: { title: 'Labkeeper', referrer: '' },
-        crypto: webcrypto,
+        crypto: pageCrypto,
         URLSearchParams,
         fetch(url, init) {
             requests.push({ url, body: JSON.parse(init.body) });
@@ -89,6 +89,20 @@ test('a first visit creates a guest, names it and starts the session', () => {
     assert.equal(page.starts[0].profileId, profileId);
     assert.equal(storage.getItem(SESSION_STARTED_KEY), '1');
     assert.equal(page.requests[0].url, 'https://openpanel.example/api/track');
+});
+
+// стенд браузерных тестов открывает лендинг по http, а там у crypto нет randomUUID
+test('a page outside a secure context still creates the guest', () => {
+    const insecureCrypto = { getRandomValues: array => webcrypto.getRandomValues(array) };
+
+    for (const configured of [false, true]) {
+        const storage = new MemoryStorage();
+
+        const page = openPage({ storage, configured, pageCrypto: insecureCrypto });
+
+        assert.match(storage.getItem(PROFILE_KEY), /^[0-9a-f]{12}4[0-9a-f]{3}[89ab][0-9a-f]{15}$/);
+        assert.equal(page.starts.length, configured ? 1 : 0);
+    }
 });
 
 // случай 4 из GH-197: возврат из редактора на лендинг в той же или другой вкладке
