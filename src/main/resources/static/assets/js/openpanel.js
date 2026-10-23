@@ -44,8 +44,15 @@
         return value.trim();
     }
 
-    function profileIdFromUuid(uuid) {
-        return uuid.replace(/[^0-9A-Za-z]/g, '');
+    // UUID v4 без дефисов. randomUUID есть только в безопасном контексте, а getRandomValues
+    // и на http: без него страница, открытая не по https, падала бы при заведении гостя.
+    function newProfileId() {
+        var bytes = crypto.getRandomValues(new Uint8Array(16));
+        bytes[6] = (bytes[6] & 0x0f) | 0x40;
+        bytes[8] = (bytes[8] & 0x3f) | 0x80;
+        return Array.from(bytes, function (byte) {
+            return byte.toString(16).padStart(2, '0');
+        }).join('');
     }
 
     // Хранилище гостя, из которого уже убрано всё от истёкшей сессии. Время из будущего
@@ -194,7 +201,7 @@
     function prepareGuest() {
         var profileId = readStoredProfileId();
         if (!profileId) {
-            profileId = profileIdFromUuid(crypto.randomUUID());
+            profileId = newProfileId();
             writeStorage(OPENPANEL_PROFILE_KEY, profileId);
         }
         var firstName = readOrCreateGuestDisplayName();
