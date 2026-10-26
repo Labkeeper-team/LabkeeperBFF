@@ -16,6 +16,7 @@
             content="Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF, научным калькулятором высокой точности, готовыми шаблонами по ГОСТ и AI-ассистентом."
         />
         <link rel="canonical" href="[(${publicUrl})]/" />
+        <meta name="theme-color" content="#070b14" />
         <link rel="stylesheet" href="assets/css/swiper.css" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="[(${publicUrl})]/" />
@@ -133,18 +134,16 @@
         <link
             rel="preload"
             as="style"
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
         />
         <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-            media="print"
-            onload="this.media = 'all'"
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
         />
         <noscript>
             <link
                 rel="stylesheet"
-                href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+                href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
             />
         </noscript>
 
@@ -197,6 +196,18 @@
                 animation: preloaderFill 1.5s ease-in-out infinite alternate;
             }
 
+            .page--home .preloader {
+                background-color: #070b14;
+            }
+
+            .page--home .preloader__path--bg {
+                fill: #161d2e;
+            }
+
+            .page--home .preloader__path--fill {
+                fill: #8ea4ff;
+            }
+
             @keyframes preloaderFill {
                 from {
                     clip-path: inset(100% 0 0 0);
@@ -211,9 +222,10 @@
         <!-- Deferred Main CSS -->
         <link rel="preload" href="assets/css/style.css" as="style" />
         <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/landing.css" />
     </head>
 
-    <body class="page">
+    <body class="page page--home">
         <!-- Прелоадер -->
         <div class="preloader js-preloader">
             <div class="preloader__logo">
@@ -358,12 +370,24 @@
             <section class="hero" id="hero">
                 <div class="hero__container">
                     <div class="hero__content">
-                        <h1 class="hero__title h1" data-i18n="hero-title"></h1>
+                        <div class="hero__copy">
+                            <p class="section-kicker" data-i18n="hero-kicker">
+                                Онлайн-редактор для науки
+                            </p>
+                            <h1
+                                class="hero__title h1"
+                                data-i18n="hero-title"
+                            ></h1>
+                        </div>
                         <div class="hero__description">
                             <div class="hero__labels">
                                 <span class="hero__label">LaTeX</span>
                                 <span class="hero__label">Markdown</span>
-                                <span class="hero__label">Вычисления</span>
+                                <span
+                                    class="hero__label"
+                                    data-i18n="hero-label-calc"
+                                    >Вычисления</span
+                                >
                             </div>
                             <p class="hero__text" data-i18n="hero-text"></p>
                             <div class="hero__actions">
@@ -392,12 +416,14 @@
                         </div>
                     </div>
                     <div class="hero__image-wrapper">
-                        <img
-                            src="assets/img/img-for-firstScreen.webp"
-                            alt="Labkeeper Interface"
-                            class="hero__image"
-                            fetchpriority="high"
-                        />
+                        <div class="hero__frame">
+                            <img
+                                src="assets/img/img-for-firstScreen.webp"
+                                alt="Labkeeper Interface"
+                                class="hero__image"
+                                fetchpriority="high"
+                            />
+                        </div>
                     </div>
                 </div>
                 <a
@@ -776,17 +802,22 @@
             <!-- Блок 4: Возможности -->
             <section class="advantages" id="advantages">
                 <div class="advantages__container">
-                    <div class="advantages__logo-wrapper">
-                        <img
-                            src="assets/img/logo.svg"
-                            alt="Labkeeper Icon"
-                            class="advantages__logo"
-                            width="40"
-                            height="40"
-                            loading="lazy"
-                        />
+                    <div class="advantages__intro">
+                        <div class="advantages__logo-wrapper">
+                            <img
+                                src="assets/img/logo.svg"
+                                alt="Labkeeper Icon"
+                                class="advantages__logo"
+                                width="40"
+                                height="40"
+                                loading="lazy"
+                            />
+                        </div>
+                        <h2
+                            class="advantages__title h2"
+                            data-i18n="adv-title"
+                        ></h2>
                     </div>
-                    <h2 class="advantages__title h2" data-i18n="adv-title"></h2>
                     <ul class="advantages__list js-advantages-list">
                         <li
                             class="advantages__item"
@@ -925,7 +956,9 @@
                                             class="blog-card__footer"
                                             th:href="@{/blog/{slug}(slug=${article.slug})}"
                                         >
-                                            <span>Читать статью</span>
+                                            <span data-i18n="knowledge-read"
+                                                >Читать статью</span
+                                            >
                                             <span class="blog-card__arrow"
                                                 >→</span
                                             >

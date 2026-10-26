@@ -11,6 +11,8 @@ const i18n = {
         'btn-login': 'Авторизоваться <span class="button__arrow">→</span>',
         'btn-projects': 'Мои проекты <span class="button__arrow">→</span>',
         'btn-editor': 'Редактор <span class="button__arrow">→</span>',
+        'hero-kicker': 'Онлайн-редактор для науки',
+        'hero-label-calc': 'Вычисления',
         'hero-title':
             'Расчеты и документы <br>в единой среде <span class="text-blue">с ИИ-агентом </span>',
         'hero-text':
@@ -107,6 +109,7 @@ const i18n = {
 
         // База знаний
         'knowledge-title': 'База знаний',
+        'knowledge-read': 'Читать статью',
         'knowledge-btn': 'Все статьи <span class="button__arrow">→</span>',
         'page-dev': 'Страница в разработке.',
         'page-about': 'О нас',
@@ -256,6 +259,10 @@ const i18n = {
 
         // Блок Примеры проектов
         'ex-title': 'Примеры проектов',
+        'cat-all': 'Все',
+        'cat-lab': 'Лабораторные',
+        'cat-diploma': 'Дипломные',
+        'cat-cv': 'CV',
         'ex-c1-title': 'Измерение интенсивности радиационного фона',
         'ex-c1-text':
             'Применение методов обработки экспериментальных данных для изучения статистических закономерностей при измерении интенсивности радиационного фона.',
@@ -285,6 +292,8 @@ const i18n = {
         'btn-login': 'Login <span class="button__arrow">→</span>',
         'btn-projects': 'My projects <span class="button__arrow">→</span>',
         'btn-editor': 'Editor <span class="button__arrow">→</span>',
+        'hero-kicker': 'An online editor for science',
+        'hero-label-calc': 'Computation',
         'hero-title':
             'Calculations and documents<br> in a unified environment <br>with <span class="text-blue">an AI agent</span>',
         'hero-text':
@@ -377,6 +386,7 @@ const i18n = {
 
         // Knowledge base
         'knowledge-title': 'Knowledge Base',
+        'knowledge-read': 'Read article',
         'knowledge-btn': 'All articles <span class="button__arrow">→</span>',
         'page-dev': 'Page under construction.',
         'page-about': 'About Us',
@@ -532,6 +542,10 @@ const i18n = {
 
         // Examples block
         'ex-title': 'Project Examples',
+        'cat-all': 'All',
+        'cat-lab': 'Laboratory',
+        'cat-diploma': 'Diploma',
+        'cat-cv': 'CV',
         'ex-c1-title': 'Radiation background intensity measurement',
         'ex-c1-text':
             'Application of experimental data processing methods for studying statistical patterns in measuring radiation background intensity.',
