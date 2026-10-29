@@ -266,5 +266,78 @@
         writeStorage(OPENPANEL_SESSION_STARTED_KEY, '1');
     }
 
+    // GH-181: переход из статьи блога в редактор. Статья отдаётся с Referrer-Policy:
+    // no-referrer, и редактор не видит, откуда пришли, поэтому переход отмечает
+    // сама статья. Запрос с keepalive успевает уйти, пока браузер меняет страницу
+    var ARTICLE_PATH = /^\/blog\/([^/]+)\/?$/;
+    var EDITOR_PATH = /^\/project(s\/?$|\/)/;
+
+    function editorLinkKind(link, url) {
+        if (link.hasAttribute('data-blog-example')) {
+            return 'example';
+        }
+        if (url.pathname.indexOf('/projects') === 0) {
+            return 'projects';
+        }
+        return url.searchParams.get('open') === 'login' ? 'login' : 'editor';
+    }
+
+    function articleSlug(raw) {
+        try {
+            return decodeURIComponent(raw);
+        } catch {
+            return raw;
+        }
+    }
+
+    function trackEditorOpenedFromArticle() {
+        var article = ARTICLE_PATH.exec(window.location.pathname);
+        if (!article || typeof document.addEventListener !== 'function') {
+            return;
+        }
+        function onLinkClick(event) {
+            // средняя кнопка открывает ссылку в новой вкладке, правая только меню
+            if (event.type === 'auxclick' && event.button !== 1) {
+                return;
+            }
+            var link =
+                event.target && event.target.closest
+                    ? event.target.closest('a[href]')
+                    : null;
+            if (!link) {
+                return;
+            }
+            var url = new URL(link.getAttribute('href'), window.location.href);
+            if (
+                url.origin !== window.location.origin ||
+                !EDITOR_PATH.test(url.pathname)
+            ) {
+                return;
+            }
+            var clientId = configuredSecret(
+                window.__LABKEEPER_OPENPANEL_CLIENT_ID
+            );
+            var apiUrl = configuredSecret(window.__LABKEEPER_OPENPANEL_API_URL);
+            if (!clientId || !apiUrl) {
+                return;
+            }
+            postOpenPanel(apiUrl, clientId, {
+                type: 'track',
+                payload: {
+                    name: '[L] Editor opened from article',
+                    profileId: prepareGuest().profileId,
+                    properties: {
+                        __path: window.location.pathname,
+                        article: articleSlug(article[1]),
+                        link: editorLinkKind(link, url),
+                    },
+                },
+            });
+        }
+        document.addEventListener('click', onLinkClick, true);
+        document.addEventListener('auxclick', onLinkClick, true);
+    }
+
     startOpenPanelSession();
+    trackEditorOpenedFromArticle();
 })();

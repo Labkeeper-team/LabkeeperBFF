@@ -46,13 +46,14 @@ function deviceWithGuest(idleMs, extra = {}) {
     });
 }
 
-function openPage({ storage = new MemoryStorage(), tabValues = {}, search = '', configured = true, windowOverrides = {}, pageCrypto = webcrypto } = {}) {
+function openPage({ storage = new MemoryStorage(), tabValues = {}, search = '', pathname = '/', configured = true, windowOverrides = {}, pageCrypto = webcrypto } = {}) {
     const requests = [];
+    const listeners = [];
     const sessionStorage = new MemoryStorage(tabValues);
     const window = {
         localStorage: storage,
         sessionStorage,
-        location: { search, pathname: '/' },
+        location: { search, pathname, origin: 'https://labkeeper.io', href: `https://labkeeper.io${pathname}${search}` },
         __LABKEEPER_OPENPANEL_CLIENT_ID: configured ? 'client-1' : 'IO_LABKEEPER_FRONTEND_OPENPANEL_CLIENT_ID',
         __LABKEEPER_OPENPANEL_API_URL: configured ? 'https://openpanel.example/api/' : 'IO_LABKEEPER_FRONTEND_OPENPANEL_API_URL'
     };
@@ -61,8 +62,15 @@ function openPage({ storage = new MemoryStorage(), tabValues = {}, search = '', 
     vm.runInNewContext(SOURCE, {
         window,
         sessionStorage,
-        document: { title: 'Labkeeper', referrer: '' },
+        document: {
+            title: 'Labkeeper',
+            referrer: '',
+            addEventListener(type, listener) {
+                listeners.push({ type, listener });
+            }
+        },
         crypto: pageCrypto,
+        URL,
         URLSearchParams,
         fetch(url, init) {
             requests.push({ url, body: JSON.parse(init.body) });
@@ -71,6 +79,16 @@ function openPage({ storage = new MemoryStorage(), tabValues = {}, search = '', 
     });
     return {
         requests,
+        // щелчок по ссылке страницы: attributes как у тега, button как у мыши
+        click(href, { type = 'click', button = 0, attributes = [] } = {}) {
+            const link = {
+                getAttribute: name => (name === 'href' ? href : null),
+                hasAttribute: name => attributes.includes(name)
+            };
+            const target = { closest: () => link };
+            listeners.filter(entry => entry.type === type).forEach(entry => entry.listener({ type, button, target }));
+        },
+        fromArticle: () => requests.filter(request => request.body.type === 'track' && request.body.payload.name === '[L] Editor opened from article').map(request => request.body.payload),
         identify: requests.filter(request => request.body.type === 'identify').map(request => request.body.payload),
         starts: requests.filter(request => request.body.type === 'track' && request.body.payload.name === '[L] Session started').map(request => request.body.payload)
     };
@@ -255,5 +273,76 @@ test('a broken guest id or name is replaced, not sent', () => {
     assert.notEqual(profileId, 'bad id!');
     assert.match(profileId, /^[0-9A-Za-z]+$/);
     assert.match(page.identify[0].firstName, /^anonymous\d{6}$/);
+});
+
+// GH-181: статья отдаётся с no-referrer, и переход в редактор отмечает она сама
+const ARTICLE = '/blog/indirect-measurement-error-calculation-lab-report';
+const EXAMPLE = '/project/default?open=markdown&markdown=%23+Lab';
+
+test('a click on the example of an article tells which article led to the editor', () => {
+    const storage = new MemoryStorage();
+    const page = openPage({ storage, pathname: ARTICLE });
+
+    page.click(EXAMPLE, { attributes: ['data-blog-example'] });
+
+    assert.deepEqual(page.fromArticle(), [
+        {
+            name: '[L] Editor opened from article',
+            profileId: storage.getItem(PROFILE_KEY),
+            properties: {
+                __path: ARTICLE,
+                article: 'indirect-measurement-error-calculation-lab-report',
+                link: 'example'
+            }
+        }
+    ]);
+    assert.equal(page.requests.at(-1).url, 'https://openpanel.example/api/track');
+});
+
+test('other editor links of an article are told apart', () => {
+    const page = openPage({ pathname: ARTICLE });
+
+    page.click('/project/default');
+    page.click('/project/default?open=login');
+    page.click('/projects');
+
+    assert.deepEqual(
+        page.fromArticle().map(event => event.properties.link),
+        ['editor', 'login', 'projects']
+    );
+});
+
+test('a middle click opens a tab and counts, a right click does not', () => {
+    const page = openPage({ pathname: ARTICLE });
+
+    page.click(EXAMPLE, { type: 'auxclick', button: 1 });
+    page.click(EXAMPLE, { type: 'auxclick', button: 2 });
+
+    assert.equal(page.fromArticle().length, 1);
+});
+
+test('links outside the editor and pages outside the blog send nothing', () => {
+    const article = openPage({ pathname: ARTICLE });
+    article.click('/blog');
+    article.click('/tokens');
+    article.click('https://example.com/project/default');
+
+    const home = openPage({ pathname: '/' });
+    home.click(EXAMPLE);
+
+    const blog = openPage({ pathname: '/blog' });
+    blog.click(EXAMPLE);
+
+    assert.equal(article.fromArticle().length, 0);
+    assert.equal(home.fromArticle().length, 0);
+    assert.equal(blog.fromArticle().length, 0);
+});
+
+test('without the keys a transition from an article sends nothing', () => {
+    const page = openPage({ pathname: ARTICLE, configured: false });
+
+    page.click(EXAMPLE, { attributes: ['data-blog-example'] });
+
+    assert.equal(page.requests.length, 0);
 });
 
