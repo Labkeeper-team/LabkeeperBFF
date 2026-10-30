@@ -110,6 +110,16 @@ const i18n = {
         // Шаблоны и база знаний
         'templates-title': 'Шаблоны',
         'templates-btn': 'Все шаблоны <span class="button__arrow">→</span>',
+        'templates-page-desc':
+            'Готовые проекты для лабораторных, дипломов, резюме и научных работ. Кнопка «Открыть шаблон» открывает проект, а карточка — страницу шаблона.',
+        'templates-filter-all': 'Все шаблоны',
+        'templates-filter-latex': 'Работа с LaTeX',
+        'templates-empty': 'Пока нет опубликованных шаблонов.',
+        'cta-try': 'Попробуйте прямо сейчас',
+        'cta-formulas-title': 'Набирайте формулы в&nbsp;Labkeeper',
+        'cta-formulas-text':
+            'Онлайн-редактор LaTeX с&nbsp;компиляцией в&nbsp;PDF, AI-ассистентом и&nbsp;поддержкой amsmath — без установки, сразу в&nbsp;браузере.',
+        'cta-open-editor': 'Открыть редактор <span class="button__arrow">→</span>',
         'knowledge-title': 'База знаний',
         'knowledge-btn': 'Все статьи <span class="button__arrow">→</span>',
         'page-dev': 'Страница в разработке.',
@@ -384,6 +394,16 @@ const i18n = {
         // Templates and knowledge base
         'templates-title': 'Templates',
         'templates-btn': 'All templates <span class="button__arrow">→</span>',
+        'templates-page-desc':
+            'Ready-made projects for lab reports, theses, resumes, and research papers. Open template opens the project, and the card opens the template page.',
+        'templates-filter-all': 'All templates',
+        'templates-filter-latex': 'Working with LaTeX',
+        'templates-empty': 'No published templates yet.',
+        'cta-try': 'Try it now',
+        'cta-formulas-title': 'Type formulas in&nbsp;Labkeeper',
+        'cta-formulas-text':
+            'An online LaTeX editor with PDF compilation, an AI assistant, and amsmath support — no installation, right in the browser.',
+        'cta-open-editor': 'Open editor <span class="button__arrow">→</span>',
         'knowledge-title': 'Knowledge Base',
         'knowledge-btn': 'All articles <span class="button__arrow">→</span>',
         'page-dev': 'Page under construction.',

@@ -268,8 +268,10 @@
                     class="header__container"
                     style="flex-direction: column; align-items: center"
                 >
-                    <h1 class="blog-header__title h1">Шаблоны</h1>
-                    <p class="blog-header__desc">
+                    <h1 class="blog-header__title h1" data-i18n="templates-title">
+                        Шаблоны
+                    </h1>
+                    <p class="blog-header__desc" data-i18n="templates-page-desc">
                         Готовые проекты для лабораторных, дипломов, резюме и
                         научных работ. Кнопка «Открыть шаблон» открывает проект,
                         а карточка — страницу шаблона.
@@ -288,11 +290,16 @@
                             href="#"
                             class="header__nav-link header__nav-link--active"
                             data-filter="all"
+                            data-i18n="templates-filter-all"
                             >Все шаблоны</a
                         >
                     </li>
                     <li class="header__nav-item">
-                        <a href="#" class="header__nav-link" data-filter="latex"
+                        <a
+                            href="#"
+                            class="header__nav-link"
+                            data-filter="latex"
+                            data-i18n="templates-filter-latex"
                             >Работа с LaTeX</a
                         >
                     </li>
@@ -336,12 +343,16 @@
                             target="_blank"
                             th:href="@{/project/{id}(id=${entry.projectId})}"
                         >
-                            <span>Открыть шаблон</span>
+                            <span data-i18n="template-open">Открыть шаблон</span>
                             <span class="blog-card__arrow">→</span>
                         </a>
                     </div>
                 </article>
-                <p class="blog-header__desc" th:if="${templates.isEmpty()}">
+                <p
+                    class="blog-header__desc"
+                    th:if="${templates.isEmpty()}"
+                    data-i18n="templates-empty"
+                >
                     Пока нет опубликованных шаблонов.
                 </p>
             </div>
@@ -354,13 +365,22 @@
             <!-- CTA секция -->
             <section class="cta-features" id="cta-features">
                 <div class="cta-features__intro">
-                    <p class="cta-features__intro-label">
+                    <p
+                        class="cta-features__intro-label"
+                        data-i18n="cta-try"
+                    >
                         Попробуйте прямо сейчас
                     </p>
-                    <h2 class="cta-features__intro-title">
+                    <h2
+                        class="cta-features__intro-title"
+                        data-i18n="cta-formulas-title"
+                    >
                         Набирайте формулы в&nbsp;Labkeeper
                     </h2>
-                    <p class="cta-features__intro-text">
+                    <p
+                        class="cta-features__intro-text"
+                        data-i18n="cta-formulas-text"
+                    >
                         Онлайн-редактор LaTeX с&nbsp;компиляцией в&nbsp;PDF,
                         AI-ассистентом и&nbsp;поддержкой amsmath — без
                         установки, сразу в&nbsp;браузере.
@@ -432,6 +452,7 @@
                     <a
                         href="/project/default?open=latex"
                         class="button button--outline-light cta-features__intro-btn"
+                        data-i18n="cta-open-editor"
                     >
                         Открыть редактор <span class="button__arrow">→</span>
                     </a>
