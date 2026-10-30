@@ -105,7 +105,9 @@ const i18n = {
         'footer-contact': 'Написать нам',
         'footer-policy': 'Политика конфиденциальности',
 
-        // База знаний
+        // Шаблоны и база знаний
+        'templates-title': 'Шаблоны',
+        'templates-btn': 'Все шаблоны <span class="button__arrow">→</span>',
         'knowledge-title': 'База знаний',
         'knowledge-btn': 'Все статьи <span class="button__arrow">→</span>',
         'page-dev': 'Страница в разработке.',
@@ -375,7 +377,9 @@ const i18n = {
         'footer-contact': 'Contact us',
         'footer-policy': 'Privacy Policy',
 
-        // Knowledge base
+        // Templates and knowledge base
+        'templates-title': 'Templates',
+        'templates-btn': 'All templates <span class="button__arrow">→</span>',
         'knowledge-title': 'Knowledge Base',
         'knowledge-btn': 'All articles <span class="button__arrow">→</span>',
         'page-dev': 'Page under construction.',

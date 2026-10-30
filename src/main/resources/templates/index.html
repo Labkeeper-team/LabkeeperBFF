@@ -873,7 +873,87 @@
                 </div>
             </section>
 
-            <!-- Блок 6: База знаний (Слайдер) -->
+            <!-- Блок 6: Шаблоны -->
+            <section
+                class="knowledge"
+                id="templates"
+                th:if="${!homeTemplates.isEmpty()}"
+            >
+                <div class="feature__bg" aria-hidden="true">
+                    <img src="assets/img/bg.svg" alt="bg" loading="lazy" />
+                </div>
+                <div class="knowledge__container">
+                    <h2 class="knowledge__title h1" data-i18n="templates-title">
+                        Шаблоны
+                    </h2>
+
+                    <div
+                        class="examples__slider-wrapper knowledge__slider-wrapper"
+                    >
+                        <button
+                            class="examples__arrow examples__arrow--prev knowledge__arrow--prev"
+                            aria-label="Предыдущий слайд"
+                        ></button>
+                        <button
+                            class="examples__arrow examples__arrow--next knowledge__arrow--next"
+                            aria-label="Следующий слайд"
+                        ></button>
+                        <div class="swiper knowledge__swiper">
+                            <div class="swiper-wrapper">
+                                <div
+                                    class="swiper-slide"
+                                    th:each="project : ${homeTemplates}"
+                                >
+                                    <article class="blog-card">
+                                        <div class="blog-card__top">
+                                            <span
+                                                class="blog-card__tag"
+                                                th:text="${project.categoryRu}"
+                                                >Категория</span
+                                            >
+                                        </div>
+                                        <h3
+                                            class="blog-card__title"
+                                            th:text="${project.nameRu}"
+                                        >
+                                            Шаблон
+                                        </h3>
+                                        <p
+                                            class="blog-card__text"
+                                            th:text="${project.nameEn}"
+                                        >
+                                            Описание
+                                        </p>
+                                        <a
+                                            class="blog-card__footer"
+                                            target="_blank"
+                                            th:href="@{/project/{id}(id=${project.id})}"
+                                        >
+                                            <span>Открыть шаблон</span>
+                                            <span class="blog-card__arrow"
+                                                >→</span
+                                            >
+                                        </a>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="knowledge__action">
+                        <a
+                            href="/project/default"
+                            class="button button--primary knowledge__btn"
+                            data-i18n="templates-btn"
+                        >
+                            <span>Все шаблоны</span>
+                            <span class="button__arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 7: База знаний (Слайдер) -->
             <section class="knowledge" id="knowledge">
                 <div class="feature__bg" aria-hidden="true">
                     <img src="assets/img/bg.svg" alt="bg" loading="lazy" />
@@ -898,7 +978,7 @@
                             <div class="swiper-wrapper">
                                 <div
                                     class="swiper-slide"
-                                    th:each="article : ${articles}"
+                                    th:each="article : ${homeArticles}"
                                 >
                                     <article class="blog-card">
                                         <div class="blog-card__top">

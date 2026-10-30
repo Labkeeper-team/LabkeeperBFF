@@ -402,11 +402,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // 6. Инициализация слайдера «База знаний» (#knowledge)
+    // 6. Слайдеры «Шаблоны» и «База знаний»
     // =========================================================================
-    const knowledgeSection = document.getElementById('knowledge');
-    if (knowledgeSection) {
-        const knowledgeSwiper = new Swiper('#knowledge .knowledge__swiper', {
+    function initCatalogSwiper(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (!section) {
+            return;
+        }
+        const swiper = new Swiper(`#${sectionId} .knowledge__swiper`, {
             slidesPerView: 1.18,
             spaceBetween: 16,
             loop: false,
@@ -414,8 +417,8 @@ document.addEventListener('DOMContentLoaded', () => {
             observer: true,
             observeParents: true,
             navigation: {
-                nextEl: '#knowledge .knowledge__arrow--next',
-                prevEl: '#knowledge .knowledge__arrow--prev',
+                nextEl: `#${sectionId} .knowledge__arrow--next`,
+                prevEl: `#${sectionId} .knowledge__arrow--prev`,
             },
             breakpoints: {
                 768: {
@@ -430,18 +433,16 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         });
 
-        window.addEventListener('load', () => {
-            knowledgeSwiper.update();
-            if (knowledgeSwiper.navigation) {
-                knowledgeSwiper.navigation.update();
+        const update = () => {
+            swiper.update();
+            if (swiper.navigation) {
+                swiper.navigation.update();
             }
-        });
-
-        setTimeout(() => {
-            knowledgeSwiper.update();
-            if (knowledgeSwiper.navigation) {
-                knowledgeSwiper.navigation.update();
-            }
-        }, 300);
+        };
+        window.addEventListener('load', update);
+        setTimeout(update, 300);
     }
+
+    initCatalogSwiper('templates');
+    initCatalogSwiper('knowledge');
 });

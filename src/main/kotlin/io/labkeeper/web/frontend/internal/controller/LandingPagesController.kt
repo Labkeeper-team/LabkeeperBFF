@@ -43,6 +43,11 @@ class LandingPagesController(
     @GetMapping("/")
     fun index(model: Model): String {
         model.addAttribute("previewProjects", properties.previewProjects)
+        model.addAttribute("homeArticles", blogCatalog.articles.take(HOME_CATALOG_LIMIT))
+        model.addAttribute(
+            "homeTemplates",
+            properties.previewProjects.filter { it.template }.take(HOME_CATALOG_LIMIT),
+        )
         return "index"
     }
 
@@ -59,6 +64,7 @@ class LandingPagesController(
     fun sitemap() = "sitemap"
 
     private companion object {
+        const val HOME_CATALOG_LIMIT = 100
         val TRUST_RESOLVER = AuthenticationTrustResolverImpl()
     }
 }
