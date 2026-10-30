@@ -714,7 +714,7 @@
                                     class="swiper-slide"
                                     th:each="project : ${previewProjects}"
                                     th:data-category="${project.category}"
-                                    th:attr="data-name-ru=${project.nameRu},data-name-en=${project.nameEn},data-category-ru=${project.categoryRu},data-category-en=${project.categoryEn}"
+                                    th:attr="data-name-ru=${project.nameRu},data-name-en=${project.nameEn},data-category-ru=${project.categoryRu},data-category-en=${project.categoryEn},data-template=${project.template}"
                                 >
                                     <a
                                         class="example-card"
@@ -725,9 +725,9 @@
                                             <img
                                                 class="example-card__image"
                                                 loading="lazy"
-                                                th:src="${project.logoUrl != null ? project.logoUrl : 'assets/img/logo.svg'}"
+                                                th:src="${#strings.isEmpty(project.logoUrl) ? 'assets/img/logo.svg' : project.logoUrl}"
                                                 th:alt="${project.nameRu}"
-                                                th:classappend="${project.logoUrl == null} ? 'example-card__image--placeholder'"
+                                                th:classappend="${#strings.isEmpty(project.logoUrl)} ? 'example-card__image--placeholder'"
                                             />
                                             <img
                                                 src="assets/img/target.svg"
