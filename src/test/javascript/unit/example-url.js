@@ -19,8 +19,9 @@ export function buildExampleUrl(example, slug = 'article') {
         throw new Error(`${slug}: add an editor example`);
     }
     const keys = Object.keys(example);
-    if (!keys.length || keys.some((key) => !EXAMPLE_TYPES.includes(key))) {
-        throw new Error(`${slug}: example keys must be compute, latex or markdown`);
+    if (!EXAMPLE_TYPES.some((type) => Object.hasOwn(example, type)) ||
+        keys.some((key) => !EXAMPLE_TYPES.includes(key) && key !== 'computeVisible')) {
+        throw new Error(`${slug}: example keys must be compute, latex, markdown or computeVisible`);
     }
     const params = [['open', 'latex' in example || 'compute' in example ? 'latex' : 'markdown']];
     for (const type of EXAMPLE_TYPES) {
@@ -29,6 +30,12 @@ export function buildExampleUrl(example, slug = 'article') {
             throw new Error(`${slug}: ${type} must contain non-empty text`);
         }
         params.push([type, example[type]]);
+    }
+    if (Object.hasOwn(example, 'computeVisible')) {
+        if (typeof example.computeVisible !== 'boolean' || !Object.hasOwn(example, 'compute')) {
+            throw new Error(`${slug}: computeVisible must be a boolean and requires compute`);
+        }
+        params.push(['computeVisible', String(example.computeVisible)]);
     }
     const url = `/project/default?${params.map(([name, value]) => `${name}=${javaUrlEncode(value)}`).join('&')}`;
     const length = EXAMPLE_ORIGIN.length + url.length;
