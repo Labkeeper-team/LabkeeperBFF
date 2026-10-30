@@ -2,6 +2,7 @@ const i18n = {
     ru: {
         'nav-advantages': 'Преимущества',
         'nav-features': 'Возможности',
+        'nav-templates': 'Шаблоны',
         'nav-audience': 'Для кого',
         'nav-tokens': 'Токены',
         'nav-about': 'О нас',
@@ -20,6 +21,7 @@ const i18n = {
 
         'blog-example': 'Просмотреть пример',
         'blog-example-context': 'в редакторе',
+        'template-open': 'Открыть шаблон',
 
         // Блок LaTeX
         'feat-latex-title': 'LaTeX editor',
@@ -276,8 +278,10 @@ const i18n = {
     en: {
         'blog-example': 'View example',
         'blog-example-context': 'in editor',
+        'template-open': 'Open template',
         'nav-advantages': 'Benefits',
         'nav-features': 'Features',
+        'nav-templates': 'Templates',
         'nav-audience': "Who it's for",
         'nav-tokens': 'Tokens',
         'nav-about': 'About Us',

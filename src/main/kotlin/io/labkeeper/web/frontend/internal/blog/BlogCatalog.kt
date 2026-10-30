@@ -60,6 +60,14 @@ class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
     private val dateModified = yaml["dateModified"] as String
     val dateDisplay: String = LocalDate.parse(dateModified).format(DATE_FORMAT)
     val editorExampleUrl = exampleUrl(yaml["editorExample"] as Map<String, String>)
+    val openUrl = editorExampleUrl
+    val opensProject = false
+    val canonicalPath = "/blog/$slug"
+    val catalogHref = "/blog"
+    val catalogLabel = "Блог"
+    val relatedTitle = "Другие статьи"
+    val relatedHref = "/blog"
+    val relatedLabel = "Все статьи"
     private val url = "$siteUrl/blog/$slug"
 
     val articleJsonLd = scriptJson(

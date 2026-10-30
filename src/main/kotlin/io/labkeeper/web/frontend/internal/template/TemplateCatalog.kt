@@ -1,0 +1,152 @@
+package io.labkeeper.web.frontend.internal.template
+
+import com.fasterxml.jackson.databind.ObjectMapper
+import io.labkeeper.web.frontend.internal.blog.ArticleTag
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver
+import org.springframework.stereotype.Component
+import org.yaml.snakeyaml.Yaml
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
+import java.util.UUID
+
+/** Public template pages loaded from `classpath:catalog/templates/**/*.yaml`. */
+@Component
+class TemplateCatalog(@Value($$"${io.labkeeper.host}") host: String) {
+    val templates: List<TemplatePage> = PathMatchingResourcePatternResolver()
+        .getResources("classpath*:catalog/templates/**/*.yaml")
+        .map { resource ->
+            val text = resource.inputStream.bufferedReader().use { it.readText() }
+                .replace(PUBLIC_URL_TOKEN, host)
+                .replace(PUBLIC_HOST_TOKEN, host)
+            val name = resource.filename ?: "template.yaml"
+            TemplatePage(Yaml().load(text), host, name)
+        }
+        .sortedBy { it.catalogIndex }
+
+    val sliderJson = scriptJson(
+        templates.map { mapOf("url" to it.canonicalPath, "title" to it.sliderTitle, "text" to it.sliderText) },
+    )
+
+    fun find(slug: String) = templates.firstOrNull { it.slug == slug }
+}
+
+@Suppress("UNCHECKED_CAST")
+class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String) {
+    val slug = required(yaml, sourceName, "slug")
+    val projectId = required(yaml, sourceName, "projectId").also { id ->
+        runCatching { UUID.fromString(id) }.getOrElse {
+            error("Template '$sourceName' has an invalid projectId '$id'")
+        }
+    }
+    val catalogIndex = (yaml["catalogIndex"] as Number?)?.toInt() ?: 0
+    val cardTitle = collapseWhitespace(required(yaml, sourceName, "cardTitle"))
+    val cardDescription = collapseWhitespace(required(yaml, sourceName, "cardDescription"))
+    val pageTitle = text(yaml, "pageTitle") ?: "$cardTitle — Labkeeper"
+    val metaDescription = text(yaml, "metaDescription") ?: cardDescription
+    val h1 = text(yaml, "h1") ?: cardTitle
+    val breadcrumbTitle = text(yaml, "breadcrumbTitle") ?: cardTitle
+    val readingTime = text(yaml, "readingTime").orEmpty()
+    val sliderTitle = text(yaml, "sliderTitle") ?: cardTitle
+    val sliderText = text(yaml, "sliderText") ?: cardDescription
+    val sidebarText = text(yaml, "sidebarText") ?: cardDescription
+    val ctaTitle = text(yaml, "ctaTitle") ?: "Откройте шаблон"
+    val ctaText = text(yaml, "ctaText") ?: cardDescription
+    val toc = (yaml["toc"] as List<Map<String, String>>?).orEmpty()
+    val sections = (yaml["sections"] as List<Map<String, String>>?) ?: listOf(
+        mapOf("id" to "about", "title" to cardTitle, "html" to "<p>${escapeHtml(cardDescription)}</p>"),
+    )
+    val tips = (yaml["tips"] as List<Map<String, String>>?).orEmpty()
+    val sidebarImageAlt = text(yaml, "sidebarImageAlt") ?: "Интерфейс онлайн-редактора Labkeeper"
+    val ogTitle = text(yaml, "ogTitle") ?: pageTitle
+    val ogDescription = text(yaml, "ogDescription") ?: metaDescription
+    val twitterTitle = text(yaml, "twitterTitle") ?: pageTitle
+    val twitterDescription = text(yaml, "twitterDescription") ?: metaDescription
+    val keywordsText = (yaml["keywords"] as List<String>?).orEmpty().joinToString(", ")
+    private val categories = (yaml["categories"] as List<String>?).orEmpty()
+    val categoryAttr = categories.joinToString(" ")
+    val categoryNames = categories.map { CATEGORY_NAMES[it] ?: it }
+    val tags = categories.zip(categoryNames, ::ArticleTag)
+    private val dateModified = text(yaml, "dateModified")
+    val dateDisplay = dateModified?.let { LocalDate.parse(it).format(DATE_FORMAT) }.orEmpty()
+    val openUrl = "/project/$projectId"
+    val opensProject = true
+    val canonicalPath = "/templates/$slug"
+    val catalogHref = "/templates"
+    val catalogLabel = "Шаблоны"
+    val relatedTitle = "Другие шаблоны"
+    val relatedHref = "/templates"
+    val relatedLabel = "Все шаблоны"
+    private val url = "$siteUrl$canonicalPath"
+
+    val articleJsonLd = scriptJson(
+        buildMap {
+            put("@context", "https://schema.org")
+            put("@type", "Article")
+            put("headline", text(yaml, "title") ?: cardTitle)
+            put("description", text(yaml, "schemaDescription") ?: metaDescription)
+            put("author", mapOf("@type" to "Organization", "name" to "Labkeeper", "url" to siteUrl))
+            put(
+                "publisher",
+                mapOf(
+                    "@type" to "Organization",
+                    "name" to "Labkeeper",
+                    "logo" to mapOf("@type" to "ImageObject", "url" to "$siteUrl/assets/img/logo.svg"),
+                ),
+            )
+            put("mainEntityOfPage", mapOf("@type" to "WebPage", "@id" to url))
+            text(yaml, "datePublished")?.let { put("datePublished", it) }
+            dateModified?.let { put("dateModified", it) }
+            put("inLanguage", "ru")
+            put("articleSection", categoryNames)
+        },
+    )
+
+    val breadcrumbJsonLd = scriptJson(
+        mapOf(
+            "@context" to "https://schema.org",
+            "@type" to "BreadcrumbList",
+            "itemListElement" to listOf(
+                "Главная" to "$siteUrl/",
+                catalogLabel to "$siteUrl$catalogHref",
+                (text(yaml, "schemaBreadcrumbTitle") ?: breadcrumbTitle) to url,
+            ).mapIndexed { index, (name, item) ->
+                mapOf("@type" to "ListItem", "position" to index + 1, "name" to name, "item" to item)
+            },
+        ),
+    )
+}
+
+private const val PUBLIC_URL_TOKEN = "{{publicUrl}}"
+private const val PUBLIC_HOST_TOKEN = "{{publicHost}}"
+private val JSON = ObjectMapper()
+private val WHITESPACE = Regex("\\s+")
+private val DATE_FORMAT = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.forLanguageTag("ru"))
+private val CATEGORY_NAMES = mapOf(
+    "latex" to "Работа с LaTeX",
+    "markdown" to "Работа с Markdown",
+    "labs" to "Лабораторные работы",
+    "diploma" to "Дипломные работы",
+    "cv" to "Оформление резюме / CV",
+    "articles" to "Оформление научных статей",
+)
+
+private fun scriptJson(value: Any) = JSON.writeValueAsString(value).replace("<", "\\u003c")
+
+private fun collapseWhitespace(text: String) = text.replace(WHITESPACE, " ").trim()
+
+private fun text(yaml: Map<String, Any?>, key: String) = (yaml[key] as String?)?.let(::collapseWhitespace)
+
+private fun required(yaml: Map<String, Any?>, sourceName: String, key: String): String {
+    val value = yaml[key] as String?
+    if (value.isNullOrBlank()) {
+        error("Template '$sourceName' is missing '$key'")
+    }
+    return value
+}
+
+private fun escapeHtml(text: String) = text
+    .replace("&", "&amp;")
+    .replace("<", "&lt;")
+    .replace(">", "&gt;")

@@ -290,9 +290,9 @@
                         </li>
                         <li class="header__nav-item">
                             <a
-                                href="#advantages"
-                                class="header__nav-link js-scroll-link"
-                                data-i18n="nav-features"
+                                href="/templates"
+                                class="header__nav-link"
+                                data-i18n="nav-templates"
                             ></a>
                         </li>
                         <li class="header__nav-item">
@@ -902,32 +902,35 @@
                             <div class="swiper-wrapper">
                                 <div
                                     class="swiper-slide"
-                                    th:each="project : ${homeTemplates}"
+                                    th:each="entry : ${homeTemplates}"
                                 >
                                     <article class="blog-card">
                                         <div class="blog-card__top">
                                             <span
                                                 class="blog-card__tag"
-                                                th:text="${project.categoryRu}"
+                                                th:each="tag : ${entry.categoryNames}"
+                                                th:text="${tag}"
                                                 >Категория</span
                                             >
                                         </div>
-                                        <h3
-                                            class="blog-card__title"
-                                            th:text="${project.nameRu}"
-                                        >
-                                            Шаблон
+                                        <h3 class="blog-card__title">
+                                            <a
+                                                class="blog-card__title-link"
+                                                th:href="@{/templates/{slug}(slug=${entry.slug})}"
+                                                th:text="${entry.cardTitle}"
+                                                >Шаблон</a
+                                            >
                                         </h3>
                                         <p
                                             class="blog-card__text"
-                                            th:text="${project.nameEn}"
+                                            th:text="${entry.cardDescription}"
                                         >
                                             Описание
                                         </p>
                                         <a
                                             class="blog-card__footer"
                                             target="_blank"
-                                            th:href="@{/project/{id}(id=${project.id})}"
+                                            th:href="@{/project/{id}(id=${entry.projectId})}"
                                         >
                                             <span>Открыть шаблон</span>
                                             <span class="blog-card__arrow"
@@ -942,7 +945,7 @@
 
                     <div class="knowledge__action">
                         <a
-                            href="/project/default"
+                            href="/templates"
                             class="button button--primary knowledge__btn"
                             data-i18n="templates-btn"
                         >

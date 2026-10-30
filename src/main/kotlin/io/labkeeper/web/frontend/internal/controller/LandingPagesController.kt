@@ -2,6 +2,7 @@ package io.labkeeper.web.frontend.internal.controller
 
 import io.labkeeper.web.frontend.FrontendProperties
 import io.labkeeper.web.frontend.internal.blog.BlogCatalog
+import io.labkeeper.web.frontend.internal.template.TemplateCatalog
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -17,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException
 @Controller
 class LandingPagesController(
     private val blogCatalog: BlogCatalog,
+    private val templateCatalog: TemplateCatalog,
     private val properties: FrontendProperties,
     @Value($$"${io.labkeeper.host}") private val host: String,
     @Value($$"${io.labkeeper.version.major}") private val versionMajor: String,
@@ -32,6 +34,7 @@ class LandingPagesController(
         model.addAttribute("contactPhone", properties.contactPhone)
         model.addAttribute("articles", blogCatalog.articles)
         model.addAttribute("blogSliderJson", blogCatalog.sliderJson)
+        model.addAttribute("templates", templateCatalog.templates)
         model.addAttribute(
             "viewerAuthenticated",
             ReactiveSecurityContextHolder.getContext()
@@ -44,19 +47,23 @@ class LandingPagesController(
     fun index(model: Model): String {
         model.addAttribute("previewProjects", properties.previewProjects)
         model.addAttribute("homeArticles", blogCatalog.articles.take(HOME_CATALOG_LIMIT))
-        model.addAttribute(
-            "homeTemplates",
-            properties.previewProjects.filter { it.template }.take(HOME_CATALOG_LIMIT),
-        )
+        model.addAttribute("homeTemplates", templateCatalog.templates.take(HOME_CATALOG_LIMIT))
         return "index"
     }
 
-    @GetMapping("/{page:about|blog|privacy|soglas|sogl_yam|sogl_adv|sogl_ds|oferta}")
+    @GetMapping("/{page:about|blog|templates|privacy|soglas|sogl_yam|sogl_adv|sogl_ds|oferta}")
     fun page(@PathVariable page: String) = page
 
     @GetMapping("/blog/{slug}")
     fun article(@PathVariable slug: String, model: Model): String {
         model.addAttribute("article", blogCatalog.find(slug) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND))
+        return "article"
+    }
+
+    @GetMapping("/templates/{slug}")
+    fun template(@PathVariable slug: String, model: Model): String {
+        model.addAttribute("article", templateCatalog.find(slug) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND))
+        model.addAttribute("blogSliderJson", templateCatalog.sliderJson)
         return "article"
     }
 

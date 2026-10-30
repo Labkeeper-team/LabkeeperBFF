@@ -43,6 +43,9 @@ class LandingPagesServerTest(
         body shouldNotContain "IO_LABKEEPER_FRONTEND_"
         body shouldContain "href=\"assets/css/style.css\""
         body shouldContain "Измерение интенсивности радиационного фона"
+        body shouldContain "href=\"/templates\""
+        body shouldContain "Тестовый шаблон отчёта"
+        body shouldContain "/project/00000000-0000-0000-0000-0000000000aa"
         body shouldContain "header__projects"
         body shouldContain "display: none"
         body shouldContain "https://labkeeper.test/"
@@ -73,7 +76,30 @@ class LandingPagesServerTest(
         val sitemap = get("/sitemap.xml", MediaType.APPLICATION_XML)
         sitemap shouldStartWith "<?xml"
         sitemap shouldContain "<loc>https://labkeeper.test/blog/latex-formulas</loc>"
+        sitemap shouldContain "<loc>https://labkeeper.test/templates</loc>"
+        sitemap shouldContain "<loc>https://labkeeper.test/templates/sample-lab-template</loc>"
         sitemap shouldNotContain "labkeeper.io"
+    }
+
+    @Test
+    fun templatePagesOpenTheProject() {
+        val catalog = get("/templates", MediaType.TEXT_HTML)
+        catalog shouldContain "Шаблоны Labkeeper — готовые проекты для LaTeX и Markdown"
+        catalog shouldContain "Тестовый шаблон отчёта"
+        catalog shouldContain "href=\"/templates/sample-lab-template\""
+        catalog shouldContain "href=\"/project/00000000-0000-0000-0000-0000000000aa\""
+        catalog shouldContain "Открыть шаблон"
+        catalog shouldNotContain "labkeeper.io"
+
+        val template = get("/templates/sample-lab-template", MediaType.TEXT_HTML)
+        template shouldContain "Тестовый шаблон отчёта — Labkeeper"
+        template shouldContain "Текст тестового шаблона."
+        template shouldContain "Открыть шаблон"
+        template shouldContain "href=\"/project/00000000-0000-0000-0000-0000000000aa\""
+        template shouldContain "https://labkeeper.test/templates/sample-lab-template"
+        template shouldNotContain "labkeeper.io"
+
+        webTestClient.get().uri("/templates/missing-template").exchange().expectStatus().isNotFound
     }
 
     @Test
