@@ -44,8 +44,8 @@ class LandingPagesServerTest(
         body shouldContain "href=\"assets/css/style.css\""
         body shouldContain "Измерение интенсивности радиационного фона"
         body shouldContain "href=\"/templates\""
-        body shouldContain "Тестовый шаблон отчёта"
-        body shouldContain "/project/00000000-0000-0000-0000-0000000000aa"
+        body shouldContain "Шаблон статьи для журнала «Автоматика и телемеханика»"
+        body shouldContain "/project/e7e8765e-3f85-4e3a-aac9-301c62099c5c"
         body shouldContain "header__projects"
         body shouldContain "display: none"
         body shouldContain "https://labkeeper.test/"
@@ -77,7 +77,7 @@ class LandingPagesServerTest(
         sitemap shouldStartWith "<?xml"
         sitemap shouldContain "<loc>https://labkeeper.test/blog/latex-formulas</loc>"
         sitemap shouldContain "<loc>https://labkeeper.test/templates</loc>"
-        sitemap shouldContain "<loc>https://labkeeper.test/templates/sample-lab-template</loc>"
+        sitemap shouldContain "<loc>https://labkeeper.test/templates/avtomatika-i-telemekhanika</loc>"
         sitemap shouldNotContain "labkeeper.io"
     }
 
@@ -85,18 +85,18 @@ class LandingPagesServerTest(
     fun templatePagesOpenTheProject() {
         val catalog = get("/templates", MediaType.TEXT_HTML)
         catalog shouldContain "Шаблоны Labkeeper — готовые проекты для LaTeX и Markdown"
-        catalog shouldContain "Тестовый шаблон отчёта"
-        catalog shouldContain "href=\"/templates/sample-lab-template\""
-        catalog shouldContain "href=\"/project/00000000-0000-0000-0000-0000000000aa\""
+        catalog shouldContain "Шаблон статьи для журнала «Автоматика и телемеханика»"
+        catalog shouldContain "href=\"/templates/avtomatika-i-telemekhanika\""
+        catalog shouldContain "href=\"/project/e7e8765e-3f85-4e3a-aac9-301c62099c5c\""
         catalog shouldContain "Открыть шаблон"
+        catalog shouldNotContain "Тестовый шаблон отчёта"
         catalog shouldNotContain "labkeeper.io"
 
-        val template = get("/templates/sample-lab-template", MediaType.TEXT_HTML)
-        template shouldContain "Тестовый шаблон отчёта — Labkeeper"
-        template shouldContain "Текст тестового шаблона."
+        val template = get("/templates/avtomatika-i-telemekhanika", MediaType.TEXT_HTML)
+        template shouldContain "Шаблон статьи «Автоматика и телемеханика» в LaTeX — Labkeeper"
         template shouldContain "Открыть шаблон"
-        template shouldContain "href=\"/project/00000000-0000-0000-0000-0000000000aa\""
-        template shouldContain "https://labkeeper.test/templates/sample-lab-template"
+        template shouldContain "href=\"/project/e7e8765e-3f85-4e3a-aac9-301c62099c5c\""
+        template shouldContain "https://labkeeper.test/templates/avtomatika-i-telemekhanika"
         template shouldNotContain "labkeeper.io"
 
         webTestClient.get().uri("/templates/missing-template").exchange().expectStatus().isNotFound

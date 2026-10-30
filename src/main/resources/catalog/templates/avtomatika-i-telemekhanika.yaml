@@ -1,0 +1,261 @@
+catalogIndex: 1
+slug: avtomatika-i-telemekhanika
+projectId: e7e8765e-3f85-4e3a-aac9-301c62099c5c
+cardTitle: 'Шаблон статьи для журнала «Автоматика и телемеханика»'
+cardDescription: >-
+  Актуальный LaTeX-шаблон научной статьи на русском языке: авторы, аннотация,
+  разделы, списки, теоремы и двуязычный сопроводительный блок.
+categories:
+  - latex
+  - ait
+title: 'Оформление статьи для журнала «Автоматика и телемеханика»: актуальный LaTeX-шаблон'
+pageTitle: 'Шаблон статьи «Автоматика и телемеханика» в LaTeX — Labkeeper'
+metaDescription: >-
+  Актуальный LaTeX-шаблон статьи для журнала «Автоматика и телемеханика»:
+  авторы, аннотация, ключевые слова, разделы, списки, теоремы и библиография.
+breadcrumbTitle: 'Автоматика и телемеханика'
+h1: 'Оформление статьи для журнала «Автоматика и телемеханика»: актуальный LaTeX-шаблон'
+datePublished: '2026-10-18'
+dateModified: '2026-10-18'
+readingTime: '4 мин'
+keywords:
+  - 'шаблон статьи Автоматика и телемеханика'
+  - 'оформление статьи РАН LaTeX'
+  - 'LaTeX шаблон журнала'
+sliderTitle: 'Автоматика и телемеханика'
+sliderText: 'Актуальный LaTeX-шаблон научной статьи для журнала.'
+sidebarText: 'Откройте актуальный шаблон статьи и продолжите его в своём проекте.'
+ctaTitle: 'Откройте шаблон статьи'
+ctaText: >-
+  Готовый LaTeX-шаблон журнала «Автоматика и телемеханика» уже собран в Labkeeper:
+  остаётся подставить свои данные и текст.
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Начните подготовку: слева — исходный код LaTeX, справа — интерактивное окно предварительного просмотра PDF.</li>
+      </ol>
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+    html: |2-
+      <p>Правильное оформление статьи РАН в LaTeX — залог быстрой проверки рукописи рецензентами.
+      Шаблон предназначен для подготовки научной статьи на русском языке для подачи в журнал
+      «Автоматика и телемеханика».</p>
+      <p>В структуре шаблона содержатся основные для редактирования разделы.
+      Название статьи, информация об авторах, аффилиация.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\year{2023}
+      \title{НАЗВАНИЕ СТАТЬИ ИЛИ ЗАМЕТКИ БЫВАЕТ С ФОРМУЛАМИ $a+b=c$}%
+      \thanks{Работа выполнена при финансовой поддержке \dots
+      (грант \mbox{№\,\dots}).}
+
+      \authors{П.П.~ПЕРВЫЙ, д-р~техн.~наук (first@yandex.ru)\\
+      (место работы, если отличается от места работы В.В. Второго),\\
+      В.В.~ВТОРОЙ, канд.~физ.-мат.~наук (second@mail.ru)\\
+      (место работы, если отличается от места работы Т.Т. Третьего),\\
+      Т.Т.~ТРЕТИЙ (third@rambler.ru)\\
+      (место работы, если отличается от места работы Ч.Ч. Четвертого),\\
+      Ч.Ч.~ЧЕТВЕРТЫЙ (fourth@ipu.ru)\\
+      (место работы, например, Институт проблем управления
+      им.~В.А.~Трапезникова РАН, Москва)}</code></pre>
+      </div>
+      <p>Уделите внимание окружению <code>abstract</code>. В нем указывается аннотация и ключевые слова.
+      Согласно правилам журнала, ключевые слова в LaTeX перечисляются со строчной буквы через запятую,
+      а в самом конце перечисления ставится точка.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX аннотация и ключевые слова</span></div>
+          <pre><code>\begin{abstract}
+      Здесь можно разместить краткую аннотацию работы. Хх
+      хххххххххххх хххххх хххххххх х хххххххххххххх ххх ххххххх хххх.
+      Хххххххххххххх ххх ххххх хххххх х хххххххххххххх ххх ххххххх
+      хххх.\\
+      \\
+      \textit{Ключевые слова:} первое ключевое слово, второе ключевое слово, третье ключевое слово.
+      \end{abstract}</code></pre>
+      </div>
+      <p>Основная часть (заголовки разделов и подразделов).</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX section и subsection</span></div>
+          <pre><code>\section{Введение}
+      \section{Заголовок второго раздела}
+      \section{Заголовок третьего раздела}
+      \subsection{Заголовок подраздела}
+      \subsection{Заголовок следующего подраздела}</code></pre>
+      </div>
+      <p>Вместо стандартного <code>enumerate</code> необходимо использовать готовые окружения
+      <code>enumlist</code> (цифровая нумерация), <code>ruslist</code> (списки с русскими буквами а, б, в)
+      и <code>latlist</code> (с латинскими буквами a, b, c).</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX специализированные списки</span></div>
+          <pre><code>\begin{enumlist} % перечни, нумеруемые 1) 2) и т.д.
+      \item
+      ххххххххххххх хххххххххххххх х хххххххххххххх ххх ххххххх хх
+      ххххххххххххх хххххххххххххх х хххххххххххххх ххх ххххххх хххх;
+
+      \item
+      ххххххххххххх хххххххххххххх х хххххххххххххх ххх ххххххх хххх.
+      \end{enumlist}</code></pre>
+      </div>
+      <p>Предустановлены и размечены блоки для теорем (<code>theorem</code>), лемм (<code>lemma</code>),
+      определений (<code>definition</code>), задач (<code>problem</code>), алгоритмов (<code>algorithm</code>),
+      утверждений (<code>statement</code>), предложений (<code>proposition</code>) и замечаний (<code>remark</code>).</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX набор математических окружений</span></div>
+          <pre><code>\begin{theorem}[{\cite[c.\,123]{first}}] %
+      Пусть выполнены следующие условия:
+
+      \begin{ruslist}
+      \item
+      первое условие;
+
+      \item
+      второе условие.
+      \end{ruslist}
+
+      Тогда справедливы следующие утверждения:
+
+      \begin{enumlist}
+      \item
+      первое утверждение;
+
+      \item
+      второе утверждение.
+      \end{enumlist}
+      \end{theorem}</code></pre>
+      </div>
+      <div style="background-color: #f2f9f3; border-left: 4px solid #2da44e; border-radius: 0 6px 6px 0; padding: 16px; margin: 16px 0;">
+          <div style="font-weight: bold; color: #1a7f37; margin-bottom: 8px;">Полезный лайфхак</div>
+          <p style="margin: 0;">Если в вашей статье много данных из расчетов, вы можете выгрузить их из Excel в формат CSV, загрузить файл в файловый менеджер Labkeeper и автоматически импортировать их в чистые таблицы LaTeX с помощью встроенного пакета <code>pgfplotstable</code>.</p>
+      </div>
+      <p>Благодарности, заключение и приложение представлены как заголовки.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\section{Благодарности}
+      \section{Заключение}
+      \appendix{1}</code></pre>
+      </div>
+      <p>Пример библиографии.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX thebibliography</span></div>
+          <pre><code>\begin{thebibliography}{10}
+
+      \bibitem{first}
+      {\it Первый П.П.}
+      Статья в журнале // АиТ. 2011. № 13. С. 1--50.
+
+      \bibitem{second}
+      {\it Второй В.В., Первый П.П.}
+      Монография по данной теме. М.: Высш. шк., 1999.
+
+      \bibitem{third}
+      {\it Третий Т.Т.}
+      Публикация в трудах конференции //
+      Тр. Ин-та такого-то РАН. 2000. Т. 1. № 2. С. 3--4.
+
+      \bibitem{forth}
+      {\it Четвертый Ч.Ч.}
+      Публикация по теме в серийном издании или сборнике //
+      Сб. научн. тр. к 20-летию Института. Новосибирск, Изд-во &lt;&lt;Пирогов&gt;&gt;, 2000. Т. 1. № 2. С. 3--4.
+
+      \bibitem{fifth}
+      {\it Fifth F.}
+      Some journal publication in English //
+      Appl. Math. Comput. J., Elsevier Publ. 1925. V. 501. No. 1. P. 1234--5678.
+
+      \bibitem{sixth}
+      {\it Sixth J.Th.}
+      A book in English. Boston: Springer, 1991.
+
+      \end{thebibliography}</code></pre>
+      </div>
+      <p>В самом конце шаблона расположен двуязычный блок сопроводительной информации.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX для русскоязычного блока</span></div>
+          <pre><code>\AdditionalInformation{Фамилия Имя Отчество первого автора}{место
+      работы, должность, ученая степень, ученое звание}{номер телефона, адрес электронной почты и почтовый адрес}
+
+      \AdditionalInformation{Фамилия Имя Отчество второго автора}{место
+      работы, должность, ученая степень, ученое звание}{номер телефона, адрес электронной почты и почтовый адрес}
+
+      \AdditionalInformation{Фамилия Имя Отчество третьего автора}{место
+      работы, должность, ученая степень, ученое звание}{номер телефона, адрес электронной почты и почтовый адрес}
+
+      \AdditionalInformation{Фамилия Имя Отчество четвертого автора}{место
+      работы, должность, ученая степень, ученое звание}{номер телефона, адрес электронной почты и почтовый адрес}
+
+      \section*{НАЗВАНИЕ СТАТЬИ}
+
+      \begin{abstract}
+      Здесь можно разместить краткую аннотацию работы. Хх
+      хххххххххххх хххххх хххххххх х хххххххххххххх ххх ххххххх хххх.
+      Хххххххххххххх ххх ххххх хххххх х хххххххххххххх ххх ххххххх
+      хххх.\\
+      \\
+      \textit{Ключевые слова:} первое ключевое слово, второе ключевое слово, третье ключевое слово.
+      \\
+      \\
+      \textit{Предпочтительный раздел журнала:}
+      \end{abstract}</code></pre>
+      </div>
+      <p>Обратите внимание, что в русскоязычной части появился блок <em>«Предпочтительный раздел журнала»</em>.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX для англоязычного блока</span></div>
+          <pre><code>\AdditionalInformation{First Author's Surname Name Middle name}{affiliation, position, academic degree, academic title}
+
+      \AdditionalInformation{Second Author's Surname Name Middle name}{affiliation, position, academic degree, academic title}
+
+      \AdditionalInformation{Third Author's Surname Name Middle name}{affiliation, position, academic degree, academic title}
+
+      \AdditionalInformation{Fourth Author's Surname Name Middle name}{affiliation, position, academic degree, academic title}
+
+      \section*{ARTICLE TITLE}
+
+      \begin{abstract}
+      A small abstract for the article can be put here. Хх
+      хххххххххххх хххххх хххххххх х хххххххххххххх ххх ххххххх хххх.
+      Хххххххххххххх ххх ххххх хххххх х хххххххххххххх ххх ххххххх
+      хххх.\\
+      \\
+      \textit{Keywrods:} the first keyword, the second keyword, the third keyword.
+      \end{abstract}</code></pre>
+      </div>
+      <div style="background-color: #f2f9f3; border-left: 4px solid #2da44e; border-radius: 0 6px 6px 0; padding: 16px; margin: 16px 0;">
+          <div style="font-weight: bold; color: #1a7f37; margin-bottom: 8px;">Рекомендация</div>
+          <p style="margin: 0;">Начинайте заполнение шаблона с аффилиации и информации об авторах. Обычно эти данные редко меняются в процессе подготовки и оформления статьи в отличие от самого текста статьи. Эти данные вместе с аннотацией и ключевыми словами потребуют перевода на английский язык.</p>
+      </div>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в интерфейсе Labkeeper. Встроенный полновесный компилятор соберет документ
+      и отобразит PDF-файл в окне предпросмотра.</p>
+      <p>В Labkeeper встроены инструменты искусственного интеллекта, которые помогают находить и исправлять
+      ошибки верстки за один клик прямо в интерфейсе редактора. Используйте встроенного AI-агента для
+      исправления ошибок.</p>
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+    html: |2-
+      <p>Скачайте проект и отправьте в редакцию согласно разделу
+      <a href="http://ait.mtas.ru/ru/submit/">«Руководство для авторов»</a>
+      на сайте журнала «Автоматика и телемеханика».</p>
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+    html: |2-
+      <p>Используйте готовый актуальный шаблон для журнала «Автоматика и телемеханика», чтобы сфокусироваться
+      на сути вашего исследования.</p>
+      <p><a href="{{publicUrl}}/project/e7e8765e-3f85-4e3a-aac9-301c62099c5c">Открыть шаблон научной статьи журнала «Автоматика и телемеханика» в онлайн-редакторе Labkeeper.</a></p>
+

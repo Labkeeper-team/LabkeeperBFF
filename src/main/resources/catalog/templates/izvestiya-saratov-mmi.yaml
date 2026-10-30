@@ -1,0 +1,294 @@
+catalogIndex: 6
+slug: izvestiya-saratov-mmi
+projectId: e7e8765e-3f85-4e3a-aac9-301c62099c5c
+cardTitle: 'Шаблон «Известия Саратовского университета. Математика. Механика. Информатика»'
+cardDescription: >-
+  Актуальный LaTeX-шаблон статьи для журнала «Известия Саратовского университета.
+  Новая серия. Серия: Математика. Механика. Информатика».
+categories:
+  - latex
+  - ssu-izvestiya
+title: 'Актуальный LaTeX-шаблон статьи для журнала «Известия Саратовского университета. Новая серия. Серия: Математика. Механика. Информатика»'
+pageTitle: 'Шаблон «Известия Саратовского университета» — Labkeeper'
+metaDescription: >-
+  LaTeX-шаблон статьи для журнала «Известия Саратовского университета. Новая серия.
+  Серия: Математика. Механика. Информатика»: УДК, авторы, формулы, рисунки и библиография.
+breadcrumbTitle: 'Известия Саратовского университета'
+h1: 'Актуальный LaTeX-шаблон статьи для журнала «Известия Саратовского университета. Новая серия. Серия: Математика. Механика. Информатика»'
+datePublished: '2026-10-23'
+dateModified: '2026-10-23'
+readingTime: '4 мин'
+keywords:
+  - 'Известия Саратовского университета LaTeX'
+  - 'шаблон izv_mmi'
+  - 'статья ВАК математика механика информатика'
+sliderTitle: 'Известия Саратовского университета'
+sliderText: 'LaTeX-шаблон серии «Математика. Механика. Информатика».'
+sidebarText: 'Откройте шаблон статьи и продолжите его в своём проекте.'
+ctaTitle: 'Откройте шаблон статьи'
+ctaText: >-
+  Готовый LaTeX-шаблон журнала «Известия Саратовского университета. Новая серия.
+  Серия: Математика. Механика. Информатика» уже собран в Labkeeper.
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Начните подготовку: слева — исходный код LaTeX, справа — окно просмотра PDF.</li>
+      </ol>
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+    html: |2-
+      <p><strong>Научная специальность ВАК и УДК</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\noindent
+      {\small Научная специальность ВАК: 1.1.1} %(можно указать до трех специальностей)
+
+      \UDC{517.98}</code></pre>
+      </div>
+      <p><strong>Название, авторы и аффилиация</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX Заголовок</span></div>
+          <pre><code>\rutitle{Наименование статьи}%Строчными буквами (как в предложении)
+      \rutitle{Наименование статьи}%Строчными буквами (как в предложении)
+
+      %\thispagestyle{izsc}%не убирать!!!
+      \ruauthor{И.~А.~Иванов$^1$, И.~И.~Петров$^2$}%
+      %Если все авторы из одной организации, то номера ставить не надо
+
+      %сведения об авторах:
+      %место работы (организация, почтовый адрес организации). Если все авторы из одной организации, то номер не ставится\\
+      %фамилия, имя, отчество, ученая степень, должность с указанием подразделения (для студентов и аспирантов указать факультет и/или кафедру, e-mail, ORCID, SPIN-код и AuthorID (elibrary.ru)
+      \ruaffil{$^1$Название организации 1, Страна, индекс, г.~Город, ул.~Улица, д.~номер дома\\
+      $^2$Саратовский национальный исследовательский государственный университет имени Н.~Г.~Чернышевского, Россия, 410012, г.~Саратов, ул.~Астраханская, д.~83\\[2mm]
+      \textbf{Иванов Игорь Александрович}, кандидат физико-математических наук, преподаватель кафедры математики,  i.a.ivanov@gmail.com, \url{https://orcid.org/0000-0000-0000-0000}, \SPIN{0000-0000}{3616}\\
+      \textbf{Петров Иван Иванович}, кандидат физико-математических наук, доцент кафедры математического анализа, petrovii@sgu.ru, \url{https://orcid.org/0000-0000-0000-0000}, \SPIN{0000-0000}{3616}}</code></pre>
+      </div>
+      <p><strong>Аннотация и ключевые слова</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\ruabstract{В аннотации кратко излагаются основные результаты исследования без общих фраз. Основные требования:
+
+      --	аннотация должна отражать содержание статьи, сохраняя ее структуру "--- введение, цели и задачи, методы исследования, результаты, заключение (выводы);
+
+      -- оптимальный объем 200--250 слов;
+
+      -- содержание аннотации не должно дословно повторять название или часть статьи;
+
+      -- ссылки на список литературы, номера формул, теорем и пр. в аннотации недопустимы;
+
+      -- избегайте формул, особенно сложных, так как  это  часто приводит к некорректному представлению статьи в различных базах данных и системах цитирования;
+
+      --  не используйте длинные сложноподчиненные предложения, особенно имеющие двоякие толкования;
+
+      -- следует избегать лишних вводных фраз (например, &lt;&lt;автор статьи рассматривает...&gt;&gt;). Исторические справки, если они не составляют основное содержание документа, описание ранее опубликованных работ и общеизвестные положения в аннотации не приводятся;
+
+      --	аннотации на русском и английском языках не должны значительно отличатся по содержанию.
+
+      Помните, что  качество перевода аннотации на английский язык в том числе зависит от качества текста на русском языке. Хорошо написанная аннотация повышает шансы статьи быть процитированной.}
+
+      \rukeywords{ключевые слова служат ориентиром для читателя и используются для поиска статей в электронных базах. Рекомендуемое количество ключевых слов "--- 5--8, которые приводятся через запятую, без точки на конце}</code></pre>
+      </div>
+      <p><strong>Благодарности и источники финансирования работы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\ruthanks{Работа выполнена при финансовой поддержке Российского научного фонда (проект № 00-00-00000)}</code></pre>
+      </div>
+      <p><strong>Блок для цитирования</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\ruforcite{\textit{Иванов~И.~А., Петров~И.~И.} Наименование статьи}{\pageref*{Ivanov_page1}}{\pageref*{Ivanov_pageN}}{EDN}{}%</code></pre>
+      </div>
+      <p><strong>Метаданные на английском языке</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\articletype{Article}%article, short communication, review
+
+      \entitle{Article title}%Название статьи на английском языке строчыми буквами (как в предложении)
+
+      \enauthor{I.~A.~Ivanov$^1$, I.~I.~Petrov$^2$}%
+
+      %место работы авторов (организация, почтовый адрес организации)\\
+      %имя, инициал отчества, фамилия, e-mail, ORCID, SPIN-код и AuthorID (elibrary.ru)
+      \enaffil{$^1$Name of the Organization, Address\\
+      $^2$Saratov State University, 83 Astrakhanskaya St., Saratov 410012, Russia\\[2mm]
+      \textbf{Igor A. Ivanov}, i.a.ivanov@gmail.com, \url{https://orcid.org/0000-0000-0000-0000}, \SPIN{0000-0000}{3616}\\
+      \textbf{Ivan I. Petrov}, petrovii@sgu.ru, \url{https://orcid.org/0000-0000-0000-0000}, \SPIN{0000-0000}{3616}}
+
+      \enabstract{Содержание аннотаций на русском и английском языках не должны значительно отличаться.  Качественный перевод аннотации на английский язык позволяет:
+
+      --	зарубежному ученому ознакомиться с содержанием статьи и определить интерес к ней, независимо от языка статьи и наличия возможности прочитать ее полный текст;
+
+      --	преодолевать языковый барьер ученому, не владеющему русским языком.
+      }%
+
+      \enkeywords{должны быть идентичны по количеству и содержанию ключевым словам русского блока. Выбирайте термины, которые используются в профильной англоязычной литературе}
+
+      %Благодарности и источники финансирования работы (если есть);
+      \enthanks{This work was supported by the Russian Science Foundation (project No.~00-00-00000)}
+
+      \enforcite{Ivanov~I.~A., Petrov~I.~I. Article title}{\pageref*{Iva_page1}}{\pageref*{Iva_pageN}}{EDN}{ (in Russian)}{}%</code></pre>
+      </div>
+      <p><strong>Раздел Введение и другие нумерованные разделы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\section*{Введение}
+      \section{Как подать заявку на публикацию}%1
+      \section{Нумерация и ссылки}%2
+      \section{Рисунки и таблицы}%3</code></pre>
+      </div>
+      <p><strong>Формулы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{equation}\label{Iva_eq1}
+      \vert \langle f,g\rangle\vert \leq [\langle f,f\rangle]^{\frac 12}
+      [\langle g,g\rangle]^{\frac 12},\qquad f,g\in C^k(X),
+      \end{equation}</code></pre>
+      </div>
+      <p><strong>Теоремоподобные окружения</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{theorem}\label{Iva_thm1}
+      Для формул, теорем, лемм и пр. следует использовать автоматическую нумерацию.
+      \end{theorem}
+      \begin{proof}
+      Формулы нумеруются только те, на которые в тексте статьи есть ссылки...
+      \end{proof}
+
+      \begin{definition}\label{Iva_def1}
+      Курсивом выделяется \textit{определяемый объект}.
+      \end{definition}</code></pre>
+      </div>
+      <p><strong>Рисунки и таблицы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{wrapfigure}{o}{60mm}
+      \centering
+      \includegraphics[height=55mm]{Iva_fig1.eps}\\
+      \parbox{55mm}{%Размер подписи по ширине рисунка
+      \caption{Подпись к рисунку на русском языке (цвет онлайн)\\
+      Fig.~\ref*{Iva_fig1}. Подпись к рисунку на английском языке (color online)}
+      \label{Iva_fig1}
+      }
+      \vspace{-1\baselineskip}%если надо убрать лишний отступ
+      \end{wrapfigure}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{figure}[h!]
+      %\captionsetup{labelformat=empty}%Если рисунок в статье только один
+      \centering\small
+      \begin{tabular}{cp{10mm}c}
+      \includegraphics[height=6cm]{Iva_fig1a.eps}&amp;&amp;
+      \includegraphics[height=6cm]{Iva_fig1b.eps}\\
+      \textsl{а} / \textit{a}&amp;&amp;\textit{б} / \textit{b}
+      \end{tabular}\\
+      \parbox{130mm}{%Подпись должны быть по ширине рисунка
+      \caption{Подпись к рисунку на русском языке:
+      \textsl{а} "--- только для русского а;
+      \textit{б} "---   для всех, кроме а (цвет онлайн)\\[2mm]
+      Fig.~\ref*{Iva_fig2}. Подпись на английском языке:
+      \textit{a} is  ; \textit{b} is   (color online)}
+      \label{Iva_fig2}}
+      \vspace{-1\baselineskip}
+      \end{figure}
+      \normalsize</code></pre>
+      </div>
+      <p><strong>Таблицы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{table}[h!]%\vspace{.3\baselineskip}
+      \renewcommand{\TableWid}{10cm} % ширина таблицы в см
+      \centering
+      {\small
+      \caption{Название\\
+      Title}\label{Метка}
+      {\renewcommand{\arraystretch}{1.3} % чтобы таблица былал посвободнее
+      \begin{tabular}{| c | r |r |r | r |}
+      \hline
+      \hline
+      \end{tabular}
+      }}
+      \end{table}</code></pre>
+      </div>
+      <p><strong>Список литературы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX русскоязычный блок</span></div>
+          <pre><code>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %Cписок литературы
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \begin{Rtwocolbib}%Не убирать!!!
+      %Для книг: Фамилии И.О. всех авторов курсивом. Заглавие издания.
+      %Город~: Издательство, год издания. Количество страниц.
+      %Например:
+      \bibitem{Ivanov1}
+      \textit{Ильин~В.~А.} Избранные труды~: в 2~т. Т.~2. Москва~: МАКС Пресс, 2008. 692~с.
+
+      %Для статей из журналов: Фамилии И. О. всех авторов курсивом. Название
+      %статьи // Заглавие издания без сокращений. Год издания. Том, Номер. Страницы. DOI (если есть указывать обязательно), EDN для рускоязычных источников (если есть), особенно важно указать если нет DOI
+      %Например:
+      \bibitem{Ivanov2}
+      \textit{Бурлуцкая~М.~Ш., Хромов~А.~П.} Резольвентный подход в методе Фурье~// Доклады Академии наук. 2014. Т.~458, №~2. С.~138--140. DOI: \url{https://doi.org/10.7868/S0869565214260041}, \EDN{SJQEEN}
+
+      \bibitem{Ivanov3}
+      \textit{Хромов~А.~П.} О классическом решении одной смешанной
+      задачи для волнового уравнения~// Известия Саратовского университета. Новая серия.
+      Серия: Математика. Механика. Информатика. 2015. Т.~15, вып.~1. С.~56--66. DOI: \url{https://doi.org/10.18500/1816-9791-2015-15-1-56-66}, \EDN{TMMCLD}
+
+      %Для материалов конференций, сборников трудов и т.д.:
+      %Фамилии  И. О. всех авторов курсивом. Название статьи~// Заглавие издания без сокращений. Место : Издательство, год издания. Том, Номер (выпуск). Страницы. DOI, EDN
+      \bibitem{Ivanov4}
+      \textit{Буланов~A.~П.} Шестой показатель обратной функции Ламберта, представленной цепной экспонентой~// Комплексный анализ и приложения~: материалы VI Петрозаводской междунар. конф., Петрозаводск, 01–07 июля 2012 года / под ред. проф. В.~В.~Старкова.  Петрозаводск~: Петрозаводский гос. ун-т, 2012. С.~5--10.  \EDN{PSJAPC}
+      \end{Rtwocolbib}%Не убирать!!!</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX англоязычный блок</span></div>
+          <pre><code>%References
+      \begin{Etwocolbib}%Не убирать!!!
+      \bibitem{eIvanov1}
+      Il'in~V.~A. \textit{Izbrannye trudy} [Chosen works]. Vol.~2. Moscow, MAKS Press, 2008. 692~p. (in Russian).
+
+      \bibitem{eIvanov2}
+      Burlutskaya~M.~S., Khromov~A.~P. Resolvent approach in the Fourier method.
+      \textit{Doklady Mathematics}, 2014, vol.~90, iss.~2, pp.~545--548. DOI: \url{https://doi.org/10.1134/S1064562414060076}
+
+      \bibitem{eIvanov3}
+      Khromov~A.~P. About the classical solution of the mixed problem for the wave equation. \textit{Izvestiya of Saratov University.  Mathematics. Mechanics. Informatics}, 2015, vol.~15, iss.~1, pp.~56--66 (in Russian). DOI: \url{https://doi.org/10.18500/1816-9791-2015-15-1-56-66}, \EDN{TMMCLD}
+
+      \bibitem{ePetr4}
+      Bulanov~A.~P. The sixth exponent of the inverse Lambert function represented by a chain exponent. In: \textit{Kompleksnyy analiz i prilozheniya} [Comprehensive Analysis and Applications]. Proceedings of the VI Petrozavodsk International Conference, Petrozavodsk, July 01--07, 2012. Petrozavodsk, Petrozavodsk State University Publ., 2012, pp.~5--10 (in Russian). \EDN{PSJAPC}
+      \end{Etwocolbib}%Не убирать!!!</code></pre>
+      </div>
+      <p>В тексте шаблона приводятся основные отличия в оформлении элементов библиографической записи в русскоязычном и англоязычном блоках.</p>
+      <p>Для поиска DOI редакция рекомендует использовать ресурс <a href="https://apps.crossref.org/SimpleTextQuery">SimpleTextQuery</a>, а для EDN — ресурс индентификации библиографических описаний в платформе <a href="https://www.elibrary.ru/find_edn_list.asp">eLIBRARY.RU</a>.</p>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в интерфейсе Labkeeper. Встроенный компилятор соберет документ и отобразит PDF-файл в окне предпросмотра.</p>
+      <p>В Labkeeper встроены инструменты искусственного интеллекта, которые помогают находить и исправлять ошибки верстки за один клик прямо в интерфейсе редактора. Используйте встроенного AI-агента для исправления ошибок.</p>
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+    html: |2-
+      <p>Скачайте проект, переименуйте файл так, чтобы имя содержало фамилию первого автора на английском языке (например, Ivanov, Ivanov-Petrov, Ivanov_et_al). Далее следуйте разделу
+      <a href="https://mmi.sgu.ru/ru/pravila-dlya-avtorov">3. Как подать заявку на публикацию</a>
+      на сайте журнала «Известия Саратовского университета».</p>
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+    html: |2-
+      <p>Используйте готовый актуальный шаблон для журнала «Известия Саратовского университета. Новая серия. Серия: Математика. Механика. Информатика», чтобы сфокусироваться на сути вашего исследования.</p>
+      <p><a href="{{publicUrl}}/project/e7e8765e-3f85-4e3a-aac9-301c62099c5c">Открыть шаблон научной статьи журнала «Известия Саратовского университета» в онлайн-редакторе Labkeeper.</a></p>
+

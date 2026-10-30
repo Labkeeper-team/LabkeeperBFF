@@ -1,0 +1,322 @@
+catalogIndex: 5
+slug: springer-nature
+projectId: ddf26c01-93ad-41d8-86d2-cb482e0ede59
+cardTitle: 'Шаблон статей Springer Nature'
+cardDescription: >-
+  Официальный LaTeX-шаблон Springer Nature на классе sn-jnl: стили ссылок,
+  авторы, формулы, таблицы, алгоритмы и BibTeX.
+categories:
+  - latex
+  - springer-nature
+title: 'Официальный шаблон для статей Springer Nature для публикации в формате LaTeX'
+pageTitle: 'Шаблон статей Springer Nature — Labkeeper'
+metaDescription: >-
+  LaTeX-шаблон статьи Springer Nature (sn-jnl): выбор стиля ссылок, авторы,
+  аннотация, формулы, таблицы, рисунки, алгоритмы и библиография.
+breadcrumbTitle: 'Springer Nature'
+h1: 'Официальный шаблон для статей Springer Nature для публикации в формате LaTeX'
+datePublished: '2026-10-23'
+dateModified: '2026-10-23'
+readingTime: '6 мин'
+keywords:
+  - 'Springer Nature LaTeX шаблон'
+  - 'sn-jnl sn-article'
+  - 'оформление статьи Scopus Web of Science'
+sliderTitle: 'Шаблон Springer Nature'
+sliderText: 'Официальный LaTeX-шаблон статьи на классе sn-jnl.'
+sidebarText: 'Откройте шаблон статьи и продолжите его в своём проекте.'
+ctaTitle: 'Откройте шаблон статьи'
+ctaText: 'Готовый LaTeX-шаблон издательства Springer Nature уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Начните подготовку: слева — исходный код LaTeX, справа — окно просмотра PDF.</li>
+      </ol>
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+    html: |2-
+      <p>Самая первая команда <code>\documentclass[]{sn-jnl}</code> и набор его параметров шаблона (файла sn-article.tex) определяет стиль отображения документа. Вы можете изменить заданное по умолчанию значение, раскомментировав необходимое.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+      %%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove “Numbered” in the optional parenthesis.
+      %%The option is available for: sn-basic.bst, sn-chicago.bst%
+
+      %%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+      %%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+      \documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+      %%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+      %%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+      %%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+      %%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+      %%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+      %%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style</code></pre>
+      </div>
+      <p><strong>Название, авторы и аффилиация</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\title[Article Title]{Article Title}
+
+      %%=============================================================%%
+      %% GivenName	-&gt; \fnm{Joergen W.}
+      %% Particle	-&gt; \spfx{van der} -&gt; surname prefix
+      %% FamilyName	-&gt; \sur{Ploeg}
+      %% Suffix	-&gt; \sfx{IV}
+      %% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg}
+      %%  \sfx{IV}}\email{iauthor@gmail.com}
+      %%=============================================================%%
+
+      \author*[1,2]{\fnm{First} \sur{Author}}\email{iauthor@gmail.com}
+
+      \author[2,3]{\fnm{Second} \sur{Author}}\email{iiauthor@gmail.com}
+      \equalcont{These authors contributed equally to this work.}
+
+      \author[1,2]{\fnm{Third} \sur{Author}}\email{iiiauthor@gmail.com}
+      \equalcont{These authors contributed equally to this work.}
+
+      \affil*[1]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{100190}, \state{State}, \country{Country}}}
+
+      \affil[2]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
+
+      \affil[3]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{610101}, \state{State}, \country{Country}}}</code></pre>
+      </div>
+      <p><strong>Аннотация и ключевые слова</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>%%==================================%%
+      %%================================%%
+      %% Sample for structured abstract %%
+      %%================================%%
+
+      % \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+      %
+      % \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+      %
+      % \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+      %
+      % \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}</code></pre>
+      </div>
+      <p><strong>Ключевые слова и коды</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\keywords{keyword1, Keyword2, Keyword3, Keyword4}
+
+      %%\pacs[JEL Classification]{D8, H51}
+
+      %%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}</code></pre>
+      </div>
+      <p><strong>Разделы и подразделы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\section{Introduction}\label{sec1}
+      \section{Results}\label{sec2}
+      \subsubsection{This is an example for third level head---subsubsection head}\label{subsubsec2}</code></pre>
+      </div>
+      <p><strong>Формулы</strong></p>
+      <p>Выносная с нумерацией</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{equation}
+      \|\tilde{X}(k)\|^2 \leq\frac{\sum\limits_{i=1}^{p}\left\|\tilde{Y}_i(k)\right\|^2+\sum\limits_{j=1}^{q}\left\|\tilde{Z}_j(k)\right\|^2 }{p+q}.\label{eq1}
+      \end{equation}</code></pre>
+      </div>
+      <p>Выносная с двумя равенствами и одним номером</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{align}
+      D_\mu &amp;=  \partial_\mu - ig \frac{\lambda^a}{2} A^a_\mu \nonumber \\
+      F^a_{\mu\nu} &amp;= \partial_\mu A^a_\nu - \partial_\nu A^a_\mu + g f^{abc} A^b_\mu A^a_\nu \label{eq2}
+      \end{align}</code></pre>
+      </div>
+      <div style="background-color: #f2f9f3; border-left: 4px solid #2da44e; border-radius: 0 6px 6px 0; padding: 16px; margin: 16px 0;">
+          <div style="font-weight: bold; color: #1a7f37; margin-bottom: 8px;">Обратите внимание</div>
+          <p style="margin: 0;">Команда <code>\nonumber</code> в окружении <code>align</code> в конце каждой строки, за исключением последней используется для того, чтобы не создавать номера уравнений там, где они не нужны.</p>
+          <p style="margin: 8px 0 0;">Команду <code>\label{}</code> следует использовать только в последней строке окружения <code>align</code>, в которой не применяется <code>\nonumber</code>.</p>
+      </div>
+      <p><strong>Таблицы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{table}[h]
+      \caption{Caption text}\label{tab1}%
+      \begin{tabular}{@{}llll@{}}
+      \toprule
+      Column 1 &amp; Column 2  &amp; Column 3 &amp; Column 4\\
+      \midrule
+      row 1    &amp; data 1   &amp; data 2  &amp; data 3  \\
+      row 2    &amp; data 4   &amp; data 5\footnotemark[1]  &amp; data 6  \\
+      row 3    &amp; data 7   &amp; data 8  &amp; data 9\footnotemark[2]  \\
+      \botrule
+      \end{tabular}
+      \footnotetext{Source: This is an example of table footnote. This is an example of table footnote.}
+      \footnotetext[1]{Example for a first table footnote. This is an example of table footnote.}
+      \footnotetext[2]{Example for a second table footnote. This is an example of table footnote.}
+      \end{table}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{table}[h]
+      \caption{Example of a lengthy table which is set to full textwidth}\label{tab2}
+      \begin{tabular*}{\textwidth}{@{\extracolsep\fill}lcccccc}
+      \toprule%
+      &amp; \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]} &amp; \multicolumn{3}{@{}c@{}}{Element 2\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
+      Project &amp; Energy &amp; $\sigma_{calc}$ &amp; $\sigma_{expt}$ &amp; Energy &amp; $\sigma_{calc}$ &amp; $\sigma_{expt}$ \\
+      \midrule
+      Element 3  &amp; 990 A &amp; 1168 &amp; $1547\pm12$ &amp; 780 A &amp; 1166 &amp; $1239\pm100$\\
+      Element 4  &amp; 500 A &amp; 961  &amp; $922\pm10$  &amp; 900 A &amp; 1268 &amp; $1092\pm40$\\
+      \botrule
+      \end{tabular*}
+      \footnotetext{Note: This is an example of table footnote. This is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
+      \footnotetext[1]{Example for a first table footnote.}
+      \footnotetext[2]{Example for a second table footnote.}
+      \end{table}</code></pre>
+      </div>
+      <p><strong>Рисунок</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{figure}[h]
+      \centering
+      \includegraphics[width=0.9\textwidth]{fig.eps}
+      \caption{This is a widefig. This is an example of long caption this is an example of long caption  this is an example of long caption this is an example of long caption}\label{fig1}
+      \end{figure}</code></pre>
+      </div>
+      <p><strong>Алгоритмы, программные коды и листинги</strong></p>
+      <p>Для оформления алгоритмов в LaTeX используются пакеты algorithm, algorithmicx и algpseudocode в следующем формате:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{algorithm}
+      \caption{&lt;alg-caption&gt;}\label{&lt;alg-label&gt;}
+      \begin{algorithmic}[1]
+      . . .
+      \end{algorithmic}
+      \end{algorithm}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\lstset{texcl=true,basicstyle=\small\sf,commentstyle=\small\rm,mathescape=true,escapeinside={(*}{*)}}
+      \begin{lstlisting}
+      begin
+        for $i:=1$ to $10$ step $1$ do
+      expt($2,i$);
+      newline() od                (*\textrm{Comments will be set flush to the right margin}*)
+      where
+      proc expt($x,n$) $\equiv$
+        $z:=1$;
+        do if $n=0$ then exit fi;
+           do if odd($n$) then exit fi;
+        comment: (*\textrm{This is a comment statement;}*)
+        $n:=n/2$; $x:=x*x$ od;
+           { $n&gt;0$ };
+           $n:=n-1$; $z:=z*x$ od;
+        print($z$).
+      end
+      \end{lstlisting}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{algorithm}
+      \caption{Calculate $y = x^n$}\label{algo1}
+      \begin{algorithmic}[1]
+      \Require $n \geq 0 \vee x \neq 0$
+      \Ensure $y = x^n$
+      \State $y \Leftarrow 1$
+      \If{$n &lt; 0$}\label{algln2}
+        \State $X \Leftarrow 1 / x$
+        \State $N \Leftarrow -n$
+      \Else
+        \State $X \Leftarrow x$
+        \State $N \Leftarrow n$
+      \EndIf
+      \While{$N \neq 0$}
+        \If{$N$ is even}
+            \State $X \Leftarrow X \times X$
+            \State $N \Leftarrow N / 2$
+        \Else[$N$ is odd]
+            \State $y \Leftarrow y \times X$
+            \State $N \Leftarrow N - 1$
+        \EndIf
+      \EndWhile
+      \end{algorithmic}
+      \end{algorithm}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{minipage}{\hsize}%
+      \lstset{frame=single,framexleftmargin=-1pt,framexrightmargin=-17pt,framesep=12pt,linewidth=0.98\textwidth,language=pascal}% Set your language (you can change the language for each code-block optionally)
+      %%% Start your code-block
+      \begin{lstlisting}
+      for i:=maxint to 0 do
+      begin
+      { do nothing }
+      end;
+      Write('Case insensitive ');
+      Write('Pascal keywords.');
+      \end{lstlisting}</code></pre>
+      </div>
+      <p><strong>Декларация</strong></p>
+      <p>Согласно «Инструкции для авторов» журнала, в который вы подаете рукопись, Ваша рукопись должна содержать следующие подразделы под общим заголовком Declarations:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{itemize}
+      \item Funding
+      \item Conflict of interest/Competing interests (check journal-specific guidelines for which heading to use)
+      \item Ethics approval and consent to participate
+      \item Consent for publication
+      \item Data availability
+      \item Materials availability
+      \item Code availability
+      \item Author contribution
+      \end{itemize}</code></pre>
+      </div>
+      <p><strong>Библиография</strong></p>
+      <p>Список литературы подключается файлом к рукописи.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\bibliography{sn-bibliography}% common bib file
+      %% if required, the content of .bbl file can be included here once bbl is generated
+      %%\input sn-article.bbl</code></pre>
+      </div>
+      <p>Пример библиографической записи статьи в формате BibTeX. Все записи хранятся в файле sn-bibliography.bib</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX запись article в BibTeX</span></div>
+          <pre><code>%% Journal article
+      @article{bib1,
+        author		= "Campbell, S. L. and Gear, C. W.",
+        title			= "The index of general nonlinear {D}{A}{E}{S}",
+        journal		= "Numer. {M}ath.",
+        volume		= "72",
+        number		= "2",
+        pages			= "173--196",
+        year			= "1995"
+      }</code></pre>
+      </div>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в интерфейсе Labkeeper. Встроенный компилятор соберет документ и отобразит PDF-файл в окне предпросмотра.</p>
+      <p>В Labkeeper встроены инструменты искусственного интеллекта, которые помогают находить и исправлять ошибки верстки за один клик прямо в интерфейсе редактора. Используйте встроенного AI-агента для исправления ошибок.</p>
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+    html: |2-
+      <p>Скачайте проект и отправьте в редакцию согласно разделу «Руководство для авторов» на сайте выбранного Вами журнала издательства Springer Nature.</p>
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+    html: |2-
+      <p>Используйте готовый актуальный шаблон издательства Springer Nature, чтобы сфокусироваться на сути вашего исследования.</p>
+      <p><a href="{{publicUrl}}/project/ddf26c01-93ad-41d8-86d2-cb482e0ede59">Открыть шаблон научной статьи издательства Springer Nature.</a></p>
+

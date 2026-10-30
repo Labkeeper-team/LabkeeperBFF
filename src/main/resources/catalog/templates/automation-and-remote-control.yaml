@@ -1,0 +1,246 @@
+catalogIndex: 2
+slug: automation-and-remote-control
+projectId: 13b2a3a8-a288-42fc-a1b7-10e72e46add9
+cardTitle: 'Английский LaTeX-шаблон «Автоматика и телемеханика»'
+cardDescription: >-
+  Шаблон научной статьи на английском языке для журнала Automation and Remote Control:
+  авторы, аннотация, формулы, рисунки, теоремы и библиография.
+categories:
+  - latex
+  - arc
+title: 'Журнал «Автоматика и телемеханика»: LaTeX-шаблон для подготовки к публикации статьи на английском языке'
+pageTitle: 'Английский LaTeX-шаблон «Автоматика и телемеханика» — Labkeeper'
+metaDescription: >-
+  LaTeX-шаблон статьи на английском языке для журнала «Автоматика и телемеханика»
+  (Automation and Remote Control): формулы, рисунки, теоремы и список литературы.
+breadcrumbTitle: 'Automation and Remote Control'
+h1: 'Журнал «Автоматика и телемеханика»: LaTeX-шаблон для подготовки к публикации статьи на английском языке'
+datePublished: '2026-10-22'
+dateModified: '2026-10-22'
+readingTime: '4 мин'
+keywords:
+  - 'Automation and Remote Control LaTeX template'
+  - 'шаблон статьи Автоматика и телемеханика на английском'
+  - 'оформление статьи ВАК LaTeX'
+sliderTitle: 'Automation and Remote Control'
+sliderText: 'LaTeX-шаблон английской статьи для журнала «Автоматика и телемеханика».'
+sidebarText: 'Откройте английский шаблон статьи и продолжите его в своём проекте.'
+ctaTitle: 'Откройте шаблон статьи'
+ctaText: >-
+  Готовый английский LaTeX-шаблон журнала «Автоматика и телемеханика» уже собран в Labkeeper.
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Описание шаблона, примеры оформления ключевых элементов'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Начните подготовку: слева — исходный код LaTeX, справа — окно просмотра PDF.</li>
+      </ol>
+  - id: description
+    title: 'Описание шаблона, примеры оформления ключевых элементов'
+    html: |2-
+      <p>Правильное оформление статьи РАН в LaTeX — залог быстрой проверки рукописи рецензентами.
+      Шаблон предназначен для подготовки научной статьи на английском языке для подачи в журнал
+      «Автоматика и телемеханика».</p>
+      <p>Стилевой файл журнала «Автоматика и телемеханика», «Automation and Remote Control» и основной
+      tex-файл шаблона ARC-Example.tex содержит привычные для редактирования разделы: название статьи,
+      информация об авторах, аффилиация.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX название статьи, аффилиация</span></div>
+          <pre><code>\title{Design of Generalized $H_{\infty}$-suboptimal Controllers\\ Based on Experimental
+      and A Priori Data}%
+
+      \author{I. I.~Ivanov (ivanov@yandex.ru)
+      \\
+      (Lobachevsky University, Nizhny Novgorod, Russia),
+      \\
+      P. P.~Petrov (petrov@yandex.ru)
+      \\
+      (St. Petersburg State  University, St.~Petersburg, Russia ),
+      \\
+      S. S. Sidorov (sidorov@Yandex.ru)
+      \\
+      (Trapeznikov Institute of Control Sciences, Russian Academy of Sciences,\\ Moscow, Russia)}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX аннотация, ключевые слова</span></div>
+          <pre><code>\begin{abstract}
+      This paper considers a linear continuous- or discrete-time dynamic object in the absence of its mathematical model. ...
+
+      \KeyWords generalized $H_{\infty}$ norm, uncertainty, robust control, experimental data, dual systems, linear matrix inequalities
+      \end{abstract}</code></pre>
+      </div>
+      <p>Примеры оформления ключевых элементов:</p>
+      <p><strong>Математические формулы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX выносная формула с номером</span></div>
+          <pre><code>\begin{gather} \label{Gamma}
+      \Gamma=\widehat \Omega+\widetilde \Phi [\widehat \Phi^{\rm T}(\widehat \Phi \widehat \Phi^{\rm T})^{-1} \widehat \Phi-I] \widetilde \Phi^{\rm T} \ge 0,
+      \end{gather}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX выносная формула с номером с двумя выровненными равенствами</span></div>
+          <pre><code>\begin{gather}\label{eqsys}
+      \begin{split}
+      &amp;\partial x(t)=A x(t)+B u(t)+w(t), \quad x(0)=x_0,\\[.2em]
+      &amp;z(t)=C x(t)+D u(t)
+      \end{split}
+      \end{gather}</code></pre>
+      </div>
+      <div style="background-color: #f2f9f3; border-left: 4px solid #2da44e; border-radius: 0 6px 6px 0; padding: 16px; margin: 16px 0;">
+          <div style="font-weight: bold; color: #1a7f37; margin-bottom: 8px;">Обратите внимание</div>
+          <p style="margin: 0;">Не все выносные формулы должны иметь номер. Нумеруйте только те формулы, на которые есть ссылка в тексте.</p>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX выносная формула без номера</span></div>
+          <pre><code>\begin{gather*}
+      \Phi=\left(x_{0} \cdots x_{N-1}\right), \quad  \Phi_+=\left(x_{1} \cdots x_{N}\right),\\[.3em]
+      U=\left(u_{0} \cdots u_{N-1}\right), \quad W=\left(w_{0} \cdots w_{N-1}\right), \quad Z=\left(z_{0} \cdots z_{N-1}\right).
+      \end{gather*}</code></pre>
+      </div>
+      <p><strong>Иллюстрации (графики и схемы)</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX рисунок формата .eps с заголовком</span></div>
+          <pre><code>\begin{figure}[t]
+      \centering{\includegraphics[width=113mm]{Fig-3.eps}}
+      {\caption{The guaranteed estimates of the $H_{\infty}$ norm as functions of the disturbance level in experimental data for different types of available information.}}
+      \end{figure}</code></pre>
+      </div>
+      <p><strong>Заголовок и подзаголовок</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX section и subsection</span></div>
+          <pre><code>\section{Introduction}
+      \section{Problem Statement}
+      \subsection{Ccccccccc Vvvvvvv}</code></pre>
+      </div>
+      <div style="background-color: #f2f9f3; border-left: 4px solid #2da44e; border-radius: 0 6px 6px 0; padding: 16px; margin: 16px 0;">
+          <div style="font-weight: bold; color: #1a7f37; margin-bottom: 8px;">Обратите внимание</div>
+          <p style="margin: 0;">Вне зависимости от написания текста внутри фигурных скобок в результате применяется перевод в верхний регистр (текст — ТЕКСТ). Во многих журналах встречается и капитализация символов в заголовках, подзаголовках, а также в библиографии (в названиях литературы и названиях журналов).</p>
+      </div>
+      <p><strong>Лемма, теорема, утверждение</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX теоремоподобные окружения</span></div>
+          <pre><code>\begin{lemma} \label{bfDelta}
+      If the information matrix...
+      \end{lemma}
+
+      \begin{corollary}
+      For ${v(t) \,\equiv\, 0},$ the $\gamma_0$ norm...
+      \end{corollary}
+
+      \begin{proposition}\label{prop:02}%
+      For any ${m\in\mathbb{Z\vphantom{\overline{Z}}}^{\hspace*{.08em}+}\setminus0},$...
+      \end{proposition}</code></pre>
+      </div>
+      <div style="background-color: #f2f9f3; border-left: 4px solid #2da44e; border-radius: 0 6px 6px 0; padding: 16px; margin: 16px 0;">
+          <div style="font-weight: bold; color: #1a7f37; margin-bottom: 8px;">Обратите внимание</div>
+          <p style="margin: 0;">Полный список теоремоподобных окружений можно подглянуть в файле <code>iitparc.cls</code>. Например, <code>\newtheorem*{proof}{Proof}{\bfseries}{\rm}</code>, можем использовать в тексте статьи <code>\begin{proof}</code> Текст доказательства. <code>\end{proof}</code></p>
+      </div>
+      <p><strong>Список литературы и ссылка в тексте</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX библиография и ссылка на источник в тексте</span></div>
+          <pre><code>\begin{thebibliography}{30}
+
+      \bibitem{Qrodzovskiy} Grodzovskii, G.L., Ivanov, Yu.N., and
+      Tokarev, V.V., \textit{Mekhanika kosmicheskogo poleta. Problemy
+      optimizatsii} (Mechanics of Space Flight. Optimization
+      Problems), Moscow: Nauka, 1975.
+
+      \bibitem{Xayrer} Hairer, E., Norsett, S.P., and Wanner, G.,
+      \textit{Solving Ordinary Differential Equations: I. Nonstiff
+      Problems\/}, Berlin: Springer, 1987. Translated under the title
+      \textit{Resheniye obyknovennykh differentsial'nykh uravnenii\/},
+      Moscow: Mir, 1990.
+
+      \bibitem{WillemsPersistent2005} Willems, J.C., Rapisarda, P., Markovsky, I., and
+      De Moor, B., A Note on Persistency of Excitation, \textit{Syst. Control Lett.},
+      2005, vol.~54, pp.~325--329.
+
+      \bibitem{Persis2020} De Persis, C. and Tesi, P., Formulas for Data-Driven Control:
+      Stabilization, Optimality and Robustness, \textit{IEEE Trans. Automat. Control},
+      2020, vol.~65, no.~3, pp.~909--924.
+
+      \bibitem{Waarde2020} Waarde, H.J., Eising, J., Trentelman, H.L., and Camlibel, M.K.,
+      Data Informativity: a New Perspective on Data-Driven Analysis and Control,
+      \textit{IEEE Trans. Automat. Control}, 2020, vol.~65, no.~11, pp.~4753--4768.
+
+      \bibitem{Slemma} Waarde, H.J., Camlibel, M.K., and Mesbahi, M., From Noisy Data
+      to Feedback Controllers: Nonconservative Design via a Matrix S-Lemma,
+      \textit{IEEE Trans. Automat. Control}, 2022, vol.~67, no.~1, pp.~162--175.
+
+      \bibitem{Yak77} Yakubovich, V.A., $S$-procedure in Nonlinear Control Theory,
+      \textit{Vestn. Leningrad. Univ. Mat.}, 1977, vol.~4, pp.~73--93.
+
+      \bibitem{DateDrPetersenlemma} Bisoffi, A., De Persis, C., and Tesi, P.,
+      Data-Driven Control via Petersen's Lemma, \textit{Automatica}, 2022,
+      vol.~145, art. no.~110537.
+
+      \bibitem{Petersen87} Petersen, I.R., A Stabilization Algorithm for a Class of Uncertain
+      Linear Systems, \textit{Syst. Control Lett.}, 1987, vol.~8, pp.~351--357.
+
+      \bibitem{Scherer2023} Berberich, J., Scherer, C.W., and Allgower, F., Combining Prior
+      Knowledge and Data for Robust Controller Design, \textit{IEEE Trans. Automat. Control},
+      2023, vol.~68, no.~8, pp.~\mbox{4618--4633}.
+
+      \bibitem{KoStAT23} Kogan, M.M. and Stepanov, A.V., Design of Suboptimal Robust
+      Controllers Based on A Priori and Experimental Data, \textit{Autom. Remote Control},
+      2023, vol.~84, no.~8, pp.~918--932.
+
+      \bibitem{PetersTempo} Petersen, I.R. and Tempo, R., Robust Control of
+      Uncertain Systems: Classical Results and Recent Developments,
+      \textit{Automatica}, 2014, vol.~50, no.~5, pp.~1315--1335.
+
+      \bibitem{BaKoAT10} Balandin, D.V. and Kogan, M.M., Generalized $H_{\infty}$-optimal
+      Control as a Trade-off between the $H_{\infty}$-optimal and $\gamma$-optimal Controls,
+      \textit{Autom. Remote Control}, 2010, vol.~71, no.~6, pp.~993--1010.
+
+      \bibitem{BaBiKo_ECC21} Balandin, D.V., Biryukov, R.S., and Kogan, M.M., Pareto
+      Suboptimal $H_{\infty}$ Controls with Transients, \textit{Proc. Eur. Control Conf.},
+      2021, Rotterdam, pp.~542--547.
+
+      \bibitem{Polyak98} Polyak, B.T., Convexity of Quadratic Transformations and Its Use
+      in Control and Optimization, \textit{J. Optim. Theory Appl.}, 1998, vol.~99, no.~3,
+      pp.~553--583.
+
+      \end{thebibliography}
+
+      In~\cite{Scherer2023,KoStAT23}, the state feedback...</code></pre>
+      </div>
+      <div style="background-color: #f2f9f3; border-left: 4px solid #2da44e; border-radius: 0 6px 6px 0; padding: 16px; margin: 16px 0;">
+          <div style="font-weight: bold; color: #1a7f37; margin-bottom: 8px;">Обратите внимание</div>
+          <p style="margin: 0;">Перед командой <code>\cite{}</code> используется символ <code>~</code> (тильда) сразу после предыдущего слова как неразрывный пробел. Он запрещает перенос строки, устанавливая пробел заданной ширины, чтобы ссылка не была перенесена на новую строку и не оторвалась от контекста.</p>
+          <p style="margin: 8px 0 0;">Правильно: <code>Word~\cite{}</code>. Неправильно: <code>Word \cite{}</code>. <code>Word\cite{}</code>. <code>Word \~\cite{}</code>. <code>Word ~ \cite{}</code>. <code>Word\~ \cite{}</code>. <code>Word\cite{}</code>.</p>
+      </div>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в интерфейсе Labkeeper. Встроенный полновесный компилятор соберет документ
+      и отобразит PDF-файл в окне предпросмотра.</p>
+      <p>В Labkeeper встроены инструменты искусственного интеллекта, которые помогают находить и исправлять
+      ошибки верстки за один клик прямо в интерфейсе редактора. Используйте встроенного AI-агента для
+      исправления ошибок.</p>
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+    html: |2-
+      <p>Скачайте проект и отправьте в редакцию согласно разделу
+      <a href="http://ait.mtas.ru/ru/submit/">«Руководство для авторов»</a>
+      на сайте журнала «Автоматика и телемеханика».</p>
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+    html: |2-
+      <p>Используйте готовый актуальный шаблон для журнала «Автоматика и телемеханика», чтобы сфокусироваться
+      на сути вашего исследования.</p>
+      <p><a href="{{publicUrl}}/project/13b2a3a8-a288-42fc-a1b7-10e72e46add9">Открыть шаблон научной статьи журнала «Автоматика и телемеханика» в онлайн-редакторе Labkeeper.</a></p>
+

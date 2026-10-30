@@ -1,0 +1,266 @@
+catalogIndex: 3
+slug: vestnik-mgu-fizika
+projectId: e7e8765e-3f85-4e3a-aac9-301c62099c5c
+cardTitle: 'Шаблон «Вестник Московского университета. Физика. Астрономия»'
+cardDescription: >-
+  Актуальный LaTeX-шаблон статьи для журнала «Вестник Московского университета.
+  Серия 3. Физика. Астрономия» на стиле revtex4-2.
+categories:
+  - latex
+  - msu-bulletin
+title: 'Оформление статьи для журнала «Вестник Московского Университета. Серия 3. Физика. Астрономия»: актуальный LaTeX-шаблон'
+pageTitle: 'Шаблон «Вестник Московского университета. Физика. Астрономия» — Labkeeper'
+metaDescription: >-
+  LaTeX-шаблон статьи для журнала «Вестник Московского университета. Серия 3.
+  Физика. Астрономия»: рубрика, авторы, формулы, таблицы, рисунки и библиография.
+breadcrumbTitle: 'Вестник Московского университета'
+h1: 'Оформление статьи для журнала «Вестник Московского Университета. Серия 3. Физика. Астрономия»: актуальный LaTeX-шаблон'
+datePublished: '2026-10-19'
+dateModified: '2026-10-19'
+readingTime: '4 мин'
+keywords:
+  - 'Вестник Московского университета LaTeX'
+  - 'шаблон статьи Физика Астрономия'
+  - 'revtex4-2 MUPBsamp'
+sliderTitle: 'Вестник Московского университета'
+sliderText: 'LaTeX-шаблон статьи серии «Физика. Астрономия».'
+sidebarText: 'Откройте шаблон статьи и продолжите его в своём проекте.'
+ctaTitle: 'Откройте шаблон статьи'
+ctaText: >-
+  Готовый LaTeX-шаблон журнала «Вестник Московского университета. Серия 3.
+  Физика. Астрономия» уже собран в Labkeeper.
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Начните подготовку: слева — исходный код LaTeX, справа — окно просмотра PDF.</li>
+      </ol>
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+    html: |2-
+      <p><strong>Рубрика журнала и название</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\title{РУБРИКА ЖУРНАЛА
+      %ТЕОРЕТИЧЕСКАЯ И МАТЕМАТИЧЕСКАЯ ФИЗИКА
+      %ФИЗИКА АТОМНОГО ЯДРА И ЭЛЕМЕНТАРНЫХ ЧАСТИЦ
+      %РАДИОФИЗИКА, ЭЛЕКТРОНИКА, АКУСТИКА
+      %ОПТИКА И СПЕКТРОСКОПИЯ. ЛАЗЕРНАЯ ФИЗИКА
+      %ФИЗИКА КОНДЕНСИРОВАННОГО СОСТОЯНИЯ ВЕЩЕСТВА
+      %ХИМИЧЕСКАЯ ФИЗИКА, ФИЗИЧЕСКАЯ КИНЕТИКА И ФИЗИКА ПЛАЗМЫ
+      %БИОФИЗИКА И МЕДИЦИНСКАЯ ФИЗИКА
+      %АСТРОНОМИЯ, АСТРОФИЗИКА И КОСМОЛОГИЯ
+      %ФИЗИКА ЗЕМЛИ, АТМОСФЕРЫ И ГИДРОСФЕРЫ
+      %ИНЖЕНЕРНАЯ ФИЗИКА
+      \\[20pt]
+      Название статьи\\ можно перенести на вторую строку }</code></pre>
+      </div>
+      <p><strong>Аффилиация</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\def\addressa{Название организации\\ адрес организации}
+      \def\addressb{Название организации\\ адрес организации}
+
+      \author{\firstname{И.О.}~\surname{Фамилия}}
+      \email[E-mail:]{ivanovmail@mail.ru }
+      \affiliation{\addressa}
+      \author{\firstname{И.О.}~\surname{Фамилия}}
+      \affiliation{\addressb}
+      \author{\firstname{И.О.}~\surname{Фамилия}}
+      \affiliation{\addressa}
+      \affiliation{\addressb}</code></pre>
+      </div>
+      <p><strong>Аннотация и ключевые слова</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{abstract}
+      Аннотация должна кратно отражать постановку задачи, суть статьи и основные результаты.
+      \end{abstract}
+
+      \pacs{номера PACS см. \href{https://ufn.ru/ru/pacs/}{https://ufn.ru/ru/pacs/}}\par
+      \keywords{ключевые слова с маленькой буквы, через
+      запятую, с точкой в конце.  \\[5pt]}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX section и subsection</span></div>
+          <pre><code>\section{Введение}\label{intro}
+      \section{\label{sec:level1}Название раздела (без точки в конце)}
+      \subsection{Цитирование}
+      \subsubsection{Example citations}</code></pre>
+      </div>
+      <p><strong>Математические символы и формулы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX eqnarray</span></div>
+          <pre><code>\begin{eqnarray}
+      \chi_+(p)\alt{\bf [}2|{\bf p}|(|{\bf p}|+p_z){\bf ]}^{-1/2}
+      \left(
+      \begin{array}{c}
+      |{\bf p}|+p_z\\
+      px+ip_y
+      \end{array}\right)\;,
+      \\
+      \left\{%
+      \openone234567890abc123\alpha\beta\gamma\delta1234556\alpha\beta
+      \frac{1\sum^{a}_{b}}{A^2}%
+      \right\}%
+      \label{eq:one}.
+      \end{eqnarray}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX многострочное уравнение без номера</span></div>
+          <pre><code>\begin{eqnarray*}
+      \sum \vert M^{\text{viol}}_g \vert ^2&amp;=&amp;g^{2n-4}_S(Q^2)~N^{n-2}
+        (N^2-1)\\
+      &amp; &amp;\times \left( \sum_{i&lt;j}\right)
+      \left(
+      \sum_{\text{perm}}\frac{1}{S_{12}S_{23}S_{n1}}
+      \right)
+      \frac{1}{S_{12}}~.
+      \end{eqnarray*}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX формула в ширину страницы</span></div>
+          <pre><code>\begin{widetext}
+      \begin{equation}
+      {\cal R}^{(\text{d})}=
+      g_{\sigma_2}^e
+      \left(
+      \frac{[\Gamma^Z(3,21)]_{\sigma_1}}{Q_{12}^2-M_W^2}
+      +\frac{[\Gamma^Z(13,2)]_{\sigma_1}}{Q_{13}^2-M_W^2}
+      \right)
+      + x_WQ_e
+      \left(
+      \frac{[\Gamma^\gamma(3,21)]_{\sigma_1}}{Q_{12}^2-M_W^2}
+      +\frac{[\Gamma^\gamma(13,2)]_{\sigma_1}}{Q_{13}^2-M_W^2}
+      \right)\;.
+      \label{eq:wideeq}
+      \end{equation}
+      \end{widetext}</code></pre>
+      </div>
+      <p><strong>Таблица</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX таблица</span></div>
+          <pre><code>\begin{table*}[htbp]
+      \renewcommand{\arraystretch}{1.25}
+      \renewcommand{\tabcolsep}{3pt}
+      \begin{center}\caption{Оценка вклада активности позитрон-излучающих радионуклидов в активацию крови при различных фракциях облучения на линейном ускорителе электронов 20 МэВ}
+      %\begin{ruledtabular}
+      \begin{tabular}{|c|c|c|}\hline
+      %\begin{tabular}{|p{0.8in}|p{1.0in}|p{1.0in}|} \hline
+      Радионуклид &amp; \multicolumn{2}{|c|}{Активность, Бк/мл крови для времени облучения:} \\ \hline
+      {} &amp; 1~минута &amp; 3~минуты \\ \cline{2-3}
+      $^{11}$C &amp; 13 &amp; 37 \\ \hline
+      $^{13}$N~&amp; 58 &amp; 1.6$\times10^2 $ \\ \hline
+      $^{15}$O &amp; 9.0$\times10^2 $ &amp; 2.0$\times$103 \\ \hline
+      $^{30}$P &amp; 12 &amp; 27 \\ \hline
+      $^{34m}$Cl &amp; 9 &amp; 26.5 \\ \hline
+      $^{38}$K &amp; 40 &amp; 1.1$\times10^2 $ \\ \hline
+      \end{tabular}\label{tab:table1}
+      \end{center}
+      \end{table*}</code></pre>
+      </div>
+      <p><strong>Рисунок</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX includegraphics</span></div>
+          <pre><code>\begin{figure}[b]
+      \includegraphics{fig_1}% Вот как импортировать EPS art
+      \caption{\label{fig:epsart} Подпись к рисунку. Подписи к рисункам
+      нумеруются автоматически.}
+      \end{figure}</code></pre>
+      </div>
+      <p><strong>Благодарность и финансирование</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{acknowledgments}
+      Мы хотим выразить признательность \dots.
+      \end{acknowledgments}
+
+      \section*{ФИНАНСИРОВАНИЕ}
+      Данная работа была поддержана \dots.</code></pre>
+      </div>
+      <p><strong>Список литературы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX thebibliography</span></div>
+          <pre><code>\begin{thebibliography}{99}
+
+      \bibitem{1}   \textit{Образцов С.В., Кодолова О.Л., Варданян И.Н.} и~др. // \href{http://vmu.phys.msu.ru/abstract/2018/3/18-3-003}{Вестн. Моск. ун-та.   Физ. Астрон. №~3. 9. (2018)}.
+      (\textit{O.L. Kodolova, S.V. Obraztsov,  I.N. Vardanyan} et al. // \href{http://dx.doi.org/10.3103/S0027134918030104}{Moscow Univ. Phys. Bull.\textbf{73}, N~3. 241. (2018)})
+
+      \bibitem{2}   \textit{Chatrchyan S.} et al. (\textit{CMS Collaboration}) // \href{http://dx.doi.org/10.1103/PhysRevC.84.024906}{Phys. Rev. C. \textbf{84}, 024906 (2011).}
+      % Оформление ссылки на книгу:
+      \bibitem{3}
+      \textit{Ландау Л.Д., Лифшиц Е.М.}  Квантовая механика. Т.\,5.
+      Ч.\,1. М., 1976.
+
+      \end{thebibliography}</code></pre>
+      </div>
+      <p><strong>Англоязычный блок статьи</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\large\textbf{Title in english}
+
+      \medskip
+
+      \normalsize\textbf{I.\,O. Secondname$^{1a}$, I.\,O. Secondname$^{2b}$}
+
+      \smallskip\small
+      \textit
+      {$^1$Department of [...] Physics [of~...],
+      Faculty of Physics, M.V.Lomonosov Moscow State University, Moscow 119991, Russia.}\\
+      \textit {$^2$Sternberg State Institute of Astronomy,
+      Moscow State University, Moscow 119191, Russia.}\\
+      \textit {E-mail: $^a$author2@adress.ru,
+      $^b$author2@adress.ru}
+
+      %===========\begin{abstract}===============
+      \small
+      Annotation in english
+      %===========\end{abstract}===============
+      \indent \textit{Keywords}: Keywords \\</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX сведения об авторах</span></div>
+          <pre><code>\begin{enumerate}
+
+      \item  ФИО (полностью)~--- ученая степень
+      (если есть), ученое звание (если есть, полностью), должность
+      (полностью); тел.: +7(xxx)xxx-xx-xx, e-mail:~\mailto{author1@mail.ru}.
+
+      \item  ФИО (полностью)~--- ученая степень
+      (если есть), ученое звание (если есть, полностью), должность
+      (полностью); тел.: +7(xxx)xxx-xx-xx, e-mail:~\mailto{author2@mail.ru}.
+
+      \item ...
+      \end{enumerate}</code></pre>
+      </div>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Встроенный компилятор соберет документ и отобразит PDF-файл в окне предпросмотра.</p>
+      <p>В Labkeeper встроены инструменты искусственного интеллекта, которые помогают находить и исправлять ошибки верстки за один клик. Используйте AI-агента для исправления ошибок.</p>
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+    html: |2-
+      <p>Скачайте проект и отправьте в редакцию согласно разделу
+      <a href="https://vmu.phys.msu.ru/authors">«Информация для авторов»</a>
+      на сайте журнала «Вестник Московского Университета. Серия 3. Физика. Астрономия».</p>
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+    html: |2-
+      <p>Используйте готовый актуальный шаблон для журнала «Вестник Московского Университета. Серия 3. Физика. Астрономия», чтобы сфокусироваться на сути вашего исследования.</p>
+      <p><a href="{{publicUrl}}/project/e7e8765e-3f85-4e3a-aac9-301c62099c5c">Открыть шаблон научной статьи журнала «Вестник Московского Университета. Серия 3. Физика. Астрономия» в онлайн-редакторе Labkeeper.</a></p>
+

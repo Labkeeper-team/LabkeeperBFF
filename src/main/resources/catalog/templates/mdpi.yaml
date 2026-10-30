@@ -1,0 +1,263 @@
+catalogIndex: 4
+slug: mdpi
+projectId: b07135ee-b778-4b28-a7b9-a5797cc03584
+cardTitle: 'Шаблон статьи издательства MDPI'
+cardDescription: >-
+  Разбор актуального LaTeX-шаблона MDPI: класс документа, авторы, ORCID,
+  формулы, рисунки, таблицы и библиография.
+categories:
+  - latex
+  - mdpi
+title: 'Издательство MDPI: разбор LaTeX-шаблона для подготовки статьи'
+pageTitle: 'Шаблон статьи MDPI — Labkeeper'
+metaDescription: >-
+  LaTeX-шаблон статьи для издательства MDPI: выбор журнала, авторы и ORCID,
+  аннотация, формулы, рисунки, таблицы и оформление библиографии.
+breadcrumbTitle: 'MDPI'
+h1: 'Издательство MDPI: разбор LaTeX-шаблона для подготовки статьи'
+datePublished: '2026-10-23'
+dateModified: '2026-10-23'
+readingTime: '6 мин'
+keywords:
+  - 'MDPI LaTeX шаблон'
+  - 'template.tex mdpi'
+  - 'оформление статьи Scopus Web of Science'
+sliderTitle: 'Шаблон статьи MDPI'
+sliderText: 'LaTeX-шаблон рукописи для журналов издательства MDPI.'
+sidebarText: 'Откройте шаблон статьи и продолжите его в своём проекте.'
+ctaTitle: 'Откройте шаблон статьи'
+ctaText: 'Готовый LaTeX-шаблон издательства MDPI уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Начните подготовку: слева — исходный код LaTeX, справа — окно просмотра PDF.</li>
+      </ol>
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+    html: |2-
+      <p><strong>Преамбула и выбор журнала</strong></p>
+      <p>Самая первая строка шаблона (файла template.tex) определяет стиль отображения документа:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX варианты опций класса документа</span></div>
+          <pre><code>\documentclass[journal,article,submit,moreauthors]{Definitions/mdpi}
+      %\documentclass[preprints,article,accept,moreauthors]{Definitions/mdpi}
+      %\documentclass[preprints,article,submit,oneauthor]{Definitions/mdpi}</code></pre>
+      </div>
+      <ul>
+          <li><code>journal</code> — заменяется на короткий код нужного издания MDPI;</li>
+          <li><code>article</code> — <a href="https://www.mdpi.com/about/article_types">указывается тип рукописи</a>;</li>
+          <li><code>submit</code> — отображает макет для этапа рецензирования, после принятия укажите <code>accept</code>;</li>
+          <li><code>moreauthors</code> — замените на <code>oneauthor</code>, если вы единственный автор.</li>
+      </ul>
+      <p><strong>Название и ORCID</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% Full title of the paper (Capitalized)
+      \Title{Title}
+
+      % Author Orchid ID: enter ID or remove command
+      \newcommand{\orcidauthorA}{0000-0000-0000-000X} % Add \orcidA{} behind the author's name
+      %\newcommand{\orcidauthorB}{0000-0000-0000-000X} % Add \orcidB{} behind the author's name</code></pre>
+      </div>
+      <p><strong>Авторы и аффилиация</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% Authors, for the paper (add full first names)
+      \Author{Firstname Lastname $^{1}$\orcidA{}, Firstname Lastname $^{2}$ and Firstname Lastname $^{2,}$*}
+
+      %\longauthorlist{yes}
+
+      % MDPI internal command: Authors, for metadata in PDF
+      \AuthorNames{Firstname Lastname, Firstname Lastname and Firstname Lastname}
+
+      %\longauthorlist{yes}
+
+      % Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+      \address{%
+      $^{1}$ \quad Affiliation 1; e-mail@e-mail.com\\
+      $^{2}$ \quad Affiliation 2; e-mail@e-mail.com}
+
+      % Contact information of the corresponding author
+      \corres{Correspondence: e-mail@e-mail.com; Tel.: (optional; include country code; if there are multiple corresponding authors, add author initials) +xx-xxxx-xxx-xxxx (F.L.)}</code></pre>
+      </div>
+      <p><strong>Аннотация и ключевые слова</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% Abstract (Do not insert blank lines, i.e. \\)
+      \abstract{A single paragraph of about 200 words maximum. For research articles, abstracts should give a pertinent overview of the work. We strongly encourage authors to use the following style of structured abstracts, but without headings: (1) Background: Place the question addressed in a broad context and highlight the purpose of the study. (2) Methods: Briefly describe the main methods or treatments applied. (3) Results: Summarize the article's main findings. (4) Conclusions: Indicate the main conclusions or interpretations. The abstract should be an objective representation of the article and it must not contain results that are not presented and substantiated in the main text and should not exaggerate the main~conclusions.}
+
+      % Keywords
+      \keyword{keyword 1; keyword 2; keyword 3 (List three to ten pertinent keywords specific to the article; yet reasonably common within the subject discipline.)}</code></pre>
+      </div>
+      <p>Перед началом редактирования удалите строку:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\setcounter{section}{-1} %% Remove this when starting to work on the template.</code></pre>
+      </div>
+      <p><strong>Разделы и подразделы с капитализацией</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\subsection{Subsection}
+      \subsubsection{Subsubsection}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\newcommand{\orcidauthorA}{0000-0000-0000-000X}</code></pre>
+      </div>
+      <p><strong>Списки</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>Bulleted lists look like this:
+      \begin{itemize}
+      \item	First bullet;
+      \item	Second bullet;
+      \item	Third bullet.
+      \end{itemize}
+
+      Numbered lists can be added as follows:
+      \begin{enumerate}
+      \item	First item;
+      \item	Second item;
+      \item	Third item.
+      \end{enumerate}</code></pre>
+      </div>
+      <p><strong>Формулы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{equation}
+      a = 1,
+      \end{equation}
+
+      %\isPreprints{}{% This command is only used for ``preprints''.
+      \begin{adjustwidth}{-\extralength}{0cm}
+      %} % If the paper is ``preprints'', please uncomment this parenthesis.
+      \begin{equation}
+      a = b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + w + x + y + z
+      \end{equation}
+      %\isPreprints{}{% This command is only used for ``preprints''.
+      \end{adjustwidth}
+      %} % If the paper is ``preprints'', please uncomment this parenthesis.</code></pre>
+      </div>
+      <p><strong>Рисунки</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{figure}[H]
+      %\isPreprints{\centering}{} % Only used for preprints
+      \includegraphics[width=8.0 cm]{Definitions/logo-mdpi}
+      \caption{This is a figure. Schemes follow the same formatting.\label{fig1}}
+      \end{figure}
+      \unskip</code></pre>
+      </div>
+      <p><strong>Таблицы</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{table}[H]
+      %\small % Change table font size
+      \caption{This is a table caption. Tables should be placed in the main text near the first time they are~cited.\label{tab1}}
+      %\isPreprints{\centering}{} % Only used for preprints
+      \begin{tabularx}{\textwidth}{CCC}
+      \toprule
+      \textbf{Title 1}	&amp; \textbf{Title 2}	&amp; \textbf{Title 3}\\
+      \midrule
+      Entry 1		&amp; Data			&amp; Data\\
+      Entry 2		&amp; Data			&amp; Data \textsuperscript{1}\\
+      \bottomrule
+      \end{tabularx}
+
+      \noindent{\footnotesize{\textsuperscript{1} Tables may have a footer.}}
+      \end{table}</code></pre>
+      </div>
+      <p><strong>Декларации</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\authorcontributions{}
+      \funding{}
+      \institutionalreview{}
+      \informedconsent{}
+      \dataavailability{}
+      \durcstatement{}
+      \publicinvolvement{}
+      \acknowledgments{}
+      \conflictsofinterest{}</code></pre>
+      </div>
+      <p><strong>Библиография и ссылка в тексте</strong></p>
+      <p>Раздел литературы имеет строгую структуру. Различные типы ссылок оформляются определенным образом.</p>
+      <p>MDPI использует три стиля оформления библиографических ссылок:</p>
+      <ul>
+          <li>ACS;</li>
+          <li>Chicago (для кодов журналов arts, genealogy, histories, humanities, laws, literature, religions, risks, socsci);</li>
+          <li>APA (для кодов журналов admsci, aieduc, behavsci, businesses, econometrics, economies, education, ejihpe, famsci, games, humans, ijcs, ijfs, investment, fclam, jintelligence, journalmedia, jrfm, jsam, languages, opermanag, peacestud, pmh, psycholint, publications, tourismhosp, youth).</li>
+      </ul>
+      <p>Вам следует ознакомиться с инструкциями на странице для авторов журнала, чтобы узнать, какой из них подходит для подготовки статьи.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX выбор способа подключения библиографии</span></div>
+          <pre><code>%=====================================
+      % References, variant A: external bibliography
+      %=====================================
+      % \bibliography{your_external_BibTeX_file}
+
+      %=====================================
+      % References, variant B: internal bibliography
+      %=====================================</code></pre>
+      </div>
+      <p>Пример списка библиографии (variant B) в формате ACS</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX ACS</span></div>
+          <pre><code>% ACS format
+      \isAPAandChicago{}{%
+      \begin{thebibliography}{999}
+      % Reference 1
+      \bibitem[Author1(year)]{ref-journal}
+      Author~1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
+      % Reference 2
+      \bibitem[Author2(year)]{ref-book1}
+      Author~1, L. The title of the cited contribution. In {\em The Book Title}; Editor 1, F., Editor 2, A., Eds.; Publishing House: City, Country, 2007; pp. 32--58.
+      % Reference 3
+      \bibitem[Author3 and Author4 (year)]{ref-book2}
+      Author 1, A.; Author 2, B. \textit{Book Title}, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp. 154--196.
+      % Reference 4
+      \bibitem[Author5 and Author6(year)]{ref-unpublish}
+      Author 1, A.B.; Author 2, C. Title of Unpublished Work. \textit{Abbreviated Journal Name} year, \textit{phrase indicating stage of publication (submitted; accepted; in press)}.
+      % Reference 5
+      \bibitem[Author7(year)]{ref-url}
+      Title of Site. Available online: URL (accessed on Day Month Year).
+      % Reference 6
+      \bibitem[Author8 et al.(year)]{ref-proceeding}
+      Author 1, A.B.; Author 2, C.D.; Author 3, E.F. Title of presentation. In Proceedings of the Name of the Conference, Location of Conference, Country, Date of Conference (Day Month Year); Abstract Number (optional), Pagination (optional).
+      % Reference 7
+      \bibitem[Author9(year)]{ref-thesis}
+      Author 1, A.B. Title of Thesis. Level of Thesis, Degree-Granting University, Location of University, Date of Completion.
+      \end{thebibliography}
+      }</code></pre>
+      </div>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в интерфейсе Labkeeper. Встроенный компилятор соберет документ и отобразит PDF-файл в окне предпросмотра.</p>
+      <p>В Labkeeper встроены инструменты искусственного интеллекта, которые помогают находить и исправлять ошибки верстки за один клик прямо в интерфейсе редактора. Используйте встроенного AI-агента для исправления ошибок.</p>
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+    html: |2-
+      <p>Скачайте проект и отправьте в редакцию согласно разделу
+      <a href="https://www.mdpi.com/authors">«Руководство для авторов»</a>
+      на сайте издательства MDPI.</p>
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+    html: |2-
+      <p>Используйте готовый актуальный шаблон для издательства MDPI.</p>
+      <p><a href="{{publicUrl}}/project/b07135ee-b778-4b28-a7b9-a5797cc03584">Открыть шаблон научной статьи для издательства MDPI в онлайн-редакторе Labkeeper.</a></p>
