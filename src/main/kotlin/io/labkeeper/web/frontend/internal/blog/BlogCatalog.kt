@@ -59,7 +59,7 @@ class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
     val tags = categories.zip(categoryNames, ::ArticleTag)
     private val dateModified = yaml["dateModified"] as String
     val dateDisplay: String = LocalDate.parse(dateModified).format(DATE_FORMAT)
-    val editorExampleUrl = exampleUrl(yaml["editorExample"] as Map<String, String>)
+    val editorExampleUrl = exampleUrl(EditorExample.fromYaml(yaml["editorExample"]))
     private val url = "$siteUrl/blog/$slug"
 
     val articleJsonLd = scriptJson(
@@ -104,7 +104,6 @@ private const val PUBLIC_HOST_TOKEN = "{{publicHost}}"
 private val JSON = ObjectMapper()
 private val WHITESPACE = Regex("\\s+")
 private val DATE_FORMAT = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.forLanguageTag("ru"))
-private val EXAMPLE_TYPES = listOf("compute", "latex", "markdown")
 private val CATEGORY_NAMES = mapOf(
     "latex" to "Работа с LaTeX",
     "markdown" to "Работа с Markdown",
@@ -119,9 +118,39 @@ private fun scriptJson(value: Any) = JSON.writeValueAsString(value).replace("<",
 
 private fun collapseWhitespace(text: String) = text.replace(WHITESPACE, " ").trim()
 
-private fun exampleUrl(example: Map<String, String>): String {
-    val open = if ("latex" in example || "compute" in example) "latex" else "markdown"
-    val params = listOf("open" to open) + EXAMPLE_TYPES.mapNotNull { type -> example[type]?.let { type to it } }
+private data class EditorExample(
+    val compute: String?,
+    val latex: String?,
+    val markdown: String?,
+    val computeVisible: Boolean?,
+) {
+    companion object {
+        fun fromYaml(value: Any?): EditorExample {
+            require(value is Map<*, *>) { "editorExample must be a mapping" }
+            fun text(name: String): String? {
+                val field = value[name]
+                require(field == null || field is String) { "editorExample.$name must be a string" }
+                return field
+            }
+            val computeVisible = value["computeVisible"]
+            require(computeVisible == null || computeVisible is Boolean) {
+                "editorExample.computeVisible must be a boolean"
+            }
+            return EditorExample(text("compute"), text("latex"), text("markdown"), computeVisible)
+        }
+    }
+}
+
+private fun exampleUrl(example: EditorExample): String {
+    val open = if (example.latex != null || example.compute != null) "latex" else "markdown"
+    val params = listOf("open" to open) +
+        listOfNotNull(
+            example.compute?.let { "compute" to it },
+            example.latex?.let { "latex" to it },
+            example.markdown?.let { "markdown" to it },
+            example.computeVisible?.takeIf { example.compute != null }
+                ?.let { "computeVisible" to it.toString() },
+        )
     return params.joinToString("&", prefix = "/project/default?") { (name, value) ->
         "$name=${URLEncoder.encode(value, Charsets.UTF_8)}"
     }
