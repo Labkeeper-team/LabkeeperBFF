@@ -31,7 +31,7 @@ class LandingPagesServerTest(
     @Autowired private val webTestClient: WebTestClient,
 ) {
     @Test
-    fun homePageRendersSettingsAndPreviewProjects() {
+    fun homePageRendersSettings() {
         val body = get("/", MediaType.TEXT_HTML)
 
         body shouldContain "<!doctype html>"

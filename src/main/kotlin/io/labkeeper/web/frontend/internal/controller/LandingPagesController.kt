@@ -47,7 +47,6 @@ class LandingPagesController(
 
     @GetMapping("/")
     fun index(model: Model): String {
-        model.addAttribute("previewProjects", properties.previewProjects)
         model.addAttribute("homeArticles", blogCatalog.articles.take(HOME_CATALOG_LIMIT))
         model.addAttribute("homeTemplates", templateCatalog.templates.take(HOME_CATALOG_LIMIT))
         return "index"
