@@ -222,8 +222,10 @@ private fun exampleSegment(item: Any?, slug: String, index: Int): BlogExampleSeg
     val segment = item as? Map<*, *> ?: error("Blog article '$slug' example segment ${index + 1} must be an object")
     val unknown = segment.keys.filter { it != "type" && it != "text" && it != "parameters" }
     if (unknown.isNotEmpty()) error("Blog article '$slug' example segment ${index + 1} has unknown fields $unknown")
-    val typeName = segment["type"] as? String ?: error("Blog article '$slug' example segment ${index + 1} is missing type")
-    val type = SEGMENT_TYPES[typeName] ?: error("Blog article '$slug' example segment ${index + 1} has unknown type '$typeName'")
+    val typeName = segment["type"] as? String
+        ?: error("Blog article '$slug' example segment ${index + 1} is missing type")
+    val type = SEGMENT_TYPES[typeName]
+        ?: error("Blog article '$slug' example segment ${index + 1} has unknown type '$typeName'")
     val text = segment["text"] as? String ?: error("Blog article '$slug' example segment ${index + 1} is missing text")
     if (text.isBlank()) error("Blog article '$slug' example segment ${index + 1} has empty text")
     return BlogExampleSegment(type, text, exampleParameters(segment["parameters"], slug, index))
