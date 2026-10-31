@@ -44,6 +44,8 @@ class LandingPagesServerTest(
         body shouldContain "href=\"assets/css/style.css\""
         body shouldContain "Измерение интенсивности радиационного фона"
         body shouldContain "href=\"/templates\""
+        body shouldContain "href=\"/wiki/index.html\""
+        body shouldNotContain "github.com/Labkeeper-team/Docs/wiki"
         body shouldContain "Шаблон статьи для журнала «Автоматика и телемеханика»"
         body shouldContain "/project/e7e8765e-3f85-4e3a-aac9-301c62099c5c"
         body shouldContain "header__projects"
@@ -82,6 +84,9 @@ class LandingPagesServerTest(
         sitemap shouldContain "<lastmod>2026-10-18</lastmod>"
         sitemap shouldContain "<loc>https://labkeeper.test/templates</loc>"
         sitemap shouldContain "<loc>https://labkeeper.test/templates/avtomatika-i-telemekhanika</loc>"
+        sitemap shouldContain "<loc>https://labkeeper.test/wiki/index.html</loc>"
+        sitemap shouldContain "<loc>https://labkeeper.test/wiki/language/syntax.html</loc>"
+        sitemap shouldNotContain "/wiki/_search"
         sitemap.replace("\r\n", "\n") shouldContain
             "<loc>https://labkeeper.test/templates/rezyume-1</loc>\n    <lastmod>2026-10-30</lastmod>"
         sitemap shouldNotContain "labkeeper.io"

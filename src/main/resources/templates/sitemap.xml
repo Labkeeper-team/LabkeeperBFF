@@ -65,4 +65,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url th:each="page : ${wikiPages}">
+    <loc th:text="|${publicUrl}/wiki/${page}|">[(${publicUrl})]/wiki/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
