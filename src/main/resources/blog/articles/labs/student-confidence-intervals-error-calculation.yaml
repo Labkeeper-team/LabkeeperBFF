@@ -10,6 +10,19 @@ breadcrumbTitle: 'Погрешности и интервалы Стьюдент�
 h1: 'Расчет и&nbsp;оформление доверительных интервалов (погрешности Стьюдента)'
 categories:
   - 'labs'
+related:
+  - 'physics-lab-measurement-graphs-formatting-gost'
+  - 'figure-double-numbering-chapters-gost'
+  - 'lab-report-bibliography-gost-2008'
+  - 'formula-variable-explanation-where-gost'
+  - 'software-screenshots-report-gost-caption'
+  - 'lab-report-bibliography-gost-7-1'
+  - 'formula-numbering-lab-reports-gost'
+  - 'algorithm-flowcharts-gost-markdown-latex'
+  - 'programming-lab-report-code-listings-gost'
+  - 'markdown-table-merge-cells-rowspan-colspan'
+  - 'markdown-to-pdf-export'
+  - 'markdown-task-lists'
 keywords:
   - 'оформление доверительного интервала в отчете'
   - 'расчет погрешностей стьюдент таблица'

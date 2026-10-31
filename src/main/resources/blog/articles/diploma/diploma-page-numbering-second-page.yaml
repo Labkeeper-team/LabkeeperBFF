@@ -10,6 +10,19 @@ breadcrumbTitle: 'Нумерация со второго листа по ГОС�
 h1: 'Автоматическая нумерация страниц диплома со&nbsp;второго листа'
 categories:
   - 'diploma'
+related:
+  - 'formula-variable-explanation-where-gost'
+  - 'latex-multi-file-document-input-include'
+  - 'diploma-appendices-listings-diagrams-gost'
+  - 'automatic-table-of-contents-diploma-gost'
+  - 'a4-frames-eskd-stamp-technical-diploma'
+  - 'paragraph-indent-1-25-gost'
+  - 'latex-line-spacing-1-5-setspace-gost'
+  - 'latex-geometry-margins-gost'
+  - 'latex-newcommand-macros'
+  - 'latex-gost-bibliography'
+  - 'latex-diploma-gost'
+  - 'latex-titlepage'
 keywords:
   - 'нумерация диплома со второй страницы онлайн'
   - 'как убрать номер с титульного листа вкр'

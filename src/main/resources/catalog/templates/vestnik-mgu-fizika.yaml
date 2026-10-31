@@ -8,6 +8,13 @@ cardDescription: >-
 categories:
   - latex
   - msu-bulletin
+related:
+  - 'avtomatika-i-telemekhanika'
+  - 'automation-and-remote-control'
+  - 'mdpi'
+  - 'springer-nature'
+  - 'izvestiya-saratov-mmi'
+  - 'zhurnal-svmo'
 title: 'Оформление статьи для журнала «Вестник Московского Университета. Серия 3. Физика. Астрономия»: актуальный LaTeX-шаблон'
 pageTitle: 'Шаблон «Вестник Московского университета. Физика. Астрономия» — Labkeeper'
 metaDescription: >-

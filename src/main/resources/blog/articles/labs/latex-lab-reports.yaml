@@ -22,6 +22,19 @@ h1: |2-
 categories:
   - 'labs'
   - 'latex'
+related:
+  - 'indirect-measurement-error-calculation-lab-report'
+  - 'ideal-lab-report-template-gost-online'
+  - 'how-to-write-lab-report-conclusion-examples'
+  - 'formula-numbering-lab-reports-gost'
+  - 'algorithm-flowcharts-gost-markdown-latex'
+  - 'programming-lab-report-code-listings-gost'
+  - 'markdown-table-merge-cells-rowspan-colspan'
+  - 'markdown-to-pdf-export'
+  - 'markdown-task-lists'
+  - 'latex-chemfig'
+  - 'latex-siunitx'
+  - 'latex-eskd'
 keywords:
   - 'шаблон отчета по лабораторной работе latex'
   - 'как оформить погрешности в latex'

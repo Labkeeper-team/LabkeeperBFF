@@ -10,6 +10,19 @@ breadcrumbTitle: 'Запрет переносов и неразрывный пр
 h1: 'Как запретить разрыв слова и&nbsp;перенос на&nbsp;новую строку в&nbsp;LaTeX'
 categories:
   - 'latex'
+related:
+  - 'overleaf-alternatives-russia-online-latex'
+  - 'latex-tcolorbox-theorems-callouts'
+  - 'latex-multi-file-document-input-include'
+  - 'latex-custom-rgb-hex-colors-xcolor'
+  - 'latex-minipage-images-tables-side-by-side'
+  - 'latex-tikz-automata-graphs'
+  - 'latex-longtable-multipage'
+  - 'latex-sans-serif-fonts'
+  - 'latex-forest-trees'
+  - 'latex-draftwatermark'
+  - 'latex-wrapfig-text-flow'
+  - 'latex-xcolor-text-background'
 keywords:
   - 'запретить перенос слова в latex'
   - 'неразрывный пробел в latex тильда'

@@ -8,6 +8,13 @@ cardDescription: >-
 categories:
   - latex
   - arc
+related:
+  - 'avtomatika-i-telemekhanika'
+  - 'vestnik-mgu-fizika'
+  - 'mdpi'
+  - 'springer-nature'
+  - 'izvestiya-saratov-mmi'
+  - 'zhurnal-svmo'
 title: 'Журнал «Автоматика и телемеханика»: LaTeX-шаблон для подготовки к публикации статьи на английском языке'
 pageTitle: 'Английский LaTeX-шаблон «Автоматика и телемеханика» — Labkeeper'
 metaDescription: >-

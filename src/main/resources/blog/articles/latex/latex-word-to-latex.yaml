@@ -22,6 +22,19 @@ h1: |2-
                           с&nbsp;сохранением формул
 categories:
   - 'latex'
+related:
+  - 'latex-titlepage'
+  - 'latex-dissertation'
+  - 'latex-lab-reports'
+  - 'latex-chemfig'
+  - 'latex-fancyhdr'
+  - 'latex-siunitx'
+  - 'latex-scopus-wos'
+  - 'latex-list-of-figures-tables'
+  - 'latex-systems-equations'
+  - 'latex-cv-resume'
+  - 'latex-amsthm'
+  - 'latex-eskd'
 keywords:
   - 'перенос формул из word в latex онлайн'
   - 'импорт docx в latex без потери формул'

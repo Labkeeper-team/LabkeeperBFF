@@ -8,6 +8,13 @@ cardDescription: >-
 categories:
   - latex
   - mdpi
+related:
+  - 'avtomatika-i-telemekhanika'
+  - 'automation-and-remote-control'
+  - 'vestnik-mgu-fizika'
+  - 'springer-nature'
+  - 'izvestiya-saratov-mmi'
+  - 'zhurnal-svmo'
 title: 'Издательство MDPI: разбор LaTeX-шаблона для подготовки статьи'
 pageTitle: 'Шаблон статьи MDPI — Labkeeper'
 metaDescription: >-

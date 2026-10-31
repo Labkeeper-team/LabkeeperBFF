@@ -33,14 +33,18 @@ class TemplateCatalog(@Value($$"${io.labkeeper.host}") host: String) {
 
     fun find(slug: String) = templates.firstOrNull { it.slug == slug }
 
-    /** Journals link to other journals, CV templates link to other CV templates. The English ARC page stays next to the Russian AIT page. */
+    /** Links listed in the template YAML under `related`, in that order. */
     fun relatedTo(page: TemplatePage): List<TemplateLink> {
-        val cv = "cv" in page.categoryIds
-        val companion = COMPANION_SLUG[page.slug]
-        return templates
-            .filter { it.slug != page.slug && ("cv" in it.categoryIds) == cv }
-            .sortedWith(compareBy({ if (it.slug == companion) 0 else 1 }, { it.catalogIndex }))
-            .map { TemplateLink(it.canonicalPath, it.sliderTitle, it.sliderText) }
+        val bySlug = templates.associateBy { it.slug }
+        return page.relatedSlugs.map { slug ->
+            if (slug == page.slug) error("Template '${page.slug}' links to itself")
+            val target = bySlug[slug] ?: error("Template '${page.slug}' links to unknown template '$slug'")
+            TemplateLink(target.canonicalPath, target.sliderTitle, target.sliderText)
+        }
+    }
+
+    init {
+        templates.forEach(::relatedTo)
     }
 }
 
@@ -79,6 +83,7 @@ class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String)
     val twitterDescription = text(yaml, "twitterDescription") ?: metaDescription
     val keywordsText = (yaml["keywords"] as List<String>?).orEmpty().joinToString(", ")
     val categoryIds = (yaml["categories"] as List<String>?).orEmpty()
+    val relatedSlugs = slugList(yaml, sourceName)
     val categoryAttr = categoryIds.joinToString(" ")
     val categoryNames = categoryIds.map { CATEGORY_NAMES[it] ?: it }
     val tags = categoryIds.zip(categoryNames, ::ArticleTag)
@@ -132,11 +137,6 @@ class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String)
     )
 }
 
-private val COMPANION_SLUG = mapOf(
-    "avtomatika-i-telemekhanika" to "automation-and-remote-control",
-    "automation-and-remote-control" to "avtomatika-i-telemekhanika",
-)
-
 private const val PUBLIC_URL_TOKEN = "{{publicUrl}}"
 private const val PUBLIC_HOST_TOKEN = "{{publicHost}}"
 private val JSON = ObjectMapper()
@@ -176,6 +176,15 @@ private fun scriptJson(value: Any) = JSON.writeValueAsString(value).replace("<",
 private fun collapseWhitespace(text: String) = text.replace(WHITESPACE, " ").trim()
 
 private fun text(yaml: Map<String, Any?>, key: String) = (yaml[key] as String?)?.let(::collapseWhitespace)
+
+private fun slugList(yaml: Map<String, Any?>, sourceName: String): List<String> {
+    val raw = yaml["related"] as? List<*> ?: error("Template '$sourceName' is missing 'related'")
+    return raw.map { item ->
+        val slug = item as? String ?: error("Template '$sourceName' has a non-text related slug")
+        if (slug.isBlank()) error("Template '$sourceName' has a blank related slug")
+        slug
+    }
+}
 
 private fun required(yaml: Map<String, Any?>, sourceName: String, key: String): String {
     val value = yaml[key] as String?

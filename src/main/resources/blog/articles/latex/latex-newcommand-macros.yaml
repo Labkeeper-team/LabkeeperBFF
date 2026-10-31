@@ -11,6 +11,19 @@ h1: "Создание собственных команд (макросов) в&
 categories:
   - 'latex'
   - 'diploma'
+related:
+  - 'automatic-table-of-contents-diploma-gost'
+  - 'a4-frames-eskd-stamp-technical-diploma'
+  - 'paragraph-indent-1-25-gost'
+  - 'diploma-page-numbering-second-page'
+  - 'latex-line-spacing-1-5-setspace-gost'
+  - 'latex-geometry-margins-gost'
+  - 'latex-gost-bibliography'
+  - 'latex-diploma-gost'
+  - 'latex-titlepage'
+  - 'latex-dissertation'
+  - 'latex-list-of-figures-tables'
+  - 'latex-eskd'
 keywords:
   - 'как создать свою команду макрос в latex'
   - 'newcommand latex примеры'

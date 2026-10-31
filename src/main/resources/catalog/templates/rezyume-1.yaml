@@ -8,6 +8,9 @@ cardDescription: >-
 categories:
   - latex
   - cv
+related:
+  - 'altacv'
+  - 'simple-hipster-cv'
 title: 'LaTeX-шаблон академического CV «Резюме 1» на классе curve'
 pageTitle: 'Шаблон «Резюме 1» — Labkeeper'
 metaDescription: >-

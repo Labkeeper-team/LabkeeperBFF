@@ -8,6 +8,13 @@ cardDescription: >-
 categories:
   - latex
   - ait
+related:
+  - 'automation-and-remote-control'
+  - 'vestnik-mgu-fizika'
+  - 'mdpi'
+  - 'springer-nature'
+  - 'izvestiya-saratov-mmi'
+  - 'zhurnal-svmo'
 title: 'Оформление статьи для журнала «Автоматика и телемеханика»: актуальный LaTeX-шаблон'
 pageTitle: 'Шаблон статьи «Автоматика и телемеханика» в LaTeX — Labkeeper'
 metaDescription: >-

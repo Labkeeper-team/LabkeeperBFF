@@ -8,6 +8,13 @@ cardDescription: >-
 categories:
   - latex
   - svmo-journal
+related:
+  - 'avtomatika-i-telemekhanika'
+  - 'automation-and-remote-control'
+  - 'vestnik-mgu-fizika'
+  - 'mdpi'
+  - 'springer-nature'
+  - 'izvestiya-saratov-mmi'
 title: 'LaTeX-шаблон статьи для «Журнал Средневолжского математического общества»'
 pageTitle: 'Шаблон «Журнал Средневолжского математического общества» — Labkeeper'
 metaDescription: >-

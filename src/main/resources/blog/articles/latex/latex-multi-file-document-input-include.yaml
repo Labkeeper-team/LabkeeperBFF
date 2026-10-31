@@ -11,6 +11,19 @@ h1: 'Сборка большого документа из&nbsp;нескольк
 categories:
   - 'latex'
   - 'diploma'
+related:
+  - 'justified-text-spacing-hyphenation-latex-vs-word'
+  - 'figure-double-numbering-chapters-gost'
+  - 'literature-review-structure-diploma-citation'
+  - 'legal-regulatory-acts-bibliography-diploma-gost'
+  - 'master-thesis-title-page-gost'
+  - 'formula-variable-explanation-where-gost'
+  - 'diploma-appendices-listings-diagrams-gost'
+  - 'automatic-table-of-contents-diploma-gost'
+  - 'a4-frames-eskd-stamp-technical-diploma'
+  - 'paragraph-indent-1-25-gost'
+  - 'diploma-page-numbering-second-page'
+  - 'latex-line-spacing-1-5-setspace-gost'
 keywords:
   - 'разбить диплом на несколько файлов latex'
   - 'команда include latex'

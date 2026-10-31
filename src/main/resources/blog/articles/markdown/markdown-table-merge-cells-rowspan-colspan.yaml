@@ -11,6 +11,19 @@ h1: 'Как объединять ячейки в&nbsp;таблицах Markdown 
 categories:
   - 'markdown'
   - 'labs'
+related:
+  - 'markdown-superscript-subscript-indices'
+  - 'markdown-image-size-width-height'
+  - 'markdown-multiline-formulas-matrices-mathjax'
+  - 'github-readme-template-badges-spoilers'
+  - 'markdown-mathjax-katex-latex-math'
+  - 'markdown-spoilers-details-summary'
+  - 'markdown-raw-html-integration'
+  - 'markdown-to-pdf-export'
+  - 'markdown-strikethrough-underline-highlight'
+  - 'markdown-code-syntax-highlighting'
+  - 'markdown-task-lists'
+  - 'markdown-footnotes'
 keywords:
   - 'объединение ячеек в таблице markdown'
   - 'markdown таблица rowspan'

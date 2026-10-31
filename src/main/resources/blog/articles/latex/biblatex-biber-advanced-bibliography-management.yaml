@@ -11,6 +11,19 @@ h1: 'Пакет biblatex и&nbsp;biber: продвинутое управлен�
 categories:
   - 'latex'
   - 'articles'
+related:
+  - 'rinc-vak-scientific-article-template-fonts-margins'
+  - 'imrad-structure-scientific-article-scopus-template'
+  - 'diploma-annotation-abstract-russian-english'
+  - 'footnotes-bottom-page-law-history-coursework-gost'
+  - 'literature-review-structure-diploma-citation'
+  - 'essay-report-titlepage-format'
+  - 'electronic-resources-bibliography-gost-7-0-100'
+  - 'scientific-article-annotation-abstract-keywords-vak'
+  - 'latex-gost-bibliography'
+  - 'latex-scopus-wos'
+  - 'latex-amsthm'
+  - 'latex-formulas'
 keywords:
   - 'настройка biblatex biber онлайн'
   - 'сортировка списка литературы biblatex'

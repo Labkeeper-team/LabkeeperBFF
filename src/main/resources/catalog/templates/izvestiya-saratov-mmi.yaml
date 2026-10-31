@@ -8,6 +8,13 @@ cardDescription: >-
 categories:
   - latex
   - ssu-izvestiya
+related:
+  - 'avtomatika-i-telemekhanika'
+  - 'automation-and-remote-control'
+  - 'vestnik-mgu-fizika'
+  - 'mdpi'
+  - 'springer-nature'
+  - 'zhurnal-svmo'
 title: 'Актуальный LaTeX-шаблон статьи для журнала «Известия Саратовского университета. Новая серия. Серия: Математика. Механика. Информатика»'
 pageTitle: 'Шаблон «Известия Саратовского университета» — Labkeeper'
 metaDescription: >-

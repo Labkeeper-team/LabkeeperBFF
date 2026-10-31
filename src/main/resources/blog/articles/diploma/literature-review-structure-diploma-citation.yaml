@@ -11,6 +11,19 @@ h1: 'Разметка литературного обзора в&nbsp;курсо
 categories:
   - 'diploma'
   - 'articles'
+related:
+  - 'rinc-vak-scientific-article-template-fonts-margins'
+  - 'imrad-structure-scientific-article-scopus-template'
+  - 'diploma-annotation-abstract-russian-english'
+  - 'biblatex-biber-advanced-bibliography-management'
+  - 'footnotes-bottom-page-law-history-coursework-gost'
+  - 'essay-report-titlepage-format'
+  - 'electronic-resources-bibliography-gost-7-0-100'
+  - 'scientific-article-annotation-abstract-keywords-vak'
+  - 'latex-gost-bibliography'
+  - 'latex-dissertation'
+  - 'latex-fancyhdr'
+  - 'latex-formulas'
 keywords:
   - 'структура литературного обзора диплом'
   - 'оформление ссылок в обзоре литературы'
