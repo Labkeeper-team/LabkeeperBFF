@@ -114,6 +114,16 @@ class LandingPagesServerTest(
     }
 
     @Test
+    fun projectPagesAreNotIndexed() {
+        listOf("/project/default", "/project/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").forEach { path ->
+            val body = webTestClient.get().uri(path).exchange()
+                .expectStatus().isOk
+                .expectBody<String>().returnResult().responseBody.orEmpty()
+            body shouldContain "name=\"robots\" content=\"noindex, follow\""
+        }
+    }
+
+    @Test
     fun staticAssetsAreServed() {
         get("/assets/css/style.css", MediaType.valueOf("text/css")) shouldContain "--c-primary"
         get("/assets/img/logo.svg") shouldContain "<svg"
