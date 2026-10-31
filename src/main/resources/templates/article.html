@@ -453,7 +453,32 @@
                         aria-label="Next slide"
                     ></button>
                     <div class="swiper audience__swiper">
-                        <div class="swiper-wrapper"></div>
+                        <div class="swiper-wrapper">
+                            <th:block th:if="${relatedLinks != null}">
+                                <div
+                                    class="swiper-slide"
+                                    th:each="item : ${relatedLinks}"
+                                >
+                                    <a
+                                        th:href="${item.href}"
+                                        class="audience-card"
+                                    >
+                                        <p
+                                            class="audience-card__title"
+                                            th:text="${item.title}"
+                                        >
+                                            Шаблон
+                                        </p>
+                                        <p
+                                            class="audience-card__text"
+                                            th:text="${item.text}"
+                                        >
+                                            Описание
+                                        </p>
+                                    </a>
+                                </div>
+                            </th:block>
+                        </div>
                     </div>
                 </div>
                 <div class="audience__action">

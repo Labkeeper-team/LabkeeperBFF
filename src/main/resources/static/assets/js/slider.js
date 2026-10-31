@@ -154,7 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomArticles = shuffle(eligibleArticles).slice(0, 30);
 
         const swiperWrapper = audienceSwiperEl.querySelector('.swiper-wrapper');
-        if (swiperWrapper && randomArticles.length > 0) {
+        const hasServerSlides =
+            swiperWrapper && swiperWrapper.querySelector('.swiper-slide');
+        if (swiperWrapper && !hasServerSlides && randomArticles.length > 0) {
             swiperWrapper.innerHTML = randomArticles
                 .map(
                     (article) => `

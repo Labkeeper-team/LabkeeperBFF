@@ -30,7 +30,19 @@ class TemplateCatalog(@Value($$"${io.labkeeper.host}") host: String) {
     )
 
     fun find(slug: String) = templates.firstOrNull { it.slug == slug }
+
+    /** Journals link to other journals, CV templates link to other CV templates. The English ARC page stays next to the Russian AIT page. */
+    fun relatedTo(page: TemplatePage): List<TemplateLink> {
+        val cv = "cv" in page.categoryIds
+        val companion = COMPANION_SLUG[page.slug]
+        return templates
+            .filter { it.slug != page.slug && ("cv" in it.categoryIds) == cv }
+            .sortedWith(compareBy({ if (it.slug == companion) 0 else 1 }, { it.catalogIndex }))
+            .map { TemplateLink(it.canonicalPath, it.sliderTitle, it.sliderText) }
+    }
 }
+
+data class TemplateLink(val href: String, val title: String, val text: String)
 
 @Suppress("UNCHECKED_CAST")
 class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String) {
@@ -64,10 +76,10 @@ class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String)
     val twitterTitle = text(yaml, "twitterTitle") ?: pageTitle
     val twitterDescription = text(yaml, "twitterDescription") ?: metaDescription
     val keywordsText = (yaml["keywords"] as List<String>?).orEmpty().joinToString(", ")
-    private val categories = (yaml["categories"] as List<String>?).orEmpty()
-    val categoryAttr = categories.joinToString(" ")
-    val categoryNames = categories.map { CATEGORY_NAMES[it] ?: it }
-    val tags = categories.zip(categoryNames, ::ArticleTag)
+    val categoryIds = (yaml["categories"] as List<String>?).orEmpty()
+    val categoryAttr = categoryIds.joinToString(" ")
+    val categoryNames = categoryIds.map { CATEGORY_NAMES[it] ?: it }
+    val tags = categoryIds.zip(categoryNames, ::ArticleTag)
     private val dateModified = text(yaml, "dateModified")
     val dateDisplay = dateModified?.let { LocalDate.parse(it).format(DATE_FORMAT) }.orEmpty()
     val openUrl = "/project/$projectId"
@@ -117,6 +129,11 @@ class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String)
         ),
     )
 }
+
+private val COMPANION_SLUG = mapOf(
+    "avtomatika-i-telemekhanika" to "automation-and-remote-control",
+    "automation-and-remote-control" to "avtomatika-i-telemekhanika",
+)
 
 private const val PUBLIC_URL_TOKEN = "{{publicUrl}}"
 private const val PUBLIC_HOST_TOKEN = "{{publicHost}}"

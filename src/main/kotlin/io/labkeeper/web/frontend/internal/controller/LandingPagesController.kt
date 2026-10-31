@@ -56,13 +56,17 @@ class LandingPagesController(
 
     @GetMapping("/blog/{slug}")
     fun article(@PathVariable slug: String, model: Model): String {
-        model.addAttribute("article", blogCatalog.find(slug) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND))
+        val page = blogCatalog.find(slug) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
+        model.addAttribute("article", page)
+        model.addAttribute("relatedLinks", blogCatalog.relatedTo(page))
         return "article"
     }
 
     @GetMapping("/templates/{slug}")
     fun template(@PathVariable slug: String, model: Model): String {
-        model.addAttribute("article", templateCatalog.find(slug) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND))
+        val page = templateCatalog.find(slug) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
+        model.addAttribute("article", page)
+        model.addAttribute("relatedLinks", templateCatalog.relatedTo(page))
         model.addAttribute("blogSliderJson", templateCatalog.sliderJson)
         return "article"
     }

@@ -65,6 +65,9 @@ class LandingPagesServerTest(
         article shouldContain "amsmath"
         article shouldContain "window.__LABKEEPER_API_VERSION = \"v9\";"
         article shouldContain "https://labkeeper.test/blog/latex-formulas"
+        article shouldContain "href=\"/blog/latex-amsthm\""
+        article shouldContain "href=\"/blog/rinc-vak-scientific-article-template-fonts-margins\""
+        article shouldNotContain "href=\"/blog/markdown-footnotes\""
         article shouldNotContain "IO_LABKEEPER_FRONTEND_"
         article shouldNotContain "labkeeper.io"
 
@@ -97,7 +100,15 @@ class LandingPagesServerTest(
         template shouldContain "Открыть шаблон"
         template shouldContain "href=\"/project/e7e8765e-3f85-4e3a-aac9-301c62099c5c\""
         template shouldContain "https://labkeeper.test/templates/avtomatika-i-telemekhanika"
+        template shouldContain "href=\"/templates/automation-and-remote-control\""
+        template shouldContain "href=\"/templates/vestnik-mgu-fizika\""
+        template shouldNotContain "href=\"/templates/altacv\""
         template shouldNotContain "labkeeper.io"
+
+        val cv = get("/templates/rezyume-1", MediaType.TEXT_HTML)
+        cv shouldContain "href=\"/templates/altacv\""
+        cv shouldContain "href=\"/templates/simple-hipster-cv\""
+        cv shouldNotContain "href=\"/templates/automation-and-remote-control\""
 
         webTestClient.get().uri("/templates/missing-template").exchange().expectStatus().isNotFound
     }

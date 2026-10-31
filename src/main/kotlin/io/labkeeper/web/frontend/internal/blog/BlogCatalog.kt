@@ -25,8 +25,31 @@ class BlogCatalog(@Value($$"${io.labkeeper.host}") host: String) {
         articles.map { mapOf("url" to "/blog/${it.slug}", "title" to it.sliderTitle, "text" to it.sliderText) },
     )
 
+    private val categorySize = articles.flatMap { it.categoryIds }.groupingBy { it }.eachCount()
+
     fun find(slug: String) = articles.firstOrNull { it.slug == slug }
+
+    /**
+     * Neighbors in the smallest shared category, in catalog order.
+     * A short window keeps a large category one connected chain instead of a random mix.
+     */
+    fun relatedTo(page: BlogArticle): List<ArticleLink> {
+        val primary = page.categoryIds.minByOrNull { categorySize[it] ?: Int.MAX_VALUE } ?: return emptyList()
+        val group = articles.filter { primary in it.categoryIds }.sortedBy { it.catalogIndex }
+        val self = group.indexOfFirst { it.slug == page.slug }
+        if (self < 0 || group.size <= 1) return emptyList()
+        val limit = minOf(RELATED_LIMIT, group.size - 1)
+        val before = limit / 2
+        val after = limit - before
+        return buildList {
+            for (step in 1..before) add(group[(self - step + group.size) % group.size])
+            for (step in 1..after) add(group[(self + step) % group.size])
+        }.sortedBy { it.catalogIndex }
+            .map { ArticleLink("/blog/${it.slug}", plain(it.sliderTitle), plain(it.sliderText)) }
+    }
 }
+
+data class ArticleLink(val href: String, val title: String, val text: String)
 
 @Suppress("UNCHECKED_CAST")
 class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
@@ -53,10 +76,10 @@ class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
     val cardTitle = collapseWhitespace(yaml["cardTitle"] as String)
     val cardDescription = collapseWhitespace(yaml["cardDescription"] as String)
     val keywordsText = (yaml["keywords"] as List<String>).joinToString(", ")
-    private val categories = yaml["categories"] as List<String>
-    val categoryAttr = categories.joinToString(" ")
-    val categoryNames = categories.map { CATEGORY_NAMES[it] ?: it }
-    val tags = categories.zip(categoryNames, ::ArticleTag)
+    val categoryIds = yaml["categories"] as List<String>
+    val categoryAttr = categoryIds.joinToString(" ")
+    val categoryNames = categoryIds.map { CATEGORY_NAMES[it] ?: it }
+    val tags = categoryIds.zip(categoryNames, ::ArticleTag)
     private val dateModified = yaml["dateModified"] as String
     val dateDisplay: String = LocalDate.parse(dateModified).format(DATE_FORMAT)
     val editorExampleUrl = exampleUrl(yaml["editorExample"] as Map<String, String>)
@@ -107,6 +130,8 @@ class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
 
 data class ArticleTag(val id: String, val name: String)
 
+private const val RELATED_LIMIT = 12
+
 private const val PUBLIC_URL_TOKEN = "{{publicUrl}}"
 private const val PUBLIC_HOST_TOKEN = "{{publicHost}}"
 private val JSON = ObjectMapper()
@@ -126,6 +151,8 @@ private val CATEGORY_NAMES = mapOf(
 private fun scriptJson(value: Any) = JSON.writeValueAsString(value).replace("<", "\\u003c")
 
 private fun collapseWhitespace(text: String) = text.replace(WHITESPACE, " ").trim()
+
+private fun plain(text: String) = collapseWhitespace(text.replace("&nbsp;", " ").replace("\u00a0", " "))
 
 private fun exampleUrl(example: Map<String, String>): String {
     val open = if ("latex" in example || "compute" in example) "latex" else "markdown"
