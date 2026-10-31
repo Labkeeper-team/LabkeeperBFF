@@ -4455,6 +4455,20 @@ h2,
   text-overflow: ellipsis;
 }
 
+.template-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.blog-card__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
 .blog-card__footer {
   display: flex;
   align-items: center;
@@ -4465,6 +4479,7 @@ h2,
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding-top: 12px;
   margin-top: auto;
+  text-decoration: none;
 }
 
 .blog-card__arrow {
@@ -4988,5 +5003,23 @@ h2,
 @media (max-width: 1023px) {
   .knowledge__arrow {
     display: none !important;
+  }
+}
+
+/* Шаблоны на главной: две строки карточек фиксированной высоты 280px */
+#templates .knowledge__swiper {
+  --template-row-gap: 16px;
+  height: calc(280px * 2 + var(--template-row-gap) + 30px);
+}
+
+@media (min-width: 768px) {
+  #templates .knowledge__swiper {
+    --template-row-gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #templates .knowledge__swiper {
+    --template-row-gap: 24px;
   }
 }

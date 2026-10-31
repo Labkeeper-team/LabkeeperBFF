@@ -11,6 +11,19 @@ h1: 'Установка полуторного междустрочного ин
 categories:
   - 'latex'
   - 'diploma'
+related:
+  - 'latex-multi-file-document-input-include'
+  - 'diploma-appendices-listings-diagrams-gost'
+  - 'automatic-table-of-contents-diploma-gost'
+  - 'a4-frames-eskd-stamp-technical-diploma'
+  - 'paragraph-indent-1-25-gost'
+  - 'diploma-page-numbering-second-page'
+  - 'latex-geometry-margins-gost'
+  - 'latex-newcommand-macros'
+  - 'latex-gost-bibliography'
+  - 'latex-diploma-gost'
+  - 'latex-titlepage'
+  - 'latex-dissertation'
 keywords:
   - 'полуторный интервал в latex setspace'
   - 'междустрочный интервал 1.5 latex'

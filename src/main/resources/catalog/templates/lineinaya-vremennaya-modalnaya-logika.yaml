@@ -1,0 +1,97 @@
+catalogIndex: 21
+slug: lineinaya-vremennaya-modalnaya-logika
+projectId: d24a814f-ff8f-4b8c-8267-f824cf8c7b6b
+cardTitle: 'Шаблон «Линейная временная модальная логика»'
+cardDescription: >-
+  Дипломный текст в одном LaTeX-фрагменте: аннотация, аксиоматизация и полнота
+  системы FP, определения, леммы и теоремы. Интервал полуторный.
+categories:
+  - latex
+  - diploma
+related:
+  - 'tsentrirovannye-opticheskie-sistemy'
+  - 'skin-effekt-polyi-tsilindr'
+title: 'LaTeX-шаблон диплома «Линейная временная модальная логика»'
+pageTitle: 'Шаблон диплома «Линейная временная модальная логика» — Labkeeper'
+metaDescription: >-
+  Шаблон дипломной работы о линейной временной модальной логике: части
+  аннотации и введения, аксиоматизация FP, полнота, определения и теоремы.
+breadcrumbTitle: 'Модальная логика'
+h1: 'Дипломная работа «Изучение линейной временной модальной логики»'
+datePublished: '2026-10-31'
+dateModified: '2026-10-31'
+readingTime: '6 мин'
+keywords:
+  - 'линейная временная модальная логика'
+  - 'шаблон дипломной работы LaTeX'
+  - 'аксиоматизация FP'
+sliderTitle: 'Модальная логика'
+sliderText: 'Диплом об аксиоматизации и полноте линейной временной логики.'
+sidebarText: 'Откройте диплом и замените текст образца своим.'
+ctaTitle: 'Откройте шаблон диплома'
+ctaText: 'Готовый каркас диплома по модальной логике уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что видно в PDF'
+  - id: commands
+    title: 'Какие команды задают каркас'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Весь текст лежит в одном LaTeX-фрагменте: замените образец своим.</li>
+      </ol>
+      <p>Класс документа — <code>article</code>, опции <code>a4paper</code> и <code>12pt</code>. Интервал задан как <code>\linespread{1.3}</code>, включён <code>\frenchspacing</code>. Локализация — <code>babel</code> с опциями <code>english</code> и <code>russian</code>, кодировки <code>T2A</code> и <code>utf8</code>.</p>
+  - id: description
+    title: 'Что видно в PDF'
+    html: |2-
+      <p>Аннотация начинается частью <code>\part{Аннотация}</code>. В ней сказано, что работа посвящена изучению линейной временной модальной логики, в том числе вопросам аксиоматизации и полноты.</p>
+      <p>Крупные части такие:</p>
+      <ul>
+          <li><strong>Аннотация.</strong></li>
+          <li><strong>Введение.</strong></li>
+          <li><strong>Временная модальная логика.</strong></li>
+          <li><strong>Заключение.</strong></li>
+      </ul>
+      <p>Внутри набраны разделы «Основные определения», «Временная модальная логика», «Линейная временная модальная логика», «Линейное дискретное время», «Аксиоматизация FP», «Поток времени для FP» и «Полнота FP».</p>
+      <p>Окружения теорем заданы пакетом <code>amsthm</code>: <code>definition</code> с номером внутри раздела, ненумерованное <code>remark</code>, <code>lemma</code> и <code>theorem</code>. Для таблиц подключены <code>longtable</code> и <code>booktabs</code>, для рисунков — <code>tikz</code> и <code>graphicx</code>, для кода — <code>listings</code>, для ссылок — <code>hyperref</code>.</p>
+  - id: commands
+    title: 'Какие команды задают каркас'
+    html: |2-
+      <p>Преамбула и начало документа в образце выглядят так. Галочка и крестик берутся из <code>pifont</code>.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[a4paper,12pt]{article}
+      \theoremstyle{definition}
+      \newtheorem{definition}{Определение}[section]
+      \newtheorem*{remark}{Замечание}
+      \newtheorem{lemma}{Лемма}
+      \newtheorem{theorem}{Теорема}
+      \linespread{1.3}
+      \frenchspacing
+
+      \begin{document}
+      \part{Аннотация}</code></pre>
+      </div>
+      <ul>
+          <li>Команды <code>\cmark</code> и <code>\xmark</code> определены как <code>\ding{51}</code> и <code>\ding{55}</code>.</li>
+          <li>Вычислительных блоков в проекте нет: весь диплом — один фрагмент LaTeX.</li>
+      </ul>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Проверьте оглавление частей, что определения и теоремы нумеруются внутри раздела и что полуторный интервал не разъехался на длинных таблицах.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>В проекте уже собраны аннотация, части диплома и окружения теорем. Остаётся заменить текст образца своим.</p>
+      <p><a href="{{publicUrl}}/project/d24a814f-ff8f-4b8c-8267-f824cf8c7b6b">Открыть шаблон «Линейная временная модальная логика» в онлайн-редакторе Labkeeper.</a></p>

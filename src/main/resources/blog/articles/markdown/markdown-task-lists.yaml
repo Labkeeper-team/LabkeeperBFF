@@ -10,6 +10,19 @@ h1: 'Создание списков задач (Task lists) и&nbsp;чек-ли
 categories:
   - 'markdown'
   - 'labs'
+related:
+  - 'modern-it-resume-markdown-cv-as-code'
+  - 'complex-markdown-tables-syntax-online-generator'
+  - 'markdown-superscript-subscript-indices'
+  - 'markdown-image-size-width-height'
+  - 'markdown-multiline-formulas-matrices-mathjax'
+  - 'markdown-spoilers-details-summary'
+  - 'markdown-table-merge-cells-rowspan-colspan'
+  - 'markdown-raw-html-integration'
+  - 'markdown-to-pdf-export'
+  - 'markdown-strikethrough-underline-highlight'
+  - 'markdown-code-syntax-highlighting'
+  - 'markdown-footnotes'
 batch: 2
 keywords:
   - 'markdown чек лист синтаксис'

@@ -10,6 +10,19 @@ breadcrumbTitle: 'Изображения и таблицы рядом (minipage)
 h1: 'Расположение нескольких картинок и&nbsp;таблиц рядом (minipage)'
 categories:
   - 'latex'
+related:
+  - 'latex-russian-cyrillic-code-listings-minted'
+  - 'biblatex-biber-advanced-bibliography-management'
+  - 'overleaf-alternatives-russia-online-latex'
+  - 'latex-tcolorbox-theorems-callouts'
+  - 'latex-multi-file-document-input-include'
+  - 'latex-custom-rgb-hex-colors-xcolor'
+  - 'latex-tikz-automata-graphs'
+  - 'latex-prevent-hyphenation-linebreaks'
+  - 'latex-longtable-multipage'
+  - 'latex-sans-serif-fonts'
+  - 'latex-forest-trees'
+  - 'latex-draftwatermark'
 keywords:
   - 'две картинки рядом latex minipage'
   - 'текст рядом с таблицей latex'

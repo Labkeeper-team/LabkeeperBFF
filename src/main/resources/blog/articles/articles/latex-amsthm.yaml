@@ -20,6 +20,19 @@ h1: 'Как оформить теоремы, леммы, доказательс�
 categories:
   - 'articles'
   - 'latex'
+related:
+  - 'rinc-vak-scientific-article-template-fonts-margins'
+  - 'imrad-structure-scientific-article-scopus-template'
+  - 'diploma-annotation-abstract-russian-english'
+  - 'biblatex-biber-advanced-bibliography-management'
+  - 'footnotes-bottom-page-law-history-coursework-gost'
+  - 'electronic-resources-bibliography-gost-7-0-100'
+  - 'scientific-article-annotation-abstract-keywords-vak'
+  - 'latex-gost-bibliography'
+  - 'latex-dissertation'
+  - 'latex-fancyhdr'
+  - 'latex-scopus-wos'
+  - 'latex-formulas'
 keywords:
   - 'окружение теорема и доказательство latex онлайн'
   - 'оформление лемм и определений в amsthm'

@@ -23,6 +23,19 @@ h1: |2-
                           скобкой (cases / aligned)
 categories:
   - 'latex'
+related:
+  - 'latex-pgfplotstable-import-excel-csv-tables'
+  - 'latex-multicol-multi-column-layout-journal'
+  - 'latex-chemfig'
+  - 'latex-fancyhdr'
+  - 'latex-siunitx'
+  - 'latex-word-to-latex'
+  - 'latex-scopus-wos'
+  - 'latex-list-of-figures-tables'
+  - 'latex-cv-resume'
+  - 'latex-amsthm'
+  - 'latex-eskd'
+  - 'latex-formulas'
 keywords:
   - 'система уравнений с фигурной скобкой latex онлайн'
   - 'как написать систему уравнений в latex cases'

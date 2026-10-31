@@ -2,6 +2,7 @@ const i18n = {
     ru: {
         'nav-advantages': 'Преимущества',
         'nav-features': 'Возможности',
+        'nav-templates': 'Шаблоны',
         'nav-audience': 'Для кого',
         'nav-tokens': 'Токены',
         'nav-about': 'О нас',
@@ -20,6 +21,7 @@ const i18n = {
 
         'blog-example': 'Просмотреть пример',
         'blog-example-context': 'в редакторе',
+        'template-open': 'Открыть шаблон',
 
         // Блок LaTeX
         'feat-latex-title': 'LaTeX editor',
@@ -105,7 +107,23 @@ const i18n = {
         'footer-contact': 'Написать нам',
         'footer-policy': 'Политика конфиденциальности',
 
-        // База знаний
+        // Шаблоны и база знаний
+        'templates-title': 'Шаблоны',
+        'templates-btn': 'Все шаблоны <span class="button__arrow">→</span>',
+        'templates-page-desc':
+            'Готовые проекты для лабораторных, дипломов, резюме и научных работ. Кнопка «Открыть шаблон» открывает проект, а карточка — страницу шаблона.',
+        'templates-filter-all': 'Все шаблоны',
+        'templates-filter-latex': 'Работа с LaTeX',
+        'templates-filter-cv': 'Оформление резюме / CV',
+        'templates-filter-labs': 'Лабораторные работы',
+        'templates-filter-diploma': 'Дипломные работы',
+        'templates-empty': 'Пока нет опубликованных шаблонов.',
+        'cta-try': 'Попробуйте прямо сейчас',
+        'cta-formulas-title': 'Набирайте формулы в&nbsp;Labkeeper',
+        'cta-formulas-text':
+            'Онлайн-редактор LaTeX с&nbsp;компиляцией в&nbsp;PDF, AI-ассистентом и&nbsp;поддержкой amsmath — без установки, сразу в&nbsp;браузере.',
+        'cta-open-editor':
+            'Открыть редактор <span class="button__arrow">→</span>',
         'knowledge-title': 'База знаний',
         'knowledge-btn': 'Все статьи <span class="button__arrow">→</span>',
         'page-dev': 'Страница в разработке.',
@@ -274,8 +292,10 @@ const i18n = {
     en: {
         'blog-example': 'View example',
         'blog-example-context': 'in editor',
+        'template-open': 'Open template',
         'nav-advantages': 'Benefits',
         'nav-features': 'Features',
+        'nav-templates': 'Templates',
         'nav-audience': "Who it's for",
         'nav-tokens': 'Tokens',
         'nav-about': 'About Us',
@@ -375,7 +395,22 @@ const i18n = {
         'footer-contact': 'Contact us',
         'footer-policy': 'Privacy Policy',
 
-        // Knowledge base
+        // Templates and knowledge base
+        'templates-title': 'Templates',
+        'templates-btn': 'All templates <span class="button__arrow">→</span>',
+        'templates-page-desc':
+            'Ready-made projects for lab reports, theses, resumes, and research papers. Open template opens the project, and the card opens the template page.',
+        'templates-filter-all': 'All templates',
+        'templates-filter-latex': 'Working with LaTeX',
+        'templates-filter-cv': 'Resume / CV',
+        'templates-filter-labs': 'Lab reports',
+        'templates-filter-diploma': 'Theses',
+        'templates-empty': 'No published templates yet.',
+        'cta-try': 'Try it now',
+        'cta-formulas-title': 'Type formulas in&nbsp;Labkeeper',
+        'cta-formulas-text':
+            'An online LaTeX editor with PDF compilation, an AI assistant, and amsmath support — no installation, right in the browser.',
+        'cta-open-editor': 'Open editor <span class="button__arrow">→</span>',
         'knowledge-title': 'Knowledge Base',
         'knowledge-btn': 'All articles <span class="button__arrow">→</span>',
         'page-dev': 'Page under construction.',

@@ -10,6 +10,19 @@ breadcrumbTitle: 'Многострочные формулы и матрицы (M
 h1: 'Вставка формул с&nbsp;матрицами и&nbsp;дробями в&nbsp;Markdown (MathJax)'
 categories:
   - 'markdown'
+related:
+  - 'modern-it-resume-markdown-cv-as-code'
+  - 'complex-markdown-tables-syntax-online-generator'
+  - 'markdown-superscript-subscript-indices'
+  - 'markdown-image-size-width-height'
+  - 'github-readme-template-badges-spoilers'
+  - 'markdown-mathjax-katex-latex-math'
+  - 'markdown-spoilers-details-summary'
+  - 'markdown-table-merge-cells-rowspan-colspan'
+  - 'markdown-raw-html-integration'
+  - 'markdown-to-pdf-export'
+  - 'markdown-task-lists'
+  - 'markdown-footnotes'
 keywords:
   - 'многострочные формулы в markdown mathjax'
   - 'написать матрицу в markdown'

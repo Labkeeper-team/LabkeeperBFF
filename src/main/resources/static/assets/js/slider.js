@@ -1,126 +1,5 @@
 /* global Swiper */
 document.addEventListener('DOMContentLoaded', () => {
-    // =========================================================================
-    // 1. Слайдер проектов на главной странице (#examples)
-    // =========================================================================
-    const projectsContainer = document.getElementById('projects-container');
-    if (projectsContainer) {
-        const categoryLinks = document.querySelectorAll(
-            '#project-categories .header__nav-link'
-        );
-        const allSlides = Array.from(
-            projectsContainer.querySelectorAll('.swiper-slide')
-        );
-        let swiperInstance = null;
-
-        const activeLangBtn = document.querySelector(
-            '.js-lang-switcher .header__lang-btn--active'
-        );
-        let currentLang = activeLangBtn
-            ? activeLangBtn.getAttribute('data-lang')
-            : document.documentElement.lang || 'ru';
-
-        function initSwiper() {
-            if (swiperInstance) {
-                swiperInstance.destroy(true, true);
-            }
-
-            swiperInstance = new Swiper('#examples .examples__swiper', {
-                slidesPerView: 'auto',
-                spaceBetween: 16,
-                loop: false,
-                grabCursor: true,
-                navigation: {
-                    nextEl: '#examples .examples__arrow--next',
-                    prevEl: '#examples .examples__arrow--prev',
-                },
-                breakpoints: {
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 30,
-                        allowTouchMove: true,
-                    },
-                },
-            });
-        }
-
-        function getActiveCategory() {
-            const activeTab = document.querySelector(
-                '#project-categories .header__nav-link--active'
-            );
-            return activeTab ? activeTab.getAttribute('data-category') : 'all';
-        }
-
-        function applyLanguage() {
-            const nameKey = currentLang === 'en' ? 'nameEn' : 'nameRu';
-            const categoryKey =
-                currentLang === 'en' ? 'categoryEn' : 'categoryRu';
-            allSlides.forEach((slide) => {
-                const title = slide.querySelector('.example-card__title');
-                const text = slide.querySelector('.example-card__text');
-                if (title) {
-                    title.textContent = slide.dataset[nameKey] || '';
-                }
-                if (text) {
-                    text.textContent = slide.dataset[categoryKey] || '';
-                }
-            });
-        }
-
-        function renderProjects(category) {
-            projectsContainer.innerHTML = '';
-            const visible =
-                category === 'all'
-                    ? allSlides
-                    : allSlides.filter(
-                          (slide) => slide.dataset.category === category
-                      );
-            if (visible.length === 0) {
-                const noProjectsText =
-                    currentLang === 'ru'
-                        ? 'Нет проектов в данной категории'
-                        : 'No projects in this category';
-                projectsContainer.innerHTML = `<div class="loading-placeholder">${noProjectsText}</div>`;
-                if (swiperInstance) {
-                    swiperInstance.destroy(true, true);
-                    swiperInstance = null;
-                }
-                return;
-            }
-            visible.forEach((slide) => projectsContainer.appendChild(slide));
-            initSwiper();
-        }
-
-        categoryLinks.forEach((link) => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                categoryLinks.forEach((item) =>
-                    item.classList.remove('header__nav-link--active')
-                );
-                link.classList.add('header__nav-link--active');
-                renderProjects(getActiveCategory());
-            });
-        });
-
-        document.querySelectorAll('.js-lang-switcher').forEach((switcher) => {
-            switcher.addEventListener('click', (e) => {
-                const btn = e.target.closest('.header__lang-btn');
-                if (!btn) {
-                    return;
-                }
-                const newLang = btn.getAttribute('data-lang');
-                if (newLang && newLang !== currentLang) {
-                    currentLang = newLang;
-                    applyLanguage();
-                    renderProjects(getActiveCategory());
-                }
-            });
-        });
-
-        applyLanguage();
-        renderProjects(getActiveCategory());
-    }
-
     // 2. Реестр всех статей блога
     // =========================================================================
     const ALL_BLOG_ARTICLES = window.LABKEEPER_BLOG_ARTICLES || [];
@@ -154,7 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomArticles = shuffle(eligibleArticles).slice(0, 30);
 
         const swiperWrapper = audienceSwiperEl.querySelector('.swiper-wrapper');
-        if (swiperWrapper && randomArticles.length > 0) {
+        const hasServerSlides =
+            swiperWrapper && swiperWrapper.querySelector('.swiper-slide');
+        if (swiperWrapper && !hasServerSlides && randomArticles.length > 0) {
             swiperWrapper.innerHTML = randomArticles
                 .map(
                     (article) => `
@@ -402,46 +283,63 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // 6. Инициализация слайдера «База знаний» (#knowledge)
+    // 6. Слайдеры «Шаблоны» и «База знаний»
     // =========================================================================
-    const knowledgeSection = document.getElementById('knowledge');
-    if (knowledgeSection) {
-        const knowledgeSwiper = new Swiper('#knowledge .knowledge__swiper', {
-            slidesPerView: 1.18,
+    function initCatalogSwiper(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (!section) {
+            return;
+        }
+        const twoRows = sectionId === 'templates';
+        const swiper = new Swiper(`#${sectionId} .knowledge__swiper`, {
+            slidesPerView: twoRows ? 1 : 1.18,
             spaceBetween: 16,
             loop: false,
             grabCursor: true,
             observer: true,
             observeParents: true,
+            ...(twoRows ? { grid: { rows: 2, fill: 'row' } } : {}),
             navigation: {
-                nextEl: '#knowledge .knowledge__arrow--next',
-                prevEl: '#knowledge .knowledge__arrow--prev',
+                nextEl: `#${sectionId} .knowledge__arrow--next`,
+                prevEl: `#${sectionId} .knowledge__arrow--prev`,
             },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 24,
-                    allowTouchMove: true,
-                },
-            },
+            breakpoints: twoRows
+                ? {
+                      768: {
+                          slidesPerView: 2,
+                          spaceBetween: 20,
+                          grid: { rows: 2, fill: 'row' },
+                      },
+                      1024: {
+                          slidesPerView: 3,
+                          spaceBetween: 24,
+                          allowTouchMove: true,
+                          grid: { rows: 2, fill: 'row' },
+                      },
+                  }
+                : {
+                      768: {
+                          slidesPerView: 2,
+                          spaceBetween: 20,
+                      },
+                      1024: {
+                          slidesPerView: 3,
+                          spaceBetween: 24,
+                          allowTouchMove: true,
+                      },
+                  },
         });
 
-        window.addEventListener('load', () => {
-            knowledgeSwiper.update();
-            if (knowledgeSwiper.navigation) {
-                knowledgeSwiper.navigation.update();
+        const update = () => {
+            swiper.update();
+            if (swiper.navigation) {
+                swiper.navigation.update();
             }
-        });
-
-        setTimeout(() => {
-            knowledgeSwiper.update();
-            if (knowledgeSwiper.navigation) {
-                knowledgeSwiper.navigation.update();
-            }
-        }, 300);
+        };
+        window.addEventListener('load', update);
+        setTimeout(update, 300);
     }
+
+    initCatalogSwiper('templates');
+    initCatalogSwiper('knowledge');
 });

@@ -10,6 +10,19 @@ breadcrumbTitle: 'Автоматическое оглавление по ГОС�
 h1: 'Как автоматически собрать оглавление (содержание) в&nbsp;курсовой и&nbsp;дипломе по&nbsp;ГОСТ'
 categories:
   - 'diploma'
+related:
+  - 'literature-review-structure-diploma-citation'
+  - 'legal-regulatory-acts-bibliography-diploma-gost'
+  - 'master-thesis-title-page-gost'
+  - 'formula-variable-explanation-where-gost'
+  - 'latex-multi-file-document-input-include'
+  - 'diploma-appendices-listings-diagrams-gost'
+  - 'a4-frames-eskd-stamp-technical-diploma'
+  - 'paragraph-indent-1-25-gost'
+  - 'diploma-page-numbering-second-page'
+  - 'latex-line-spacing-1-5-setspace-gost'
+  - 'latex-geometry-margins-gost'
+  - 'latex-newcommand-macros'
 keywords:
   - 'автоматическое оглавление для диплома гост'
   - 'содержание курсовой по госту онлайн'

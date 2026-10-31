@@ -72,8 +72,12 @@ test('YAML batches and single articles retain every example character', (t) => {
 
     assert.deepEqual(loadArticles(files), [first, second]);
     for (const article of loadArticles(files)) {
-        const query = new URL(buildExampleUrl(article.editorExample), 'https://labkeeper.io').searchParams;
-        for (const [type, text] of Object.entries(article.editorExample)) assert.equal(query.get(type), text);
+        const query = new URL(buildExampleUrl(article.editorExample, article.slug), 'https://labkeeper.io').searchParams;
+        assert.equal(query.get('example'), article.slug);
+        for (const [type, text] of Object.entries(article.editorExample)) {
+            assert.equal(query.has(type), false);
+            assert.equal(query.toString().includes(text), false);
+        }
     }
 });
 
@@ -113,7 +117,7 @@ for (const [label, editorExample] of [
     ['blank text', { latex: '' }],
     ['non-string text', { latex: 42 }],
     ['unknown segment', { unknown: 'text' }],
-    ['oversized URL', { latex: 'я'.repeat(400) }],
+    ['unknown parameter', [{ type: 'latex', text: 'x', parameters: { bold: true } }]],
 ]) {
     test('article validation rejects an invalid editorExample: ' + label, (t) => {
         const article = { ...sample, editorExample };

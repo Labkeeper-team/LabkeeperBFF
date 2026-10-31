@@ -1,0 +1,86 @@
+catalogIndex: 14
+slug: sdvig-faz-peremennyi-tok
+projectId: 8d03ce70-45ad-4bda-806a-6d79f4a55a0b
+cardTitle: 'Шаблон «Сдвиг фаз в цепи переменного тока»'
+cardDescription: >-
+  Лабораторная 3.2.1: сдвиг фаз в RC- и RL-цепях, фазово-частотная
+  характеристика RLC и измерения фазовращателем. Округление — до первой значащей цифры.
+categories:
+  - latex
+  - labs
+related:
+  - 'rezonans-napryazhenii'
+  - 'magnitometr'
+title: 'LaTeX-шаблон лабораторной «Сдвиг фаз в цепи переменного тока»'
+pageTitle: 'Шаблон лабораторной 3.2.1 «Сдвиг фаз» — Labkeeper'
+metaDescription: >-
+  Шаблон лабораторной 3.2.1 о сдвиге фаз: RC- и RL-цепи, фазово-частотная
+  характеристика RLC-цепи и фазовращатель. Округление до первой значащей цифры.
+breadcrumbTitle: 'Сдвиг фаз'
+h1: 'Лабораторная работа 3.2.1 «Сдвиг фаз в цепи переменного тока»'
+datePublished: '2026-10-31'
+dateModified: '2026-10-31'
+readingTime: '5 мин'
+keywords:
+  - 'сдвиг фаз лабораторная LaTeX'
+  - 'шаблон лабораторной 3.2.1'
+  - 'фазово-частотная характеристика RLC'
+sliderTitle: 'Сдвиг фаз'
+sliderText: 'Лабораторная 3.2.1 для RC-, RL- и RLC-цепей.'
+sidebarText: 'Откройте лабораторную и замените таблицы фаз.'
+ctaTitle: 'Откройте шаблон лабораторной'
+ctaText: 'Готовый отчёт о сдвиге фаз уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что видно в PDF'
+  - id: commands
+    title: 'Какие фрагменты править'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Слева замените таблицы образца, справа смотрите PDF.</li>
+      </ol>
+      <p>Класс документа — <code>article</code>, опции <code>a4paper</code> и <code>12pt</code>. Ссылки синие: <code>\hypersetup{colorlinks=true,urlcolor=blue}</code>. Номера формул показывает только <code>\mathtoolsset{showonlyrefs=true}</code>. Округление проекта — до первой значащей цифры.</p>
+  - id: description
+    title: 'Что видно в PDF'
+    html: |2-
+      <p>Титул: факультет прикладной математики и информатики, «Отчёт о выполнении лабораторной работы 3.2.1», «Сдвиг фаз в цепи переменного тока». Автор образца — Иванов Иван Иванович, группа Б05-111, сентябрь 2022.</p>
+      <p>Аннотация говорит, что измерены вынужденные колебания, сдвиг фаз между ЭДС и током и его зависимость от активного сопротивления, индуктивности и ёмкости.</p>
+      <ul>
+          <li><strong>Теоретические сведения.</strong> Расчёт сдвига фаз <code>\psi</code> через реактивное сопротивление <code>X</code> и описание установки.</li>
+          <li><strong>Оборудование и инструментальные погрешности.</strong></li>
+          <li><strong>Результаты измерений.</strong> Сдвиг фаз в RC- и RL-цепях, фазово-частотная характеристика RLC-цепи, измерения с помощью фазовращателя.</li>
+          <li>Обсуждение результатов и выводы набрано отдельным фрагментом Markdown.</li>
+      </ul>
+  - id: commands
+    title: 'Какие фрагменты править'
+    html: |2-
+      <p>Таблица RC-цепи вертикальная и уже содержит сопротивление, координаты фигуры Лиссажу, фазу, котангенс и погрешность.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">Расчёт</span></div>
+          <pre><code>table(rc_R_ohm_display, rc_x_display, rc_x0_display, rc_phase_display, rc_cot_display, rc_R_sum_ohm_display, rc_axis_display, rc_cot_uncertainty_display, name_1="$R$, Ом", name_2="$x$", name_3="$x_0$", name_4="$|\psi|$, рад", name_5="$|\cot\psi|$", name_6="$R_{\Sigma}$, Ом", name_7="$R_{\Sigma}\omega C$", name_8="$\sigma_{|\cot\psi|}$", orientation="vertical")</code></pre>
+      </div>
+      <ul>
+          <li>Таблица RL повторяет те же столбцы, но седьмой называется <code>R_{\Sigma}/(\omega L)</code>.</li>
+          <li>Таблица RLC содержит <code>R</code>, частоту <code>\nu</code>, координаты, отношение <code>\nu/\nu_0</code> и модуль фазы.</li>
+          <li>Графики можно собрать и в <code>pgfplots</code>, и в <code>tikz</code>: оба пакета подключены, у <code>pgfplots</code> стоит <code>compat=1.9</code>.</li>
+      </ul>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Проверьте три серии — RC, RL и RLC — и что в обсуждении речь идёт о ваших фазах, а не об образце сентября 2022 года.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>В проекте уже собраны теория сдвига фаз, три таблицы и вывод. Остаётся подставить свои измерения.</p>
+      <p><a href="{{publicUrl}}/project/8d03ce70-45ad-4bda-806a-6d79f4a55a0b">Открыть шаблон «Сдвиг фаз в цепи переменного тока» в онлайн-редакторе Labkeeper.</a></p>

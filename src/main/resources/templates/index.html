@@ -283,16 +283,9 @@
                     <ul class="header__nav-list">
                         <li class="header__nav-item">
                             <a
-                                href="#examples"
-                                class="header__nav-link js-scroll-link"
-                                data-i18n="nav-examples"
-                            ></a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a
-                                href="#advantages"
-                                class="header__nav-link js-scroll-link"
-                                data-i18n="nav-features"
+                                href="/templates"
+                                class="header__nav-link"
+                                data-i18n="nav-templates"
                             ></a>
                         </li>
                         <li class="header__nav-item">
@@ -640,139 +633,6 @@
                     </div>
                 </div>
             </section>
-            <!-- Блок 3: Примеры проектов -->
-            <section class="examples" id="examples">
-                <div class="examples__container">
-                    <!-- Верхняя панель: Заголовок + Категории -->
-                    <div class="examples__header">
-                        <h2 class="examples__title h1" data-i18n="ex-title">
-                            Примеры проектов
-                        </h2>
-
-                        <!-- Таб бар категорий (адаптирован из вашего кода) -->
-                        <div class="policy-nav examples__nav">
-                            <ul
-                                class="header__nav-list2 policy-nav__list"
-                                id="project-categories"
-                            >
-                                <li class="header__nav-item">
-                                    <a
-                                        href="#"
-                                        class="header__nav-link header__nav-link--active"
-                                        data-category="all"
-                                        data-i18n="cat-all"
-                                        >Все</a
-                                    >
-                                </li>
-                                <li class="header__nav-item">
-                                    <a
-                                        href="#"
-                                        class="header__nav-link"
-                                        data-category="lab"
-                                        data-i18n="cat-lab"
-                                        >Лабораторные</a
-                                    >
-                                </li>
-                                <li class="header__nav-item">
-                                    <a
-                                        href="#"
-                                        class="header__nav-link"
-                                        data-category="diploma"
-                                        data-i18n="cat-diploma"
-                                        >Дипломные</a
-                                    >
-                                </li>
-                                <li class="header__nav-item">
-                                    <a
-                                        href="#"
-                                        class="header__nav-link"
-                                        data-category="cv"
-                                        data-i18n="cat-cv"
-                                        >CV</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Оболочка слайдера -->
-                    <div class="examples__slider-wrapper">
-                        <!-- Кнопки управления (скрыты на мобильных через CSS) -->
-                        <button
-                            class="examples__arrow examples__arrow--prev"
-                            aria-label="Previous slide"
-                        ></button>
-                        <button
-                            class="examples__arrow examples__arrow--next"
-                            aria-label="Next slide"
-                        ></button>
-
-                        <!-- Контейнер Swiper -->
-                        <div class="swiper examples__swiper">
-                            <div class="swiper-wrapper" id="projects-container">
-                                <div
-                                    class="swiper-slide"
-                                    th:each="project : ${previewProjects}"
-                                    th:data-category="${project.category}"
-                                    th:attr="data-name-ru=${project.nameRu},data-name-en=${project.nameEn},data-category-ru=${project.categoryRu},data-category-en=${project.categoryEn}"
-                                >
-                                    <a
-                                        class="example-card"
-                                        target="_blank"
-                                        th:href="@{/project/{id}(id=${project.id})}"
-                                    >
-                                        <div class="example-card__visual">
-                                            <img
-                                                class="example-card__image"
-                                                loading="lazy"
-                                                th:src="${project.logoUrl != null ? project.logoUrl : 'assets/img/logo.svg'}"
-                                                th:alt="${project.nameRu}"
-                                                th:classappend="${project.logoUrl == null} ? 'example-card__image--placeholder'"
-                                            />
-                                            <img
-                                                src="assets/img/target.svg"
-                                                alt="open"
-                                                class="example-card__external-icon"
-                                                width="16"
-                                                height="16"
-                                            />
-                                        </div>
-                                        <div class="example-card__content">
-                                            <h3
-                                                class="example-card__title"
-                                                th:text="${project.nameRu}"
-                                            >
-                                                Проект
-                                            </h3>
-                                            <p
-                                                class="example-card__text"
-                                                th:text="${project.categoryRu}"
-                                            >
-                                                Категория
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div
-                                    class="loading-placeholder"
-                                    th:if="${previewProjects.isEmpty()}"
-                                >
-                                    Нет проектов в данной категории
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="examples__action">
-                        <a
-                            href="/project/default"
-                            class="button button--primary examples__btn"
-                            data-i18n="ex-btn"
-                            >Все проекты</a
-                        >
-                    </div>
-                </div>
-            </section>
             <!-- Блок 4: Возможности -->
             <section class="advantages" id="advantages">
                 <div class="advantages__container">
@@ -810,24 +670,100 @@
                         ></li>
                     </ul>
                     <a
-                        href="https://github.com/Labkeeper-team/Docs/wiki/ru"
+                        href="/wiki/index.html"
                         class="button button--outline advantages__btn"
-                        target="_blank"
                     >
                         <span data-i18n="adv-btn"></span>
-                        <img
-                            src="assets/img/target.svg"
-                            alt="target"
-                            class="button__external-icon"
-                            width="16"
-                            height="16"
-                            loading="lazy"
-                        />
                     </a>
                 </div>
             </section>
 
-            <!-- Блок 5: Audience (Для кого) -->
+            <!-- Блок 5: Шаблоны -->
+            <section
+                class="knowledge"
+                id="templates"
+                th:if="${!homeTemplates.isEmpty()}"
+            >
+                <div class="feature__bg" aria-hidden="true">
+                    <img src="assets/img/bg.svg" alt="bg" loading="lazy" />
+                </div>
+                <div class="knowledge__container">
+                    <h2 class="knowledge__title h1" data-i18n="templates-title">
+                        Шаблоны
+                    </h2>
+
+                    <div
+                        class="examples__slider-wrapper knowledge__slider-wrapper"
+                    >
+                        <button
+                            class="examples__arrow examples__arrow--prev knowledge__arrow--prev"
+                            aria-label="Предыдущий слайд"
+                        ></button>
+                        <button
+                            class="examples__arrow examples__arrow--next knowledge__arrow--next"
+                            aria-label="Следующий слайд"
+                        ></button>
+                        <div class="swiper knowledge__swiper">
+                            <div class="swiper-wrapper">
+                                <div
+                                    class="swiper-slide"
+                                    th:each="entry : ${homeTemplates}"
+                                >
+                                    <article class="blog-card">
+                                        <div class="blog-card__top">
+                                            <span
+                                                class="blog-card__tag"
+                                                th:each="tag : ${entry.categoryNames}"
+                                                th:text="${tag}"
+                                                >Категория</span
+                                            >
+                                        </div>
+                                        <h3 class="blog-card__title">
+                                            <a
+                                                class="blog-card__title-link"
+                                                th:href="@{/templates/{slug}(slug=${entry.slug})}"
+                                                th:text="${entry.cardTitle}"
+                                                >Шаблон</a
+                                            >
+                                        </h3>
+                                        <p
+                                            class="blog-card__text"
+                                            th:text="${entry.cardDescription}"
+                                        >
+                                            Описание
+                                        </p>
+                                        <a
+                                            class="blog-card__footer"
+                                            target="_blank"
+                                            th:href="@{/project/{id}(id=${entry.projectId})}"
+                                        >
+                                            <span data-i18n="template-open"
+                                                >Открыть шаблон</span
+                                            >
+                                            <span class="blog-card__arrow"
+                                                >→</span
+                                            >
+                                        </a>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="knowledge__action">
+                        <a
+                            href="/templates"
+                            class="button button--primary knowledge__btn"
+                            data-i18n="templates-btn"
+                        >
+                            <span>Все шаблоны</span>
+                            <span class="button__arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок 6: Audience (Для кого) -->
             <section class="audience" id="audience">
                 <div class="audience__container">
                     <h2 class="audience__title h1" data-i18n="aud-title"></h2>
@@ -873,7 +809,7 @@
                 </div>
             </section>
 
-            <!-- Блок 6: База знаний (Слайдер) -->
+            <!-- Блок 7: База знаний (Слайдер) -->
             <section class="knowledge" id="knowledge">
                 <div class="feature__bg" aria-hidden="true">
                     <img src="assets/img/bg.svg" alt="bg" loading="lazy" />
@@ -898,7 +834,7 @@
                             <div class="swiper-wrapper">
                                 <div
                                     class="swiper-slide"
-                                    th:each="article : ${articles}"
+                                    th:each="article : ${homeArticles}"
                                 >
                                     <article class="blog-card">
                                         <div class="blog-card__top">
@@ -970,27 +906,9 @@
                             class="footer__link"
                             data-i18n="nav-tokens"
                         ></a>
-                        <a
-                            href="https://github.com/Labkeeper-team/Docs/wiki/ru"
-                            target="_blank"
-                            class="footer__link footer__link--external"
-                        >
+                        <a href="/wiki/index.html" class="footer__link">
                             <span data-i18n="nav-wiki"></span>
-                            <img
-                                src="assets/img/target.svg"
-                                alt="target icon"
-                                class="footer__link-icon"
-                                style="margin-left: 4px; vertical-align: middle"
-                                width="16"
-                                height="16"
-                                loading="lazy"
-                            />
                         </a>
-                        <a
-                            href="/#examples"
-                            class="footer__link"
-                            data-i18n="nav-examples"
-                        ></a>
                         <a
                             href="/blog"
                             class="footer__link"

@@ -14,4 +14,5 @@ class FrontendProperties {
     var defaultTitle: String = ""
     var defaultDescription: String = ""
     var disallowIndexing: Boolean = false
+    var previewProjects: MutableList<PreviewProjectProperties> = mutableListOf()
 }

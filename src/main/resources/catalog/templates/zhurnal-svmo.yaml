@@ -1,0 +1,405 @@
+catalogIndex: 7
+slug: zhurnal-svmo
+projectId: 175a2d9b-b798-4904-8285-e0fa850fdc2e
+cardTitle: 'Шаблон «Журнал Средневолжского математического общества»'
+cardDescription: >-
+  LaTeX-шаблон статьи для «Журнала Средневолжского математического общества»:
+  метаданные, теоремы, рисунки и списки литературы в форматах ГОСТ и AMSBIB.
+categories:
+  - latex
+  - svmo-journal
+related:
+  - 'avtomatika-i-telemekhanika'
+  - 'automation-and-remote-control'
+  - 'vestnik-mgu-fizika'
+  - 'mdpi'
+  - 'springer-nature'
+  - 'izvestiya-saratov-mmi'
+title: 'LaTeX-шаблон статьи для «Журнал Средневолжского математического общества»'
+pageTitle: 'Шаблон «Журнал Средневолжского математического общества» — Labkeeper'
+metaDescription: >-
+  LaTeX-шаблон статьи для «Журнала Средневолжского математического общества»:
+  оформление первой страницы, авторов, формул, рисунков и библиографии.
+breadcrumbTitle: 'Журнал СВМО'
+h1: 'LaTeX-шаблон статьи для «Журнал Средневолжского математического общества»'
+datePublished: '2026-10-23'
+dateModified: '2026-10-23'
+readingTime: '4 мин'
+keywords:
+  - 'Журнал Средневолжского математического общества LaTeX'
+  - 'шаблон svmo'
+  - 'ArxivZhurnalSVMOru'
+sliderTitle: 'Журнал СВМО'
+sliderText: 'LaTeX-шаблон статьи журнала Средневолжского математического общества.'
+sidebarText: 'Откройте шаблон статьи и продолжите его в своём проекте.'
+ctaTitle: 'Откройте шаблон статьи'
+ctaText: 'Готовый LaTeX-шаблон «Журнала Средневолжского математического общества» уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Начните подготовку: слева — исходный код LaTeX, справа — окно просмотра PDF.</li>
+      </ol>
+  - id: description
+    title: 'Описание шаблона научной статьи с примерами'
+    html: |2-
+      <p>В редакторе продолжите изменения в поле Файлы. Создайте папку с фамилией первого автора (например, Phamiliya).</p>
+      <p>Скопируйте для дальнейшего редактирования содержимое файла <code>Zinina.tex</code>, заменив название (например, <code>Phamiliya.tex</code>), и продолжайте работу в нем.</p>
+      <p>В файле <code>ZhurnalSVMO2020_23_1.tex</code> укажите путь к файлу Вашей рукописи:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX ZhurnalSVMO2020_23_1.tex</span></div>
+          <pre><code>\input{Phamiliya/Phamiliya.tex} % Образец статьи на расском языке</code></pre>
+      </div>
+      <p>Для статьи на русском языке также готовится перевод на английский язык следующих элементов:</p>
+      <ul>
+          <li>название рукописи;</li>
+          <li>авторы, аффилиация;</li>
+          <li>аннотация, ключевые слова;</li>
+          <li>ссылка на публикацию;</li>
+          <li>об авторах;</li>
+          <li>подписи к рисункам и таблицам;</li>
+          <li>список литературы.</li>
+      </ul>
+      <p>Первая страница оформляется целиком благодаря одной команде <code>\headerRus{УДК}{Название}{Авторы}{Авторы и аффилиация}{аффилиация}{Аннотация.}{ключевые слова}{Titlename}{Authors}</code>. Каждые метаданные указываются в своих фигурных скобках.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\headerRus{515.163}
+      {Классификация надстроек над декартовыми произведениями меняющих ориентацию диффеоморфизмов окружности}
+      {С.\,Х. Зинина, П.\,И. Починка}
+      {С.\,Х. Зинина\superscript{1}, П.\,И. Починка\superscript{2}}
+      {\superscript{1} \textit{ФГБОУ ВО «МГУ им. Н. П. Огарёва» (г. Саранск, Российская Федерация)} \superscript{2} \textit{Национальный исследовательский университет &lt;&lt;Высшая школа экономики&gt;&gt; (г.~Нижний Новгород, Российская Федерация)}
+      }
+      {Аннотация.}
+      {ключевые слова}
+      {Titlename}
+      {A. Author, A. A. Author}</code></pre>
+      </div>
+      <p><strong>Цитирование рукописи</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\forCitationRus{Зинина С. Х., Починка П. И.}{Классификация надстроек над декартовыми произведениями меняющих ориентацию диффеоморфизмов окружности}</code></pre>
+      </div>
+      <p><strong>Об авторах</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\textbf{Зинина Светлана Халиловна}, аспирант кафедры прикладной математики, дифференциальных уравнений и теоретической механики, ФГБОУ ВО «МГУ им. Н.~П.~Огарёва» (430005, Россия, г. Саранск, ул. Большевистская, д. 68/1), ORCID: http://orcid.org/0000-0003-3002-281X, kapkaevasvetlana@yandex.ru
+
+      \textbf{Починка Павел Ильич}, студент факультета информатики, математики и компьютерных наук, Национальный исследовательский университет &lt;&lt;Высшая школа экономики&gt;&gt;
+      }
+
+      \parbox{13cm}
+      {\small
+      (603150, Россия, г. Нижний Новгород, ул. Б. Печерская, д. 25/12), ORCID: https://orcid.org/0000-0002-6377-747X, pavel-pochinka@yandex.ru
+      }</code></pre>
+      </div>
+      <p>Аналогичный англоязычный блок:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX \headerEn</span></div>
+          <pre><code>\headerEn{57N10}{Classification of suspensions over cartesian products of~orientation-reversing diffeomorphisms of a circle}
+      {S. Kh. Zinina, P. I. Pochinka}
+      {S. Kh. Zinina\superscript{1}, P. I. Pochinka\superscript{2}}
+      {\superscript{1} \textit{National Research Mordovia State University (Saransk, Russian Federation)}\\
+      \superscript{2} \textit{Higher School of Economics (Nizhny Novgorod, Russian Federation)}}
+      {This paper introduces class $G$ containing Cartesian products of orientation-changing rough transformations of the circle and studies their dynamics. As it is known from the paper of A.G. Maier non-wandering set of orientation-changing diffeomorphism of the circle consists of $2q$ periodic points, where $q$ is some natural number. So Cartesian products of two such diffeomorphisms has $4q_1q_2$ periodic points where $q_1$ corresponds to the first transformation and $q_2$ corresponds to the second one. The authors describe all possible types of the set of periodic points, which contains $2q_1q_2$ saddle points, $q_1q_2$ sinks, and $q_1q_2$ sources; $4$ points from mentioned $4q_1q_2$ periodic ones are fixed, and the remaining $4q_1q_2-4$ points have period $2$. In the theory of smooth dynamical systems, a very useful result is that, given a diffeomorphism $f$ of a manifold, one can construct a flow on a manifold with dimension one greater; this flow is called the suspension over $f$. The authors introduce the concept of suspension over diffeomorphisms of class $G$, describe all possible types of suspension orbits and the number of these orbits. Besides that, the authors prove a theorem on the topology of the manifold on which the suspension is given. Namely, the carrier manifold of the flows under consideration is homeomorphic to the closed 3-manifold $\mathbb T^2 \times [0,1]/\varphi$, where $\varphi :\mathbb T^ 2 \to \mathbb T^2$. The main result of the paper says that suspensions over diffeomorphisms of the class $G$ are topologically equivalent if and only if corresponding diffeomorphisms are topologically conjugate. The idea of the proof is to show that the topological equivalence of the suspensions $\phi^t$ and $\phi'^t$ implies the topological conjugacy of $\phi$ and $\phi'$.}
+      {rough systems of differential equations, rough circle transformations, orientation-reversing circle transformations, Cartesian product of circle transformations, suspension over a diffeomorphism}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\textbf{Svetlana Kh. Zinina}, Postgraduate Student, Department of Applied Mathematics, Differential Equations
+      and Theoretical Mechanics, National Research Mordovia State University (68/1 Bolshevistskaya St., Saransk 430005, Russia), ORCID: http://orcid.org/0000-0003-3002-281X, kapkaevasvetlana@yandex.ru
+
+      \textbf{Pavel I. Pochinka}, Student of the Faculty of Informatics, Mathematics and Computer Science, National Research University &lt;&lt;Higher School of Economics&gt;&gt; (25/12 B.~Pecherskaya~St., Nizhny Novgorod 603150, Russia), ORCID: https://orcid.org/0000-0002-6377-747X, pavel-pochinka@yandex.ru
+      }</code></pre>
+      </div>
+      <p><strong>Типографские знаки</strong></p>
+      <p>В тексте рукописи обратите внимание на различие типографских знаков и их написание на LaTeX:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX тире</span></div>
+          <pre><code>---</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX дефис</span></div>
+          <pre><code>--</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX минус</span></div>
+          <pre><code>$-$</code></pre>
+      </div>
+      <p><strong>Заголовки и подзаголовки</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\sect{Меняющие ориентацию грубые преобразования окружности}</code></pre>
+      </div>
+      <p><strong>Теоремоподобные окружения</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{Prop}
+      Пусть $f:\mathbb S^1 \to \mathbb S^1$ --- ...
+
+      \end{Prop}
+
+      \begin{Th}
+      Надстройки...
+      \end{Th}
+
+      \proof
+      По построению ...
+      \proofend</code></pre>
+      </div>
+      <p><strong>Рисунок (простой)</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX \insertpicturecapscale</span></div>
+          <pre><code>\insertpicturecapscale{pr1_1}{Zinina/3_0-orb.eps}{0.4}{Надстройка над диффеоморфизмом $f_{3,0}$}{Suspension over a diffeomorphism $f_{3,0}$}</code></pre>
+      </div>
+      <p><strong>Благодарности</strong></p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\textbf{Благодарности.} Исследование выполнено при финансовой поддержке РФФИ в~рамках научного проекта №  20-31-90069 и фонда развития теоретической физики и~математики &lt;&lt;БАЗИС&gt;&gt; проект № 19-7-1-15-1. Авторы благодарят О. В. Починку за постановку задачи и плодотворные обсуждения.</code></pre>
+      </div>
+      <p>Список источников на русском языке готовится в двух форматах: ГОСТ и AMSBIB.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX ГОСТ</span></div>
+          <pre><code>\begin{thebibliography}
+
+      \RBibitem{ZininaRBib8}Андpонов А. А., Понтpягин Л. С. Гpубые системы // Доклады АН СССP.  1937.  Т. 14, № 5.  С. 247--250.
+
+      \RBibitem{ZininaRBib4}Майер А. Г. Грубое преобразование окружности в окружность // Ученые записки Горьк. гос. ун-та. 1939. T. 12. C. 215--229.
+
+      \RBibitem{ZininaRBib2}Гуревич Е. Я., Зинина С. Х. О топологической классификации градиентно-подобных систем на поверхностях, являющихся локальными прямыми произведениями // Журнал Средневолжского математического общества. 2015. Т. 17, №~1. С. 37--47.
+
+      \RBibitem{ZininaRBib6}Голикова И. В.,  Зинина С. Х. Топологическая сопряженность $n$-кратных декартовых произведений грубых преобразований окружности // Известия Высших учебных заведений. Прикладная нелинейная динамика. 2021. Т. 29, № 6. С. 851--862. DOI: https://doi.org/10.18500/0869-6632-2021-29-6-851-862
+
+      \RBibitem{ZininaRBib9}Peixoto M. M.  On structural stability //  Ann. Math. 1959.  Vol. 69.  pp. 199--222.
+
+      \RBibitem{ZininaRBib10}Mane R. A proof of $C^1$-stability conjecture // Publ. Math. IHES. 1988. Vol. 66. pp.~161--210.
+
+      \RBibitem{ZininaRBib11}Robinson C. Structural stability of $C^1$ diffeomorphisms // J. Diff. Equat. 1976. Vol.~22, No 1. pp. 28--73.
+
+      \RBibitem{ZininaRBib12}Смейл С. Дифференцируемые динамические системы //  УМН.   1970.  Т. 25. С.~113--185.
+
+      \RBibitem{ZininaRBib13}Palis J. On Morse-Smale dynamical systems / Topology. 1969.  Vol. 8, No 4.  pp.~385--404.
+
+      \RBibitem{ZininaRBib14}Palis J.,  Smale S. Structural stability theorems. Global Analysis, Proc. Sympos. Pure Math. 1970. Vol. 14.  pp. 223--231.
+
+      \RBibitem{ZininaRBib15}Палис Ж., Ди Мелу В. Геометрическая теория динамических систем: введение: пер. с англ. М.: Мир,  1986. 301 с.
+
+      \RBibitem{ZininaRBib16}Grines V.,  Medvedev T.,  Pochinka O. Dynamical Systems on 2- and 3-Manifolds. Switzerland: Springer, 2016. 313 p. DOI: https://doi.org/10.1007/978-3-319-44847-3
+
+      \RBibitem{ZininaRBib17}Морозов А. И., Починка О. В. Комбинаторный инвариант для поверхностных диффеоморфизмов Морса-Смейла с ориентируемой гетероклиникой // Журнал Средневолжского математического общества. 2020. Т. 22, № 1. С. 71–80. DOI: https://doi.org/10.15507/2079-6900.22.202001.71-80
+
+      \RBibitem{ZininaRBib7}Шубин Д. Д. Топология несущих многообразий несингулярных потоков с тремя нескрученными орбитами // Известия Высших учебных заведений. Прикладная нелинейная динамика. 2021. Т. 29, вып. 6. С. 863--868. DOI: https://doi.org/10.18500/0869-6632-2021-29-6-863-868
+
+      \RBibitem{ZininaRBib1}Голикова И. В., Починка О. В. Надстройки над грубыми преобразованиями окружности [Электронный ресурс] // Огарев-online. 2020. № 13. Режим доступа: http://journal.mrsu.ru/arts/nadstrojki-nad-grubymi-preobrazovaniyami-okruzhnosti
+
+      \RBibitem{ZininaRBib5}Колобянина А. Е., Ноздринова Е. В., Починка О. В. Современное изложение классификации грубых преобразований окружности // Журнал Средневолжского математического общества. 2018. Т. 20, № 4. С. 408--418. DOI: https://doi.org/10.15507/2079-6900.20.201804.408-418
+
+      \RBibitem{ZininaRBib3}Hatcher A. Notes on basic 3-manifold topology.  2007. 60 р. Available at: https://pi.math.cornell.edu/hatcher/3M/3Mfds.pdf (accessed: 15.11.2021).
+
+      \end{thebibliography}</code></pre>
+      </div>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX AMSBIB</span></div>
+          <pre><code>%Список источников на русском языке в формате AMSBIB. Наличие этого списка ОБЯЗАТЕЛЬНО!!!
+      %\begin{thebibliography}
+      %
+      %\RBibitem{ZininaRBib8}
+      %\by Андpонов А. А., Понтpягин Л. С.
+      %\paper Гpубые системы
+      %\jour Доклады АН СССP
+      %\yr 1937
+      %\vol 14
+      %\issue 5
+      %\pages  247--250
+
+      %\RBibitem{ZininaRBib4}
+      %\by А. Г. Майер
+      %\paper  Грубое преобразование окружности в окружность
+      %\jour Ученые записки Горьк. гос. ун-та.
+      %\yr 1939
+      %\vol 12
+      %\pages 215--229
+
+      %\RBibitem{ZininaRBib2}
+      %\by Е. Я. Гуревич, С. Х. Зинина
+      %\paper  О топологической классификации градиентно-подобных систем на поверхностях, являющихся локальными прямыми произведениями
+      %\jour Журнал Средневолжского математического общества
+      %\publaddr Саранск
+      %\yr 2015
+      %\vol 17
+      %\issue 1
+      %\pages 37--47
+
+      %\RBibitem{ZininaRBib6}
+      %\by И.\, В.~Голикова, С. Х. Зинина
+      %\paper Топологическая сопряженность $n$-кратных декартовых произведений грубых преобразований окружности
+      %\jour Известия Высших учебных заведений. Прикладная нелинейная динамика
+      %\yr 2021
+      %\vol 29
+      %\issue 6
+      %\pages  851-862
+      %\doi 10.18500/0869-6632-2021-29-6-851-862
+
+      %\Rbibitem{ZininaRBib9}
+      %\by M. M. Peixoto
+      %\paper On structural stability
+      %\jour Ann. Math.
+      %\yr 1959
+      %\vol 69
+      %\pages 199--222
+
+      %\RBibitem{ZininaRBib10}
+      %\by R. Mane
+      %\paper A proof of $C^1$ stability conjecture.
+      %\jour Publ. Math. IHES
+      %\yr 1988
+      %\vol 66
+      %\pages 161--210
+      %\elink http://www.numdam.org/article/PMIHES_1987__66__161_0.pdf
+
+      %\RBibitem{ZininaRBib11}
+      %\by C. Robinson
+      %\paper Structural stability of $C^1$ diffeomorphisms
+      %\jour J. Diff. Equat.
+      %\yr 1976
+      %\vol 22
+      %\issue 1
+      %\pages 28--73
+
+      %\RBibitem{ZininaRBib12}
+      %\by С. Смейл
+      %\paper Дифференцируемые динамические системы
+      %\jour УМН
+      %\yr 1970
+      %\vol 25
+      %\pages 113--185
+
+      %\Rbibitem{ZininaRBib13}
+      %\by J. Palis
+      %\paper On Morse-Smale dynamical systems
+      %\jour Topology
+      %\yr 1969
+      %\vol 8
+      %\issue 5
+      %\pages 385--404
+
+      %\RBibitem{ZininaRBib14}
+      %\by J. Palis, S. Smale
+      %\paper Structural stability theorems
+      %\jour Global Analysis, Proc. Sympos. Pure Math.
+      %\yr 1970
+      %\vol 14
+      %\pages 223--231
+
+      %\RBibitem{ZininaRBib15}
+      %\by Ж. Палис, В. Ди Мелу
+      %\book Геометрическая теория динамических систем: Введение
+      %\yr 1986
+      %\publ М. Мир.
+      %\totalpage 301
+
+      %\RBibitem{ZininaRBib16}
+      %\by  V. Grines,  T. Medvedev, O. Pochinka
+      %\book Dynamical Systems on 2- and 3-Manifolds.
+      %\publ Switzerland: Springer
+      %\yr 2016
+      %\totalpage 313
+      %\doi 10.1007/978-3-319-44847-3
+
+      %\RBibitem{ZininaRBib17}
+      %\by  А. И. Морозов, О. В.Починка
+      %\paper Combinatorial invariant of Morse-Smale diffeomorphisms on surfaces with orientable heteroclinic
+      %\jour Журнал Средневолжского математического общества
+      %\publaddr Саранск
+      %\yr 2020
+      %\vol 22
+      %\issue 1
+      %\pages 71--80
+      %\doi 10.15507/2079-6900.22.202001.71-80
+
+      %\RBibitem{ZininaRBib7}
+      %\by Д. Д. Шубин
+      %\paper Топология несущих многообразий несингулярных потоков с тремя нескрученными орбитами
+      %\jour Известия Высших учебных заведений. Прикладная нелинейная динамика
+      %\yr 2021
+      %\vol 29
+      %\issue 6
+      %\pages 863-868
+      %\doi 10.18500/0869-6632-2021-29-6-863-868
+
+      %\RBibitem{ZininaRBib1}
+      %\by И.\, В.~Голикова, О. В. Починка
+      %\paper Надстройки над грубыми преобразованиями окружности
+      %\jour Огарёв-Online
+      %\yr 2020
+      %\issue 13
+      %\pages 1-11
+
+      %\RBibitem{ZininaRBib5}
+      %\by  А. Е. Колобянина, Е. В. Ноздринова, О. В. Починка
+      %\paper Современное изложение классификации грубых преобразований окружности
+      %\jour Журнал Средневолжского математического общества
+      %\publaddr Саранск
+      %\yr 2018
+      %\vol 20
+      %\issue 4
+      %\pages 408--418
+      %\doi 10.15507/2079-6900.20.201804.408-418
+
+      %\RBibitem{ZininaRBib3}
+      %\by Hatcher A.
+      %\book Notes on basic 3-manifold topology
+      %\yr 2007
+      %\totalpages 60
+      %elink https://pi.math.cornell.edu/~hatcher/3M/3Mfds.pdf
+      %</code></pre>
+      </div>
+      <p>Англоязычный блок:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>%Список источников на английском языке в формате AMSBIB.
+
+      \begin{thebibliographyEn}
+      \vskip -2mm
+
+      \Bibitem{ZininaBib8en}
+      \by A. A. Andronov, L. S. Pontryagin
+      \paper Rough systems
+      \jour Reports of the Academy of Sciences of the USSR
+      \yr 1937
+      \vol 14
+      \issue 5
+      \pages 247–250
+      \lang In Russ.
+
+      ...
+      \end{thebibliographyEn}</code></pre>
+      </div>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в интерфейсе Labkeeper. Встроенный компилятор соберет документ и отобразит PDF-файл в окне предпросмотра.</p>
+      <p>В Labkeeper встроены инструменты искусственного интеллекта, которые помогают находить и исправлять ошибки верстки за один клик прямо в интерфейсе редактора. Используйте встроенного AI-агента для исправления ошибок.</p>
+  - id: submit
+    title: 'Отправка статьи в редакцию журнала'
+    html: |2-
+      <p>Удалите ненужные файлы в проекте, относящиеся к демонстрационным шаблонным (например, <code>ZhurnalSVMO2020_23_1.tex</code>, <code>ZhurnalSVMO2020_23_1.pdf</code>, папку <code>Zinina</code>).</p>
+      <p>Скачайте проект и отправьте в редакцию согласно разделу <a href="https://journal.svmo.ru/site/index">«Руководство для авторов»</a> на сайте «Журнал Средневолжского математического общества».</p>
+  - id: link
+    title: 'Ссылка на актуальный шаблон статьи'
+    html: |2-
+      <p>Используйте готовый актуальный шаблон для «Журнал Средневолжского математического общества», чтобы сфокусироваться на сути вашего исследования.</p>
+      <p><a href="{{publicUrl}}/project/175a2d9b-b798-4904-8285-e0fa850fdc2e">Открыть шаблон научной статьи «Журнал Средневолжского математического общества» в онлайн-редакторе Labkeeper.</a></p>

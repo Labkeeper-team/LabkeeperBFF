@@ -17,6 +17,8 @@ class LandingPagesSecurityConfig {
                 "/about",
                 "/blog",
                 "/blog/**",
+                "/templates",
+                "/templates/**",
                 "/privacy",
                 "/soglas",
                 "/sogl_yam",

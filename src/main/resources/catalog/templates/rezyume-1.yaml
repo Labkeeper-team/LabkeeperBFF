@@ -1,0 +1,112 @@
+catalogIndex: 8
+slug: rezyume-1
+projectId: 13b541d5-bc6e-4526-85b8-b4e3cdc0910b
+cardTitle: 'Шаблон «Резюме 1»'
+cardDescription: >-
+  Академическое CV на классе curve: шапка с контактами, опыт, образование,
+  список публикаций из biblatex и навыки. Образец в PDF учебный, его заменяют.
+categories:
+  - latex
+  - cv
+related:
+  - 'altacv'
+  - 'simple-hipster-cv'
+title: 'LaTeX-шаблон академического CV «Резюме 1» на классе curve'
+pageTitle: 'Шаблон «Резюме 1» — Labkeeper'
+metaDescription: >-
+  LaTeX-шаблон академического CV на классе curve: контакты, опыт, образование,
+  публикации IEEE из biblatex, навыки и сертификаты. Образец уже собран в PDF.
+breadcrumbTitle: 'Резюме 1'
+h1: 'LaTeX-шаблон академического CV «Резюме 1»'
+datePublished: '2026-10-30'
+dateModified: '2026-10-30'
+readingTime: '5 мин'
+keywords:
+  - 'шаблон резюме LaTeX'
+  - 'академическое CV curve'
+  - 'Резюме 1'
+sliderTitle: 'Резюме 1'
+sliderText: 'Академическое CV на классе curve со списком публикаций.'
+sidebarText: 'Откройте шаблон CV и замените образец на свои данные.'
+ctaTitle: 'Откройте шаблон CV'
+ctaText: 'Готовый LaTeX-шаблон академического CV уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что видно в PDF'
+  - id: commands
+    title: 'Какие команды править'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Слева замените учебный образец, справа смотрите PDF.</li>
+      </ol>
+      <p>Это не одностраничное резюме на вакансию, а многостраничное академическое CV.
+      Класс документа — <code>curve</code> Ляньцзы Лим, опции <code>a4paper</code>, <code>11pt</code>, <code>english</code> и <code>skipsamekey</code>.
+      Оформление рубрик лежит в <code>settings.sty</code>, список работ — в <code>own-bib.bib</code>.</p>
+  - id: description
+    title: 'Что видно в PDF'
+    html: |2-
+      <p>В собранном PDF в шапке стоит «Your Name Here, Ph.D.», почта example@gmail.com, X <code>@overleaf_example</code>, LinkedIn и сайт example.example.org.
+      Имя, университет Unseen University и должность Community Witch — вымышленный образец, его нужно заменить целиком.</p>
+      <p>Дальше идут такие разделы:</p>
+      <ul>
+          <li><strong>Employment History.</strong> Две записи: с 2014 года Community Witch и в 2013–2015 Lecturer в XYZ College.</li>
+          <li><strong>Education.</strong> Ph.D. 2009–2013, High Energy Magic, и M.Sc. Computer Science 2003–2006. У каждой степени есть название диссертации.</li>
+          <li><strong>Research Publications.</strong> Журнальные статьи (9), труды конференций (11), книги и главы (2). Стиль списка — IEEE, своё имя в образце выделено. Среди журналов есть PeerJ Preprints, Nusa, Language Resources and Evaluation, Polibits и Procedia, а записи Journal of Carrying On специально показывают, как подсвечивается смена фамилии. В книгах — сборник Grid Computing Cluster (USM, 2009, ISBN 978-983-3986-58-3) и глава в нём.</li>
+          <li><strong>Skills.</strong> Языки (English, Mandarin Chinese, Bahasa Malaysia), код (Java, Python, R, SQL, LaTeX), базы данных и веб.</li>
+          <li><strong>Miscellaneous Experience.</strong> Награды 2001–2002 и сертификаты 2006 и 2014.</li>
+      </ul>
+      <p>Текст рубрик лежит не в главном файле, а в отдельных: <code>employment</code>, <code>education</code>, <code>skills</code>, <code>misc</code>. Публикации подключаются через <code>\input{publications}</code>.</p>
+  - id: commands
+    title: 'Какие команды править'
+    html: |2-
+      <p>Шапка, фото и порядок разделов задаются в главном файле. Своё имя в списке литературы перечисляют в <code>\mynames</code>: там, где в имени пробел, в .bib нужна команда <code>\bibnamedelima</code>, после последнего имени пробела быть не должно.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[a4paper,skipsamekey,11pt,english]{curve}
+      \PassOptionsToPackage{style=ieee,sorting=ydnt,uniquename=init,defernumbers=true}{biblatex}
+      \usepackage{settings}
+      \addbibresource{own-bib.bib}
+      \mynames{Lim/Lian\bibnamedelima Tze}
+      \includecomment{fullonly}
+
+      \leftheader{%
+        {\LARGE\bfseries\sffamily Your Name Here, Ph.D.}
+        \makefield{\faEnvelope[regular]}{\href{mailto:example@gmail.com}{\texttt{example@gmail.com}}}
+      }
+      \photo[r]{photo}
+      \photoscale{0.13}
+
+      \makerubric{employment}
+      \makerubric{education}
+      \input{publications}
+      \makerubric{skills}
+      \makerubric{misc}</code></pre>
+      </div>
+      <ul>
+          <li>Фото выводится только при <code>\includecomment{fullonly}</code>. В образце комментарий включён, файл называется <code>photo</code>. Чтобы убрать фото, поставьте <code>\excludecomment{fullonly}</code>.</li>
+          <li>Шрифты: Cochineal для текста, Cabin для шапки, Inconsolata (zi4) для ссылок. На pdfLaTeX подключается <code>fontenc</code>, на XeLaTeX и LuaLaTeX — <code>fontspec</code>.</li>
+          <li>Поля и цвета в образце закомментированы. Поля задают через <code>\geometry</code>, цвета линий — <code>SwishLineColour</code> и <code>MarkerColour</code>, маркер пункта — <code>\prefixmarker</code>.</li>
+          <li>Сортировка библиографии <code>ydnt</code>: сначала новые работы. Префикс URL в стиле IEEE заменён на <code>\textsc{url}</code>.</li>
+          <li>Китайский текст можно включить пакетом <code>ctex</code>, для него нужен XeLaTeX. В образце строка закомментирована.</li>
+      </ul>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Список литературы собирается biblatex, поэтому после правок <code>own-bib.bib</code> дождитесь готового PDF, а не промежуточного прохода.</p>
+      <p>Проверьте шапку, что своё имя выделено в публикациях, и что длинные названия журналов не вылезают за поле. Если резюме нужно на одну страницу, удалите рубрику публикаций: для неакадемического отклика она обычно лишняя.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>В проекте уже собраны класс <code>curve</code>, стилевой файл, библиография и учебный PDF. Остаётся подставить свои данные.</p>
+      <p><a href="{{publicUrl}}/project/13b541d5-bc6e-4526-85b8-b4e3cdc0910b">Открыть шаблон «Резюме 1» в онлайн-редакторе Labkeeper.</a></p>

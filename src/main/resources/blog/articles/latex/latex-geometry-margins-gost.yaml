@@ -11,6 +11,19 @@ h1: 'Пакет geometry: точная настройка полей стран�
 categories:
   - 'latex'
   - 'diploma'
+related:
+  - 'diploma-appendices-listings-diagrams-gost'
+  - 'automatic-table-of-contents-diploma-gost'
+  - 'a4-frames-eskd-stamp-technical-diploma'
+  - 'paragraph-indent-1-25-gost'
+  - 'diploma-page-numbering-second-page'
+  - 'latex-line-spacing-1-5-setspace-gost'
+  - 'latex-newcommand-macros'
+  - 'latex-gost-bibliography'
+  - 'latex-diploma-gost'
+  - 'latex-titlepage'
+  - 'latex-dissertation'
+  - 'latex-list-of-figures-tables'
 keywords:
   - 'настройка полей страницы latex geometry'
   - 'размер полей гост в latex'

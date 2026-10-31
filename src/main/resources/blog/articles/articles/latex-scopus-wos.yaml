@@ -20,6 +20,19 @@ h1: 'Подготовка статьи для публикации в&nbsp;жу�
 categories:
   - 'articles'
   - 'latex'
+related:
+  - 'rinc-vak-scientific-article-template-fonts-margins'
+  - 'imrad-structure-scientific-article-scopus-template'
+  - 'diploma-annotation-abstract-russian-english'
+  - 'biblatex-biber-advanced-bibliography-management'
+  - 'essay-report-titlepage-format'
+  - 'electronic-resources-bibliography-gost-7-0-100'
+  - 'scientific-article-annotation-abstract-keywords-vak'
+  - 'latex-gost-bibliography'
+  - 'latex-dissertation'
+  - 'latex-fancyhdr'
+  - 'latex-amsthm'
+  - 'latex-formulas'
 keywords:
   - 'шаблон статьи scopus latex онлайн'
   - 'подготовка публикации wos в latex'

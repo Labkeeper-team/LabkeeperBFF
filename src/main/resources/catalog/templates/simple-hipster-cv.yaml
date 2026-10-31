@@ -1,0 +1,113 @@
+catalogIndex: 10
+slug: simple-hipster-cv
+projectId: f1f493de-d38b-4d4f-a62f-6f3354a12e33
+cardTitle: 'Шаблон Simple Hipster CV'
+cardDescription: >-
+  Одностраничное резюме simplehipstercv, тема lighthipster: узкая колонка с фото
+  и контактами, справа опыт, степени, шкалы навыков и языки.
+categories:
+  - latex
+  - cv
+related:
+  - 'rezyume-1'
+  - 'altacv'
+title: 'LaTeX-шаблон резюме Simple Hipster CV'
+pageTitle: 'Шаблон Simple Hipster CV — Labkeeper'
+metaDescription: >-
+  Шаблон Simple Hipster CV в теме lighthipster: боковая колонка с фото и контактами,
+  опыт, степени, шкалы навыков, сертификаты, языки и публикации.
+breadcrumbTitle: 'Simple Hipster CV'
+h1: 'LaTeX-шаблон резюме Simple Hipster CV'
+datePublished: '2026-10-30'
+dateModified: '2026-10-30'
+readingTime: '4 мин'
+keywords:
+  - 'Simple Hipster CV'
+  - 'шаблон резюме LaTeX'
+  - 'simplehipstercv'
+sliderTitle: 'Simple Hipster CV'
+sliderText: 'Одностраничное резюме с боковой колонкой и шкалами навыков.'
+sidebarText: 'Откройте шаблон Simple Hipster CV и замените образец на свои данные.'
+ctaTitle: 'Откройте шаблон Simple Hipster CV'
+ctaText: 'Готовый LaTeX-шаблон Simple Hipster CV уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что видно в PDF'
+  - id: commands
+    title: 'Какие команды править'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Слева замените учебный образец, справа смотрите PDF.</li>
+      </ol>
+      <p>Класс — <code>simplehipstercv</code> с опцией <code>lighthipster</code>. Это смесь hipstercv, Friggeri CV и Twenty Seconds Resume.
+      Шрифт Raleway, бумага A4, поля 1 см. Левая колонка занимает около 23% ширины, правая — около 75%.</p>
+  - id: description
+    title: 'Что видно в PDF'
+    html: |2-
+      <p>Образец в PDF — одностраничная шутка про Джека Воробья. Имя, даты и lorem ipsum нужно заменить, команды вёрстки оставить.</p>
+      <p>В шапке справа от боковой колонки: Jack Sparrow, роль Captain. Слева, сверху вниз:</p>
+      <ul>
+          <li>Круглое фото <code>jack.jpg</code>.</li>
+          <li><strong>About me</strong> — три абзаца lorem ipsum.</li>
+          <li><strong>personal</strong> — имя, nationality: English, год 1690.</li>
+          <li><strong>Areas of specialization</strong> — Privateering, Bucaneering, Parler, Rum.</li>
+          <li><strong>Interests</strong> — ещё один абзац-заглушка, затем строка R / Android / Linux, повторённая трижды.</li>
+          <li>Контакты: jack@sparrow.org, @sparrow, Facebook и GitHub.</li>
+      </ul>
+      <p>В основной колонке:</p>
+      <ul>
+          <li><strong>Short Resumé</strong> — Captain of the Black Pearl, 2018–2021, East Indies, и та же роль в 2016–2017, Tortuga. У каждой записи роль, место и короткий текст.</li>
+          <li><strong>Degrees</strong> — 1710 Captain, Tortuga Uni; 1715 Bucaneering, M.A., London; 1720 Bucaneering, B.A., London.</li>
+          <li><strong>Programming</strong> — шкалы html/css, LaTeX, python, R и javascript. Длина полоски задаётся числом от 0 до 1.</li>
+          <li><strong>Curriculum</strong> — ещё две записи: капитан в 2018–2021 и Freelance Pirate в 2019.</li>
+          <li><strong>Certificates &amp; Grants</strong> — 1708 Captain's Certificates, 1710 Travel grant, 1715–1716 Grant from the Pirate's Company.</li>
+          <li><strong>Languages</strong> — English C2, mother tongue; French, Spanish и Italian с кружками уровня.</li>
+          <li><strong>Publications</strong> — книга 1729 и статья 1720 «Privateering for Beginners» в The Pragmatic Pirate.</li>
+          <li><strong>Talks</strong> — доклад ноября 1726 на Annual Pirate's Conference в Tortuga.</li>
+      </ul>
+      <p>Внизу страницы подпись: имя, The Black Pearl, Tortuga, телефон 0099/333 5647380 и почта jack@sparrow.com.</p>
+  - id: commands
+    title: 'Какие команды править'
+    html: |2-
+      <p>Тема задаётся опцией класса. В комментарии к файлу перечислены <code>darkhipster</code>, <code>lighthipster</code>, <code>pastel</code>, <code>allblack</code>, <code>grey</code>, <code>verylight</code> и <code>withoutsidebar</code>. Сейчас включена светлая тема с боковой колонкой.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[lighthipster]{simplehipstercv}
+      \simpleheader{headercolour}{Jack}{Sparrow}{Captain}{white}
+      \roundpic{jack.jpg}
+      \bg{cvgreen}{white}{About me}
+      \infobubble{\faAt}{cvgreen}{white}{jack@sparrow.org}
+
+      \cvevent{2019}{Freelance Pirate}{Bucaneering}{Tortuga \color{cvred}}{This and that. The usual, aye? \lorem}{medal.jpeg}
+      \cvdegree{1710}{Captain}{Certified}{Tortuga Uni \color{headerblue}}{}{disney.png}
+      \barrule{0.4}{0.5em}{cvpurple}</code></pre>
+      </div>
+      <ul>
+          <li><code>\simpleheader</code> принимает цвет, имя, фамилию, роль и цвет текста шапки.</li>
+          <li><code>\cvevent</code> — годы, должность, роль, место, описание и картинка. В образце рядом с записями лежат <code>disney.png</code> и <code>medal.jpeg</code>.</li>
+          <li><code>\cvdegree</code> — год, направление, степень и вуз.</li>
+          <li><code>\barrule</code> рисует шкалу навыка: первый аргумент — доля заполнения, например 0,4 для html/css и 0,1 для javascript.</li>
+          <li><code>\pictofraction</code> рисует кружки языка. У French и Italian залиты три из четырёх, у Spanish — один.</li>
+          <li>Команда <code>\lorem</code> вставляет рыбу. Перед отправкой резюме её нужно удалить и написать свой текст.</li>
+      </ul>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Класс <code>simplehipstercv.cls</code>, фото и иконки уже лежат в проекте.</p>
+      <p>Резюме рассчитано на одну страницу. Если текст боковой колонки стал длиннее основной, сократите блок About me: колонка не переносится отдельно от правой. Проверьте подпись внизу: телефон и почта задаются там ещё раз, не только в <code>\infobubble</code>.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>В проекте уже собраны класс, светлая тема и одностраничный образец. Остаётся подставить свои данные.</p>
+      <p><a href="{{publicUrl}}/project/f1f493de-d38b-4d4f-a62f-6f3354a12e33">Открыть шаблон Simple Hipster CV в онлайн-редакторе Labkeeper.</a></p>

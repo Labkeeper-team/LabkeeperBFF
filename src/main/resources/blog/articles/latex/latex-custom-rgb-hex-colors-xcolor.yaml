@@ -10,6 +10,19 @@ breadcrumbTitle: 'Пользовательские цвета RGB и HEX (xcolor
 h1: 'Пользовательские цвета RGB и&nbsp;HEX для текста (пакет xcolor)'
 categories:
   - 'latex'
+related:
+  - 'latex-algorithm2e-pseudocode-algorithms'
+  - 'latex-russian-cyrillic-code-listings-minted'
+  - 'biblatex-biber-advanced-bibliography-management'
+  - 'overleaf-alternatives-russia-online-latex'
+  - 'latex-tcolorbox-theorems-callouts'
+  - 'latex-multi-file-document-input-include'
+  - 'latex-minipage-images-tables-side-by-side'
+  - 'latex-tikz-automata-graphs'
+  - 'latex-prevent-hyphenation-linebreaks'
+  - 'latex-longtable-multipage'
+  - 'latex-sans-serif-fonts'
+  - 'latex-forest-trees'
 keywords:
   - 'свой цвет hex в latex xcolor'
   - 'цвет rgb в latex xcolor'

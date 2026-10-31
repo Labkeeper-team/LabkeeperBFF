@@ -18,6 +18,19 @@ h1: |2-
 categories:
   - 'latex'
   - 'articles'
+related:
+  - 'rinc-vak-scientific-article-template-fonts-margins'
+  - 'imrad-structure-scientific-article-scopus-template'
+  - 'diploma-annotation-abstract-russian-english'
+  - 'biblatex-biber-advanced-bibliography-management'
+  - 'footnotes-bottom-page-law-history-coursework-gost'
+  - 'literature-review-structure-diploma-citation'
+  - 'scientific-article-annotation-abstract-keywords-vak'
+  - 'latex-gost-bibliography'
+  - 'latex-dissertation'
+  - 'latex-fancyhdr'
+  - 'latex-scopus-wos'
+  - 'latex-amsthm'
 keywords:
   - 'формулы и уравнения в latex amsmath'
   - 'выравнивание формул по знаку равно latex align'

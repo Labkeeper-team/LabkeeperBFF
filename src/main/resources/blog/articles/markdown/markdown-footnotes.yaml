@@ -10,6 +10,19 @@ breadcrumbTitle: 'Сноски в Markdown (Footnotes)'
 h1: 'Как сделать кликабельные сноски в&nbsp;Markdown документе'
 categories:
   - 'markdown'
+related:
+  - 'modern-it-resume-markdown-cv-as-code'
+  - 'complex-markdown-tables-syntax-online-generator'
+  - 'markdown-superscript-subscript-indices'
+  - 'markdown-image-size-width-height'
+  - 'markdown-multiline-formulas-matrices-mathjax'
+  - 'github-readme-template-badges-spoilers'
+  - 'markdown-table-merge-cells-rowspan-colspan'
+  - 'markdown-raw-html-integration'
+  - 'markdown-to-pdf-export'
+  - 'markdown-strikethrough-underline-highlight'
+  - 'markdown-code-syntax-highlighting'
+  - 'markdown-task-lists'
 batch: 2
 keywords:
   - 'как сделать сноски footnote в markdown'

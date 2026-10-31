@@ -23,6 +23,19 @@ h1: |2-
 categories:
   - 'labs'
   - 'latex'
+related:
+  - 'indirect-measurement-error-calculation-lab-report'
+  - 'ideal-lab-report-template-gost-online'
+  - 'how-to-write-lab-report-conclusion-examples'
+  - 'physics-lab-measurement-graphs-formatting-gost'
+  - 'algorithm-flowcharts-gost-markdown-latex'
+  - 'programming-lab-report-code-listings-gost'
+  - 'markdown-table-merge-cells-rowspan-colspan'
+  - 'markdown-to-pdf-export'
+  - 'markdown-task-lists'
+  - 'latex-lab-reports'
+  - 'latex-siunitx'
+  - 'latex-eskd'
 keywords:
   - 'редактор химических формул latex онлайн'
   - 'пакет chemfig онлайн примеры'

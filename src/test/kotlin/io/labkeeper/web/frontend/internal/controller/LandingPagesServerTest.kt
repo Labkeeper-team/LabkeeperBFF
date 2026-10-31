@@ -31,7 +31,7 @@ class LandingPagesServerTest(
     @Autowired private val webTestClient: WebTestClient,
 ) {
     @Test
-    fun homePageRendersSettingsAndFallbackProjects() {
+    fun homePageRendersSettings() {
         val body = get("/", MediaType.TEXT_HTML)
 
         body shouldContain "<!doctype html>"
@@ -42,7 +42,12 @@ class LandingPagesServerTest(
         body shouldContain "ym(123456, \"init\""
         body shouldNotContain "IO_LABKEEPER_FRONTEND_"
         body shouldContain "href=\"assets/css/style.css\""
-        body shouldContain "Измерение интенсивности радиационного фона"
+        body shouldNotContain "id=\"examples\""
+        body shouldContain "href=\"/templates\""
+        body shouldContain "href=\"/wiki/index.html\""
+        body shouldNotContain "github.com/Labkeeper-team/Docs/wiki"
+        body shouldContain "Шаблон статьи для журнала «Автоматика и телемеханика»"
+        body shouldContain "/project/e7e8765e-3f85-4e3a-aac9-301c62099c5c"
         body shouldContain "header__projects"
         body shouldContain "display: none"
         body shouldContain "https://labkeeper.test/"
@@ -62,6 +67,13 @@ class LandingPagesServerTest(
         article shouldContain "amsmath"
         article shouldContain "window.__LABKEEPER_API_VERSION = \"v9\";"
         article shouldContain "https://labkeeper.test/blog/latex-formulas"
+        article shouldContain "href=\"/project/default?example=latex-formulas\""
+        article shouldNotContain "latex="
+        article shouldNotContain "compute="
+        article shouldNotContain "markdown="
+        article shouldContain "href=\"/blog/latex-amsthm\""
+        article shouldContain "href=\"/blog/rinc-vak-scientific-article-template-fonts-margins\""
+        article shouldNotContain "href=\"/blog/markdown-footnotes\""
         article shouldNotContain "IO_LABKEEPER_FRONTEND_"
         article shouldNotContain "labkeeper.io"
 
@@ -73,7 +85,54 @@ class LandingPagesServerTest(
         val sitemap = get("/sitemap.xml", MediaType.APPLICATION_XML)
         sitemap shouldStartWith "<?xml"
         sitemap shouldContain "<loc>https://labkeeper.test/blog/latex-formulas</loc>"
+        sitemap shouldContain "<lastmod>2026-10-18</lastmod>"
+        sitemap shouldContain "<loc>https://labkeeper.test/templates</loc>"
+        sitemap shouldContain "<loc>https://labkeeper.test/templates/avtomatika-i-telemekhanika</loc>"
+        sitemap shouldContain "<loc>https://labkeeper.test/wiki/index.html</loc>"
+        sitemap shouldContain "<loc>https://labkeeper.test/wiki/language/syntax.html</loc>"
+        sitemap shouldNotContain "/wiki/_search"
+        sitemap.replace("\r\n", "\n") shouldContain
+            "<loc>https://labkeeper.test/templates/rezyume-1</loc>\n    <lastmod>2026-10-30</lastmod>"
         sitemap shouldNotContain "labkeeper.io"
+    }
+
+    @Test
+    fun templatePagesOpenTheProject() {
+        val catalog = get("/templates", MediaType.TEXT_HTML)
+        catalog shouldContain "Шаблоны Labkeeper — готовые проекты для LaTeX и Markdown"
+        catalog shouldContain "Шаблон статьи для журнала «Автоматика и телемеханика»"
+        catalog shouldContain "href=\"/templates/avtomatika-i-telemekhanika\""
+        catalog shouldContain "href=\"/project/e7e8765e-3f85-4e3a-aac9-301c62099c5c\""
+        catalog shouldContain "Открыть шаблон"
+        catalog shouldNotContain "Тестовый шаблон отчёта"
+        catalog shouldNotContain "labkeeper.io"
+
+        val template = get("/templates/avtomatika-i-telemekhanika", MediaType.TEXT_HTML)
+        template shouldContain "Шаблон статьи «Автоматика и телемеханика» в LaTeX — Labkeeper"
+        template shouldContain "Открыть шаблон"
+        template shouldContain "href=\"/project/e7e8765e-3f85-4e3a-aac9-301c62099c5c\""
+        template shouldContain "https://labkeeper.test/templates/avtomatika-i-telemekhanika"
+        template shouldContain "href=\"/templates/automation-and-remote-control\""
+        template shouldContain "href=\"/templates/vestnik-mgu-fizika\""
+        template shouldNotContain "href=\"/templates/altacv\""
+        template shouldNotContain "labkeeper.io"
+
+        val cv = get("/templates/rezyume-1", MediaType.TEXT_HTML)
+        cv shouldContain "href=\"/templates/altacv\""
+        cv shouldContain "href=\"/templates/simple-hipster-cv\""
+        cv shouldNotContain "href=\"/templates/automation-and-remote-control\""
+
+        webTestClient.get().uri("/templates/missing-template").exchange().expectStatus().isNotFound
+    }
+
+    @Test
+    fun projectPagesAreNotIndexed() {
+        listOf("/project/default", "/project/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").forEach { path ->
+            val body = webTestClient.get().uri(path).exchange()
+                .expectStatus().isOk
+                .expectBody<String>().returnResult().responseBody.orEmpty()
+            body shouldContain "name=\"robots\" content=\"noindex, follow\""
+        }
     }
 
     @Test

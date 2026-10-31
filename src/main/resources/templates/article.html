@@ -14,11 +14,14 @@
             name="keywords"
             th:content="${article.keywordsText}"
         />
-        <link rel="canonical" th:href="|${publicUrl}/blog/${article.slug}|" />
+        <link
+            rel="canonical"
+            th:href="|${publicUrl}${article.canonicalPath}|"
+        />
         <meta property="og:type" content="article" />
         <meta
             property="og:url"
-            th:content="|${publicUrl}/blog/${article.slug}|"
+            th:content="|${publicUrl}${article.canonicalPath}|"
         />
         <meta property="og:locale" content="ru_RU" />
         <meta property="og:site_name" content="Labkeeper" />
@@ -148,16 +151,9 @@
                     <ul class="header__nav-list">
                         <li class="header__nav-item">
                             <a
-                                href="/#examples"
+                                href="/templates"
                                 class="header__nav-link"
-                                data-i18n="nav-examples"
-                            ></a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a
-                                href="/#advantages"
-                                class="header__nav-link"
-                                data-i18n="nav-features"
+                                data-i18n="nav-templates"
                             ></a>
                         </li>
                         <li class="header__nav-item">
@@ -231,8 +227,9 @@
                             </li>
                             <li class="article-breadcrumbs__item">
                                 <a
-                                    href="/blog"
                                     class="article-breadcrumbs__link"
+                                    th:href="${article.catalogHref}"
+                                    th:text="${article.catalogLabel}"
                                     >Блог</a
                                 >
                             </li>
@@ -261,18 +258,23 @@
                             <a
                                 class="article-tag"
                                 th:each="tag : ${article.tags}"
-                                th:href="|/blog#${tag.id}|"
+                                th:href="|${article.catalogHref}#${tag.id}|"
                                 th:text="${tag.name}"
                                 >Категория</a
                             >
                         </div>
                         <p
                             class="article-content__meta"
+                            th:if="${!article.dateDisplay.isEmpty()}"
                             th:text="|Обновлено: ${article.dateDisplay} · Время чтения: ~${article.readingTime}|"
                         >
                             Обновлено
                         </p>
-                        <nav class="article-toc" aria-label="Содержание статьи">
+                        <nav
+                            class="article-toc"
+                            aria-label="Содержание статьи"
+                            th:if="${!article.toc.isEmpty()}"
+                        >
                             <h3 class="article-toc__title">Содержание</h3>
                             <ol class="article-toc__list">
                                 <li th:each="item : ${article.toc}">
@@ -350,14 +352,23 @@
                         <a
                             class="button button--primary article-sidebar__btn"
                             id="sidebar-cta-btn"
-                            data-blog-example
-                            th:href="${article.editorExampleUrl}"
+                            th:href="${article.openUrl}"
+                            th:target="${article.opensProject} ? '_blank' : null"
+                            th:attr="data-blog-example=${article.opensProject} ? null : 'true'"
                         >
                             <span class="article-example__label">
-                                <span data-i18n="blog-example"
+                                <span
+                                    th:unless="${article.opensProject}"
+                                    data-i18n="blog-example"
                                     >Просмотреть пример</span
                                 >
                                 <span
+                                    th:if="${article.opensProject}"
+                                    data-i18n="template-open"
+                                    >Открыть шаблон</span
+                                >
+                                <span
+                                    th:unless="${article.opensProject}"
                                     class="article-example__hint"
                                     data-i18n="blog-example-context"
                                     >в редакторе</span
@@ -392,14 +403,23 @@
                 <div class="cta-features__footer">
                     <a
                         class="button button--outline-light cta-features__intro-btn"
-                        data-blog-example
-                        th:href="${article.editorExampleUrl}"
+                        th:href="${article.openUrl}"
+                        th:target="${article.opensProject} ? '_blank' : null"
+                        th:attr="data-blog-example=${article.opensProject} ? null : 'true'"
                     >
                         <span class="article-example__label">
-                            <span data-i18n="blog-example"
+                            <span
+                                th:unless="${article.opensProject}"
+                                data-i18n="blog-example"
                                 >Просмотреть пример</span
                             >
                             <span
+                                th:if="${article.opensProject}"
+                                data-i18n="template-open"
+                                >Открыть шаблон</span
+                            >
+                            <span
+                                th:unless="${article.opensProject}"
                                 class="article-example__hint"
                                 data-i18n="blog-example-context"
                                 >в редакторе</span
@@ -413,7 +433,12 @@
 
         <section class="audience">
             <div class="audience__container">
-                <h2 class="audience__title h1">Другие статьи</h2>
+                <h2
+                    class="audience__title h1"
+                    th:text="${article.relatedTitle}"
+                >
+                    Другие статьи
+                </h2>
                 <div class="audience__slider-wrapper">
                     <button
                         class="audience__arrow audience__arrow--prev"
@@ -424,13 +449,44 @@
                         aria-label="Next slide"
                     ></button>
                     <div class="swiper audience__swiper">
-                        <div class="swiper-wrapper"></div>
+                        <div class="swiper-wrapper">
+                            <th:block th:if="${relatedLinks != null}">
+                                <div
+                                    class="swiper-slide"
+                                    th:each="item : ${relatedLinks}"
+                                >
+                                    <a
+                                        th:href="${item.href}"
+                                        class="audience-card"
+                                    >
+                                        <p
+                                            class="audience-card__title"
+                                            th:text="${item.title}"
+                                        >
+                                            Шаблон
+                                        </p>
+                                        <p
+                                            class="audience-card__text"
+                                            th:text="${item.text}"
+                                        >
+                                            Описание
+                                        </p>
+                                    </a>
+                                </div>
+                            </th:block>
+                        </div>
                     </div>
                 </div>
                 <div class="audience__action">
-                    <a href="/blog" class="button button--outline audience__btn"
-                        >Все статьи <span class="button__arrow">→</span></a
+                    <a
+                        class="button button--outline audience__btn"
+                        th:href="${article.relatedHref}"
                     >
+                        <span th:text="${article.relatedLabel}"
+                            >Все статьи</span
+                        >
+                        <span class="button__arrow">→</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -454,26 +510,9 @@
                             class="footer__link"
                             data-i18n="nav-tokens"
                         ></a>
-                        <a
-                            href="https://github.com/Labkeeper-team/Docs/wiki/ru"
-                            target="_blank"
-                            class="footer__link footer__link--external"
-                        >
+                        <a href="/wiki/index.html" class="footer__link">
                             <span data-i18n="nav-wiki"></span>
-                            <img
-                                src="/assets/img/target.svg"
-                                alt=""
-                                class="footer__link-icon"
-                                width="16"
-                                height="16"
-                                loading="lazy"
-                            />
                         </a>
-                        <a
-                            href="/#examples"
-                            class="footer__link"
-                            data-i18n="nav-examples"
-                        ></a>
                         <a
                             href="/blog"
                             class="footer__link"

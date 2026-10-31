@@ -11,6 +11,19 @@ h1: 'Оформление сносок внизу страницы для кур
 categories:
   - 'diploma'
   - 'articles'
+related:
+  - 'rinc-vak-scientific-article-template-fonts-margins'
+  - 'imrad-structure-scientific-article-scopus-template'
+  - 'diploma-annotation-abstract-russian-english'
+  - 'biblatex-biber-advanced-bibliography-management'
+  - 'literature-review-structure-diploma-citation'
+  - 'essay-report-titlepage-format'
+  - 'electronic-resources-bibliography-gost-7-0-100'
+  - 'scientific-article-annotation-abstract-keywords-vak'
+  - 'latex-gost-bibliography'
+  - 'latex-dissertation'
+  - 'latex-amsthm'
+  - 'latex-formulas'
 keywords:
   - 'постраничные сноски в курсовой гост'
   - 'оформление сносок внизу страницы диплом'
