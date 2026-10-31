@@ -42,7 +42,7 @@ class LandingPagesServerTest(
         body shouldContain "ym(123456, \"init\""
         body shouldNotContain "IO_LABKEEPER_FRONTEND_"
         body shouldContain "href=\"assets/css/style.css\""
-        body shouldContain "Измерение интенсивности радиационного фона"
+        body shouldNotContain "id=\"examples\""
         body shouldContain "href=\"/templates\""
         body shouldContain "href=\"/wiki/index.html\""
         body shouldNotContain "github.com/Labkeeper-team/Docs/wiki"

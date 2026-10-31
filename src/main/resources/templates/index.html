@@ -283,13 +283,6 @@
                     <ul class="header__nav-list">
                         <li class="header__nav-item">
                             <a
-                                href="#examples"
-                                class="header__nav-link js-scroll-link"
-                                data-i18n="nav-examples"
-                            ></a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a
                                 href="/templates"
                                 class="header__nav-link"
                                 data-i18n="nav-templates"
@@ -640,139 +633,6 @@
                     </div>
                 </div>
             </section>
-            <!-- Блок 3: Примеры проектов -->
-            <section class="examples" id="examples">
-                <div class="examples__container">
-                    <!-- Верхняя панель: Заголовок + Категории -->
-                    <div class="examples__header">
-                        <h2 class="examples__title h1" data-i18n="ex-title">
-                            Примеры проектов
-                        </h2>
-
-                        <!-- Таб бар категорий (адаптирован из вашего кода) -->
-                        <div class="policy-nav examples__nav">
-                            <ul
-                                class="header__nav-list2 policy-nav__list"
-                                id="project-categories"
-                            >
-                                <li class="header__nav-item">
-                                    <a
-                                        href="#"
-                                        class="header__nav-link header__nav-link--active"
-                                        data-category="all"
-                                        data-i18n="cat-all"
-                                        >Все</a
-                                    >
-                                </li>
-                                <li class="header__nav-item">
-                                    <a
-                                        href="#"
-                                        class="header__nav-link"
-                                        data-category="lab"
-                                        data-i18n="cat-lab"
-                                        >Лабораторные</a
-                                    >
-                                </li>
-                                <li class="header__nav-item">
-                                    <a
-                                        href="#"
-                                        class="header__nav-link"
-                                        data-category="diploma"
-                                        data-i18n="cat-diploma"
-                                        >Дипломные</a
-                                    >
-                                </li>
-                                <li class="header__nav-item">
-                                    <a
-                                        href="#"
-                                        class="header__nav-link"
-                                        data-category="cv"
-                                        data-i18n="cat-cv"
-                                        >CV</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Оболочка слайдера -->
-                    <div class="examples__slider-wrapper">
-                        <!-- Кнопки управления (скрыты на мобильных через CSS) -->
-                        <button
-                            class="examples__arrow examples__arrow--prev"
-                            aria-label="Previous slide"
-                        ></button>
-                        <button
-                            class="examples__arrow examples__arrow--next"
-                            aria-label="Next slide"
-                        ></button>
-
-                        <!-- Контейнер Swiper -->
-                        <div class="swiper examples__swiper">
-                            <div class="swiper-wrapper" id="projects-container">
-                                <div
-                                    class="swiper-slide"
-                                    th:each="project : ${previewProjects}"
-                                    th:data-category="${project.category}"
-                                    th:attr="data-name-ru=${project.nameRu},data-name-en=${project.nameEn},data-category-ru=${project.categoryRu},data-category-en=${project.categoryEn},data-template=${project.template}"
-                                >
-                                    <a
-                                        class="example-card"
-                                        target="_blank"
-                                        th:href="@{/project/{id}(id=${project.id})}"
-                                    >
-                                        <div class="example-card__visual">
-                                            <img
-                                                class="example-card__image"
-                                                loading="lazy"
-                                                th:src="${#strings.isEmpty(project.logoUrl) ? 'assets/img/logo.svg' : project.logoUrl}"
-                                                th:alt="${project.nameRu}"
-                                                th:classappend="${#strings.isEmpty(project.logoUrl)} ? 'example-card__image--placeholder'"
-                                            />
-                                            <img
-                                                src="assets/img/target.svg"
-                                                alt="open"
-                                                class="example-card__external-icon"
-                                                width="16"
-                                                height="16"
-                                            />
-                                        </div>
-                                        <div class="example-card__content">
-                                            <h3
-                                                class="example-card__title"
-                                                th:text="${project.nameRu}"
-                                            >
-                                                Проект
-                                            </h3>
-                                            <p
-                                                class="example-card__text"
-                                                th:text="${project.categoryRu}"
-                                            >
-                                                Категория
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div
-                                    class="loading-placeholder"
-                                    th:if="${previewProjects.isEmpty()}"
-                                >
-                                    Нет проектов в данной категории
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="examples__action">
-                        <a
-                            href="/project/default"
-                            class="button button--primary examples__btn"
-                            data-i18n="ex-btn"
-                            >Все проекты</a
-                        >
-                    </div>
-                </div>
-            </section>
             <!-- Блок 4: Возможности -->
             <section class="advantages" id="advantages">
                 <div class="advantages__container">
@@ -1049,11 +909,6 @@
                         <a href="/wiki/index.html" class="footer__link">
                             <span data-i18n="nav-wiki"></span>
                         </a>
-                        <a
-                            href="/#examples"
-                            class="footer__link"
-                            data-i18n="nav-examples"
-                        ></a>
                         <a
                             href="/blog"
                             class="footer__link"
