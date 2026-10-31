@@ -1,9 +1,9 @@
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Grid, Navigation } from 'swiper/modules';
 
 window.Swiper = function SwiperElement(element, options = {}) {
     return new Swiper(element, {
-        modules: [Navigation],
+        modules: [Navigation, Grid],
         ...options,
     });
 };

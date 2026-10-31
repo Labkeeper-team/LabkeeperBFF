@@ -5005,3 +5005,21 @@ h2,
     display: none !important;
   }
 }
+
+/* Шаблоны на главной: две строки карточек фиксированной высоты 280px */
+#templates .knowledge__swiper {
+  --template-row-gap: 16px;
+  height: calc(280px * 2 + var(--template-row-gap) + 30px);
+}
+
+@media (min-width: 768px) {
+  #templates .knowledge__swiper {
+    --template-row-gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #templates .knowledge__swiper {
+    --template-row-gap: 24px;
+  }
+}

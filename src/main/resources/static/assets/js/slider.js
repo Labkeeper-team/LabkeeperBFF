@@ -411,28 +411,44 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!section) {
             return;
         }
+        const twoRows = sectionId === 'templates';
         const swiper = new Swiper(`#${sectionId} .knowledge__swiper`, {
-            slidesPerView: 1.18,
+            slidesPerView: twoRows ? 1 : 1.18,
             spaceBetween: 16,
             loop: false,
             grabCursor: true,
             observer: true,
             observeParents: true,
+            ...(twoRows ? { grid: { rows: 2, fill: 'row' } } : {}),
             navigation: {
                 nextEl: `#${sectionId} .knowledge__arrow--next`,
                 prevEl: `#${sectionId} .knowledge__arrow--prev`,
             },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 24,
-                    allowTouchMove: true,
-                },
-            },
+            breakpoints: twoRows
+                ? {
+                      768: {
+                          slidesPerView: 2,
+                          spaceBetween: 20,
+                          grid: { rows: 2, fill: 'row' },
+                      },
+                      1024: {
+                          slidesPerView: 3,
+                          spaceBetween: 24,
+                          allowTouchMove: true,
+                          grid: { rows: 2, fill: 'row' },
+                      },
+                  }
+                : {
+                      768: {
+                          slidesPerView: 2,
+                          spaceBetween: 20,
+                      },
+                      1024: {
+                          slidesPerView: 3,
+                          spaceBetween: 24,
+                          allowTouchMove: true,
+                      },
+                  },
         });
 
         const update = () => {

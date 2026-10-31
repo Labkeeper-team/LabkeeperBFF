@@ -23,6 +23,7 @@ class TemplateCatalog(@Value($$"${io.labkeeper.host}") host: String) {
             val name = resource.filename ?: "template.yaml"
             TemplatePage(Yaml().load(text), host, name)
         }
+        .distinctBy { it.slug }
         .sortedBy { it.catalogIndex }
 
     val lastModified: String? = templates.mapNotNull { it.dateModified }.maxOrNull()
