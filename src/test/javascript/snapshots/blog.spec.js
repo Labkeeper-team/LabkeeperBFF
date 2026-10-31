@@ -25,7 +25,9 @@ function renderedExample(example) {
     return Object.fromEntries(
         Object.entries(example).map(([key, value]) => [
             key,
-            String(value).replaceAll('{{publicUrl}}', siteHost).replaceAll('{{publicHost}}', siteHost),
+            typeof value === 'string'
+                ? value.replaceAll('{{publicUrl}}', siteHost).replaceAll('{{publicHost}}', siteHost)
+                : value,
         ]),
     );
 }
