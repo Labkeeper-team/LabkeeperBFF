@@ -120,7 +120,8 @@ const i18n = {
         'cta-formulas-title': 'Набирайте формулы в&nbsp;Labkeeper',
         'cta-formulas-text':
             'Онлайн-редактор LaTeX с&nbsp;компиляцией в&nbsp;PDF, AI-ассистентом и&nbsp;поддержкой amsmath — без установки, сразу в&nbsp;браузере.',
-        'cta-open-editor': 'Открыть редактор <span class="button__arrow">→</span>',
+        'cta-open-editor':
+            'Открыть редактор <span class="button__arrow">→</span>',
         'knowledge-title': 'База знаний',
         'knowledge-btn': 'Все статьи <span class="button__arrow">→</span>',
         'page-dev': 'Страница в разработке.',

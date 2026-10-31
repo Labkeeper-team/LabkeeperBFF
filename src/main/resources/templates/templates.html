@@ -7,9 +7,7 @@
             http-equiv="Content-Security-Policy"
             content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru [(${openpanelApiUrl})]; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests"
         />
-        <title>
-            Шаблоны Labkeeper — готовые проекты для LaTeX и Markdown
-        </title>
+        <title>Шаблоны Labkeeper — готовые проекты для LaTeX и Markdown</title>
         <meta
             name="description"
             content="Готовые шаблоны Labkeeper: лабораторные, дипломы, резюме и научные работы. Откройте шаблон и продолжите в своём проекте."
@@ -268,10 +266,16 @@
                     class="header__container"
                     style="flex-direction: column; align-items: center"
                 >
-                    <h1 class="blog-header__title h1" data-i18n="templates-title">
+                    <h1
+                        class="blog-header__title h1"
+                        data-i18n="templates-title"
+                    >
                         Шаблоны
                     </h1>
-                    <p class="blog-header__desc" data-i18n="templates-page-desc">
+                    <p
+                        class="blog-header__desc"
+                        data-i18n="templates-page-desc"
+                    >
                         Готовые проекты для лабораторных, дипломов, резюме и
                         научных работ. Кнопка «Открыть шаблон» открывает проект,
                         а карточка — страницу шаблона.
@@ -352,7 +356,9 @@
                             target="_blank"
                             th:href="@{/project/{id}(id=${entry.projectId})}"
                         >
-                            <span data-i18n="template-open">Открыть шаблон</span>
+                            <span data-i18n="template-open"
+                                >Открыть шаблон</span
+                            >
                             <span class="blog-card__arrow">→</span>
                         </a>
                     </div>
@@ -374,10 +380,7 @@
             <!-- CTA секция -->
             <section class="cta-features" id="cta-features">
                 <div class="cta-features__intro">
-                    <p
-                        class="cta-features__intro-label"
-                        data-i18n="cta-try"
-                    >
+                    <p class="cta-features__intro-label" data-i18n="cta-try">
                         Попробуйте прямо сейчас
                     </p>
                     <h2
@@ -493,10 +496,7 @@
                             class="footer__link"
                             data-i18n="nav-tokens"
                         ></a>
-                        <a
-                            href="/wiki/index.html"
-                            class="footer__link"
-                        >
+                        <a href="/wiki/index.html" class="footer__link">
                             <span data-i18n="nav-wiki"></span>
                         </a>
                         <a

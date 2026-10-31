@@ -14,7 +14,10 @@
             name="keywords"
             th:content="${article.keywordsText}"
         />
-        <link rel="canonical" th:href="|${publicUrl}${article.canonicalPath}|" />
+        <link
+            rel="canonical"
+            th:href="|${publicUrl}${article.canonicalPath}|"
+        />
         <meta property="og:type" content="article" />
         <meta
             property="og:url"
@@ -486,7 +489,9 @@
                         class="button button--outline audience__btn"
                         th:href="${article.relatedHref}"
                     >
-                        <span th:text="${article.relatedLabel}">Все статьи</span>
+                        <span th:text="${article.relatedLabel}"
+                            >Все статьи</span
+                        >
                         <span class="button__arrow">→</span>
                     </a>
                 </div>
@@ -512,10 +517,7 @@
                             class="footer__link"
                             data-i18n="nav-tokens"
                         ></a>
-                        <a
-                            href="/wiki/index.html"
-                            class="footer__link"
-                        >
+                        <a href="/wiki/index.html" class="footer__link">
                             <span data-i18n="nav-wiki"></span>
                         </a>
                         <a
