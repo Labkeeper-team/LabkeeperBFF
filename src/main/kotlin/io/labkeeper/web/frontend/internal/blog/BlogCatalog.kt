@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver
 import org.springframework.stereotype.Component
 import org.yaml.snakeyaml.Yaml
-import java.net.URLEncoder
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -28,6 +27,8 @@ class BlogCatalog(@Value($$"${io.labkeeper.host}") host: String) {
     )
 
     fun find(slug: String) = articles.firstOrNull { it.slug == slug }
+
+    fun exampleProgram(slug: String) = find(slug)?.exampleSegments
 
     /** Links listed in the article YAML under `related`, in that order. */
     fun relatedTo(page: BlogArticle): List<ArticleLink> {
@@ -77,7 +78,8 @@ class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
     val tags = categoryIds.zip(categoryNames, ::ArticleTag)
     val dateModified = yaml["dateModified"] as String
     val dateDisplay: String = LocalDate.parse(dateModified).format(DATE_FORMAT)
-    val editorExampleUrl = exampleUrl(yaml["editorExample"] as Map<String, String>)
+    val exampleSegments = exampleSegments(yaml["editorExample"], slug)
+    val editorExampleUrl = "/project/default?example=$slug"
     val openUrl = editorExampleUrl
     val opensProject = false
     val canonicalPath = "/blog/$slug"
@@ -125,12 +127,50 @@ class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
 
 data class ArticleTag(val id: String, val name: String)
 
+data class BlogExampleSegment(
+    val type: String,
+    val text: String,
+    val parameters: BlogExampleParameters = BlogExampleParameters(),
+)
+
+data class BlogExampleParameters(
+    val visible: Boolean = true,
+    val hideAssignment: Boolean = false,
+    val hideAssignmentWithValues: Boolean = false,
+    val hideValue: Boolean = false,
+    val hideGeneralFormula: Boolean = false,
+    val hideInflAssignment: Boolean = false,
+    val hideInflAssignmentWithValues: Boolean = false,
+    val hideInfl: Boolean = false,
+)
+
 private const val PUBLIC_URL_TOKEN = "{{publicUrl}}"
 private const val PUBLIC_HOST_TOKEN = "{{publicHost}}"
 private val JSON = ObjectMapper()
 private val WHITESPACE = Regex("\\s+")
 private val DATE_FORMAT = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.forLanguageTag("ru"))
 private val EXAMPLE_TYPES = listOf("compute", "latex", "markdown")
+private val SEGMENT_TYPES = mapOf(
+    "compute" to "computational",
+    "computational" to "computational",
+    "latex" to "latex",
+    "markdown" to "md",
+    "md" to "md",
+    "asciimath" to "asciimath",
+    "mermaid" to "mermaid",
+    "plantuml" to "plantuml",
+    "drawio" to "drawio",
+)
+private val PARAMETER_NAMES = setOf(
+    "visible",
+    "hideAssignment",
+    "hideAssignmentWithValues",
+    "hideValue",
+    "hideGeneralFormula",
+    "hideInflAssignment",
+    "hideInflAssignmentWithValues",
+    "hideInfl",
+)
 private val CATEGORY_NAMES = mapOf(
     "latex" to "Работа с LaTeX",
     "markdown" to "Работа с Markdown",
@@ -156,10 +196,60 @@ private fun slugList(yaml: Map<String, Any?>, key: String, owner: String): List<
     }
 }
 
-private fun exampleUrl(example: Map<String, String>): String {
-    val open = if ("latex" in example || "compute" in example) "latex" else "markdown"
-    val params = listOf("open" to open) + EXAMPLE_TYPES.mapNotNull { type -> example[type]?.let { type to it } }
-    return params.joinToString("&", prefix = "/project/default?") { (name, value) ->
-        "$name=${URLEncoder.encode(value, Charsets.UTF_8)}"
+internal fun exampleSegments(example: Any?, slug: String): List<BlogExampleSegment> = when (example) {
+    is Map<*, *> -> exampleSegmentsFromMap(example, slug)
+    is List<*> -> {
+        if (example.isEmpty()) error("Blog article '$slug' has an empty editor example")
+        example.mapIndexed { index, item -> exampleSegment(item, slug, index) }
     }
+    null -> error("Blog article '$slug' is missing an editor example")
+    else -> error("Blog article '$slug' has an invalid editor example")
+}
+
+private fun exampleSegmentsFromMap(example: Map<*, *>, slug: String): List<BlogExampleSegment> {
+    if (example.isEmpty()) error("Blog article '$slug' has an empty editor example")
+    val unknown = example.keys.filter { it !in EXAMPLE_TYPES }
+    if (unknown.isNotEmpty()) error("Blog article '$slug' has unknown editor example keys $unknown")
+    return EXAMPLE_TYPES.mapNotNull { type ->
+        if (type !in example) return@mapNotNull null
+        val text = example[type] as? String ?: error("Blog article '$slug' has an empty $type example")
+        if (text.isBlank()) error("Blog article '$slug' has an empty $type example")
+        BlogExampleSegment(type = SEGMENT_TYPES.getValue(type), text = text)
+    }
+}
+
+private fun exampleSegment(item: Any?, slug: String, index: Int): BlogExampleSegment {
+    val segment = item as? Map<*, *> ?: error("Blog article '$slug' example segment ${index + 1} must be an object")
+    val unknown = segment.keys.filter { it != "type" && it != "text" && it != "parameters" }
+    if (unknown.isNotEmpty()) error("Blog article '$slug' example segment ${index + 1} has unknown fields $unknown")
+    val typeName = segment["type"] as? String ?: error("Blog article '$slug' example segment ${index + 1} is missing type")
+    val type = SEGMENT_TYPES[typeName] ?: error("Blog article '$slug' example segment ${index + 1} has unknown type '$typeName'")
+    val text = segment["text"] as? String ?: error("Blog article '$slug' example segment ${index + 1} is missing text")
+    if (text.isBlank()) error("Blog article '$slug' example segment ${index + 1} has empty text")
+    return BlogExampleSegment(type, text, exampleParameters(segment["parameters"], slug, index))
+}
+
+private fun exampleParameters(raw: Any?, slug: String, index: Int): BlogExampleParameters {
+    if (raw == null) return BlogExampleParameters()
+    val parameters = raw as? Map<*, *>
+        ?: error("Blog article '$slug' example segment ${index + 1} parameters must be an object")
+    val unknown = parameters.keys.filter { it !in PARAMETER_NAMES }
+    if (unknown.isNotEmpty()) {
+        error("Blog article '$slug' example segment ${index + 1} has unknown parameters $unknown")
+    }
+    fun flag(name: String, default: Boolean): Boolean {
+        if (name !in parameters) return default
+        return parameters[name] as? Boolean
+            ?: error("Blog article '$slug' example segment ${index + 1} parameter '$name' must be true or false")
+    }
+    return BlogExampleParameters(
+        visible = flag("visible", true),
+        hideAssignment = flag("hideAssignment", false),
+        hideAssignmentWithValues = flag("hideAssignmentWithValues", false),
+        hideValue = flag("hideValue", false),
+        hideGeneralFormula = flag("hideGeneralFormula", false),
+        hideInflAssignment = flag("hideInflAssignment", false),
+        hideInflAssignmentWithValues = flag("hideInflAssignmentWithValues", false),
+        hideInfl = flag("hideInfl", false),
+    )
 }
