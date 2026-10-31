@@ -21,6 +21,8 @@ class BlogCatalog(@Value($$"${io.labkeeper.host}") host: String) {
         }
         .sortedBy { it.catalogIndex }
 
+    val lastModified: String? = articles.maxOfOrNull { it.dateModified }
+
     val sliderJson = scriptJson(
         articles.map { mapOf("url" to "/blog/${it.slug}", "title" to it.sliderTitle, "text" to it.sliderText) },
     )
@@ -80,7 +82,7 @@ class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
     val categoryAttr = categoryIds.joinToString(" ")
     val categoryNames = categoryIds.map { CATEGORY_NAMES[it] ?: it }
     val tags = categoryIds.zip(categoryNames, ::ArticleTag)
-    private val dateModified = yaml["dateModified"] as String
+    val dateModified = yaml["dateModified"] as String
     val dateDisplay: String = LocalDate.parse(dateModified).format(DATE_FORMAT)
     val editorExampleUrl = exampleUrl(yaml["editorExample"] as Map<String, String>)
     val openUrl = editorExampleUrl

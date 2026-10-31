@@ -72,7 +72,15 @@ class LandingPagesController(
     }
 
     @GetMapping("/sitemap.xml", produces = [MediaType.APPLICATION_XML_VALUE])
-    fun sitemap() = "sitemap"
+    fun sitemap(model: Model): String {
+        model.addAttribute("blogLastModified", blogCatalog.lastModified)
+        model.addAttribute("templatesLastModified", templateCatalog.lastModified)
+        model.addAttribute(
+            "homeLastModified",
+            listOfNotNull(blogCatalog.lastModified, templateCatalog.lastModified).maxOrNull(),
+        )
+        return "sitemap"
+    }
 
     private companion object {
         const val HOME_CATALOG_LIMIT = 100

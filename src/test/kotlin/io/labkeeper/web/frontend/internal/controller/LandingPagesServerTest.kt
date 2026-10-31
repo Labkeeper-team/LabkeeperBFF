@@ -79,8 +79,11 @@ class LandingPagesServerTest(
         val sitemap = get("/sitemap.xml", MediaType.APPLICATION_XML)
         sitemap shouldStartWith "<?xml"
         sitemap shouldContain "<loc>https://labkeeper.test/blog/latex-formulas</loc>"
+        sitemap shouldContain "<lastmod>2026-10-18</lastmod>"
         sitemap shouldContain "<loc>https://labkeeper.test/templates</loc>"
         sitemap shouldContain "<loc>https://labkeeper.test/templates/avtomatika-i-telemekhanika</loc>"
+        sitemap.replace("\r\n", "\n") shouldContain
+            "<loc>https://labkeeper.test/templates/rezyume-1</loc>\n    <lastmod>2026-10-30</lastmod>"
         sitemap shouldNotContain "labkeeper.io"
     }
 

@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:th="http://www.thymeleaf.org">
   <url>
     <loc>[(${publicUrl})]/</loc>
+    <lastmod th:text="${homeLastModified}">2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,21 +13,25 @@
   </url>
   <url>
     <loc>[(${publicUrl})]/blog</loc>
+    <lastmod th:text="${blogLastModified}">2026-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>[(${publicUrl})]/templates</loc>
+    <lastmod th:text="${templatesLastModified}">2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url th:each="entry : ${templates}">
     <loc th:text="|${publicUrl}/templates/${entry.slug}|">[(${publicUrl})]/templates/template</loc>
+    <lastmod th:if="${entry.dateModified != null}" th:text="${entry.dateModified}">2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url th:each="article : ${articles}">
     <loc th:text="|${publicUrl}/blog/${article.slug}|">[(${publicUrl})]/blog/article</loc>
+    <lastmod th:text="${article.dateModified}">2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

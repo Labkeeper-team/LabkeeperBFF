@@ -25,6 +25,8 @@ class TemplateCatalog(@Value($$"${io.labkeeper.host}") host: String) {
         }
         .sortedBy { it.catalogIndex }
 
+    val lastModified: String? = templates.mapNotNull { it.dateModified }.maxOrNull()
+
     val sliderJson = scriptJson(
         templates.map { mapOf("url" to it.canonicalPath, "title" to it.sliderTitle, "text" to it.sliderText) },
     )
@@ -80,7 +82,7 @@ class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String)
     val categoryAttr = categoryIds.joinToString(" ")
     val categoryNames = categoryIds.map { CATEGORY_NAMES[it] ?: it }
     val tags = categoryIds.zip(categoryNames, ::ArticleTag)
-    private val dateModified = text(yaml, "dateModified")
+    val dateModified = text(yaml, "dateModified")
     val dateDisplay = dateModified?.let { LocalDate.parse(it).format(DATE_FORMAT) }.orEmpty()
     val openUrl = "/project/$projectId"
     val opensProject = true
