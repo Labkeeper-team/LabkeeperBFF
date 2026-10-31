@@ -15,7 +15,7 @@ keywords:
   - 'титульный лист лабораторной работы гост шаблон'
   - 'оформление титульного листа лабораторной'
 datePublished: '2026-10-30'
-dateModified: '2026-10-30'
+dateModified: '2026-10-31'
 readingTime: '7 мин'
 cardTitle: 'Титульный лист лабораторной работы: готовый шаблон LaTeX'
 cardDescription: |2-
@@ -97,7 +97,7 @@ sections:
       \newcommand{\labtopic}{Проверка закона Ома}
       \newcommand{\studentname}{Иванов Иван Иванович}
       \newcommand{\studentgroup}{Ф-101}
-      \newcommand{\teachername}{Петров Петр Петрович}
+      \newcommand{\teachername}{доцент Петров Петр Петрович}
       \newcommand{\workcity}{Москва}
       \newcommand{\workyear}{2026}
       \begin{document}
