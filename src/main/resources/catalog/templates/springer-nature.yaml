@@ -1,6 +1,7 @@
 catalogIndex: 5
 slug: springer-nature
 projectId: ddf26c01-93ad-41d8-86d2-cb482e0ede59
+previewImage: '/assets/img/templates/springer-nature.png'
 cardTitle: 'Шаблон статей Springer Nature'
 cardDescription: >-
   Официальный LaTeX-шаблон Springer Nature на классе sn-jnl: стили ссылок,

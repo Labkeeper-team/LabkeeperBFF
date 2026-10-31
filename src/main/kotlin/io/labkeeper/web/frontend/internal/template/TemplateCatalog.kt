@@ -90,6 +90,7 @@ class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String)
     val tags = categoryIds.zip(categoryNames, ::ArticleTag)
     val dateModified = text(yaml, "dateModified")
     val dateDisplay = dateModified?.let { LocalDate.parse(it).format(DATE_FORMAT) }.orEmpty()
+    val previewImage = text(yaml, "previewImage")?.takeIf { it.isNotBlank() }
     val openUrl = "/project/$projectId"
     val opensProject = true
     val canonicalPath = "/templates/$slug"
@@ -118,6 +119,7 @@ class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String)
             put("mainEntityOfPage", mapOf("@type" to "WebPage", "@id" to url))
             text(yaml, "datePublished")?.let { put("datePublished", it) }
             dateModified?.let { put("dateModified", it) }
+            previewImage?.let { put("image", "$siteUrl$it") }
             put("inLanguage", "ru")
             put("articleSection", categoryNames)
         },

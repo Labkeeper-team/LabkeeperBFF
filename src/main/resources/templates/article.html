@@ -29,12 +29,12 @@
         <meta property="og:description" th:content="${article.ogDescription}" />
         <meta
             property="og:image"
-            content="[(${publicUrl})]/assets/img/og-image.svg"
+            th:content="${article.previewImage != null} ? |${publicUrl}${article.previewImage}| : |${publicUrl}/assets/img/og-image.svg|"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
             name="twitter:image"
-            content="[(${publicUrl})]/assets/img/og-image.svg"
+            th:content="${article.previewImage != null} ? |${publicUrl}${article.previewImage}| : |${publicUrl}/assets/img/og-image.svg|"
         />
         <meta name="twitter:title" th:content="${article.twitterTitle}" />
         <meta
@@ -254,6 +254,16 @@
                         >
                             Статья
                         </h1>
+                        <figure
+                            class="template-preview"
+                            th:if="${article.previewImage != null}"
+                        >
+                            <img
+                                class="template-preview__page"
+                                th:src="${article.previewImage}"
+                                th:alt="${article.h1}"
+                            />
+                        </figure>
                         <div class="article-content__tags">
                             <a
                                 class="article-tag"

@@ -1,6 +1,7 @@
 catalogIndex: 7
 slug: zhurnal-svmo
 projectId: 175a2d9b-b798-4904-8285-e0fa850fdc2e
+previewImage: '/assets/img/templates/zhurnal-svmo.png'
 cardTitle: 'Шаблон «Журнал Средневолжского математического общества»'
 cardDescription: >-
   LaTeX-шаблон статьи для «Журнала Средневолжского математического общества»:

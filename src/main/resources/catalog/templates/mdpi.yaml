@@ -1,6 +1,7 @@
 catalogIndex: 4
 slug: mdpi
 projectId: b07135ee-b778-4b28-a7b9-a5797cc03584
+previewImage: '/assets/img/templates/mdpi.png'
 cardTitle: 'Шаблон статьи издательства MDPI'
 cardDescription: >-
   Разбор актуального LaTeX-шаблона MDPI: класс документа, авторы, ORCID,

@@ -1,6 +1,7 @@
 catalogIndex: 18
 slug: radiatsionnyi-fon
 projectId: 092bacc5-c98a-4709-b67d-7455fd4588e4
+previewImage: '/assets/img/templates/radiatsionnyi-fon.png'
 cardTitle: 'Шаблон «Радиационный фон»'
 cardDescription: >-
   Лабораторная 1.1.4 в Markdown: счётчик Гейгера, гистограммы за 10 и 40 секунд

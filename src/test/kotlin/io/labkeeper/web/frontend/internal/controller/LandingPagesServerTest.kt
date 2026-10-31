@@ -119,6 +119,7 @@ class LandingPagesServerTest(
 
         val cv = get("/templates/rezyume-1", MediaType.TEXT_HTML)
         cv shouldContain "href=\"/templates/altacv\""
+        cv shouldContain "src=\"/assets/img/templates/rezyume-1.png\""
         cv shouldContain "href=\"/templates/simple-hipster-cv\""
         cv shouldNotContain "href=\"/templates/automation-and-remote-control\""
 

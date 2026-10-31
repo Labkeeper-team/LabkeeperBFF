@@ -82,6 +82,7 @@ class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
     val editorExampleUrl = "/project/default?example=$slug"
     val openUrl = editorExampleUrl
     val opensProject = false
+    val previewImage: String? = null
     val canonicalPath = "/blog/$slug"
     val catalogHref = "/blog"
     val catalogLabel = "Блог"
