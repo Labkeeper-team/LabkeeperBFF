@@ -53,7 +53,8 @@ class LandingPagesServerTest(
         body shouldContain "https://labkeeper.test/"
         body shouldContain "hello@labkeeper.test"
         body shouldContain "window.__LABKEEPER_PUBLIC_URL = 'https://labkeeper.test';"
-        body shouldContain "connect-src &#39;self&#39; https://mc.yandex.ru https://labkeeper.test https://openpanel.example;"
+        body shouldContain "connect-src &#39;self&#39; https://mc.yandex.ru " +
+            "https://labkeeper.test https://openpanel.example;"
         body shouldNotContain "labkeeper.io"
     }
 
