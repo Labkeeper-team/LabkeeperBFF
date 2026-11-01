@@ -94,7 +94,7 @@ for (const { slug, editorExample: example } of articles) {
         const links = page.locator('[data-blog-example]');
         await expect(links).toHaveCount(2);
         for (const link of await links.all()) {
-            await expect(link).toHaveAttribute('href', buildExampleUrl(renderedExample(example)));
+            await expect(link).toHaveAttribute('href', buildExampleUrl(renderedExample(example), slug));
             await expectExampleLabel(link, 'ru');
         }
         await setLanguage(page, 'en');
@@ -134,10 +134,14 @@ test.describe('without JavaScript', () => {
     test.use({ javaScriptEnabled: false });
 
     test('example links work', async ({ page }) => {
-        const example = renderedExample(articles.find((article) => article.slug === 'latex-formulas').editorExample);
-        await page.goto('/blog/latex-formulas');
-        await expect(page.locator('[data-blog-example]').last()).toHaveAttribute('href', buildExampleUrl(example));
+        const slug = 'latex-formulas';
+        const example = renderedExample(articles.find((article) => article.slug === slug).editorExample);
+        await page.goto(`/blog/${slug}`);
+        await expect(page.locator('[data-blog-example]').last()).toHaveAttribute('href', buildExampleUrl(example, slug));
         await page.locator('[data-blog-example]').last().click();
-        expect(new URL(page.url()).searchParams.get('latex')).toBe(example.latex);
+        const url = new URL(page.url());
+        expect(url.pathname).toBe('/project/default');
+        expect(url.searchParams.get('example')).toBe(slug);
+        expect(url.searchParams.has('latex')).toBe(false);
     });
 });
