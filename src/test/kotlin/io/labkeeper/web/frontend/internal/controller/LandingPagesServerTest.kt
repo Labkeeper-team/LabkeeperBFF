@@ -53,12 +53,17 @@ class LandingPagesServerTest(
         body shouldContain "https://labkeeper.test/"
         body shouldContain "hello@labkeeper.test"
         body shouldContain "window.__LABKEEPER_PUBLIC_URL = 'https://labkeeper.test';"
+        body shouldContain "connect-src &#39;self&#39; https://mc.yandex.ru https://labkeeper.test https://openpanel.example;"
         body shouldNotContain "labkeeper.io"
     }
 
     @Test
     fun blogPagesRenderArticlesFromYaml() {
-        get("/about", MediaType.TEXT_HTML) shouldContain "<title>О нас — онлайн-редактор Labkeeper</title>"
+        get("/about", MediaType.TEXT_HTML).also {
+            it shouldContain "<title>О нас — онлайн-редактор Labkeeper</title>"
+            it shouldContain "connect-src &#39;self&#39; https://mc.yandex.ru https://openpanel.example;"
+            it shouldNotContain "[(\${openpanelApiUrl})]"
+        }
         get("/blog", MediaType.TEXT_HTML) shouldContain "/blog/latex-formulas"
         get("/blog/ideal-lab-report-template-gost-online", MediaType.TEXT_HTML) shouldContain "<code>\${R}</code>"
 
