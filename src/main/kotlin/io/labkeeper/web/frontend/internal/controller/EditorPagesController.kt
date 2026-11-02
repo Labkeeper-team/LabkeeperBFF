@@ -22,7 +22,15 @@ class EditorPagesController(
             .replace("IO_LABKEEPER_FRONTEND_OPENPANEL_API_URL", properties.openpanelApiUrl)
     }
 
-    @GetMapping("/projects", "/projects/new", "/project/default", "/project/default/agent", "/oauth2/code", "/tokens", "/pay")
+    @GetMapping(
+        "/projects",
+        "/projects/new",
+        "/project/default",
+        "/project/default/agent",
+        "/oauth2/code",
+        "/tokens",
+        "/pay"
+    )
     fun spa() = indexHtml
 
     /** Link previews of a shared project show its title instead of the generic one. */
