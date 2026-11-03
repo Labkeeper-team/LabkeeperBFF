@@ -13,9 +13,9 @@ const i18n = {
         'btn-projects': 'Мои проекты <span class="button__arrow">→</span>',
         'btn-editor': 'Редактор <span class="button__arrow">→</span>',
         'hero-title':
-            'Расчеты и документы <br>в единой среде <span class="text-blue">с ИИ-агентом </span>',
+            'Создавайте документы <span class="text-blue">вместе с&nbsp;ИИ</span>',
         'hero-text':
-            'Встроенный язык вычислений, автоматическая отрисовка формул и агент, который берёт рутину на себя.',
+            'Редактор LaTeX и Markdown с диаграммами Mermaid, PlantUML и draw.io. ИИ-агент предлагает правки, вы проверяете и принимаете каждую.',
         'hero-btn': 'В редактор <span class="button__arrow">→</span>',
         'hero-btn-ai': 'ИИ-агент',
 
@@ -306,9 +306,9 @@ const i18n = {
         'btn-projects': 'My projects <span class="button__arrow">→</span>',
         'btn-editor': 'Editor <span class="button__arrow">→</span>',
         'hero-title':
-            'Calculations and documents<br> in a unified environment <br>with <span class="text-blue">an AI agent</span>',
+            'Create documents <span class="text-blue">together with AI</span>',
         'hero-text':
-            'A built-in computational language, automatic formula rendering, and an agent that handles the routine work.',
+            'LaTeX and Markdown editor with Mermaid, PlantUML and draw.io diagrams. The AI agent suggests edits, and you review and accept each one.',
         'hero-btn': 'Try editor <span class="button__arrow">→</span>',
         'hero-btn-ai': 'AI-agent',
 
