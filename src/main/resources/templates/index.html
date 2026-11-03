@@ -15,12 +15,11 @@
             name="description"
             content="Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF, научным калькулятором высокой точности, готовыми шаблонами по ГОСТ и AI-ассистентом."
         />
-        <link rel="canonical" href="[(${publicUrl})]/" />
+        <link rel="canonical" th:href="|${publicUrl}/|" />
         <link rel="stylesheet" href="assets/css/swiper.css" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="[(${publicUrl})]/" />
+        <meta property="og:url" th:content="|${publicUrl}/|" />
         <meta property="og:locale" content="ru_RU" />
-        <meta property="og:locale:alternate" content="en_US" />
         <meta property="og:site_name" content="Labkeeper" />
         <meta
             property="og:title"
@@ -32,7 +31,7 @@
         />
         <meta
             property="og:image"
-            content="[(${publicUrl})]/assets/img/og-image.svg"
+            th:content="|${publicUrl}/assets/img/og-image.png|"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -41,7 +40,7 @@
         <meta name="twitter:card" content="summary_large_image" />
         <meta
             name="twitter:image"
-            content="[(${publicUrl})]/assets/img/og-image.svg"
+            th:content="|${publicUrl}/assets/img/og-image.png|"
         />
         <meta
             name="twitter:title"
@@ -72,7 +71,7 @@
                     "url": "[(${publicUrl})]",
                     "logo": {
                         "@type": "ImageObject",
-                        "url": "[(${publicUrl})]/assets/img/logo.svg"
+                        "url": "[(${publicUrl})]/assets/img/logo.png"
                     }
                 }
             }
@@ -146,6 +145,12 @@
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
             />
+            <style>
+                /* Without JavaScript nothing hides the preloader, so it would cover the page. */
+                html body .preloader {
+                    display: none;
+                }
+            </style>
         </noscript>
 
         <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
@@ -286,21 +291,24 @@
                                 href="/templates"
                                 class="header__nav-link"
                                 data-i18n="nav-templates"
-                            ></a>
+                                >Шаблоны</a
+                            >
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="/tokens"
                                 class="header__nav-link"
                                 data-i18n="nav-tokens"
-                            ></a>
+                                >Токены</a
+                            >
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="/blog"
                                 class="header__nav-link"
                                 data-i18n="nav-blog"
-                            ></a>
+                                >База знаний</a
+                            >
                         </li>
 
                         <li class="header__nav-item">
@@ -308,16 +316,18 @@
                                 href="/about"
                                 class="header__nav-link"
                                 data-i18n="nav-about"
-                            ></a>
+                                >О нас</a
+                            >
                         </li>
                     </ul>
                     <div class="header__mobile-contact">
                         <span
                             class="header__mobile-contact-label"
                             data-i18n="footer-contact"
-                        ></span>
+                            >Написать нам</span
+                        >
                         <a
-                            href="mailto:[(${contactEmail})]"
+                            th:href="|mailto:${contactEmail}|"
                             class="header__mobile-contact-link"
                             >[(${contactEmail})]</a
                         >
@@ -330,18 +340,21 @@
                         class="button button--outline header__login"
                         data-i18n="btn-login"
                         th:style="${viewerAuthenticated} ? 'display: none' : null"
-                    ></a>
+                        >Авторизоваться <span class="button__arrow">→</span></a
+                    >
                     <a
                         href="/projects"
                         class="button button--outline header__projects"
                         data-i18n="btn-projects"
                         th:style="${viewerAuthenticated} ? null : 'display: none'"
-                    ></a>
+                        >Мои проекты <span class="button__arrow">→</span></a
+                    >
                     <a
                         href="/project/default"
                         class="button button--primary header__editor"
                         data-i18n="btn-editor"
-                    ></a>
+                        >Редактор <span class="button__arrow">→</span></a
+                    >
                 </div>
             </div>
         </header>
@@ -351,20 +364,29 @@
             <section class="hero" id="hero">
                 <div class="hero__container">
                     <div class="hero__content">
-                        <h1 class="hero__title h1" data-i18n="hero-title"></h1>
+                        <h1 class="hero__title h1" data-i18n="hero-title">
+                            Расчеты и документы <br />в единой среде
+                            <span class="text-blue">с ИИ-агентом </span>
+                        </h1>
                         <div class="hero__description">
                             <div class="hero__labels">
                                 <span class="hero__label">LaTeX</span>
                                 <span class="hero__label">Markdown</span>
                                 <span class="hero__label">Вычисления</span>
                             </div>
-                            <p class="hero__text" data-i18n="hero-text"></p>
+                            <p class="hero__text" data-i18n="hero-text">
+                                Встроенный язык вычислений, автоматическая
+                                отрисовка формул и агент, который берёт рутину
+                                на себя.
+                            </p>
                             <div class="hero__actions">
                                 <a
                                     href="/project/default"
                                     class="button button--primary hero__btn"
                                     data-i18n="hero-btn"
-                                ></a>
+                                    >В редактор
+                                    <span class="button__arrow">→</span></a
+                                >
                                 <a
                                     href="/project/default/agent"
                                     class="button button--ai"
@@ -646,34 +668,31 @@
                             loading="lazy"
                         />
                     </div>
-                    <h2 class="advantages__title h2" data-i18n="adv-title"></h2>
+                    <h2 class="advantages__title h2" data-i18n="adv-title">
+                        Labkeeper это:
+                    </h2>
                     <ul class="advantages__list js-advantages-list">
-                        <li
-                            class="advantages__item"
-                            data-i18n="adv-item-1"
-                        ></li>
-                        <li
-                            class="advantages__item"
-                            data-i18n="adv-item-2"
-                        ></li>
-                        <li
-                            class="advantages__item"
-                            data-i18n="adv-item-3"
-                        ></li>
-                        <li
-                            class="advantages__item"
-                            data-i18n="adv-item-4"
-                        ></li>
-                        <li
-                            class="advantages__item"
-                            data-i18n="adv-item-5"
-                        ></li>
+                        <li class="advantages__item" data-i18n="adv-item-1">
+                            Полновесный LaTeX-компилятор
+                        </li>
+                        <li class="advantages__item" data-i18n="adv-item-2">
+                            Markdown-редактор
+                        </li>
+                        <li class="advantages__item" data-i18n="adv-item-3">
+                            Поддержка вычислений высокой точности
+                        </li>
+                        <li class="advantages__item" data-i18n="adv-item-4">
+                            Поддержка вычисления погрешностей
+                        </li>
+                        <li class="advantages__item" data-i18n="adv-item-5">
+                            Агент DeepSeek с принятием правок
+                        </li>
                     </ul>
                     <a
                         href="/wiki/index.html"
                         class="button button--outline advantages__btn"
                     >
-                        <span data-i18n="adv-btn"></span>
+                        <span data-i18n="adv-btn">Смотреть wiki проекта</span>
                     </a>
                 </div>
             </section>
@@ -766,37 +785,71 @@
             <!-- Блок 6: Audience (Для кого) -->
             <section class="audience" id="audience">
                 <div class="audience__container">
-                    <h2 class="audience__title h1" data-i18n="aud-title"></h2>
+                    <h2 class="audience__title h1" data-i18n="aud-title">
+                        Для кого
+                    </h2>
                     <div class="audience__cards">
                         <div class="audience-card">
                             <h3
                                 class="audience-card__title"
                                 data-i18n="aud-c1-title"
-                            ></h3>
+                            >
+                                Студенты<br /><span
+                                    class="audience-card__subtitle"
+                                    >(лабораторные и учебные проекты)</span
+                                >
+                            </h3>
                             <p
                                 class="audience-card__text"
                                 data-i18n="aud-c1-text"
-                            ></p>
+                            >
+                                Вам важны скорость и понятный результат.
+                                Считайте погрешности, стройте графики и
+                                собирайте PDF в LaTeX или Markdown. Агент
+                                DeepSeek предлагает правки оформления —
+                                принимаете только нужные.
+                            </p>
                         </div>
                         <div class="audience-card">
                             <h3
                                 class="audience-card__title"
                                 data-i18n="aud-c2-title"
-                            ></h3>
+                            >
+                                Аспиранты<br /><span
+                                    class="audience-card__subtitle"
+                                    >и авторы научных статей</span
+                                >
+                            </h3>
                             <p
                                 class="audience-card__text"
                                 data-i18n="aud-c2-text"
-                            ></p>
+                            >
+                                Готовите статью или диссертацию? Соберите PDF в
+                                LaTeX, правьте Markdown и смотрите примеры
+                                оформления. Агент DeepSeek предлагает правки
+                                текста и верстки — принять их или откатить
+                                решаете вы.
+                            </p>
                         </div>
                         <div class="audience-card">
                             <h3
                                 class="audience-card__title"
                                 data-i18n="aud-c3-title"
-                            ></h3>
+                            >
+                                Научные сотрудники<br /><span
+                                    class="audience-card__subtitle"
+                                    >и исследователи</span
+                                >
+                            </h3>
                             <p
                                 class="audience-card__text"
                                 data-i18n="aud-c3-text"
-                            ></p>
+                            >
+                                Считайте с высокой точностью, оценивайте
+                                погрешности и стройте графики прямо в документе.
+                                Цифры, LaTeX и итоговый PDF остаются в одном
+                                проекте.
+                            </p>
                         </div>
                     </div>
                     <div class="audience__action">
@@ -804,7 +857,9 @@
                             href="/about"
                             class="button button--outline audience__btn"
                             data-i18n="aud-btn"
-                        ></a>
+                            >Больше о нас
+                            <span class="button__arrow">→</span></a
+                        >
                     </div>
                 </div>
             </section>
@@ -895,31 +950,36 @@
                             href="/#features"
                             class="footer__link"
                             data-i18n="nav-advantages"
-                        ></a>
+                            >Преимущества</a
+                        >
                         <a
                             href="/#advantages"
                             class="footer__link"
                             data-i18n="nav-features"
-                        ></a>
+                            >Возможности</a
+                        >
                         <a
                             href="/tokens"
                             class="footer__link"
                             data-i18n="nav-tokens"
-                        ></a>
+                            >Токены</a
+                        >
                         <a href="/wiki/index.html" class="footer__link">
-                            <span data-i18n="nav-wiki"></span>
+                            <span data-i18n="nav-wiki">Wiki проекта</span>
                         </a>
                         <a
                             href="/blog"
                             class="footer__link"
                             data-i18n="nav-blog"
-                        ></a>
+                            >База знаний</a
+                        >
 
                         <a
                             href="/about"
                             class="footer__link"
                             data-i18n="nav-about"
-                        ></a>
+                            >О нас</a
+                        >
                     </nav>
                     <a href="/" class="footer__logo-link">
                         <img
@@ -935,9 +995,10 @@
                         <span
                             class="footer__contact-label"
                             data-i18n="footer-contact"
-                        ></span>
+                            >Написать нам</span
+                        >
                         <a
-                            href="mailto:[(${contactEmail})]"
+                            th:href="|mailto:${contactEmail}|"
                             class="footer__contact-link"
                             >[(${contactEmail})]</a
                         >
@@ -958,7 +1019,8 @@
                         href="privacy"
                         class="footer__policy"
                         data-i18n="footer-policy"
-                    ></a>
+                        >Политика конфиденциальности</a
+                    >
                 </div>
             </div>
         </footer>

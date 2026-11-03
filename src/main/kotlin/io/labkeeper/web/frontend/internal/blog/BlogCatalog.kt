@@ -101,9 +101,10 @@ class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
             "publisher" to mapOf(
                 "@type" to "Organization",
                 "name" to "Labkeeper",
-                "logo" to mapOf("@type" to "ImageObject", "url" to "$siteUrl/assets/img/logo.svg"),
+                "logo" to mapOf("@type" to "ImageObject", "url" to "$siteUrl/assets/img/logo.png"),
             ),
             "mainEntityOfPage" to mapOf("@type" to "WebPage", "@id" to url),
+            "image" to "$siteUrl/assets/img/og-image.png",
             "datePublished" to yaml["datePublished"],
             "dateModified" to dateModified,
             "inLanguage" to "ru",
