@@ -60,10 +60,9 @@ class LandingPagesServerTest(
             "https://labkeeper.test https://openpanel.example;"
         body shouldNotContain "labkeeper.io"
 
-        val flat = body.replace(WHITESPACE, " ")
-        flat shouldContain "data-i18n=\"hero-title\"> Расчеты и документы"
-        flat shouldContain "data-i18n=\"nav-templates\" >Шаблоны</a"
-        flat shouldNotContain "data-i18n=\"hero-title\"></h1>"
+        // Text is in the HTML itself, not only set by lang.js. Whitespace around it depends on the formatter.
+        body shouldContain Regex("data-i18n=\"hero-title\"\\s*>\\s*Расчеты и документы")
+        body shouldContain Regex("data-i18n=\"nav-templates\"\\s*>\\s*Шаблоны\\s*</a")
     }
 
     @Test
