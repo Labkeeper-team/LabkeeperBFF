@@ -25,6 +25,7 @@ class LandingPagesSecurityConfig {
                 "/sogl_adv",
                 "/sogl_ds",
                 "/oferta",
+                "/{page:about|privacy|soglas|sogl_yam|sogl_adv|sogl_ds|oferta}/",
                 "/assets/**",
             ),
         )
