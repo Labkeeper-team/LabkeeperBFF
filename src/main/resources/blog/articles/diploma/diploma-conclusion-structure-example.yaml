@@ -131,23 +131,29 @@ sections:
       <p>Код ниже — самостоятельный документ для LaTeX-сегмента Labkeeper с оглавлением
       и учебным заключением на следующей странице. Класс <code>extarticle</code> поддерживает
       14 pt, <code>tempora</code> задает шрифт семейства Times, <code>indentfirst</code> сохраняет
-      красную строку после заголовка. Параметры оформления сверьте с методичкой.</p>
+      красную строку после заголовка. В примере заголовок содержания расположен по центру;
+      параметры оформления сверьте с методичкой.</p>
       <div class="article-code">
           <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
           <pre><code>\documentclass[a4paper,14pt]{extarticle}
       \usepackage[T2A]{fontenc}
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
-      \usepackage{tempora,setspace,indentfirst}
+      \usepackage{tempora,setspace,indentfirst,tocloft}
       \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
       \onehalfspacing
       \setlength{\parindent}{1.25cm}
+      \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
       \begin{document}
       \noindent\textit{Учебный пример. Результаты и условия проверки вымышлены.}
+      \begingroup
+      \renewcommand{\contentsname}{\makebox[\textwidth][c]{СОДЕРЖАНИЕ}}
+      \renewcommand{\cfttoctitlefont}{\normalfont\normalsize\bfseries}
       \tableofcontents
+      \endgroup
       \clearpage
       \section*{\centering\normalsize ЗАКЛЮЧЕНИЕ}
-      \addcontentsline{toc}{section}{Заключение}
+      \addcontentsline{toc}{section}{ЗАКЛЮЧЕНИЕ}
       В работе разработан прототип учета заявок, обеспечивающий регистрацию,
       изменение статуса и поиск записей. Полученное решение позволяет представить
       основные операции учета в едином программном интерфейсе.
@@ -174,7 +180,7 @@ sections:
       <p>В готовой ВКР перенесите заголовок, <code>\addcontentsline</code> и свой текст
       заключения после основной части. Преамбулу и второе оглавление добавлять не нужно;
       перед заключением оставьте <code>\clearpage</code>. Звездочка у <code>\section*</code>
-      убирает номер раздела, а <code>\addcontentsline</code> добавляет его в содержание.
+      убирает номер раздела, а <code>\addcontentsline</code> добавляет заголовок в содержание.
       После сборки проверьте страницу в оглавлении; подробнее — в руководстве про
       <a href="/blog/automatic-table-of-contents-diploma-gost">автоматическое оглавление ВКР</a>.</p>
   - id: 'checklist'
@@ -211,16 +217,21 @@ editorExample:
       \usepackage[T2A]{fontenc}
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
-      \usepackage{tempora,setspace,indentfirst}
+      \usepackage{tempora,setspace,indentfirst,tocloft}
       \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
       \onehalfspacing
       \setlength{\parindent}{1.25cm}
+      \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
       \begin{document}
       \noindent\textit{Учебный пример. Результаты и условия проверки вымышлены.}
+      \begingroup
+      \renewcommand{\contentsname}{\makebox[\textwidth][c]{СОДЕРЖАНИЕ}}
+      \renewcommand{\cfttoctitlefont}{\normalfont\normalsize\bfseries}
       \tableofcontents
+      \endgroup
       \clearpage
       \section*{\centering\normalsize ЗАКЛЮЧЕНИЕ}
-      \addcontentsline{toc}{section}{Заключение}
+      \addcontentsline{toc}{section}{ЗАКЛЮЧЕНИЕ}
       В работе разработан прототип учета заявок, обеспечивающий регистрацию,
       изменение статуса и поиск записей. Полученное решение позволяет представить
       основные операции учета в едином программном интерфейсе.

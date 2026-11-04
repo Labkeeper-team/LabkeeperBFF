@@ -88,8 +88,11 @@ sections:
       \usepackage[T2A]{fontenc}
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
-      \usepackage{tempora}
+      \usepackage{tempora,setspace,indentfirst,titlesec}
       \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titlespacing{\section}{\parindent}{12pt}{6pt}
       \newcommand{\university}{Название университета}
       \newcommand{\department}{Кафедра физики}
       \newcommand{\discipline}{Физика}
@@ -125,7 +128,7 @@ sections:
           \workcity{} --- \workyear\par
       \end{titlepage}
       \setcounter{page}{2}
-      \section*{Цель работы}
+      \section{Цель работы}
       Проверить зависимость силы тока от напряжения.
       \end{document}</code></pre>
       </div>
@@ -159,7 +162,7 @@ sections:
           <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
           <pre><code>\end{titlepage}
       \setcounter{page}{2}
-      \section*{Цель работы}</code></pre>
+      \section{Цель работы}</code></pre>
       </div>
       <p>Для других классов документа и более сложной структуры проверьте результат в PDF.
       Отдельные случаи рассмотрены в статье про
@@ -199,8 +202,11 @@ editorExample:
       \usepackage[T2A]{fontenc}
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
-      \usepackage{tempora}
+      \usepackage{tempora,setspace,indentfirst,titlesec}
       \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titlespacing{\section}{\parindent}{12pt}{6pt}
       \newcommand{\university}{Название университета}
       \newcommand{\department}{Кафедра физики}
       \newcommand{\discipline}{Физика}
@@ -236,7 +242,7 @@ editorExample:
           \workcity{} --- \workyear\par
       \end{titlepage}
       \setcounter{page}{2}
-      \section*{Цель работы}
+      \section{Цель работы}
       Проверить зависимость силы тока от напряжения.
       \end{document}
     parameters:
