@@ -1,12 +1,15 @@
 package io.labkeeper.web.frontend.internal.controller
 
+import io.kotest.assertions.withClue
 import io.kotest.matchers.string.shouldContain
+import io.kotest.matchers.string.shouldEndWith
 import io.kotest.matchers.string.shouldNotContain
 import io.kotest.matchers.string.shouldStartWith
 import io.labkeeper.web.frontend.local.LocalFrontendApplication
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.reactive.server.WebTestClient
@@ -35,7 +38,7 @@ class LandingPagesServerTest(
         val body = get("/", MediaType.TEXT_HTML)
 
         body shouldContain "<!doctype html>"
-        body shouldContain "Labkeeper — онлайн-редактор LaTeX и Markdown с компиляцией в PDF"
+        body shouldContain "<title>Онлайн-редактор документов и LaTeX с ИИ-агентом — Labkeeper</title>"
         body shouldContain "window.__LABKEEPER_API_VERSION = 'v9';"
         body shouldContain "window.__LABKEEPER_OPENPANEL_CLIENT_ID = 'client';"
         body shouldContain "window.__LABKEEPER_OPENPANEL_API_URL = 'https://openpanel.example';"
@@ -56,6 +59,28 @@ class LandingPagesServerTest(
         body shouldContain "connect-src &#39;self&#39; https://mc.yandex.ru " +
             "https://labkeeper.test https://openpanel.example;"
         body shouldNotContain "labkeeper.io"
+
+        // Text is in the HTML itself, not only set by lang.js. Whitespace around it depends on the formatter.
+        body shouldContain Regex("data-i18n=\"hero-title\"\\s*>\\s*Создавайте документы")
+        body shouldContain Regex("data-i18n=\"nav-templates\"\\s*>\\s*Шаблоны\\s*</a")
+    }
+
+    @Test
+    fun publicPagesHaveRenderedMeta() {
+        listOf(
+            "/", "/blog", "/templates", "/about", "/privacy", "/oferta", "/soglas", "/sogl_adv", "/sogl_ds",
+            "/sogl_yam", "/blog/latex-formulas", "/templates/mdpi",
+        ).forEach { path ->
+            val body = get(path, MediaType.TEXT_HTML).replace(WHITESPACE, " ")
+            withClue(path) {
+                body shouldNotContain "[(\${"
+                body shouldContain "<link rel=\"canonical\" href=\"https://labkeeper.test$path\""
+                body shouldContain "property=\"og:url\" content=\"https://labkeeper.test$path\""
+                OG_IMAGE.find(body)?.groupValues?.get(1).orEmpty() shouldEndWith ".png"
+                body shouldNotContain "og-image.svg"
+                body shouldContain "href=\"mailto:hello@labkeeper.test\""
+            }
+        }
     }
 
     @Test
@@ -63,7 +88,6 @@ class LandingPagesServerTest(
         get("/about", MediaType.TEXT_HTML).also {
             it shouldContain "<title>О нас — онлайн-редактор Labkeeper</title>"
             it shouldContain "connect-src &#39;self&#39; https://mc.yandex.ru https://openpanel.example;"
-            it shouldNotContain "[(\${openpanelApiUrl})]"
         }
         get("/blog", MediaType.TEXT_HTML) shouldContain "/blog/latex-formulas"
         get("/blog/ideal-lab-report-template-gost-online", MediaType.TEXT_HTML) shouldContain "<code>\${R}</code>"
@@ -80,6 +104,8 @@ class LandingPagesServerTest(
         article shouldContain "href=\"/blog/latex-amsthm\""
         article shouldContain "href=\"/blog/rinc-vak-scientific-article-template-fonts-margins\""
         article shouldNotContain "href=\"/blog/markdown-footnotes\""
+        article shouldContain "\"image\":\"https://labkeeper.test/assets/img/og-image.png\""
+        article shouldContain "\"url\":\"https://labkeeper.test/assets/img/logo.png\""
         article shouldNotContain "IO_LABKEEPER_FRONTEND_"
         article shouldNotContain "labkeeper.io"
 
@@ -146,6 +172,8 @@ class LandingPagesServerTest(
     fun staticAssetsAreServed() {
         get("/assets/css/style.css", MediaType.valueOf("text/css")) shouldContain "--c-primary"
         get("/assets/img/logo.svg") shouldContain "<svg"
+        ok("/assets/img/logo.png", MediaType.IMAGE_PNG)
+        ok("/assets/img/og-image.png", MediaType.IMAGE_PNG)
         val robots = get("/robots.txt", MediaType.TEXT_PLAIN)
         robots shouldContain "Allow: /"
         robots shouldContain "Sitemap: https://labkeeper.test/sitemap.xml"
@@ -160,6 +188,30 @@ class LandingPagesServerTest(
     fun unknownPagesAreNotFound() {
         listOf("/index.html", "/blog/missing-article", "/blog/Not_A_Slug").forEach {
             webTestClient.get().uri(it).exchange().expectStatus().isNotFound
+        }
+
+        val page = webTestClient.get().uri("/blog/missing-article").accept(MediaType.TEXT_HTML).exchange()
+            .expectStatus().isNotFound
+            .expectHeader().contentTypeCompatibleWith(MediaType.TEXT_HTML)
+            .expectBody<String>().returnResult().responseBody.orEmpty()
+        page shouldContain "Страница не найдена"
+        page shouldContain "href=\"/blog\""
+        page shouldContain "name=\"robots\" content=\"noindex, follow\""
+    }
+
+    @Test
+    fun trailingSlashRedirectsToThePageWithoutIt() {
+        mapOf(
+            "/blog/" to "/blog",
+            "/templates/" to "/templates",
+            "/about/" to "/about",
+            "/privacy/" to "/privacy",
+            "/blog/latex-formulas/" to "/blog/latex-formulas",
+            "/templates/mdpi/?utm_source=test" to "/templates/mdpi?utm_source=test",
+        ).forEach { (from, to) ->
+            webTestClient.get().uri(from).exchange()
+                .expectStatus().isEqualTo(HttpStatus.MOVED_PERMANENTLY)
+                .expectHeader().location(to)
         }
     }
 
@@ -183,4 +235,9 @@ class LandingPagesServerTest(
 
     private fun get(path: String, type: MediaType = MediaType.ALL) =
         ok(path, type).expectBody<String>().returnResult().responseBody.orEmpty()
+
+    private companion object {
+        val WHITESPACE = Regex("\\s+")
+        val OG_IMAGE = Regex("property=\"og:image\" content=\"([^\"]*)\"")
+    }
 }
