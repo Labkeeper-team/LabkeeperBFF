@@ -113,12 +113,13 @@ sections:
           Тема: «\labtopic»\par
           \vfill
           \begin{flushright}
-              \begin{tabular}{p{0.65\textwidth}}
+              \begin{minipage}{0.5\textwidth}
+                  \raggedright
                   Выполнил: студент группы \studentgroup \\
                   \studentname \\[12pt]
                   Проверил: \teachername \\[12pt]
                   Подпись: \rule{3cm}{0.4pt}
-              \end{tabular}
+              \end{minipage}
           \end{flushright}
           \vfill
           \workcity{} --- \workyear\par
@@ -185,7 +186,8 @@ tips:
   - title: 'Проверяйте именно PDF'
     html: |2-
       <p>Проверьте переносы длинных названий и место для подписей в собранном PDF.
-      Не используйте пробелы для выравнивания: для блока исполнителей в шаблоне есть таблица.</p>
+      Не используйте пробелы для выравнивания: блок исполнителей размещен в <code>minipage</code>
+      шириной в половину текстовой области и выровнен вправо.</p>
 related:
   - 'ideal-lab-report-template-gost-online'
   - 'latex-titlepage'
@@ -222,12 +224,13 @@ editorExample:
           Тема: «\labtopic»\par
           \vfill
           \begin{flushright}
-              \begin{tabular}{p{0.65\textwidth}}
+              \begin{minipage}{0.5\textwidth}
+                  \raggedright
                   Выполнил: студент группы \studentgroup \\
                   \studentname \\[12pt]
                   Проверил: \teachername \\[12pt]
                   Подпись: \rule{3cm}{0.4pt}
-              \end{tabular}
+              \end{minipage}
           \end{flushright}
           \vfill
           \workcity{} --- \workyear\par
