@@ -1,0 +1,84 @@
+\documentclass[14pt,aspectratio=169]{beamer}
+\usepackage{PTSans}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamerfont{frametitle}{size=\large}
+\setbeamersize{text margin left=8mm,text margin right=8mm}
+\begin{document}
+\begin{frame}{Цель и условия}
+    \textbf{Определение сопротивления резистора}
+    \begin{itemize}
+        \item Цель: оценить сопротивление по напряжению и току.
+        \item Модель: $R=U/I$ для выбранного режима измерения.
+        \item Условия: установившийся ток, температура считается постоянной.
+    \end{itemize}
+    \alert{Учебный пример: все данные вымышлены.}
+\end{frame}
+
+\begin{frame}{Установка и метод}
+    \begin{itemize}
+        \item Амперметр включен последовательно с резистором.
+        \item Вольтметр подключен параллельно резистору.
+        \item Снимаются пары $U$ и $I$ при разных напряжениях.
+    \end{itemize}
+    В этой упрощенной модели влияние приборов на цепь считается
+    пренебрежимо малым. В реальном опыте это допущение нужно обосновать.
+\end{frame}
+
+\begin{frame}{Учебные данные}
+    \begin{center}
+        \begin{tabular}{c|rrrr}
+            $U$, В & 1 & 2 & 3 & 5 \\
+            \hline
+            $I$, А & 0,020 & 0,041 & 0,059 & 0,100
+        \end{tabular}
+    \end{center}
+    Для подробного расчета выбрана последняя точка.
+
+    Таблица показывает исходные пары. Проверка линейности
+    требует отдельного анализа всей серии.
+\end{frame}
+
+\begin{frame}{Расчет в выбранной точке}
+    \[
+        U=5\text{ В},\qquad I=0{,}100\text{ А}
+    \]
+    \[
+        R=\frac{U}{I}=\frac{5}{0{,}100}=50\text{ Ом}
+    \]
+    Это оценка сопротивления в одном режиме.
+    Одна точка не подтверждает линейность $I(U)$.
+\end{frame}
+
+\begin{frame}{Стандартная неопределенность}
+    Для выбранной точки заданы независимые входы:
+    \[
+        u_U=0{,}05\text{ В},\qquad u_I=0{,}002\text{ А}.
+    \]
+    В первом приближении:
+    \[
+        u_R=\sqrt{\left(\frac{u_U}{I}\right)^2+
+        \left(\frac{Uu_I}{I^2}\right)^2}\approx1{,}12\text{ Ом}.
+    \]
+    Это стандартная неопределенность, а не интервал с вероятностью 95\%.
+\end{frame}
+
+\begin{frame}{Вывод и ограничения}
+    \begin{itemize}
+        \item В выбранной точке получено $R=50$ Ом при $u_R\approx1{,}12$ Ом.
+        \item Условия оценки: независимые входы и принятая модель цепи.
+        \item Линейность всей серии и влияние нагрева здесь не оценивались.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Вопросы для обсуждения}
+    \begin{enumerate}
+        \item Как оценено влияние приборов на измеряемую цепь?
+        \item Как проверить линейность по серии точек?
+        \item Какие измерения помогут оценить влияние нагрева?
+    \end{enumerate}
+\end{frame}
+\end{document}
