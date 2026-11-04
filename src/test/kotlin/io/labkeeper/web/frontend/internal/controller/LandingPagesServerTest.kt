@@ -38,7 +38,7 @@ class LandingPagesServerTest(
         val body = get("/", MediaType.TEXT_HTML)
 
         body shouldContain "<!doctype html>"
-        body shouldContain "<title>Онлайн-редактор документов и LaTeX с ИИ-агентом — Labkeeper</title>"
+        body shouldContain Regex("<title>\\s*Онлайн-редактор документов и LaTeX с ИИ-агентом — Labkeeper\\s*</title>")
         body shouldContain "window.__LABKEEPER_API_VERSION = 'v9';"
         body shouldContain "window.__LABKEEPER_OPENPANEL_CLIENT_ID = 'client';"
         body shouldContain "window.__LABKEEPER_OPENPANEL_API_URL = 'https://openpanel.example';"
