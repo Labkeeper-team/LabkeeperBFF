@@ -12,11 +12,10 @@
             name="description"
             content="Согласие на обработку персональных данных пользователей сервиса Labkeeper."
         />
-        <link rel="canonical" href="[(${publicUrl})]/soglas" />
+        <link rel="canonical" th:href="|${publicUrl}/soglas|" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="[(${publicUrl})]/soglas" />
+        <meta property="og:url" th:content="|${publicUrl}/soglas|" />
         <meta property="og:locale" content="ru_RU" />
-        <meta property="og:locale:alternate" content="en_US" />
         <meta property="og:site_name" content="Labkeeper" />
         <meta
             property="og:title"
@@ -28,12 +27,12 @@
         />
         <meta
             property="og:image"
-            content="[(${publicUrl})]/assets/img/og-image.svg"
+            th:content="|${publicUrl}/assets/img/og-image.png|"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
             name="twitter:image"
-            content="[(${publicUrl})]/assets/img/og-image.svg"
+            th:content="|${publicUrl}/assets/img/og-image.png|"
         />
         <meta
             name="twitter:title"
@@ -151,21 +150,24 @@
                                 href="/templates"
                                 class="header__nav-link"
                                 data-i18n="nav-templates"
-                            ></a>
+                                >Шаблоны</a
+                            >
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="/tokens"
                                 class="header__nav-link"
                                 data-i18n="nav-tokens"
-                            ></a>
+                                >Токены</a
+                            >
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="/blog"
                                 class="header__nav-link"
                                 data-i18n="nav-blog"
-                            ></a>
+                                >База знаний</a
+                            >
                         </li>
 
                         <li class="header__nav-item">
@@ -173,16 +175,18 @@
                                 href="/about"
                                 class="header__nav-link"
                                 data-i18n="nav-about"
-                            ></a>
+                                >О нас</a
+                            >
                         </li>
                     </ul>
                     <div class="header__mobile-contact">
                         <span
                             class="header__mobile-contact-label"
                             data-i18n="footer-contact"
-                        ></span>
+                            >Написать нам</span
+                        >
                         <a
-                            href="mailto:[(${contactEmail})]"
+                            th:href="|mailto:${contactEmail}|"
                             class="header__mobile-contact-link"
                             >[(${contactEmail})]</a
                         >
@@ -195,18 +199,21 @@
                         class="button button--outline header__login"
                         data-i18n="btn-login"
                         th:style="${viewerAuthenticated} ? 'display: none' : null"
-                    ></a>
+                        >Авторизоваться <span class="button__arrow">→</span></a
+                    >
                     <a
                         href="/projects"
                         class="button button--outline header__projects"
                         data-i18n="btn-projects"
                         th:style="${viewerAuthenticated} ? null : 'display: none'"
-                    ></a>
+                        >Мои проекты <span class="button__arrow">→</span></a
+                    >
                     <a
                         href="/project/default"
                         class="button button--primary header__editor"
                         data-i18n="btn-editor"
-                    ></a>
+                        >Редактор <span class="button__arrow">→</span></a
+                    >
                 </div>
             </div>
         </header>
@@ -276,7 +283,7 @@
                             >Приложение № 2 к Политике обработки персональных
                             данных для сайта
                             <a
-                                href="[(${publicUrl})]/"
+                                th:href="|${publicUrl}/|"
                                 class="policy-article__link"
                                 >[(${publicUrl})]/</a
                             ></em
@@ -299,7 +306,7 @@
                         <p class="p">
                             Email:
                             <a
-                                href="mailto:[(${contactEmail})]"
+                                th:href="|mailto:${contactEmail}|"
                                 class="policy-article__link"
                                 >[(${contactEmail})]</a
                             >
@@ -318,7 +325,7 @@
                             предоставленных мной при заполнении веб-форм на
                             Сайте
                             <a
-                                href="[(${publicUrl})]/"
+                                th:href="|${publicUrl}/|"
                                 class="policy-article__link"
                                 >[(${publicUrl})]/</a
                             >
@@ -344,7 +351,7 @@
                                         форме на Сайте после ознакомления с
                                         текстом <strong
                                             ><a
-                                                href="[(${publicUrl})]/privacy"
+                                                th:href="|${publicUrl}/privacy|"
                                                 class="policy-article__link"
                                                 >Политики обработки персональных
                                                 данных</a
@@ -621,7 +628,7 @@
                                         любое время, направив письменное
                                         заявление на электронный адрес Оператора
                                         <a
-                                            href="mailto:[(${contactEmail})]"
+                                            th:href="|mailto:${contactEmail}|"
                                             class="policy-article__link"
                                             >[(${contactEmail})]</a
                                         >
@@ -661,7 +668,7 @@
                                         Политикой обработки персональных данных
                                         Оператора, расположенной по ссылке
                                         <a
-                                            href="[(${publicUrl})]/privacy"
+                                            th:href="|${publicUrl}/privacy|"
                                             class="policy-article__link"
                                             >[(${publicUrl})]/privacy</a
                                         >, понимаю свои права и обязанности как
@@ -685,31 +692,36 @@
                             href="/#features"
                             class="footer__link"
                             data-i18n="nav-advantages"
-                        ></a>
+                            >Преимущества</a
+                        >
                         <a
                             href="/#advantages"
                             class="footer__link"
                             data-i18n="nav-features"
-                        ></a>
+                            >Возможности</a
+                        >
                         <a
                             href="/tokens"
                             class="footer__link"
                             data-i18n="nav-tokens"
-                        ></a>
+                            >Токены</a
+                        >
                         <a href="/wiki/index.html" class="footer__link">
-                            <span data-i18n="nav-wiki"></span>
+                            <span data-i18n="nav-wiki">Wiki проекта</span>
                         </a>
                         <a
                             href="/blog"
                             class="footer__link"
                             data-i18n="nav-blog"
-                        ></a>
+                            >База знаний</a
+                        >
 
                         <a
                             href="/about"
                             class="footer__link"
                             data-i18n="nav-about"
-                        ></a>
+                            >О нас</a
+                        >
                     </nav>
                     <a href="/" class="footer__logo-link">
                         <img
@@ -725,9 +737,10 @@
                         <span
                             class="footer__contact-label"
                             data-i18n="footer-contact"
-                        ></span>
+                            >Написать нам</span
+                        >
                         <a
-                            href="mailto:[(${contactEmail})]"
+                            th:href="|mailto:${contactEmail}|"
                             class="footer__contact-link"
                             >[(${contactEmail})]</a
                         >
@@ -748,7 +761,8 @@
                         href="privacy"
                         class="footer__policy"
                         data-i18n="footer-policy"
-                    ></a>
+                        >Политика конфиденциальности</a
+                    >
                 </div>
             </div>
         </footer>

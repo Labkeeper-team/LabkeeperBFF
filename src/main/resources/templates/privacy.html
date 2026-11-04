@@ -12,11 +12,10 @@
             name="description"
             content="Политика обработки персональных данных сервиса Labkeeper."
         />
-        <link rel="canonical" href="[(${publicUrl})]/privacy" />
+        <link rel="canonical" th:href="|${publicUrl}/privacy|" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="[(${publicUrl})]/privacy" />
+        <meta property="og:url" th:content="|${publicUrl}/privacy|" />
         <meta property="og:locale" content="ru_RU" />
-        <meta property="og:locale:alternate" content="en_US" />
         <meta property="og:site_name" content="Labkeeper" />
         <meta
             property="og:title"
@@ -28,12 +27,12 @@
         />
         <meta
             property="og:image"
-            content="[(${publicUrl})]/assets/img/og-image.svg"
+            th:content="|${publicUrl}/assets/img/og-image.png|"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
             name="twitter:image"
-            content="[(${publicUrl})]/assets/img/og-image.svg"
+            th:content="|${publicUrl}/assets/img/og-image.png|"
         />
         <meta
             name="twitter:title"
@@ -151,21 +150,24 @@
                                 href="/templates"
                                 class="header__nav-link"
                                 data-i18n="nav-templates"
-                            ></a>
+                                >Шаблоны</a
+                            >
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="/tokens"
                                 class="header__nav-link"
                                 data-i18n="nav-tokens"
-                            ></a>
+                                >Токены</a
+                            >
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="/blog"
                                 class="header__nav-link"
                                 data-i18n="nav-blog"
-                            ></a>
+                                >База знаний</a
+                            >
                         </li>
 
                         <li class="header__nav-item">
@@ -173,16 +175,18 @@
                                 href="/about"
                                 class="header__nav-link"
                                 data-i18n="nav-about"
-                            ></a>
+                                >О нас</a
+                            >
                         </li>
                     </ul>
                     <div class="header__mobile-contact">
                         <span
                             class="header__mobile-contact-label"
                             data-i18n="footer-contact"
-                        ></span>
+                            >Написать нам</span
+                        >
                         <a
-                            href="mailto:[(${contactEmail})]"
+                            th:href="|mailto:${contactEmail}|"
                             class="header__mobile-contact-link"
                             >[(${contactEmail})]</a
                         >
@@ -195,18 +199,21 @@
                         class="button button--outline header__login"
                         data-i18n="btn-login"
                         th:style="${viewerAuthenticated} ? 'display: none' : null"
-                    ></a>
+                        >Авторизоваться <span class="button__arrow">→</span></a
+                    >
                     <a
                         href="/projects"
                         class="button button--outline header__projects"
                         data-i18n="btn-projects"
                         th:style="${viewerAuthenticated} ? null : 'display: none'"
-                    ></a>
+                        >Мои проекты <span class="button__arrow">→</span></a
+                    >
                     <a
                         href="/project/default"
                         class="button button--primary header__editor"
                         data-i18n="btn-editor"
-                    ></a>
+                        >Редактор <span class="button__arrow">→</span></a
+                    >
                 </div>
             </div>
         </header>
@@ -378,7 +385,7 @@
                                         персональных данных», размещенный в
                                         постоянном доступе на Сайте по
                                         адресу: <a
-                                            href="[(${publicUrl})]/privacy"
+                                            th:href="|${publicUrl}/privacy|"
                                             class="policy-article__link"
                                             >[(${publicUrl})]/privacy</a
                                         >
@@ -391,7 +398,7 @@
                                     <td>
                                         Интернет-сайт, расположенный по адресу
                                         <a
-                                            href="[(${publicUrl})]/"
+                                            th:href="|${publicUrl}/|"
                                             class="policy-article__link"
                                             >[(${publicUrl})]/</a
                                         >, предоставляющий доступ к Сервису.
@@ -480,7 +487,7 @@
 
                                     <td>
                                         <a
-                                            href="mailto:[(${contactEmail})]"
+                                            th:href="|mailto:${contactEmail}|"
                                             class="policy-article__link"
                                             >[(${contactEmail})]</a
                                         >, адрес для направления запросов,
@@ -2598,7 +2605,7 @@
                             Субъект может получить любые разъяснения по вопросам
                             обработки его ПДн, обратившись к Оператору по
                             электронному адресу <a
-                                href="mailto:[(${contactEmail})]"
+                                th:href="|mailto:${contactEmail}|"
                                 class="policy-article__link"
                                 >[(${contactEmail})]</a
                             >.
@@ -2609,7 +2616,7 @@
                             Настоящая Политика является общедоступным документом
                             и подлежит размещению на Сайте по ссылке 
                             <a
-                                href="[(${publicUrl})]/privacy"
+                                th:href="|${publicUrl}/privacy|"
                                 class="policy-article__link"
                                 >[(${publicUrl})]/privacy</a
                             >.
@@ -2656,7 +2663,7 @@
                         <p class="p">
                             <strong>Контактная информация:</strong
                             ><br />Электронная почта: <a
-                                href="mailto:[(${contactEmail})]"
+                                th:href="|mailto:${contactEmail}|"
                                 class="policy-article__link"
                                 >[(${contactEmail})]</a
                             ><br />Телефон: [(${contactPhone})]
@@ -3043,31 +3050,36 @@
                             href="/#features"
                             class="footer__link"
                             data-i18n="nav-advantages"
-                        ></a>
+                            >Преимущества</a
+                        >
                         <a
                             href="/#advantages"
                             class="footer__link"
                             data-i18n="nav-features"
-                        ></a>
+                            >Возможности</a
+                        >
                         <a
                             href="/tokens"
                             class="footer__link"
                             data-i18n="nav-tokens"
-                        ></a>
+                            >Токены</a
+                        >
                         <a href="/wiki/index.html" class="footer__link">
-                            <span data-i18n="nav-wiki"></span>
+                            <span data-i18n="nav-wiki">Wiki проекта</span>
                         </a>
                         <a
                             href="/blog"
                             class="footer__link"
                             data-i18n="nav-blog"
-                        ></a>
+                            >База знаний</a
+                        >
 
                         <a
                             href="/about"
                             class="footer__link"
                             data-i18n="nav-about"
-                        ></a>
+                            >О нас</a
+                        >
                     </nav>
                     <a href="/" class="footer__logo-link">
                         <img
@@ -3083,9 +3095,10 @@
                         <span
                             class="footer__contact-label"
                             data-i18n="footer-contact"
-                        ></span>
+                            >Написать нам</span
+                        >
                         <a
-                            href="mailto:[(${contactEmail})]"
+                            th:href="|mailto:${contactEmail}|"
                             class="footer__contact-link"
                             >[(${contactEmail})]</a
                         >
@@ -3106,7 +3119,8 @@
                         href="privacy"
                         class="footer__policy"
                         data-i18n="footer-policy"
-                    ></a>
+                        >Политика конфиденциальности</a
+                    >
                 </div>
             </div>
         </footer>

@@ -113,7 +113,7 @@ class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String)
                 mapOf(
                     "@type" to "Organization",
                     "name" to "Labkeeper",
-                    "logo" to mapOf("@type" to "ImageObject", "url" to "$siteUrl/assets/img/logo.svg"),
+                    "logo" to mapOf("@type" to "ImageObject", "url" to "$siteUrl/assets/img/logo.png"),
                 ),
             )
             put("mainEntityOfPage", mapOf("@type" to "WebPage", "@id" to url))
