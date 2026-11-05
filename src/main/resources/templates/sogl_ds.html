@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${lang}">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -121,12 +121,17 @@
                     </a>
                     <div class="header__lang js-lang-switcher">
                         <button
-                            class="header__lang-btn header__lang-btn--active"
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'ru'} ? 'header__lang-btn--active'"
                             data-lang="ru"
                         >
                             Ru
                         </button>
-                        <button class="header__lang-btn" data-lang="en">
+                        <button
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'en'} ? 'header__lang-btn--active'"
+                            data-lang="en"
+                        >
                             En
                         </button>
                     </div>
@@ -135,12 +140,17 @@
                 <nav class="header__nav js-nav">
                     <div class="header__mobile-lang js-lang-switcher">
                         <button
-                            class="header__lang-btn header__lang-btn--active"
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'ru'} ? 'header__lang-btn--active'"
                             data-lang="ru"
                         >
                             Ru
                         </button>
-                        <button class="header__lang-btn" data-lang="en">
+                        <button
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'en'} ? 'header__lang-btn--active'"
+                            data-lang="en"
+                        >
                             En
                         </button>
                     </div>
@@ -149,42 +159,37 @@
                             <a
                                 href="/templates"
                                 class="header__nav-link"
-                                data-i18n="nav-templates"
-                                >Шаблоны</a
-                            >
+                                th:utext="${i18n['nav-templates']}"
+                            ></a>
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="/tokens"
                                 class="header__nav-link"
-                                data-i18n="nav-tokens"
-                                >Токены</a
-                            >
+                                th:utext="${i18n['nav-tokens']}"
+                            ></a>
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="/blog"
                                 class="header__nav-link"
-                                data-i18n="nav-blog"
-                                >База знаний</a
-                            >
+                                th:utext="${i18n['nav-blog']}"
+                            ></a>
                         </li>
 
                         <li class="header__nav-item">
                             <a
                                 href="/about"
                                 class="header__nav-link"
-                                data-i18n="nav-about"
-                                >О нас</a
-                            >
+                                th:utext="${i18n['nav-about']}"
+                            ></a>
                         </li>
                     </ul>
                     <div class="header__mobile-contact">
                         <span
                             class="header__mobile-contact-label"
-                            data-i18n="footer-contact"
-                            >Написать нам</span
-                        >
+                            th:utext="${i18n['footer-contact']}"
+                        ></span>
                         <a
                             th:href="|mailto:${contactEmail}|"
                             class="header__mobile-contact-link"
@@ -197,23 +202,20 @@
                     <a
                         href="/project/default?open=login"
                         class="button button--outline header__login"
-                        data-i18n="btn-login"
+                        th:utext="${i18n['btn-login']}"
                         th:style="${viewerAuthenticated} ? 'display: none' : null"
-                        >Авторизоваться <span class="button__arrow">→</span></a
-                    >
+                    ></a>
                     <a
                         href="/projects"
                         class="button button--outline header__projects"
-                        data-i18n="btn-projects"
+                        th:utext="${i18n['btn-projects']}"
                         th:style="${viewerAuthenticated} ? null : 'display: none'"
-                        >Мои проекты <span class="button__arrow">→</span></a
-                    >
+                    ></a>
                     <a
                         href="/project/default"
                         class="button button--primary header__editor"
-                        data-i18n="btn-editor"
-                        >Редактор <span class="button__arrow">→</span></a
-                    >
+                        th:utext="${i18n['btn-editor']}"
+                    ></a>
                 </div>
             </div>
         </header>
@@ -227,49 +229,43 @@
                             <a
                                 href="privacy"
                                 class="header__nav-link"
-                                data-i18n="policy-nav-privacy"
-                                >Политика конфиденциальности</a
-                            >
+                                th:utext="${i18n['policy-nav-privacy']}"
+                            ></a>
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="soglas"
                                 class="header__nav-link"
-                                data-i18n="policy-nav-consent"
-                                >Согласие об обработке персональных данных</a
-                            >
+                                th:utext="${i18n['policy-nav-consent']}"
+                            ></a>
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="oferta"
                                 class="header__nav-link"
-                                data-i18n="policy-nav-oferta"
-                                >Публичная оферта</a
-                            >
+                                th:utext="${i18n['policy-nav-oferta']}"
+                            ></a>
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="sogl_yam"
                                 class="header__nav-link"
-                                data-i18n="policy-nav-yam"
-                                >Согласие на использование сервиса ЯМ</a
-                            >
+                                th:utext="${i18n['policy-nav-yam']}"
+                            ></a>
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="sogl_adv"
                                 class="header__nav-link"
-                                data-i18n="policy-nav-adv"
-                                >Согласие на получение рекламных рассылок</a
-                            >
+                                th:utext="${i18n['policy-nav-adv']}"
+                            ></a>
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="sogl_ds"
                                 class="header__nav-link header__nav-link--active"
-                                data-i18n="policy-nav-ds"
-                                >Согласие на трансграничную передачу</a
-                            >
+                                th:utext="${i18n['policy-nav-ds']}"
+                            ></a>
                         </li>
                     </ul>
                 </div>
@@ -557,37 +553,32 @@
                         <a
                             href="/#features"
                             class="footer__link"
-                            data-i18n="nav-advantages"
-                            >Преимущества</a
-                        >
+                            th:utext="${i18n['nav-advantages']}"
+                        ></a>
                         <a
                             href="/#advantages"
                             class="footer__link"
-                            data-i18n="nav-features"
-                            >Возможности</a
-                        >
+                            th:utext="${i18n['nav-features']}"
+                        ></a>
                         <a
                             href="/tokens"
                             class="footer__link"
-                            data-i18n="nav-tokens"
-                            >Токены</a
-                        >
+                            th:utext="${i18n['nav-tokens']}"
+                        ></a>
                         <a href="/wiki/index.html" class="footer__link">
-                            <span data-i18n="nav-wiki">Wiki проекта</span>
+                            <span th:utext="${i18n['nav-wiki']}"></span>
                         </a>
                         <a
                             href="/blog"
                             class="footer__link"
-                            data-i18n="nav-blog"
-                            >База знаний</a
-                        >
+                            th:utext="${i18n['nav-blog']}"
+                        ></a>
 
                         <a
                             href="/about"
                             class="footer__link"
-                            data-i18n="nav-about"
-                            >О нас</a
-                        >
+                            th:utext="${i18n['nav-about']}"
+                        ></a>
                     </nav>
                     <a href="/" class="footer__logo-link">
                         <img
@@ -602,9 +593,8 @@
                     <div class="footer__contact">
                         <span
                             class="footer__contact-label"
-                            data-i18n="footer-contact"
-                            >Написать нам</span
-                        >
+                            th:utext="${i18n['footer-contact']}"
+                        ></span>
                         <a
                             th:href="|mailto:${contactEmail}|"
                             class="footer__contact-link"
@@ -626,9 +616,8 @@
                     <a
                         href="privacy"
                         class="footer__policy"
-                        data-i18n="footer-policy"
-                        >Политика конфиденциальности</a
-                    >
+                        th:utext="${i18n['footer-policy']}"
+                    ></a>
                 </div>
             </div>
         </footer>

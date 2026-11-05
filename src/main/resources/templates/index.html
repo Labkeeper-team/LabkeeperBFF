@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${lang}">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -265,12 +265,17 @@
                     </a>
                     <div class="header__lang js-lang-switcher">
                         <button
-                            class="header__lang-btn header__lang-btn--active"
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'ru'} ? 'header__lang-btn--active'"
                             data-lang="ru"
                         >
                             Ru
                         </button>
-                        <button class="header__lang-btn" data-lang="en">
+                        <button
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'en'} ? 'header__lang-btn--active'"
+                            data-lang="en"
+                        >
                             En
                         </button>
                     </div>
@@ -279,12 +284,17 @@
                 <nav class="header__nav js-nav">
                     <div class="header__mobile-lang js-lang-switcher">
                         <button
-                            class="header__lang-btn header__lang-btn--active"
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'ru'} ? 'header__lang-btn--active'"
                             data-lang="ru"
                         >
                             Ru
                         </button>
-                        <button class="header__lang-btn" data-lang="en">
+                        <button
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'en'} ? 'header__lang-btn--active'"
+                            data-lang="en"
+                        >
                             En
                         </button>
                     </div>
@@ -293,42 +303,37 @@
                             <a
                                 href="/templates"
                                 class="header__nav-link"
-                                data-i18n="nav-templates"
-                                >Шаблоны</a
-                            >
+                                th:utext="${i18n['nav-templates']}"
+                            ></a>
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="/tokens"
                                 class="header__nav-link"
-                                data-i18n="nav-tokens"
-                                >Токены</a
-                            >
+                                th:utext="${i18n['nav-tokens']}"
+                            ></a>
                         </li>
                         <li class="header__nav-item">
                             <a
                                 href="/blog"
                                 class="header__nav-link"
-                                data-i18n="nav-blog"
-                                >База знаний</a
-                            >
+                                th:utext="${i18n['nav-blog']}"
+                            ></a>
                         </li>
 
                         <li class="header__nav-item">
                             <a
                                 href="/about"
                                 class="header__nav-link"
-                                data-i18n="nav-about"
-                                >О нас</a
-                            >
+                                th:utext="${i18n['nav-about']}"
+                            ></a>
                         </li>
                     </ul>
                     <div class="header__mobile-contact">
                         <span
                             class="header__mobile-contact-label"
-                            data-i18n="footer-contact"
-                            >Написать нам</span
-                        >
+                            th:utext="${i18n['footer-contact']}"
+                        ></span>
                         <a
                             th:href="|mailto:${contactEmail}|"
                             class="header__mobile-contact-link"
@@ -341,23 +346,20 @@
                     <a
                         href="/project/default?open=login"
                         class="button button--outline header__login"
-                        data-i18n="btn-login"
+                        th:utext="${i18n['btn-login']}"
                         th:style="${viewerAuthenticated} ? 'display: none' : null"
-                        >Авторизоваться <span class="button__arrow">→</span></a
-                    >
+                    ></a>
                     <a
                         href="/projects"
                         class="button button--outline header__projects"
-                        data-i18n="btn-projects"
+                        th:utext="${i18n['btn-projects']}"
                         th:style="${viewerAuthenticated} ? null : 'display: none'"
-                        >Мои проекты <span class="button__arrow">→</span></a
-                    >
+                    ></a>
                     <a
                         href="/project/default"
                         class="button button--primary header__editor"
-                        data-i18n="btn-editor"
-                        >Редактор <span class="button__arrow">→</span></a
-                    >
+                        th:utext="${i18n['btn-editor']}"
+                    ></a>
                 </div>
             </div>
         </header>
@@ -367,44 +369,30 @@
             <section class="hero" id="hero">
                 <div class="hero__container">
                     <div class="hero__content">
-                        <h1 class="hero__title h1" data-i18n="hero-title">
-                            Создавайте документы
-                            <span class="text-blue">вместе с&nbsp;ИИ</span>
-                        </h1>
+                        <h1
+                            class="hero__title h1"
+                            th:utext="${i18n['hero-title']}"
+                        ></h1>
                         <div class="hero__description">
                             <div class="hero__labels">
                                 <span class="hero__label">LaTeX</span>
                                 <span class="hero__label">Markdown</span>
                                 <span class="hero__label">Диаграммы</span>
                             </div>
-                            <p class="hero__text" data-i18n="hero-text">
-                                Редактор LaTeX и Markdown с диаграммами Mermaid,
-                                PlantUML и draw.io. ИИ-агент предлагает правки,
-                                вы проверяете и принимаете каждую.
-                            </p>
+                            <p
+                                class="hero__text"
+                                th:utext="${i18n['hero-text']}"
+                            ></p>
                             <div class="hero__actions">
                                 <a
                                     href="/project/default"
                                     class="button button--primary hero__btn"
-                                    data-i18n="hero-btn"
-                                    >В редактор
-                                    <span class="button__arrow">→</span></a
-                                >
+                                    th:utext="${i18n['hero-btn']}"
+                                ></a>
                                 <a
                                     href="/project/default/agent"
                                     class="button button--ai"
-                                    data-i18n="hero-btn-ai"
-                                    ><svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="17"
-                                        height="26"
-                                        viewBox="0 0 17 26"
-                                        fill="none"
-                                    >
-                                        <path
-                                            d="M7.47626 3.96309C7.64099 3.48821 8.33885 3.48821 8.50358 3.96309L9.46951 6.75049C9.68212 7.36323 10.0403 7.91996 10.5158 8.37656C10.9912 8.83316 11.5708 9.17707 12.2085 9.38104L15.1078 10.3092C15.602 10.4675 15.602 11.1381 15.1078 11.2964L12.207 12.2246C11.5694 12.4289 10.99 12.7731 10.5148 13.2299C10.0397 13.6868 9.68177 14.2437 9.46951 14.8565L8.50358 17.6425C8.46807 17.7465 8.39928 17.837 8.30704 17.9012C8.2148 17.9654 8.10382 18 7.98992 18C7.87603 18 7.76504 17.9654 7.6728 17.9012C7.58056 17.837 7.51178 17.7465 7.47626 17.6425L6.51034 14.8551C6.29788 14.2425 5.93989 13.6859 5.46473 13.2293C4.98958 12.7727 4.4103 12.4287 3.7728 12.2246L0.872038 11.2964C0.763823 11.2623 0.669588 11.1962 0.602779 11.1075C0.53597 11.0189 0.5 10.9122 0.5 10.8028C0.5 10.6934 0.53597 10.5867 0.602779 10.4981C0.669588 10.4094 0.763823 10.3433 0.872038 10.3092L3.7728 9.38104C4.4103 9.17688 4.98958 8.83288 5.46473 8.3763C5.93989 7.91971 6.29788 7.36308 6.51034 6.75049L7.47626 3.96309ZM13.302 0.140309C13.3167 0.0993346 13.3445 0.0638045 13.3812 0.0386584C13.418 0.0135123 13.462 0 13.5071 0C13.5523 0 13.5963 0.0135123 13.633 0.0386584C13.6698 0.0638045 13.6975 0.0993346 13.7123 0.140309L14.0987 1.25412C14.2709 1.75202 14.6767 2.142 15.1949 2.30749L16.354 2.67876C16.3966 2.69296 16.4336 2.71958 16.4598 2.75491C16.4859 2.79025 16.5 2.83254 16.5 2.8759C16.5 2.91927 16.4859 2.96156 16.4598 2.99689C16.4336 3.03222 16.3966 3.05884 16.354 3.07305L15.1949 3.44432C14.9395 3.52595 14.7075 3.66365 14.5172 3.8465C14.3269 4.02935 14.1836 4.25232 14.0987 4.49769L13.7123 5.6115C13.6975 5.65247 13.6698 5.688 13.633 5.71315C13.5963 5.73829 13.5523 5.75181 13.5071 5.75181C13.462 5.75181 13.418 5.73829 13.3812 5.71315C13.3445 5.688 13.3167 5.65247 13.302 5.6115L12.9156 4.49769C12.8306 4.25232 12.6873 4.02935 12.4971 3.8465C12.3068 3.66365 12.0747 3.52595 11.8194 3.44432L10.6618 3.07305C10.6191 3.05884 10.5822 3.03222 10.556 2.99689C10.5298 2.96156 10.5158 2.91927 10.5158 2.8759C10.5158 2.83254 10.5298 2.79025 10.556 2.75491C10.5822 2.71958 10.6191 2.69296 10.6618 2.67876L11.8209 2.30749C12.339 2.142 12.7449 1.75202 12.9171 1.25412L13.302 0.141748V0.140309Z"
-                                            fill="#4469E0"
-                                        /></svg
+                                    th:utext="${i18n['hero-btn-ai']}"
                                 ></a>
                             </div>
                         </div>
@@ -456,9 +444,8 @@
                         >
                             <span
                                 class="h1 features__tab-title"
-                                data-i18n="features-tab-0"
-                                >LaTeX</span
-                            >
+                                th:utext="${i18n['features-tab-0']}"
+                            ></span>
                             <span class="features__tab-line"
                                 ><span class="features__tab-progress"></span
                             ></span>
@@ -471,9 +458,8 @@
                         >
                             <span
                                 class="h1 features__tab-title"
-                                data-i18n="features-tab-1"
-                                >ИИ-агент</span
-                            >
+                                th:utext="${i18n['features-tab-1']}"
+                            ></span>
                             <span class="features__tab-line"
                                 ><span class="features__tab-progress"></span
                             ></span>
@@ -486,9 +472,8 @@
                         >
                             <span
                                 class="h1 features__tab-title"
-                                data-i18n="features-tab-2"
-                                >Вычисления</span
-                            >
+                                th:utext="${i18n['features-tab-2']}"
+                            ></span>
                             <span class="features__tab-line"
                                 ><span class="features__tab-progress"></span
                             ></span>
@@ -517,31 +502,20 @@
                                     <ul class="features__bullet-list">
                                         <li
                                             class="features__bullet-item"
-                                            data-i18n="features-latex-1"
-                                        >
-                                            Автоматическая конвертация Markdown
-                                            в LaTeX
-                                        </li>
+                                            th:utext="${i18n['features-latex-1']}"
+                                        ></li>
                                         <li
                                             class="features__bullet-item"
-                                            data-i18n="features-latex-2"
-                                        >
-                                            Полновесный LaTeX компилятор
-                                        </li>
+                                            th:utext="${i18n['features-latex-2']}"
+                                        ></li>
                                         <li
                                             class="features__bullet-item"
-                                            data-i18n="features-latex-3"
-                                        >
-                                            Возможность настраивать формат
-                                            документа для Markdown так же гибко,
-                                            как для LaTeX
-                                        </li>
+                                            th:utext="${i18n['features-latex-3']}"
+                                        ></li>
                                         <li
                                             class="features__bullet-item"
-                                            data-i18n="features-latex-4"
-                                        >
-                                            Поддержка иерархии файлов в проекте
-                                        </li>
+                                            th:utext="${i18n['features-latex-4']}"
+                                        ></li>
                                     </ul>
                                 </div>
                             </div>
@@ -569,25 +543,16 @@
                                     <ul class="features__bullet-list">
                                         <li
                                             class="features__bullet-item"
-                                            data-i18n="features-ai-1"
-                                        >
-                                            Отображение истории изменений ИИ с
-                                            возможностью откатить или принять
-                                            правки
-                                        </li>
+                                            th:utext="${i18n['features-ai-1']}"
+                                        ></li>
                                         <li
                                             class="features__bullet-item"
-                                            data-i18n="features-ai-2"
-                                        >
-                                            ИИ обучен специально работать с
-                                            LaTeX и специфическими вычислениями
-                                        </li>
+                                            th:utext="${i18n['features-ai-2']}"
+                                        ></li>
                                         <li
                                             class="features__bullet-item"
-                                            data-i18n="features-ai-3"
-                                        >
-                                            ИИ-агент на базе DeepSeek
-                                        </li>
+                                            th:utext="${i18n['features-ai-3']}"
+                                        ></li>
                                     </ul>
                                 </div>
                             </div>
@@ -613,32 +578,20 @@
                                     <ul class="features__bullet-list">
                                         <li
                                             class="features__bullet-item"
-                                            data-i18n="features-calc-1"
-                                        >
-                                            Встроенная поддержка высокоточных
-                                            вычислений
-                                        </li>
+                                            th:utext="${i18n['features-calc-1']}"
+                                        ></li>
                                         <li
                                             class="features__bullet-item"
-                                            data-i18n="features-calc-2"
-                                        >
-                                            Возможность вставлять данные прямо в
-                                            LaTeX
-                                        </li>
+                                            th:utext="${i18n['features-calc-2']}"
+                                        ></li>
                                         <li
                                             class="features__bullet-item"
-                                            data-i18n="features-calc-3"
-                                        >
-                                            Поддержка вычисления гауссовых
-                                            погрешностей
-                                        </li>
+                                            th:utext="${i18n['features-calc-3']}"
+                                        ></li>
                                         <li
                                             class="features__bullet-item"
-                                            data-i18n="features-calc-4"
-                                        >
-                                            Встроенные механизмы визуализации
-                                            данных
-                                        </li>
+                                            th:utext="${i18n['features-calc-4']}"
+                                        ></li>
                                     </ul>
                                 </div>
                             </div>
@@ -650,11 +603,8 @@
                         <a
                             href="/project/default"
                             class="button button--outline-light features__btn"
-                            data-i18n="features-btn"
-                        >
-                            Перейти к редактору
-                            <span class="button__arrow">→</span>
-                        </a>
+                            th:utext="${i18n['features-btn']}"
+                        ></a>
                     </div>
                 </div>
             </section>
@@ -671,31 +621,37 @@
                             loading="lazy"
                         />
                     </div>
-                    <h2 class="advantages__title h2" data-i18n="adv-title">
-                        Labkeeper это:
-                    </h2>
+                    <h2
+                        class="advantages__title h2"
+                        th:utext="${i18n['adv-title']}"
+                    ></h2>
                     <ul class="advantages__list js-advantages-list">
-                        <li class="advantages__item" data-i18n="adv-item-1">
-                            Полновесный LaTeX-компилятор
-                        </li>
-                        <li class="advantages__item" data-i18n="adv-item-2">
-                            Markdown-редактор
-                        </li>
-                        <li class="advantages__item" data-i18n="adv-item-3">
-                            Поддержка вычислений высокой точности
-                        </li>
-                        <li class="advantages__item" data-i18n="adv-item-4">
-                            Поддержка вычисления погрешностей
-                        </li>
-                        <li class="advantages__item" data-i18n="adv-item-5">
-                            Агент DeepSeek с принятием правок
-                        </li>
+                        <li
+                            class="advantages__item"
+                            th:utext="${i18n['adv-item-1']}"
+                        ></li>
+                        <li
+                            class="advantages__item"
+                            th:utext="${i18n['adv-item-2']}"
+                        ></li>
+                        <li
+                            class="advantages__item"
+                            th:utext="${i18n['adv-item-3']}"
+                        ></li>
+                        <li
+                            class="advantages__item"
+                            th:utext="${i18n['adv-item-4']}"
+                        ></li>
+                        <li
+                            class="advantages__item"
+                            th:utext="${i18n['adv-item-5']}"
+                        ></li>
                     </ul>
                     <a
                         href="/wiki/index.html"
                         class="button button--outline advantages__btn"
                     >
-                        <span data-i18n="adv-btn">Смотреть wiki проекта</span>
+                        <span th:utext="${i18n['adv-btn']}"></span>
                     </a>
                 </div>
             </section>
@@ -710,9 +666,10 @@
                     <img src="assets/img/bg.svg" alt="bg" loading="lazy" />
                 </div>
                 <div class="knowledge__container">
-                    <h2 class="knowledge__title h1" data-i18n="templates-title">
-                        Шаблоны
-                    </h2>
+                    <h2
+                        class="knowledge__title h1"
+                        th:utext="${i18n['templates-title']}"
+                    ></h2>
 
                     <div
                         class="examples__slider-wrapper knowledge__slider-wrapper"
@@ -759,9 +716,9 @@
                                             target="_blank"
                                             th:href="@{/project/{id}(id=${entry.projectId})}"
                                         >
-                                            <span data-i18n="template-open"
-                                                >Открыть шаблон</span
-                                            >
+                                            <span
+                                                th:utext="${i18n['template-open']}"
+                                            ></span>
                                             <span class="blog-card__arrow"
                                                 >→</span
                                             >
@@ -776,11 +733,8 @@
                         <a
                             href="/templates"
                             class="button button--primary knowledge__btn"
-                            data-i18n="templates-btn"
-                        >
-                            <span>Все шаблоны</span>
-                            <span class="button__arrow">→</span>
-                        </a>
+                            th:utext="${i18n['templates-btn']}"
+                        ></a>
                     </div>
                 </div>
             </section>
@@ -788,81 +742,48 @@
             <!-- Блок 6: Audience (Для кого) -->
             <section class="audience" id="audience">
                 <div class="audience__container">
-                    <h2 class="audience__title h1" data-i18n="aud-title">
-                        Для кого
-                    </h2>
+                    <h2
+                        class="audience__title h1"
+                        th:utext="${i18n['aud-title']}"
+                    ></h2>
                     <div class="audience__cards">
                         <div class="audience-card">
                             <h3
                                 class="audience-card__title"
-                                data-i18n="aud-c1-title"
-                            >
-                                Студенты<br /><span
-                                    class="audience-card__subtitle"
-                                    >(лабораторные и учебные проекты)</span
-                                >
-                            </h3>
+                                th:utext="${i18n['aud-c1-title']}"
+                            ></h3>
                             <p
                                 class="audience-card__text"
-                                data-i18n="aud-c1-text"
-                            >
-                                Вам важны скорость и понятный результат.
-                                Считайте погрешности, стройте графики и
-                                собирайте PDF в LaTeX или Markdown. Агент
-                                DeepSeek предлагает правки оформления —
-                                принимаете только нужные.
-                            </p>
+                                th:utext="${i18n['aud-c1-text']}"
+                            ></p>
                         </div>
                         <div class="audience-card">
                             <h3
                                 class="audience-card__title"
-                                data-i18n="aud-c2-title"
-                            >
-                                Аспиранты<br /><span
-                                    class="audience-card__subtitle"
-                                    >и авторы научных статей</span
-                                >
-                            </h3>
+                                th:utext="${i18n['aud-c2-title']}"
+                            ></h3>
                             <p
                                 class="audience-card__text"
-                                data-i18n="aud-c2-text"
-                            >
-                                Готовите статью или диссертацию? Соберите PDF в
-                                LaTeX, правьте Markdown и смотрите примеры
-                                оформления. Агент DeepSeek предлагает правки
-                                текста и верстки — принять их или откатить
-                                решаете вы.
-                            </p>
+                                th:utext="${i18n['aud-c2-text']}"
+                            ></p>
                         </div>
                         <div class="audience-card">
                             <h3
                                 class="audience-card__title"
-                                data-i18n="aud-c3-title"
-                            >
-                                Научные сотрудники<br /><span
-                                    class="audience-card__subtitle"
-                                    >и исследователи</span
-                                >
-                            </h3>
+                                th:utext="${i18n['aud-c3-title']}"
+                            ></h3>
                             <p
                                 class="audience-card__text"
-                                data-i18n="aud-c3-text"
-                            >
-                                Считайте с высокой точностью, оценивайте
-                                погрешности и стройте графики прямо в документе.
-                                Цифры, LaTeX и итоговый PDF остаются в одном
-                                проекте.
-                            </p>
+                                th:utext="${i18n['aud-c3-text']}"
+                            ></p>
                         </div>
                     </div>
                     <div class="audience__action">
                         <a
                             href="/about"
                             class="button button--outline audience__btn"
-                            data-i18n="aud-btn"
-                            >Больше о нас
-                            <span class="button__arrow">→</span></a
-                        >
+                            th:utext="${i18n['aud-btn']}"
+                        ></a>
                     </div>
                 </div>
             </section>
@@ -873,9 +794,10 @@
                     <img src="assets/img/bg.svg" alt="bg" loading="lazy" />
                 </div>
                 <div class="knowledge__container">
-                    <h2 class="knowledge__title h1" data-i18n="knowledge-title">
-                        База знаний
-                    </h2>
+                    <h2
+                        class="knowledge__title h1"
+                        th:utext="${i18n['knowledge-title']}"
+                    ></h2>
 
                     <div
                         class="examples__slider-wrapper knowledge__slider-wrapper"
@@ -934,11 +856,8 @@
                         <a
                             href="/blog"
                             class="button button--primary knowledge__btn"
-                            data-i18n="knowledge-btn"
-                        >
-                            <span>Все статьи</span>
-                            <span class="button__arrow">→</span>
-                        </a>
+                            th:utext="${i18n['knowledge-btn']}"
+                        ></a>
                     </div>
                 </div>
             </section>
@@ -952,37 +871,32 @@
                         <a
                             href="/#features"
                             class="footer__link"
-                            data-i18n="nav-advantages"
-                            >Преимущества</a
-                        >
+                            th:utext="${i18n['nav-advantages']}"
+                        ></a>
                         <a
                             href="/#advantages"
                             class="footer__link"
-                            data-i18n="nav-features"
-                            >Возможности</a
-                        >
+                            th:utext="${i18n['nav-features']}"
+                        ></a>
                         <a
                             href="/tokens"
                             class="footer__link"
-                            data-i18n="nav-tokens"
-                            >Токены</a
-                        >
+                            th:utext="${i18n['nav-tokens']}"
+                        ></a>
                         <a href="/wiki/index.html" class="footer__link">
-                            <span data-i18n="nav-wiki">Wiki проекта</span>
+                            <span th:utext="${i18n['nav-wiki']}"></span>
                         </a>
                         <a
                             href="/blog"
                             class="footer__link"
-                            data-i18n="nav-blog"
-                            >База знаний</a
-                        >
+                            th:utext="${i18n['nav-blog']}"
+                        ></a>
 
                         <a
                             href="/about"
                             class="footer__link"
-                            data-i18n="nav-about"
-                            >О нас</a
-                        >
+                            th:utext="${i18n['nav-about']}"
+                        ></a>
                     </nav>
                     <a href="/" class="footer__logo-link">
                         <img
@@ -997,9 +911,8 @@
                     <div class="footer__contact">
                         <span
                             class="footer__contact-label"
-                            data-i18n="footer-contact"
-                            >Написать нам</span
-                        >
+                            th:utext="${i18n['footer-contact']}"
+                        ></span>
                         <a
                             th:href="|mailto:${contactEmail}|"
                             class="footer__contact-link"
@@ -1021,9 +934,8 @@
                     <a
                         href="privacy"
                         class="footer__policy"
-                        data-i18n="footer-policy"
-                        >Политика конфиденциальности</a
-                    >
+                        th:utext="${i18n['footer-policy']}"
+                    ></a>
                 </div>
             </div>
         </footer>

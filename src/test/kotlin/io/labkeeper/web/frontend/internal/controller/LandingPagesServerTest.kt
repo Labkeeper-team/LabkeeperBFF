@@ -60,9 +60,33 @@ class LandingPagesServerTest(
             "https://labkeeper.test https://openpanel.example;"
         body shouldNotContain "labkeeper.io"
 
-        // Text is in the HTML itself, not only set by lang.js. Whitespace around it depends on the formatter.
-        body shouldContain Regex("data-i18n=\"hero-title\"\\s*>\\s*Создавайте документы")
-        body shouldContain Regex("data-i18n=\"nav-templates\"\\s*>\\s*Шаблоны\\s*</a")
+        // The server renders the texts, lang.js no longer has them. Whitespace around them depends on the formatter.
+        body shouldContain "<html lang=\"ru\">"
+        body shouldContain Regex("class=\"hero__title h1\"\\s*>\\s*Создавайте документы")
+        body shouldContain Regex("class=\"header__nav-link\"\\s*>\\s*Шаблоны\\s*</a")
+        body shouldContain Regex("class=\"header__lang-btn header__lang-btn--active\"\\s+data-lang=\"ru\"")
+        body shouldNotContain "data-i18n"
+    }
+
+    @Test
+    fun languageCookieSwitchesTheTexts() {
+        listOf("/", "/about", "/blog", "/templates", "/blog/latex-formulas", "/templates/mdpi").forEach { path ->
+            val body = webTestClient.get().uri(path).cookie("labkeeper_lang", "en").exchange()
+                .expectStatus().isOk
+                .expectBody<String>().returnResult().responseBody.orEmpty()
+            withClue(path) {
+                body shouldContain "<html lang=\"en\">"
+                body shouldContain Regex("class=\"header__nav-link[^\"]*\"\\s*>\\s*Templates\\s*</a")
+                body shouldContain Regex("class=\"header__lang-btn header__lang-btn--active\"\\s+data-lang=\"en\"")
+                body shouldContain Regex("class=\"header__lang-btn\"\\s+data-lang=\"ru\"")
+            }
+        }
+
+        // Search engines come without the cookie. An unknown value is Russian too.
+        val unknown = webTestClient.get().uri("/").cookie("labkeeper_lang", "de").exchange()
+            .expectBody<String>().returnResult().responseBody.orEmpty()
+        unknown shouldContain "<html lang=\"ru\">"
+        unknown shouldContain Regex("class=\"hero__title h1\"\\s*>\\s*Создавайте документы")
     }
 
     @Test
