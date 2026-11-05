@@ -21,13 +21,16 @@ function loadArticles() {
 const articles = loadArticles();
 const siteHost = process.env.LABKEEPER_HOST ?? 'http://localhost:80';
 
+function renderText(value) {
+    return String(value).replaceAll('{{publicUrl}}', siteHost).replaceAll('{{publicHost}}', siteHost);
+}
+
+// An example is either `{latex, markdown, compute}` or a list of `{type, text, parameters}` segments.
 function renderedExample(example) {
-    return Object.fromEntries(
-        Object.entries(example).map(([key, value]) => [
-            key,
-            String(value).replaceAll('{{publicUrl}}', siteHost).replaceAll('{{publicHost}}', siteHost),
-        ]),
-    );
+    if (Array.isArray(example)) {
+        return example.map((segment) => ({ ...segment, text: renderText(segment.text) }));
+    }
+    return Object.fromEntries(Object.entries(example).map(([key, value]) => [key, renderText(value)]));
 }
 
 test.beforeEach(async ({ page }) => {
@@ -55,14 +58,19 @@ async function setLanguage(page, language) {
     ) {
         await burger.click();
     }
-    await page.locator(`.js-lang-switcher [data-lang="${language}"]:visible`).click();
+    // The page reloads in the new language. Waiting for load keeps the next click off a half-loaded page.
+    await Promise.all([
+        page.waitForEvent('load'),
+        page.locator(`.js-lang-switcher [data-lang="${language}"]:visible`).click(),
+    ]);
 }
 
 async function expectExampleLabel(link, language) {
     const label = language === 'en' ? 'View example' : 'Просмотреть пример';
     const hint = language === 'en' ? 'in editor' : 'в редакторе';
-    await expect(link.locator('[data-i18n="blog-example"]')).toHaveText(label);
-    await expect(link.locator('[data-i18n="blog-example-context"]')).toHaveText(hint);
+    // The server renders the texts; the label is the first span, the hint is the one with a class.
+    await expect(link.locator('.article-example__label > span:not(.article-example__hint)')).toHaveText(label);
+    await expect(link.locator('.article-example__hint')).toHaveText(hint);
     if (!(await link.isVisible())) return;
     expect(
         await link.evaluate((element) => {

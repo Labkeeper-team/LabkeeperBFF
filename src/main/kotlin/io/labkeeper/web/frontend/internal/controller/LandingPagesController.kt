@@ -2,6 +2,8 @@ package io.labkeeper.web.frontend.internal.controller
 
 import io.labkeeper.web.frontend.FrontendProperties
 import io.labkeeper.web.frontend.internal.blog.BlogCatalog
+import io.labkeeper.web.frontend.internal.i18n.SiteLanguage
+import io.labkeeper.web.frontend.internal.i18n.SiteTexts
 import io.labkeeper.web.frontend.internal.template.TemplateCatalog
 import io.labkeeper.web.frontend.internal.wiki.WikiPages
 import org.springframework.beans.factory.annotation.Value
@@ -15,18 +17,23 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.server.ResponseStatusException
+import org.springframework.web.server.ServerWebExchange
 
 @Controller
 class LandingPagesController(
     private val blogCatalog: BlogCatalog,
     private val templateCatalog: TemplateCatalog,
     private val wikiPages: WikiPages,
+    private val siteTexts: SiteTexts,
     private val properties: FrontendProperties,
     @Value($$"${io.labkeeper.host}") private val host: String,
     @Value($$"${io.labkeeper.version.major}") private val versionMajor: String,
 ) {
     @ModelAttribute
-    fun commonAttributes(model: Model) {
+    fun commonAttributes(model: Model, exchange: ServerWebExchange) {
+        val language = SiteLanguage.of(exchange.request.cookies.getFirst(SiteLanguage.COOKIE)?.value)
+        model.addAttribute("lang", language.code)
+        model.addAttribute("i18n", siteTexts[language])
         model.addAttribute("apiVersion", "v$versionMajor")
         model.addAttribute("yandexMetrikaKey", properties.yandexMetrikaKey.ifBlank { "undefined" })
         model.addAttribute("openpanelClientId", properties.openpanelClientId)

@@ -1,201 +1,334 @@
 catalogIndex: 13
 slug: 'imrad-structure-scientific-article-scopus-template'
 batch: 2
-title: 'Международная структура IMRAD для научных публикаций'
-pageTitle: 'Структура IMRAD научной статьи шаблон: разделы Scopus IMRAD — Labkeeper'
+title: 'Структура научной статьи IMRAD: как писать каждый раздел для Scopus и WoS'
+pageTitle: 'Структура статьи IMRAD: как писать разделы для Scopus — Labkeeper'
 metaDescription: |2-
-  Полный разбор структуры IMRAD для научных статей Scopus и Web of Science: разделы статьи,
-  готовый LaTeX-шаблон, требования рецензентов в Labkeeper.
+  Структура научной статьи IMRAD: что писать во Introduction, Methods, Results и Discussion, время
+  глаголов и объём разделов, обязательные элементы рукописи и чек-лист перед подачей в Scopus.
 breadcrumbTitle: 'Структура IMRAD для Scopus'
-h1: 'Международная структура IMRAD для научных публикаций'
+h1: 'Структура научной статьи IMRAD: как писать каждый раздел для&nbsp;Scopus и&nbsp;WoS'
 categories:
   - 'articles'
 related:
-  - 'rinc-vak-scientific-article-template-fonts-margins'
-  - 'diploma-annotation-abstract-russian-english'
-  - 'biblatex-biber-advanced-bibliography-management'
-  - 'footnotes-bottom-page-law-history-coursework-gost'
-  - 'literature-review-structure-diploma-citation'
-  - 'essay-report-titlepage-format'
-  - 'electronic-resources-bibliography-gost-7-0-100'
-  - 'latex-dissertation'
-  - 'latex-fancyhdr'
   - 'latex-scopus-wos'
+  - 'scientific-article-annotation-abstract-keywords-vak'
+  - 'rinc-vak-scientific-article-template-fonts-margins'
+  - 'literature-review-structure-diploma-citation'
+  - 'student-confidence-intervals-error-calculation'
+  - 'biblatex-biber-advanced-bibliography-management'
+  - 'electronic-resources-bibliography-gost-7-0-100'
+  - 'diploma-annotation-abstract-russian-english'
+  - 'latex-multicol-multi-column-layout-journal'
+  - 'latex-dissertation'
   - 'latex-amsthm'
   - 'latex-formulas'
 keywords:
   - 'структура imrad научной статьи шаблон'
   - 'разделы статьи scopus imrad'
+  - 'структура научной статьи imrad'
+  - 'imrad что это'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
-readingTime: '9 мин'
-cardTitle: 'Стандарт IMRAD для Scopus и WoS: архитектура научной статьи'
+dateModified: '2026-11-05'
+readingTime: '12 мин'
+cardTitle: 'Структура IMRAD для Scopus и WoS: как писать разделы научной статьи'
 cardDescription: |2-
-  Как логично выстроить разделы Introduction, Methods, Results, Discussion, избежать частых
-  замечаний рецензентов и оформить публикацию.
+  Что писать во Introduction, Methods, Results и Discussion, время глаголов и объём разделов,
+  обязательные элементы рукописи и чек-лист перед подачей.
 sliderTitle: 'Структура IMRAD для Scopus'
-sliderText: 'Международный стандарт научной статьи: правила наполнения блоков и шаблон.'
+sliderText: 'Как писать разделы IMRAD: время глаголов, объём, элементы рукописи и чек-лист.'
 sidebarText: |2-
-  В LaTeX-проекте Labkeeper доступны классы журналов из TeX Live — elsarticle, IEEEtran, acmart:
-  пишите статью по структуре IMRAD и собирайте PDF.
+  В LaTeX-проекте Labkeeper доступны классы журналов из TeX Live — elsarticle, IEEEtran, acmart, а
+  в каталоге есть шаблоны MDPI и Springer Nature.
 ctaTitle: 'Пишите публикации Scopus в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX: формулы amsmath, векторные графики, список литературы в thebibliography и
   PDF после нажатия «Выполнить».
 toc:
   - id: 'what-is-imrad'
-    title: 'Что такое формат IMRAD и почему он обязателен'
+    title: 'Что такое IMRAD и когда он нужен'
   - id: 'sections-breakdown'
-    title: 'Разделы статьи Scopus IMRAD: анатомия каждого блока'
+    title: 'Разделы статьи IMRAD: что писать в каждом'
+  - id: 'writing-practice'
+    title: 'Время глаголов и объём разделов'
+  - id: 'beyond-imrad'
+    title: 'Что ещё обязательно в рукописи, кроме IMRAD'
   - id: 'imrad-template'
-    title: 'Структура IMRAD научной статьи: шаблон LaTeX для международных журналов'
+    title: 'Скелет статьи IMRAD в LaTeX'
   - id: 'results-vs-discussion'
     title: 'Главная ошибка: как не перепутать Results и Discussion'
   - id: 'reviewer-checklist'
     title: 'Чек-лист перед отправкой рукописи в редакцию'
+  - id: 'faq'
+    title: 'Частые вопросы'
 sections:
   - id: 'what-is-imrad'
-    title: 'Что такое формат IMRAD и почему он обязателен'
+    title: 'Что такое IMRAD и когда он нужен'
     html: |2-
-                              <p><strong>IMRAD</strong> — это общепринятый международный академический
-      стандарт структурирования оригинальных исследовательских статей (Original Research Papers).
-      Аббревиатура расшифровывается по первым буквам ключевых разделов: <strong>I</strong>ntroduction
-      (Введение), <strong>M</strong>ethods (Материалы и методы), <strong>R</strong>esults
-      (Результаты), <strong>a</strong>nd <strong>D</strong>iscussion (Обсуждение).</p>
-                              <p>Практически все рейтинговые издания первого и второго квартилей
-      (Q1/Q2), индексируемые в <strong>Scopus</strong> и <strong>Web of Science</strong> (Elsevier,
-      Springer Nature, IEEE, Wiley, MDPI), требуют соблюдения этой структуры. Отклонение от IMRAD —
-      одна из частых причин отказа еще до передачи статьи рецензентам (Desk Reject). При этом принципы
-      IMRAD активно перенимаются и при <a
-      href="/blog/rinc-vak-scientific-article-template-fonts-margins">подготовке статей для базы РИНЦ
-      и журналов ВАК</a>.</p>
+      <p><strong>IMRAD</strong> — общепринятая структура оригинальных исследовательских статей
+      (Original Research Papers). Аббревиатура составлена из названий разделов:
+      <strong>I</strong>ntroduction (Введение), <strong>M</strong>ethods (Материалы и методы),
+      <strong>R</strong>esults (Результаты) <strong>a</strong>nd <strong>D</strong>iscussion
+      (Обсуждение).</p>
+      <p>IMRAD — стандарт для оригинальных эмпирических статей в естественных, технических и
+      медицинских науках. Так устроены рукописи в большинстве журналов Elsevier, Springer Nature,
+      IEEE, Wiley и MDPI. Теоретические работы, обзоры и статьи по математике строятся иначе:
+      «определения — теоремы — доказательства» или обзор литературы по темам. Поэтому сначала
+      откройте раздел «Guide for Authors» своего журнала: там указано, какую структуру ждёт
+      редакция.</p>
+      <p>У IMRAD есть распространённые вариации:</p>
+      <ul>
+          <li><strong>Results and Discussion</strong> одним разделом — частый вариант в химии,
+          материаловедении и коротких статьях (letters);</li>
+          <li><strong>Methods в конце статьи</strong> — так делают Nature, Cell и ряд других
+          журналов: после введения сразу идут результаты;</li>
+          <li><strong>отдельный Conclusion</strong> — одни журналы требуют его, другие включают
+          выводы в Discussion.</li>
+      </ul>
+      <p>Структура сложилась в середине XX века, в 1970-х её закрепил американский стандарт ANSI
+      Z39.16, а сегодня её описывают рекомендации ICMJE для медицинских журналов. Для медицинских и
+      биологических исследований дополнительно есть руководства по отчётности сети EQUATOR: CONSORT
+      для клинических испытаний, PRISMA для систематических обзоров, STROBE для наблюдательных
+      исследований. Принципы IMRAD перенимают и российские журналы — см. <a
+      href="/blog/rinc-vak-scientific-article-template-fonts-margins">статью для журналов ВАК и
+      РИНЦ</a>.</p>
   - id: 'sections-breakdown'
-    title: 'Разделы статьи Scopus IMRAD: анатомия каждого блока'
+    title: 'Разделы статьи IMRAD: что писать в каждом'
     html: |2-
-                              <p>Рассмотрим, за что отвечают обязательные <strong>разделы статьи
-      scopus imrad</strong>:</p>
-                              <ul>
-                                  <li><strong>Introduction (Введение):</strong> отвечает на вопрос
-      <em>«Какая проблема изучается и почему она важна?»</em>. Включает обзор литературы за последние
-      3–5 лет, выявление исследовательского пробела (Research Gap), формулировку исследовательской
-      гипотезы и целей работы;</li>
-                                  <li><strong>Methods (Материалы и методы):</strong> отвечает на
-      вопрос <em>«Как именно проводилось исследование?»</em>. Описывает оборудование, датасеты,
-      математические формулы, алгоритмы и критерии воспроизводимости (любой ученый в мире должен иметь
-      возможность повторить ваш эксперимент по этому описанию);</li>
-                                  <li><strong>Results (Результаты):</strong> отвечает на вопрос
-      <em>«Что конкретно было обнаружено?»</em>. Представляет собой сухое изложение фактов, графиков,
-      таблиц и статистических метрик без субъективных авторских интерпретаций;</li>
-                                  <li><strong>Discussion (Обсуждение):</strong> отвечает на вопрос
-      <em>«Что эти результаты значат для науки?»</em>. Сопоставление данных с результатами других
-      исследователей, обсуждение ограничений методики (Limitations), практическая ценность и
-      перспективы дальнейших работ;</li>
-                                  <li><strong>Conclusion (Заключение):</strong> итоговое резюме статьи
-      в 2–3 абзацах.</li>
-                              </ul>
-                              <p>Перед введением обязательно размещается вводный реферат — обратите
-      внимание на нюансы <a href="/blog/diploma-annotation-abstract-russian-english">составления
-      двуязычной аннотации Abstract</a>.</p>
+      <p>Каждый из <strong>разделов статьи Scopus по IMRAD</strong> отвечает на свой вопрос:</p>
+      <ul>
+          <li><strong>Introduction (Введение):</strong> <em>«Какая проблема изучается и почему она
+          важна?»</em> Удобно строить по модели CARS (Create a Research Space, Дж. Суэйлз) в три
+          шага: 1) <em>территория</em> — почему тема важна и что о ней известно; 2) <em>ниша</em> —
+          чего не хватает в существующих работах (research gap); 3) <em>занятие ниши</em> — цель и
+          вклад вашей статьи. Типовые фразы: «However, little is known about…», «To date, no study
+          has…», «This paper proposes…», «The main contributions are…»;</li>
+          <li><strong>Methods (Материалы и методы):</strong> <em>«Как именно проводилось
+          исследование?»</em> Оборудование, датасеты, модели, алгоритмы, версии ПО и статистические
+          методы — столько деталей, чтобы другой исследователь мог повторить работу;</li>
+          <li><strong>Results (Результаты):</strong> <em>«Что обнаружено?»</em> Факты, таблицы,
+          графики и статистика без интерпретаций;</li>
+          <li><strong>Discussion (Обсуждение):</strong> <em>«Что эти результаты значат?»</em>
+          Объяснение механизмов, сравнение с работами других авторов, ограничения (Limitations),
+          практическая ценность и дальнейшие исследования;</li>
+          <li><strong>Conclusion (Заключение):</strong> главные выводы в 1–3 абзацах, без новых
+          данных и ссылок.</li>
+      </ul>
+      <p>Названия разделов на русском и английском, которые нужны авторам двуязычных журналов:</p>
+      <div class="article-table-wrapper">
+          <table class="article-table">
+              <thead>
+                  <tr>
+                      <th>Русский</th>
+                      <th>English</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr><td>Аннотация</td><td>Abstract</td></tr>
+                  <tr><td>Введение</td><td>Introduction</td></tr>
+                  <tr><td>Материалы и методы</td><td>Materials and Methods</td></tr>
+                  <tr><td>Результаты</td><td>Results</td></tr>
+                  <tr><td>Обсуждение</td><td>Discussion</td></tr>
+                  <tr><td>Заключение (выводы)</td><td>Conclusion(s)</td></tr>
+                  <tr><td>Благодарности</td><td>Acknowledgements</td></tr>
+                  <tr><td>Список литературы</td><td>References</td></tr>
+              </tbody>
+          </table>
+      </div>
+      <p>Перед введением размещается Abstract — как его составить, разобрано в статье об <a
+      href="/blog/scientific-article-annotation-abstract-keywords-vak">аннотации и ключевых
+      словах</a>.</p>
+  - id: 'writing-practice'
+    title: 'Время глаголов и объём разделов'
+    html: |2-
+      <p>Практическая шпаргалка для англоязычной рукописи:</p>
+      <div class="article-table-wrapper">
+          <table class="article-table">
+              <thead>
+                  <tr>
+                      <th>Раздел</th>
+                      <th>Вопрос</th>
+                      <th>Время глагола</th>
+                      <th>Доля объёма</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Introduction</td>
+                      <td>Зачем?</td>
+                      <td>Present Simple (известные факты), Present Perfect (что сделано в
+                      области)</td>
+                      <td>~10–15 %</td>
+                  </tr>
+                  <tr>
+                      <td>Methods</td>
+                      <td>Как?</td>
+                      <td>Past Simple, часто в пассиве: «Samples were heated…»</td>
+                      <td>~15–20 %</td>
+                  </tr>
+                  <tr>
+                      <td>Results</td>
+                      <td>Что получено?</td>
+                      <td>Past Simple; Present — для ссылок на рисунки: «Fig. 2 shows…»</td>
+                      <td>~20–30 %</td>
+                  </tr>
+                  <tr>
+                      <td>Discussion</td>
+                      <td>Что это значит?</td>
+                      <td>Present (интерпретация) + Past (свои результаты)</td>
+                      <td>~25–35 %</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <p>Доли объёма — ориентир, а не правило: в методических статьях больше Methods, в коротких
+      сообщениях — меньше Discussion.</p>
+  - id: 'beyond-imrad'
+    title: 'Что ещё обязательно в рукописи, кроме IMRAD'
+    html: |2-
+      <p>Редакции проверяют не только четыре раздела. Типичный состав рукописи в международном
+      журнале:</p>
+      <ul>
+          <li><strong>Title</strong> — конкретный, без аббревиатур;</li>
+          <li><strong>Abstract</strong> — у многих журналов структурированный: Background, Methods,
+          Results, Conclusions;</li>
+          <li><strong>Keywords</strong> — обычно 3–6 терминов;</li>
+          <li><strong>Highlights</strong> — 3–5 коротких пунктов с главными результатами (журналы
+          Elsevier);</li>
+          <li><strong>Graphical abstract</strong> — одна иллюстрация, которая резюмирует работу;</li>
+          <li><strong>Acknowledgements</strong> и <strong>Funding</strong> — благодарности и номера
+          грантов;</li>
+          <li><strong>Author contributions</strong> — вклад авторов, часто по таксономии
+          CRediT;</li>
+          <li><strong>Conflict of interest</strong> — заявление о конфликте интересов;</li>
+          <li><strong>Data availability statement</strong> — где лежат данные и код;</li>
+          <li><strong>References</strong> — в стиле журнала.</li>
+      </ul>
+      <p>Какие из этих элементов обязательны, указано в Guide for Authors. В готовых шаблонах
+      издательств они уже размечены.</p>
   - id: 'imrad-template'
-    title: 'Структура IMRAD научной статьи: шаблон LaTeX для международных журналов'
+    title: 'Скелет статьи IMRAD в LaTeX'
     html: |2-
-                              <p>Эталонная <strong>структура imrad научной статьи шаблон</strong> в
-      формате LaTeX:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX IMRAD Structure</span></div>
-                                  <pre><code>\documentclass[11pt,a4paper]{article}
-      \usepackage[utf8]{inputenc}
-      \usepackage{amsmath,amssymb}
-      \usepackage{graphicx}
-      \usepackage{booktabs}
-      \usepackage{cite}
+      <p>Минимальный скелет <strong>структуры IMRAD</strong> в LaTeX — только разделы с подсказками,
+      что в них писать:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[11pt,a4paper]{article}
+      \usepackage{amsmath,graphicx,booktabs}
 
-      \title{High-Efficiency Distributed Scheduling Algorithm for Edge Computing Networks}
-      \author{A.~Ivanov$^{1}$, B.~Smith$^{2}$ \\
-      \small $^{1}$Department of Computer Science, Technical University \\
-      \small $^{2}$Institute of Advanced Computing}
+      \title{High-Efficiency Distributed Scheduling for Edge Computing Networks}
+      \author{A.~Ivanov$^{1}$, B.~Smith$^{2}$\\
+      \small $^{1}$Technical University, Moscow, Russia\\
+      \small $^{2}$Institute of Advanced Computing, Berlin, Germany}
       \date{}
 
       \begin{document}
       \maketitle
 
       \begin{abstract}
-      Concise summary of context, proposed method, quantitative results, and significance (150--250 words).
+      Background. Methods. Results. Conclusions (150--250 words).
       \end{abstract}
+      \noindent\textbf{Keywords:} edge computing; scheduling; latency
 
-      \section{Introduction}
-      % Research gap, motivation, objectives and paper organization.
+      \section{Introduction}      % territory -&gt; gap -&gt; how this paper fills it
+      \section{Materials and Methods} % enough detail to reproduce the study
+      \section{Results}           % facts, numbers, figures; no interpretation
+      \section{Discussion}        % meaning, comparison with [refs], limitations
+      \section{Conclusions}
 
-      \section{Materials and Methods}
-      % Theoretical model, algorithm formulation, simulation setup.
-
-      \section{Results}
-      % Experimental data, comparative performance plots, statistical metrics.
-
-      \section{Discussion}
-      % Interpretation of findings, comparisons with state-of-the-art, limitations.
-
-      \section{Conclusion}
-      % Concluding remarks and future directions.
+      \section*{Acknowledgements}
+      \section*{Data Availability Statement}
+      \section*{Conflict of Interest}
 
       \begin{thebibliography}{9}
       \bibitem{ref1} A.~Author, ``Title of the cited paper,'' \emph{Journal Name},
         vol.~1, no.~2, pp.~10--20, 2025.
       \end{thebibliography}
       \end{document}</code></pre>
-                              </div>
-                              <p>Список литературы в шаблоне собран окружением
-      <code>thebibliography</code>: в Labkeeper сервер не запускает BibTeX, поэтому команды
-      <code>\bibliographystyle</code> и <code>\bibliography</code> работают только при локальной
-      сборке. Записи оформляйте вручную по стилю журнала, а ссылки ставьте командой
-      <code>\cite</code>.</p>
+      </div>
+      <p>Это каркас для черновика, а не шаблон издательства. Полный шаблон с классами elsarticle,
+      IEEEtran и Springer разобран в статье о <a href="/blog/latex-scopus-wos">LaTeX-шаблонах для
+      Scopus и Web of Science</a>. Готовые шаблоны издательств, где разделы IMRAD уже размечены, есть
+      в каталоге Labkeeper: <a href="/templates/mdpi">MDPI</a>, <a
+      href="/templates/springer-nature">Springer Nature</a> и <a
+      href="/templates/automation-and-remote-control">Automation and Remote Control</a>.</p>
+      <p>Список литературы в Labkeeper собирается окружением <code>thebibliography</code>: сервер не
+      запускает BibTeX, поэтому <code>\bibliographystyle</code> и <code>\bibliography</code>
+      работают только при локальной сборке. Записи оформляйте вручную по стилю журнала, а ссылки
+      ставьте командой <code>\cite</code>.</p>
   - id: 'results-vs-discussion'
     title: 'Главная ошибка: как не перепутать Results и Discussion'
     html: |2-
-                              <p>Самое частое замечание зарубежных рецензентов — смешивание
-      результатов и обсуждения:</p>
-                              <div class="article-table-wrapper">
-                                  <table class="article-table">
-                                      <thead>
-                                          <tr>
-                                              <th>Раздел</th>
-                                              <th>Что должно быть</th>
-                                              <th>Чего быть не должно</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-                                          <tr>
-                                              <td><strong>Results</strong></td>
-                                              <td>Факты, числа, доверительные интервалы, графики:
-      «Алгоритм снизил задержку на 22% по сравнению с Round-Robin»</td>
-                                              <td>Рассуждения, предположения, почему так вышло, цитаты
-      из работ Иванова и Смита</td>
-                                          </tr>
-                                          <tr>
-                                              <td><strong>Discussion</strong></td>
-                                              <td>Анализ механизмов: «Такое улучшение объясняется
-      локализацией кэша. Это согласуется с выводами [14], однако противоречит теории [18]
-      из-за...»</td>
-                                              <td>Первичное введение новых таблиц или графиков,
-      которых не было в Results</td>
-                                          </tr>
-                                      </tbody>
-                                  </table>
-                              </div>
+      <p>Одно из частых замечаний рецензентов — смешивание результатов и обсуждения:</p>
+      <div class="article-table-wrapper">
+          <table class="article-table">
+              <thead>
+                  <tr>
+                      <th>Раздел</th>
+                      <th>Что должно быть</th>
+                      <th>Чего быть не должно</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><strong>Results</strong></td>
+                      <td>Факты, числа, доверительные интервалы, графики: «Алгоритм снизил
+                      задержку на 22 % (95 % ДИ 18–26 %, p &lt; 0,01) по сравнению с
+                      Round-Robin»</td>
+                      <td>Рассуждения о причинах, предположения, сравнение с работами других
+                      авторов</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Discussion</strong></td>
+                      <td>Анализ механизмов: «Такое улучшение объясняется локализацией кэша. Это
+                      согласуется с выводами [14], однако противоречит модели [18] из-за…»</td>
+                      <td>Новые таблицы или графики, которых не было в Results</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <p>Результат без меры неопределённости рецензент почти наверняка вернёт. Как посчитать
+      доверительный интервал, разобрано в статье о <a
+      href="/blog/student-confidence-intervals-error-calculation">коэффициенте Стьюдента и
+      доверительных интервалах</a>.</p>
   - id: 'reviewer-checklist'
     title: 'Чек-лист перед отправкой рукописи в редакцию'
     html: |2-
-                              <ul>
-                                  <li>Введение опирается на актуальные международные источники
-      (Scopus/WoS) последних лет; минимальное число ссылок часто указано в правилах журнала;</li>
-                                  <li>В методах четко указаны версии использованного ПО и параметры
-      воспроизводимости;</li>
-                                  <li>Все рисунки и таблицы упомянуты в основном тексте до их
-      появления;</li>
-                                  <li>В разделе Discussion честно описаны ограничения исследования
-      (Study Limitations).</li>
-                              </ul>
+      <ul>
+          <li>Тема статьи соответствует Aims &amp; Scope журнала;</li>
+          <li>журнал индексируется в Scopus или WoS прямо сейчас: его нет в списке discontinued
+          titles Scopus, и он не похож на «хищнический»;</li>
+          <li>введение опирается на актуальные международные источники, а research gap назван
+          явно;</li>
+          <li>в методах указаны версии ПО, параметры и всё, что нужно для воспроизведения;</li>
+          <li>у каждого результата есть мера неопределённости или статистическая значимость;</li>
+          <li>все рисунки и таблицы упомянуты в тексте до их появления, а подписи понятны без
+          основного текста;</li>
+          <li>в Discussion честно описаны ограничения исследования (Limitations);</li>
+          <li>есть Data availability statement, Funding и Conflict of interest;</li>
+          <li>у всех авторов есть ORCID;</li>
+          <li>ссылки оформлены в едином стиле журнала;</li>
+          <li>рукопись проверена на заимствования;</li>
+          <li>подготовлено сопроводительное письмо (cover letter): что нового в работе и почему она
+          подходит журналу.</li>
+      </ul>
+  - id: 'faq'
+    title: 'Частые вопросы'
+    html: |2-
+      <h3>Можно ли объединить Results и Discussion?</h3>
+      <p>Да, если это разрешает журнал: раздел «Results and Discussion» обычен в химии,
+      материаловедении и коротких статьях. Проверьте Guide for Authors.</p>
+      <h3>Нужен ли раздел Conclusion?</h3>
+      <p>Зависит от журнала. Одни требуют отдельные Conclusions, другие ждут выводы в конце
+      Discussion. Если требований нет, короткое заключение в 1–2 абзаца не помешает.</p>
+      <h3>Как структурировать теоретическую статью без экспериментов?</h3>
+      <p>IMRAD для неё не обязателен. Типичная схема: введение с постановкой задачи, предварительные
+      сведения и определения, основные результаты (теоремы с доказательствами), обсуждение или
+      примеры, заключение. Для оформления теорем в LaTeX пригодится пакет <a
+      href="/blog/latex-amsthm">amsthm</a>.</p>
+      <h3>Требуют ли IMRAD российские журналы?</h3>
+      <p>Многие журналы ВАК рекомендуют похожую структуру, но жёстко её требуют не все. Ориентируйтесь
+      на правила для авторов и свежие выпуски журнала.</p>
 tips:
   - title: 'Список литературы: BibTeX локально, thebibliography онлайн'
     html: |2-
@@ -205,9 +338,12 @@ tips:
       приложите его к рукописи отдельно.</p>
   - title: 'Подготовка рукописей в Labkeeper'
     html: |2-
-      <p>Классы издательств <code>elsarticle</code> (Elsevier), <code>IEEEtran</code> и
+      <p>Начните с готового шаблона издательства: <a href="/templates/mdpi">MDPI</a>, <a
+      href="/templates/springer-nature">Springer Nature</a> или <a
+      href="/templates/automation-and-remote-control">Automation and Remote Control</a> — разделы в
+      них уже размечены. Классы <code>elsarticle</code> (Elsevier), <code>IEEEtran</code> и
       <code>acmart</code> входят в TeX Live, поэтому их можно указать в <code>\documentclass</code>
-      прямо в Labkeeper. Шаблон конкретного журнала со своими файлами .cls загрузите в файлы
+      прямо в Labkeeper. Шаблон другого журнала со своими файлами .cls загрузите в файлы
       проекта.</p>
 editorExample:
   latex: |2-
@@ -216,10 +352,12 @@ editorExample:
     \begin{abstract}
     Calibration reduced the mean sensor error from 4\% to 1\% in 20 trials.
     \end{abstract}
-    \section{Introduction}Can calibration reduce sensor bias~\cite{smith}?
-    \section{Methods}We compared two sensors over 20 trials.
-    \section{Results}Mean error decreased from 4\% to 1\%.
+    \section{Introduction}Sensor bias is a known problem; however, little is known about low-cost
+    sensors~\cite{smith}. This paper proposes a simple calibration.
+    \section{Methods}Two sensors were compared over 20 trials.
+    \section{Results}Mean error decreased from 4\% to 1\% (95\% CI 0.6--1.4\%).
     \section{Discussion}Calibration improved accuracy; a larger sample is needed.
+    \section{Conclusions}A simple calibration reduces sensor error fourfold.
     \begin{thebibliography}{9}
     \bibitem{smith} J.~Smith, ``Sensor calibration,'' \emph{Meas. Sci.}, vol.~5, pp.~1--9, 2024.
     \end{thebibliography}

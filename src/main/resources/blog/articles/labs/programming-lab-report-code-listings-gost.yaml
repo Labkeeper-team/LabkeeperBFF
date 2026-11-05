@@ -1,192 +1,425 @@
 catalogIndex: 58
 slug: 'programming-lab-report-code-listings-gost'
 batch: 2
-title: 'Идеальный отчет по программированию: листинги кода по ГОСТ'
-pageTitle: 'Отчет по лабораторной программирование: оформление листингов кода — Labkeeper'
+title: 'Как оформить листинг кода в отчете по ГОСТ: шаблон LaTeX и примеры'
+pageTitle: 'Листинг кода в отчете по ГОСТ: шаблон LaTeX — Labkeeper'
 metaDescription: |2-
-  Шаблон отчета по лабораторной по программированию: оформление листингов в отчете по методичкам и
-  ГОСТ 19.401, подсветка синтаксиса, нумерация строк в Labkeeper.
+  Как оформить листинг программы в отчете по лабораторной: подпись «Листинг 1.1 – …» над кодом,
+  моноширинный шрифт 10–12 пт, нумерация строк, перенос и вынос в приложение. Готовый шаблон LaTeX.
 breadcrumbTitle: 'Листинги кода в отчетах по ГОСТ'
-h1: 'Идеальный отчет по&nbsp;программированию: листинги кода по&nbsp;ГОСТ'
+h1: 'Как оформить листинг кода в&nbsp;отчете по&nbsp;ГОСТ: шаблон LaTeX и&nbsp;примеры'
 categories:
   - 'labs'
 related:
-  - 'formula-variable-explanation-where-gost'
-  - 'software-screenshots-report-gost-caption'
-  - 'lab-report-bibliography-gost-7-1'
-  - 'student-confidence-intervals-error-calculation'
-  - 'formula-numbering-lab-reports-gost'
+  - 'ideal-lab-report-template-gost-online'
+  - 'latex-russian-cyrillic-code-listings-minted'
+  - 'diploma-appendices-listings-diagrams-gost'
+  - 'markdown-code-syntax-highlighting'
+  - 'latex-algorithm2e-pseudocode-algorithms'
   - 'algorithm-flowcharts-gost-markdown-latex'
-  - 'markdown-table-merge-cells-rowspan-colspan'
-  - 'markdown-to-pdf-export'
-  - 'markdown-task-lists'
+  - 'software-screenshots-report-gost-caption'
+  - 'how-to-write-lab-report-conclusion-examples'
+  - 'formula-numbering-lab-reports-gost'
+  - 'lab-report-bibliography-gost-7-1'
   - 'latex-lab-reports'
-  - 'latex-chemfig'
-  - 'latex-siunitx'
+  - 'markdown-to-pdf-export'
 keywords:
+  - 'оформление листинга по гост'
+  - 'как оформить код в отчете'
+  - 'листинг программы в отчете пример'
   - 'отчет по лабораторной программирование шаблон'
   - 'оформление листингов в отчете'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
-readingTime: '7 мин'
+dateModified: '2026-11-05'
+readingTime: '11 мин'
 cardTitle: 'Листинги кода в отчетах по ГОСТ: шаблон и правила оформления'
 cardDescription: |2-
-  Как оформлять программный код в студенческих отчетах и ВКР: пакет listings, моноширинные шрифты,
-  нумерация строк, рамки и требования нормоконтроля.
+  Как оформлять программный код в студенческих отчетах: пакет listings, подпись и нумерация
+  листингов, перенос на следующую страницу, список листингов.
 sliderTitle: 'Листинги кода по ГОСТ в отчетах'
 sliderText: 'Пакет listings, требования методичек, моноширинные шрифты и подпись «Листинг».'
 sidebarText: |2-
-  Создавайте безупречные отчеты по IT-дисциплинам в Labkeeper с автоматической нумерацией и
-  подсветкой кода.
+  Создавайте отчеты по IT-дисциплинам в Labkeeper: листинги с нумерацией строк и подписью
+  «Листинг 1.1 – …» собираются в PDF прямо в браузере.
 ctaTitle: 'Сдавайте лабораторные с первого раза в&nbsp;Labkeeper'
 ctaText: |2-
   Онлайн-редактор LaTeX: листинги кода через пакет listings с нумерацией строк, подписью «Листинг»
   и PDF после нажатия «Выполнить».
 toc:
   - id: 'requirements'
-    title: 'Требования нормоконтроля к исходному коду'
+    title: 'Требования к листингам в отчете'
   - id: 'template'
-    title: 'Отчет по лабораторной программирование шаблон: структура документа'
+    title: 'Структура отчета по лабораторной по программированию'
   - id: 'listings-config'
-    title: 'Оформление листингов в отчете: пакет listings и кириллица'
+    title: 'Настройка listings: подпись, нумерация и шрифт'
+  - id: 'full-example'
+    title: 'Полный шаблон: два листинга, ссылки и список листингов'
+  - id: 'long-listings'
+    title: 'Перенос листинга на следующую страницу'
   - id: 'external-files'
     title: 'Импорт кода напрямую из файлов программ'
+  - id: 'markdown-listing'
+    title: 'Листинг в Markdown'
   - id: 'minted-alternative'
-    title: 'Современная альтернатива: пакет minted'
+    title: 'Пакет minted: когда он нужен'
+  - id: 'faq'
+    title: 'Частые вопросы'
 sections:
   - id: 'requirements'
-    title: 'Требования нормоконтроля к исходному коду'
+    title: 'Требования к листингам в отчете'
     html: |2-
-                              <p>В отчетах по программированию, вычислительной математике и системному
-      администрированию листинг программы является главным доказательством работоспособности
-      выполненного задания. ГОСТ 7.32-2017 листинги отдельно не регулирует, поэтому правила задает
-      методичка кафедры, а для программной документации — ГОСТ 19.401-78 «Текст программы». Типичные
-      требования методичек:</p>
-                              <ul>
-                                  <li>Код оформляется моноширинным шрифтом (Courier New, Consolas)
-      меньшего кегля (10–12 пт при основном тексте 14 пт).</li>
-                                  <li>Каждый листинг должен иметь порядковый номер и содержательное
-      название: например, <em>«Листинг 1.1 — Функция быстрой сортировки массива»</em>.</li>
-                                  <li>Длинные фрагменты кода (свыше 1–2 страниц) обязательно выносятся
-      в <a href="/blog/diploma-appendices-listings-diagrams-gost">приложения диплома или курсовой
-      работы</a>, а в основном тексте отчета остаются только ключевые функции и алгоритмы.</li>
-                              </ul>
+      <p>В отчетах по программированию, вычислительной математике и системному администрированию
+      листинг программы — главное доказательство того, что задание выполнено. ГОСТ 7.32-2017 листинги
+      отдельно не регулирует, поэтому правила задает методичка кафедры. ГОСТ 19.401-78 «Текст
+      программы» относится к программной документации ЕСПД, а не к учебному отчету, но методички часто
+      берут из него идеи оформления. Блок-схемы алгоритмов оформляют по ГОСТ 19.701-90, об этом статья о
+      <a href="/blog/algorithm-flowcharts-gost-markdown-latex">блок-схемах по ГОСТ</a>.</p>
+      <p>Типичные требования методичек:</p>
+      <ul>
+          <li>Код набирают моноширинным шрифтом (Courier New, Consolas) кеглем 10–12 пт при основном
+      тексте 14 пт.</li>
+          <li>Каждый листинг имеет номер и название, подпись стоит <strong>над</strong> кодом:
+      <em>«Листинг 1.1 – Функция быстрой сортировки массива»</em>. Тире то же, что в подписях рисунков
+      и таблиц («Рисунок 1 – …»).</li>
+          <li>На каждый листинг есть ссылка в тексте: «в листинге 1.1 приведена…».</li>
+          <li>Длинные фрагменты (больше 1–2 страниц) выносят в <a
+      href="/blog/diploma-appendices-listings-diagrams-gost">приложения</a>, а в основном тексте
+      оставляют ключевые функции.</li>
+      </ul>
+      <p>Как эти требования переводятся в параметры пакета <code>listings</code>:</p>
+      <div class="article-table-wrapper">
+          <table class="article-table">
+              <thead>
+                  <tr>
+                      <th>Требование методички</th>
+                      <th>Параметр listings</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Моноширинный шрифт</td>
+                      <td><code>basicstyle=\ttfamily</code></td>
+                  </tr>
+                  <tr>
+                      <td>Кегль меньше основного</td>
+                      <td><code>\small</code> (≈12 пт при 14 пт) или <code>\footnotesize</code> в
+      <code>basicstyle</code></td>
+                  </tr>
+                  <tr>
+                      <td>Нумерация строк</td>
+                      <td><code>numbers=left</code></td>
+                  </tr>
+                  <tr>
+                      <td>Рамка</td>
+                      <td><code>frame=single</code></td>
+                  </tr>
+                  <tr>
+                      <td>Подпись над кодом</td>
+                      <td><code>captionpos=t</code></td>
+                  </tr>
+                  <tr>
+                      <td>Номер по разделам «1.1»</td>
+                      <td><code>\counterwithin{lstlisting}{section}</code></td>
+                  </tr>
+                  <tr>
+                      <td>Без цвета, для печати</td>
+                      <td><code>keywordstyle=\bfseries</code>, <code>commentstyle=\itshape</code></td>
+                  </tr>
+                  <tr>
+                      <td>Пробелы в строках без значка «␣»</td>
+                      <td><code>showstringspaces=false</code></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
   - id: 'template'
-    title: 'Отчет по лабораторной программирование шаблон: структура документа'
+    title: 'Структура отчета по лабораторной по программированию'
     html: |2-
-                              <p>Классический <strong>отчет по лабораторной программирование
-      шаблон</strong> содержит следующие обязательные разделы:</p>
-                              <ol>
-                                  <li>Титульный лист (кафедра, дисциплина, вариант, ФИО студента и
-      преподавателя).</li>
-                                  <li>Цель работы и техническое задание.</li>
-                                  <li>Описание архитектуры и алгоритма решения (с блок-схемой).</li>
-                                  <li>Ключевые листинги программного кода.</li>
-                                  <li><a
-      href="/blog/software-screenshots-report-gost-caption">Скриншоты работы программы по ГОСТ</a> и
-      тестовые наборы данных.</li>
-                                  <li>Выводы по проделанной работе.</li>
-                              </ol>
+      <p>Отчет по лабораторной работе по программированию обычно содержит разделы:</p>
+      <ol>
+          <li>Титульный лист (кафедра, дисциплина, вариант, ФИО студента и преподавателя).</li>
+          <li>Цель работы и техническое задание.</li>
+          <li>Описание алгоритма решения (с блок-схемой или псевдокодом).</li>
+          <li>Ключевые листинги программного кода.</li>
+          <li>Тестовые данные и результаты: вывод программы текстом или <a
+      href="/blog/software-screenshots-report-gost-caption">скриншоты по ГОСТ</a>.</li>
+          <li>Выводы по работе.</li>
+      </ol>
+      <p>Титульный лист, поля и шрифт возьмите из <a
+      href="/blog/ideal-lab-report-template-gost-online">шаблона отчета по лабораторной работе по
+      ГОСТ</a>, а алгоритм можно записать псевдокодом, как в статье о <a
+      href="/blog/latex-algorithm2e-pseudocode-algorithms">пакете algorithm2e</a>.</p>
   - id: 'listings-config'
-    title: 'Оформление листингов в отчете: пакет listings и кириллица'
+    title: 'Настройка listings: подпись, нумерация и шрифт'
     html: |2-
-                              <p>Правильное <strong>оформление листингов в отчете</strong>
-      настраивается через пакет <code>listings</code> в преамбуле LaTeX документа:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
+      <p>Оформление листингов в отчете настраивается один раз в преамбуле через пакет
+      <code>listings</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\usepackage{listings}
+          <pre><code>\usepackage{listings}
       \usepackage{xcolor}
       \usepackage{caption}
 
       \lstset{
-          basicstyle=\ttfamily\small,       % Моноширинный шрифт меньшего кегля
-          numbers=left,                     % Нумерация строк слева
-          numberstyle=\tiny\color{gray},     % Стиль номеров строк
-          stepnumber=1,
+          basicstyle=\ttfamily\small,       % моноширинный шрифт меньшего кегля
+          columns=fullflexible,             % текст из PDF копируется без лишних пробелов
+          keepspaces=true,
+          upquote=true,                     % прямые кавычки ' вместо типографских
+          showstringspaces=false,           % без значка пробела в строках
+          numbers=left,                     % нумерация строк слева
+          numberstyle=\tiny,
           numbersep=8pt,
-          frame=single,                     % Тонкая рамка вокруг листинга
+          frame=single,                     % рамка вокруг листинга
           tabsize=4,
-          breaklines=true,                  % Автоматический перенос длинных строк
-          keywordstyle=\color{blue}\bfseries,
-          commentstyle=\color{teal}\itshape,
-          stringstyle=\color{red},
-          escapeinside={(*@}{@*)},          % Русский текст внутри кода
-          captionpos=t                      % Подпись над листингом, как в методичках
+          breaklines=true,                  % перенос длинных строк
+          keywordstyle=\bfseries,           % черно-белый вариант для печати
+          commentstyle=\itshape,
+          escapeinside={(*@}{@*)},          % русский текст внутри кода
+          captionpos=t                      % подпись над листингом
       }
       \renewcommand{\lstlistingname}{Листинг}
-      \captionsetup[lstlisting]{labelsep=endash,singlelinecheck=false}</code></pre>
-                              </div>
-                              <p>В тексте программы фрагмент вставляется через окружение
-      <code>lstlisting</code>:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
+      \captionsetup[lstlisting]{labelsep=endash,singlelinecheck=false}
+      \AtBeginDocument{%
+        \counterwithin{lstlisting}{section}%          «Листинг 1.1 – …»
+        \renewcommand{\lstlistlistingname}{Список листингов}}</code></pre>
+      </div>
+      <p>Что здесь важно:</p>
+      <ul>
+          <li><code>labelsep=endash</code> ставит между номером и названием короткое тире: «Листинг 1.1
+      – Название», как в подписях рисунков по ГОСТ 7.32-2017.</li>
+          <li>Без <code>\counterwithin</code> номер будет сквозным: «Листинг 1», «Листинг 2». Счетчик
+      <code>lstlisting</code> создается в начале документа, поэтому команда обернута в
+      <code>\AtBeginDocument</code>. Если в отчете нет нумерованных разделов (<code>\section*</code>),
+      уберите эту строку, и номера станут простыми.</li>
+          <li>Если кафедра разрешает цвет, замените стили на <code>keywordstyle=\color{blue}\bfseries</code>
+      и <code>commentstyle=\color{teal}\itshape</code>.</li>
+      </ul>
+      <p>Кириллицу внутри кода pdfLaTeX в listings не набирает: русские комментарии оборачивают в
+      <code>(*@ … @*)</code>, как в примере ниже. Таблица <code>literate</code> для большого объема
+      русского текста и разбор ошибок сборки — в статье о <a
+      href="/blog/latex-russian-cyrillic-code-listings-minted">кириллице в листингах кода</a>.</p>
+  - id: 'full-example'
+    title: 'Полный шаблон: два листинга, ссылки и список листингов'
+    html: |2-
+      <p>Готовый документ, который можно скопировать и сразу собрать: листинг на C++ и листинг на
+      Python, ссылки на них из текста и список листингов в конце. Кнопка «Просмотреть пример»
+      открывает этот же код в редакторе.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\begin{lstlisting}[language=Python, caption={Функция вычисления факториала}]
-      def factorial(n: int) -> int:
-          # (*@\textit{Вычисление факториала числа n}@*)
-          if n <= 1:
-              return 1
-          return n * factorial(n - 1)
+          <pre><code>\documentclass[a4paper,14pt]{extarticle}
+      \usepackage{cmap}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage{listings}
+      \usepackage{caption}
+
+      \lstset{
+          basicstyle=\ttfamily\small,
+          columns=fullflexible, keepspaces=true, upquote=true,
+          showstringspaces=false,
+          numbers=left, numberstyle=\tiny, numbersep=8pt,
+          frame=single, tabsize=4, breaklines=true,
+          keywordstyle=\bfseries, commentstyle=\itshape,
+          escapeinside={(*@}{@*)},
+          captionpos=t
+      }
+      \renewcommand{\lstlistingname}{Листинг}
+      \captionsetup[lstlisting]{labelsep=endash,singlelinecheck=false}
+      \AtBeginDocument{%
+        \counterwithin{lstlisting}{section}%
+        \renewcommand{\lstlistlistingname}{Список листингов}}
+
+      \begin{document}
+
+      \section{Реализация алгоритма}
+
+      Функция сортировки приведена в листинге~\ref{lst:sort}, проверка~--- в листинге~\ref{lst:test}.
+
+      \begin{lstlisting}[language=C++, caption={Функция сортировки вставками}, label={lst:sort}]
+      #include &lt;vector&gt;
+
+      // (*@\textit{Сортировка вставками, сложность $O(n^2)$}@*)
+      void insertion_sort(std::vector&lt;int&gt;&amp; a) {
+          for (std::size_t i = 1; i &lt; a.size(); ++i) {
+              int key = a[i];
+              std::size_t j = i;
+              while (j &gt; 0 &amp;&amp; a[j - 1] &gt; key) {
+                  a[j] = a[j - 1];
+                  --j;
+              }
+              a[j] = key;
+          }
+      }
+      \end{lstlisting}
+
+      \begin{lstlisting}[language=Python, caption={Проверка результата}, label={lst:test}]
+      data = [5, 2, 4, 1]
+      print(sorted(data))  # (*@\textit{ожидается [1, 2, 4, 5]}@*)
+      \end{lstlisting}
+
+      \lstlistoflistings
+      \end{document}</code></pre>
+      </div>
+      <p>В PDF подписи выглядят так: «Листинг 1.1 – Функция сортировки вставками» и «Листинг 1.2 –
+      Проверка результата», а в конце документа появляется «Список листингов» с номерами страниц.</p>
+  - id: 'long-listings'
+    title: 'Перенос листинга на следующую страницу'
+    html: |2-
+      <p>Окружение <code>lstlisting</code> без параметра <code>float</code> переносится на следующую
+      страницу само. Многие методички требуют при этом надпись «Продолжение листинга 1.1» над второй
+      частью, как у таблиц. Автоматически listings ее не ставит, поэтому листинг делят вручную в
+      удобном месте, а нумерацию строк продолжают параметром <code>firstnumber=last</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{lstlisting}[language=C++, caption={Сортировка слиянием}, label={lst:merge}]
+      // первая часть кода
+      \end{lstlisting}
+
+      \noindent Продолжение листинга~\ref{lst:merge}
+      \begin{lstlisting}[language=C++, firstnumber=last]
+      // вторая часть кода
       \end{lstlisting}</code></pre>
-                              </div>
-                              <p>В pdfLaTeX пакет listings не понимает кириллицу внутри кода: русская
-      строка или docstring без настройки ломает сборку. Поэтому русский комментарий выше обернут в
-      разделители <code>(*@ … @*)</code> из параметра <code>escapeinside</code> — такой текст набирает
-      уже LaTeX. Если русского текста в коде много, подключите таблицу <code>literate</code> из статьи
-      о <a href="/blog/latex-russian-cyrillic-code-listings-minted">русском языке в листингах
-      кода</a>.</p>
+      </div>
+      <p>Если код занимает несколько страниц, его лучше целиком вынести в приложение: см. статью о <a
+      href="/blog/diploma-appendices-listings-diagrams-gost">приложениях с листингами</a>. Тот же
+      прием с надписью продолжения для таблиц описан в статье о <a
+      href="/blog/table-continuation-multipage-gost-diploma">переносе таблиц</a>.</p>
   - id: 'external-files'
     title: 'Импорт кода напрямую из файлов программ'
     html: |2-
-                              <p>Вместо копирования кода вручную через буфер обмена гораздо надежнее
-      подключать файлы проекта напрямую через команду <code>\lstinputlisting</code>. Файлы
-      <code>.cpp</code> и <code>.py</code> загрузить можно. Если удобнее один формат для листинга,
-      сохраните код как <code>.txt</code> и загрузите в файлы проекта:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
+      <p>Вместо копирования кода через буфер обмена надежнее подключать файлы программы командой
+      <code>\lstinputlisting</code>. Загрузите <code>main.cpp</code> в файлы проекта и укажите путь к
+      нему. Если загрузчик не принимает какое-то расширение, переименуйте файл в <code>.txt</code>:
+      язык подсветки задает параметр <code>language</code>, а не расширение.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>% Вставка всего файла с кодом (main.cpp сохранен как main.txt)
-      \lstinputlisting[language=C++, caption={Главный модуль main.cpp}]{src/main.txt}
+          <pre><code>% Вставка всего файла
+      \lstinputlisting[language=C++, caption={Главный модуль}, label={lst:main}]{src/main.cpp}
 
-      % Вставка только диапазона строк с 15 по 45
-      \lstinputlisting[language=C++, firstline=15, lastline=45, caption={Алгоритм Дейкстры}]{src/graph.txt}</code></pre>
-                              </div>
-                              <p>При таком подходе изменения в коде попадают в отчет при очередной
-      сборке — достаточно заменить файл.</p>
+      % Вставка только строк с 15 по 45
+      \lstinputlisting[language=C++, firstline=15, lastline=45, caption={Алгоритм Дейкстры}]{src/graph.cpp}</code></pre>
+      </div>
+      <p>При таком подходе изменения в коде попадают в отчет при очередной сборке — достаточно заменить
+      файл.</p>
+  - id: 'markdown-listing'
+    title: 'Листинг в Markdown'
+    html: |2-
+      <p>В Markdown листинг — это блок кода в тройных обратных апострофах с названием языка для
+      подсветки. Подпись пишут обычным абзацем над блоком:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span
+      class="article-code__lang">Markdown</span></div>
+          <pre><code>Листинг 1 – Функция вычисления факториала
+
+      ```python
+      def factorial(n: int) -&gt; int:
+          return 1 if n &lt;= 1 else n * factorial(n - 1)
+      ```</code></pre>
+      </div>
+      <p>Нумерацию строк и подписи Markdown автоматически не делает, поэтому для отчета с
+      нормоконтролем удобнее LaTeX. Подробнее о блоках кода — в статье о <a
+      href="/blog/markdown-code-syntax-highlighting">подсветке синтаксиса в Markdown</a>.</p>
   - id: 'minted-alternative'
-    title: 'Современная альтернатива: пакет minted'
+    title: 'Пакет minted: когда он нужен'
     html: |2-
-                              <p>Если требуется подсветка синтаксиса полиграфического уровня,
-      используют пакет <code>minted</code> на базе библиотеки Pygments. Он подсвечивает сотни языков
-      (Rust, Go, Kotlin, Swift, SQL) и нормально работает с русскими комментариями.</p>
-                              <p>Но minted запускает внешнюю программу (Python с Pygments) и требует
-      флага <code>-shell-escape</code>, поэтому работает только при локальной сборке. В Labkeeper
-      серверная сборка запрещает внешние программы, и minted не собирается: онлайн используйте
-      listings с настройками выше.</p>
+      <p>Пакет <code>minted</code> подсвечивает код через библиотеку Pygments: он знает сотни языков
+      (Rust, Go, Kotlin, Swift, SQL) и проще работает с русскими комментариями. Но для подсветки minted
+      вызывает внешнюю программу. Раньше для этого всегда нужен был флаг <code>-shell-escape</code>; в
+      minted 3 подсветку выполняет утилита <code>latexminted</code>, которую свежие дистрибутивы могут
+      разрешать и в ограниченном режиме. Соберется ли minted в конкретном онлайн-редакторе, зависит от
+      настроек его сервера.</p>
+      <p>Если minted в вашем проекте не собирается, используйте listings с настройками выше: для
+      учебного отчета его возможностей хватает. Сравнение пакетов и типичные ошибки сборки — в статье о
+      <a href="/blog/latex-russian-cyrillic-code-listings-minted">русском языке в листингах
+      кода</a>.</p>
+  - id: 'faq'
+    title: 'Частые вопросы'
+    html: |2-
+      <h3>Где ставится подпись листинга — над или под кодом?</h3>
+      <p>В большинстве методичек над кодом, как у таблиц: «Листинг 1.1 – Название». В listings это
+      параметр <code>captionpos=t</code>.</p>
+      <h3>Можно ли вставлять код скриншотом?</h3>
+      <p>Нет: код на скриншоте нельзя скопировать и проверить, и нормоконтроль его не примет. Скриншоты
+      уместны только для результатов работы программы, см. статью о <a
+      href="/blog/software-screenshots-report-gost-caption">скриншотах в отчете</a>.</p>
+      <h3>Какой объем кода выносить в приложение?</h3>
+      <p>Все, что длиннее 1–2 страниц, а также вспомогательный код (ввод-вывод, тесты). В основном
+      тексте оставляют ключевые функции и дают ссылку: «полный текст программы приведен в приложении
+      А».</p>
+      <h3>Как вставить русский комментарий в listings?</h3>
+      <p>Оберните комментарий в разделители из параметра <code>escapeinside</code>:
+      <code>// (*@\textit{комментарий}@*)</code>. Такой текст набирает уже LaTeX, и кириллица не ломает
+      сборку.</p>
 tips:
-  - title: 'Русские комментарии в listings'
+  - title: 'Код — текстом, вывод — тоже текстом'
     html: |2-
-      <p>Параметр <code>extendedchars=true</code> сам по себе кириллицу в коде не чинит. Русские
-      комментарии оформляйте через <code>escapeinside</code>, как в примере выше, или подключите
-      таблицу <code>literate</code> из статьи о <a
-      href="/blog/latex-russian-cyrillic-code-listings-minted">русском языке в листингах кода</a>.</p>
-  - title: 'Слово «Листинг» в заголовке'
+      <p>Результат работы консольной программы удобнее вставить вторым листингом без нумерации строк
+      (<code>numbers=none</code>), чем скриншотом: текст останется четким при печати.</p>
+  - title: 'Ширина строки кода'
     html: |2-
-      <p>Чтобы заменить английское слово «Listing» на русское по ГОСТ, добавьте строчку:
-      <code>\renewcommand{\lstlistingname}{Листинг}</code>.</p>
+      <p>При кегле <code>\small</code> на листе A4 с полями по ГОСТ помещается около 70–75 символов.
+      Длинные строки лучше разбить в самом коде, а <code>breaklines=true</code> оставить как
+      страховку.</p>
 editorExample:
   latex: |2-
-    \documentclass[a4paper,12pt]{article}
+    \documentclass[a4paper,14pt]{extarticle}
+    \usepackage{cmap}
     \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
     \usepackage[russian]{babel}
-    \usepackage{listings,xcolor,caption}
-    \lstset{basicstyle=\ttfamily\small,numbers=left,frame=single,keywordstyle=\color{blue}\bfseries,escapeinside={(*@}{@*)}}
+    \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+    \usepackage{listings}
+    \usepackage{caption}
+
+    \lstset{
+        basicstyle=\ttfamily\small,
+        columns=fullflexible, keepspaces=true, upquote=true,
+        showstringspaces=false,
+        numbers=left, numberstyle=\tiny, numbersep=8pt,
+        frame=single, tabsize=4, breaklines=true,
+        keywordstyle=\bfseries, commentstyle=\itshape,
+        escapeinside={(*@}{@*)},
+        captionpos=t
+    }
     \renewcommand{\lstlistingname}{Листинг}
     \captionsetup[lstlisting]{labelsep=endash,singlelinecheck=false}
+    \AtBeginDocument{%
+      \counterwithin{lstlisting}{section}%
+      \renewcommand{\lstlistlistingname}{Список листингов}}
+
     \begin{document}
-    \begin{lstlisting}[language=Python,caption={Среднее значение}]
-    values = [2, 4, 6]  # (*@\textit{данные опыта}@*)
-    print(sum(values) / len(values))
+
+    \section{Реализация алгоритма}
+
+    Функция сортировки приведена в листинге~\ref{lst:sort}, проверка~--- в листинге~\ref{lst:test}.
+
+    \begin{lstlisting}[language=C++, caption={Функция сортировки вставками}, label={lst:sort}]
+    #include <vector>
+
+    // (*@\textit{Сортировка вставками, сложность $O(n^2)$}@*)
+    void insertion_sort(std::vector<int>& a) {
+        for (std::size_t i = 1; i < a.size(); ++i) {
+            int key = a[i];
+            std::size_t j = i;
+            while (j > 0 && a[j - 1] > key) {
+                a[j] = a[j - 1];
+                --j;
+            }
+            a[j] = key;
+        }
+    }
     \end{lstlisting}
+
+    \begin{lstlisting}[language=Python, caption={Проверка результата}, label={lst:test}]
+    data = [5, 2, 4, 1]
+    print(sorted(data))  # (*@\textit{ожидается [1, 2, 4, 5]}@*)
+    \end{lstlisting}
+
+    \lstlistoflistings
     \end{document}

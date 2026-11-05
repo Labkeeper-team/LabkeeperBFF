@@ -1,6 +1,7 @@
 package io.labkeeper.web.frontend.internal.controller
 
 import io.kotest.assertions.withClue
+import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.string.shouldEndWith
 import io.kotest.matchers.string.shouldNotContain
@@ -60,9 +61,33 @@ class LandingPagesServerTest(
             "https://labkeeper.test https://openpanel.example;"
         body shouldNotContain "labkeeper.io"
 
-        // Text is in the HTML itself, not only set by lang.js. Whitespace around it depends on the formatter.
-        body shouldContain Regex("data-i18n=\"hero-title\"\\s*>\\s*Создавайте документы")
-        body shouldContain Regex("data-i18n=\"nav-templates\"\\s*>\\s*Шаблоны\\s*</a")
+        // The server renders the texts, lang.js no longer has them. Whitespace around them depends on the formatter.
+        body shouldContain "<html lang=\"ru\">"
+        body shouldContain Regex("class=\"hero__title h1\"\\s*>\\s*Создавайте документы")
+        body shouldContain Regex("class=\"header__nav-link\"\\s*>\\s*Шаблоны\\s*</a")
+        body shouldContain Regex("class=\"header__lang-btn header__lang-btn--active\"\\s+data-lang=\"ru\"")
+        body shouldNotContain "data-i18n"
+    }
+
+    @Test
+    fun languageCookieSwitchesTheTexts() {
+        listOf("/", "/about", "/blog", "/templates", "/blog/latex-formulas", "/templates/mdpi").forEach { path ->
+            val body = webTestClient.get().uri(path).cookie("labkeeper_lang", "en").exchange()
+                .expectStatus().isOk
+                .expectBody<String>().returnResult().responseBody.orEmpty()
+            withClue(path) {
+                body shouldContain "<html lang=\"en\">"
+                body shouldContain Regex("class=\"header__nav-link[^\"]*\"\\s*>\\s*Templates\\s*</a")
+                body shouldContain Regex("class=\"header__lang-btn header__lang-btn--active\"\\s+data-lang=\"en\"")
+                body shouldContain Regex("class=\"header__lang-btn\"\\s+data-lang=\"ru\"")
+            }
+        }
+
+        // Search engines come without the cookie. An unknown value is Russian too.
+        val unknown = webTestClient.get().uri("/").cookie("labkeeper_lang", "de").exchange()
+            .expectBody<String>().returnResult().responseBody.orEmpty()
+        unknown shouldContain "<html lang=\"ru\">"
+        unknown shouldContain Regex("class=\"hero__title h1\"\\s*>\\s*Создавайте документы")
     }
 
     @Test
@@ -79,6 +104,21 @@ class LandingPagesServerTest(
                 OG_IMAGE.find(body)?.groupValues?.get(1).orEmpty() shouldEndWith ".png"
                 body shouldNotContain "og-image.svg"
                 body shouldContain "href=\"mailto:hello@labkeeper.test\""
+            }
+        }
+    }
+
+    @Test
+    fun publicPagesHaveExactlyOneH1() {
+        listOf(
+            "/", "/about", "/blog", "/templates", "/blog/latex-formulas", "/templates/mdpi",
+            "/privacy", "/oferta", "/soglas", "/sogl_adv", "/sogl_ds", "/sogl_yam",
+        ).forEach { path ->
+            listOf("ru", "en").forEach { lang ->
+                val body = webTestClient.get().uri(path).cookie("labkeeper_lang", lang).exchange()
+                    .expectStatus().isOk
+                    .expectBody<String>().returnResult().responseBody.orEmpty()
+                withClue("$path ($lang)") { H1.findAll(body).count() shouldBe 1 }
             }
         }
     }
@@ -160,11 +200,42 @@ class LandingPagesServerTest(
 
     @Test
     fun projectPagesAreNotIndexed() {
-        listOf("/project/default", "/project/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").forEach { path ->
+        listOf(
+            "/project/default",
+            "/project/default/agent",
+            "/project/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+            "/project/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/agent",
+            "/projects",
+            "/tokens",
+        ).forEach { path ->
             val body = webTestClient.get().uri(path).exchange()
                 .expectStatus().isOk
+                // Crawlers skip the meta tag of a text/plain page, so the type and the header matter too.
+                .expectHeader().contentTypeCompatibleWith(MediaType.TEXT_HTML)
+                .expectHeader().valueEquals("X-Robots-Tag", "noindex, follow")
                 .expectBody<String>().returnResult().responseBody.orEmpty()
-            body shouldContain "name=\"robots\" content=\"noindex, follow\""
+            withClue(path) { body shouldContain "name=\"robots\" content=\"noindex, follow\"" }
+        }
+    }
+
+    @Test
+    fun legalPagesStayOutOfTheSitemap() {
+        val sitemap = get("/sitemap.xml", MediaType.APPLICATION_XML)
+        listOf("/", "/about", "/blog", "/templates").forEach { path ->
+            withClue(path) { sitemap shouldContain "<loc>https://labkeeper.test$path</loc>" }
+        }
+        listOf("/privacy", "/oferta", "/soglas", "/sogl_adv", "/sogl_ds", "/sogl_yam").forEach { path ->
+            withClue(path) { sitemap shouldNotContain "https://labkeeper.test$path<" }
+        }
+
+        listOf("/soglas", "/sogl_adv", "/sogl_ds", "/sogl_yam").forEach { path ->
+            withClue(path) {
+                get(path, MediaType.TEXT_HTML) shouldContain "<meta name=\"robots\" content=\"noindex, follow\""
+            }
+        }
+        // The policy and the offer are trust signals for Yandex, so they stay indexable.
+        listOf("/privacy", "/oferta", "/about", "/").forEach { path ->
+            withClue(path) { get(path, MediaType.TEXT_HTML) shouldNotContain "noindex" }
         }
     }
 
@@ -175,8 +246,22 @@ class LandingPagesServerTest(
         ok("/assets/img/logo.png", MediaType.IMAGE_PNG)
         ok("/assets/img/og-image.png", MediaType.IMAGE_PNG)
         val robots = get("/robots.txt", MediaType.TEXT_PLAIN)
-        robots shouldContain "Allow: /"
-        robots shouldContain "Sitemap: https://labkeeper.test/sitemap.xml"
+        robots shouldBe """
+            User-agent: *
+            Disallow: /api/
+            Disallow: /projects$
+            Disallow: /projects?
+            Disallow: /projects/
+            Disallow: /tokens$
+            Disallow: /tokens?
+            Disallow: /pay$
+            Disallow: /pay?
+            Disallow: /oauth2/
+            Disallow: /qr/
+
+            Sitemap: https://labkeeper.test/sitemap.xml
+
+        """.trimIndent()
         ok("/assets/js/swiper.js", MediaType.valueOf("text/javascript"))
         ok("/assets/css/swiper.css", MediaType.valueOf("text/css"))
         ok("/assets/js/katex.js", MediaType.valueOf("text/javascript"))
@@ -238,6 +323,7 @@ class LandingPagesServerTest(
 
     private companion object {
         val WHITESPACE = Regex("\\s+")
+        val H1 = Regex("<h1[\\s>]", RegexOption.IGNORE_CASE)
         val OG_IMAGE = Regex("property=\"og:image\" content=\"([^\"]*)\"")
     }
 }

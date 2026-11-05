@@ -44,7 +44,8 @@ class FrontendConfig(
             val body = if (properties.disallowIndexing) {
                 DISALLOW_ALL_ROBOTS
             } else {
-                "User-agent: *\nAllow: /\n\nSitemap: $host/sitemap.xml\n"
+                val disallows = SERVICE_PATHS.joinToString("") { "Disallow: $it\n" }
+                "User-agent: *\n$disallows\nSitemap: $host/sitemap.xml\n"
             }
             ok().contentType(MediaType.TEXT_PLAIN).bodyValue(body)
         }
@@ -57,6 +58,25 @@ class FrontendConfig(
         resources("/**", ClassPathResource("editor/"))
     }
 }
+
+/**
+ * Addresses without content for search engines: editor pages, the OAuth callback, the QR redirect and the API.
+ * `$` and `?` pin a single page, so a future `/payment-info` or `/projects-guide` stays open to crawlers.
+ * `/project/` (shared projects) stays open on purpose: those pages carry `noindex` themselves,
+ * and a Disallow would keep crawlers from seeing it.
+ */
+private val SERVICE_PATHS = listOf(
+    "/api/",
+    "/projects\$",
+    "/projects?",
+    "/projects/",
+    "/tokens\$",
+    "/tokens?",
+    "/pay\$",
+    "/pay?",
+    "/oauth2/",
+    "/qr/",
+)
 
 private const val DISALLOW_ALL_ROBOTS = "User-agent: *\nDisallow: /\n"
 
