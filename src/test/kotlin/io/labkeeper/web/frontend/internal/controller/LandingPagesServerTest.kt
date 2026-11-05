@@ -1,6 +1,7 @@
 package io.labkeeper.web.frontend.internal.controller
 
 import io.kotest.assertions.withClue
+import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.string.shouldEndWith
 import io.kotest.matchers.string.shouldNotContain
@@ -199,8 +200,22 @@ class LandingPagesServerTest(
         ok("/assets/img/logo.png", MediaType.IMAGE_PNG)
         ok("/assets/img/og-image.png", MediaType.IMAGE_PNG)
         val robots = get("/robots.txt", MediaType.TEXT_PLAIN)
-        robots shouldContain "Allow: /"
-        robots shouldContain "Sitemap: https://labkeeper.test/sitemap.xml"
+        robots shouldBe """
+            User-agent: *
+            Disallow: /api/
+            Disallow: /projects$
+            Disallow: /projects?
+            Disallow: /projects/
+            Disallow: /tokens$
+            Disallow: /tokens?
+            Disallow: /pay$
+            Disallow: /pay?
+            Disallow: /oauth2/
+            Disallow: /qr/
+
+            Sitemap: https://labkeeper.test/sitemap.xml
+
+        """.trimIndent()
         ok("/assets/js/swiper.js", MediaType.valueOf("text/javascript"))
         ok("/assets/css/swiper.css", MediaType.valueOf("text/css"))
         ok("/assets/js/katex.js", MediaType.valueOf("text/javascript"))
