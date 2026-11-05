@@ -185,11 +185,21 @@ class LandingPagesServerTest(
 
     @Test
     fun projectPagesAreNotIndexed() {
-        listOf("/project/default", "/project/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee").forEach { path ->
+        listOf(
+            "/project/default",
+            "/project/default/agent",
+            "/project/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+            "/project/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/agent",
+            "/projects",
+            "/tokens",
+        ).forEach { path ->
             val body = webTestClient.get().uri(path).exchange()
                 .expectStatus().isOk
+                // Crawlers skip the meta tag of a text/plain page, so the type and the header matter too.
+                .expectHeader().contentTypeCompatibleWith(MediaType.TEXT_HTML)
+                .expectHeader().valueEquals("X-Robots-Tag", "noindex, follow")
                 .expectBody<String>().returnResult().responseBody.orEmpty()
-            body shouldContain "name=\"robots\" content=\"noindex, follow\""
+            withClue(path) { body shouldContain "name=\"robots\" content=\"noindex, follow\"" }
         }
     }
 
