@@ -1,127 +1,330 @@
 catalogIndex: 69
 slug: 'latex-nested-lists-enumerate-itemize'
 batch: 2
-title: 'Создание многоуровневых вложенных списков в LaTeX'
-pageTitle: 'Вложенные списки в LaTeX: нумерация и маркеры itemize — Labkeeper'
-metaDescription: |2-
-  Полный гид: вложенные нумерованные списки LaTeX (enumerate), как изменить маркер списка itemize
-  в LaTeX, настройка отступов с пакетом enumitem по ГОСТ.
-breadcrumbTitle: 'Вложенные списки в LaTeX'
-h1: 'Создание многоуровневых вложенных списков в&nbsp;LaTeX'
+title: 'Списки в LaTeX по ГОСТ: вложенные enumerate и itemize, нумерация а), б)'
+pageTitle: 'Списки в LaTeX по ГОСТ: enumerate, itemize, enumitem — Labkeeper'
+metaDescription: |-
+  Списки в LaTeX по ГОСТ: вложенные enumerate и itemize, тире вместо точки, нумерация а), б),
+  1.1, отступ 1,25 см и компактный вид с enumitem. Готовый код и разбор ошибок.
+breadcrumbTitle: 'Списки в LaTeX по ГОСТ'
+h1: 'Списки в&nbsp;LaTeX по&nbsp;ГОСТ: вложенные enumerate и&nbsp;itemize, нумерация а),&nbsp;б)'
 categories:
   - 'latex'
 related:
-  - 'latex-forest-trees'
-  - 'latex-draftwatermark'
-  - 'latex-wrapfig-text-flow'
-  - 'latex-xcolor-text-background'
-  - 'latex-pgfplots-function-graphs'
+  - 'paragraph-indent-1-25-gost'
   - 'latex-line-spacing-1-5-setspace-gost'
-  - 'latex-geometry-margins-gost'
+  - 'formula-variable-explanation-where-gost'
+  - 'ideal-lab-report-template-gost-online'
   - 'latex-newcommand-macros'
-  - 'latex-gost-bibliography'
+  - 'markdown-task-lists'
+  - 'latex-geometry-margins-gost'
   - 'latex-diploma-gost'
+  - 'latex-forest-trees'
   - 'latex-titlepage'
-  - 'latex-dissertation'
 keywords:
   - 'вложенные нумерованные списки latex'
   - 'изменить маркер списка itemize latex'
+  - 'списки latex по гост'
+  - 'нумерация а) б) latex'
+  - 'enumitem отступ 1.25'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
-readingTime: '6 мин'
-cardTitle: 'Списки в LaTeX: многоуровневая вложенность и кастомизация пакетом enumitem'
-cardDescription: |2-
-  Как настроить сквозную нумерацию 1.1, 1.2, изменить маркеры дефисов по ГОСТ и убрать лишние
-  вертикальные отступы между пунктами.
-sliderTitle: 'Многоуровневые списки в&nbsp;LaTeX'
-sliderText: 'Настройка вложенности, иерархических меток и маркеров по ГОСТ.'
-sidebarText: |2-
-  Верстайте списки любой степени вложенности со строгим соблюдением академических ГОСТ в
-  Labkeeper.
-ctaTitle: 'Настраивайте идеальные списки в&nbsp;Labkeeper'
-ctaText: 'Онлайн-редактор с полной поддержкой пакета enumitem и предпросмотром PDF.'
+dateModified: '2026-11-05'
+readingTime: '9 мин'
+cardTitle: 'Списки в LaTeX по ГОСТ: enumerate, itemize и пакет enumitem'
+cardDescription: |-
+  Тире вместо точки, нумерация а), б) и 1.1, отступ 1,25 см, компактные списки и ошибка
+  Too deeply nested.
+sliderTitle: 'Списки в&nbsp;LaTeX по&nbsp;ГОСТ'
+sliderText: 'Вложенные списки, тире, нумерация а), б) и&nbsp;1.1, отступ 1,25 см.'
+sidebarText: |-
+  Верстайте списки любой вложенности по&nbsp;ГОСТ в&nbsp;онлайн-редакторе Labkeeper с&nbsp;пакетом
+  enumitem.
+ctaTitle: 'Настраивайте списки по&nbsp;ГОСТ в&nbsp;Labkeeper'
+ctaText: 'Онлайн-редактор LaTeX с&nbsp;пакетом enumitem и&nbsp;просмотром PDF после сборки.'
 toc:
   - id: 'basic-lists'
-    title: 'Базовые окружения: itemize и enumerate'
+    title: 'Три окружения и сводная таблица'
   - id: 'nested-numbered'
-    title: 'Вложенные нумерованные списки в LaTeX: уровни до 4'
+    title: 'Вложенные списки: до четырёх уровней'
+  - id: 'gost-letters'
+    title: 'Нумерация а), б), в) по ГОСТ'
+  - id: 'gost-indent'
+    title: 'Отступ маркера 1,25 см по ГОСТ'
+  - id: 'multilevel'
+    title: 'Многоуровневая нумерация 1, 1.1, 1.1.1'
   - id: 'customize-bullet'
-    title: 'Как изменить маркер списка itemize в LaTeX по ГОСТ'
+    title: 'Маркеры: тире вместо точки и другие символы'
   - id: 'enumitem-power'
-    title: 'Пакет enumitem: управление отступами и компактный вид (nosep)'
+    title: 'Компактные списки: опция nosep'
+  - id: 'description'
+    title: 'Список описаний description'
+  - id: 'too-deep'
+    title: 'Ошибка Too deeply nested'
+  - id: 'faq'
+    title: 'Частые вопросы'
 sections:
   - id: 'basic-lists'
-    title: 'Базовые окружения: itemize и enumerate'
-    html: |2-
-                              <p>В LaTeX для перечислений используются окружения <code>itemize</code>
-      (маркированный список) и <code>enumerate</code> (нумерованный список). Каждый пункт объявляется
-      командой <code>\item</code> (если вы работаете в Markdown, ознакомьтесь с <a
-      href="/blog/markdown-task-lists">чек-листами и списками задач в Markdown</a>).</p>
+    title: 'Три окружения и сводная таблица'
+    html: |-
+      <p>В&nbsp;LaTeX есть три стандартных окружения для перечислений: <code>itemize</code>
+      (маркированный список), <code>enumerate</code> (нумерованный) и&nbsp;<code>description</code>
+      (список с&nbsp;подписями). Каждый пункт начинается командой <code>\item</code>. Под&nbsp;требования
+      ГОСТ списки настраивают пакетом <code>enumitem</code>, и&nbsp;почти все рецепты ниже — его
+      опции.</p>
+      <div class="article-table-wrapper">
+          <table class="article-table">
+              <thead>
+                  <tr><th>Задача</th><th>Код</th></tr>
+              </thead>
+              <tbody>
+                  <tr><td>Тире вместо точки</td><td><code>\setlist[itemize]{label=---}</code></td></tr>
+                  <tr><td>Нумерация а), б), в)</td><td><code>\AddEnumerateCounter</code> + <code>label=\asbuk*)</code></td></tr>
+                  <tr><td>Нумерация 1.1, 1.1.1</td><td><code>label*=\arabic*.</code></td></tr>
+                  <tr><td>Маркер на красной строке 1,25 см</td><td><code>\setlist{wide=\parindent}</code></td></tr>
+                  <tr><td>Без лишних интервалов</td><td><code>\setlist{nosep}</code></td></tr>
+                  <tr><td>Больше четырёх уровней</td><td><code>\setlistdepth{9}</code> + <code>\renewlist</code></td></tr>
+                  <tr><td>Продолжить нумерацию после текста</td><td><code>\begin{enumerate}[resume]</code></td></tr>
+                  <tr><td>Список в&nbsp;строку</td><td><code>\usepackage[inline]{enumitem}</code> + <code>enumerate*</code></td></tr>
+              </tbody>
+          </table>
+      </div>
   - id: 'nested-numbered'
-    title: 'Вложенные нумерованные списки в LaTeX: уровни до 4'
-    html: |2-
-                              <p>По умолчанию стандартный LaTeX поддерживает до 4 уровней вложенности.
-      <strong>Вложенные нумерованные списки latex</strong> создаются простым помещением одного
-      окружения внутрь другого:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\begin{enumerate}
+    title: 'Вложенные списки: до четырёх уровней'
+    html: |-
+      <p>Вложенный список создаётся, если поместить одно окружение внутрь пункта другого. Окружения
+      <code>enumerate</code> и&nbsp;<code>itemize</code> можно смешивать:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{enumerate}
         \item Первый этап исследования
           \begin{enumerate}
             \item Подготовка оборудования
             \item Сбор первичных данных
           \end{enumerate}
         \item Второй этап: математическая обработка
+          \begin{itemize}
+            \item расчёт средних значений;
+            \item оценка погрешностей.
+          \end{itemize}
       \end{enumerate}</code></pre>
-                              </div>
+      </div>
+      <p>Стандартный LaTeX допускает до&nbsp;четырёх уровней вложенности для каждого типа списка.
+      Пятый уровень вызывает ошибку <code>Too deeply nested</code>, решение — <a href="#too-deep">в&nbsp;конце
+      статьи</a>.</p>
+  - id: 'gost-letters'
+    title: 'Нумерация а), б), в) по ГОСТ'
+    html: |-
+      <p>По&nbsp;ГОСТ 2.105 элементы перечисления, на&nbsp;которые ссылаются в&nbsp;тексте, обозначают
+      строчными буквами русского алфавита со&nbsp;скобкой: а), б), в). Для&nbsp;следующего уровня
+      используют арабские цифры со&nbsp;скобкой: 1), 2). Если ссылок нет, достаточно тире.</p>
+      <p>Пакет <code>enumitem</code> не&nbsp;знает русских букв, поэтому команду <code>\asbuk</code>
+      из&nbsp;babel сначала регистрируют. Без&nbsp;<code>\AddEnumerateCounter</code> вариант
+      <code>label=\asbuk*)</code> не&nbsp;собирается: LaTeX выдаёт малопонятные ошибки вроде
+      <code>Missing number, treated as zero</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% преамбула
+      \usepackage{enumitem}
+      \makeatletter
+      \AddEnumerateCounter{\asbuk}{\@asbuk}{щ}
+      \makeatother
+      \setlist[enumerate,1]{label=\asbuk*), ref=\asbuk*}
+      \setlist[enumerate,2]{label=\arabic*)}
+
+      % текст
+      Установка должна обеспечивать:
+      \begin{enumerate}
+        \item измерение тока в диапазоне от 0 до 5~А; \label{it:current}
+        \item регистрацию данных:
+          \begin{enumerate}
+            \item в журнале;
+            \item в электронной таблице.
+          \end{enumerate}
+      \end{enumerate}
+      Требование перечисления~\ref{it:current}) проверяют первым.</code></pre>
+      </div>
+      <p>Параметр <code>ref=\asbuk*</code> нужен, чтобы ссылка <code>\ref</code> выводила
+      букву без скобки, а&nbsp;скобку вы ставили сами.</p>
+      <div class="article-note">
+          <strong>⚠️ Какие буквы пропустить:</strong> в&nbsp;ГОСТ 2.105 для перечислений не&nbsp;используют
+          буквы ё, з, й, о, ч, ъ, ы, ь. Команда <code>\asbuk</code> из&nbsp;babel пропускает ё, й, ъ,
+          ы, ь, но&nbsp;оставляет з, о и&nbsp;ч. Если пунктов больше семи, восьмым будет «з», поэтому
+          длинные перечисления проверяйте вручную или разбивайте.
+      </div>
+  - id: 'gost-indent'
+    title: 'Отступ маркера 1,25 см по ГОСТ'
+    html: |-
+      <p>По&nbsp;умолчанию LaTeX сдвигает весь список вправо, и&nbsp;маркер не&nbsp;совпадает
+      с&nbsp;красной строкой. В&nbsp;методичках встречаются два варианта оформления, оба делаются
+      одной строкой <code>enumitem</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\setlength{\parindent}{1.25cm} % абзацный отступ по ГОСТ
+
+      % Вариант 1: маркер на красной строке, перенос строк к левому полю
+      \setlist{nosep, wide=\parindent}
+
+      % Вариант 2: маркер на красной строке, весь текст пункта с отступом
+      \setlist{nosep, labelindent=\parindent, leftmargin=*}</code></pre>
+      </div>
+      <ul>
+          <li><strong>Вариант 1</strong> (<code>wide</code>) оформляет пункт как обычный абзац: первая
+          строка начинается с&nbsp;отступа 1,25 см, следующие строки идут от&nbsp;левого поля. Так обычно
+          оформляют простые перечисления в&nbsp;отчётах и&nbsp;пояснительных записках. Вложенные уровни
+          при этом тоже начинаются с&nbsp;красной строки и&nbsp;не&nbsp;сдвигаются, уровень видно только
+          по&nbsp;нумерации.</li>
+          <li><strong>Вариант 2</strong> (<code>labelindent</code> и&nbsp;<code>leftmargin=*</code>) ставит
+          маркер на&nbsp;красную строку, а&nbsp;перенесённые строки выравнивает по&nbsp;началу текста пункта.
+          Вложенные списки сдвигаются вправо, поэтому иерархия читается сразу. Этот же вариант приведён
+          в&nbsp;статье <a href="/blog/paragraph-indent-1-25-gost">об&nbsp;абзацном отступе 1,25 см</a>.</li>
+      </ul>
+      <p>Для простых списков подходит вариант 1, для вложенных нагляднее вариант 2, если методичка
+      не&nbsp;требует иного. Отступ берётся из&nbsp;<code>\parindent</code>, поэтому при смене абзацного
+      отступа списки подстроятся сами.</p>
+  - id: 'multilevel'
+    title: 'Многоуровневая нумерация 1, 1.1, 1.1.1'
+    html: |-
+      <p>Звёздочка в&nbsp;<code>label*</code> добавляет метку текущего уровня к&nbsp;метке
+      родительского. Так получается иерархическая нумерация, как у&nbsp;разделов:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{enumerate}[label=\arabic*.]
+        \item Введение                    % 1.
+        \begin{enumerate}[label*=\arabic*.]
+          \item Цель работы               % 1.1.
+          \begin{enumerate}[label*=\arabic*.]
+            \item Задача                  % 1.1.1.
+          \end{enumerate}
+        \end{enumerate}
+      \end{enumerate}</code></pre>
+      </div>
+      <p>Чтобы не&nbsp;писать опции у&nbsp;каждого списка, задайте их один раз в&nbsp;преамбуле:
+      <code>\setlist[enumerate,2]{label*=\arabic*.}</code>.</p>
   - id: 'customize-bullet'
-    title: 'Как изменить маркер списка itemize в LaTeX по ГОСТ'
-    html: |2-
-                              <p>По ГОСТ 2.105 и 7.32 маркированный список в русскоязычных работах
-      должен начинаться с <strong>тире или дефиса</strong>, а не с жирной черной точки (bullet).
-      Задача <strong>изменить маркер списка itemize latex</strong> решается переопределением команды
-      <code>\labelitemi</code>:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\renewcommand{\labelitemi}{---}
-      \renewcommand{\labelitemii}{--}</code></pre>
-                              </div>
+    title: 'Маркеры: тире вместо точки и другие символы'
+    html: |-
+      <p>В&nbsp;русскоязычных работах маркированный список начинают с&nbsp;тире, а&nbsp;не&nbsp;с&nbsp;жирной
+      точки. Без&nbsp;пакетов маркер меняют переопределением <code>\labelitemi</code>, с&nbsp;<code>enumitem</code>
+      — опцией <code>label</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% Без пакетов
+      \renewcommand{\labelitemi}{---}
+      \renewcommand{\labelitemii}{--}
+
+      % С enumitem: для всех уровней сразу
+      \setlist[itemize]{label=---}
+
+      % Другие маркеры для отдельных списков
+      \begin{itemize}[label=\textbullet] \item точка \end{itemize}
+      \begin{itemize}[label=$\circ$]     \item кружок \end{itemize}
+      \begin{itemize}[label=\checkmark]  \item галочка (нужен amssymb) \end{itemize}
+      \begin{itemize}[label={}]          \item без маркера \end{itemize}</code></pre>
+      </div>
+      <p>Пунктуация по&nbsp;ГОСТ: если список продолжает предложение, пункты начинают со&nbsp;строчной
+      буквы, в&nbsp;конце каждого ставят точку с&nbsp;запятой, в&nbsp;конце последнего — точку.
+      Если пункты — законченные предложения, их пишут с&nbsp;прописной буквы и&nbsp;заканчивают точкой.</p>
   - id: 'enumitem-power'
-    title: 'Пакет enumitem: управление отступами и компактный вид (nosep)'
-    html: |2-
-                              <p>Стандартные списки LaTeX имеют слишком большие интервалы сверху и
-      между пунктами, а их левый отступ часто не совпадает с требуемым по ГОСТ <a
-      href="/blog/paragraph-indent-1-25-gost">красным абзацным отступом 1.25 см</a>. Подключение
-      пакета <code>\usepackage{enumitem}</code> с опцией <code>[nosep]</code> убирает лишние пустые
-      строки, делая документ компактным и аккуратным:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\begin{enumerate}[nosep, label=\arabic*)]
-        \item Первый компактный пункт
-        \item Второй компактный пункт
+    title: 'Компактные списки: опция nosep'
+    html: |-
+      <p>У&nbsp;стандартных списков большие интервалы до&nbsp;и&nbsp;после списка и&nbsp;между пунктами.
+      Опция <code>nosep</code> пакета <code>enumitem</code> обнуляет все вертикальные интервалы
+      (<code>topsep</code>, <code>itemsep</code>, <code>parsep</code>, <code>partopsep</code>): пункты
+      идут с&nbsp;обычным межстрочным интервалом, как абзацы текста. Её можно задать отдельному списку
+      или сразу всем в&nbsp;преамбуле:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% для всех списков документа (в преамбуле)
+      \setlist{nosep}
+
+      % для одного списка
+      \begin{enumerate}[nosep, label=\arabic*)]
+        \item первый компактный пункт;
+        \item второй компактный пункт.
       \end{enumerate}</code></pre>
-                              </div>
-tips:
-  - title: 'Сложная иерархическая нумерация 1.1, 1.2'
-    html: |2-
-      <p>С пакетом enumitem создавайте нумерацию вида 1.1, 1.2 с помощью параметра
-      <code>label*=\arabic*.</code> на втором уровне вложенности.</p>
+      </div>
+      <p>Межстрочный интервал внутри пунктов задаётся для всего документа, например полуторный
+      интервал из&nbsp;статьи <a href="/blog/latex-line-spacing-1-5-setspace-gost">про setspace по&nbsp;ГОСТ</a>.</p>
+  - id: 'description'
+    title: 'Список описаний description'
+    html: |-
+      <p>В&nbsp;<code>description</code> вместо номера или маркера стоит подпись в&nbsp;квадратных скобках.
+      Такой список подходит для перечня приборов, терминов или обозначений:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{description}
+        \item[Вольтметр] измеряет напряжение на резисторе;
+        \item[Амперметр] измеряет силу тока в цепи.
+      \end{description}</code></pre>
+      </div>
+      <p>Подпись по&nbsp;умолчанию набирается полужирным, это меняется опцией
+      <code>font=\normalfont</code>. На&nbsp;основе <code>description</code> можно оформить пояснения
+      к&nbsp;формуле, которые переносятся на&nbsp;следующую страницу, — пример в&nbsp;статье <a
+      href="/blog/formula-variable-explanation-where-gost">о&nbsp;блоке «где» под&nbsp;формулой</a>.
+      Собственный тип списка создаётся командой <code>\newlist</code>, по&nbsp;аналогии с&nbsp;<a
+      href="/blog/latex-newcommand-macros">собственными командами</a>.</p>
+  - id: 'too-deep'
+    title: 'Ошибка Too deeply nested'
+    html: |-
+      <p>Ошибка <code>! LaTeX Error: Too deeply nested</code> появляется на&nbsp;пятом уровне вложенности.
+      С&nbsp;<code>enumitem</code> лимит поднимается, но&nbsp;для новых уровней нужно задать метки:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage{enumitem}
+      \setlistdepth{9}
+      \renewlist{itemize}{itemize}{9}
+      \setlist[itemize]{label=---}</code></pre>
+      </div>
+      <p>Для&nbsp;<code>enumerate</code> то же самое: <code>\renewlist{enumerate}{enumerate}{9}</code>
+      и&nbsp;метки уровней через <code>\setlist[enumerate,5]{label=\arabic*.}</code> и&nbsp;так далее.
+      Но если понадобилось больше четырёх уровней, текст обычно лучше разбить на&nbsp;подразделы.</p>
+  - id: 'faq'
+    title: 'Частые вопросы'
+    html: |-
+      <h3>Почему не работает \asbuk в enumitem?</h3>
+      <p><code>enumitem</code> принимает в&nbsp;<code>label</code> только зарегистрированные счётчики.
+      Добавьте в&nbsp;преамбулу <code>\AddEnumerateCounter{\asbuk}{\@asbuk}{щ}</code> между
+      <code>\makeatletter</code> и&nbsp;<code>\makeatother</code>, как в&nbsp;разделе <a
+      href="#gost-letters">о&nbsp;нумерации а), б)</a>.</p>
+      <h3>Как продолжить нумерацию после текста?</h3>
+      <p>Откройте следующий список с&nbsp;опцией <code>resume</code>:
+      <code>\begin{enumerate}[resume]</code>. Нумерация продолжится с&nbsp;того места, где закончился
+      предыдущий список.</p>
+      <h3>Как сделать список в строку?</h3>
+      <p>Подключите пакет с&nbsp;опцией <code>inline</code>: <code>\usepackage[inline]{enumitem}</code>,
+      и&nbsp;используйте окружение со&nbsp;звёздочкой: <code>\begin{enumerate*}[label=\arabic*)]</code>.
+      Пункты пойдут в&nbsp;одной строке: 1)&nbsp;калибровка, 2)&nbsp;измерение, 3)&nbsp;обработка.</p>
+      <h3>Нужен ли пакет enumitem в Labkeeper?</h3>
+      <p>Да, его нужно подключить в&nbsp;своей преамбуле: автоматическая преамбула Labkeeper его
+      не&nbsp;загружает. Пример к&nbsp;этой статье уже содержит готовую преамбулу со&nbsp;списками по&nbsp;ГОСТ, его можно открыть в&nbsp;редакторе.</p>
+      <h3>Как сделать список в Markdown?</h3>
+      <p>В&nbsp;Markdown списки начинаются с&nbsp;<code>-</code> или <code>1.</code>, а&nbsp;отступ
+      задаёт вложенность. Чек-листы с&nbsp;галочками разобраны в&nbsp;статье <a
+      href="/blog/markdown-task-lists">о&nbsp;списках задач в&nbsp;Markdown</a>.</p>
 editorExample:
-  latex: |2-
+  latex: |-
     \documentclass[a4paper,12pt]{article}
+    \usepackage{cmap}
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
     \usepackage[english,russian]{babel}
-    \usepackage{amsmath,graphicx}
+    \usepackage{enumitem}
+    \setlength{\parindent}{1.25cm}
+    \setlist{nosep, labelindent=\parindent, leftmargin=*}
+    \setlist[itemize]{label=---}
+    \setlist[enumerate,2]{label*=\arabic*.}
 
     \begin{document}
     \begin{enumerate}
-    \item Preparation\begin{itemize}\item Calibrate the sensor.\item Record room
-    temperature.\end{itemize}
-    \item Measurement\begin{enumerate}\item Take five readings.\item Calculate the
-    mean.\end{enumerate}
+      \item Подготовка
+        \begin{enumerate}
+          \item Откалибровать датчик.
+          \item Записать температуру в помещении.
+        \end{enumerate}
+      \item Измерения
+        \begin{itemize}
+          \item снять пять показаний;
+          \item вычислить среднее.
+        \end{itemize}
     \end{enumerate}
     \end{document}

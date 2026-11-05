@@ -1,88 +1,107 @@
 catalogIndex: 73
 slug: 'markdown-table-merge-cells-rowspan-colspan'
 batch: 2
-title: 'Как объединять ячейки в таблицах Markdown (Colspan / Rowspan)'
-pageTitle: 'Объединение ячеек в таблице Markdown: Rowspan и Colspan — Labkeeper'
+title: 'Как объединить ячейки в таблице Markdown: rowspan и colspan с примерами'
+pageTitle: 'Объединение ячеек в таблице Markdown: rowspan и colspan — Labkeeper'
 metaDescription: |2-
-  Полный гайд: объединение ячеек в таблице Markdown, синтаксис Colspan и Rowspan через HTML-теги,
-  работа с многострочными шапками таблиц в Labkeeper.
+  Как объединить ячейки в таблице Markdown: готовые HTML-таблицы с rowspan и colspan, синтаксис
+  MultiMarkdown и Pandoc, подпись по ГОСТ и та же таблица в LaTeX.
 breadcrumbTitle: 'Объединение ячеек в таблицах Markdown'
-h1: 'Как объединять ячейки в&nbsp;таблицах Markdown (Colspan / Rowspan)'
+h1: 'Как объединить ячейки в&nbsp;таблице Markdown: rowspan и&nbsp;colspan с&nbsp;примерами'
 categories:
   - 'markdown'
   - 'labs'
 related:
+  - 'complex-markdown-tables-syntax-online-generator'
+  - 'markdown-raw-html-integration'
+  - 'table-continuation-multipage-gost-diploma'
+  - 'latex-longtable-multipage'
+  - 'latex-arraystretch-table-row-height-spacing'
+  - 'markdown-mathjax-katex-latex-math'
+  - 'markdown-to-pdf-export'
   - 'markdown-superscript-subscript-indices'
   - 'markdown-image-size-width-height'
-  - 'markdown-multiline-formulas-matrices-mathjax'
   - 'github-readme-template-badges-spoilers'
-  - 'markdown-mathjax-katex-latex-math'
-  - 'markdown-spoilers-details-summary'
-  - 'markdown-raw-html-integration'
-  - 'markdown-to-pdf-export'
   - 'markdown-strikethrough-underline-highlight'
-  - 'markdown-code-syntax-highlighting'
-  - 'markdown-task-lists'
   - 'markdown-footnotes'
 keywords:
   - 'объединение ячеек в таблице markdown'
   - 'markdown таблица rowspan'
+  - 'markdown colspan'
+  - 'объединить ячейки markdown github'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
-readingTime: '6 мин'
-cardTitle: 'Объединение ячеек в таблицах Markdown: пошаговый гайд по Rowspan и Colspan'
+dateModified: '2026-11-05'
+readingTime: '8 мин'
+cardTitle: 'Объединение ячеек в таблице Markdown: rowspan и colspan с готовым кодом'
 cardDescription: |2-
-  Как обходить ограничения стандартных Markdown-таблиц: создание составных шапок, объединение
-  колонок и строк для научных отчетов.
+  Как сделать составную шапку и объединить строки в таблице Markdown: HTML-таблицы, синтаксис
+  MultiMarkdown и Pandoc, подпись «Таблица 1 —» и та же таблица в LaTeX.
 sliderTitle: 'Объединение ячеек таблиц в&nbsp;Markdown'
-sliderText: 'Синтаксис Colspan и Rowspan, составные шапки и таблицы сложных отчетов.'
+sliderText: 'rowspan и colspan в HTML-таблице, составные шапки и таблицы измерений.'
 sidebarText: |2-
-  Верстайте комплексные матрицы данных и таблицы лабораторных отчетов в онлайн-редакторе
-  Labkeeper.
+  Верстайте таблицы лабораторных отчётов с составной шапкой в онлайн-редакторе Labkeeper.
 ctaTitle: 'Создавайте сложные научные таблицы в&nbsp;Labkeeper'
 ctaText: |2-
-  Онлайн-редактор Markdown и LaTeX: HTML-таблицы с объединенными ячейками в превью, формулы
+  Онлайн-редактор Markdown и LaTeX: HTML-таблицы с объединёнными ячейками в превью, формулы
   MathJax и сохранение в PDF через печать браузера.
 toc:
   - id: 'limitation'
-    title: 'Ограничения стандартных Markdown-таблиц (GFM)'
+    title: 'Почему в обычной таблице Markdown ячейки не объединяются'
   - id: 'colspan-solution'
-    title: 'Объединение по горизонтали (Colspan)'
+    title: 'Объединение по горизонтали: colspan'
   - id: 'rowspan-solution'
-    title: 'Markdown таблица с Rowspan: объединение строк через HTML'
+    title: 'Объединение строк: rowspan'
   - id: 'complex-example'
-    title: 'Готовый шаблон сложной таблицы измерений'
+    title: 'Готовый шаблон таблицы измерений с подписью'
+  - id: 'dialects'
+    title: 'Объединение без HTML: MultiMarkdown, Obsidian, Pandoc'
+  - id: 'markdown-inside-html'
+    title: 'Жирный текст и формулы внутри HTML-таблицы'
+  - id: 'latex-version'
+    title: 'Та же таблица в LaTeX: \multicolumn и \multirow'
+  - id: 'faq'
+    title: 'Частые вопросы'
 sections:
   - id: 'limitation'
-    title: 'Ограничения стандартных Markdown-таблиц (GFM)'
+    title: 'Почему в обычной таблице Markdown ячейки не объединяются'
     html: |2-
-                              <p>Стандартный синтаксис таблиц на вертикальных палочках <code>| колонка
-      1 | колонка 2 |</code> строг: каждая строка обязана содержать равное число ячеек. Из-за этого
-      прямое <strong>объединение ячеек в таблице markdown</strong> без использования дополнительных
-      инструментов невозможно (здесь на помощь приходит <a
-      href="/blog/markdown-raw-html-integration">интеграция чистого HTML в Markdown</a>).</p>
+      <p><strong>Коротко:</strong> в обычной таблице Markdown ячейки объединить нельзя. Запишите
+      таблицу тегом <code>&lt;table&gt;</code> и используйте <code>colspan="2"</code> (по
+      горизонтали) или <code>rowspan="2"</code> (по вертикали). Так работает на GitHub, GitLab, в
+      Obsidian, Typora и Labkeeper.</p>
+      <p>Синтаксис таблиц на вертикальных чертах <code>| колонка 1 | колонка 2 |</code> строг: в каждой
+      строке столько же ячеек, сколько в шапке, и способа сказать «эта ячейка занимает две колонки»
+      в нём нет. Поэтому <strong>объединение ячеек в таблице markdown</strong> делают через HTML,
+      который CommonMark и GFM разрешают вставлять прямо в текст (подробнее — в статье об <a
+      href="/blog/markdown-raw-html-integration">интеграции HTML в Markdown</a>). Как вообще строить
+      таблицы, выравнивать колонки и пользоваться генераторами, разобрано в отдельном руководстве по
+      <a href="/blog/complex-markdown-tables-syntax-online-generator">сложным таблицам Markdown и
+      онлайн-генераторам</a>.</p>
   - id: 'colspan-solution'
-    title: 'Объединение по горизонтали (Colspan)'
+    title: 'Объединение по горизонтали: colspan'
     html: |2-
-                              <p>Некоторые диалекты позволяют объединять ячейки по горизонтали,
-      оставляя соседнюю ячейку пустой или заполняя ее дефисами, но самым надежным и переносимым
-      способом остается использование атрибута <code>colspan</code> в теге <code>&lt;td&gt;</code> или
-      <code>&lt;th&gt;</code>:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">HTML</span></div>
-                                  <pre><code>&lt;th colspan="2"&gt;Параметры эксперимента&lt;/th&gt;</code></pre>
-                              </div>
+      <p>Атрибут <code>colspan</code> у тега <code>&lt;th&gt;</code> или <code>&lt;td&gt;</code>
+      растягивает ячейку на несколько колонок. В строке с такой ячейкой пишут на одну ячейку меньше
+      за каждую «съеденную» колонку. Полная таблица, которую можно скопировать:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">HTML</span></div>
+          <pre><code>&lt;table&gt;
+        &lt;tr&gt;&lt;th&gt;Образец&lt;/th&gt;&lt;th colspan="2"&gt;Параметры эксперимента&lt;/th&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;№1&lt;/td&gt;&lt;td&gt;293 K&lt;/td&gt;&lt;td&gt;101,3 кПа&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;№2&lt;/td&gt;&lt;td&gt;310 K&lt;/td&gt;&lt;td&gt;99,8 кПа&lt;/td&gt;&lt;/tr&gt;
+      &lt;/table&gt;</code></pre>
+      </div>
+      <p>В шапке две ячейки, но вторая занимает две колонки, поэтому в строках данных по три
+      ячейки.</p>
   - id: 'rowspan-solution'
-    title: 'Markdown таблица с Rowspan: объединение строк через HTML'
+    title: 'Объединение строк: rowspan'
     html: |2-
-                              <p>Когда требуется <strong>markdown таблица rowspan</strong> (например,
-      для группировки нескольких строк измерений под одной категорией), таблица целиком оформляется
-      через стандартный тег <code>&lt;table&gt;</code>:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">HTML</span></div>
-                                  <pre><code>&lt;table&gt;
+      <p>Когда нужна <strong>markdown таблица с rowspan</strong> — например, чтобы сгруппировать
+      несколько измерений под одной серией, — ячейке задают атрибут <code>rowspan</code>. В следующих
+      строках эту колонку пропускают:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">HTML</span></div>
+          <pre><code>&lt;table&gt;
         &lt;tr&gt;
           &lt;th&gt;Группа&lt;/th&gt;
           &lt;th&gt;Параметр&lt;/th&gt;
@@ -98,21 +117,22 @@ sections:
           &lt;td&gt;101,3 кПа&lt;/td&gt;
         &lt;/tr&gt;
       &lt;/table&gt;</code></pre>
-                              </div>
-                              <p>Превью <strong>Labkeeper</strong> рисует такую таблицу с границами
-      ячеек, но без чередования фона строк. При печати в PDF длинная таблица переносится на следующий
-      лист, а шапка повторяется на каждой странице, только если она стоит внутри тега
+      </div>
+      <p>Превью <strong>Labkeeper</strong> рисует такую таблицу с границами ячеек, но без чередования
+      фона строк. При печати в PDF длинная таблица переносится на следующий лист, а шапка
+      повторяется на каждой странице, только если она стоит внутри тега
       <code>&lt;thead&gt;</code>.</p>
   - id: 'complex-example'
-    title: 'Готовый шаблон сложной таблицы измерений'
+    title: 'Готовый шаблон таблицы измерений с подписью'
     html: |2-
-                              <p>Шаблон таблицы измерений с составной шапкой: номер опыта объединяет
-      две строки, а под каждой величиной стоят значение и погрешность. Шапка вынесена в
-      <code>&lt;thead&gt;</code>, чтобы повторяться на каждой странице при печати.</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">HTML</span></div>
-                                  <pre><code>&lt;table&gt;
+      <p>Шаблон таблицы измерений с составной шапкой: номер опыта объединяет две строки, а под каждой
+      величиной стоят значение и погрешность. Шапка вынесена в <code>&lt;thead&gt;</code>, чтобы
+      повторяться на каждой странице при печати. Подпись «Таблица 1 — …» по ГОСТ ставится над
+      таблицей слева — для этого служит тег <code>&lt;caption&gt;</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">HTML</span></div>
+          <pre><code>&lt;table&gt;
+        &lt;caption style="caption-side: top; text-align: left"&gt;Таблица 1 — Результаты измерений&lt;/caption&gt;
         &lt;thead&gt;
           &lt;tr&gt;
             &lt;th rowspan="2"&gt;№ опыта&lt;/th&gt;
@@ -129,25 +149,130 @@ sections:
           &lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;2,35&lt;/td&gt;&lt;td&gt;0,05&lt;/td&gt;&lt;td&gt;20,0&lt;/td&gt;&lt;td&gt;0,5&lt;/td&gt;&lt;/tr&gt;
         &lt;/tbody&gt;
       &lt;/table&gt;</code></pre>
-                              </div>
-                              <p>Такой гибридный подход позволяет студентам сохранять скорость
-      написания основного текста в Markdown, подключая HTML-таблицы только для комплексных сводных
-      ведомостей. Учтите, что в LaTeX-проекте HTML-таблица из Markdown-сегмента выбрасывается целиком:
-      там ячейки объединяют командами <code>\multicolumn</code> и <code>\multirow</code> (для второй
-      нужен пакет <code>multirow</code>) в LaTeX-сегменте. Требования к таблицам в дипломе разобраны в
-      руководстве по <a href="/blog/table-continuation-multipage-gost-diploma">переносу таблиц по
-      ГОСТ</a>.</p>
-tips:
-  - title: 'Инструменты-генераторы таблиц'
+      </div>
+      <p>GitHub вырезает атрибут <code>style</code>, и там подпись встанет по центру. Если важно
+      выравнивание влево на любой платформе, уберите <code>&lt;caption&gt;</code> и напишите подпись
+      обычным абзацем перед таблицей: <code>Таблица 1 — Результаты измерений</code>. Требования к
+      подписям и переносу таблиц в отчётах разобраны в руководстве по <a
+      href="/blog/table-continuation-multipage-gost-diploma">переносу таблиц по ГОСТ</a>.</p>
+      <p>Такой гибридный подход позволяет писать основной текст в Markdown и подключать HTML только
+      для сложных таблиц. Готовые лабораторные с таблицами измерений есть в шаблонах <a
+      href="/templates/statisticheskaya-obrabotka-izmerenii">«Статистическая обработка многократных
+      измерений»</a> и <a href="/templates/pogreshnosti-udelnoe-soprotivlenie">«Систематические и
+      случайные погрешности»</a>.</p>
+  - id: 'dialects'
+    title: 'Объединение без HTML: MultiMarkdown, Obsidian, Pandoc'
     html: |2-
-      <p>Для быстрого построения сложных HTML-таблиц с объединением ячеек удобно использовать
-      визуальные редакторы таблиц, вставляя готовый код напрямую в документ.</p>
+      <p>Некоторые диалекты умеют объединять ячейки собственным синтаксисом. Работает он только в
+      своём редакторе:</p>
+      <ul>
+          <li><strong>MultiMarkdown:</strong> <code>| Заголовок ||</code> — двойная черта в конце
+          ячейки объединяет её со следующей колонкой;</li>
+          <li><strong>markdown-it-multimd-table</strong> и плагин Obsidian <strong>Table
+          Extended</strong> (построен на нём): <code>||</code> для colspan, <code>^^</code> в ячейке
+          для rowspan (объединяет её с ячейкой выше; в плагине эта опция может быть выключена по
+          умолчанию);</li>
+          <li><strong>Pandoc 3:</strong> grid tables, где ячейки объединяются прямо рисунком
+          рамки;</li>
+          <li><strong>GitHub, GitLab, Typora, Labkeeper:</strong> только HTML-таблица.</li>
+      </ul>
+      <p>Пример grid table для Pandoc — та же составная шапка без единого тега:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">Pandoc Markdown</span></div>
+          <pre><code>+---------+-----------------+
+      | № опыта | Напряжение U, В |
+      |         +--------+--------+
+      |         | знач.  | погр.  |
+      +=========+========+========+
+      | 1       | 1,20   | 0,05   |
+      +---------+--------+--------+</code></pre>
+      </div>
+      <p>Pandoc 3.1 превращает её в HTML с <code>rowspan="2"</code> и <code>colspan="2"</code>. Перед
+      использованием сверьтесь с документацией своей версии: в Pandoc 2.x объединённые ячейки в grid
+      tables не поддерживались.</p>
+  - id: 'markdown-inside-html'
+    title: 'Жирный текст и формулы внутри HTML-таблицы'
+    html: |2-
+      <p>Частая проблема: внутри <code>&lt;td&gt;</code> Markdown не обрабатывается, и
+      <code>**жирный**</code> или <code>$U = IR$</code> выводятся как есть. По правилам CommonMark
+      HTML-блок длится до первой пустой строки, поэтому есть два решения:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">Markdown</span></div>
+          <pre><code>&lt;!-- 1. Внутри ячейки — HTML-теги вместо Markdown --&gt;
+      &lt;td&gt;&lt;strong&gt;1,20&lt;/strong&gt;&lt;/td&gt;
+
+      &lt;!-- 2. Пустые строки вокруг содержимого: оно снова станет Markdown --&gt;
+      &lt;td&gt;
+
+      **1,20**, $U = IR$
+
+      &lt;/td&gt;</code></pre>
+      </div>
+      <p>Второй способ работает на GitHub и в превью Labkeeper: между пустыми строками содержимое
+      ячейки разбирается как обычный Markdown, включая формулы MathJax. Минус — содержимое
+      оборачивается в абзац и ячейка становится выше. Про формулы в Markdown подробнее — в статье о <a
+      href="/blog/markdown-mathjax-katex-latex-math">MathJax и KaTeX</a>.</p>
+  - id: 'latex-version'
+    title: 'Та же таблица в LaTeX: \multicolumn и \multirow'
+    html: |2-
+      <p>При сборке PDF в Labkeeper HTML-таблица из Markdown-сегмента выбрасывается целиком. Для PDF
+      ту же таблицу набирают в LaTeX-сегменте: <code>\multicolumn</code> объединяет колонки (входит в
+      ядро LaTeX), <code>\multirow</code> — строки (нужен пакет <code>multirow</code>):</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage{multirow} % в преамбуле
+
+      \noindent Таблица 1 --- Результаты измерений
+
+      \noindent\begin{tabular}{|c|c|c|c|c|}\hline
+      \multirow{2}{*}{№ опыта} &amp; \multicolumn{2}{c|}{Напряжение $U$, В} &amp; \multicolumn{2}{c|}{Ток $I$, мА}\\ \cline{2-5}
+       &amp; значение &amp; погрешность &amp; значение &amp; погрешность\\ \hline
+      1 &amp; 1,20 &amp; 0,05 &amp; 10,0 &amp; 0,5\\ \hline
+      2 &amp; 2,35 &amp; 0,05 &amp; 20,0 &amp; 0,5\\ \hline
+      \end{tabular}</code></pre>
+      </div>
+      <p>Для таблиц на несколько страниц используйте <a href="/blog/latex-longtable-multipage">пакет
+      longtable</a>, а высоту строк настраивайте через <a
+      href="/blog/latex-arraystretch-table-row-height-spacing">\arraystretch</a>.</p>
+  - id: 'faq'
+    title: 'Частые вопросы'
+    html: |2-
+      <h3>Как объединить ячейки в таблице на GitHub?</h3>
+      <p>Только HTML-таблицей: <code>&lt;table&gt;</code> с атрибутами <code>colspan</code> и
+      <code>rowspan</code>. Синтаксис MultiMarkdown с <code>||</code> GitHub не понимает.</p>
+      <h3>Можно ли объединить ячейки в Obsidian?</h3>
+      <p>Встроенные таблицы Obsidian объединение не поддерживают. Варианты — HTML-таблица (она
+      отображается в режиме чтения) или плагин Table Extended с синтаксисом <code>||</code> и
+      <code>^^</code>.</p>
+      <h3>Почему не работает Markdown внутри HTML-таблицы?</h3>
+      <p>Содержимое HTML-блока не разбирается как Markdown. Используйте внутри ячейки HTML-теги
+      (<code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>) или окружите содержимое пустыми
+      строками.</p>
+      <h3>Есть ли генератор таблиц с объединением ячеек?</h3>
+      <p>Да, например tablesgenerator.com: в нём можно объединить ячейки мышью и получить готовый
+      HTML, Markdown или LaTeX-код. Другие генераторы сравниваются в статье о <a
+      href="/blog/complex-markdown-tables-syntax-online-generator">сложных таблицах Markdown</a>.</p>
+tips:
+  - title: 'Генераторы таблиц'
+    html: |2-
+      <p>Сложную таблицу быстрее собрать в визуальном генераторе, например на tablesgenerator.com:
+      он умеет объединять ячейки и выдаёт код в HTML, Markdown и LaTeX. Для таблицы с объединёнными
+      ячейками выбирайте вывод в HTML (для Markdown-сегмента) или LaTeX (для PDF). Обзор генераторов —
+      в статье о <a href="/blog/complex-markdown-tables-syntax-online-generator">сложных таблицах
+      Markdown</a>.</p>
 editorExample:
   markdown: |2-
-    # Merged table cells
+    # Таблица с объединёнными ячейками
+
+    Таблица 1 — Результаты измерений
 
     <table>
-    <tr><th rowspan="2">Sensor</th><th colspan="2">Measurement</th></tr>
-    <tr><th>Value</th><th>Error</th></tr>
-    <tr><td>A</td><td>10.2</td><td>0.2</td></tr>
+    <thead>
+    <tr><th rowspan="2">№ опыта</th><th colspan="2">Напряжение U, В</th><th colspan="2">Ток I, мА</th></tr>
+    <tr><th>значение</th><th>погрешность</th><th>значение</th><th>погрешность</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>1</td><td>1,20</td><td>0,05</td><td>10,0</td><td>0,5</td></tr>
+    <tr><td>2</td><td>2,35</td><td>0,05</td><td>20,0</td><td>0,5</td></tr>
+    </tbody>
     </table>

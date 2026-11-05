@@ -1,148 +1,289 @@
 catalogIndex: 38
 slug: 'overleaf-alternatives-russia-online-latex'
 batch: 2
-title: 'Лучшие альтернативы Overleaf для работы с LaTeX в РФ'
-pageTitle: 'Overleaf альтернативы в России: онлайн редактор LaTeX без блокировок — Labkeeper'
-metaDescription: |2-
-  Лучшие Overleaf альтернативы в России: онлайн редактор LaTeX без блокировок Labkeeper, оплата в
-  рублях, работа с ГОСТ, кириллица и сравнение сервисов.
+title: 'Альтернативы Overleaf в России: сравнение онлайн- и локальных редакторов LaTeX'
+pageTitle: 'Альтернативы Overleaf в России в 2026: 8 редакторов LaTeX — Labkeeper'
+metaDescription: |-
+  Чем заменить Overleaf из России: сравнение Labkeeper, Overleaf CE, Typst, TeXstudio и других по
+  доступу, оплате, лимиту компиляции (10 с у Overleaf Free) и поддержке ГОСТ.
 breadcrumbTitle: 'Альтернативы Overleaf в РФ'
-h1: 'Лучшие альтернативы Overleaf для работы с&nbsp;LaTeX в&nbsp;РФ'
+h1: 'Альтернативы Overleaf в&nbsp;России: сравнение онлайн- и&nbsp;локальных редакторов LaTeX'
 categories:
   - 'latex'
 related:
-  - 'latex-rotating-package-sidewaystable-rotate-90'
-  - 'latex-arraystretch-table-row-height-spacing'
-  - 'latex-hyperref-pdf-bookmarks-navigation'
-  - 'latex-algorithm2e-pseudocode-algorithms'
-  - 'latex-russian-cyrillic-code-listings-minted'
+  - 'latex-word-to-latex'
+  - 'latex-diploma-gost'
+  - 'latex-dissertation'
   - 'biblatex-biber-advanced-bibliography-management'
-  - 'latex-tcolorbox-theorems-callouts'
   - 'latex-multi-file-document-input-include'
-  - 'latex-custom-rgb-hex-colors-xcolor'
-  - 'latex-minipage-images-tables-side-by-side'
-  - 'latex-tikz-automata-graphs'
-  - 'latex-prevent-hyphenation-linebreaks'
+  - 'markdown-to-pdf-export'
+  - 'latex-russian-cyrillic-code-listings-minted'
+  - 'latex-gost-bibliography'
+  - 'latex-scopus-wos'
+  - 'latex-eskd'
 keywords:
   - 'overleaf альтернативы в россии'
   - 'онлайн редактор latex без блокировок'
+  - 'чем заменить overleaf'
+  - 'overleaf лимит компиляции'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
-readingTime: '7 мин'
-cardTitle: 'Альтернативы Overleaf в России: подборка онлайн-редакторов LaTeX'
-cardDescription: |2-
-  Обзор решений для верстки научных статей и дипломов в условиях ограничений: сравнение платформ,
-  скорость компиляции, примеры оформления по ГОСТ и возможности Labkeeper.
-sliderTitle: 'Альтернативы Overleaf в России'
-sliderText: 'Онлайн-редакторы LaTeX без блокировок, примеры по ГОСТ и оплата в рублях.'
-sidebarText: |2-
+dateModified: '2026-11-05'
+readingTime: '11 мин'
+cardTitle: 'Альтернативы Overleaf в России: сравнение редакторов LaTeX'
+cardDescription: |-
+  Labkeeper, Overleaf CE, Typst, CoCalc, TeXstudio и другие: доступ из России, оплата, лимит
+  компиляции, движки и ограничения каждого варианта.
+sliderTitle: 'Альтернативы Overleaf в&nbsp;России'
+sliderText: 'Сравнение онлайн- и локальных редакторов LaTeX: доступ, оплата, лимит компиляции и ГОСТ.'
+sidebarText: |-
   Набирайте статьи и диссертации в российском облачном редакторе Labkeeper с примерами оформления
   по ГОСТ.
-ctaTitle: 'Переходите на надежный редактор в&nbsp;Labkeeper'
-ctaText: |2-
-  Онлайн-редактор LaTeX и&nbsp;Markdown из&nbsp;России: сборка PDF в&nbsp;браузере, ИИ-агент
-  и&nbsp;оплата в&nbsp;рублях.
+ctaTitle: 'Попробуйте Labkeeper вместо Overleaf'
+ctaText: |-
+  Онлайн-редактор LaTeX и&nbsp;Markdown из&nbsp;России: сборка PDF до&nbsp;60&nbsp;секунд, импорт
+  проекта из&nbsp;zip, ИИ-агент и&nbsp;оплата в&nbsp;рублях.
 toc:
   - id: 'context'
-    title: 'Почему российские исследователи ищут замену Overleaf'
-  - id: 'overleaf-issues'
-    title: 'Overleaf альтернативы в россии: доступность, платежи и пинг'
-  - id: 'labkeeper-features'
-    title: 'Онлайн редактор latex без блокировок: возможности Labkeeper'
-  - id: 'desktop-alternatives'
-    title: 'Локальные редакторы: VS Code, TeXstudio и сложности их настройки'
+    title: 'Почему ищут замену Overleaf: оплата, лимит 10 секунд, доступ'
+  - id: 'alternatives'
+    title: 'Чем заменить Overleaf: 8 вариантов'
   - id: 'comparison-table'
-    title: 'Сравнительная таблица платформ для научной работы'
+    title: 'Сравнительная таблица'
+  - id: 'labkeeper-features'
+    title: 'Labkeeper: онлайн-редактор LaTeX из России'
+  - id: 'overleaf-better'
+    title: 'Когда Overleaf всё же лучше'
+  - id: 'migration'
+    title: 'Как перенести проект из Overleaf'
+  - id: 'tips'
+    title: 'Практические советы'
+  - id: 'faq'
+    title: 'Частые вопросы'
 sections:
   - id: 'context'
-    title: 'Почему российские исследователи ищут замену Overleaf'
-    html: |2-
-                              <p>Долгие годы британский сервис Overleaf оставался де-факто стандартом
-      совместной верстки научных публикаций. Однако с 2022 года пользователи из РФ столкнулись с
-      блокировками премиум-подписок, невозможностью оплаты российскими картами МИР, а также
-      периодическими сбоями доступа к веб-интерфейсу.</p>
-                              <p>Технически зарубежные сервисы не уступают: у Overleaf полный
-      дистрибутив TeX Live, в том числе пакет biblatex-gost. Для исследователей из России важнее
-      другое — стабильный доступ к сервису, оплата российскими картами в рублях, русский интерфейс и
-      ИИ-агент, которому можно писать по-русски.</p>
-  - id: 'overleaf-issues'
-    title: 'Overleaf альтернативы в россии: доступность, платежи и пинг'
-    html: |2-
-                              <p>При поиске надежной <strong>overleaf альтернативы в россии</strong>
-      исследователи и кафедры оценивают ключевые факторы (включая предустановленные кириллические
-      гарнитуры и быструю <a href="/blog/latex-sans-serif-fonts">настройку шрифтов без засечек в
-      LaTeX</a>):</p>
-                              <ul>
-                                  <li><strong>Юридическая безопасность и стабильность
-      доступа:</strong> уверенность, что доступ к диссертации или годовому отчету не пропадет за день
-      до защиты.</li>
-                                  <li><strong>Скорость компиляции:</strong> сколько секунд занимает
-      сборка PDF и какой лимит времени отведен на одну сборку.</li>
-                                  <li><strong>Оплата в рублях:</strong> возможность платить
-      российскими картами МИР и через СБП — в Labkeeper это пакеты токенов без подписки.</li>
-                              </ul>
-  - id: 'labkeeper-features'
-    title: 'Онлайн редактор latex без блокировок: возможности Labkeeper'
-    html: |2-
-                              <p><strong>Labkeeper</strong> создавался как современный <strong>онлайн
-      редактор latex без блокировок</strong>, специально адаптированный под потребности студентов,
-      аспирантов и ученых РФ (а перенести документ из Word поможет наше <a
-      href="/blog/latex-word-to-latex">руководство по переходу с Word на LaTeX</a>):</p>
-                              <ul>
-                                  <li><strong>Примеры по ГОСТ:</strong> примеры дипломных работ и
-      лабораторных в витрине — их можно клонировать; оформление по ГОСТ разобрано в статьях
-      блога.</li>
-                                  <li><strong>Гибридный режим Markdown + LaTeX:</strong> возможность
-      вести заметки в быстром Markdown и компилировать их в полиграфический PDF со сложными
-      TeX-формулами.</li>
-                                  <li><strong>Полный TeX Live 2025:</strong> кириллица без
-      дополнительной настройки (T2A, babel) и сборка PDF через pdfLaTeX за несколько секунд.</li>
-                                  <li><strong>AI-помощник:</strong> встроенный интеллектуальный
-      ассистент помогает исправлять ошибки синтаксиса и переводить статьи на академический английский
-      язык.</li>
-                              </ul>
-  - id: 'desktop-alternatives'
-    title: 'Локальные редакторы: VS Code, TeXstudio и сложности их настройки'
-    html: |2-
-                              <p>Автономный путь — установка дистрибутива TeX Live / MiKTeX на
-      домашний компьютер в связке с TeXstudio или VS Code (плагин LaTeX Workshop). Главные минусы
-      такого подхода: объем дистрибутива свыше 8 Гб, сложные конфликты версий Perl/Python для minted и
-      отсутствие синхронизации между домашним ПК и рабочим ноутбуком.</p>
+    title: 'Почему ищут замену Overleaf: оплата, лимит 10 секунд, доступ'
+    html: |-
+      <p><em>Актуально на ноябрь 2026 года.</em></p>
+      <p>Британский сервис Overleaf много лет был стандартом совместной вёрстки в LaTeX. У него
+      полный TeX Live, в том числе biblatex-gost, и технически он по-прежнему силён. Но для
+      пользователей из России есть три практические проблемы:</p>
+      <ul>
+          <li><strong>Лимит компиляции 10 секунд.</strong> Overleaf объявил о сокращении бесплатного
+      времени сборки 16 июня 2025 года, а с 8 сентября 2025 года лимит 10 секунд действует для всех
+      бесплатных пользователей. У платных тарифов — до 4 минут. Диплом с рисунками и десятками
+      страниц в 10 секунд часто не укладывается. В Labkeeper одна сборка длится до 60 секунд после
+      входа.</li>
+          <li><strong>Оплата.</strong> С 2022 года карты российских банков (Visa, Mastercard) за
+      рубежом не проходят, а карты «Мир» Overleaf не принимает. Купить подписку, чтобы снять лимит,
+      из России сложно.</li>
+          <li><strong>Один соавтор.</strong> В бесплатном плане Overleaf к проекту можно пригласить
+      только одного соавтора.</li>
+      </ul>
+      <p>Ниже — варианты, которые решают эти проблемы по-разному, с честными плюсами
+      и ограничениями.</p>
+  - id: 'alternatives'
+    title: 'Чем заменить Overleaf: 8 вариантов'
+    html: |-
+      <h3>1. Labkeeper — онлайн-редактор LaTeX и Markdown из России</h3>
+      <p>Российский сервис: оплата в рублях, русский интерфейс и ИИ-агент, которому можно писать
+      по-русски. Сборка PDF через pdfLaTeX до 60 секунд, кириллица работает без настройки, есть
+      примеры и статьи об оформлении по ГОСТ. Ограничения: только pdfLaTeX, без BibTeX и Biber, без
+      shell-escape и истории версий (подробно — <a href="#labkeeper-features">ниже</a>). Кому
+      подходит: студентам и аспирантам с дипломами, курсовыми, лабораторными и статьями.</p>
+      <h3>2. Overleaf Community Edition — свой Overleaf на сервере</h3>
+      <p>Бесплатная версия Overleaf с открытым кодом, которая ставится в Docker на собственный
+      сервер. Лимиты компиляции задаёт администратор, доступ не зависит от зарубежного сервиса.
+      Нужен сервер и человек, который его поддерживает, а части функций платной версии в ней нет.
+      Кому подходит: кафедрам, лабораториям и научным группам.</p>
+      <h3>3. Typst и typst.app</h3>
+      <p>Новая система вёрстки со своим языком разметки: компилирует почти мгновенно, а в каталоге
+      Typst Universe есть шаблоны в том числе по ГОСТ 7.32. Это не LaTeX: готовые .tex-проекты
+      и пакеты не перенести, коллеги и журналы чаще ждут LaTeX. Онлайн-редактор typst.app —
+      зарубежный сервис, сам компилятор работает офлайн. Кому подходит: тем, кто начинает с нуля
+      и не связан требованиями журнала.</p>
+      <h3>4. CoCalc</h3>
+      <p>Облачная платформа для научных вычислений с LaTeX-редактором, Jupyter и терминалом.
+      Зарубежный сервис, платные тарифы оплачиваются зарубежной картой. Кому подходит: тем, кому
+      нужны вычисления и LaTeX в одном месте.</p>
+      <h3>5. TeXPage</h3>
+      <p>Зарубежный онлайн-редактор LaTeX с интерфейсом, похожим на Overleaf. Перед тем как
+      переносить в него диплом, проверьте доступность и условия оплаты из России.</p>
+      <h3>6. TeXstudio с MiKTeX или TeX Live</h3>
+      <p>Классический локальный редактор. Работает офлайн, без лимитов, с любыми движками
+      и biber. MiKTeX ставится примерно за 1&nbsp;ГБ и докачивает пакеты по требованию; полный TeX
+      Live занимает больше 8&nbsp;ГБ. Минус — нет синхронизации между компьютерами без Git или
+      облачного диска.</p>
+      <h3>7. VS Code + LaTeX Workshop</h3>
+      <p>Тот же локальный дистрибутив, но в редакторе кода: удобно, если вы уже работаете в VS Code
+      и храните проекты в Git. Для пакета minted понадобится Python и Pygments.</p>
+      <h3>8. LyX</h3>
+      <p>Локальный редактор «почти WYSIWYG» поверх LaTeX: удобен тем, кто привык к Word, но хочет
+      качество вёрстки LaTeX. Тонкая настройка под ГОСТ в нём сложнее, чем в чистом .tex.</p>
   - id: 'comparison-table'
-    title: 'Сравнительная таблица платформ для научной работы'
-    html: |2-
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">Сравнение платформ</span></div>
-                                  <pre><code>Критерий            | Overleaf (Free)   | Локальный TeXstudio | Labkeeper
-      --------------------|-------------------|---------------------|------------------
-      Доступность в РФ    | Риски сбоев       | 100% офлайн         | Доступен онлайн
-      Шаблоны ГОСТ / ВАК  | Требуют доработки | Настраивать вручную | Примеры для клонирования
-      Поддержка Markdown  | Нет               | Нет                 | Нативная (MathJax)
-      Сложность старта    | Низкая            | Высокая             | Сразу в браузере
-      Оплата картами РФ   | Недоступна        | Бесплатно           | Доступна (МИР, СБП)</code></pre>
-                              </div>
-tips:
-  - title: 'Перенос из Overleaf'
-    html: |2-
-      <p>Скачайте проект из Overleaf, распакуйте архив на компьютере и загрузите в Labkeeper
-      .tex-файлы и картинки. Импорта проекта одним архивом нет, поэтому папки создайте в файловом
-      менеджере проекта.</p>
-  - title: 'Облачное автосохранение'
-    html: |2-
-      <p>У вошедшего пользователя правки в Labkeeper сохраняются автоматически примерно через секунду,
-      поэтому случайное закрытие вкладки или обновление страницы их не сотрёт. Истории версий, как в
-      Overleaf, нет: отменить можно только правки текущей сессии.</p>
+    title: 'Сравнительная таблица'
+    html: |-
+      <div class="article-table-wrapper">
+          <table class="article-table">
+              <thead>
+                  <tr><th>Критерий</th><th>Overleaf Free</th><th>Overleaf CE</th><th>Labkeeper</th>
+                  <th>TeXstudio локально</th><th>Typst</th></tr>
+              </thead>
+              <tbody>
+                  <tr><td>Где работает</td><td>Зарубежный сервис</td><td>Ваш сервер</td>
+                  <td>Российский сервис</td><td>Ваш компьютер, офлайн</td><td>typst.app или
+                  офлайн</td></tr>
+                  <tr><td>Оплата из России</td><td>Карты РФ не проходят</td><td>Бесплатно</td>
+                  <td>Рубли: карты РФ, СБП</td><td>Бесплатно</td><td>Зарубежная карта для
+                  платного тарифа</td></tr>
+                  <tr><td>Лимит одной сборки</td><td>10&nbsp;с</td><td>Задаёт администратор</td>
+                  <td>60&nbsp;с (30&nbsp;с без входа)</td><td>Нет</td><td>Сборка почти
+                  мгновенная</td></tr>
+                  <tr><td>Движки</td><td>pdfLaTeX, XeLaTeX, LuaLaTeX</td><td>pdfLaTeX, XeLaTeX,
+                  LuaLaTeX</td><td>Только pdfLaTeX</td><td>Любые</td><td>Свой язык, не
+                  LaTeX</td></tr>
+                  <tr><td>BibTeX / Biber</td><td>Да</td><td>Да</td><td>Нет,
+                  <code>thebibliography</code></td><td>Да</td><td>Свой механизм, читает
+                  .bib</td></tr>
+                  <tr><td>minted (shell-escape)</td><td>Да</td><td>Зависит от настройки</td>
+                  <td>Нет</td><td>Да</td><td>Не нужен</td></tr>
+                  <tr><td>Markdown с формулами</td><td>Нет</td><td>Нет</td><td>Да (MathJax)</td>
+                  <td>Нет</td><td>Нет</td></tr>
+                  <tr><td>ИИ-помощник</td><td>Платная функция</td><td>Нет</td><td>ИИ-агент
+                  на русском</td><td>Нет</td><td>Нет</td></tr>
+                  <tr><td>Цена</td><td>Бесплатно с лимитами</td><td>Бесплатно + сервер</td>
+                  <td>Пакеты токенов без подписки</td><td>Бесплатно</td><td>Бесплатно
+                  с лимитами</td></tr>
+              </tbody>
+          </table>
+      </div>
+  - id: 'labkeeper-features'
+    title: 'Labkeeper: онлайн-редактор LaTeX из России'
+    html: |-
+      <p>Labkeeper делали под студентов, аспирантов и учёных из России. Что в нём есть:</p>
+      <ul>
+          <li><strong>TeX Live 2025 и кириллица без настройки:</strong> T2A и babel работают сразу,
+      PDF собирается через pdfLaTeX, одна сборка — до 60 секунд после входа.</li>
+          <li><strong>Примеры и шаблоны:</strong> гайды по оформлению <a
+      href="/blog/latex-diploma-gost">курсовой и диплома по ГОСТ</a> и <a
+      href="/blog/latex-dissertation">диссертации</a> с готовым кодом, шаблоны журналов —
+      например, <a href="/templates/springer-nature">Springer Nature</a>, <a
+      href="/templates/mdpi">MDPI</a> и <a href="/templates/vestnik-mgu-fizika">«Вестник МГУ.
+      Физика»</a>.</li>
+          <li><strong>Markdown и LaTeX:</strong> заметки и отчёты можно вести в Markdown с формулами
+      MathJax, а большие документы — в LaTeX (<a href="/blog/markdown-to-pdf-export">экспорт
+      Markdown в PDF</a>).</li>
+          <li><strong>ИИ-агент:</strong> исправляет ошибки сборки, правит код и читает загруженные
+      файлы Word и PDF — так можно перенести текст <a href="/blog/latex-word-to-latex">из Word
+      в LaTeX</a>.</li>
+          <li><strong>Импорт проекта из zip</strong> — в том числе архива, скачанного из Overleaf
+      (см. <a href="#migration">инструкцию</a>).</li>
+          <li><strong>Оплата в рублях</strong> через ЮKassa: российские карты и СБП, пакеты токенов
+      без подписки.</li>
+      </ul>
+      <p>Ограничения, о которых лучше знать заранее:</p>
+      <ul>
+          <li>Только pdfLaTeX: XeLaTeX и LuaLaTeX не запускаются, системные шрифты через
+      <code>fontspec</code> не подключить.</li>
+          <li>BibTeX и Biber не запускаются: список литературы набирается в
+      <code>thebibliography</code> (<a href="/blog/latex-gost-bibliography">как оформить по
+      ГОСТ</a>).</li>
+          <li>Нет shell-escape, поэтому пакет <code>minted</code> не работает — вместо него
+      <code>listings</code> (<a href="/blog/latex-russian-cyrillic-code-listings-minted">листинги
+      кода с кириллицей</a>).</li>
+          <li>Нет истории версий: правки сохраняются автоматически, но откатить можно только правки
+      текущей сессии.</li>
+          <li>Устаревший класс <code>eskdx</code> в TeX Live 2025 не собирается — рамки ЕСКД
+      рисуются на TikZ (<a href="/blog/latex-eskd">готовый код</a>).</li>
+      </ul>
+  - id: 'overleaf-better'
+    title: 'Когда Overleaf всё же лучше'
+    html: |-
+      <ul>
+          <li>Список литературы на <code>biblatex-gost</code> через Biber — в Labkeeper так не
+      получится (подробнее о biblatex — в <a
+      href="/blog/biblatex-biber-advanced-bibliography-management">статье о biblatex и
+      Biber</a>).</li>
+          <li>Нужен XeLaTeX или LuaLaTeX с системными шрифтами, например Times New Roman через
+      <code>fontspec</code>.</li>
+          <li>Нужна история версий и рецензирование правок с соавторами.</li>
+          <li>Журнал или конференция предлагает отправить рукопись прямо из Overleaf, и вам удобнее
+      этот путь.</li>
+      </ul>
+      <p>Если ни один пункт к вам не относится, а проект большой и не укладывается в 10 секунд,
+      Labkeeper или локальная установка будут удобнее.</p>
+  - id: 'migration'
+    title: 'Как перенести проект из Overleaf'
+    html: |-
+      <ol>
+          <li>В Overleaf откройте проект и скачайте исходники: «Menu» → «Download» → «Source».
+      Получится zip-архив с файлами проекта.</li>
+          <li>Проверьте, что главный файл называется <code>main.tex</code> и лежит в корне архива.
+      Если он называется иначе, переименуйте его и упакуйте архив заново.</li>
+          <li>В Labkeeper создайте новый проект, выберите «Проект из архива» и загрузите zip. Тип
+      проекта (LaTeX) определится по архиву.</li>
+      </ol>
+      <p>После импорта соберите PDF и проверьте лог. Если проект использовал Biber, BibTeX или
+      XeLaTeX, замените список литературы на <code>thebibliography</code> и шрифты — на пакеты для
+      pdfLaTeX (например, <code>tempora</code> вместо Times New Roman). Очень большие архивы
+      импорт не примет — удалите из них лишние PDF и исходники картинок. Большой документ удобно
+      разбить на файлы (<a href="/blog/latex-multi-file-document-input-include">как это
+      сделать</a>).</p>
+  - id: 'tips'
+    title: 'Практические советы'
+    html: |-
+      <div class="article-tips">
+          <div class="article-tip">
+              <div class="article-tip__number">1</div>
+              <div class="article-tip__content">
+                  <h3>Облачное автосохранение</h3>
+                  <p>У вошедшего пользователя правки в Labkeeper сохраняются автоматически примерно
+      через секунду, поэтому случайное закрытие вкладки или обновление страницы их не сотрёт.
+      Истории версий, как в Overleaf, нет: для важных этапов скачивайте проект архивом.</p>
+              </div>
+          </div>
+          <div class="article-tip">
+              <div class="article-tip__number">2</div>
+              <div class="article-tip__content">
+                  <h3>Ускорьте сборку большого документа</h3>
+                  <p>Рисунки сохраняйте в PDF или JPG, а не в тяжёлых PNG, а для черновых сборок
+      добавляйте опцию <code>draft</code> в <code>\documentclass</code>. Так сборка укладывается
+      в лимит и в Labkeeper, и в Overleaf.</p>
+              </div>
+          </div>
+      </div>
+  - id: 'faq'
+    title: 'Частые вопросы'
+    html: |-
+      <h3>Работает ли Overleaf в России в 2026 году?</h3>
+      <p>Сайт, как правило, открывается, но оплатить подписку российской картой нельзя, а бесплатный план ограничен
+      10 секундами компиляции и одним соавтором на проект.</p>
+      <h3>Можно ли оплатить Overleaf российской картой?</h3>
+      <p>Нет. С 2022 года карты российских банков за рубежом не проходят, а карты «Мир» Overleaf не
+      принимает.</p>
+      <h3>Сколько длится бесплатная компиляция в Overleaf?</h3>
+      <p>10 секунд на одну сборку для всех бесплатных пользователей с 8 сентября 2025 года.
+      У платных тарифов — до 4 минут.</p>
+      <h3>Как перенести проект из Overleaf?</h3>
+      <p>Скачайте исходники архивом («Menu» → «Download» → «Source»), проверьте, что главный файл
+      называется <code>main.tex</code>, и загрузите zip в Labkeeper как «Проект из архива».</p>
+      <h3>Есть ли бесплатная альтернатива Overleaf?</h3>
+      <p>Да: локальные TeXstudio, VS Code с LaTeX Workshop или LyX, а для кафедры — Overleaf
+      Community Edition на своём сервере. Все они бесплатны, но требуют установки.</p>
 editorExample:
-  latex: |2-
+  latex: |-
     \documentclass[a4paper,12pt]{article}
+    \usepackage{cmap}
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
-    \usepackage[english,russian]{babel}
-    \usepackage{amsmath,graphicx}
+    \usepackage[russian]{babel}
+    \usepackage{amsmath}
 
     \begin{document}
-    \title{My first online document}\author{Labkeeper}\maketitle
-    \section{A working example}Edit this text and compile again.
-    \[\int_0^1 x^2\,dx=\frac13\]
+    \section{Первый документ в Labkeeper}
+    Кириллица работает без настройки: поменяйте этот текст и соберите PDF ещё раз.
+
+    Интеграл по отрезку от 0 до 1:
+    \begin{equation}
+      \int_0^1 x^2\,dx = \frac{1}{3}.
+    \end{equation}
     \end{document}

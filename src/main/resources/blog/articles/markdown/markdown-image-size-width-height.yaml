@@ -1,40 +1,43 @@
 catalogIndex: 36
 slug: 'markdown-image-size-width-height'
 batch: 2
-title: 'Настройка размера изображений в Markdown (ширина и высота)'
-pageTitle: 'Изменить размер картинки в Markdown width: подгонка изображения — Labkeeper'
+title: 'Как изменить размер картинки в Markdown: ширина, высота и центрирование'
+pageTitle: 'Размер картинки в Markdown: width, height и центрирование — Labkeeper'
 metaDescription: |2-
-  Как изменить размер картинки в Markdown: width, height, центрирование, подгонка изображения
-  через HTML теги и стили на GitHub и в Obsidian, точный размер в LaTeX-проекте Labkeeper.
+  Как уменьшить картинку в Markdown: <img width="400">, проценты, центрирование. Таблица для
+  GitHub, GitLab, Obsidian, Typora и Pandoc с готовым кодом.
 breadcrumbTitle: 'Размер изображений в Markdown'
-h1: 'Настройка размера изображений в&nbsp;Markdown (ширина и&nbsp;высота)'
+h1: 'Как изменить размер картинки в&nbsp;Markdown: ширина, высота и&nbsp;центрирование'
 categories:
   - 'markdown'
 related:
-  - 'modern-it-resume-markdown-cv-as-code'
-  - 'complex-markdown-tables-syntax-online-generator'
-  - 'markdown-superscript-subscript-indices'
-  - 'markdown-multiline-formulas-matrices-mathjax'
+  - 'markdown-to-pdf-export'
+  - 'markdown-raw-html-integration'
+  - 'software-screenshots-report-gost-caption'
   - 'github-readme-template-badges-spoilers'
+  - 'latex-minipage-images-tables-side-by-side'
+  - 'complex-markdown-tables-syntax-online-generator'
+  - 'markdown-table-merge-cells-rowspan-colspan'
+  - 'markdown-superscript-subscript-indices'
   - 'markdown-mathjax-katex-latex-math'
   - 'markdown-spoilers-details-summary'
-  - 'markdown-table-merge-cells-rowspan-colspan'
-  - 'markdown-raw-html-integration'
   - 'markdown-code-syntax-highlighting'
-  - 'markdown-task-lists'
   - 'markdown-footnotes'
 keywords:
   - 'изменить размер картинки markdown width'
   - 'подгонка изображения md html'
+  - 'размер изображения markdown'
+  - 'markdown img width'
+  - 'размер картинки readme github'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
-readingTime: '6 мин'
-cardTitle: 'Управление размерами картинок в Markdown: ширина, высота и центрирование'
+dateModified: '2026-11-05'
+readingTime: '8 мин'
+cardTitle: 'Размер картинки в Markdown: ширина, высота и центрирование'
 cardDescription: |2-
-  Как уменьшить гигантский скриншот в Markdown: атрибуты width/height, чистый HTML-тег img,
-  центрирование по центру страницы и экспорт в PDF.
+  Как уменьшить большой скриншот в Markdown: тег img с width, проценты, центрирование, картинки в
+  ряд и таблица синтаксиса для GitHub, GitLab, Obsidian, Typora и Pandoc.
 sliderTitle: 'Размер изображений в Markdown'
-sliderText: 'Настройка width и height, стили CSS, тег img и центрирование картинок.'
+sliderText: 'Тег img с width, проценты, центрирование и синтаксис GitHub, Obsidian и Pandoc.'
 sidebarText: |2-
   Вставляйте иллюстрации в заметки Labkeeper, а точный размер картинок в PDF задавайте в
   LaTeX-проекте.
@@ -44,99 +47,232 @@ ctaText: |2-
   сохранение в PDF через печать браузера.
 toc:
   - id: 'problem'
-    title: 'Почему базовый синтаксис ![alt](url) не поддерживает размер'
+    title: 'Почему в Markdown нельзя задать размер картинки'
   - id: 'html-tag'
-    title: 'Изменить размер картинки markdown width: использование тега img'
+    title: 'Как задать ширину картинки через тег img'
   - id: 'percentage-fitting'
-    title: 'Подгонка изображения md html: адаптивные проценты (width="50%")'
-  - id: 'centering-images'
-    title: 'Центрирование иллюстраций и подрисуночные подписи'
+    title: 'Ширина в процентах: картинка под размер экрана'
+  - id: 'compatibility'
+    title: 'Где какой синтаксис работает: GitHub, GitLab, Obsidian, Typora, Pandoc'
   - id: 'extended-syntax'
-    title: 'Расширенный синтаксис в Obsidian, Kramdown и Pandoc'
+    title: 'Obsidian, Pandoc и kramdown: размер без HTML'
+  - id: 'centering-images'
+    title: 'Центрирование картинки и подпись к рисунку'
+  - id: 'layout-tricks'
+    title: 'Картинки в ряд, картинка-ссылка и тёмная тема GitHub'
+  - id: 'faq'
+    title: 'Частые вопросы'
 sections:
   - id: 'problem'
-    title: 'Почему базовый синтаксис ![alt](url) не поддерживает размер'
+    title: 'Почему в Markdown нельзя задать размер картинки'
     html: |2-
-                              <p>Классический синтаксис Джона Грубера
-      <code>![Описание](image.png)</code> намеренно минималистичен: в нем вообще нет параметров ширины
-      или высоты. В результате при вставке скриншота высокого разрешения (Retina или 4K) картинка
-      распахивается на всю ширину экрана или вовсе вылезает за границы печатной страницы PDF.</p>
-                              <p>К счастью, спецификация CommonMark разрешает бесшовную интеграцию
-      HTML-тегов прямо в тело Markdown-документа.</p>
+      <p><strong>Коротко:</strong> в стандартном Markdown размер картинки не задаётся. Используйте
+      HTML: <code>&lt;img src="image.png" width="400"&gt;</code> — так работает на GitHub, GitLab, в
+      Obsidian и в превью Labkeeper.</p>
+      <p>Классический синтаксис Джона Грубера <code>![Описание](image.png)</code> намеренно
+      минималистичен: в нём нет параметров ширины или высоты. Скриншот с экрана высокого разрешения
+      (Retina, 4K) растягивается на всю ширину колонки, а в PDF может занять целую страницу.</p>
+      <p>Зато CommonMark и GitHub Flavored Markdown разрешают вставлять HTML-теги прямо в текст. Какие
+      теги и атрибуты переживают санитизацию на GitHub, разобрано в статье об <a
+      href="/blog/markdown-raw-html-integration">интеграции HTML в Markdown</a>.</p>
   - id: 'html-tag'
-    title: 'Изменить размер картинки markdown width: использование тега img'
+    title: 'Как задать ширину картинки через тег img'
     html: |2-
-                              <p>Самый надежный и кроссплатформенный способ, <strong>как изменить
-      размер картинки markdown width</strong> — заменить стандартную скобочную запись на тег
-      <code>&lt;img&gt;</code>:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">Markdown</span></div>
-                                  <pre><code>&lt;!-- Фиксированная ширина в пикселях --&gt;
-      &lt;img src="screenshot.png" alt="Панель настроек" width="450" /&gt;
+      <p>Самый надёжный способ — заменить скобочную запись тегом <code>&lt;img&gt;</code> с атрибутом
+      <code>width</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">Markdown</span></div>
+          <pre><code>&lt;!-- Фиксированная ширина в пикселях --&gt;
+      &lt;img src="screenshot.png" alt="Панель настроек" width="450"&gt;
 
-      &lt;!-- С ограничением по высоте --&gt;
-      &lt;img src="logo.svg" alt="Логотип проекта" height="80" /&gt;</code></pre>
-                              </div>
-                              <p>Браузер и PDF-генераторы автоматически сохраняют пропорции
-      изображения: если вы указали только <code>width="450"</code>, высота пересчитается
-      пропорционально без сплющивания.</p>
-                              <p>Так размер задается на GitHub, GitLab и в Obsidian. В превью
-      Labkeeper картинка стоит по центру и сохраняет свой размер. Атрибут <code>width</code>
-      учитывается, пока картинка не упирается в ширину колонки; <code>height</code> перекрывается
-      правилом <code>height: auto</code>, а стили в атрибуте <code>style</code> не применяются. Точный
-      размер в PDF задают в LaTeX-проекте командой
-      <code>\includegraphics[width=0.5\textwidth]{chart.png}</code> в LaTeX-сегменте, а картинку из
-      Markdown-сегмента сервер ставит по центру шириной 0,65 текста.</p>
-                              <p><strong>Пример в редакторе:</strong> две копии логотипа с атрибутами
-      <code>width="100"</code> и <code>width="300"</code>. На GitHub они получились бы разного
-      размера, а в превью Labkeeper ширины 100 и 300 сохранятся, пока колонка не уже картинки.</p>
+      &lt;!-- Ограничение по высоте (ширина подстроится сама) --&gt;
+      &lt;img src="logo.svg" alt="Логотип проекта" height="80"&gt;</code></pre>
+      </div>
+      <p>Задавайте <strong>только одно</strong> из двух измерений. Если указан только
+      <code>width="450"</code>, браузер пересчитает высоту пропорционально. Если указать и
+      <code>width</code>, и <code>height</code> с неверным соотношением, картинка сплющится или
+      растянется.</p>
+      <h3>Как это работает в Labkeeper</h3>
+      <p>В превью Markdown-проекта Labkeeper картинка стоит по центру и сохраняет свой размер. Атрибут
+      <code>width</code> (в пикселях или процентах) учитывается, пока картинка не упирается в ширину
+      колонки; <code>height</code> перекрывается правилом <code>height: auto</code>, а стили в
+      атрибуте <code>style</code> к картинке не применяются. При сборке PDF картинку из
+      Markdown-сегмента сервер ставит по центру шириной 0,65 текста. Точный размер в PDF задают в
+      LaTeX-сегменте: <code>\includegraphics[width=0.5\textwidth]{chart.png}</code>.</p>
+      <p><strong>Пример в редакторе:</strong> две копии логотипа с атрибутами <code>width="100"</code>
+      и <code>width="300"</code> и одна с <code>width="50%"</code>. На GitHub и в превью Labkeeper
+      они получатся разного размера.</p>
   - id: 'percentage-fitting'
-    title: 'Подгонка изображения md html: адаптивные проценты (width="50%")'
+    title: 'Ширина в процентах: картинка под размер экрана'
     html: |2-
-                              <p>Для адаптивных документов и мобильного чтения идеальна
-      <strong>подгонка изображения md html</strong> через относительные единицы измерения:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">Markdown</span></div>
-                                  <pre><code>&lt;!-- Занимает ровно половину ширины полосы чтения --&gt;
-      &lt;img src="chart.png" alt="График" style="width: 50%; max-width: 600px;" /&gt;</code></pre>
-                              </div>
-                              <p>При таком подходе на смартфонах картинка красиво масштабируется, а на
-      десктопе не растягивается до гигантских размытых размеров. В превью Labkeeper картинка стоит по
-      центру и сохраняет свой размер. Атрибут <code>width</code> учитывается, пока картинка не
-      упирается в ширину колонки; <code>height</code> перекрывается правилом <code>height:
-      auto</code>, а стили в атрибуте <code>style</code> не применяются.</p>
-  - id: 'centering-images'
-    title: 'Центрирование иллюстраций и подрисуночные подписи'
+      <p>Чтобы картинка занимала долю колонки на любом экране, укажите ширину в процентах прямо в
+      атрибуте <code>width</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">Markdown</span></div>
+          <pre><code>&lt;!-- Половина ширины колонки: работает на GitHub, GitLab, в Obsidian и Labkeeper --&gt;
+      &lt;img src="chart.png" alt="График зависимости тока от напряжения" width="50%"&gt;</code></pre>
+      </div>
+      <p>На смартфоне такая картинка уменьшится вместе с колонкой, а на широком мониторе не
+      растянется до размытых размеров.</p>
+      <p><strong>Оговорка про <code>style</code>.</strong> Запись <code>style="width: 50%; max-width:
+      600px"</code> работает только в локальных редакторах (VS Code, Typora). GitHub вырезает атрибут
+      <code>style</code> при санитизации, а превью Labkeeper его у картинок не применяет (см. блок
+      «Как это работает в Labkeeper» выше).</p>
+  - id: 'compatibility'
+    title: 'Где какой синтаксис работает: GitHub, GitLab, Obsidian, Typora, Pandoc'
     html: |2-
-                              <p>Чтобы выровнять уменьшенное изображение строго по центру страницы и
-      добавить красивую подпись курсивом (по аналогии со стандартами <a
-      href="/blog/software-screenshots-report-gost-caption">оформления скриншотов программ в отчете
-      ГОСТ</a>):</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">Markdown</span></div>
-                                  <pre><code>&lt;p align="center"&gt;
-        &lt;img src="architecture.png" width="60%" alt="Архитектура сервиса" /&gt;&lt;br&gt;
-        &lt;em&gt;Рисунок 1 — Структурная схема микросервисов&lt;/em&gt;
-      &lt;/p&gt;</code></pre>
-                              </div>
+      <p>Главная причина вопроса «почему размер не меняется» — синтаксис другой платформы. Сводка:</p>
+      <div class="article-table-wrapper">
+          <table class="article-table">
+              <thead>
+                  <tr>
+                      <th>Платформа</th>
+                      <th>Как задать размер</th>
+                      <th>Пример</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>GitHub</td>
+                      <td>только HTML <code>&lt;img width&gt;</code>; <code>style</code> вырезается</td>
+                      <td><code>&lt;img src="a.png" width="400"&gt;</code></td>
+                  </tr>
+                  <tr>
+                      <td>GitLab</td>
+                      <td>HTML или атрибуты в фигурных скобках после картинки</td>
+                      <td><code>![a](a.png){width=400 height=300}</code></td>
+                  </tr>
+                  <tr>
+                      <td>Obsidian</td>
+                      <td>ширина (или ширина×высота) через вертикальную черту</td>
+                      <td><code>![[a.png|400]]</code>, <code>![a|400x300](a.png)</code></td>
+                  </tr>
+                  <tr>
+                      <td>Typora</td>
+                      <td>HTML; при ресайзе мышью редактор сам пишет <code>zoom</code></td>
+                      <td><code>&lt;img src="a.png" style="zoom:50%"&gt;</code></td>
+                  </tr>
+                  <tr>
+                      <td>Pandoc, Quarto</td>
+                      <td>атрибуты в фигурных скобках</td>
+                      <td><code>![a](a.png){width=50%}</code></td>
+                  </tr>
+                  <tr>
+                      <td>kramdown (Jekyll, GitHub Pages)</td>
+                      <td>IAL — атрибуты с двоеточием</td>
+                      <td><code>![a](a.png){: width="400"}</code></td>
+                  </tr>
+                  <tr>
+                      <td>Labkeeper (Markdown-проект)</td>
+                      <td>HTML <code>width</code> в пикселях или процентах, не шире колонки</td>
+                      <td><code>&lt;img src="a.png" width="400"&gt;</code></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <p>Если файл должен одинаково выглядеть везде (README, вики, заметки), выбирайте тег
+      <code>&lt;img&gt;</code> с атрибутом <code>width</code>: его понимают все платформы из
+      таблицы. Синтаксис GitLab, Obsidian и Typora стоит перепроверить в справке вашей версии: эти
+      редакторы обновляются часто.</p>
   - id: 'extended-syntax'
-    title: 'Расширенный синтаксис в Obsidian, Kramdown и Pandoc'
+    title: 'Obsidian, Pandoc и kramdown: размер без HTML'
     html: |2-
-                              <p>Obsidian понимает компактный синтаксис пайпа:
-      <code>![Скриншот|400](image.png)</code>, а kramdown, Pandoc и Quarto — атрибуты в фигурных
-      скобках: <code>![Скриншот](image.png){width=400px}</code>. Это не часть CommonMark и GFM,
-      поэтому на GitHub и в превью Labkeeper размер так не меняется, а атрибуты в скобках выводятся
-      обычным текстом.</p>
-                              <p>Если картинка нужна в PDF точного размера, используйте LaTeX-проект и
-      команду <code>\includegraphics</code> в LaTeX-сегменте; оба пути получить PDF разобраны в
-      инструкции по <a href="/blog/markdown-to-pdf-export">экспорту Markdown в PDF</a>.</p>
+      <p><strong>Obsidian</strong> в хранилищах чаще всего вставляет картинки вики-ссылкой, и размер
+      пишется после вертикальной черты:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">Obsidian</span></div>
+          <pre><code>![[image.png|400]]
+      ![[image.png|400x300]]
+      ![Скриншот|400](image.png)</code></pre>
+      </div>
+      <p>Первая строка задаёт ширину 400 px, вторая — ширину и высоту, третья — ширину для обычной
+      Markdown-ссылки на картинку.</p>
+      <p><strong>Pandoc и Quarto</strong> принимают атрибуты в фигурных скобках:
+      <code>![Скриншот](image.png){width=400px}</code> или <code>{width=50%}</code>. Это удобно при
+      экспорте в PDF и DOCX: Pandoc переводит проценты в долю ширины текста.</p>
+      <p><strong>kramdown</strong> (движок Jekyll и GitHub Pages) использует другой синтаксис — IAL с
+      двоеточием: <code>![Скриншот](image.png){: width="400"}</code>. Запись
+      <code>{width=400px}</code> без двоеточия kramdown не поймёт.</p>
+      <p>Все эти расширения не входят в CommonMark и GFM, поэтому на GitHub и в превью Labkeeper
+      фигурные скобки и <code>|400</code> выводятся обычным текстом. Если картинка нужна в PDF точного
+      размера, используйте LaTeX-сегмент и <code>\includegraphics</code>; оба пути получить PDF
+      разобраны в инструкции по <a href="/blog/markdown-to-pdf-export">экспорту Markdown в
+      PDF</a>.</p>
+  - id: 'centering-images'
+    title: 'Центрирование картинки и подпись к рисунку'
+    html: |2-
+      <p>Чтобы поставить уменьшенную картинку по центру и подписать её, оберните её в абзац с
+      атрибутом <code>align="center"</code>. GitHub этот атрибут сохраняет, в отличие от
+      <code>style</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">Markdown</span></div>
+          <pre><code>&lt;p align="center"&gt;
+        &lt;img src="architecture.png" width="60%" alt="Архитектура сервиса"&gt;&lt;br&gt;
+        Рисунок 1 — Структурная схема микросервисов
+      &lt;/p&gt;</code></pre>
+      </div>
+      <p>Подпись здесь набрана прямым шрифтом: в отчётах по ГОСТ 7.32 подпись «Рисунок 1 —
+      Название» ставят под рисунком по центру, курсив стандарт не требует. В README подпись можно
+      выделить курсивом <code>&lt;em&gt;…&lt;/em&gt;</code> — это дело вкуса. Подробные правила для
+      отчётов собраны в статье об <a href="/blog/software-screenshots-report-gost-caption">оформлении
+      скриншотов программ по ГОСТ</a>.</p>
+  - id: 'layout-tricks'
+    title: 'Картинки в ряд, картинка-ссылка и тёмная тема GitHub'
+    html: |2-
+      <h3>Две картинки рядом</h3>
+      <p>Поставьте два тега <code>&lt;img&gt;</code> в один абзац и задайте каждому ширину чуть меньше
+      половины, чтобы осталось место под пробел:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">Markdown</span></div>
+          <pre><code>&lt;p align="center"&gt;
+        &lt;img src="before.png" alt="До калибровки" width="45%"&gt;
+        &lt;img src="after.png" alt="После калибровки" width="45%"&gt;
+      &lt;/p&gt;</code></pre>
+      </div>
+      <p>На узком экране картинки встанут друг под другом. Для PDF с картинками в ряд и отдельными
+      подписями удобнее LaTeX: см. <a href="/blog/latex-minipage-images-tables-side-by-side">картинки
+      и таблицы рядом через minipage</a>.</p>
+      <h3>Картинка-ссылка</h3>
+      <p>Чтобы картинка открывала сайт по клику, вложите её в ссылку:
+      <code>[![Логотип](logo.png)](https://example.com)</code>. Если нужен ещё и размер, используйте
+      HTML: <code>&lt;a href="https://example.com"&gt;&lt;img src="logo.png" alt="Логотип"
+      width="120"&gt;&lt;/a&gt;</code>.</p>
+      <h3>Светлая и тёмная тема на GitHub</h3>
+      <p>GitHub поддерживает тег <code>&lt;picture&gt;</code>: браузер выберет картинку под тему
+      пользователя.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">Markdown</span></div>
+          <pre><code>&lt;picture&gt;
+        &lt;source media="(prefers-color-scheme: dark)" srcset="logo-dark.png"&gt;
+        &lt;img src="logo-light.png" alt="Логотип проекта" width="200"&gt;
+      &lt;/picture&gt;</code></pre>
+      </div>
+      <p>Другие приёмы оформления README собраны в <a
+      href="/blog/github-readme-template-badges-spoilers">шаблоне README с бейджами и
+      спойлерами</a>.</p>
+  - id: 'faq'
+    title: 'Частые вопросы'
+    html: |2-
+      <h3>Почему на GitHub не работает {width=…}?</h3>
+      <p>Атрибуты в фигурных скобках — расширение Pandoc, GitLab и kramdown. GitHub Flavored Markdown
+      их не знает и выводит скобки как текст. На GitHub размер задают только тегом
+      <code>&lt;img width="…"&gt;</code>.</p>
+      <h3>Как уменьшить картинку в README?</h3>
+      <p>Замените <code>![alt](img.png)</code> на <code>&lt;img src="img.png" alt="…"
+      width="400"&gt;</code> или <code>width="50%"</code>. Атрибут <code>style</code> GitHub
+      вырезает, поэтому <code>style="width:50%"</code> не сработает.</p>
+      <h3>Как задать размер картинки в PDF?</h3>
+      <p>При печати превью в PDF через браузер сохранится ширина из <code>width</code>. При сборке PDF
+      в Labkeeper картинка из Markdown-сегмента получает ширину 0,65 текста, а точный размер задают
+      в LaTeX-сегменте командой <code>\includegraphics[width=…]</code>. Подробнее — в статье об <a
+      href="/blog/markdown-to-pdf-export">экспорте Markdown в PDF</a>.</p>
+      <h3>Можно ли задать и ширину, и высоту?</h3>
+      <p>Можно, но тогда картинка исказится, если соотношение сторон не совпадёт с исходным.
+      Обычно достаточно одной ширины.</p>
 tips:
   - title: 'Векторный формат SVG'
     html: |2-
-      <p>Формат <code>.svg</code> сохраняет векторную четкость схем и логотипов в превью Markdown и на
+      <p>Формат <code>.svg</code> сохраняет векторную чёткость схем и логотипов в превью Markdown и на
       GitHub. В LaTeX-проекте pdfLaTeX SVG не вставляет: для PDF сохраните схему в формате PDF или в
       PNG высокого разрешения.</p>
   - title: 'Пустые строки вокруг HTML'
@@ -147,8 +283,11 @@ editorExample:
   markdown: |2-
     ## Размер изображения
 
-    <img src="{{publicUrl}}/assets/img/logo.svg" alt="width 100" width="100">
+    <img src="{{publicUrl}}/assets/img/logo.svg" alt="Логотип, ширина 100" width="100">
 
-    <img src="{{publicUrl}}/assets/img/logo.svg" alt="width 300" width="300">
+    <img src="{{publicUrl}}/assets/img/logo.svg" alt="Логотип, ширина 300" width="300">
 
-    В превью Labkeeper ширины 100 и 300 сохранятся, пока колонка не уже картинки.
+    <img src="{{publicUrl}}/assets/img/logo.svg" alt="Логотип, половина колонки" width="50%">
+
+    В превью Labkeeper ширины 100 и 300 пикселей сохранятся, пока колонка не уже картинки, а третья
+    картинка займёт половину колонки.
