@@ -109,6 +109,21 @@ class LandingPagesServerTest(
     }
 
     @Test
+    fun publicPagesHaveExactlyOneH1() {
+        listOf(
+            "/", "/about", "/blog", "/templates", "/blog/latex-formulas", "/templates/mdpi",
+            "/privacy", "/oferta", "/soglas", "/sogl_adv", "/sogl_ds", "/sogl_yam",
+        ).forEach { path ->
+            listOf("ru", "en").forEach { lang ->
+                val body = webTestClient.get().uri(path).cookie("labkeeper_lang", lang).exchange()
+                    .expectStatus().isOk
+                    .expectBody<String>().returnResult().responseBody.orEmpty()
+                withClue("$path ($lang)") { H1.findAll(body).count() shouldBe 1 }
+            }
+        }
+    }
+
+    @Test
     fun blogPagesRenderArticlesFromYaml() {
         get("/about", MediaType.TEXT_HTML).also {
             it shouldContain "<title>О нас — онлайн-редактор Labkeeper</title>"
@@ -308,6 +323,7 @@ class LandingPagesServerTest(
 
     private companion object {
         val WHITESPACE = Regex("\\s+")
+        val H1 = Regex("<h1[\\s>]", RegexOption.IGNORE_CASE)
         val OG_IMAGE = Regex("property=\"og:image\" content=\"([^\"]*)\"")
     }
 }
