@@ -101,8 +101,7 @@ sections:
       Скобочные разделители <code>\(...\)</code> и&nbsp;<code>\[...\]</code> из&nbsp;LaTeX здесь
       не&nbsp;работают и&nbsp;выводятся как обычный текст.</p>
       <div class="article-note">
-          <strong>💡 Попробуйте:</strong> <a href="/project/default?example=markdown-mathjax-katex-latex-math"
-          data-blog-example="true">откройте этот пример в&nbsp;редакторе Labkeeper</a> — превью MathJax
+          <strong>💡 Попробуйте:</strong> <a href="/project/default?example=markdown-mathjax-katex-latex-math">откройте этот пример в&nbsp;редакторе Labkeeper</a> — превью MathJax
           обновляется при наборе, а&nbsp;кнопка «Сохранить в&nbsp;PDF» даёт готовый конспект. Подробнее
           о&nbsp;выгрузке — в&nbsp;статье <a href="/blog/markdown-to-pdf-export">про экспорт Markdown
           в&nbsp;PDF</a>.
