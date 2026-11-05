@@ -35,36 +35,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>[(${publicUrl})]/privacy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>[(${publicUrl})]/oferta</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>[(${publicUrl})]/soglas</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>[(${publicUrl})]/sogl_adv</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>[(${publicUrl})]/sogl_yam</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>[(${publicUrl})]/sogl_ds</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
   <url th:each="page : ${wikiPages}">
     <loc th:text="|${publicUrl}/wiki/${page}|">[(${publicUrl})]/wiki/index.html</loc>
     <changefreq>monthly</changefreq>

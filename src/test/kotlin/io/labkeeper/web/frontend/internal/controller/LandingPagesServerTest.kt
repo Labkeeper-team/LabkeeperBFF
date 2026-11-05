@@ -204,6 +204,27 @@ class LandingPagesServerTest(
     }
 
     @Test
+    fun legalPagesStayOutOfTheSitemap() {
+        val sitemap = get("/sitemap.xml", MediaType.APPLICATION_XML)
+        listOf("/", "/about", "/blog", "/templates").forEach { path ->
+            withClue(path) { sitemap shouldContain "<loc>https://labkeeper.test$path</loc>" }
+        }
+        listOf("/privacy", "/oferta", "/soglas", "/sogl_adv", "/sogl_ds", "/sogl_yam").forEach { path ->
+            withClue(path) { sitemap shouldNotContain "https://labkeeper.test$path<" }
+        }
+
+        listOf("/soglas", "/sogl_adv", "/sogl_ds", "/sogl_yam").forEach { path ->
+            withClue(path) {
+                get(path, MediaType.TEXT_HTML) shouldContain "<meta name=\"robots\" content=\"noindex, follow\""
+            }
+        }
+        // The policy and the offer are trust signals for Yandex, so they stay indexable.
+        listOf("/privacy", "/oferta", "/about", "/").forEach { path ->
+            withClue(path) { get(path, MediaType.TEXT_HTML) shouldNotContain "noindex" }
+        }
+    }
+
+    @Test
     fun staticAssetsAreServed() {
         get("/assets/css/style.css", MediaType.valueOf("text/css")) shouldContain "--c-primary"
         get("/assets/img/logo.svg") shouldContain "<svg"
