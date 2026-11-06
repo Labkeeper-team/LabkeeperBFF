@@ -13,7 +13,7 @@ keywords:
   - критический путь расчет пример
   - сетевой график tikz latex
 datePublished: '2026-11-05'
-dateModified: '2026-11-05'
+dateModified: '2026-11-06'
 readingTime: 9 мин
 cardTitle: 'Сетевая диаграмма проекта: критический путь и схема TikZ'
 cardDescription: Как построить сетевой график, рассчитать ранние и поздние сроки и полный резерв работ. Учебный проект из шести работ, вычисления и схема TikZ в отчете.
@@ -145,8 +145,17 @@ sections:
       \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
       \titlespacing{\section}{\parindent}{0pt}{12pt}
       \newcommand{\reportsection}[1]{\clearpage\section{#1}}
-      \captionsetup[table]{labelsep=endash,justification=raggedright,singlelinecheck=false}
-      \captionsetup[figure]{labelsep=endash}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
       \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
       \pagestyle{plain}
       \newcolumntype{Y}{&gt;{\raggedright\arraybackslash}X}
@@ -164,9 +173,9 @@ sections:
       \begin{table}[htbp]
       \caption{Работы учебного проекта}
       \label{tab:tasks}
-      \begin{tabularx}{\textwidth}{|c|Y|c|c|}
+      \begin{tabularx}{\textwidth}{|l|Y|c|c|}
       \hline
-      Код &amp; Работа &amp; Дни &amp; Предшественники \\
+      \multicolumn{1}{|c|}{\shortstack[c]{Код}} &amp; \multicolumn{1}{c|}{\shortstack[c]{Работа}} &amp; \multicolumn{1}{c|}{\shortstack[c]{Длительность,\\раб. дней}} &amp; \multicolumn{1}{c|}{\shortstack[c]{Предшественники}} \\
       \hline
       A &amp; Согласовать требования &amp; 2 &amp; --- \\
       B &amp; Подготовить прототип &amp; 4 &amp; A \\
@@ -206,11 +215,93 @@ sections:
       \end{figure}
 
       \reportsection{Расчет сроков и резервов}
-      Прямой проход: $ES_i=\max EF_j$ по предшественникам,
-      $EF_i=ES_i+d_i$. Для начальной работы $ES_A=0$.
-      Обратный проход: $LF_i=\min LS_k$ по последователям,
-      $LS_i=LF_i-d_i$. Для конечной работы $LF_F=EF_F$.
-      Полный резерв $R_i=LS_i-ES_i$.
+      При прямом проходе ранние сроки определяются по формулам
+      \eqref{eq:early-start} и~\eqref{eq:early-finish}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:early-start}
+      ES_i=\max_{j\in\operatorname{Pred}(i)}EF_j,
+      \end{equation}
+
+      где $ES_i$ --- раннее начало работы $i$, рабочие дни от начала проекта;\par
+      $\operatorname{Pred}(i)$ --- множество предшественников работы $i$;\par
+      $EF_j$ --- раннее окончание предшественника $j$, рабочие дни.
+      \end{minipage}\par
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:early-finish}
+      EF_i=ES_i+d_i,
+      \end{equation}
+
+      где $EF_i$ --- раннее окончание работы $i$, рабочие дни;\par
+      $ES_i$ --- раннее начало работы $i$, рабочие дни;\par
+      $d_i$ --- длительность работы $i$, рабочие дни.
+      \end{minipage}\par
+
+      Для начальной работы принято $ES_A=0$.
+      При обратном проходе поздние сроки рассчитываются по формулам
+      \eqref{eq:late-finish} и~\eqref{eq:late-start}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:late-finish}
+      LF_i=\min_{k\in\operatorname{Succ}(i)}LS_k,
+      \end{equation}
+
+      где $LF_i$ --- позднее окончание работы $i$, рабочие дни;\par
+      $\operatorname{Succ}(i)$ --- множество последователей работы $i$;\par
+      $LS_k$ --- позднее начало последователя $k$, рабочие дни.
+      \end{minipage}\par
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:late-start}
+      LS_i=LF_i-d_i,
+      \end{equation}
+
+      где $LS_i$ --- позднее начало работы $i$, рабочие дни;\par
+      $LF_i$ --- позднее окончание работы $i$, рабочие дни;\par
+      $d_i$ --- длительность работы $i$, рабочие дни.
+      \end{minipage}\par
+
+      Для конечной работы принято $LF_F=EF_F$.
+      Полный резерв определяется по формуле~\eqref{eq:float}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:float}
+      R_i=LS_i-ES_i,
+      \end{equation}
+
+      где $R_i$ --- полный резерв работы $i$, рабочие дни;\par
+      $LS_i$ --- позднее начало работы $i$, рабочие дни;\par
+      $ES_i$ --- раннее начало работы $i$, рабочие дни.
+      \end{minipage}\par
+
       Результаты приведены в таблице~\ref{tab:dates}.
 
       \begin{table}[htbp]
@@ -218,7 +309,7 @@ sections:
       \label{tab:dates}
       \begin{tabularx}{\textwidth}{|Y|r|r|r|r|r|}
       \hline
-      Код &amp; $ES$ &amp; $EF$ &amp; $LS$ &amp; $LF$ &amp; $R$ \\
+      \multicolumn{1}{|c|}{\shortstack[c]{Код}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$ES$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$EF$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$LS$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$LF$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$R$}} \\
       \hline
       A &amp; ${es_A} &amp; ${ef_A} &amp; ${ls_A} &amp; ${lf_A} &amp; ${r_A} \\
       B &amp; ${es_B} &amp; ${ef_B} &amp; ${ls_B} &amp; ${lf_B} &amp; ${r_B} \\
@@ -305,8 +396,17 @@ editorExample:
       \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
       \titlespacing{\section}{\parindent}{0pt}{12pt}
       \newcommand{\reportsection}[1]{\clearpage\section{#1}}
-      \captionsetup[table]{labelsep=endash,justification=raggedright,singlelinecheck=false}
-      \captionsetup[figure]{labelsep=endash}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
       \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
       \pagestyle{plain}
       \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
@@ -324,9 +424,9 @@ editorExample:
       \begin{table}[htbp]
       \caption{Работы учебного проекта}
       \label{tab:tasks}
-      \begin{tabularx}{\textwidth}{|c|Y|c|c|}
+      \begin{tabularx}{\textwidth}{|l|Y|c|c|}
       \hline
-      Код & Работа & Дни & Предшественники \\
+      \multicolumn{1}{|c|}{\shortstack[c]{Код}} & \multicolumn{1}{c|}{\shortstack[c]{Работа}} & \multicolumn{1}{c|}{\shortstack[c]{Длительность,\\раб. дней}} & \multicolumn{1}{c|}{\shortstack[c]{Предшественники}} \\
       \hline
       A & Согласовать требования & 2 & --- \\
       B & Подготовить прототип & 4 & A \\
@@ -366,11 +466,93 @@ editorExample:
       \end{figure}
 
       \reportsection{Расчет сроков и резервов}
-      Прямой проход: $ES_i=\max EF_j$ по предшественникам,
-      $EF_i=ES_i+d_i$. Для начальной работы $ES_A=0$.
-      Обратный проход: $LF_i=\min LS_k$ по последователям,
-      $LS_i=LF_i-d_i$. Для конечной работы $LF_F=EF_F$.
-      Полный резерв $R_i=LS_i-ES_i$.
+      При прямом проходе ранние сроки определяются по формулам
+      \eqref{eq:early-start} и~\eqref{eq:early-finish}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:early-start}
+      ES_i=\max_{j\in\operatorname{Pred}(i)}EF_j,
+      \end{equation}
+
+      где $ES_i$ --- раннее начало работы $i$, рабочие дни от начала проекта;\par
+      $\operatorname{Pred}(i)$ --- множество предшественников работы $i$;\par
+      $EF_j$ --- раннее окончание предшественника $j$, рабочие дни.
+      \end{minipage}\par
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:early-finish}
+      EF_i=ES_i+d_i,
+      \end{equation}
+
+      где $EF_i$ --- раннее окончание работы $i$, рабочие дни;\par
+      $ES_i$ --- раннее начало работы $i$, рабочие дни;\par
+      $d_i$ --- длительность работы $i$, рабочие дни.
+      \end{minipage}\par
+
+      Для начальной работы принято $ES_A=0$.
+      При обратном проходе поздние сроки рассчитываются по формулам
+      \eqref{eq:late-finish} и~\eqref{eq:late-start}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:late-finish}
+      LF_i=\min_{k\in\operatorname{Succ}(i)}LS_k,
+      \end{equation}
+
+      где $LF_i$ --- позднее окончание работы $i$, рабочие дни;\par
+      $\operatorname{Succ}(i)$ --- множество последователей работы $i$;\par
+      $LS_k$ --- позднее начало последователя $k$, рабочие дни.
+      \end{minipage}\par
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:late-start}
+      LS_i=LF_i-d_i,
+      \end{equation}
+
+      где $LS_i$ --- позднее начало работы $i$, рабочие дни;\par
+      $LF_i$ --- позднее окончание работы $i$, рабочие дни;\par
+      $d_i$ --- длительность работы $i$, рабочие дни.
+      \end{minipage}\par
+
+      Для конечной работы принято $LF_F=EF_F$.
+      Полный резерв определяется по формуле~\eqref{eq:float}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:float}
+      R_i=LS_i-ES_i,
+      \end{equation}
+
+      где $R_i$ --- полный резерв работы $i$, рабочие дни;\par
+      $LS_i$ --- позднее начало работы $i$, рабочие дни;\par
+      $ES_i$ --- раннее начало работы $i$, рабочие дни.
+      \end{minipage}\par
+
       Результаты приведены в таблице~\ref{tab:dates}.
 
       \begin{table}[htbp]
@@ -378,7 +560,7 @@ editorExample:
       \label{tab:dates}
       \begin{tabularx}{\textwidth}{|Y|r|r|r|r|r|}
       \hline
-      Код & $ES$ & $EF$ & $LS$ & $LF$ & $R$ \\
+      \multicolumn{1}{|c|}{\shortstack[c]{Код}} & \multicolumn{1}{c|}{\shortstack[c]{$ES$}} & \multicolumn{1}{c|}{\shortstack[c]{$EF$}} & \multicolumn{1}{c|}{\shortstack[c]{$LS$}} & \multicolumn{1}{c|}{\shortstack[c]{$LF$}} & \multicolumn{1}{c|}{\shortstack[c]{$R$}} \\
       \hline
       A & ${es_A} & ${ef_A} & ${ls_A} & ${lf_A} & ${r_A} \\
       B & ${es_B} & ${ef_B} & ${ls_B} & ${lf_B} & ${r_B} \\

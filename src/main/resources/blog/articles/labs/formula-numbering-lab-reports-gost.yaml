@@ -27,7 +27,7 @@ keywords:
   - 'как нумеровать формулы в лабораторной'
   - 'нумерация формул по разделам гост'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-05'
 readingTime: '6 мин'
 cardTitle: 'Нумерация математических формул в отчетах и ВКР по ГОСТ'
 cardDescription: |2-
@@ -81,19 +81,61 @@ sections:
   - id: 'latex-setup'
     title: 'Как нумеровать формулы в лабораторной: базовый amsmath и equation'
     html: |2-
+      <p>Ниже самостоятельный пример оформления отдельного элемента: A4, 14 пт, поля 30/15/20/20 мм, полуторный интервал и абзац 1,25 см. Это не полный отчет: титульный лист, содержание и список источников не включены. При вставке в основной документ сохраните его преамбулу и согласуйте оформление с методичкой кафедры; ГОСТ 7.32-2017 относится к отчетам о НИР.</p>
                               <p>Разберем практически, <strong>как нумеровать формулы в
       лабораторной</strong> с помощью пакета <code>amsmath</code>:</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\usepackage{amsmath}
-
-      Расчет кинетической энергии выполняется по формуле:
+                                  <pre><code>\documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage{setspace}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \usepackage{amsmath,needspace}
+      \usepackage{titlesec}
+      \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{\baselineskip}
+      \usepackage[hidelinks]{hyperref}
+      \setlength{\abovedisplayskip}{\baselineskip}
+      \setlength{\belowdisplayskip}{\baselineskip}
+      \numberwithin{equation}{section}
+      \begin{document}
+      \section{Кинетическая энергия}
+      Расчет выполняют по формуле~\eqref{eq:kinetic-energy}.
+      \Needspace{12\baselineskip}
       \begin{equation}
-          E_k = \frac{m \cdot v^2}{2},
-          \label{eq:kinetic-energy}
+      E_k=\frac{mv^2}{2},\label{eq:kinetic-energy}
       \end{equation}
-      где $m$ --- масса тела, $v$ --- линейная скорость.</code></pre>
+
+      где~\begin{tabular}[t]{@{}l@{ --- }p{.65\textwidth}@{}}
+      $E_k$ &amp; кинетическая энергия, Дж;\\
+      $m$ &amp; масса тела, кг;\\
+      $v$ &amp; линейная скорость, м/с.
+      \end{tabular}
+
+      В учебном примере при $m=2$~кг и $v=3$~м/с получаем $E_k=9$~Дж.
+      \clearpage
+      \section{Мощность}
+      Среднюю мощность определяют по формуле~\eqref{eq:power}.
+      \Needspace{10\baselineskip}
+      \begin{equation}
+      P=\frac{A}{t},\label{eq:power}
+      \end{equation}
+
+      где~\begin{tabular}[t]{@{}l@{ --- }p{.65\textwidth}@{}}
+      $P$ &amp; средняя мощность, Вт;\\
+      $A$ &amp; работа, Дж;\\
+      $t$ &amp; время выполнения работы, с.
+      \end{tabular}
+
+      При $A=18$~Дж и $t=2$~с получаем $P=9$~Вт.
+      Формулы~\eqref{eq:kinetic-energy} и~\eqref{eq:power} имеют номера (1.1) и (2.1).
+      \end{document}</code></pre>
                               </div>
                               <p>Метка <code>\label{eq:...}</code> фиксирует символьное имя формулы,
       что исключает ошибки при изменении порядка уравнений в ходе доработки работы. Обратите внимание
@@ -133,7 +175,7 @@ sections:
                                   <pre><code>Подставляя начальные условия в выражение~\eqref{eq:kinetic-energy}, получаем...</code></pre>
                               </div>
                               <p>Команда <code>\eqref</code> автоматически оборачивает номер в круглые
-      скобки и превращает его в кликабельную гиперссылку в PDF.</p>
+      скобки. Подключенный в примере пакет <code>hyperref</code> делает номер кликабельным в PDF.</p>
 tips:
   - title: 'Знаки препинания в формулах'
     html: |2-
@@ -142,21 +184,58 @@ tips:
       пробелом <code>\,</code>.</p>
   - title: 'Нумерация групп формул (subequations)'
     html: |2-
-      <p>Для системы связанных уравнений используйте окружение <code>\begin{subequations}</code>,
-      которое присвоит уравнениям индексы (1a), (1b), (1c).</p>
+      <p>Окружение <code>\begin{subequations}</code> присваивает связанным уравнениям индексы (1a), (1b), (1c). Это дополнительная возможность amsmath, а не вариант нумерации по ГОСТ 7.32-2017; применяйте ее только по согласованию с методичкой.</p>
 editorExample:
-  latex: |2-
-    \documentclass[a4paper,12pt]{article}
-    \usepackage[T2A]{fontenc}
-    \usepackage[russian]{babel}
-    \usepackage{amsmath}
-    \numberwithin{equation}{section}
-    \begin{document}
-    \section{Закон Ома}
-    \begin{equation}U=IR,\label{eq:ohm}\end{equation}
+  - type: 'latex'
+    text: |2-
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage{setspace}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \usepackage{amsmath,needspace}
+      \usepackage{titlesec}
+      \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{\baselineskip}
+      \usepackage[hidelinks]{hyperref}
+      \setlength{\abovedisplayskip}{\baselineskip}
+      \setlength{\belowdisplayskip}{\baselineskip}
+      \numberwithin{equation}{section}
+      \begin{document}
+      \section{Кинетическая энергия}
+      Расчет выполняют по формуле~\eqref{eq:kinetic-energy}.
+      \Needspace{12\baselineskip}
+      \begin{equation}
+      E_k=\frac{mv^2}{2},\label{eq:kinetic-energy}
+      \end{equation}
 
-    где $U$ --- напряжение, $I$ --- ток, $R$ --- сопротивление.
-    \section{Мощность}
-    \begin{equation}P=UI=I^2R.\label{eq:p}\end{equation}
-    Формула~\eqref{eq:p} следует из~\eqref{eq:ohm}.
-    \end{document}
+      где~\begin{tabular}[t]{@{}l@{ --- }p{.65\textwidth}@{}}
+      $E_k$ & кинетическая энергия, Дж;\\
+      $m$ & масса тела, кг;\\
+      $v$ & линейная скорость, м/с.
+      \end{tabular}
+
+      В учебном примере при $m=2$~кг и $v=3$~м/с получаем $E_k=9$~Дж.
+      \clearpage
+      \section{Мощность}
+      Среднюю мощность определяют по формуле~\eqref{eq:power}.
+      \Needspace{10\baselineskip}
+      \begin{equation}
+      P=\frac{A}{t},\label{eq:power}
+      \end{equation}
+
+      где~\begin{tabular}[t]{@{}l@{ --- }p{.65\textwidth}@{}}
+      $P$ & средняя мощность, Вт;\\
+      $A$ & работа, Дж;\\
+      $t$ & время выполнения работы, с.
+      \end{tabular}
+
+      При $A=18$~Дж и $t=2$~с получаем $P=9$~Вт.
+      Формулы~\eqref{eq:kinetic-energy} и~\eqref{eq:power} имеют номера (1.1) и (2.1).
+      \end{document}
+    parameters:
+      visible: true

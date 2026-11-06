@@ -3,7 +3,7 @@ slug: 'specialist-workstation-diploma-design'
 batch: 3
 title: 'Автоматизированное рабочее место специалиста: разработка АРМ в дипломе'
 pageTitle: 'Разработка АРМ специалиста в дипломе: требования, модель данных и проверка — Labkeeper'
-metaDescription: |2-
+metaDescription: |-
   Как описать разработку АРМ в ВКР: границы задачи, требования с критериями приемки,
   модель заявок, архитектура и проверка прототипа. Пример таблицы требований в LaTeX.
 breadcrumbTitle: 'Разработка АРМ специалиста'
@@ -18,7 +18,7 @@ datePublished: '2026-10-31'
 dateModified: '2026-11-05'
 readingTime: '8 мин'
 cardTitle: 'Разработка АРМ в ВКР: от рабочего сценария до проверяемого прототипа'
-cardDescription: |2-
+cardDescription: |-
   Учебный проект учета заявок: роли, состояния, таблица требований, модель хранения
   и архитектура. Связываем каждую функцию с проверкой и обоснованием результата.
 sliderTitle: 'Разработка АРМ специалиста'
@@ -42,7 +42,7 @@ toc:
 sections:
   - id: 'scope'
     title: 'Как определить назначение и границы АРМ'
-    html: |2-
+    html: |-
       <p>В теме «Разработка АРМ специалиста» АРМ означает автоматизированное рабочее
       место: программные и технические средства для конкретных задач сотрудника.
       Начинайте описание с процесса, исполнителя и ожидаемого результата.</p>
@@ -64,7 +64,7 @@ sections:
       и подтверждения: демонстрация прототипа сама по себе внедрением не является.</p>
   - id: 'requirements'
     title: 'Требования: функция и критерий приемки'
-    html: |2-
+    html: |-
       <p>Перед составлением требований выполните
       <a href="/blog/domestic-foreign-analogues-comparison-diploma">сравнение отечественных и зарубежных аналогов</a>:
       отделите обязательные условия от предпочтений и проверьте устойчивость выбора.</p>
@@ -98,7 +98,7 @@ sections:
       результат восстановления. Числовые пороги согласуйте с задачей и возможностями стенда.</p>
   - id: 'data'
     title: 'Модель данных, роли и состояния заявки'
-    html: |2-
+    html: |-
       <p>В этой модели роли <strong>оператор</strong> и <strong>наблюдатель</strong> задают
       разрешенные действия пользователя. Состояния <strong>Новая</strong>,
       <strong>В работе</strong>, <strong>Закрыта</strong> описывают этап обработки заявки.
@@ -128,7 +128,7 @@ sections:
       учетных записей не включен в перечисленные функции.</p>
   - id: 'architecture'
     title: 'Как обосновать архитектуру прототипа'
-    html: |2-
+    html: |-
       <p>Для учебного АРМ выберем веб-интерфейс, сервер приложения и реляционную базу.
       Такое разбиение связывается с требованиями: интерфейс показывает карточку и очередь,
       сервер проверяет действия, база хранит связанные записи.</p>
@@ -150,7 +150,7 @@ sections:
       сущность для этого примера не требуется.</p>
   - id: 'validation'
     title: 'Проверка функций и оценка полезности'
-    html: |2-
+    html: |-
       <p>Составьте протокол по ID требований: подготовка данных, действия, ожидаемый
       результат, фактический результат и ссылка на подтверждение. Таблица выше задает
       проверки, но не сообщает, что они уже выполнены.</p>
@@ -177,32 +177,57 @@ sections:
       <a href="/blog/diploma-economic-efficiency-calculation-example">пример расчета экономической эффективности</a>.</p>
   - id: 'latex'
     title: 'Таблица требований и модель данных в LaTeX'
-    html: |2-
-      <p>Самостоятельный документ ниже содержит таблицу требований
-      и описание данных. Класс <code>extarticle</code> дает размер 14 pt,
+    html: |-
+      <p>Самостоятельно компилируемый пример показывает фрагмент основной части работы:
+      таблицу требований и описание данных. Заголовки условны; при переносе в ВКР
+      согласуйте их с нумерацией разделов и структурой документа. Класс <code>extarticle</code> дает размер 14 pt,
       <code>tempora</code> — шрифт семейства Times, <code>indentfirst</code> — отступ
-      первого абзаца после заголовка. Поля и межстрочный интервал сверьте с методичкой кафедры.</p>
+      первого абзаца после заголовка. Номер и название таблицы приведены по
+      <a href="https://library.istu.edu/content/gost-7-32-2017.pdf">ГОСТ 7.32-2017</a>
+      для отчета о НИР; нумерацию, поля и межстрочный интервал ВКР сверьте с методичкой кафедры.</p>
       <div class="article-code">
           <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
           <pre><code>\documentclass[a4paper,14pt]{extarticle}
       \usepackage[T2A]{fontenc}
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
-      \usepackage{tempora,setspace,indentfirst,tabularx,titlesec}
+      \usepackage{tempora,amsmath,setspace,indentfirst,tabularx,array,titlesec,caption,needspace}
       \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
       \onehalfspacing
       \setlength{\parindent}{1.25cm}
-      \titlespacing*{\section}{\parindent}{12pt}{6pt}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \newcommand{\reportsection}[1]{\clearpage\section{#1}}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
+      \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+      \pagestyle{plain}
+      \newcolumntype{Y}{&gt;{\raggedright\arraybackslash}X}
+      \setlength{\emergencystretch}{2em}
+      \titleformat{\subsection}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesubsection}{1em}{}
+      \titlespacing{\subsection}{\parindent}{12pt}{6pt}
       \begin{document}
-      \section*{Проект АРМ обработки заявок}
+      \reportsection{Проект АРМ обработки заявок}
       Учебный пример. Проектируется прототип для одного отдела.
       Оператор регистрирует и обрабатывает заявки; наблюдатель только читает их.
+      Требования и способы их проверки приведены в таблице~\ref{tab:requirements}.
       \par\vspace{6pt}
 
+      \begingroup
+      \captionof{table}{Требования к прототипу}\label{tab:requirements}
       \noindent
-      \begin{tabularx}{\linewidth}{|l|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+      \begin{tabularx}{\linewidth}{|l|&gt;{\raggedright\arraybackslash}X|&gt;{\raggedright\arraybackslash}X|}
       \hline
-      ID &amp; Требование &amp; Проверка \\
+      \multicolumn{1}{|c|}{ID} &amp; \multicolumn{1}{c|}{Требование} &amp; \multicolumn{1}{c|}{Проверка} \\
       \hline
       F1 &amp; Регистрация заявки &amp; Пустая тема отклоняется; корректная заявка получает номер и автора. \\
       \hline
@@ -214,9 +239,10 @@ sections:
       \hline
       F5 &amp; Согласованное сохранение &amp; История сохраняется с заявкой; устаревшая версия отклоняется. \\
       \hline
-      \end{tabularx}
+      \end{tabularx}\par
+      \endgroup
 
-      \section*{Модель данных}
+      \subsection{Модель данных}
       Пользователь: номер, логин, роль, признак активности.
       Заявка: номер, тема, описание, состояние, время создания, автор,
       исполнитель, результат и версия. История: ссылка на заявку,
@@ -226,20 +252,20 @@ sections:
       Изменение состояния и история сохраняются в одной транзакции.
       Устаревшая версия карточки требует обновления данных перед повторной попыткой.
 
-      \section*{Границы проверки}
+      \par\Needspace{4\baselineskip}
+      \subsection{Границы проверки}
       Для каждого требования оформляется протокол с ожидаемым и фактическим результатом.
       Нагрузку и восстановление после сбоя проверяют отдельно.
       \end{document}</code></pre>
       </div>
-      <p><a href="/assets/examples/specialist-workstation-design.tex" download>Скачайте полный пример .tex</a>.
-      Кнопка «Просмотреть пример» открывает тот же полный самостоятельный документ
+      <p>Кнопка «Просмотреть пример» открывает приведенный выше самостоятельный документ
       с требованиями F1–F5, моделью данных и границами проверки. В существующий диплом переносите
       содержимое после <code>\begin{document}</code>, согласовав пакеты и оформление
       с преамбулой проекта; основные настройки описаны в
       <a href="/blog/latex-diploma-gost">руководстве по верстке диплома</a>.</p>
 tips:
   - title: 'Проверяйте цепочку от задачи до результата'
-    html: |2-
+    html: |-
       <p>Для каждой функции найдите требование, поле или правило модели,
       компонент реализации и проверку. Пропуск в этой цепочке помогает заметить
       необоснованную функцию или непроверенное обещание.</p>
@@ -249,26 +275,48 @@ related:
   - 'latex-diploma-gost'
 editorExample:
   - type: 'latex'
-    text: |2-
+    text: |-
       \documentclass[a4paper,14pt]{extarticle}
       \usepackage[T2A]{fontenc}
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
-      \usepackage{tempora,setspace,indentfirst,tabularx,titlesec}
+      \usepackage{tempora,amsmath,setspace,indentfirst,tabularx,array,titlesec,caption,needspace}
       \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
       \onehalfspacing
       \setlength{\parindent}{1.25cm}
-      \titlespacing*{\section}{\parindent}{12pt}{6pt}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \newcommand{\reportsection}[1]{\clearpage\section{#1}}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
+      \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+      \pagestyle{plain}
+      \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+      \setlength{\emergencystretch}{2em}
+      \titleformat{\subsection}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesubsection}{1em}{}
+      \titlespacing{\subsection}{\parindent}{12pt}{6pt}
       \begin{document}
-      \section*{Проект АРМ обработки заявок}
+      \reportsection{Проект АРМ обработки заявок}
       Учебный пример. Проектируется прототип для одного отдела.
       Оператор регистрирует и обрабатывает заявки; наблюдатель только читает их.
+      Требования и способы их проверки приведены в таблице~\ref{tab:requirements}.
       \par\vspace{6pt}
 
+      \begingroup
+      \captionof{table}{Требования к прототипу}\label{tab:requirements}
       \noindent
       \begin{tabularx}{\linewidth}{|l|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
       \hline
-      ID & Требование & Проверка \\
+      \multicolumn{1}{|c|}{ID} & \multicolumn{1}{c|}{Требование} & \multicolumn{1}{c|}{Проверка} \\
       \hline
       F1 & Регистрация заявки & Пустая тема отклоняется; корректная заявка получает номер и автора. \\
       \hline
@@ -280,9 +328,10 @@ editorExample:
       \hline
       F5 & Согласованное сохранение & История сохраняется с заявкой; устаревшая версия отклоняется. \\
       \hline
-      \end{tabularx}
+      \end{tabularx}\par
+      \endgroup
 
-      \section*{Модель данных}
+      \subsection{Модель данных}
       Пользователь: номер, логин, роль, признак активности.
       Заявка: номер, тема, описание, состояние, время создания, автор,
       исполнитель, результат и версия. История: ссылка на заявку,
@@ -292,7 +341,8 @@ editorExample:
       Изменение состояния и история сохраняются в одной транзакции.
       Устаревшая версия карточки требует обновления данных перед повторной попыткой.
 
-      \section*{Границы проверки}
+      \par\Needspace{4\baselineskip}
+      \subsection{Границы проверки}
       Для каждого требования оформляется протокол с ожидаемым и фактическим результатом.
       Нагрузку и восстановление после сбоя проверяют отдельно.
       \end{document}

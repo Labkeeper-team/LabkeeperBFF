@@ -15,7 +15,7 @@ keywords:
   - 'оформление раздела бжд в дипломе'
   - 'расчет освещения в дипломе пример'
 datePublished: '2026-10-31'
-dateModified: '2026-10-31'
+dateModified: '2026-11-06'
 readingTime: '8 мин'
 cardTitle: 'БЖД в дипломе: от анализа рабочего места до расчетного обоснования'
 cardDescription: |2-
@@ -147,16 +147,117 @@ sections:
       difference = calculated - target</code></pre>
       </div>
       <p>Кнопка «Просмотреть пример» открывает вычисления и LaTeX-сегмент с исходными
-      данными, формулой и обратной проверкой. Вычислительный сегмент скрыт из вывода.</p>
+      данными, формулами и обратной проверкой. Вычислительный сегмент скрыт из вывода.
+      По умолчанию три значащие цифры дают 303 лк вместо 303,03 лк; это округление
+      отображения, а не способ выбора целого числа светильников.</p>
+      <p>Ниже — самостоятельный расчетный фрагмент с нумерованным разделом и формулами.
+      Оформление страницы основано на ГОСТ 7.32-2017; требования к учебной работе сверяйте
+      с методичкой кафедры. Титул, содержание, введение, заключение, список источников
+      и приложения здесь не включены. При вставке в основной документ используйте его
+      преамбулу и сквозную нумерацию; повторные преамбулу и границы документа удалите.</p>
       <div class="article-code">
           <div class="article-code__header"><span class="article-code__lang">LaTeX-сегмент</span></div>
-          <pre><code>\section*{Расчет освещения}
-      $S=${area}$ м$^2$, $E_0=${target}$ лк, $\Phi=${flux}$ лм.
-      $\eta=${eta}$, $k=${k}$, $z=${z}$.
-      \[N_0=\frac{E_0Skz}{\Phi\eta}=${needed}\]
-      Принято $N=${N}$ светильников.
-      \[E=\frac{N\Phi\eta}{Skz}=${calculated}\text{ лк}\]
-      Разность с заданием: ${difference} лк.</code></pre>
+          <pre><code>\documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,array,tabularx,caption}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \begin{document}
+      \section{Расчет освещения}
+      Вымышленное помещение: $a=${a}$ м, $b=${b}$ м.
+      Условная цель $E_0=${target}$ лк не является универсальной нормой.
+      Поток всего светильника $\Phi=${flux}$ лм; коэффициенты
+      $\eta=${eta}$, $k=${k}$, $z=${z}$ безразмерны и заданы для учебной модели.
+      Площадь определяется по формуле~\eqref{eq:area}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:area}
+      S=ab=${area}\text{ м}^2,
+      \end{equation}
+
+      где $S$ --- площадь помещения, м$^2$;\par
+      $a$ --- длина помещения, м;\par
+      $b$ --- ширина помещения, м.
+      \end{minipage}\par
+      Расчетное число светильников определяется по формуле~\eqref{eq:needed}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:needed}
+      N_0=\frac{E_0Skz}{\Phi\eta}=${needed},
+      \end{equation}
+
+      где $N_0$ --- расчетное число светильников, безразмерное;\par
+      $E_0$ --- условная целевая освещенность, лк;\par
+      $S$ --- площадь помещения, м$^2$;\par
+      $k$ --- коэффициент запаса, безразмерный;\par
+      $z$ --- поправка на неравномерность, безразмерная;\par
+      $\Phi$ --- световой поток всего светильника, лм;\par
+      $\eta$ --- коэффициент использования потока, безразмерный.
+      \end{minipage}\par
+      Принято $N=${N}$ светильников: целое число не меньше $N_0$. Обратная проверка выполняется по формуле~\eqref{eq:illuminance}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:illuminance}
+      E=\frac{N\Phi\eta}{Skz}=${calculated}\text{ лк},
+      \end{equation}
+
+      где $E$ --- расчетная оценка освещенности, лк;\par
+      $N$ --- принятое число светильников, безразмерное;\par
+      $\Phi$ --- световой поток светильника, лм;\par
+      $\eta$ --- коэффициент использования потока, безразмерный;\par
+      $S$ --- площадь помещения, м$^2$;\par
+      $k$ --- коэффициент запаса, безразмерный;\par
+      $z$ --- поправка на неравномерность, безразмерная.
+      \end{minipage}\par
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      Разность с целью определяется по формуле~\eqref{eq:difference}.\par
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:difference}
+      \Delta E=E-E_0=${difference}\text{ лк},
+      \end{equation}
+
+      где $\Delta E$ --- разность с целевым значением, лк;\par
+      $E$ --- расчетная оценка освещенности, лк;\par
+      $E_0$ --- условное целевое значение, лк.
+      \end{minipage}\par
+      При исходных данных $E\approx303{,}03$ лк; стандартные три значащие цифры
+      дают 303 лк. Это округление отображения, а выбор целого $N$ выполняется отдельно.
+      Модель не проверяет распределение освещенности по точкам, слепящее действие,
+      пульсацию и затенение. Для проекта нужны обоснование цели и коэффициентов,
+      схема размещения и проверка остальных требуемых показателей.
+      \end{document}</code></pre>
       </div>
       <p>Если разность отрицательна, выбранное количество не выполняет условие модели.
       При нулевых площади или коэффициенте использования формулы неприменимы.
@@ -215,12 +316,106 @@ editorExample:
       visible: false
   - type: 'latex'
     text: |2-
-      \section*{Расчет освещения}
-      $S=${area}$ м$^2$, $E_0=${target}$ лк, $\Phi=${flux}$ лм.
-      $\eta=${eta}$, $k=${k}$, $z=${z}$.
-      \[N_0=\frac{E_0Skz}{\Phi\eta}=${needed}\]
-      Принято $N=${N}$ светильников.
-      \[E=\frac{N\Phi\eta}{Skz}=${calculated}\text{ лк}\]
-      Разность с заданием: ${difference} лк.
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,array,tabularx,caption}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \begin{document}
+      \section{Расчет освещения}
+      Вымышленное помещение: $a=${a}$ м, $b=${b}$ м.
+      Условная цель $E_0=${target}$ лк не является универсальной нормой.
+      Поток всего светильника $\Phi=${flux}$ лм; коэффициенты
+      $\eta=${eta}$, $k=${k}$, $z=${z}$ безразмерны и заданы для учебной модели.
+      Площадь определяется по формуле~\eqref{eq:area}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:area}
+      S=ab=${area}\text{ м}^2,
+      \end{equation}
+
+      где $S$ --- площадь помещения, м$^2$;\par
+      $a$ --- длина помещения, м;\par
+      $b$ --- ширина помещения, м.
+      \end{minipage}\par
+      Расчетное число светильников определяется по формуле~\eqref{eq:needed}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:needed}
+      N_0=\frac{E_0Skz}{\Phi\eta}=${needed},
+      \end{equation}
+
+      где $N_0$ --- расчетное число светильников, безразмерное;\par
+      $E_0$ --- условная целевая освещенность, лк;\par
+      $S$ --- площадь помещения, м$^2$;\par
+      $k$ --- коэффициент запаса, безразмерный;\par
+      $z$ --- поправка на неравномерность, безразмерная;\par
+      $\Phi$ --- световой поток всего светильника, лм;\par
+      $\eta$ --- коэффициент использования потока, безразмерный.
+      \end{minipage}\par
+      Принято $N=${N}$ светильников: целое число не меньше $N_0$. Обратная проверка выполняется по формуле~\eqref{eq:illuminance}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:illuminance}
+      E=\frac{N\Phi\eta}{Skz}=${calculated}\text{ лк},
+      \end{equation}
+
+      где $E$ --- расчетная оценка освещенности, лк;\par
+      $N$ --- принятое число светильников, безразмерное;\par
+      $\Phi$ --- световой поток светильника, лм;\par
+      $\eta$ --- коэффициент использования потока, безразмерный;\par
+      $S$ --- площадь помещения, м$^2$;\par
+      $k$ --- коэффициент запаса, безразмерный;\par
+      $z$ --- поправка на неравномерность, безразмерная.
+      \end{minipage}\par
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      Разность с целью определяется по формуле~\eqref{eq:difference}.\par
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:difference}
+      \Delta E=E-E_0=${difference}\text{ лк},
+      \end{equation}
+
+      где $\Delta E$ --- разность с целевым значением, лк;\par
+      $E$ --- расчетная оценка освещенности, лк;\par
+      $E_0$ --- условное целевое значение, лк.
+      \end{minipage}\par
+      При исходных данных $E\approx303{,}03$ лк; стандартные три значащие цифры
+      дают 303 лк. Это округление отображения, а выбор целого $N$ выполняется отдельно.
+      Модель не проверяет распределение освещенности по точкам, слепящее действие,
+      пульсацию и затенение. Для проекта нужны обоснование цели и коэффициентов,
+      схема размещения и проверка остальных требуемых показателей.
+      \end{document}
     parameters:
       visible: true

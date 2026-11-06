@@ -40,7 +40,7 @@ keywords:
   - 'шаблон диплома latex гост онлайн'
   - 'оформление курсовой работы в latex'
 datePublished: '2026-08-20'
-dateModified: '2026-10-18'
+dateModified: '2026-11-05'
 readingTime: '12 мин'
 cardTitle: 'Оформление курсовой и диплома по ГОСТ в LaTeX: пошаговый онлайн-гайд'
 cardDescription: |2-
@@ -75,6 +75,8 @@ toc:
     title: 'Приложения'
   - id: 'tips'
     title: 'Практические советы'
+  - id: 'full-example'
+    title: 'Полный код учебного примера'
 sections:
   - id: 'intro'
     title: 'ГОСТ 7.32 и требования к оформлению'
@@ -265,7 +267,7 @@ sections:
       структурные элементы
                                   удобно набирать ненумерованными главами <code>\chapter*</code>, а
       разделы — обычными
-                                  <code>\chapter</code>. Пакет <code>titlesec</code> задаёт для них
+                                  <code>\chapter</code>. Фрагменты ниже показывают отдельные настройки; весь код по кнопке приведен в конце статьи. Пакет <code>titlesec</code> задаёт для них
       разные стили:</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
@@ -274,28 +276,29 @@ sections:
 
       % Разделы: с абзацного отступа, с прописной буквы, полужирные
       \titleformat{\chapter}[block]
-          {\normalfont\bfseries}
-          {\hspace*{\parindent}\thechapter}
+          {\normalfont\normalsize\bfseries\hyphenpenalty=10000\exhyphenpenalty=10000\relax}
+          {\thechapter}
           {0.5em}
           {}
 
       % Структурные элементы (\chapter*): по центру, прописными
       \titleformat{name=\chapter,numberless}[block]
-          {\normalfont\bfseries\filcenter}
+          {\normalfont\normalsize\bfseries\filcenter\hyphenpenalty=10000\exhyphenpenalty=10000\relax}
           {}
           {0pt}
           {\MakeUppercase}
 
       % Подразделы: с абзацного отступа, полужирные
       \titleformat{\section}
-          {\normalfont\bfseries}
+          {\normalfont\normalsize\bfseries\hyphenpenalty=10000\exhyphenpenalty=10000\relax}
           {\thesection}
           {0.5em}
           {}
 
       % Отступы вокруг заголовков
-      \titlespacing*{\chapter}{0pt}{0pt}{14pt}
-      \titlespacing*{\section}{\parindent}{12pt}{6pt}</code></pre>
+      \titlespacing{\chapter}{\parindent}{0pt}{14pt}
+      \titlespacing{name=\chapter,numberless}{0pt}{0pt}{14pt}
+      \titlespacing{\section}{\parindent}{12pt}{6pt}</code></pre>
                               </div>
                               <p>Ненумерованная глава сама в оглавление не попадает: после
       <code>\chapter*{Введение}</code>
@@ -346,38 +349,9 @@ sections:
   - id: 'appendix'
     title: 'Приложения'
     html: |2-
-                              <p>Приложения нумеруются русскими заглавными буквами (А, Б, В...) или
-      латинскими (A, B, C). Для
-                                  автоматической нумерации переопределите счётчик
-      <code>chapter</code>:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\appendix
-      \renewcommand{\thechapter}{\Asbuk{chapter}}  % А, Б, В...
-      \renewcommand{\chaptername}{Приложение}
-      % «ПРИЛОЖЕНИЕ А» по центру, заголовок приложения строкой ниже
-      \titleformat{\chapter}[display]
-          {\normalfont\bfseries\filcenter}
-          {\MakeUppercase{\chaptername}~\thechapter}
-          {0pt}
-          {}
-
-      \chapter{Исходный код программы}
-      % содержимое приложения А
-
-      \chapter{Схема алгоритма}
-      % содержимое приложения Б</code></pre>
-                              </div>
-                              <div class="article-note">
-                                  <strong>💡 Совет:</strong> Команда <code>\Asbuk</code> доступна при
-      подключённом пакете
-                                  <code>babel</code> с опцией <code>russian</code>. Повторный
-      <code>\titleformat</code> после
-                                  <code>\appendix</code> нужен, если заголовки разделов настроены
-      через <code>titlesec</code>,
-                                  как выше: иначе приложение получит заголовок без слова «ПРИЛОЖЕНИЕ».
-                              </div>
+      <p>Приложения начинают с новой страницы, включают в содержание с обозначением, статусом и названием и упоминают в основном тексте. Нумерация страниц продолжается.</p>
+      <p>ГОСТ 7.32-2017 (§ 6.17.4) исключает из кириллических обозначений Ё, З, Й, О, Ч, Ъ, Ы, Ь, из латинских — I и O. Обычная команда <code>\Asbuk</code> не учитывает все эти исключения. В полном примере ниже дана явная ограниченная последовательность А, Б, В с ошибкой при четвертом приложении. Для большего числа приложений расширьте отображение по разрешенному алфавиту.</p>
+      <p>Статус «справочное» выбран автором для учебного образца: согласуйте его с заданием кафедры. В примере счетчики таблиц, рисунков и формул получают букву приложения: А.1.</p>
   - id: 'tips'
     title: 'Практические советы'
     html: |2-
@@ -437,18 +411,246 @@ sections:
                                       </div>
                                   </div>
                               </div>
+  - id: 'full-example'
+    title: 'Полный код учебного примера'
+    html: |2-
+      <p>Ниже весь код по кнопке примера. Это учебный макет оформления, а не полная ВКР или отчет о НИР: список источников и другие обязательные элементы добавляют по заданию кафедры. Реквизиты титула и статус приложения авторские, их нужно согласовать с кафедрой. ГОСТ 7.32-2017 относится к отчетам о НИР; применение к ВКР уточняют по методичке. Повторно соберите документ и сверьте содержание, ссылки и номера объектов с PDF.</p>
+      <div class="article-code"><pre><code>\documentclass[a4paper,14pt]{extreport}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,tocloft}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \setlength{\parskip}{0pt}
+      \pagestyle{plain}
+      \newcommand{\headingfont}{\normalfont\normalsize\bfseries
+        \hyphenpenalty=10000\exhyphenpenalty=10000\relax}
+      \titleformat{\chapter}[block]{\headingfont}
+        {\thechapter}{0.5em}{}
+      \titleformat{name=\chapter,numberless}[block]
+        {\headingfont\filcenter}{}{0pt}{}
+      \titleformat{\section}{\headingfont}{\thesection}{0.5em}{}
+      \titlespacing{\chapter}{\parindent}{0pt}{14pt}
+      \titlespacing{name=\chapter,numberless}{0pt}{0pt}{14pt}
+      \titlespacing{\section}{\parindent}{12pt}{6pt}
+      \setcounter{secnumdepth}{1}
+      \setcounter{tocdepth}{1}
+      \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+      \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+      \renewcommand{\cfttoctitlefont}{\hfill\headingfont}
+      \renewcommand{\cftaftertoctitle}{\hfill}
+      \setlength{\cftbeforetoctitleskip}{0pt}
+      \addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}
+      \newcommand{\structural}[1]{\chapter*{#1}
+        \addcontentsline{toc}{chapter}{#1}}
+      \usepackage{caption,needspace}
+      \usepackage{PTMono} % кириллический моноширинный шрифт для verbatim
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\exhyphenpenalty=10000\relax#1}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing},textformat=gosttitle}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+      \AtBeginDocument{\setlength{\abovedisplayskip}{\baselineskip}
+        \setlength{\belowdisplayskip}{\baselineskip}
+        \setlength{\abovedisplayshortskip}{\baselineskip}
+        \setlength{\belowdisplayshortskip}{\baselineskip}}
+      % Учебное ограничение: только три приложения, А, Б, В.
+      \newcommand{\appendixletter}{\ifcase\value{chapter}\or А\or Б\or В\else
+        \PackageError{example}{Only three appendices supported}{Extend the explicit mapping}\fi}
+      \newcommand{\startappendices}{\appendix
+        \renewcommand{\thechapter}{\appendixletter}
+        \renewcommand{\theequation}{\thechapter.\arabic{equation}}
+        \renewcommand{\thetable}{\thechapter.\arabic{table}}
+        \renewcommand{\thefigure}{\thechapter.\arabic{figure}}}
+      \newcommand{\reportappendix}[3]{\clearpage
+        \refstepcounter{chapter}\label{#3}
+        \addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ \thechapter\space (#1) --- #2}
+        \begin{center}
+          {\headingfont ПРИЛОЖЕНИЕ \thechapter\par}
+          (#1)\par
+          {\headingfont #2\par}
+        \end{center}}
+      \begin{document}
+      % Учебный титул: состав реквизитов уточняют по образцу кафедры.
+      \thispagestyle{empty}
+      \begin{center}
+      Учебное образовательное учреждение\par
+      Кафедра \underline{\hspace{6cm}}\par
+      \vfill
+      {\bfseries УЧЕБНЫЙ МАКЕТ ОФОРМЛЕНИЯ ВКР\par}
+      Тема: \underline{\hspace{8cm}}\par
+      \end{center}
+      \vspace{2cm}
+      \begin{flushright}
+      \begin{minipage}{0.5\textwidth}\raggedright
+      Студент: \underline{\hspace{4cm}}\par
+      Группа: \underline{\hspace{4cm}}\par
+      Руководитель: \underline{\hspace{3cm}}\par
+      \end{minipage}
+      \end{flushright}
+      \vfill
+      \begin{center}Москва, 2026\end{center}
+      \clearpage
+      \tableofcontents
+      \structural{ВВЕДЕНИЕ}
+      Учебный макет демонстрирует оформление, а не результаты исследования.
+      Пример расчета приведен в приложении~\ref{app:example}.
+      \chapter{Методика}
+      Первый абзац раздела сохраняет отступ 1,25 см.
+      \section{Исходные данные}
+      Рассматривается условный безразмерный аргумент.
+      \chapter{Результаты}
+      Оформление проверяют после повторной компиляции.
+      \structural{ЗАКЛЮЧЕНИЕ}
+      Показаны настройки документа; содержательные выводы заполняют по результатам работы.
+      \startappendices
+      \reportappendix{справочное}{Учебный расчет}{app:example}
+      Вычисление квадрата показано формулой~\eqref{eq:square},
+      значения --- в таблице~\ref{tab:values}, схема --- на рисунке~\ref{fig:flow}.
+      Все данные учебные.
+      \Needspace{8\baselineskip}
+      \begin{equation}\label{eq:square}
+        y=x^2,
+      \end{equation}
+      где $y$ --- квадрат аргумента, безразмерная величина;\par
+      \noindent $x$ --- аргумент, безразмерная величина.
+      \begin{table}[htbp]
+        \caption{Учебные значения}\label{tab:values}
+        \centering
+        \begin{tabular}{|r|r|}\hline
+          \multicolumn{1}{|c|}{$x$} &amp; \multicolumn{1}{c|}{$y$} \\\hline
+          2 &amp; 4 \\\hline
+        \end{tabular}
+      \end{table}
+      \begin{figure}[htbp]
+        \centering
+        \fbox{\parbox{0.65\textwidth}{\centering Ввод $x$ $\longrightarrow$
+          Вычисление $x^2$ $\longrightarrow$ Вывод $y$}}
+        \caption{Учебная схема вычисления}\label{fig:flow}
+      \end{figure}
+      \end{document}</code></pre></div>
 editorExample:
-  latex: |2-
-    \documentclass[a4paper,12pt]{article}
-    \usepackage[T2A]{fontenc}
-    \usepackage[utf8]{inputenc}
-    \usepackage[english,russian]{babel}
-    \usepackage{amsmath,graphicx}
-    \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-    \usepackage{setspace}\onehalfspacing\setlength{\parindent}{1.25cm}
-    \begin{document}
-    \tableofcontents
-    \newpage\section{Введение}
-    Цель работы: сравнить методы расчета.
-    \section{Методика}Описание эксперимента.
-    \end{document}
+  - type: 'latex'
+    text: |2-
+      \documentclass[a4paper,14pt]{extreport}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,tocloft}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \setlength{\parskip}{0pt}
+      \pagestyle{plain}
+      \newcommand{\headingfont}{\normalfont\normalsize\bfseries
+        \hyphenpenalty=10000\exhyphenpenalty=10000\relax}
+      \titleformat{\chapter}[block]{\headingfont}
+        {\thechapter}{0.5em}{}
+      \titleformat{name=\chapter,numberless}[block]
+        {\headingfont\filcenter}{}{0pt}{}
+      \titleformat{\section}{\headingfont}{\thesection}{0.5em}{}
+      \titlespacing{\chapter}{\parindent}{0pt}{14pt}
+      \titlespacing{name=\chapter,numberless}{0pt}{0pt}{14pt}
+      \titlespacing{\section}{\parindent}{12pt}{6pt}
+      \setcounter{secnumdepth}{1}
+      \setcounter{tocdepth}{1}
+      \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+      \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+      \renewcommand{\cfttoctitlefont}{\hfill\headingfont}
+      \renewcommand{\cftaftertoctitle}{\hfill}
+      \setlength{\cftbeforetoctitleskip}{0pt}
+      \addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}
+      \newcommand{\structural}[1]{\chapter*{#1}
+        \addcontentsline{toc}{chapter}{#1}}
+      \usepackage{caption,needspace}
+      \usepackage{PTMono} % кириллический моноширинный шрифт для verbatim
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\exhyphenpenalty=10000\relax#1}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing},textformat=gosttitle}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+      \AtBeginDocument{\setlength{\abovedisplayskip}{\baselineskip}
+        \setlength{\belowdisplayskip}{\baselineskip}
+        \setlength{\abovedisplayshortskip}{\baselineskip}
+        \setlength{\belowdisplayshortskip}{\baselineskip}}
+      % Учебное ограничение: только три приложения, А, Б, В.
+      \newcommand{\appendixletter}{\ifcase\value{chapter}\or А\or Б\or В\else
+        \PackageError{example}{Only three appendices supported}{Extend the explicit mapping}\fi}
+      \newcommand{\startappendices}{\appendix
+        \renewcommand{\thechapter}{\appendixletter}
+        \renewcommand{\theequation}{\thechapter.\arabic{equation}}
+        \renewcommand{\thetable}{\thechapter.\arabic{table}}
+        \renewcommand{\thefigure}{\thechapter.\arabic{figure}}}
+      \newcommand{\reportappendix}[3]{\clearpage
+        \refstepcounter{chapter}\label{#3}
+        \addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ \thechapter\space (#1) --- #2}
+        \begin{center}
+          {\headingfont ПРИЛОЖЕНИЕ \thechapter\par}
+          (#1)\par
+          {\headingfont #2\par}
+        \end{center}}
+      \begin{document}
+      % Учебный титул: состав реквизитов уточняют по образцу кафедры.
+      \thispagestyle{empty}
+      \begin{center}
+      Учебное образовательное учреждение\par
+      Кафедра \underline{\hspace{6cm}}\par
+      \vfill
+      {\bfseries УЧЕБНЫЙ МАКЕТ ОФОРМЛЕНИЯ ВКР\par}
+      Тема: \underline{\hspace{8cm}}\par
+      \end{center}
+      \vspace{2cm}
+      \begin{flushright}
+      \begin{minipage}{0.5\textwidth}\raggedright
+      Студент: \underline{\hspace{4cm}}\par
+      Группа: \underline{\hspace{4cm}}\par
+      Руководитель: \underline{\hspace{3cm}}\par
+      \end{minipage}
+      \end{flushright}
+      \vfill
+      \begin{center}Москва, 2026\end{center}
+      \clearpage
+      \tableofcontents
+      \structural{ВВЕДЕНИЕ}
+      Учебный макет демонстрирует оформление, а не результаты исследования.
+      Пример расчета приведен в приложении~\ref{app:example}.
+      \chapter{Методика}
+      Первый абзац раздела сохраняет отступ 1,25 см.
+      \section{Исходные данные}
+      Рассматривается условный безразмерный аргумент.
+      \chapter{Результаты}
+      Оформление проверяют после повторной компиляции.
+      \structural{ЗАКЛЮЧЕНИЕ}
+      Показаны настройки документа; содержательные выводы заполняют по результатам работы.
+      \startappendices
+      \reportappendix{справочное}{Учебный расчет}{app:example}
+      Вычисление квадрата показано формулой~\eqref{eq:square},
+      значения --- в таблице~\ref{tab:values}, схема --- на рисунке~\ref{fig:flow}.
+      Все данные учебные.
+      \Needspace{8\baselineskip}
+      \begin{equation}\label{eq:square}
+        y=x^2,
+      \end{equation}
+      где $y$ --- квадрат аргумента, безразмерная величина;\par
+      \noindent $x$ --- аргумент, безразмерная величина.
+      \begin{table}[htbp]
+        \caption{Учебные значения}\label{tab:values}
+        \centering
+        \begin{tabular}{|r|r|}\hline
+          \multicolumn{1}{|c|}{$x$} & \multicolumn{1}{c|}{$y$} \\\hline
+          2 & 4 \\\hline
+        \end{tabular}
+      \end{table}
+      \begin{figure}[htbp]
+        \centering
+        \fbox{\parbox{0.65\textwidth}{\centering Ввод $x$ $\longrightarrow$
+          Вычисление $x^2$ $\longrightarrow$ Вывод $y$}}
+        \caption{Учебная схема вычисления}\label{fig:flow}
+      \end{figure}
+      \end{document}
+    parameters:
+      visible: true

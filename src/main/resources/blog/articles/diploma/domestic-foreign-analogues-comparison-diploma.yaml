@@ -13,7 +13,7 @@ keywords:
   - сравнительный анализ аналогов вкр
   - таблица сравнения аналогов критерии
 datePublished: '2026-11-05'
-dateModified: '2026-11-05'
+dateModified: '2026-11-06'
 readingTime: 9 мин
 cardTitle: Сравнение отечественных и зарубежных аналогов в дипломе
 cardDescription: Как выбрать сопоставимые аналоги, отделить обязательные требования от баллов и проверить устойчивость выбора. Матрица сравнения и расчет в LaTeX.
@@ -123,8 +123,17 @@ sections:
       \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
       \titlespacing{\section}{\parindent}{0pt}{12pt}
       \newcommand{\reportsection}[1]{\clearpage\section{#1}}
-      \captionsetup[table]{labelsep=endash,justification=raggedright,singlelinecheck=false}
-      \captionsetup[figure]{labelsep=endash}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
       \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
       \pagestyle{plain}
       \newcolumntype{Y}{&gt;{\raggedright\arraybackslash}X}
@@ -146,13 +155,13 @@ sections:
       \label{tab:analogues}
       \begin{tabularx}{\textwidth}{|Y|r|r|r|}
       \hline
-      Критерий &amp; А &amp; Б &amp; В \\
+      \multicolumn{1}{|c|}{\shortstack[c]{Критерий}} &amp; \multicolumn{1}{c|}{\shortstack[c]{А}} &amp; \multicolumn{1}{c|}{\shortstack[c]{Б}} &amp; \multicolumn{1}{c|}{\shortstack[c]{В}} \\
       \hline
       Затраты за год, тыс. руб. &amp; 120 &amp; 180 &amp; 90 \\
       Пройденные сценарии из 10 &amp; 8 &amp; 9 &amp; 6 \\
       Баллы поддержки из 10 &amp; 6 &amp; 9 &amp; 5 \\
       Автономная работа &amp; Да &amp; Да &amp; Да \\
-      Экспорт по требованию &amp; Да &amp; Да &amp; Нет \\
+      Экспорт по требованию &amp; \textquotedbl &amp; \textquotedbl &amp; Нет \\
       \hline
       \end{tabularx}
       \end{table}
@@ -165,11 +174,30 @@ sections:
       Для прошедших отбор А и Б цена нормируется как отношение
       минимальной цены к цене варианта. Сценарии и поддержка нормируются
       на максимум соответствующего показателя среди А и Б.
-      \[
-       S_i=0{,}40\frac{c_{\min}}{c_i}
-           +0{,}35\frac{f_i}{f_{\max}}
-           +0{,}25\frac{s_i}{s_{\max}}.
-      \]
+      Взвешенная оценка определяется по формуле~\eqref{eq:score}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:score}
+      S_i=\alpha\frac{c_{\min}}{c_i}+\beta\frac{f_i}{f_{\max}}+\gamma\frac{s_i}{s_{\max}},
+      \end{equation}
+
+      где $S_i$ --- итоговая безразмерная оценка варианта $i$;\par
+      $\alpha=0{,}40$ --- вес стоимости, безразмерный;\par
+      $c_{\min}$ --- минимальные затраты среди А и Б, тыс. руб./год;\par
+      $c_i$ --- затраты варианта $i$, тыс. руб./год;\par
+      $\beta=0{,}35$ --- вес функциональности, безразмерный;\par
+      $f_i$ --- число сценариев, пройденных вариантом $i$;\par
+      $f_{\max}$ --- максимальное число пройденных сценариев среди А и Б;\par
+      $\gamma=0{,}25$ --- вес поддержки, безразмерный;\par
+      $s_i$ --- оценка поддержки варианта $i$, баллы;\par
+      $s_{\max}$ --- максимальная оценка поддержки среди А и Б, баллы.
+      \end{minipage}\par
+
       Исходные значения: $c_A=120$, $c_{\text{Б}}=180$ тыс. руб./год;
       $f_A=8$, $f_{\text{Б}}=9$; $s_A=6$, $s_{\text{Б}}=9$.
       Веса суммируются в единицу и выбраны автором для упражнения.
@@ -230,8 +258,17 @@ editorExample:
       \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
       \titlespacing{\section}{\parindent}{0pt}{12pt}
       \newcommand{\reportsection}[1]{\clearpage\section{#1}}
-      \captionsetup[table]{labelsep=endash,justification=raggedright,singlelinecheck=false}
-      \captionsetup[figure]{labelsep=endash}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
       \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
       \pagestyle{plain}
       \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
@@ -253,13 +290,13 @@ editorExample:
       \label{tab:analogues}
       \begin{tabularx}{\textwidth}{|Y|r|r|r|}
       \hline
-      Критерий & А & Б & В \\
+      \multicolumn{1}{|c|}{\shortstack[c]{Критерий}} & \multicolumn{1}{c|}{\shortstack[c]{А}} & \multicolumn{1}{c|}{\shortstack[c]{Б}} & \multicolumn{1}{c|}{\shortstack[c]{В}} \\
       \hline
       Затраты за год, тыс. руб. & 120 & 180 & 90 \\
       Пройденные сценарии из 10 & 8 & 9 & 6 \\
       Баллы поддержки из 10 & 6 & 9 & 5 \\
       Автономная работа & Да & Да & Да \\
-      Экспорт по требованию & Да & Да & Нет \\
+      Экспорт по требованию & \textquotedbl & \textquotedbl & Нет \\
       \hline
       \end{tabularx}
       \end{table}
@@ -272,11 +309,30 @@ editorExample:
       Для прошедших отбор А и Б цена нормируется как отношение
       минимальной цены к цене варианта. Сценарии и поддержка нормируются
       на максимум соответствующего показателя среди А и Б.
-      \[
-       S_i=0{,}40\frac{c_{\min}}{c_i}
-           +0{,}35\frac{f_i}{f_{\max}}
-           +0{,}25\frac{s_i}{s_{\max}}.
-      \]
+      Взвешенная оценка определяется по формуле~\eqref{eq:score}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:score}
+      S_i=\alpha\frac{c_{\min}}{c_i}+\beta\frac{f_i}{f_{\max}}+\gamma\frac{s_i}{s_{\max}},
+      \end{equation}
+
+      где $S_i$ --- итоговая безразмерная оценка варианта $i$;\par
+      $\alpha=0{,}40$ --- вес стоимости, безразмерный;\par
+      $c_{\min}$ --- минимальные затраты среди А и Б, тыс. руб./год;\par
+      $c_i$ --- затраты варианта $i$, тыс. руб./год;\par
+      $\beta=0{,}35$ --- вес функциональности, безразмерный;\par
+      $f_i$ --- число сценариев, пройденных вариантом $i$;\par
+      $f_{\max}$ --- максимальное число пройденных сценариев среди А и Б;\par
+      $\gamma=0{,}25$ --- вес поддержки, безразмерный;\par
+      $s_i$ --- оценка поддержки варианта $i$, баллы;\par
+      $s_{\max}$ --- максимальная оценка поддержки среди А и Б, баллы.
+      \end{minipage}\par
+
       Исходные значения: $c_A=120$, $c_{\text{Б}}=180$ тыс. руб./год;
       $f_A=8$, $f_{\text{Б}}=9$; $s_A=6$, $s_{\text{Б}}=9$.
       Веса суммируются в единицу и выбраны автором для упражнения.

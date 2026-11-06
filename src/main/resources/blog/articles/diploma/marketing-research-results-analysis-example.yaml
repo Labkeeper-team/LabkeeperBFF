@@ -3,7 +3,7 @@ slug: 'marketing-research-results-analysis-example'
 batch: 3
 title: 'Анализ результатов маркетингового исследования: проценты, график и выводы'
 pageTitle: 'Анализ маркетингового исследования: пример расчета и оформления — Labkeeper'
-metaDescription: |2-
+metaDescription: |-
   Как проанализировать результаты маркетингового исследования в дипломе: проверить данные,
   рассчитать доли, построить график и сформулировать выводы с учетом ограничений выборки.
 breadcrumbTitle: 'Анализ маркетингового исследования'
@@ -15,10 +15,10 @@ keywords:
   - 'маркетинговое исследование в дипломе пример'
   - 'проценты и графики результатов опроса'
 datePublished: '2026-10-31'
-dateModified: '2026-10-31'
+dateModified: '2026-11-06'
 readingTime: '8 мин'
 cardTitle: 'Маркетинговое исследование: от ответов анкеты до обоснованного вывода'
-cardDescription: |2-
+cardDescription: |-
   Разбираем учебный опрос: база процентов, распределение ответов, процентные пункты,
   график и ограничения интерпретации результатов.
 sliderTitle: 'Анализ маркетингового исследования'
@@ -42,7 +42,7 @@ toc:
 sections:
   - id: 'question'
     title: 'Как связать анализ с вопросом исследования'
-    html: |2-
+    html: |-
       <p>Анализ результатов маркетингового исследования начинается с задачи:
       что именно нужно выяснить и какие данные могут на нее ответить. Например,
       определить, какой из предложенных критериев выбора сервиса чаще называют
@@ -58,7 +58,7 @@ sections:
       Наш вопрос сравнивает только три предложенных критерия и не исчерпывает все причины выбора.</p>
   - id: 'data'
     title: 'Проверка данных и база для процентов'
-    html: |2-
+    html: |-
       <p>До расчета долей проверьте состав массива: правила включения анкет,
       пропуски, повторные записи и допустимые варианты ответа. Критерии обработки
       опишите заранее и сохраните исходные данные отдельно от очищенного набора.</p>
@@ -80,7 +80,7 @@ sections:
       тогда явно укажите, считаете ли долю участников или долю всех выбранных ответов.</p>
   - id: 'calculation'
     title: 'Пример расчета долей и процентных пунктов'
-    html: |2-
+    html: |-
       <div class="article-table-wrapper">
           <table class="article-table">
               <thead><tr><th>Код</th><th>Критерий</th><th>Ответы</th><th>Доля от 120</th></tr></thead>
@@ -103,21 +103,10 @@ sections:
       Сохраняйте числа наблюдений рядом с процентами.</p>
   - id: 'plot'
     title: 'Как показать распределение на графике'
-    html: |2-
-      <p>Для сравнения отдельных категорий подойдет столбчатая диаграмма с общей
-      нулевой линией. Укажите вопрос, единицы по вертикали и базу расчета.
-      В примере Labkeeper по горизонтали используются коды 1, 2 и 3 из таблицы выше:
-      эти числа обозначают категории, а не количественную шкалу.</p>
-      <p>В функции <code>plot</code> столбцы задаются через
-      <code>type_1="histogram"</code> и пары массивов координат и значений.
-      Здесь передаются уже рассчитанные доли категорий: программа не определяет
-      частоты из исходных анкет. Не соединяйте эти категории линией тренда
-      и не делайте вывод о росте при переходе от кода 1 к коду 3.</p>
-      <p>Разместите расчеты в вычислительном сегменте и отключите его отображение
-      в документе. Переменные останутся доступны следующим сегментам.</p>
-      <div class="article-code">
-          <div class="article-code__header"><span class="article-code__lang">Вычислительный сегмент — расчеты</span></div>
-          <pre><code>price = 54
+    html: |-
+      <p>Для категорий используйте столбчатую диаграмму с общей нулевой линией. В <code>plot</code> тип <code>histogram</code> с массивами координат и готовых долей строит столбцы категорий. Коды 1, 2 и 3 обозначают цену, скорость и поддержку; они не являются количественной шкалой.</p>
+      <p>Сначала рассчитайте значения. Этот сегмент можно скрыть: в печатной части ниже остаются исходные количества, формулы и результаты.</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">Вычислительный сегмент — расчеты</span></div><pre><code>price = 54
       speed = 42
       support = 24
       total = price + speed + support
@@ -126,39 +115,121 @@ sections:
       p3 = 100 * support / total
       gap = p1 - p2
       codes = [1, 2, 3]
-      shares = [p1, p2, p3]</code></pre>
-      </div>
-      <p>В следующем вычислительном сегменте оставьте отображение включенным,
-      чтобы диаграмма попала в документ:</p>
-      <div class="article-code">
-          <div class="article-code__header"><span class="article-code__lang">Вычислительный сегмент — график</span></div>
-          <pre><code>plot(title="Критерии выбора", x_name="Код", y_name="Доля, %", x_1=codes, y_1=shares, type_1="histogram", name_1="Ответы")</code></pre>
-      </div>
-      <p>При изменении чисел доли и столбцы пересчитаются. Числа ответов должны
-      быть неотрицательными целыми, а <code>total</code> — больше нуля.
-      Для нулевой базы проценты не определены. Сумма округленных долей иногда
-      отличается от 100% на последнем знаке — поясните округление, не меняя исходные числа.</p>
+      shares = [p1, p2, p3]</code></pre></div>
+      <p>Количество ответов должно быть неотрицательным целым, а база <code>total</code> — положительной. При нулевой базе проценты не определены. Не соединяйте категории линией тренда; округленные доли могут не дать ровно 100%.</p>
   - id: 'editor'
     title: 'Вычислительный сегмент и пример документа'
-    html: |2-
-      <p>Кнопка «Просмотреть пример» открывает отдельные сегменты расчетов и графика и LaTeX-сегмент
-      с пояснением кодов и численными результатами. Значения подставляются через
-      <code>${p1}</code>, <code>${total}</code> и другие переменные.</p>
-      <div class="article-code">
-          <div class="article-code__header"><span class="article-code__lang">LaTeX-сегмент</span></div>
-          <pre><code>\section*{Результаты опроса}
-      Учебные данные, один ответ на вопрос; $n=${total}$.
-      Коды: 1 --- цена, 2 --- скорость, 3 --- поддержка.
-      Цена: ${p1}\%, скорость: ${p2}\%, поддержка: ${p3}\%.
-      Разность первых двух долей: ${gap} п.п.
-      Вывод относится к участникам опроса.</code></pre>
-      </div>
-      <p>Сегмент с расчетами скрыт из вывода, а сегмент с графиком остается видимым.
-      Для другого формата отчета перенесите итоговую таблицу в документ по
-      <a href="/blog/latex-diploma-gost">руководству по верстке диплома</a>.</p>
+    html: |-
+      <p>По кнопке открываются четыре сегмента в порядке печати: расчеты, начало документа с таблицей и формулами, график и завершение с подписью. Пример оформлен с учётом ГОСТ 7.32-2017; требования ВКР сверьте с методичкой кафедры.</p>
+      <p>Это самостоятельный фрагмент основной части. Титул, содержание, библиография и приложения в него не входят. При вставке в полный отчет используйте его преамбулу, сквозную нумерацию и уникальные метки объектов.</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX — данные и расчеты</span></div><pre><code>\documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,tabularx,array,titlesec,caption,needspace}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \newcommand{\reportsection}[1]{\clearpage\section{#1}}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
+      \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+      \pagestyle{plain}
+      \newcolumntype{Y}{&gt;{\raggedright\arraybackslash}X}
+      \setlength{\emergencystretch}{2em}
+      \usepackage{graphicx}
+      \begin{document}
+      \reportsection{Результаты маркетингового опроса}
+      Учебные данные вымышлены. В добровольном онлайн-опросе участник
+      выбирает один главный критерий сервиса: цену, скорость или поддержку.
+      Весов нет; база --- допустимые ответы на этот вопрос.
+      Исходные количества и доли приведены в таблице~\ref{tab:answers}.
+
+      \begin{table}[htbp]
+      \caption{Ответы участников учебного опроса}
+      \label{tab:answers}
+      \begin{tabularx}{\textwidth}{|Y|r|r|}
+      \hline
+      \multicolumn{1}{|c|}{Критерий} &amp; \multicolumn{1}{c|}{Ответы, чел.} &amp; \multicolumn{1}{c|}{Доля, \%} \\
+      \hline
+      Цена &amp; ${price} &amp; ${p1} \\
+      Скорость &amp; ${speed} &amp; ${p2} \\
+      Поддержка &amp; ${support} &amp; ${p3} \\
+      Итого &amp; ${total} &amp; 100 \\
+      \hline
+      \end{tabularx}
+      \end{table}
+
+      Доли рассчитываются по формуле~\eqref{eq:share}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:share}
+      p_i=\frac{n_i}{n}\cdot100\%,
+      \end{equation}
+
+      где $p_i$ --- доля ответов категории $i$, \%;\par
+      $n_i$ --- число ответов категории $i$, чел.;\par
+      $n$ --- число допустимых ответов, чел.;\par
+      $100\%$ --- коэффициент перевода доли в проценты.
+      \end{minipage}\par
+
+      Разность долей цены и скорости определяется по формуле~\eqref{eq:share-gap}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:share-gap}
+      \Delta p=p_1-p_2,
+      \end{equation}
+
+      где $\Delta p$ --- разность долей, процентные пункты;\par
+      $p_1$ --- доля участников, выбравших цену, \%;\par
+      $p_2$ --- доля участников, выбравших скорость, \%.
+      \end{minipage}\par
+
+      Получено: цена --- ${p1}\%, скорость --- ${p2}\%, поддержка --- ${p3}\%.
+      Разность первых двух долей составляет ${gap} п.п.
+      Распределение показано на рисунке~\ref{fig:criteria}.
+      Коды по горизонтали: 1 --- цена, 2 --- скорость, 3 --- поддержка.
+      </code></pre></div>
+      <p>Следующий вычислительный сегмент оставьте видимым: он выводит график после ссылки на рисунок.</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">Вычислительный сегмент — график</span></div><pre><code>plot(title="Критерии выбора", x_name="Код", y_name="Доля, %", x_1=codes, y_1=shares, type_1="histogram", name_1="Ответы")</code></pre></div>
+      <p>Сразу после графика добавьте подпись и завершите документ. Подпись находится вне плавающего окружения и следует за графическим сегментом.</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX — подпись и вывод</span></div><pre><code>\par
+      \nopagebreak[4]
+      \begingroup
+      \captionof{figure}{Критерии выбора сервиса среди участников учебного опроса}
+      \label{fig:criteria}
+      \endgroup
+
+      Вывод относится к ${total} участникам опроса. Добровольный набор
+      не доказывает репрезентативность для всех клиентов; предпочтение
+      не равнозначно намерению купить. Наблюдаемая разность не устанавливает
+      причинное влияние цены на покупку.
+      \end{document}</code></pre></div>
+      <p>После изменения данных проверьте таблицу, доли, подпись и порядок сегментов. По умолчанию значения выводятся с тремя значащими цифрами.</p>
   - id: 'interpretation'
     title: 'Выводы, ограничения и проверка отчета'
-    html: |2-
+    html: |-
       <div class="article-quote">
           <p>«Среди 120 участников, ответивших на вопрос с единственным выбором,
           54 человека выбрали цену (45%), 42 — скорость (35%), 24 — поддержку (20%).
@@ -186,11 +257,11 @@ sections:
       не подставляя долю предпочтений вместо денежного потока.</p>
 tips:
   - title: 'Сохраняйте анкету вместе с данными'
-    html: |2-
+    html: |-
       <p>Приложите формулировку вопроса, порядок вариантов и правила очистки.
       Они помогают понять, что именно измеряют опубликованные проценты.</p>
   - title: 'Проверяйте числа до оформления графика'
-    html: |2-
+    html: |-
       <p>Сначала сверяйте суммы и базы, затем стройте визуализацию.
       Красивый график не исправляет неверный знаменатель в расчете доли.</p>
 related:
@@ -198,8 +269,8 @@ related:
   - 'diploma-economic-efficiency-calculation-example'
   - 'latex-diploma-gost'
 editorExample:
-  - type: 'computational'
-    text: |2-
+  - type: computational
+    text: |-
       price = 54
       speed = 42
       support = 24
@@ -212,18 +283,115 @@ editorExample:
       shares = [p1, p2, p3]
     parameters:
       visible: false
-  - type: 'computational'
-    text: |2-
-      plot(title="Критерии выбора", x_name="Код", y_name="Доля, %", x_1=codes, y_1=shares, type_1="histogram", name_1="Ответы")
+  - type: latex
+    text: |
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,tabularx,array,titlesec,caption,needspace}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \newcommand{\reportsection}[1]{\clearpage\section{#1}}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
+      \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+      \pagestyle{plain}
+      \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+      \setlength{\emergencystretch}{2em}
+      \usepackage{graphicx}
+      \begin{document}
+      \reportsection{Результаты маркетингового опроса}
+      Учебные данные вымышлены. В добровольном онлайн-опросе участник
+      выбирает один главный критерий сервиса: цену, скорость или поддержку.
+      Весов нет; база --- допустимые ответы на этот вопрос.
+      Исходные количества и доли приведены в таблице~\ref{tab:answers}.
+
+      \begin{table}[htbp]
+      \caption{Ответы участников учебного опроса}
+      \label{tab:answers}
+      \begin{tabularx}{\textwidth}{|Y|r|r|}
+      \hline
+      \multicolumn{1}{|c|}{Критерий} & \multicolumn{1}{c|}{Ответы, чел.} & \multicolumn{1}{c|}{Доля, \%} \\
+      \hline
+      Цена & ${price} & ${p1} \\
+      Скорость & ${speed} & ${p2} \\
+      Поддержка & ${support} & ${p3} \\
+      Итого & ${total} & 100 \\
+      \hline
+      \end{tabularx}
+      \end{table}
+
+      Доли рассчитываются по формуле~\eqref{eq:share}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:share}
+      p_i=\frac{n_i}{n}\cdot100\%,
+      \end{equation}
+
+      где $p_i$ --- доля ответов категории $i$, \%;\par
+      $n_i$ --- число ответов категории $i$, чел.;\par
+      $n$ --- число допустимых ответов, чел.;\par
+      $100\%$ --- коэффициент перевода доли в проценты.
+      \end{minipage}\par
+
+      Разность долей цены и скорости определяется по формуле~\eqref{eq:share-gap}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:share-gap}
+      \Delta p=p_1-p_2,
+      \end{equation}
+
+      где $\Delta p$ --- разность долей, процентные пункты;\par
+      $p_1$ --- доля участников, выбравших цену, \%;\par
+      $p_2$ --- доля участников, выбравших скорость, \%.
+      \end{minipage}\par
+
+      Получено: цена --- ${p1}\%, скорость --- ${p2}\%, поддержка --- ${p3}\%.
+      Разность первых двух долей составляет ${gap} п.п.
+      Распределение показано на рисунке~\ref{fig:criteria}.
+      Коды по горизонтали: 1 --- цена, 2 --- скорость, 3 --- поддержка.
     parameters:
       visible: true
-  - type: 'latex'
-    text: |2-
-      \section*{Результаты опроса}
-      Учебные данные, один ответ на вопрос; $n=${total}$.
-      Коды: 1 --- цена, 2 --- скорость, 3 --- поддержка.
-      Цена: ${p1}\%, скорость: ${p2}\%, поддержка: ${p3}\%.
-      Разность первых двух долей: ${gap} п.п.
-      Вывод относится к участникам опроса.
+  - type: computational
+    text: plot(title="Критерии выбора", x_name="Код", y_name="Доля, %", x_1=codes, y_1=shares, type_1="histogram", name_1="Ответы")
+    parameters:
+      visible: true
+  - type: latex
+    text: |-
+      \par
+      \nopagebreak[4]
+      \begingroup
+      \captionof{figure}{Критерии выбора сервиса среди участников учебного опроса}
+      \label{fig:criteria}
+      \endgroup
+
+      Вывод относится к ${total} участникам опроса. Добровольный набор
+      не доказывает репрезентативность для всех клиентов; предпочтение
+      не равнозначно намерению купить. Наблюдаемая разность не устанавливает
+      причинное влияние цены на покупку.
+      \end{document}
     parameters:
       visible: true

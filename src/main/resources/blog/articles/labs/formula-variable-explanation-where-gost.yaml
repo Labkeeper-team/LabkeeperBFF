@@ -28,7 +28,7 @@ keywords:
   - 'как писать пояснения к формуле гост'
   - 'оформление расшифровки формул в отчете'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-05'
 readingTime: '6 мин'
 cardTitle: 'Пояснение переменных в формулах по ГОСТ 7.32: правила и шаблон LaTeX'
 cardDescription: |2-
@@ -107,28 +107,50 @@ sections:
   - id: 'latex-snippets'
     title: 'Готовые шаблоны в LaTeX (список description и таблица tabular)'
     html: |2-
-                              <p>В LaTeX для аккуратного выравнивания тире в столбик используют
+      <p>Ниже самостоятельный пример оформления отдельного элемента: A4, 14 пт, поля 30/15/20/20 мм, полуторный интервал и абзац 1,25 см. Это не полный отчет: титульный лист, содержание и список источников не включены. При вставке в основной документ сохраните его преамбулу и согласуйте оформление с методичкой кафедры; ГОСТ 7.32-2017 относится к отчетам о НИР.</p>
+                              <p>Текстовый образец с газом выше показывает порядок пояснений; следующий самостоятельный LaTeX-пример и кнопка редактора показывают одну и ту же формулу гравитации с номером (1). В LaTeX для аккуратного выравнивания тире в столбик используют
       компактную таблицу <code>tabular</code> без рамок (а для набора размерностей рекомендуем
       использовать <a href="/blog/latex-siunitx">пакет siunitx для физических величин</a>):</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\begin{equation}
-          F = G \frac{m_1 m_2}{r^2},
-          \label{eq:gravity}
+                                  <pre><code>\documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage{setspace}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \usepackage{amsmath,needspace}
+      \usepackage{titlesec}
+      \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{\baselineskip}
+      \usepackage[hidelinks]{hyperref}
+      \setlength{\abovedisplayskip}{\baselineskip}
+      \setlength{\belowdisplayskip}{\baselineskip}
+      \begin{document}
+      Силу гравитационного взаимодействия определяют по формуле~\eqref{eq:gravity}.
+      \Needspace{16\baselineskip}
+      \begin{equation}
+      F=G\frac{m_1m_2}{r^2},\label{eq:gravity}
       \end{equation}
 
-      где~\begin{tabular}[t]{@{}l@{ — }p{0.8\textwidth}@{}}
-      $F$   & сила гравитационного взаимодействия, Н;\\
-      $G$   & гравитационная постоянная, $G \approx 6{,}674 \cdot 10^{-11}$~м$^3$/(кг$\cdot$с$^2$);\\
-      $m_1, m_2$ & массы взаимодействующих тел, кг;\\
-      $r$   & расстояние между центрами масс тел, м.
-      \end{tabular}</code></pre>
+      где~\begin{tabular}[t]{@{}l@{ --- }p{.65\textwidth}@{}}
+      $F$ &amp; сила гравитационного взаимодействия, Н;\\
+      $G$ &amp; гравитационная постоянная, $G\approx6{,}674\cdot10^{-11}$~м$^3$/(кг$\cdot$с$^2$);\\
+      $m_1$ &amp; масса первого тела, кг;\\
+      $m_2$ &amp; масса второго тела, кг;\\
+      $r$ &amp; расстояние между центрами масс тел, м.
+      \end{tabular}
+
+      В учебном примере при $m_1=m_2=1$~кг и $r=1$~м сила составляет приблизительно $6{,}674\cdot10^{-11}$~Н.
+      \end{document}</code></pre>
                               </div>
                               <p>Конструкция <code>@{}l@{ — }p{...}</code> автоматически ставит
       длинное тире между колонками и обеспечивает аккуратный перенос длинного текста расшифровки.
-      Пустая строка после формулы начинает новый абзац, поэтому слово «где» получает абзацный отступ,
-      как требует ГОСТ; команда <code>\noindent</code> здесь не нужна.</p>
+      Пустая строка после формулы начинает новый абзац; отступ задает <code>\parindent</code>. Интервалы над и под формулой задаются явно, а <code>\Needspace</code> резервирует место для формулы вместе с пояснениями.</p>
   - id: 'frequent-errors'
     title: 'Топ-5 ошибок, на которых срезают на нормоконтроле'
     html: |2-
@@ -154,17 +176,40 @@ tips:
       <p>Для набора размерностей используйте прямое начертание шрифта: <code>м/с</code> или
       <code>\text{кг}</code>, а не математический курсив <em>kg</em>.</p>
 editorExample:
-  latex: |2-
-    Скорость находят по формуле
-    \begin{equation}
-    v=\frac{s}{t},
-    \label{eq:v}
-    \end{equation}
+  - type: 'latex'
+    text: |2-
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage{setspace}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \usepackage{amsmath,needspace}
+      \usepackage{titlesec}
+      \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{\baselineskip}
+      \usepackage[hidelinks]{hyperref}
+      \setlength{\abovedisplayskip}{\baselineskip}
+      \setlength{\belowdisplayskip}{\baselineskip}
+      \begin{document}
+      Силу гравитационного взаимодействия определяют по формуле~\eqref{eq:gravity}.
+      \Needspace{16\baselineskip}
+      \begin{equation}
+      F=G\frac{m_1m_2}{r^2},\label{eq:gravity}
+      \end{equation}
 
-    где~\begin{tabular}[t]{@{}l@{ --- }l@{}}
-    $v$ & скорость, м/с;\\
-    $s$ & путь, м;\\
-    $t$ & время, с.
-    \end{tabular}
+      где~\begin{tabular}[t]{@{}l@{ --- }p{.65\textwidth}@{}}
+      $F$ & сила гравитационного взаимодействия, Н;\\
+      $G$ & гравитационная постоянная, $G\approx6{,}674\cdot10^{-11}$~м$^3$/(кг$\cdot$с$^2$);\\
+      $m_1$ & масса первого тела, кг;\\
+      $m_2$ & масса второго тела, кг;\\
+      $r$ & расстояние между центрами масс тел, м.
+      \end{tabular}
 
-    По формуле~\eqref{eq:v} при $s=100$~м и $t=20$~с получаем $v=5$~м/с.
+      В учебном примере при $m_1=m_2=1$~кг и $r=1$~м сила составляет приблизительно $6{,}674\cdot10^{-11}$~Н.
+      \end{document}
+    parameters:
+      visible: true

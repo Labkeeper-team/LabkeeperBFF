@@ -105,8 +105,17 @@ sections:
       \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
       \titlespacing{\section}{\parindent}{0pt}{12pt}
       \newcommand{\reportsection}[1]{\clearpage\section{#1}}
-      \captionsetup[table]{labelsep=endash,justification=raggedright,singlelinecheck=false}
-      \captionsetup[figure]{labelsep=endash}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
       \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
       \pagestyle{plain}
       \newcolumntype{Y}{&gt;{\raggedright\arraybackslash}X}
@@ -138,7 +147,7 @@ sections:
       \label{tab:patents}
       \begin{tabularx}{\textwidth}{|p{2.4cm}|Y|Y|}
       \hline
-      Карточка &amp; Сопоставляемый признак &amp; Что проверить в первоисточнике \\
+      \multicolumn{1}{|c|}{\shortstack[c]{Карточка}} &amp; \multicolumn{1}{c|}{\shortstack[c]{Сопоставляемый\\признак}} &amp; \multicolumn{1}{c|}{\shortstack[c]{Что проверить\\в первоисточнике}} \\
       \hline
       Макет А &amp; Подача по сигналу датчика &amp; Номер публикации и код вида,
       приоритет, независимый пункт формулы \\
@@ -188,8 +197,17 @@ editorExample:
       \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
       \titlespacing{\section}{\parindent}{0pt}{12pt}
       \newcommand{\reportsection}[1]{\clearpage\section{#1}}
-      \captionsetup[table]{labelsep=endash,justification=raggedright,singlelinecheck=false}
-      \captionsetup[figure]{labelsep=endash}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
       \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
       \pagestyle{plain}
       \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
@@ -221,7 +239,7 @@ editorExample:
       \label{tab:patents}
       \begin{tabularx}{\textwidth}{|p{2.4cm}|Y|Y|}
       \hline
-      Карточка & Сопоставляемый признак & Что проверить в первоисточнике \\
+      \multicolumn{1}{|c|}{\shortstack[c]{Карточка}} & \multicolumn{1}{c|}{\shortstack[c]{Сопоставляемый\\признак}} & \multicolumn{1}{c|}{\shortstack[c]{Что проверить\\в первоисточнике}} \\
       \hline
       Макет А & Подача по сигналу датчика & Номер публикации и код вида,
       приоритет, независимый пункт формулы \\

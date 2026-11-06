@@ -15,7 +15,7 @@ keywords:
   - 'себестоимость единицы продукции формула'
   - 'калькуляция себестоимости в дипломе'
 datePublished: '2026-10-30'
-dateModified: '2026-11-05'
+dateModified: '2026-11-06'
 readingTime: '8 мин'
 cardTitle: 'Расчет себестоимости продукции: пошаговый пример для диплома'
 cardDescription: |2-
@@ -146,7 +146,7 @@ sections:
       Если по вашей модели эти расходы зависят от количества изделий, запишите
       эту зависимость отдельной формулой.</p>
       <p>Кнопка «Просмотреть пример» открывает эти вычисления и LaTeX-сегмент с таблицей.
-      Вычислительный сегмент скрыт из вывода: в документе остаются таблица и итоговые суммы.
+      Вычислительный сегмент скрыт из вывода: в документе остаются исходные данные, формулы и таблица итогов.
       Подстановки вида <code>${unitCost}</code> выводят значение переменной в документ.
       Синтаксис описан в <a href="/wiki/concepts/segments.html">вики о сегментах</a>.
       Проверьте настройку округления проекта: для денежных сумм в итоговой калькуляции
@@ -157,14 +157,151 @@ sections:
       <p>Перед формулами укажите источник данных, объем выпуска и принятые допущения.
       После расчета сведите статьи затрат в таблицу и сформулируйте вывод.
       В примере ниже суммы выражены в рублях, а второй столбец относится ко всей партии.</p>
+      <p>Полный пример оформлен на основе ГОСТ 7.32-2017; требования к учебной работе
+      сверяйте с методичкой кафедры. Это расчетный раздел: титул, содержание
+      и остальные части отчета добавляются отдельно. При вставке в готовый документ
+      используйте его преамбулу и нумерацию. Определение окружения
+      <code>formulablock</code> перенесите в преамбулу основного документа один раз.</p>
+      <p>Раскройте полный код ниже или откройте его в редакторе кнопкой «Просмотреть пример».</p>
+      <details class="article-note article-code-details">
+      <summary><strong>Полный LaTeX-шаблон</strong></summary>
       <div class="article-code">
           <div class="article-code__header"><span class="article-code__lang">LaTeX-сегмент</span></div>
-          <pre><code>\section*{Калькуляция себестоимости}
-      Расчет для партии из ${Q} изделий.
-      \begin{center}
-      \begin{tabular}{lrr}
+          <pre><code>\documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,array,tabularx,caption}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      % Формула и пояснения остаются вместе; оформление задано один раз.
+      \newenvironment{formulablock}{%
+        \par\noindent\begin{minipage}[b]{\textwidth}%
+        \setlength{\parindent}{1.25cm}%
+        \setlength{\abovedisplayskip}{0pt}%
+        \setlength{\abovedisplayshortskip}{0pt}%
+        \vspace*{\baselineskip}%
+      }{\end{minipage}\par}
+      \begin{document}
+      \section{Калькуляция себестоимости}
+      Условная завершенная партия без брака: $Q=${Q}$ шт.; материал
+      $m=${m}$ кг/шт., цена $p=${p}$ руб./кг; трудоемкость
+      $t=${t}$ ч/шт., ставка $w=${w}$ руб./ч; начисления $r=${r}$.
+      За один период косвенные расходы $H_\Sigma=${overhead}$ руб.,
+      база оплаты труда $L_\Sigma=${wages}$ руб.; расходы на продажу
+      партии $S=${selling}$ руб. Прибыль и НДС не рассчитываются.
+      Материалы и оплату труда находим по формулам~\eqref{eq:materials}, \eqref{eq:labor}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:materials}
+      M=Qmp=${materials}\text{ руб.},
+      \end{equation}
+
+      где $M$ --- затраты на материал партии, руб.;\par
+      $Q$ --- объем партии, шт.;\par
+      $m$ --- расход материала, кг/шт.;\par
+      $p$ --- цена материала, руб./кг.
+      \end{formulablock}
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:labor}
+      L=Qtw=${labor}\text{ руб.},
+      \end{equation}
+
+      где $L$ --- прямая оплата труда партии, руб.;\par
+      $Q$ --- объем партии, шт.;\par
+      $t$ --- трудоемкость, ч/шт.;\par
+      $w$ --- ставка прямого труда, руб./ч.
+      \end{formulablock}
+      Начисления определяются по формуле~\eqref{eq:charges}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:charges}
+      A=Lr=${charges}\text{ руб.},
+      \end{equation}
+
+      где $A$ --- начисления на оплату труда партии, руб.;\par
+      $L$ --- прямая оплата труда партии, руб.;\par
+      $r$ --- коэффициент начислений, безразмерный.
+      \end{formulablock}
+      Распределение косвенных расходов задают формулы~\eqref{eq:rate}, \eqref{eq:allocated}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:rate}
+      k=\frac{H_\Sigma}{L_\Sigma}=${rate},
+      \end{equation}
+
+      где $k$ --- коэффициент распределения, безразмерный;\par
+      $H_\Sigma$ --- косвенные расходы за период, руб.;\par
+      $L_\Sigma$ --- оплата труда всей продукции за тот же период, руб.
+      \end{formulablock}
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:allocated}
+      H=kL=${allocated}\text{ руб.},
+      \end{equation}
+
+      где $H$ --- косвенные расходы партии, руб.;\par
+      $k$ --- коэффициент распределения, безразмерный;\par
+      $L$ --- прямая оплата труда партии, руб.
+      \end{formulablock}
+      Производственная и полная себестоимость партии приведены в формулах~\eqref{eq:production}, \eqref{eq:total}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:production}
+      C_{\text{пр}}=M+L+A+H=${production}\text{ руб.},
+      \end{equation}
+
+      где $C_{\text{пр}}$ --- производственная себестоимость партии, руб.;\par
+      $M$ --- затраты на материал, руб.;\par
+      $L$ --- прямая оплата труда, руб.;\par
+      $A$ --- начисления на оплату труда, руб.;\par
+      $H$ --- косвенные расходы партии, руб.
+      \end{formulablock}
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:total}
+      C_{\text{полн}}=C_{\text{пр}}+S=${total}\text{ руб.},
+      \end{equation}
+
+      где $C_{\text{полн}}$ --- полная себестоимость партии, руб.;\par
+      $C_{\text{пр}}$ --- производственная себестоимость партии, руб.;\par
+      $S$ --- расходы на продажу партии, руб.
+      \end{formulablock}
+      Переход к одному изделию выполняется по формуле~\eqref{eq:unit} для каждой строки калькуляции.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:unit}
+      c_i=\frac{C_i}{Q},
+      \end{equation}
+
+      где $c_i$ --- затраты соответствующего вида на изделие, руб./шт.;\par
+      $C_i$ --- затраты соответствующего вида на партию, руб.;\par
+      $Q$ --- объем партии, шт.;\par
+      $i$ --- индекс статьи затрат, безразмерный.
+      \end{formulablock}
+      \clearpage
+      Итоги приведены в таблице~\ref{tab:cost}.\par
+      \begin{table}[!ht]
+      \caption{Калькуляция себестоимости}\label{tab:cost}
+      \begin{tabularx}{\textwidth}{|X|r|r|}
       \hline
-      Статья затрат &amp; На партию, руб. &amp; На изделие, руб. \\
+      \multicolumn{1}{|c|}{Статья затрат} &amp; \multicolumn{1}{c|}{\shortstack{На партию,\\руб.}} &amp; \multicolumn{1}{c|}{\shortstack{На изделие,\\руб./шт.}} \\
       \hline
       Материалы &amp; ${materials} &amp; ${unitMaterials} \\
       Оплата труда &amp; ${labor} &amp; ${unitLabor} \\
@@ -174,10 +311,14 @@ sections:
       Расходы на продажу &amp; ${selling} &amp; ${unitSelling} \\
       Полная &amp; ${total} &amp; ${unitCost} \\
       \hline
-      \end{tabular}
-      \end{center}</code></pre>
+      \end{tabularx}
+      \end{table}
+
+      Полная себестоимость изделия составляет ${unitCost} руб./шт.
+      \end{document}</code></pre>
       </div>
-      <p>Кнопка «Просмотреть пример» открывает эти вычисления и полную таблицу
+      </details>
+      <p>Кнопка «Просмотреть пример» открывает эти вычисления, видимые исходные данные, формулы и таблицу
       с затратами на партию и на одно изделие.</p>
       <p><strong>Пример вывода:</strong> «При выпуске 100 изделий производственная
       себестоимость составляет 53 000 руб., или 530 руб. на изделие. С учетом расходов
@@ -251,12 +392,141 @@ editorExample:
       visible: false
   - type: 'latex'
     text: |2-
-      \section*{Калькуляция себестоимости}
-      Расчет для партии из ${Q} изделий.
-      \begin{center}
-      \begin{tabular}{lrr}
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,array,tabularx,caption}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      % Формула и пояснения остаются вместе; оформление задано один раз.
+      \newenvironment{formulablock}{%
+        \par\noindent\begin{minipage}[b]{\textwidth}%
+        \setlength{\parindent}{1.25cm}%
+        \setlength{\abovedisplayskip}{0pt}%
+        \setlength{\abovedisplayshortskip}{0pt}%
+        \vspace*{\baselineskip}%
+      }{\end{minipage}\par}
+      \begin{document}
+      \section{Калькуляция себестоимости}
+      Условная завершенная партия без брака: $Q=${Q}$ шт.; материал
+      $m=${m}$ кг/шт., цена $p=${p}$ руб./кг; трудоемкость
+      $t=${t}$ ч/шт., ставка $w=${w}$ руб./ч; начисления $r=${r}$.
+      За один период косвенные расходы $H_\Sigma=${overhead}$ руб.,
+      база оплаты труда $L_\Sigma=${wages}$ руб.; расходы на продажу
+      партии $S=${selling}$ руб. Прибыль и НДС не рассчитываются.
+      Материалы и оплату труда находим по формулам~\eqref{eq:materials}, \eqref{eq:labor}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:materials}
+      M=Qmp=${materials}\text{ руб.},
+      \end{equation}
+
+      где $M$ --- затраты на материал партии, руб.;\par
+      $Q$ --- объем партии, шт.;\par
+      $m$ --- расход материала, кг/шт.;\par
+      $p$ --- цена материала, руб./кг.
+      \end{formulablock}
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:labor}
+      L=Qtw=${labor}\text{ руб.},
+      \end{equation}
+
+      где $L$ --- прямая оплата труда партии, руб.;\par
+      $Q$ --- объем партии, шт.;\par
+      $t$ --- трудоемкость, ч/шт.;\par
+      $w$ --- ставка прямого труда, руб./ч.
+      \end{formulablock}
+      Начисления определяются по формуле~\eqref{eq:charges}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:charges}
+      A=Lr=${charges}\text{ руб.},
+      \end{equation}
+
+      где $A$ --- начисления на оплату труда партии, руб.;\par
+      $L$ --- прямая оплата труда партии, руб.;\par
+      $r$ --- коэффициент начислений, безразмерный.
+      \end{formulablock}
+      Распределение косвенных расходов задают формулы~\eqref{eq:rate}, \eqref{eq:allocated}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:rate}
+      k=\frac{H_\Sigma}{L_\Sigma}=${rate},
+      \end{equation}
+
+      где $k$ --- коэффициент распределения, безразмерный;\par
+      $H_\Sigma$ --- косвенные расходы за период, руб.;\par
+      $L_\Sigma$ --- оплата труда всей продукции за тот же период, руб.
+      \end{formulablock}
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:allocated}
+      H=kL=${allocated}\text{ руб.},
+      \end{equation}
+
+      где $H$ --- косвенные расходы партии, руб.;\par
+      $k$ --- коэффициент распределения, безразмерный;\par
+      $L$ --- прямая оплата труда партии, руб.
+      \end{formulablock}
+      Производственная и полная себестоимость партии приведены в формулах~\eqref{eq:production}, \eqref{eq:total}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:production}
+      C_{\text{пр}}=M+L+A+H=${production}\text{ руб.},
+      \end{equation}
+
+      где $C_{\text{пр}}$ --- производственная себестоимость партии, руб.;\par
+      $M$ --- затраты на материал, руб.;\par
+      $L$ --- прямая оплата труда, руб.;\par
+      $A$ --- начисления на оплату труда, руб.;\par
+      $H$ --- косвенные расходы партии, руб.
+      \end{formulablock}
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:total}
+      C_{\text{полн}}=C_{\text{пр}}+S=${total}\text{ руб.},
+      \end{equation}
+
+      где $C_{\text{полн}}$ --- полная себестоимость партии, руб.;\par
+      $C_{\text{пр}}$ --- производственная себестоимость партии, руб.;\par
+      $S$ --- расходы на продажу партии, руб.
+      \end{formulablock}
+      Переход к одному изделию выполняется по формуле~\eqref{eq:unit} для каждой строки калькуляции.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:unit}
+      c_i=\frac{C_i}{Q},
+      \end{equation}
+
+      где $c_i$ --- затраты соответствующего вида на изделие, руб./шт.;\par
+      $C_i$ --- затраты соответствующего вида на партию, руб.;\par
+      $Q$ --- объем партии, шт.;\par
+      $i$ --- индекс статьи затрат, безразмерный.
+      \end{formulablock}
+      \clearpage
+      Итоги приведены в таблице~\ref{tab:cost}.\par
+      \begin{table}[!ht]
+      \caption{Калькуляция себестоимости}\label{tab:cost}
+      \begin{tabularx}{\textwidth}{|X|r|r|}
       \hline
-      Статья затрат & На партию, руб. & На изделие, руб. \\
+      \multicolumn{1}{|c|}{Статья затрат} & \multicolumn{1}{c|}{\shortstack{На партию,\\руб.}} & \multicolumn{1}{c|}{\shortstack{На изделие,\\руб./шт.}} \\
       \hline
       Материалы & ${materials} & ${unitMaterials} \\
       Оплата труда & ${labor} & ${unitLabor} \\
@@ -266,7 +536,10 @@ editorExample:
       Расходы на продажу & ${selling} & ${unitSelling} \\
       Полная & ${total} & ${unitCost} \\
       \hline
-      \end{tabular}
-      \end{center}
+      \end{tabularx}
+      \end{table}
+
+      Полная себестоимость изделия составляет ${unitCost} руб./шт.
+      \end{document}
     parameters:
       visible: true

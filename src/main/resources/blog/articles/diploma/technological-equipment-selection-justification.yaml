@@ -13,7 +13,7 @@ keywords:
   - расчет производительности оборудования
   - сравнение оборудования вкр
 datePublished: '2026-11-05'
-dateModified: '2026-11-05'
+dateModified: '2026-11-06'
 readingTime: 9 мин
 cardTitle: Обоснование выбора технологического оборудования в дипломе
 cardDescription: Как отобрать оборудование по требованиям, проверить производительность с резервом и сравнить затраты. Учебный расчет и LaTeX-пример раздела ВКР.
@@ -126,8 +126,17 @@ sections:
       \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
       \titlespacing{\section}{\parindent}{0pt}{12pt}
       \newcommand{\reportsection}[1]{\clearpage\section{#1}}
-      \captionsetup[table]{labelsep=endash,justification=raggedright,singlelinecheck=false}
-      \captionsetup[figure]{labelsep=endash}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
       \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
       \pagestyle{plain}
       \newcolumntype{Y}{&gt;{\raggedright\arraybackslash}X}
@@ -150,7 +159,7 @@ sections:
       \label{tab:equipment}
       \begin{tabularx}{\textwidth}{|Y|r|r|r|}
       \hline
-      Показатель &amp; А &amp; Б &amp; В \\
+      \multicolumn{1}{|c|}{\shortstack[c]{Показатель}} &amp; \multicolumn{1}{c|}{\shortstack[c]{А}} &amp; \multicolumn{1}{c|}{\shortstack[c]{Б}} &amp; \multicolumn{1}{c|}{\shortstack[c]{В}} \\
       \hline
       Производительность, шт./ч &amp; 40 &amp; 50 &amp; 60 \\
       Цена с вводом, тыс. руб. &amp; 1000 &amp; 1200 &amp; 1500 \\
@@ -160,23 +169,90 @@ sections:
       \end{tabularx}
       \end{table}
 
-      Месячный выпуск годных деталей:
-      \[
-       C=qFky,\qquad C_{\min}=Q(1+r).
-      \]
+      Месячный выпуск годных деталей определяется по формуле~\eqref{eq:capacity}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:capacity}
+      C=qFky,
+      \end{equation}
+
+      где $C$ --- расчетный выпуск годных деталей, шт./мес.;\par
+      $q$ --- производительность при фактической работе, шт./ч;\par
+      $F$ --- месячный фонд до потерь времени, ч/мес.;\par
+      $k$ --- коэффициент доступного времени, безразмерный;\par
+      $y$ --- доля годных деталей, безразмерная.
+      \end{minipage}\par
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      Требуемая мощность с резервом рассчитывается по формуле~\eqref{eq:reserve}.\par
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:reserve}
+      C_{\min}=Q(1+r),
+      \end{equation}
+
+      где $C_{\min}$ --- требуемый выпуск с резервом, шт./мес.;\par
+      $Q$ --- план выпуска годных деталей, шт./мес.;\par
+      $r$ --- резерв относительно плана; в примере $r=0{,}15$.
+
+
       Для А: $C_A=${cap_A}$ шт./мес.; для Б: $C_{\text{Б}}=${cap_B}$ шт./мес.;
       для В: $C_{\text{В}}=${cap_C}$ шт./мес.
       Требуется не менее ${required} шт./мес. Вариант А покрывает план,
       но не обеспечивает принятый резерв, поэтому далее сравниваются Б и В.
+      \end{minipage}\par
 
       \reportsection{Сопоставление затрат и решение}
-      Тариф принят равным 8 руб./(кВт\,ч), горизонт --- три года.
-      Время фактической работы и сопоставляемые затраты:
-      \[
-       H=\frac{12Q}{qy},\qquad Z=I+3(S+PeH).
-      \]
-      Здесь $I$ --- цена с вводом; $S$ --- годовой сервис;
-      $P$ --- средняя мощность в работе; $e$ --- тариф.
+      Тариф принят равным 8 руб./(кВт\,ч), горизонт $T=3$ года.
+      Годовое время обработки определяется по формуле~\eqref{eq:hours}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:hours}
+      H=\frac{12Q}{qy},
+      \end{equation}
+
+      где $H$ --- время фактической обработки за год, ч/год;\par
+      $12$ --- число месяцев в году, мес./год;\par
+      $Q$ --- месячный план годных деталей, шт./мес.;\par
+      $q$ --- часовая производительность, шт./ч;\par
+      $y$ --- доля годных деталей, безразмерная.
+      \end{minipage}\par
+
+      Сопоставляемые затраты рассчитываются по формуле~\eqref{eq:cost}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:cost}
+      Z=I+T(S+PeH),
+      \end{equation}
+
+      где $Z$ --- затраты за выбранный горизонт, руб.;\par
+      $I$ --- цена с доставкой и вводом, руб.;\par
+      $T$ --- горизонт расчета, лет;\par
+      $S$ --- сервисные расходы, руб./год;\par
+      $P$ --- средняя мощность в работе, кВт;\par
+      $e$ --- тариф на электроэнергию, руб./(кВт\,ч);\par
+      $H$ --- время фактической обработки, ч/год.
+      \end{minipage}\par
+
       Годовое время: Б --- ${h_B} ч, В --- ${h_C} ч.
       Затраты: Б --- ${cost_B} руб., В --- ${cost_C} руб.
       Разность $Z_{\text{В}}-Z_{\text{Б}}=${saving}$ руб.
@@ -236,8 +312,17 @@ editorExample:
       \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
       \titlespacing{\section}{\parindent}{0pt}{12pt}
       \newcommand{\reportsection}[1]{\clearpage\section{#1}}
-      \captionsetup[table]{labelsep=endash,justification=raggedright,singlelinecheck=false}
-      \captionsetup[figure]{labelsep=endash}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
       \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
       \pagestyle{plain}
       \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
@@ -260,7 +345,7 @@ editorExample:
       \label{tab:equipment}
       \begin{tabularx}{\textwidth}{|Y|r|r|r|}
       \hline
-      Показатель & А & Б & В \\
+      \multicolumn{1}{|c|}{\shortstack[c]{Показатель}} & \multicolumn{1}{c|}{\shortstack[c]{А}} & \multicolumn{1}{c|}{\shortstack[c]{Б}} & \multicolumn{1}{c|}{\shortstack[c]{В}} \\
       \hline
       Производительность, шт./ч & 40 & 50 & 60 \\
       Цена с вводом, тыс. руб. & 1000 & 1200 & 1500 \\
@@ -270,23 +355,90 @@ editorExample:
       \end{tabularx}
       \end{table}
 
-      Месячный выпуск годных деталей:
-      \[
-       C=qFky,\qquad C_{\min}=Q(1+r).
-      \]
+      Месячный выпуск годных деталей определяется по формуле~\eqref{eq:capacity}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:capacity}
+      C=qFky,
+      \end{equation}
+
+      где $C$ --- расчетный выпуск годных деталей, шт./мес.;\par
+      $q$ --- производительность при фактической работе, шт./ч;\par
+      $F$ --- месячный фонд до потерь времени, ч/мес.;\par
+      $k$ --- коэффициент доступного времени, безразмерный;\par
+      $y$ --- доля годных деталей, безразмерная.
+      \end{minipage}\par
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      Требуемая мощность с резервом рассчитывается по формуле~\eqref{eq:reserve}.\par
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:reserve}
+      C_{\min}=Q(1+r),
+      \end{equation}
+
+      где $C_{\min}$ --- требуемый выпуск с резервом, шт./мес.;\par
+      $Q$ --- план выпуска годных деталей, шт./мес.;\par
+      $r$ --- резерв относительно плана; в примере $r=0{,}15$.
+
+
       Для А: $C_A=${cap_A}$ шт./мес.; для Б: $C_{\text{Б}}=${cap_B}$ шт./мес.;
       для В: $C_{\text{В}}=${cap_C}$ шт./мес.
       Требуется не менее ${required} шт./мес. Вариант А покрывает план,
       но не обеспечивает принятый резерв, поэтому далее сравниваются Б и В.
+      \end{minipage}\par
 
       \reportsection{Сопоставление затрат и решение}
-      Тариф принят равным 8 руб./(кВт\,ч), горизонт --- три года.
-      Время фактической работы и сопоставляемые затраты:
-      \[
-       H=\frac{12Q}{qy},\qquad Z=I+3(S+PeH).
-      \]
-      Здесь $I$ --- цена с вводом; $S$ --- годовой сервис;
-      $P$ --- средняя мощность в работе; $e$ --- тариф.
+      Тариф принят равным 8 руб./(кВт\,ч), горизонт $T=3$ года.
+      Годовое время обработки определяется по формуле~\eqref{eq:hours}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:hours}
+      H=\frac{12Q}{qy},
+      \end{equation}
+
+      где $H$ --- время фактической обработки за год, ч/год;\par
+      $12$ --- число месяцев в году, мес./год;\par
+      $Q$ --- месячный план годных деталей, шт./мес.;\par
+      $q$ --- часовая производительность, шт./ч;\par
+      $y$ --- доля годных деталей, безразмерная.
+      \end{minipage}\par
+
+      Сопоставляемые затраты рассчитываются по формуле~\eqref{eq:cost}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:cost}
+      Z=I+T(S+PeH),
+      \end{equation}
+
+      где $Z$ --- затраты за выбранный горизонт, руб.;\par
+      $I$ --- цена с доставкой и вводом, руб.;\par
+      $T$ --- горизонт расчета, лет;\par
+      $S$ --- сервисные расходы, руб./год;\par
+      $P$ --- средняя мощность в работе, кВт;\par
+      $e$ --- тариф на электроэнергию, руб./(кВт\,ч);\par
+      $H$ --- время фактической обработки, ч/год.
+      \end{minipage}\par
+
       Годовое время: Б --- ${h_B} ч, В --- ${h_C} ч.
       Затраты: Б --- ${cost_B} руб., В --- ${cost_C} руб.
       Разность $Z_{\text{В}}-Z_{\text{Б}}=${saving}$ руб.

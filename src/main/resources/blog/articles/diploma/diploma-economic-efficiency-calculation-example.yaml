@@ -15,7 +15,7 @@ keywords:
   - 'срок окупаемости проекта в дипломе'
   - 'экономическое обоснование дипломного проекта'
 datePublished: '2026-10-31'
-dateModified: '2026-10-31'
+dateModified: '2026-11-06'
 readingTime: '8 мин'
 cardTitle: 'Экономическая эффективность в дипломе: экономия, окупаемость и NPV'
 cardDescription: |2-
@@ -143,16 +143,116 @@ sections:
       три значащие цифры: NPV будет показан примерно как 43 800 руб.
       Для проверки точного значения выберите в настройках проекта режим «Без округления».
       В итоговом отчете округлите денежные суммы до копеек: здесь NPV равен 43 816,68 руб.</p>
+      <p>Полный пример оформлен на основе ГОСТ 7.32-2017; требования к учебной работе
+      сверяйте с методичкой кафедры. Это расчетный раздел: титул, содержание
+      и остальные части отчета добавляются отдельно. При вставке в готовый документ
+      используйте его преамбулу и нумерацию. Определение окружения
+      <code>formulablock</code> перенесите в преамбулу основного документа один раз.</p>
+      <p>Раскройте полный код ниже или откройте его в редакторе кнопкой «Просмотреть пример».</p>
+      <details class="article-note article-code-details">
+      <summary><strong>Полный LaTeX-шаблон</strong></summary>
       <div class="article-code">
           <div class="article-code__header"><span class="article-code__lang">LaTeX-сегмент</span></div>
-          <pre><code>\section*{Экономическая эффективность}
-      $Q=${Q}$ заявок/год; $c_0=${before}$ и $c_1=${after}$ руб./заявку.
-      Сопровождение $C=${extra}$ руб./год; вложения $I=${investment}$ руб.
-      \[E=(c_0-c_1)Q-C=${annual}\text{ руб./год}\]
-      \[T=\frac{I}{E}=${payback}\text{ года}\]
-      За три года при ставке $r=${ratePercent}\%$:
-      \[NPV=-I+\sum_{t=1}^{3}\frac{E}{(1+r)^t}=${npv}\text{ руб.}\]</code></pre>
+          <pre><code>\documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      % Формула и пояснения остаются вместе; оформление задано один раз.
+      \newenvironment{formulablock}{%
+        \par\noindent\begin{minipage}[b]{\textwidth}%
+        \setlength{\parindent}{1.25cm}%
+        \setlength{\abovedisplayskip}{0pt}%
+        \setlength{\abovedisplayshortskip}{0pt}%
+        \vspace*{\baselineskip}%
+      }{\end{minipage}\par}
+      \begin{document}
+      \section{Экономическая эффективность}
+      Учебные данные вымышлены. Годовой объем $Q=${Q}$ заявок/год;
+      затраты до внедрения $c_0=${before}$ руб./заявку,
+      после внедрения $c_1=${after}$ руб./заявку.
+      Дополнительное сопровождение $C=${extra}$ руб./год;
+      вложения в начальный момент $I=${investment}$ руб.
+      Горизонт $n=3$ года, годовая ставка $r=${rate}$ (${ratePercent}\%).
+      Качество и объем работы одинаковы; снижение затрат означает сокращение выплат.
+      Налоги, инфляция, оборотный капитал и остаточная стоимость не учитываются.
+      Снижение затрат и чистая экономия определяются по формулам~\eqref{eq:savings}, \eqref{eq:annual}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:savings}
+      \Delta C=(c_0-c_1)Q=${savings}\text{ руб./год},
+      \end{equation}
+
+      где $\Delta C$ --- снижение затрат до расходов на сопровождение, руб./год;\par
+      $c_0$ --- затраты до внедрения, руб./заявку;\par
+      $c_1$ --- затраты после внедрения, руб./заявку;\par
+      $Q$ --- годовой объем, заявок/год.
+      \end{formulablock}
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:annual}
+      E=\Delta C-C=${annual}\text{ руб./год},
+      \end{equation}
+
+      где $E$ --- чистая годовая экономия, руб./год;\par
+      $\Delta C$ --- снижение затрат, руб./год;\par
+      $C$ --- дополнительные расходы на сопровождение, руб./год.
+      \end{formulablock}
+      При постоянной положительной экономии простой срок окупаемости находится по формуле~\eqref{eq:payback}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:payback}
+      T=\frac{I}{E}=${payback}\text{ года},
+      \end{equation}
+
+      где $T$ --- простой срок окупаемости, лет;\par
+      $I$ --- первоначальные вложения, руб.;\par
+      $E$ --- чистая годовая экономия, руб./год.
+      \end{formulablock}
+      Потоки поступают в конце года. Их приведенная стоимость определяется по формуле~\eqref{eq:pv}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:pv}
+      PV_t=\frac{E\Delta t}{(1+r)^t},
+      \end{equation}
+
+      где $PV_t$ --- приведенная стоимость потока за год $t$, руб.;\par
+      $E$ --- постоянная годовая экономия, руб./год;\par
+      $\Delta t$ --- длительность периода, 1 год;\par
+      $r$ --- годовая ставка дисконтирования, безразмерная;\par
+      $t$ --- номер годового периода, безразмерный.
+      \end{formulablock}
+      За первый год $PV_1=${pv1}$ руб., за второй $PV_2=${pv2}$ руб.,
+      за третий $PV_3=${pv3}$ руб. Итог находится по формуле~\eqref{eq:npv}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:npv}
+      NPV=-I+\sum_{t=1}^{n}PV_t=${npv}\text{ руб.},
+      \end{equation}
+
+      где $NPV$ --- чистый дисконтированный доход, руб.;\par
+      $I$ --- первоначальные вложения, руб.;\par
+      $t$ --- номер годового периода, безразмерный;\par
+      $n$ --- число годовых периодов, безразмерное;\par
+      $PV_t$ --- приведенная стоимость потока за соответствующий год, руб.
+      \end{formulablock}
+      При этих условиях NPV положителен, простой срок окупаемости равен ${payback} годам.
+      По умолчанию подстановки выводятся с тремя значащими цифрами:
+      NPV около 43\,800 руб.; при округлении до копеек --- 43\,816{,}68 руб.
+      Промежуточные вычисления не округляются.
+      \end{document}</code></pre>
       </div>
+      </details>
       <p>При другом горизонте измените число дисконтированных потоков. Если экономия
       по годам различается, вместо одной переменной <code>annual</code> задайте
       отдельные потоки. Синтаксис подстановок описан в
@@ -211,12 +311,103 @@ editorExample:
       visible: false
   - type: 'latex'
     text: |2-
-      \section*{Экономическая эффективность}
-      $Q=${Q}$ заявок/год; $c_0=${before}$ и $c_1=${after}$ руб./заявку.
-      Сопровождение $C=${extra}$ руб./год; вложения $I=${investment}$ руб.
-      \[E=(c_0-c_1)Q-C=${annual}\text{ руб./год}\]
-      \[T=\frac{I}{E}=${payback}\text{ года}\]
-      За три года при ставке $r=${ratePercent}\%$:
-      \[NPV=-I+\sum_{t=1}^{3}\frac{E}{(1+r)^t}=${npv}\text{ руб.}\]
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      % Формула и пояснения остаются вместе; оформление задано один раз.
+      \newenvironment{formulablock}{%
+        \par\noindent\begin{minipage}[b]{\textwidth}%
+        \setlength{\parindent}{1.25cm}%
+        \setlength{\abovedisplayskip}{0pt}%
+        \setlength{\abovedisplayshortskip}{0pt}%
+        \vspace*{\baselineskip}%
+      }{\end{minipage}\par}
+      \begin{document}
+      \section{Экономическая эффективность}
+      Учебные данные вымышлены. Годовой объем $Q=${Q}$ заявок/год;
+      затраты до внедрения $c_0=${before}$ руб./заявку,
+      после внедрения $c_1=${after}$ руб./заявку.
+      Дополнительное сопровождение $C=${extra}$ руб./год;
+      вложения в начальный момент $I=${investment}$ руб.
+      Горизонт $n=3$ года, годовая ставка $r=${rate}$ (${ratePercent}\%).
+      Качество и объем работы одинаковы; снижение затрат означает сокращение выплат.
+      Налоги, инфляция, оборотный капитал и остаточная стоимость не учитываются.
+      Снижение затрат и чистая экономия определяются по формулам~\eqref{eq:savings}, \eqref{eq:annual}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:savings}
+      \Delta C=(c_0-c_1)Q=${savings}\text{ руб./год},
+      \end{equation}
+
+      где $\Delta C$ --- снижение затрат до расходов на сопровождение, руб./год;\par
+      $c_0$ --- затраты до внедрения, руб./заявку;\par
+      $c_1$ --- затраты после внедрения, руб./заявку;\par
+      $Q$ --- годовой объем, заявок/год.
+      \end{formulablock}
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:annual}
+      E=\Delta C-C=${annual}\text{ руб./год},
+      \end{equation}
+
+      где $E$ --- чистая годовая экономия, руб./год;\par
+      $\Delta C$ --- снижение затрат, руб./год;\par
+      $C$ --- дополнительные расходы на сопровождение, руб./год.
+      \end{formulablock}
+      При постоянной положительной экономии простой срок окупаемости находится по формуле~\eqref{eq:payback}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:payback}
+      T=\frac{I}{E}=${payback}\text{ года},
+      \end{equation}
+
+      где $T$ --- простой срок окупаемости, лет;\par
+      $I$ --- первоначальные вложения, руб.;\par
+      $E$ --- чистая годовая экономия, руб./год.
+      \end{formulablock}
+      Потоки поступают в конце года. Их приведенная стоимость определяется по формуле~\eqref{eq:pv}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:pv}
+      PV_t=\frac{E\Delta t}{(1+r)^t},
+      \end{equation}
+
+      где $PV_t$ --- приведенная стоимость потока за год $t$, руб.;\par
+      $E$ --- постоянная годовая экономия, руб./год;\par
+      $\Delta t$ --- длительность периода, 1 год;\par
+      $r$ --- годовая ставка дисконтирования, безразмерная;\par
+      $t$ --- номер годового периода, безразмерный.
+      \end{formulablock}
+      За первый год $PV_1=${pv1}$ руб., за второй $PV_2=${pv2}$ руб.,
+      за третий $PV_3=${pv3}$ руб. Итог находится по формуле~\eqref{eq:npv}.
+
+      \begin{formulablock}
+      \begin{equation}
+      \label{eq:npv}
+      NPV=-I+\sum_{t=1}^{n}PV_t=${npv}\text{ руб.},
+      \end{equation}
+
+      где $NPV$ --- чистый дисконтированный доход, руб.;\par
+      $I$ --- первоначальные вложения, руб.;\par
+      $t$ --- номер годового периода, безразмерный;\par
+      $n$ --- число годовых периодов, безразмерное;\par
+      $PV_t$ --- приведенная стоимость потока за соответствующий год, руб.
+      \end{formulablock}
+      При этих условиях NPV положителен, простой срок окупаемости равен ${payback} годам.
+      По умолчанию подстановки выводятся с тремя значащими цифрами:
+      NPV около 43\,800 руб.; при округлении до копеек --- 43\,816{,}68 руб.
+      Промежуточные вычисления не округляются.
+      \end{document}
     parameters:
       visible: true

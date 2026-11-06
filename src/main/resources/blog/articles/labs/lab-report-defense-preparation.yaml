@@ -15,7 +15,7 @@ keywords:
   - 'как защитить лабораторную работу'
   - 'вопросы на защите лабораторной'
 datePublished: '2026-10-31'
-dateModified: '2026-10-31'
+dateModified: '2026-11-05'
 readingTime: '7 мин'
 cardTitle: 'Защита лабораторной: что повторить и как объяснить результат'
 cardDescription: |2-
@@ -94,7 +94,7 @@ sections:
       <p>Предельная погрешность прибора и стандартная неопределенность — разные
       характеристики. Если в паспорте указана граница допустимой ошибки, сначала
       определите способ перехода к стандартной неопределенности по принятой модели.
-      Запись $R\pm u_R$ сама по себе не означает доверительную вероятность 95%.
+      Запись $R\pm u_R$ сама по себе не задает доверительную вероятность 95%.
       Различие стандартной и расширенной неопределенности поясняет
       <a href="https://physics.nist.gov/cuu/Uncertainty/coverage.html">руководство NIST</a>;
       формулы для независимых входов разобраны в статье о
@@ -120,6 +120,93 @@ sections:
       в документ. Новый проект выводит три значащие цифры: $u_R$ будет около 1,12 Ом,
       относительная неопределенность — 2,24%. Правило окончательного округления согласуйте
       с методическими указаниями; это округление вывода, а не изменение исходных данных.</p>
+      <p>Ниже — самостоятельный расчетный фрагмент с нумерованным разделом и формулами.
+      Оформление страницы основано на ГОСТ 7.32-2017; требования к учебной работе сверяйте
+      с методичкой кафедры. Титул, содержание, введение, заключение, список источников
+      и приложения здесь не включены. При вставке в основной документ используйте его
+      преамбулу и сквозную нумерацию; повторные преамбулу и границы документа удалите.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX-сегмент</span></div>
+          <pre><code>\documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,array,tabularx,caption}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \begin{document}
+      \section{Расчет для защиты лабораторной работы}
+      Учебные данные вымышлены: напряжение $U=${U}$ В, ток $I=${I}$ А;
+      стандартные неопределенности $u_U=${uU}$ В, $u_I=${uI}$ А.
+      Входы независимы; для малых относительных неопределенностей используется
+      линейное распространение неопределенности. Влияние приборов предполагается
+      пренебрежимо малым. Сопротивление определяется по формуле~\eqref{eq:resistance}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:resistance}
+      R=\frac{U}{I}=${R}\text{ Ом},
+      \end{equation}
+
+      где $R$ --- сопротивление, Ом;\par
+      $U$ --- напряжение на элементе, В;\par
+      $I$ --- ток той же ветви, А.
+      \end{minipage}\par
+      Стандартная неопределенность сопротивления определяется по формуле~\eqref{eq:uncertainty}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:uncertainty}
+      u_R=\sqrt{\left(\frac{u_U}{I}\right)^2+\left(\frac{Uu_I}{I^2}\right)^2}=${uR}\text{ Ом},
+      \end{equation}
+
+      где $u_R$ --- стандартная неопределенность сопротивления, Ом;\par
+      $u_U$ --- стандартная неопределенность напряжения, В;\par
+      $I$ --- сила тока, А;\par
+      $U$ --- напряжение, В;\par
+      $u_I$ --- стандартная неопределенность тока, А.
+      \end{minipage}\par
+      Относительная стандартная неопределенность находится по формуле~\eqref{eq:relative}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:relative}
+      u_{\mathrm{rel}}=100\frac{u_R}{R}=${relative}\%,
+      \end{equation}
+
+      где $u_{\mathrm{rel}}$ --- относительная стандартная неопределенность, \%;\par
+      $100$ --- коэффициент перевода доли в проценты, безразмерный;\par
+      $u_R$ --- стандартная неопределенность сопротивления, Ом;\par
+      $R$ --- сопротивление, Ом.
+      \end{minipage}\par
+      При трех значащих цифрах $u_R\approx1{,}12$ Ом,
+      $u_{\mathrm{rel}}\approx2{,}24\%$. Округление --- по методичке.
+      Запись $R\pm u_R$ не задает доверительную вероятность 95\%.
+      Закон Ома проверяют по серии измерений с контролем температуры.
+      \end{document}</code></pre>
+      </div>
   - id: 'questions'
     title: 'Частые вопросы и содержательные ответы'
     html: |2-
@@ -201,12 +288,84 @@ editorExample:
       visible: false
   - type: 'latex'
     text: |2-
-      \section*{Закон Ома}
-      Входы независимы; $u$ -- стандартные неопределенности.
-      \[U=${U}\text{ В},\quad I=${I}\text{ А}\]
-      \[u_U=${uU}\text{ В},\quad u_I=${uI}\text{ А}\]
-      \[R=U/I=${R}\text{ Ом}\]
-      \[u_R=\sqrt{(u_U/I)^2+(Uu_I/I^2)^2}=${uR}\text{ Ом}\]
-      \[100u_R/R=${relative}\%\]
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,array,tabularx,caption}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \begin{document}
+      \section{Расчет для защиты лабораторной работы}
+      Учебные данные вымышлены: напряжение $U=${U}$ В, ток $I=${I}$ А;
+      стандартные неопределенности $u_U=${uU}$ В, $u_I=${uI}$ А.
+      Входы независимы; для малых относительных неопределенностей используется
+      линейное распространение неопределенности. Влияние приборов предполагается
+      пренебрежимо малым. Сопротивление определяется по формуле~\eqref{eq:resistance}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:resistance}
+      R=\frac{U}{I}=${R}\text{ Ом},
+      \end{equation}
+
+      где $R$ --- сопротивление, Ом;\par
+      $U$ --- напряжение на элементе, В;\par
+      $I$ --- ток той же ветви, А.
+      \end{minipage}\par
+      Стандартная неопределенность сопротивления определяется по формуле~\eqref{eq:uncertainty}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:uncertainty}
+      u_R=\sqrt{\left(\frac{u_U}{I}\right)^2+\left(\frac{Uu_I}{I^2}\right)^2}=${uR}\text{ Ом},
+      \end{equation}
+
+      где $u_R$ --- стандартная неопределенность сопротивления, Ом;\par
+      $u_U$ --- стандартная неопределенность напряжения, В;\par
+      $I$ --- сила тока, А;\par
+      $U$ --- напряжение, В;\par
+      $u_I$ --- стандартная неопределенность тока, А.
+      \end{minipage}\par
+      Относительная стандартная неопределенность находится по формуле~\eqref{eq:relative}.
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:relative}
+      u_{\mathrm{rel}}=100\frac{u_R}{R}=${relative}\%,
+      \end{equation}
+
+      где $u_{\mathrm{rel}}$ --- относительная стандартная неопределенность, \%;\par
+      $100$ --- коэффициент перевода доли в проценты, безразмерный;\par
+      $u_R$ --- стандартная неопределенность сопротивления, Ом;\par
+      $R$ --- сопротивление, Ом.
+      \end{minipage}\par
+      При трех значащих цифрах $u_R\approx1{,}12$ Ом,
+      $u_{\mathrm{rel}}\approx2{,}24\%$. Округление --- по методичке.
+      Запись $R\pm u_R$ не задает доверительную вероятность 95\%.
+      Закон Ома проверяют по серии измерений с контролем температуры.
+      \end{document}
     parameters:
       visible: true
