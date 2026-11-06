@@ -1,159 +1,252 @@
 catalogIndex: 91
 slug: 'latex-systems-equations'
 batch: 1
-title: 'Как вставить формулу с системой уравнений и фигурной скобкой (cases / aligned)'
-pageTitle: 'Система уравнений с фигурной скобкой в LaTeX (cases, aligned) — Labkeeper'
-metaDescription: |2-
-  Как написать систему уравнений в LaTeX: cases, aligned, dcases с фигурной скобкой онлайн.
-  Кусочно-заданные функции, нумерация строк и выравнивание.
-ogTitle: 'Как вставить формулу с системой уравнений и фигурной скобкой (cases / aligned) — Labkeeper'
-ogDescription: |2-
-  Система уравнений с фигурной скобкой LaTeX онлайн: подробные примеры с cases, aligned,
-  кусочно-заданными функциями и нумерацией строк.
-twitterDescription: 'Как написать систему уравнений в LaTeX cases: система уравнений с фигурной скобкой онлайн.'
-schemaDescription: |2-
-  Руководство по набору систем уравнений, систем неравенств и кусочных функций с большой фигурной
-  скобкой в LaTeX.
-breadcrumbTitle: |2-
-  Система уравнений
-                                  в LaTeX
+title: 'Система уравнений в LaTeX: фигурная скобка, cases и aligned'
+pageTitle: 'Система уравнений в LaTeX: фигурная скобка, cases, aligned — Labkeeper'
+metaDescription: |-
+  Как набрать систему уравнений в LaTeX: cases, aligned, systeme, совокупность с квадратной скобкой,
+  системы неравенств, dcases и нумерация строк. Готовый код и типичные ошибки.
+ogTitle: 'Система уравнений в LaTeX: фигурная скобка, cases и aligned — Labkeeper'
+ogDescription: |-
+  Системы уравнений и неравенств с фигурной скобкой в LaTeX: cases, aligned, systeme, совокупности
+  с квадратной скобкой, кусочные функции и нумерация строк.
+twitterDescription: 'Система уравнений в LaTeX: cases, aligned, systeme, совокупности и системы неравенств с готовым кодом.'
+schemaDescription: |-
+  Руководство по набору систем уравнений, систем неравенств, совокупностей и кусочных функций
+  с большой фигурной скобкой в LaTeX.
+breadcrumbTitle: 'Система уравнений в LaTeX'
 schemaBreadcrumbTitle: 'Система уравнений в LaTeX'
-h1: |2-
-  Как вставить формулу с&nbsp;системой уравнений и&nbsp;фигурной
-                          скобкой (cases / aligned)
+h1: 'Система уравнений в&nbsp;LaTeX: фигурная скобка, cases и&nbsp;aligned'
 categories:
   - 'latex'
 related:
-  - 'latex-pgfplotstable-import-excel-csv-tables'
-  - 'latex-multicol-multi-column-layout-journal'
-  - 'latex-chemfig'
-  - 'latex-fancyhdr'
-  - 'latex-siunitx'
-  - 'latex-word-to-latex'
-  - 'latex-scopus-wos'
-  - 'latex-list-of-figures-tables'
-  - 'latex-cv-resume'
-  - 'latex-amsthm'
-  - 'latex-eskd'
   - 'latex-formulas'
+  - 'markdown-multiline-formulas-matrices-mathjax'
+  - 'formula-numbering-lab-reports-gost'
+  - 'formula-variable-explanation-where-gost'
+  - 'markdown-mathjax-katex-latex-math'
+  - 'latex-newcommand-macros'
+  - 'latex-amsthm'
+  - 'latex-siunitx'
+  - 'latex-lab-reports'
+  - 'latex-word-to-latex'
 keywords:
   - 'система уравнений с фигурной скобкой latex онлайн'
   - 'как написать систему уравнений в latex cases'
+  - 'совокупность уравнений latex'
+  - 'квадратная скобка система latex'
+  - 'система неравенств latex'
+  - 'systeme latex'
 datePublished: '2026-08-20'
-dateModified: '2026-10-18'
-readingTime: '7 мин'
-cardTitle: |2-
-  Как вставить формулу с системой уравнений и фигурной скобкой (cases /
-                          aligned)
-cardDescription: |2-
-  Кусочно-заданные функции, выравнивание aligned, окружение dcases из
-                          mathtools и нумерация строк subequations.
+dateModified: '2026-11-05'
+readingTime: '10 мин'
+cardTitle: 'Система уравнений в LaTeX: фигурная скобка, cases и aligned'
+cardDescription: |-
+  Системы уравнений и неравенств, совокупности с квадратной скобкой, пакет systeme, dcases из
+  mathtools и нумерация строк subequations.
 sliderTitle: 'Системы уравнений и&nbsp;фигурные скобки'
-sliderText: 'Кусочные функции cases, выравнивание aligned и нумерация строк subequations.'
+sliderText: 'cases, aligned, systeme, совокупности и системы неравенств, нумерация строк.'
 sidebarImageAlt: 'Онлайн-редактор LaTeX Labkeeper'
-sidebarText: |2-
-  Набирайте сложные системы уравнений и&nbsp;матрицы
-                          в&nbsp;онлайн-редакторе Labkeeper с&nbsp;поддержкой amsmath
-  и&nbsp;mathtools.
+sidebarText: |-
+  Набирайте системы уравнений и&nbsp;матрицы в&nbsp;онлайн-редакторе Labkeeper с&nbsp;поддержкой
+  amsmath и&nbsp;mathtools.
 ctaTitle: 'Набирайте математические формулы в&nbsp;Labkeeper'
-ctaText: |2-
+ctaText: |-
   Онлайн-редактор LaTeX с&nbsp;полной поддержкой amsmath и&nbsp;mathtools: удобный набор систем
   уравнений, матриц и&nbsp;просмотр PDF после сборки.
 toc:
   - id: 'intro'
-    title: 'Обзор подходов к набору систем уравнений'
+    title: 'Короткий ответ и выбор окружения'
   - id: 'cases'
-    title: 'Окружение cases для кусочных функций'
+    title: 'Окружение cases: система и кусочная функция'
   - id: 'aligned'
-    title: |2-
-      Связка \left\{ и aligned для систем
-                                          уравнений
+    title: 'Выравнивание по знаку «=»: \left\{ и aligned'
+  - id: 'systeme'
+    title: 'Пакет systeme: переменные по столбцам'
+  - id: 'inequalities'
+    title: 'Система неравенств и совокупность (квадратная скобка)'
   - id: 'mathtools'
-    title: |2-
-      Пакет mathtools: окружения dcases и
-                                          rcases
+    title: 'Пакет mathtools: dcases, rcases и cases*'
   - id: 'subequations'
-    title: |2-
-      Нумерация отдельных уравнений системы
-                                          (subequations)
+    title: 'Номер у каждой строки: subequations, empheq, numcases'
+  - id: 'errors'
+    title: 'Типичные ошибки'
   - id: 'tips'
     title: 'Практические советы'
+  - id: 'faq'
+    title: 'Частые вопросы'
 sections:
   - id: 'intro'
-    title: 'Обзор подходов к набору систем уравнений'
-    html: |2-
-                              <p>Набор систем алгебраических и дифференциальных уравнений — одна из
-      самых частых задач в
-                                  точных науках (базовые правила математического режима и дробей
-      подробно разобраны в нашем <a
-                                      href="/blog/latex-formulas">гайде по формулам и пакету
-      amsmath</a>). В зависимости от
-                                  цели (кусочно-заданная функция, система уравнений с выравниванием по
-      знаку «=» или
-                                  независимая нумерация строк) в LaTeX используются разные
-      конструкции.</p>
-                              <p>Ниже детально разобрано, <strong>как написать систему уравнений в
-      LaTeX cases</strong> и
-                                  получить идеальную <strong>систему уравнений с фигурной скобкой
-      LaTeX онлайн</strong>.</p>
+    title: 'Короткий ответ и выбор окружения'
+    html: |-
+      <p>Чтобы набрать систему уравнений с&nbsp;фигурной скобкой в&nbsp;LaTeX, подключите
+      <code>amsmath</code> и&nbsp;используйте окружение <code>cases</code>:
+      <code>\begin{cases} 2x+y=5 \\ x-y=1 \end{cases}</code>. Для выравнивания по&nbsp;знаку «=»
+      замените его на&nbsp;<code>\left\{\begin{aligned}…\end{aligned}\right.</code>.</p>
+      <p>\[ \begin{cases} 2x + y = 5, \\ x - y = 1. \end{cases} \]</p>
+      <p>Остальные конструкции нужны для частных задач: выровнять переменные по&nbsp;столбцам,
+      записать совокупность с&nbsp;квадратной скобкой, пронумеровать каждую строку. Базовые правила
+      математического режима разобраны в&nbsp;<a href="/blog/latex-formulas">гайде по&nbsp;формулам
+      и&nbsp;пакету amsmath</a>.</p>
+      <div class="article-table-wrapper">
+          <table class="article-table">
+              <thead>
+                  <tr><th>Задача</th><th>Окружение</th><th>Пакет</th><th>В Markdown (MathJax / KaTeX)</th></tr>
+              </thead>
+              <tbody>
+                  <tr><td>Система или кусочная функция</td><td><code>cases</code></td><td>amsmath</td><td>да / да</td></tr>
+                  <tr><td>Выравнивание по «=»</td><td><code>\left\{</code> + <code>aligned</code></td><td>amsmath</td><td>да / да</td></tr>
+                  <tr><td>Совокупность (квадратная скобка)</td><td><code>\left[</code> + <code>aligned</code></td><td>amsmath</td><td>да / да</td></tr>
+                  <tr><td>Дроби в полный размер, скобка справа</td><td><code>dcases</code>, <code>rcases</code></td><td>mathtools</td><td>MathJax 3 с расширением mathtools / да</td></tr>
+                  <tr><td>Текст во втором столбце без <code>\text{}</code></td><td><code>cases*</code></td><td>mathtools</td><td>MathJax 3 с расширением mathtools / нет</td></tr>
+                  <tr><td>Переменные по столбцам</td><td><code>\systeme</code></td><td>systeme</td><td>нет / нет</td></tr>
+                  <tr><td>Номер у каждой строки</td><td><code>subequations</code> + <code>empheq</code></td><td>empheq</td><td>частично в MathJax 3.2 / нет</td></tr>
+                  <tr><td>Номер у строки без empheq</td><td><code>numcases</code></td><td>cases</td><td>нет / нет</td></tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="article-note">
+          <strong>💡 Нумерация в Labkeeper:</strong> если в&nbsp;проекте нет своей преамбулы, Labkeeper
+          подставляет автоматическую с&nbsp;пакетом <code>mathtools</code> в&nbsp;режиме
+          <code>showonlyrefs</code>. В&nbsp;этом режиме номер получает только формула, на&nbsp;которую
+          есть ссылка <code>\eqref</code>. Поэтому в&nbsp;примерах ниже рядом с&nbsp;<code>\label</code>
+          стоит ссылка в&nbsp;тексте. Чтобы нумеровались все формулы, соберите документ со&nbsp;своей
+          преамбулой от&nbsp;<code>\documentclass</code> до&nbsp;<code>\begin{document}</code>.
+          Подробнее — в&nbsp;статье о&nbsp;<a href="/blog/formula-numbering-lab-reports-gost">нумерации
+          формул в&nbsp;отчётах</a>.
+      </div>
   - id: 'cases'
-    title: 'Окружение cases для кусочных функций'
-    html: |2-
-                              <p>Для математических выражений с условиями (например, модуль числа или
-      функция знака)
-                                  используется окружение <code>cases</code> из пакета
-      <code>amsmath</code>:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\begin{equation}
+    title: 'Окружение cases: система и кусочная функция'
+    html: |-
+      <p>Окружение <code>cases</code> из&nbsp;пакета <code>amsmath</code> ставит фигурную скобку слева
+      и&nbsp;подходит как для системы уравнений, так и&nbsp;для функции, заданной по-разному на&nbsp;разных
+      промежутках (модуль числа, функция знака):</p>
+      <p>\[ |x| = \begin{cases} x, &amp; \text{если } x \ge 0, \\ -x, &amp; \text{если } x &lt; 0. \end{cases} \]</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{equation}\label{eq:abs}
       |x| = \begin{cases}
           x,  &amp; \text{если } x \ge 0, \\
           -x, &amp; \text{если } x &lt; 0.
       \end{cases}
-      \end{equation}</code></pre>
-                              </div>
-                              <p>Символ <code>&amp;</code> отделяет формулу от текстового пояснения, а
-      две косые черты
-                                  <code>\\</code> выполняют перенос на новую строку.</p>
+      \end{equation}
+      Согласно~\eqref{eq:abs} модуль числа неотрицателен.</code></pre>
+      </div>
+      <p>Символ <code>&amp;</code> отделяет формулу от&nbsp;условия, в&nbsp;строке он&nbsp;ставится
+      один раз. Две косые черты <code>\\</code> переносят на&nbsp;новую строку. После последней строки
+      <code>\\</code> не&nbsp;ставят: иначе появится пустая строка и&nbsp;скобка станет выше
+      нужного. Русские слова в&nbsp;условии всегда заключайте в&nbsp;<code>\text{…}</code>.</p>
   - id: 'aligned'
-    title: "Связка \\left\\{ и aligned для систем уравнений"
-    html: |2-
-                              <p>Когда требуется решить систему уравнений с выравниванием по знакам
-      равно или плюс/минус,
-                                  лучше использовать связку <code>\left\{ \begin{aligned} ...
-      \end{aligned} \right.</code>:
-                              </p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\begin{equation}
+    title: 'Выравнивание по знаку «=»: \left\{ и aligned'
+    html: |-
+      <p>Когда уравнения нужно выровнять по&nbsp;знаку равенства, используйте связку
+      <code>\left\{ \begin{aligned} … \end{aligned} \right.</code>. Знак <code>&amp;</code> ставится
+      перед тем символом, по&nbsp;которому выравниваются строки:</p>
+      <p>\[ \left\{ \begin{aligned} 2x + 3y - z &amp;= 7, \\ x - 2y + 4z &amp;= -3, \\ -3x + y + 2z &amp;= 4. \end{aligned} \right. \]</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{equation}
       \left\{
       \begin{aligned}
-          2x + 3y - z &amp;= 7 \\
-          x - 2y + 4z &amp;= -3 \\
-          -3x + y + 2z &amp;= 4
+          2x + 3y - z  &amp;= 7, \\
+          x - 2y + 4z  &amp;= -3, \\
+          -3x + y + 2z &amp;= 4.
       \end{aligned}
       \right.
       \end{equation}</code></pre>
-                              </div>
-                              <div class="article-note">
-                                  <strong>💡 Совет:</strong> Обратите внимание на <code>\right.</code>
-      в конце — точка
-                                  указывает LaTeX, что закрывающая скобка отсутствует.
-                              </div>
+      </div>
+      <div class="article-note">
+          <strong>💡 Совет:</strong> не&nbsp;забывайте <code>\right.</code> в&nbsp;конце. Точка
+          говорит LaTeX, что закрывающей скобки нет. Без&nbsp;неё сборка падает с&nbsp;ошибкой
+          <code>Missing \right. inserted</code>.
+      </div>
+      <p><code>aligned</code> выравнивает только по&nbsp;одному месту в&nbsp;строке, отмеченному
+      <code>&amp;</code>. Если нужно, чтобы <em>x</em> стоял под <em>x</em>, а&nbsp;<em>y</em>
+      под&nbsp;<em>y</em>, удобнее пакет <code>systeme</code>.</p>
+  - id: 'systeme'
+    title: 'Пакет systeme: переменные по столбцам'
+    html: |-
+      <p>Пакет <code>systeme</code> сам ставит фигурную скобку и&nbsp;выравнивает одноимённые
+      переменные в&nbsp;столбцы. Уравнения перечисляются через запятую, без&nbsp;<code>&amp;</code>
+      и&nbsp;<code>\\</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage{systeme} % в преамбуле
+
+      \[
+      \systeme{2x + 3y - z = 7, x - 2y + 4z = -3, -3x + y + 2z = 4}
+      \]
+
+      % Пропущенные члены тоже выравниваются: z встанет под z
+      \[
+      \systeme{x + z = 1, 2x - y = 0, y + z = 3}
+      \]</code></pre>
+      </div>
+      <p>Если в&nbsp;уравнении нет какой-то переменной (<code>x + z = 1</code>), <code>systeme</code>
+      оставит под&nbsp;неё пустое место, и&nbsp;столбцы не&nbsp;разъедутся. С&nbsp;<code>aligned</code>
+      такого же результата пришлось бы добиваться вручную, расставляя <code>&amp;</code>
+      и&nbsp;пробелы.</p>
+      <div class="article-note">
+          <strong>⚠️ Только для LaTeX:</strong> в&nbsp;Markdown (MathJax и&nbsp;KaTeX) пакета
+          <code>systeme</code> нет. Там остаются <code>cases</code> и&nbsp;<code>aligned</code>.
+      </div>
+  - id: 'inequalities'
+    title: 'Система неравенств и совокупность (квадратная скобка)'
+    html: |-
+      <p>Система неравенств набирается так же, как система уравнений: фигурная скобка означает,
+      что все условия выполняются одновременно. Знаки «меньше или равно» и&nbsp;«больше или равно» —
+      <code>\le</code> и&nbsp;<code>\ge</code>:</p>
+      <p>\[ \begin{cases} x^2 - 4 &gt; 0, \\ x + 1 \le 5. \end{cases} \]</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% Система неравенств
+      \[
+      \begin{cases}
+        x^2 - 4 &gt; 0, \\
+        x + 1 \le 5.
+      \end{cases}
+      \]</code></pre>
+      </div>
+      <p><strong>Совокупность</strong> обозначают квадратной скобкой: достаточно, чтобы выполнялось
+      хотя бы одно условие. Готового окружения для неё нет, поэтому используют
+      <code>\left[ … \right.</code> вокруг <code>aligned</code>:</p>
+      <p>\[ \left[ \begin{aligned} x &amp;= 1, \\ x &amp;= -3. \end{aligned} \right. \qquad \left[ \begin{aligned} &amp;x &lt; -2, \\ &amp;x &gt; 2. \end{aligned} \right. \]</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% Совокупность уравнений
+      \[
+      \left[
+      \begin{aligned}
+        x &amp;= 1, \\
+        x &amp;= -3.
+      \end{aligned}
+      \right.
+      \]
+
+      % Совокупность неравенств: &amp; в начале строки выравнивает по левому краю
+      \[
+      \left[
+      \begin{aligned}
+        &amp;x &lt; -2, \\
+        &amp;x &gt; 2.
+      \end{aligned}
+      \right.
+      \]</code></pre>
+      </div>
+      <p>Если совокупность встречается часто, заведите для неё свою команду, например
+      <code>\newcommand{\sovokup}[1]{\left[\begin{aligned}#1\end{aligned}\right.}</code>. Как писать
+      такие макросы, рассказано в&nbsp;статье про <a href="/blog/latex-newcommand-macros">\newcommand
+      и&nbsp;собственные команды</a>.</p>
   - id: 'mathtools'
-    title: 'Пакет mathtools: окружения dcases и rcases'
-    html: |2-
-                              <p>В стандартном <code>cases</code> дроби внутри строк отображаются в
-      компактном текстовом
-                                  размере (как <code>\tfrac</code>). Пакет <code>mathtools</code>
-      решает эту проблему
-                                  окружением <code>dcases</code> (display cases):</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\usepackage{mathtools}
+    title: 'Пакет mathtools: dcases, rcases и cases*'
+    html: |-
+      <p>В&nbsp;стандартном <code>cases</code> дроби внутри строк уменьшаются до&nbsp;текстового
+      размера (как <code>\tfrac</code>). Пакет <code>mathtools</code> добавляет окружение
+      <code>dcases</code> с&nbsp;дробями в&nbsp;полный размер, <code>rcases</code> со&nbsp;скобкой
+      справа и&nbsp;<code>cases*</code>, где второй столбец набирается обычным текстом:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage{mathtools} % загружает и amsmath
 
       % Дроби в полный размер (dcases):
       \begin{equation}
@@ -168,91 +261,177 @@ sections:
       \begin{rcases}
           a + b = 10 \\
           a - b = 2
-      \end{rcases} \implies a = 6, \ b = 4
-      \end{equation}</code></pre>
-                              </div>
-  - id: 'subequations'
-    title: 'Нумерация отдельных уравнений системы (subequations)'
-    html: |2-
-                              <p>Если каждому уравнению системы нужен свой буквенный индекс (например,
-      (1a), (1b)), оберните
-                                  код в <code>subequations</code>, а фигурную скобку добавьте
-      окружением <code>empheq</code>
-                                  (при формулировке условий теорем используйте также <a
-      href="/blog/latex-amsthm">пакет amsthm
-                                      для определений и лемм</a>). Обычный <code>align</code> внутри
-      <code>\left\{ … \right.</code>
-                                  не компилируется: LaTeX выдаёт ошибки <code>Missing $
-      inserted</code> и
-                                  <code>\begin{align} allowed only in paragraph mode</code>.</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\usepackage{empheq} % в преамбуле; пакет сам загружает mathtools
+      \end{rcases} \implies a = 6,\quad b = 4.
+      \end{equation}
 
-      \begin{subequations}\label{eq:maxwell}
+      % Второй столбец — текст, формулы в нём в $…$ (cases*):
+      \[
+      f(x) = \begin{cases*}
+        x,  &amp; если $x \ge 0$, \\
+        -x, &amp; иначе.
+      \end{cases*}
+      \]</code></pre>
+      </div>
+      <p>Для пояснений после скобки, как в&nbsp;примере с&nbsp;<code>rcases</code>, используйте
+      <code>\quad</code>: он даёт заметный, но&nbsp;не&nbsp;чрезмерный отступ.</p>
+  - id: 'subequations'
+    title: 'Номер у каждой строки: subequations, empheq, numcases'
+    html: |-
+      <p>Если каждому уравнению системы нужен свой номер с&nbsp;буквой — (1a), (1b), — оберните код
+      в&nbsp;<code>subequations</code>, а&nbsp;фигурную скобку добавьте окружением <code>empheq</code>.
+      Пример — законы Кирхгофа из&nbsp;лабораторной по&nbsp;электричеству:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage{empheq} % в преамбуле; пакет сам загружает mathtools
+
+      \begin{subequations}\label{eq:kirchhoff}
       \begin{empheq}[left=\empheqlbrace]{align}
-          \nabla \cdot \mathbf{E} &amp;= \frac{\rho}{\varepsilon_0} \label{eq:maxwell_gauss} \\
-          \nabla \cdot \mathbf{B} &amp;= 0 \label{eq:maxwell_mag} \\
-          \nabla \times \mathbf{E} &amp;= -\frac{\partial \mathbf{B}}{\partial t} \label{eq:maxwell_faraday} \\
-          \nabla \times \mathbf{B} &amp;= \mu_0 \mathbf{J} + \mu_0 \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t} \label{eq:maxwell_ampere}
+          I_1 &amp;= I_2 + I_3,       \label{eq:node} \\
+          E   &amp;= I_1 R_1 + I_2 R_2, \label{eq:loop1} \\
+          0   &amp;= I_2 R_2 - I_3 R_3. \label{eq:loop2}
       \end{empheq}
-      \end{subequations}</code></pre>
-                              </div>
-                              <p>Теперь на уравнение Фарадея можно сослаться через
-      <code>\eqref{eq:maxwell_faraday}</code>, а
-                                  на всю систему — через <code>\eqref{eq:maxwell}</code>.</p>
-                              <div class="article-note">
-                                  <strong>💡 Нумерация в Labkeeper:</strong> если в проекте нет своей
-      преамбулы, Labkeeper
-                                  подставляет автоматическую с пакетом <code>mathtools</code> в режиме
-                                  <code>showonlyrefs</code>. В этом режиме номер получает только
-      формула, на которую есть
-                                  ссылка через <code>\eqref</code>. Чтобы нумеровались все формулы,
-      соберите документ со своей
-                                  преамбулой — от <code>\documentclass</code> до
-      <code>\begin{document}</code>.
-                              </div>
+      \end{subequations}
+      Из системы~\eqref{eq:kirchhoff} и уравнения~\eqref{eq:node} находим $I_3$.</code></pre>
+      </div>
+      <p>На&nbsp;отдельную строку можно сослаться через <code>\eqref{eq:node}</code>, на&nbsp;всю
+      систему — через <code>\eqref{eq:kirchhoff}</code>. Если пакет <code>empheq</code> не&nbsp;нужен,
+      а&nbsp;номер требуется у&nbsp;каждой строки, подойдёт <code>numcases</code> из&nbsp;пакета
+      <code>cases</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage{cases} % в преамбуле
+
+      \begin{numcases}{|x| =}
+        x,  &amp; если $x \ge 0$, \label{eq:pos} \\
+        -x, &amp; если $x &lt; 0$. \label{eq:neg}
+      \end{numcases}
+      См.~\eqref{eq:pos} и~\eqref{eq:neg}.</code></pre>
+      </div>
+      <p>Во&nbsp;втором столбце <code>numcases</code> — обычный текст, поэтому формулы в&nbsp;нём
+      заключают в&nbsp;<code>$…$</code>. Похожие формулы в&nbsp;Markdown пишутся внутри
+      <code>$$…$$</code>, но&nbsp;<code>empheq</code> и&nbsp;<code>numcases</code> там не&nbsp;работают.</p>
+  - id: 'errors'
+    title: 'Типичные ошибки'
+    html: |-
+      <ul>
+          <li><strong><code>Missing \right. inserted</code></strong> — после <code>\left\{</code>
+          или <code>\left[</code> забыли <code>\right.</code>.</li>
+          <li><strong><code>Extra alignment tab has been changed to \cr</code></strong> — в&nbsp;строке
+          <code>cases</code> больше одного <code>&amp;</code>. У&nbsp;<code>cases</code> два столбца:
+          формула и&nbsp;условие.</li>
+          <li><strong>Кириллица в&nbsp;условии без <code>\text{}</code></strong> — LaTeX пишет
+          предупреждение <code>Command \cyre invalid in math mode</code>, а&nbsp;в&nbsp;PDF буквы
+          пропадают или превращаются в&nbsp;мусор, пробелы между словами исчезают.</li>
+          <li><strong><code>align</code> внутри <code>\left\{ … \right.</code></strong> — не&nbsp;собирается:
+          LaTeX выдаёт <code>Missing $ inserted</code> и&nbsp;<code>\begin{align} allowed only in
+          paragraph mode</code>. Внутри скобок используйте <code>aligned</code>, а&nbsp;для нумерации
+          строк — <code>empheq</code>.</li>
+          <li><strong>Лишний <code>\\</code> после последней строки</strong> — внизу появляется пустая
+          строка, и&nbsp;скобка становится несимметричной.</li>
+          <li><strong><code>Undefined control sequence \systeme</code></strong> — не&nbsp;подключён пакет
+          <code>systeme</code> или код вставлен в&nbsp;Markdown, где этого пакета нет.</li>
+      </ul>
   - id: 'tips'
     title: 'Практические советы'
-    html: |2-
-                              <div class="article-tips">
-                                  <div class="article-tip">
-                                      <div class="article-tip__number">1</div>
-                                      <div class="article-tip__content">
-                                          <h3>Текст внутри условий</h3>
-                                          <p>Всегда используйте <code>\text{ при }</code> или
-      <code>\quad\text{if }</code> для
-                                              разделения формулы и текстового условия, чтобы сохранить
-      естественные интервалы
-                                              шрифта.</p>
-                                      </div>
-                                  </div>
-                                  <div class="article-tip">
-                                      <div class="article-tip__number">2</div>
-                                      <div class="article-tip__content">
-                                          <h3>Физические единицы в уравнениях</h3>
-                                          <p>Если в системе присутствуют размерные величины или вы
-      готовите практический
-                                              расчет, используйте <a href="/blog/latex-siunitx">пакет
-      siunitx</a> и следуйте
-                                              нашему <a href="/blog/latex-lab-reports">руководству по
-      оформлению лабораторных
-                                                  работ</a>.</p>
-                                      </div>
-                                  </div>
-                              </div>
+    html: |-
+      <div class="article-tips">
+          <div class="article-tip">
+              <div class="article-tip__number">1</div>
+              <div class="article-tip__content">
+                  <h3>Текст внутри условий</h3>
+                  <p>Используйте <code>\text{ при }</code> или <code>\quad\text{если }</code>, чтобы
+                  отделить формулу от&nbsp;текстового условия и&nbsp;сохранить нормальные пробелы.</p>
+              </div>
+          </div>
+          <div class="article-tip">
+              <div class="article-tip__number">2</div>
+              <div class="article-tip__content">
+                  <h3>Матричная форма той же системы</h3>
+                  <p>Систему <code>2x + y = 5</code>, <code>x - y = 1</code> можно записать как
+                  <code>A\mathbf{x} = \mathbf{b}</code> с&nbsp;матрицей
+                  <code>\begin{pmatrix}2&amp;1\\1&amp;-1\end{pmatrix}</code>. Окружения матриц разобраны
+                  в&nbsp;статье о&nbsp;<a href="/blog/markdown-multiline-formulas-matrices-mathjax">матрицах
+                  и&nbsp;многострочных формулах</a>.</p>
+              </div>
+          </div>
+          <div class="article-tip">
+              <div class="article-tip__number">3</div>
+              <div class="article-tip__content">
+                  <h3>Физические единицы и&nbsp;расчёты</h3>
+                  <p>Для размерных величин используйте <a href="/blog/latex-siunitx">пакет siunitx</a>,
+                  а&nbsp;переменные под&nbsp;системой поясняйте <a
+                  href="/blog/formula-variable-explanation-where-gost">блоком «где» по&nbsp;ГОСТ</a>.
+                  Готовый пример расчётной лабораторной — <a
+                  href="/templates/rezonans-napryazhenii">шаблон «Резонанс напряжений»</a>.</p>
+              </div>
+          </div>
+          <div class="article-tip">
+              <div class="article-tip__number">4</div>
+              <div class="article-tip__content">
+                  <h3>Шаблоны математических журналов</h3>
+                  <p>Системы чаще всего встречаются в&nbsp;математических статьях. Начните с&nbsp;шаблонов
+                  <a href="/templates/izvestiya-saratov-mmi">«Известия Саратовского университета.
+                  Математика. Механика. Информатика»</a> или <a href="/templates/zhurnal-svmo">«Журнал
+                  СВМО»</a>.</p>
+              </div>
+          </div>
+      </div>
+  - id: 'faq'
+    title: 'Частые вопросы'
+    html: |-
+      <h3>Как сделать большую фигурную скобку в LaTeX?</h3>
+      <p>Используйте <code>\left\{ … \right.</code>: высота скобки подстроится под содержимое.
+      Внутри поставьте <code>aligned</code> или <code>array</code>. Для систем уравнений проще
+      окружение <code>cases</code>, оно ставит скобку само.</p>
+      <h3>Как набрать совокупность с квадратной скобкой?</h3>
+      <p>Так же, как систему, но с&nbsp;<code>\left[</code> вместо <code>\left\{</code>:
+      <code>\left[\begin{aligned} x &amp;= 1, \\ x &amp;= -3. \end{aligned}\right.</code></p>
+      <h3>Почему у системы в Labkeeper не появился номер?</h3>
+      <p>С&nbsp;автоматической преамбулой Labkeeper номер получают только формулы, на&nbsp;которые
+      есть ссылка <code>\eqref</code>. Добавьте <code>\label</code> и&nbsp;ссылку в&nbsp;тексте
+      или соберите документ со&nbsp;своей преамбулой.</p>
+      <h3>Работают ли cases и aligned в Markdown?</h3>
+      <p>Да, в&nbsp;MathJax и&nbsp;KaTeX оба окружения пишутся внутри <code>$$…$$</code>. Пакетов
+      <code>systeme</code>, <code>empheq</code> и&nbsp;<code>cases</code> в&nbsp;Markdown нет.
+      Подробнее — в&nbsp;статье о&nbsp;<a href="/blog/markdown-mathjax-katex-latex-math">формулах
+      в&nbsp;Markdown</a>.</p>
+      <h3>Чем cases отличается от dcases?</h3>
+      <p>В&nbsp;<code>cases</code> дроби набираются уменьшенными, в&nbsp;<code>dcases</code>
+      из&nbsp;<code>mathtools</code> — в&nbsp;полный размер, как в&nbsp;выключной формуле.</p>
 editorExample:
-  latex: |2-
+  latex: |-
     \documentclass[a4paper,12pt]{article}
+    \usepackage{cmap}
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
     \usepackage[english,russian]{babel}
-    \usepackage{amsmath,graphicx}
+    \usepackage{mathtools}
 
     \begin{document}
-    \[\begin{cases}2x+y=5\\x-y=1\end{cases}
-    \quad\Longrightarrow\quad x=2,\ y=1.\]
-    \[\begin{pmatrix}2&1\\1&-1\end{pmatrix}
-    \begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}5\\1\end{pmatrix}\]
+    Система двух уравнений:
+    \begin{equation}\label{eq:sys}
+    \begin{cases}
+      2x + y = 5, \\
+      x - y = 1.
+    \end{cases}
+    \end{equation}
+    Сложив уравнения системы~\eqref{eq:sys}, получаем $3x = 6$, откуда $x = 2$, $y = 1$.
+
+    Та же система с выравниванием по знаку <<=>>:
+    \[
+    \left\{
+    \begin{aligned}
+      2x + y &= 5, \\
+       x - y &= 1.
+    \end{aligned}
+    \right.
+    \]
+
+    Кусочная функция с дробями в полный размер:
+    \[
+    f(x) = \begin{dcases}
+      \frac{\sin x}{x}, & x \neq 0, \\
+      1,                & x = 0.
+    \end{dcases}
+    \]
     \end{document}

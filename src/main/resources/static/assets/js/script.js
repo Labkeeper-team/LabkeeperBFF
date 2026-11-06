@@ -425,9 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const declineBtn = document.getElementById('cookie-decline');
 
     // Находим кнопку вызова куки (ищем span, а затем берем его родительскую ссылку <a>)
-    const openCookieSpan = document.querySelector(
-        '[data-i18n="docs-link-cookies"]'
-    );
+    const openCookieSpan = document.querySelector('.js-cookie-settings');
     const openCookieBtn = openCookieSpan ? openCookieSpan.closest('a') : null;
 
     // Проверяем, делал ли пользователь выбор ранее

@@ -1,421 +1,158 @@
 catalogIndex: 81
 slug: 'latex-diploma-gost'
 batch: 1
-title: 'Оформление курсовой и диплома по ГОСТ в LaTeX: пошаговый онлайн-гайд'
-pageTitle: 'Оформление курсовой и диплома по ГОСТ в LaTeX: пошаговый онлайн-гайд — Labkeeper'
-metaDescription: |2-
-  Как оформить курсовую работу и дипломную работу в LaTeX по ГОСТ: шаблон диплома LaTeX по ГОСТ
-  онлайн, настройка полей, шрифтов, заголовков и приложений.
-ogDescription: |2-
-  Шаблон диплома LaTeX ГОСТ онлайн: настройка полей, шрифтов и заголовков по ГОСТ 7.32. Пошаговый
-  гайд для курсовых и дипломных работ.
-twitterDescription: 'Шаблон диплома LaTeX ГОСТ онлайн: настройка полей, шрифтов, заголовков по ГОСТ 7.32.'
-schemaDescription: |2-
-  Шаблон диплома LaTeX ГОСТ онлайн: настройка полей, шрифтов и заголовков по ГОСТ 7.32. Пошаговый
-  гайд для курсовых и дипломных работ.
-breadcrumbTitle: |2-
-  Оформление диплома
-                                  по ГОСТ в LaTeX
+title: 'Оформление курсовой и диплома по ГОСТ 7.32-2017 в LaTeX: пошаговый гайд и готовый шаблон'
+pageTitle: 'Шаблон диплома и курсовой в LaTeX по ГОСТ 7.32-2017 онлайн — Labkeeper'
+metaDescription: |-
+  Готовая преамбула LaTeX по ГОСТ 7.32: поля 30/15/20/20, Times 14 пт, интервал 1,5, заголовки,
+  СОДЕРЖАНИЕ, приложения А, Б, В. Скопируйте шаблон или откройте онлайн.
+ogDescription: |-
+  Шаблон диплома LaTeX по ГОСТ 7.32-2017: поля, шрифт, заголовки с абзацного отступа, рисунки,
+  таблицы, формулы, список источников и приложения. Копируйте целиком или откройте онлайн.
+twitterDescription: 'Шаблон курсовой и ВКР в LaTeX по ГОСТ 7.32-2017: поля, шрифт, заголовки, содержание, приложения.'
+schemaDescription: |-
+  Пошаговый гайд по оформлению курсовой и дипломной работы в LaTeX по ГОСТ 7.32-2017 и готовый
+  шаблон для pdfLaTeX.
+breadcrumbTitle: 'Оформление диплома по ГОСТ в LaTeX'
 schemaBreadcrumbTitle: 'Оформление диплома по ГОСТ в LaTeX'
-h1: |2-
-  Оформление курсовой и&nbsp;диплома по&nbsp;ГОСТ в&nbsp;LaTeX:
-                          пошаговый онлайн-гайд
+h1: 'Оформление курсовой и&nbsp;диплома по&nbsp;ГОСТ 7.32-2017 в&nbsp;LaTeX: пошаговый гайд и&nbsp;шаблон'
 categories:
   - 'diploma'
   - 'latex'
 related:
-  - 'word-formatting-issues-diploma-lightweight-markup-alternative'
-  - 'diploma-annotation-abstract-russian-english'
-  - 'paragraph-indent-1-25-gost'
-  - 'diploma-page-numbering-second-page'
-  - 'latex-line-spacing-1-5-setspace-gost'
   - 'latex-geometry-margins-gost'
-  - 'latex-newcommand-macros'
+  - 'paragraph-indent-1-25-gost'
+  - 'latex-line-spacing-1-5-setspace-gost'
+  - 'automatic-table-of-contents-diploma-gost'
+  - 'diploma-page-numbering-second-page'
+  - 'diploma-appendices-listings-diagrams-gost'
   - 'latex-gost-bibliography'
+  - 'figure-double-numbering-chapters-gost'
+  - 'table-continuation-multipage-gost-diploma'
   - 'latex-titlepage'
-  - 'latex-dissertation'
-  - 'latex-list-of-figures-tables'
+  - 'word-formatting-issues-diploma-lightweight-markup-alternative'
   - 'latex-eskd'
 keywords:
   - 'шаблон диплома latex гост онлайн'
   - 'оформление курсовой работы в latex'
+  - 'шаблон вкр latex гост 7.32'
+  - 'структура дипломной работы по гост'
 datePublished: '2026-08-20'
-dateModified: '2026-11-05'
-readingTime: '12 мин'
-cardTitle: 'Оформление курсовой и диплома по ГОСТ в LaTeX: пошаговый онлайн-гайд'
-cardDescription: |2-
-  Онлайн-гайд по настройке шаблона диплома по ГОСТ 7.32: поля, шрифты,
-                          заголовки, оглавление и приложения.
+dateModified: '2026-11-06'
+readingTime: '15 мин'
+cardTitle: 'Оформление курсовой и диплома по ГОСТ 7.32 в LaTeX: гайд и шаблон'
+cardDescription: 'Готовый шаблон ВКР по ГОСТ 7.32-2017: поля, шрифт, заголовки, рисунки, таблицы, содержание и приложения.'
 sliderTitle: 'Диплом и&nbsp;курсовая по&nbsp;ГОСТ в&nbsp;LaTeX'
-sliderText: 'Пошаговый онлайн-гайд по настройке шаблона дипломной работы по ГОСТ 7.32.'
+sliderText: 'Пошаговый гайд и готовый шаблон курсовой и ВКР по ГОСТ 7.32-2017.'
 sidebarImageAlt: 'Онлайн-редактор LaTeX Labkeeper'
-sidebarText: |2-
-  Оформляйте дипломную и&nbsp;курсовую работу по&nbsp;ГОСТ
-                          в&nbsp;онлайн-редакторе Labkeeper.
-ctaTitle: 'Верстайте дипломные и&nbsp;курсовые в&nbsp;Labkeeper'
-ctaText: |2-
-  Онлайн-редактор LaTeX для&nbsp;студенческих работ: быстрая компиляция в&nbsp;PDF, примеры
-  оформления по&nbsp;ГОСТ и&nbsp;AI-ассистент прямо в&nbsp;браузере.
+sidebarText: 'Оформляйте дипломную и&nbsp;курсовую работу по&nbsp;ГОСТ в&nbsp;онлайн-редакторе Labkeeper.'
+ctaTitle: 'Откройте шаблон ВКР по&nbsp;ГОСТ 7.32 в&nbsp;Labkeeper'
+ctaText: |-
+  Кнопка открывает полный учебный макет из&nbsp;статьи: поля, шрифт, заголовки, содержание
+  и&nbsp;приложение уже настроены. Заполните текст и&nbsp;добавьте необходимые источники по&nbsp;заданию.
 toc:
   - id: 'intro'
-    title: 'ГОСТ 7.32 и требования к оформлению'
+    title: 'ГОСТ 7.32-2017: требования и структура работы'
+  - id: 'template'
+    title: 'Готовый шаблон курсовой и ВКР по ГОСТ 7.32 (копируйте целиком)'
   - id: 'class'
-    title: |2-
-      Выбор класса документа и базовая
-                                          настройка
+    title: 'Класс документа и кегль 14 пт'
   - id: 'geometry'
     title: 'Поля страницы по ГОСТ'
   - id: 'fonts'
-    title: 'Шрифт и межстрочный интервал'
+    title: 'Шрифт, межстрочный интервал и абзацный отступ'
   - id: 'headings'
     title: 'Заголовки и разделы'
+  - id: 'figures-tables'
+    title: 'Рисунки и таблицы'
+  - id: 'formulas'
+    title: 'Формулы'
+  - id: 'bibliography'
+    title: 'Список использованных источников'
   - id: 'toc'
-    title: 'Оглавление и нумерация страниц'
+    title: 'Содержание и нумерация страниц'
   - id: 'appendix'
     title: 'Приложения'
   - id: 'tips'
     title: 'Практические советы'
-  - id: 'full-example'
-    title: 'Полный код учебного примера'
+  - id: 'faq'
+    title: 'Частые вопросы'
 sections:
   - id: 'intro'
-    title: 'ГОСТ 7.32 и требования к оформлению'
-    html: |2-
-                              <p>ГОСТ 7.32-2017 «Отчёт о научно-исследовательской работе» — стандарт
-      отчёта о НИР.
-                                  Методички вузов по оформлению дипломных и курсовых работ обычно
-      опираются на него: он задаёт
-                                  требования к полям, шрифтам, заголовкам, нумерации и структуре (а
-      для подготовки первой
-                                  страницы рекомендуем наш <a href="/blog/latex-titlepage">гайд по
-      верстке титульного листа по
-                                      ГОСТ</a>). Если методичка кафедры расходится со стандартом,
-      следуйте методичке.</p>
-                              <p>Если в дипломе предусмотрена экономическая часть, используйте
+    title: 'ГОСТ 7.32-2017: требования и структура работы'
+    html: |-
+      <p>ГОСТ 7.32-2017 «Отчёт о научно-исследовательской работе» — стандарт отчёта о НИР. Методички
+      вузов по оформлению дипломных и курсовых работ обычно опираются на него: он задаёт требования
+      к полям, шрифтам, заголовкам, нумерации и структуре. Если методичка кафедры расходится со
+      стандартом, следуйте методичке. Для технических специальностей, где методичка требует рамки
+      ЕСКД, смотрите статью о <a href="/blog/latex-eskd">рамках и штампах ЕСКД в LaTeX</a>.</p>
+      <p>Если в дипломе предусмотрена экономическая часть, используйте
       <a href="/blog/product-cost-calculation-example">пример расчета себестоимости продукции</a>:
       в нем показаны исходные данные, формулы и подстановка результатов в LaTeX.</p>
-                              <p>Материалы, собранные перед написанием ВКР, можно оформить по
+      <p>Материалы, собранные перед написанием ВКР, можно оформить по
       <a href="/blog/industrial-practice-report-format-template">шаблону отчета по производственной
       и преддипломной практике</a>.</p>
-                              <p>Для отдельных частей ВКР используйте материалы про
+      <p>Для отдельных частей ВКР используйте материалы про
       <a href="/blog/diploma-life-safety-section-calculation-example">раздел БЖД с расчетом освещения</a>
       и <a href="/blog/diploma-conclusion-structure-example">структуру заключения</a>.</p>
-                              <p>Связать цель, задачи и методы поможет
+      <p>Связать цель, задачи и методы поможет
       <a href="/blog/diploma-introduction-structure-example">шаблон введения ВКР</a>.
       Для прикладной части доступны примеры
       <a href="/blog/specialist-workstation-diploma-design">проектирования АРМ специалиста</a>
       и <a href="/blog/marketing-research-results-analysis-example">анализа маркетингового исследования</a>.</p>
-                              <p>Ключевые требования ГОСТ 7.32:</p>
-                              <div class="article-table-wrapper">
-                                  <table class="article-table">
-                                      <thead>
-                                          <tr>
-                                              <th>Параметр</th>
-                                              <th>Требование ГОСТ</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-                                          <tr>
-                                              <td>Шрифт</td>
-                                              <td>Не менее 12 пт, рекомендован Times New Roman</td>
-                                          </tr>
-                                          <tr>
-                                              <td>Межстрочный интервал</td>
-                                              <td>Полуторный (1.5)</td>
-                                          </tr>
-                                          <tr>
-                                              <td>Поля: левое</td>
-                                              <td>30 мм</td>
-                                          </tr>
-                                          <tr>
-                                              <td>Поля: правое</td>
-                                              <td>15 мм</td>
-                                          </tr>
-                                          <tr>
-                                              <td>Поля: верхнее и нижнее</td>
-                                              <td>20 мм</td>
-                                          </tr>
-                                          <tr>
-                                              <td>Абзацный отступ</td>
-                                              <td>12,5 мм (~1,25 см)</td>
-                                          </tr>
-                                          <tr>
-                                              <td>Нумерация страниц</td>
-                                              <td>Арабские цифры, внизу по центру; титульный лист
-      входит в нумерацию, но номер
-                                                  на нём не ставится</td>
-                                          </tr>
-                                      </tbody>
-                                  </table>
-                              </div>
-  - id: 'class'
-    title: 'Выбор класса документа и базовая настройка'
-    html: |2-
-                              <p>Для оформления курсовой работы в LaTeX используйте класс
-      <code>extreport</code> или
-                                  <code>extarticle</code> из комплекта extsizes. Стандартные
-      <code>report</code> и
-                                  <code>article</code> поддерживают только 10, 11 и 12 пт: опцию
-      <code>14pt</code> они молча
-                                  игнорируют и набирают текст кеглем 10. Для дипломных работ с главами
-      удобнее
-                                  <code>extreport</code>:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\documentclass[a4paper,14pt]{extreport}
-
-      \usepackage[T2A]{fontenc}
-      \usepackage[utf8]{inputenc}
-      \usepackage[russian]{babel}
-
-      % Поля по ГОСТ
-      \usepackage[
-          left=30mm,
-          right=15mm,
-          top=20mm,
-          bottom=20mm
-      ]{geometry}
-
-      % Полуторный интервал
-      \usepackage{setspace}
-      \onehalfspacing
-
-      % Абзацный отступ
-      \setlength{\parindent}{1.25cm}
-
-      % Без отступа между абзацами
-      \setlength{\parskip}{0pt}</code></pre>
-                              </div>
-  - id: 'geometry'
-    title: 'Поля страницы по ГОСТ'
-    html: |2-
-                              <p>Пакет <code>geometry</code> — самый удобный способ задать поля.
-      Параметры для ГОСТ 7.32:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\usepackage[
-          a4paper,
-          left=30mm,    % поле для переплёта
-          right=15mm,
-          top=20mm,
-          bottom=20mm,
-          headheight=14pt
-      ]{geometry}</code></pre>
-                              </div>
-                              <div class="article-note">
-                                  <strong>💡 Совет:</strong> Требования конкретного вуза могут
-      отличаться от ГОСТ. Уточните
-                                  методичку кафедры — иногда нижнее поле задаётся 25 мм, а не 20 мм.
-                              </div>
-  - id: 'fonts'
-    title: 'Шрифт и межстрочный интервал'
-    html: |2-
-                              <p>ГОСТ 7.32-2017 требует шрифт не меньше 12 пт и рекомендует Times New
-      Roman. Labkeeper
-                                  собирает PDF через pdfLaTeX, поэтому системные шрифты вроде Times
-      New Roman ему недоступны.
-                                  Близкий по рисунку шрифт с кириллицей даёт пакет
-      <code>tempora</code>:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX (pdfLaTeX)</span>
-                                  </div>
-                                  <pre><code>\usepackage[T2A]{fontenc}
-      \usepackage{tempora}   % близкий аналог Times New Roman с кириллицей</code></pre>
-                              </div>
-                              <p>Пакета <code>pscyr</code> в TeX Live нет, а в <code>mathptmx</code>
-      нет кириллицы: с ним
-                                  русский текст наберётся другим шрифтом. При локальной сборке XeLaTeX
-      или LuaLaTeX системный
-                                  шрифт можно подключить напрямую. В Labkeeper этот вариант не
-      работает: pdfLaTeX
-                                  останавливает сборку с ошибкой «fontspec requires XeTeX or
-      LuaTeX».</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX (XeLaTeX, только локально)</span>
-                                  </div>
-                                  <pre><code>\usepackage{fontspec}
-      \setmainfont{Times New Roman}
-      \setsansfont{Arial}
-      \setmonofont{Courier New}</code></pre>
-                              </div>
-                              <p>Межстрочный интервал 1.5 устанавливается через пакет
-      <code>setspace</code>:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\usepackage{setspace}
-      \onehalfspacing   % полуторный интервал
-
-      % Не замена onehalfspacing: множитель 1.5 заметно реже.
-      % Без \selectfont команда не включается сразу.
-      \renewcommand{\baselinestretch}{1.5}</code></pre>
-                              </div>
-  - id: 'headings'
-    title: 'Заголовки и разделы'
-    html: |2-
-                              <p>По ГОСТ 7.32-2017 (п. 6.2.3) заголовки разделов и подразделов
-      печатают с абзацного отступа, с
-                                  прописной буквы, полужирным шрифтом и без точки в конце. Прописными
-      буквами и по центру
-                                  пишут только заголовки структурных элементов: «СОДЕРЖАНИЕ»,
-      «ВВЕДЕНИЕ», «ЗАКЛЮЧЕНИЕ»,
-                                  «СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ», «ПРИЛОЖЕНИЕ» (п. 6.2.1). В LaTeX
-      структурные элементы
-                                  удобно набирать ненумерованными главами <code>\chapter*</code>, а
-      разделы — обычными
-                                  <code>\chapter</code>. Фрагменты ниже показывают отдельные настройки; весь код по кнопке приведен в конце статьи. Пакет <code>titlesec</code> задаёт для них
-      разные стили:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\usepackage{titlesec}
-
-      % Разделы: с абзацного отступа, с прописной буквы, полужирные
-      \titleformat{\chapter}[block]
-          {\normalfont\normalsize\bfseries\hyphenpenalty=10000\exhyphenpenalty=10000\relax}
-          {\thechapter}
-          {0.5em}
-          {}
-
-      % Структурные элементы (\chapter*): по центру, прописными
-      \titleformat{name=\chapter,numberless}[block]
-          {\normalfont\normalsize\bfseries\filcenter\hyphenpenalty=10000\exhyphenpenalty=10000\relax}
-          {}
-          {0pt}
-          {\MakeUppercase}
-
-      % Подразделы: с абзацного отступа, полужирные
-      \titleformat{\section}
-          {\normalfont\normalsize\bfseries\hyphenpenalty=10000\exhyphenpenalty=10000\relax}
-          {\thesection}
-          {0.5em}
-          {}
-
-      % Отступы вокруг заголовков
-      \titlespacing{\chapter}{\parindent}{0pt}{14pt}
-      \titlespacing{name=\chapter,numberless}{0pt}{0pt}{14pt}
-      \titlespacing{\section}{\parindent}{12pt}{6pt}</code></pre>
-                              </div>
-                              <p>Ненумерованная глава сама в оглавление не попадает: после
-      <code>\chapter*{Введение}</code>
-                                  добавьте <code>\addcontentsline{toc}{chapter}{Введение}</code>.</p>
-  - id: 'toc'
-    title: 'Оглавление и нумерация страниц'
-    html: |2-
-                              <p>Оглавление формируется командой <code>\tableofcontents</code>. Для
-      настройки нумерации снизу
-                                  по центру подключите пакет <code>fancyhdr</code> (все тонкости
-      колонтитулов мы разобрали в
-                                  <a href="/blog/latex-fancyhdr">руководстве по пакету
-      fancyhdr</a>):</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>% Нумерация снизу по центру
-      \usepackage{fancyhdr}
-      \pagestyle{fancy}
-      \fancyhf{}
-      \fancyfoot[C]{\thepage}
-      \renewcommand{\headrulewidth}{0pt}
-
-      % Глубина читается в момент \tableofcontents, поэтому счётчики стоят раньше
-      \setcounter{tocdepth}{3}
-      \setcounter{secnumdepth}{3}
-
-      % Оглавление
-      \tableofcontents
-      \newpage</code></pre>
-                              </div>
-                              <p>По ГОСТ 7.32-2017 номер не ставят только на титульном листе: он
-      входит в общую нумерацию,
-                                  но цифру на нём не печатают. Добавьте
-      <code>\thispagestyle{empty}</code> на странице
-                                  титульного листа, а страницу содержания нумеруйте как обычно.
-      Заголовок оглавления по ГОСТ —
-                                  «СОДЕРЖАНИЕ», а babel по умолчанию пишет «Оглавление».
-      Переопределите его в преамбуле:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\addto\captionsrussian{\renewcommand{\contentsname}{Содержание}}</code></pre>
-                              </div>
-                              <p>С настройками <code>titlesec</code> из предыдущего раздела заголовок
-      оглавления выйдет по
-                                  центру прописными буквами.</p>
-  - id: 'appendix'
-    title: 'Приложения'
-    html: |2-
-      <p>Приложения начинают с новой страницы, включают в содержание с обозначением, статусом и названием и упоминают в основном тексте. Нумерация страниц продолжается.</p>
-      <p>ГОСТ 7.32-2017 (§ 6.17.4) исключает из кириллических обозначений Ё, З, Й, О, Ч, Ъ, Ы, Ь, из латинских — I и O. Обычная команда <code>\Asbuk</code> не учитывает все эти исключения. В полном примере ниже дана явная ограниченная последовательность А, Б, В с ошибкой при четвертом приложении. Для большего числа приложений расширьте отображение по разрешенному алфавиту.</p>
-      <p>Статус «справочное» выбран автором для учебного образца: согласуйте его с заданием кафедры. В примере счетчики таблиц, рисунков и формул получают букву приложения: А.1.</p>
-  - id: 'tips'
-    title: 'Практические советы'
-    html: |2-
-                              <div class="article-tips">
-                                  <div class="article-tip">
-                                      <div class="article-tip__number">1</div>
-                                      <div class="article-tip__content">
-                                          <h3>Начните с примера из витрины</h3>
-                                          <p>Откройте пример дипломной работы в витрине на главной
-      странице Labkeeper (фильтр
-                                              «Дипломные») и клонируйте его — или возьмите преамбулу
-      из этой статьи.</p>
-                                      </div>
-                                  </div>
-                                  <div class="article-tip">
-                                      <div class="article-tip__number">2</div>
-                                      <div class="article-tip__content">
-                                          <h3>Разбивайте документ на файлы</h3>
-                                          <p>Используйте <code>\include{chapter1}</code> для вынесения
-      каждой главы в
-                                              отдельный .tex-файл. Это ускоряет компиляцию и упрощает
-      навигацию в большом
-                                              проекте.</p>
-                                      </div>
-                                  </div>
-                                  <div class="article-tip">
-                                      <div class="article-tip__number">3</div>
-                                      <div class="article-tip__content">
-                                          <h3>Перекрёстные ссылки и библиография</h3>
-                                          <p>Используйте <code>\label</code> и <code>\ref</code> для
-      ссылок на рисунки,
-                                              таблицы и формулы (правила набора математики смотрите в
-      <a
-                                                  href="/blog/latex-formulas">гайде по формулам в
-      LaTeX</a>). Список
-                                              литературы по ГОСТ оформите через окружение
-      <code>thebibliography</code>: Biber в
-                                              Labkeeper пока не запускается (подробно в <a
-                                                  href="/blog/latex-gost-bibliography">инструкции по
-      библиографии по
-                                                  ГОСТ</a>).</p>
-                                      </div>
-                                  </div>
-                                  <div class="article-tip">
-                                      <div class="article-tip__number">4</div>
-                                      <div class="article-tip__content">
-                                          <h3>Список рисунков и таблиц</h3>
-                                          <p>Добавьте <code>\listoffigures</code> и
-      <code>\listoftables</code> после
-                                              оглавления, если такие списки требует методичка: среди
-      структурных элементов
-                                              ГОСТ 7.32-2017 их нет (настройку оформления смотрите в
-      <a
-                                                  href="/blog/latex-list-of-figures-tables">статье о
-      списках иллюстраций и
-                                                  таблиц</a>).</p>
-                                      </div>
-                                  </div>
-                              </div>
-  - id: 'full-example'
-    title: 'Полный код учебного примера'
-    html: |2-
-      <p>Ниже весь код по кнопке примера. Это учебный макет оформления, а не полная ВКР или отчет о НИР: список источников и другие обязательные элементы добавляют по заданию кафедры. Реквизиты титула и статус приложения авторские, их нужно согласовать с кафедрой. ГОСТ 7.32-2017 относится к отчетам о НИР; применение к ВКР уточняют по методичке. Повторно соберите документ и сверьте содержание, ссылки и номера объектов с PDF.</p>
-      <div class="article-code"><pre><code>\documentclass[a4paper,14pt]{extreport}
+      <p>Ключевые требования ГОСТ 7.32:</p>
+      <div class="article-table-wrapper">
+          <table class="article-table">
+              <thead>
+                  <tr><th>Параметр</th><th>Требование ГОСТ</th></tr>
+              </thead>
+              <tbody>
+                  <tr><td>Шрифт</td><td>Не менее 12 пт, рекомендован Times New Roman</td></tr>
+                  <tr><td>Межстрочный интервал</td><td>Полуторный (1,5)</td></tr>
+                  <tr><td>Поля: левое</td><td>30&nbsp;мм</td></tr>
+                  <tr><td>Поля: правое</td><td>15&nbsp;мм</td></tr>
+                  <tr><td>Поля: верхнее и нижнее</td><td>20&nbsp;мм</td></tr>
+                  <tr><td>Абзацный отступ</td><td>1,25&nbsp;см</td></tr>
+                  <tr><td>Нумерация страниц</td><td>Арабские цифры, внизу по центру; титульный лист
+      входит в нумерацию, но номер на нём не ставится</td></tr>
+              </tbody>
+          </table>
+      </div>
+      <h3>Структура ВКР по ГОСТ 7.32</h3>
+      <p>Структурные элементы работы идут в таком порядке (обязательность каждого задаёт
+      методичка):</p>
+      <ol>
+          <li>Титульный лист (<a href="/blog/latex-titlepage">как сверстать в LaTeX</a>).</li>
+          <li>Реферат (<a href="/blog/diploma-annotation-abstract-russian-english">аннотация
+      и реферат ВКР</a>).</li>
+          <li>Содержание.</li>
+          <li>Термины и определения.</li>
+          <li>Перечень сокращений и обозначений.</li>
+          <li>Введение.</li>
+          <li>Основная часть (разделы и подразделы).</li>
+          <li>Заключение.</li>
+          <li>Список использованных источников.</li>
+          <li>Приложения.</li>
+      </ol>
+  - id: 'template'
+    title: 'Готовый шаблон курсовой и ВКР по ГОСТ 7.32 (копируйте целиком)'
+    html: |-
+      <span id="full-example"></span>
+      <p>Ниже — самостоятельный учебный макет для pdfLaTeX: класс <code>extreport</code>,
+      шрифт <code>tempora</code> 14&nbsp;пт, поля 30/15/20/20&nbsp;мм, полуторный интервал,
+      заголовки с абзацного отступа и «СОДЕРЖАНИЕ» с отточием. В приложении показаны
+      формула, таблица и рисунок с номерами А.1. Кнопка «Просмотреть пример» открывает
+      этот же полный код.</p>
+      <p>Это макет оформления, а не заполненная ВКР или отчёт о НИР: список источников
+      и другие необходимые элементы добавьте по заданию кафедры. Реквизиты титула
+      и статус приложения авторские; согласуйте их с методичкой. В примере разрешены
+      три приложения — А, Б, В. Повторно соберите документ и сверьте содержание,
+      ссылки и номера объектов с PDF.</p>
+      <details class="article-note article-code-details">
+      <summary><strong>Полный LaTeX-шаблон</strong></summary>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[a4paper,14pt]{extreport}
       \usepackage[T2A]{fontenc}
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
@@ -531,7 +268,371 @@ sections:
           Вычисление $x^2$ $\longrightarrow$ Вывод $y$}}
         \caption{Учебная схема вычисления}\label{fig:flow}
       \end{figure}
-      \end{document}</code></pre></div>
+      \end{document}</code></pre>
+      </div>
+      </details>
+      <p>Следующие разделы объясняют отдельные настройки и показывают фрагменты для
+      адаптации собственного документа; их не нужно повторно добавлять к полной преамбуле.
+      Главы можно держать в отдельных файлах и подключать через <code>\input</code> —
+      подробнее в статье о <a href="/blog/latex-multi-file-document-input-include">многофайловых
+      документах</a>.</p>
+  - id: 'class'
+    title: 'Класс документа и кегль 14 пт'
+    html: |-
+      <p>Для оформления курсовой работы в LaTeX используйте класс <code>extreport</code> или
+      <code>extarticle</code> из комплекта extsizes. Стандартные <code>report</code>
+      и <code>article</code> поддерживают только 10, 11 и 12&nbsp;пт: опцию <code>14pt</code> они
+      не применяют, набирают текст кеглем 10 и пишут в лог предупреждение <code>LaTeX Warning: Unused
+      global option(s): [14pt]</code>. Если текст получился мелким, ищите эту строку в логе сборки.
+      Для дипломных работ с главами удобнее <code>extreport</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[a4paper,14pt]{extreport}
+
+      \usepackage{cmap}          % до fontenc: текст из PDF копируется без кракозябр
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}</code></pre>
+      </div>
+      <p>Перед проверкой в «Антиплагиате» и загрузкой в ЭБС вуза проверьте копирование
+      русского текста из PDF. Пакет <code>cmap</code> помогает настроить извлечение текста:
+      если вместо «Введение» копируются символы вроде «Ââåäåíèå», проверьте кодировки
+      и подключите его перед <code>fontenc</code>.</p>
+  - id: 'geometry'
+    title: 'Поля страницы по ГОСТ'
+    html: |-
+      <p>Пакет <code>geometry</code> — самый удобный способ задать поля. Параметры для ГОСТ
+      7.32:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage[
+          a4paper,
+          left=30mm,    % поле для переплёта
+          right=15mm,
+          top=20mm,
+          bottom=20mm,
+          headheight=17pt
+      ]{geometry}</code></pre>
+      </div>
+      <div class="article-note">
+          <strong>💡 Совет:</strong> требования конкретного вуза могут отличаться от ГОСТ. Уточните
+      методичку кафедры — иногда нижнее поле задаётся 25&nbsp;мм, а не 20&nbsp;мм. Тонкости
+      (поля для двусторонней печати, отдельные поля на титуле) разобраны в статье о <a
+      href="/blog/latex-geometry-margins-gost">полях в LaTeX по ГОСТ</a>.
+      </div>
+  - id: 'fonts'
+    title: 'Шрифт, межстрочный интервал и абзацный отступ'
+    html: |-
+      <p>ГОСТ 7.32-2017 требует шрифт не меньше 12&nbsp;пт и рекомендует Times New Roman. Labkeeper
+      собирает PDF через pdfLaTeX, поэтому системные шрифты вроде Times New Roman ему недоступны.
+      Близкий по рисунку шрифт с кириллицей даёт пакет <code>tempora</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX (pdfLaTeX)</span></div>
+          <pre><code>\usepackage{cmap}
+      \usepackage[T2A]{fontenc}
+      \usepackage{tempora}   % близкий аналог Times New Roman с кириллицей</code></pre>
+      </div>
+      <p>Пакета <code>pscyr</code> в TeX Live нет, а в <code>mathptmx</code> нет кириллицы: с ним
+      русский текст наберётся другим шрифтом. При локальной сборке XeLaTeX или LuaLaTeX системный
+      шрифт можно подключить напрямую. В Labkeeper этот вариант не работает: pdfLaTeX останавливает
+      сборку с ошибкой «fontspec requires XeTeX or LuaTeX».</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX (XeLaTeX, только локально)</span></div>
+          <pre><code>\usepackage{fontspec}
+      \setmainfont{Times New Roman}
+      \setsansfont{Arial}
+      \setmonofont{Courier New}</code></pre>
+      </div>
+      <p>Полуторный интервал задаёт пакет <code>setspace</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage{setspace}
+      \onehalfspacing   % полуторный интервал, как «1,5» в Word
+
+      \setlength{\parindent}{1.25cm} % абзацный отступ
+      \setlength{\parskip}{0pt}      % без отбивки между абзацами</code></pre>
+      </div>
+      <p><code>\onehalfspacing</code> соответствует «1,5» в Word. Команда
+      <code>\renewcommand{\baselinestretch}{1.5}</code>, которую часто советуют вместо неё, даёт
+      интервал около 1,8 — заметно реже, чем требует ГОСТ. Подробнее — в статьях о <a
+      href="/blog/latex-line-spacing-1-5-setspace-gost">полуторном интервале</a> и <a
+      href="/blog/paragraph-indent-1-25-gost">абзацном отступе 1,25&nbsp;см</a>, а о выравнивании
+      по ширине и переносах — в статье <a
+      href="/blog/justified-text-spacing-hyphenation-latex-vs-word">о переносах в LaTeX и
+      Word</a>.</p>
+  - id: 'headings'
+    title: 'Заголовки и разделы'
+    html: |-
+      <p>По ГОСТ 7.32-2017 (п. 6.2.3) заголовки разделов и подразделов печатают с абзацного отступа,
+      с прописной буквы, полужирным шрифтом и без точки в конце. Переносы в заголовках не
+      допускаются. Прописными буквами и по центру пишут только заголовки структурных элементов:
+      «СОДЕРЖАНИЕ», «ВВЕДЕНИЕ», «ЗАКЛЮЧЕНИЕ», «СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ», «ПРИЛОЖЕНИЕ»
+      (п. 6.2.1). В LaTeX структурные элементы удобно набирать ненумерованными главами
+      <code>\chapter*</code>, а разделы — обычными <code>\chapter</code>. Пакет <code>titlesec</code>
+      задаёт для них разные стили:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage{titlesec}
+
+      % Разделы: с абзацного отступа, полужирные, без переносов
+      \titleformat{\chapter}[block]
+          {\normalfont\bfseries\raggedright\hyphenpenalty=10000}
+          {\hspace*{1.25cm}\thechapter}
+          {0.5em}
+          {}
+
+      % Структурные элементы (\chapter*): по центру, прописными
+      \titleformat{name=\chapter,numberless}[block]
+          {\normalfont\bfseries\filcenter}
+          {}
+          {0pt}
+          {\MakeUppercase}
+
+      % Подразделы: с абзацного отступа, полужирные
+      \titleformat{\section}
+          {\normalfont\bfseries\raggedright\hyphenpenalty=10000}
+          {\hspace*{1.25cm}\thesection}
+          {0.5em}
+          {}
+
+      % Отступы вокруг заголовков
+      \titlespacing{\chapter}{0pt}{0pt}{14pt}
+      \titlespacing{\section}{0pt}{12pt}{6pt}</code></pre>
+      </div>
+      <p>Отступ задан явно через <code>\hspace*{1.25cm}</code>: внутри <code>titlesec</code>
+      значение <code>\parindent</code> равно нулю, и вариант <code>\hspace*{\parindent}</code>
+      оставляет заголовок у самого поля. <code>\raggedright</code> не даёт растягивать длинный
+      заголовок по ширине, а <code>\hyphenpenalty=10000</code> запрещает переносы.</p>
+      <p>Ненумерованная глава сама в содержание не попадает: после <code>\chapter*{Введение}</code>
+      добавьте <code>\addcontentsline{toc}{chapter}{Введение}</code>.</p>
+  - id: 'figures-tables'
+    title: 'Рисунки и таблицы'
+    html: |-
+      <p>По ГОСТ 7.32-2017 (п. 6.5 и 6.6) подпись рисунка ставят под ним по центру: «Рисунок 1 —
+      Название». Название таблицы — над ней слева: «Таблица 1 — Название». Пакет
+      <code>caption</code> делает это одной настройкой:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage[labelsep=endash]{caption}
+      \captionsetup[figure]{name=Рисунок,justification=centering}
+      \captionsetup[table]{name=Таблица,justification=raggedright,singlelinecheck=false}
+      % Сквозная нумерация «Рисунок 1», «Таблица 1» — если её требует методичка:
+      % \counterwithout{figure}{chapter}
+      % \counterwithout{table}{chapter}</code></pre>
+      </div>
+      <p>В <code>extreport</code> рисунки и таблицы по умолчанию нумеруются в пределах раздела
+      («Рисунок 1.1»), ГОСТ допускает оба варианта. В таблице <code>\caption</code> ставьте перед
+      <code>tabular</code>, чтобы название оказалось сверху. Подробнее — в статьях о <a
+      href="/blog/figure-double-numbering-chapters-gost">нумерации рисунков по главам</a>, <a
+      href="/blog/table-continuation-multipage-gost-diploma">переносе таблицы на следующую
+      страницу</a> и <a href="/blog/software-screenshots-report-gost-caption">подписях
+      к скриншотам</a>.</p>
+  - id: 'formulas'
+    title: 'Формулы'
+    html: |-
+      <p>Формулы выносят на отдельную строку, номер ставят в круглых скобках у правого поля —
+      окружение <code>equation</code> делает это само. Пояснения символов дают сразу под формулой,
+      каждое с новой строки; первую строку начинают со слова «где» без двоеточия:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>Скорость вычисляют по формуле
+      \begin{equation}
+        v = \frac{s}{t},
+        \label{eq:speed}
+      \end{equation}
+
+      где \(v\) — скорость, м/с;\\
+      \(s\) — путь, м;\\
+      \(t\) — время, с.</code></pre>
+      </div>
+      <p>Пустая строка после формулы начинает новый абзац, поэтому «где» печатается с абзацного
+      отступа. Правила для ГОСТ 7.32 и ГОСТ 2.105 здесь различаются — разбор в статье о <a
+      href="/blog/formula-variable-explanation-where-gost">пояснении переменных после формулы</a>,
+      а про нумерацию — в статье о <a href="/blog/formula-numbering-lab-reports-gost">нумерации
+      формул</a>.</p>
+  - id: 'bibliography'
+    title: 'Список использованных источников'
+    html: |-
+      <p>В учебном макете по кнопке список источников не заполнен. Добавьте его по заданию;
+      запись ниже условная и показывает только место для библиографических данных.</p>
+      <p>Заголовок списка по ГОСТ 7.32 — «СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ», а babel по умолчанию
+      пишет «Список литературы». Переопределите его и добавьте строку в содержание:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% --- преамбула ---
+      \addto\captionsrussian{\renewcommand{\bibname}{Список использованных источников}}
+      \makeatletter
+      \renewcommand{\@biblabel}[1]{#1.\hfill} % «1.» вместо «[1]»
+      \makeatother
+
+      % --- в конце текста ---
+      \begin{thebibliography}{99}
+        \addcontentsline{toc}{chapter}{Список использованных источников}
+        \bibitem{ivanov} Иванов, И. И. Название книги / И. И. Иванов. --- Москва : Издательство, 2024. --- 320~с.
+      \end{thebibliography}</code></pre>
+      </div>
+      <p>С настройками <code>titlesec</code> из раздела о заголовках заголовок выйдет по центру
+      прописными. Записи оформляют по ГОСТ Р 7.0.100-2018 и набирают вручную: BibTeX и Biber
+      в Labkeeper пока не запускаются. Примеры записей — в статьях о <a
+      href="/blog/latex-gost-bibliography">списке литературы по ГОСТ в LaTeX</a> и <a
+      href="/blog/electronic-resources-bibliography-gost-7-0-100">ссылках на электронные
+      ресурсы</a>.</p>
+  - id: 'toc'
+    title: 'Содержание и нумерация страниц'
+    html: |-
+      <p>Содержание формируется командой <code>\tableofcontents</code>. Нумерацию внизу по центру
+      задаёт пакет <code>fancyhdr</code> (тонкости колонтитулов — в <a
+      href="/blog/latex-fancyhdr">руководстве по fancyhdr</a>). Часть команд идёт в преамбулу,
+      часть — в текст документа:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% --- преамбула ---
+      \usepackage{fancyhdr}
+      \pagestyle{fancy}
+      \fancyhf{}
+      \fancyfoot[C]{\thepage}
+      \renewcommand{\headrulewidth}{0pt}
+
+      \usepackage{tocloft}
+      \renewcommand{\cfttoctitlefont}{\hfill\normalfont\bfseries\MakeUppercase}
+      \renewcommand{\cftaftertoctitle}{\hfill}
+      \renewcommand{\cftchapfont}{\normalfont}      % главы в содержании не жирные
+      \renewcommand{\cftchappagefont}{\normalfont}
+      \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % точки до номера страницы
+      \setcounter{tocdepth}{2} % разделы и подразделы; 3 — ещё и пункты 1.1.1
+      \addto\captionsrussian{\renewcommand{\contentsname}{Содержание}}
+
+      % --- после \begin{document} ---
+      \tableofcontents</code></pre>
+      </div>
+      <p>Заголовок содержания по ГОСТ — «СОДЕРЖАНИЕ», а babel по умолчанию пишет «Оглавление»: строка
+      с <code>\contentsname</code> это исправляет. Методички обычно требуют в содержании два уровня,
+      поэтому <code>tocdepth</code> равен 2.</p>
+      <p>По ГОСТ 7.32-2017 номер не ставят только на титульном листе: он входит в общую нумерацию,
+      но цифру на нём не печатают. В полном примере номер титула скрыт командой
+      <code>\thispagestyle{empty}</code>; после <code>\clearpage</code> содержание получает
+      номер 2. Для отдельного окружения <code>titlepage</code> проверьте счётчик и при необходимости
+      задайте после него <code>\setcounter{page}{2}</code>. Если нумерация должна начинаться с третьего листа
+      (после задания), смотрите статью о <a href="/blog/diploma-page-numbering-second-page">нумерации
+      страниц со второго листа</a>, а о настройке содержания — статью об <a
+      href="/blog/automatic-table-of-contents-diploma-gost">автоматическом содержании диплома</a>.</p>
+  - id: 'appendix'
+    title: 'Приложения'
+    html: |-
+      <p>Приложения обозначают заглавными буквами русского алфавита, начиная с А. ГОСТ 7.32-2017
+      (п. 6.17.4) исключает буквы Ё, З, Й, О, Ч, Ъ, Ы, Ь. Стандартная команда <code>\Asbuk</code>
+      из babel их не пропускает: восьмое приложение получит букву З, пятнадцатое — О. Поэтому
+      для документа с большим числом приложений можно определить счётчик <code>\gostAsbuk</code>:
+      в полном учебном примере выше используется ограниченное отображение А, Б, В.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% --- преамбула ---
+      \makeatletter
+      \def\gostAsbuk#1{\expandafter\@gostAsbuk\csname c@#1\endcsname}
+      \def\@gostAsbuk#1{\ifcase#1\or А\or Б\or В\or Г\or Д\or Е\or Ж\or И\or К\or
+        Л\or М\or Н\or П\or Р\or С\or Т\or У\or Ф\or Х\or Ц\or Ш\or Щ\or Э\or Ю\or
+        Я\else\@ctrerr\fi}
+      \makeatother
+
+      % --- в тексте, перед первым приложением ---
+      \appendix
+      \renewcommand{\thechapter}{\gostAsbuk{chapter}}  % А, Б, В, ... без З и О
+      \renewcommand{\chaptername}{Приложение}
+      % «ПРИЛОЖЕНИЕ А» по центру, заголовок приложения строкой ниже
+      \titleformat{\chapter}[display]
+          {\normalfont\bfseries\filcenter}
+          {\MakeUppercase{\chaptername}~\thechapter}
+          {0pt}
+          {}
+      % «Приложение А Название» в содержании
+      \addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{Приложение~}%
+        \protect\setlength{\protect\cftchapnumwidth}{3.6cm}}
+
+      \chapter{Исходный код программы}
+      % содержимое приложения А
+
+      \chapter{Схема алгоритма}
+      % содержимое приложения Б</code></pre>
+      </div>
+      <p>Каждое приложение начинают с новой страницы, упоминают в основном тексте и
+      включают в содержание с обозначением, статусом и названием. Нумерация страниц
+      продолжается. Фрагмент выше показывает расширенный алфавит и базовую настройку
+      заголовков; статус в нём ещё не задан. В полном примере эти реквизиты добавляет
+      команда <code>\reportappendix</code>, а номера таблиц, рисунков и формул имеют вид А.1.
+      Статус «справочное» выбран для учебного образца и требует сверки с заданием.</p>
+      <div class="article-note">
+          <strong>💡 Совет:</strong> повторный <code>\titleformat</code> после <code>\appendix</code>
+      нужен, если заголовки разделов настроены через <code>titlesec</code>, как выше: иначе
+      приложение получит заголовок без слова «ПРИЛОЖЕНИЕ». Листинги и схемы в приложениях разобраны
+      в статье о <a href="/blog/diploma-appendices-listings-diagrams-gost">приложениях диплома</a>.
+      </div>
+  - id: 'tips'
+    title: 'Практические советы'
+    html: |-
+      <div class="article-tips">
+          <div class="article-tip">
+              <div class="article-tip__number">1</div>
+              <div class="article-tip__content">
+                  <h3>Начните с готового шаблона</h3>
+                  <p>Нажмите «Открыть пример в редакторе» — откроется шаблон из этой статьи. Впишите
+      свой титульный лист, замените текст глав и скачайте PDF. Если методичка отличается от ГОСТ,
+      поменяйте соответствующий блок преамбулы.</p>
+              </div>
+          </div>
+          <div class="article-tip">
+              <div class="article-tip__number">2</div>
+              <div class="article-tip__content">
+                  <h3>Разбивайте документ на файлы</h3>
+                  <p>Выносите каждую главу в отдельный .tex-файл и подключайте через
+      <code>\input{chapter1}</code> или <code>\include{chapter1}</code>. Так проще ориентироваться
+      в большом проекте (подробнее — в статье о <a
+      href="/blog/latex-multi-file-document-input-include">многофайловых документах</a>).</p>
+              </div>
+          </div>
+          <div class="article-tip">
+              <div class="article-tip__number">3</div>
+              <div class="article-tip__content">
+                  <h3>Ссылки вместо ручных номеров</h3>
+                  <p>Используйте <code>\label</code> и <code>\ref</code> для ссылок на рисунки,
+      таблицы и формулы (правила набора математики — в <a href="/blog/latex-formulas">гайде по
+      формулам в LaTeX</a>). Номера пересчитаются сами, если вы добавите рисунок в начало
+      главы.</p>
+              </div>
+          </div>
+          <div class="article-tip">
+              <div class="article-tip__number">4</div>
+              <div class="article-tip__content">
+                  <h3>Список рисунков и таблиц</h3>
+                  <p>Добавьте <code>\listoffigures</code> и <code>\listoftables</code> после
+      содержания, если такие списки требует методичка: среди структурных элементов ГОСТ 7.32-2017
+      их нет (настройку смотрите в <a href="/blog/latex-list-of-figures-tables">статье о списках
+      иллюстраций и таблиц</a>).</p>
+              </div>
+          </div>
+      </div>
+  - id: 'faq'
+    title: 'Частые вопросы'
+    html: |-
+      <h3>Можно ли набрать текст шрифтом Times New Roman в LaTeX онлайн?</h3>
+      <p>В pdfLaTeX — нет, но пакет <code>tempora</code> даёт очень близкий шрифт с кириллицей. Сам
+      Times New Roman подключается только в XeLaTeX или LuaLaTeX через <code>fontspec</code> при
+      локальной сборке.</p>
+      <h3>Как заменить «Оглавление» на «СОДЕРЖАНИЕ»?</h3>
+      <p>Добавьте в преамбулу <code>\addto\captionsrussian{\renewcommand{\contentsname}{Содержание}}</code>,
+      а прописные буквы даст <code>\MakeUppercase</code> в настройке заголовка (в шаблоне —
+      через <code>tocloft</code>).</p>
+      <h3>Почему опция 14pt не работает?</h3>
+      <p>Классы <code>article</code> и <code>report</code> знают только 10, 11 и 12&nbsp;пт.
+      Возьмите <code>extarticle</code> или <code>extreport</code>; в логе неудачной сборки будет
+      строка <code>Unused global option(s): [14pt]</code>.</p>
+      <h3>Как убрать номер с титульного листа?</h3>
+      <p>Наберите титул в окружении <code>titlepage</code> или поставьте на нём
+      <code>\thispagestyle{empty}</code>. Титул при этом остаётся первой страницей, и содержание
+      получает номер 2.</p>
+      <h3>Чем ГОСТ 7.32 отличается от требований методички?</h3>
+      <p>ГОСТ 7.32-2017 — стандарт отчёта о НИР, а методичка вуза адаптирует его под курсовые
+      и дипломы: может менять поля, кегль, глубину содержания и обязательные элементы. При
+      расхождении следуйте методичке.</p>
 editorExample:
   - type: 'latex'
     text: |2-

@@ -1,126 +1,144 @@
 catalogIndex: 83
 slug: 'latex-dissertation'
 batch: 1
-title: 'Верстка автореферата и диссертации ВАК в LaTeX: структура, рамки и ссылки'
-pageTitle: 'Верстка автореферата и диссертации ВАК в LaTeX: структура, рамки и ссылки — Labkeeper'
-metaDescription: |2-
-  Как верстать автореферат и кандидатскую диссертацию ВАК в LaTeX онлайн: структура разделов,
-  рамки по ГОСТ, перекрёстные ссылки и шаблон автореферата ВАК.
-ogDescription: |2-
-  Шаблон автореферата ВАК в LaTeX онлайн: структура разделов, оформление рамок, перекрёстные
-  ссылки и требования ВАК.
-twitterDescription: 'Шаблон автореферата ВАК LaTeX онлайн: структура, рамки, ссылки.'
-schemaDescription: |2-
-  Шаблон автореферата ВАК в LaTeX онлайн: структура разделов, оформление рамок, перекрёстные
-  ссылки и требования ВАК.
-breadcrumbTitle: 'Верстка диссертации ВАК в LaTeX'
-h1: 'Верстка автореферата и&nbsp;диссертации ВАК в&nbsp;LaTeX: структура, рамки и&nbsp;ссылки'
+title: 'Диссертация и автореферат в LaTeX по ГОСТ Р 7.0.11: структура, шаблон, ссылки'
+pageTitle: 'Шаблон диссертации и автореферата ВАК в LaTeX (ГОСТ Р 7.0.11) — Labkeeper'
+metaDescription: |-
+  Как сверстать кандидатскую диссертацию и автореферат ВАК в LaTeX по ГОСТ Р 7.0.11: структура,
+  готовый шаблон автореферата с обложкой, нумерация, перекрёстные ссылки и требования ВАК.
+ogDescription: |-
+  Шаблон автореферата ВАК в LaTeX: обложка, оборот, общая характеристика работы. Структура
+  диссертации по ГОСТ Р 7.0.11, нумерация и перекрёстные ссылки.
+twitterDescription: 'Шаблон автореферата ВАК в LaTeX и структура диссертации по ГОСТ Р 7.0.11.'
+schemaDescription: |-
+  Как сверстать диссертацию и автореферат в LaTeX по ГОСТ Р 7.0.11-2011: структура, готовый
+  шаблон автореферата, поля и нумерация, перекрёстные ссылки и требования ВАК.
+breadcrumbTitle: 'Диссертация и автореферат в LaTeX'
+h1: 'Диссертация и&nbsp;автореферат в&nbsp;LaTeX по&nbsp;ГОСТ Р 7.0.11: структура, шаблон и&nbsp;ссылки'
 categories:
-  - 'articles'
   - 'diploma'
   - 'latex'
 related:
   - 'rinc-vak-scientific-article-template-fonts-margins'
-  - 'imrad-structure-scientific-article-scopus-template'
-  - 'footnotes-bottom-page-law-history-coursework-gost'
-  - 'literature-review-structure-diploma-citation'
-  - 'essay-report-titlepage-format'
-  - 'electronic-resources-bibliography-gost-7-0-100'
   - 'scientific-article-annotation-abstract-keywords-vak'
   - 'latex-gost-bibliography'
+  - 'electronic-resources-bibliography-gost-7-0-100'
+  - 'latex-multi-file-document-input-include'
+  - 'literature-review-structure-diploma-citation'
+  - 'latex-diploma-gost'
   - 'latex-fancyhdr'
-  - 'latex-scopus-wos'
+  - 'figure-double-numbering-chapters-gost'
   - 'latex-amsthm'
   - 'latex-formulas'
+  - 'imrad-structure-scientific-article-scopus-template'
 keywords:
   - 'шаблон автореферата вак latex'
   - 'верстка кандидатской диссертации в latex онлайн'
+  - 'диссертация latex гост р 7.0.11'
 datePublished: '2026-08-20'
-dateModified: '2026-10-18'
-readingTime: '11 мин'
-cardTitle: |2-
-  Верстка автореферата и диссертации ВАК в LaTeX: структура, рамки и
-                          ссылки
-cardDescription: |2-
-  Структура кандидатской и докторской диссертации по ГОСТ Р 7.0.11: титул,
-                          научная новизна, положения и ссылки.
+dateModified: '2026-11-05'
+readingTime: '14 мин'
+cardTitle: 'Диссертация и автореферат в LaTeX по ГОСТ Р 7.0.11'
+cardDescription: 'Структура диссертации, готовый шаблон автореферата ВАК с обложкой, научная новизна и положения на защиту, ссылки.'
 sliderTitle: 'Автореферат и&nbsp;диссертация ВАК в&nbsp;LaTeX'
-sliderText: 'Структура, рамки и ссылки для автореферата и кандидатской диссертации в онлайн LaTeX.'
+sliderText: 'Структура диссертации по ГОСТ Р 7.0.11 и готовый шаблон автореферата в LaTeX.'
 sidebarImageAlt: 'Онлайн-редактор LaTeX Labkeeper'
-sidebarText: |2-
+sidebarText: |-
   Верстайте диссертацию ВАК в&nbsp;онлайн-редакторе Labkeeper — без установки LaTeX
   и&nbsp;настройки окружения.
 ctaTitle: 'Верстайте диссертации и&nbsp;авторефераты в&nbsp;Labkeeper'
-ctaText: |2-
-  Онлайн-редактор LaTeX для&nbsp;объемных научных трудов: многофайловые проекты, поддержка сложных
-  формул и&nbsp;экспорт в&nbsp;PDF.
+ctaText: |-
+  Онлайн-редактор LaTeX для&nbsp;объёмных научных трудов: многофайловые проекты, сложные формулы
+  и&nbsp;экспорт в&nbsp;PDF.
 toc:
   - id: 'intro'
-    title: 'Требования ВАК к диссертации'
+    title: 'Требования к диссертации и автореферату'
   - id: 'structure'
-    title: 'Структура диссертации в LaTeX'
+    title: 'Структура диссертации по ГОСТ Р 7.0.11 в LaTeX'
+  - id: 'headings'
+    title: 'Введение, главы и заголовки'
   - id: 'autoreferat'
     title: 'Шаблон автореферата ВАК'
-  - id: 'frames'
-    title: 'Рамки и поля по ГОСТ'
+  - id: 'layout'
+    title: 'Поля, нумерация и колонтитулы'
   - id: 'crossrefs'
     title: 'Перекрёстные ссылки'
+  - id: 'vak'
+    title: 'Публикации и шифр специальности: что проверить перед подачей'
+  - id: 'community-template'
+    title: 'Готовый шаблон сообщества Russian-Phd-LaTeX-Dissertation-Template'
   - id: 'tips'
     title: 'Практические советы'
+  - id: 'faq'
+    title: 'Частые вопросы'
 sections:
   - id: 'intro'
-    title: 'Требования ВАК к диссертации'
-    html: |2-
-                              <p>Структуру и правила оформления кандидатских и докторских диссертаций
-      и авторефератов задаёт ГОСТ Р 7.0.11-2011 «Диссертация и автореферат диссертации. Структура и
-      правила оформления». «Положение о присуждении учёных степеней» (Постановление Правительства РФ №
-      842) регулирует порядок защиты и ограничивает объём автореферата, но параметров вёрстки не
-      содержит. Ключевые параметры:</p>
-                              <div class="article-table-wrapper">
-                                  <table class="article-table">
-                                     
-      <thead><tr><th>Параметр</th><th>Диссертация</th><th>Автореферат</th></tr></thead>
-                                      <tbody>
-                                          <tr><td>Объём</td><td>Стандартом не ограничен (обычно
-      100–200 с.)</td><td>Для кандидатской в большинстве отраслей — до 1 авторского листа (около 40
-      000 знаков)</td></tr>
-                                          <tr><td>Формат</td><td>A4</td><td>Обычно A5 (148×210
-      мм)</td></tr>
-                                          <tr><td>Шрифт</td><td>12–14 пт, обычно Times New
-      Roman</td><td>Times New Roman 10–12 пт</td></tr>
-                                          <tr><td>Межстрочный
-      интервал</td><td>1.5</td><td>1.0–1.2</td></tr>
-                                          <tr><td>Поля</td><td>Лев. 25, пр. 10, вер./ниж. 20
-      мм</td><td>Задаёт совет или типография</td></tr>
-                                          <tr><td>Абзацный отступ</td><td>Пять
-      знаков</td><td>—</td></tr>
-                                          <tr><td>Номер страницы</td><td>Посередине верхнего поля, на
-      титульном листе не ставится</td><td>—</td></tr>
-                                      </tbody>
-                                  </table>
-                              </div>
-                              <div class="article-note">
-                                  <strong>⚠️ Важно:</strong> Диссертационный совет может вводить
-      дополнительные требования. Перед началом верстки изучите требования конкретного совета на сайте
-      вашего вуза.
-                              </div>
+    title: 'Требования к диссертации и автореферату'
+    html: |-
+      <p>Структуру и правила оформления кандидатских и докторских диссертаций и авторефератов задаёт
+      ГОСТ Р 7.0.11-2011 «Диссертация и автореферат диссертации. Структура и правила оформления».
+      «Положение о присуждении учёных степеней» (постановление Правительства РФ № 842 от
+      24.09.2013, в действующей редакции) регулирует порядок защиты, требования к публикациям
+      и объём автореферата, но параметров вёрстки не содержит. Ключевые параметры:</p>
+      <div class="article-table-wrapper">
+          <table class="article-table">
+              <thead><tr><th>Параметр</th><th>Диссертация</th><th>Автореферат</th></tr></thead>
+              <tbody>
+                  <tr><td>Объём</td><td>Стандартом не ограничен (обычно 100–200&nbsp;с.)</td><td>По
+      Положению (п.&nbsp;25): для кандидатской — до 1 печатного листа, для гуманитарных
+      и общественных наук — до 1,5; для докторской — до 2 и до 3 соответственно</td></tr>
+                  <tr><td>Формат</td><td>A4</td><td>Обычно A5 (148&nbsp;×&nbsp;210&nbsp;мм)</td></tr>
+                  <tr><td>Шрифт</td><td>12–14&nbsp;пт, обычно Times New Roman</td><td>Обычно
+      10–12&nbsp;пт</td></tr>
+                  <tr><td>Межстрочный интервал</td><td>Полуторный</td><td>Обычно 1,0–1,2</td></tr>
+                  <tr><td>Поля</td><td>Левое 25, правое 10, верхнее и нижнее 20&nbsp;мм</td><td>Задаёт
+      совет или типография</td></tr>
+                  <tr><td>Абзацный отступ</td><td>Одинаковый по всему тексту, пять знаков</td><td>—</td></tr>
+                  <tr><td>Номер страницы</td><td>Посередине верхнего поля, на титульном листе не
+      ставится</td><td>—</td></tr>
+                  <tr><td>Заголовок оглавления</td><td>«Оглавление»</td><td>—</td></tr>
+                  <tr><td>Нумерация глав</td><td>Главы нумеруются, введение и заключение —
+      нет</td><td>Разделы не нумеруются</td></tr>
+                  <tr><td>Размещение на сайте</td><td>PDF на сайте организации, где проходит
+      защита</td><td>PDF на сайте организации и ВАК</td></tr>
+              </tbody>
+          </table>
+      </div>
+      <p>Параметры полей, отступа и нумерации приведены по разделу 5.3 ГОСТ Р 7.0.11-2011 (номер
+      страницы — п.&nbsp;5.3.8). Шрифт и интервал стандарт формулирует как рекомендацию, поэтому
+      в таблице указаны обычные значения.</p>
+      <div class="article-note">
+          <strong>⚠️ Важно:</strong> диссертационный совет может вводить дополнительные требования.
+      Перед началом вёрстки изучите требования конкретного совета на сайте организации.
+      </div>
   - id: 'structure'
-    title: 'Структура диссертации в LaTeX'
-    html: |2-
-                              <p>Рекомендуемая структура проекта диссертации — несколько .tex-файлов,
-      собранных в главный файл. Список литературы оформляют по ГОСТ Р 7.0.100-2018 и ГОСТ Р
-      7.0.5-2008, а ГОСТ Р 7.0.11-2011 добавляет к ним правила для диссертаций (как набрать записи
-      через <code>thebibliography</code>, читайте в <a href="/blog/latex-gost-bibliography">нашем
-      руководстве по библиографии по ГОСТ</a>):</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>% main.tex — главный файл
+    title: 'Структура диссертации по ГОСТ Р 7.0.11 в LaTeX'
+    html: |-
+      <p>По ГОСТ Р 7.0.11-2011 (п.&nbsp;4.1) диссертация состоит из следующих элементов:</p>
+      <ol>
+          <li>Титульный лист.</li>
+          <li>Оглавление.</li>
+          <li>Введение.</li>
+          <li>Основная часть (главы).</li>
+          <li>Заключение.</li>
+          <li>Список сокращений и условных обозначений.</li>
+          <li>Словарь терминов.</li>
+          <li>Список литературы.</li>
+          <li>Список иллюстративного материала.</li>
+          <li>Приложения.</li>
+      </ol>
+      <p>Реферата, как в ВКР по ГОСТ 7.32, в диссертации нет. Заголовок — «Оглавление», а не
+      «Содержание»: babel с опцией <code>russian</code> пишет именно его, так что переопределять
+      ничего не нужно. Проект удобно собрать из нескольких .tex-файлов:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% main.tex — главный файл
       \documentclass[a4paper,14pt]{extreport}
+      \usepackage{cmap}        % копируемый текст в PDF (до fontenc)
       \usepackage[T2A]{fontenc}
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
-      \usepackage[left=25mm,right=10mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage[left=25mm,right=10mm,top=20mm,bottom=20mm,headheight=17pt]{geometry}
       \usepackage{setspace}
       \onehalfspacing
       \usepackage[hidelinks]{hyperref}
@@ -128,113 +146,219 @@ sections:
 
       \begin{document}
           \include{titlepage}      % Титульный лист
-          \include{abstract}       % Реферат (краткое содержание)
-          \tableofcontents
-          \include{intro}          % Введение
+          \tableofcontents         % «Оглавление»
+          \include{intro}          % Введение (без номера)
           \include{chapter1}       % Глава 1
           \include{chapter2}       % Глава 2
           \include{chapter3}       % Глава 3
-          \include{conclusion}     % Заключение
+          \include{conclusion}     % Заключение (без номера)
+          \include{abbreviations}  % Список сокращений и условных обозначений
+          \include{glossary}       % Словарь терминов
           \input{biblio}           % Список литературы: окружение thebibliography
+          \include{illustrations}  % Список иллюстративного материала
           \appendix
           \include{appendix-a}     % Приложение А
       \end{document}</code></pre>
-                              </div>
-                              <p>Класс <code>extreport</code> из комплекта extsizes поддерживает кегль
-      14 пт: стандартный <code>report</code> принимает только 10, 11 и 12 пт и молча игнорирует опцию
-      <code>14pt</code>. Файл <code>biblio.tex</code> содержит окружение <code>thebibliography</code>:
-      Biber в Labkeeper пока не запускается, поэтому записи набираются вручную.</p>
+      </div>
+      <p>Класс <code>extreport</code> из комплекта extsizes поддерживает кегль 14&nbsp;пт:
+      стандартный <code>report</code> принимает только 10, 11 и 12&nbsp;пт и пишет в лог
+      <code>Unused global option(s): [14pt]</code>. Пакет <code>cmap</code> нужен, чтобы текст из PDF
+      копировался без кракозябр — иначе файл плохо проходит проверку на заимствования. Файл
+      <code>biblio.tex</code> содержит окружение <code>thebibliography</code>: Biber и BibTeX
+      в Labkeeper пока не запускаются, поэтому записи набираются вручную (как — в <a
+      href="/blog/latex-gost-bibliography">руководстве по библиографии по ГОСТ</a>).</p>
+  - id: 'headings'
+    title: 'Введение, главы и заголовки'
+    html: |-
+      <p>Введение и заключение не нумеруются. Обычная команда <code>\chapter{Введение}</code> даст
+      «Глава 1 Введение», поэтому используйте ненумерованную главу и добавьте её в оглавление
+      вручную:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\chapter*{Введение}
+      \addcontentsline{toc}{chapter}{Введение}</code></pre>
+      </div>
+      <p>Стандартный заголовок главы в <code>report</code> — «Глава 1» огромным кеглем на отдельной
+      строке. Пакет <code>titlesec</code> делает его скромнее — «Глава 1. Название» полужирным по
+      центру:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage{titlesec}
+      \titleformat{\chapter}[block]{\normalfont\bfseries\filcenter}
+        {Глава~\thechapter.}{0.5em}{}
+      \titleformat{name=\chapter,numberless}[block]{\normalfont\bfseries\filcenter}{}{0pt}{}
+      \titlespacing{\chapter}{0pt}{0pt}{14pt}</code></pre>
+      </div>
+      <p>Настройку заголовков разделов и подразделов с абзацного отступа подробно разбирает статья
+      об <a href="/blog/latex-diploma-gost#headings">оформлении диплома по ГОСТ в LaTeX</a>.</p>
   - id: 'autoreferat'
     title: 'Шаблон автореферата ВАК'
-    html: |2-
-                              <p>Автореферат обычно печатают на листах формата A5 (148×210 мм). Его
-      объём ограничивает «Положение о присуждении учёных степеней»: для кандидатской диссертации в
-      большинстве отраслей — до одного авторского листа (около 40 000 знаков). Поля автореферата ГОСТ
-      Р 7.0.11-2011 не задаёт, их определяет совет или типография. Преамбула для автореферата:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\documentclass[12pt,a5paper]{article}
+    html: |-
+      <p>Автореферат обычно печатают на листах формата A5. Его структуру задаёт раздел 9 ГОСТ Р
+      7.0.11-2011: обложка, оборот обложки, общая характеристика работы, основное содержание,
+      заключение и список публикаций автора. Поля стандарт не задаёт, их определяет совет или
+      типография. Ниже — готовый файл, который собирается в pdfLaTeX:</p>
+      <ul>
+          <li><strong>Обложка:</strong> «На правах рукописи», ФИО, название, шифр и название
+      специальности по номенклатуре 2021 года, «Автореферат диссертации на соискание учёной степени
+      кандидата … наук», город и год.</li>
+          <li><strong>Оборот обложки:</strong> где выполнена работа, научный руководитель,
+      официальные оппоненты, ведущая организация, дата защиты, где ознакомиться с диссертацией, дата
+      рассылки и подпись учёного секретаря.</li>
+          <li><strong>Общая характеристика работы:</strong> актуальность, степень разработанности,
+      цель и задачи, научная новизна, теоретическая и практическая значимость, методология,
+      положения, выносимые на защиту, достоверность и апробация, публикации, личный вклад,
+      структура и объём.</li>
+      </ul>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% Автореферат диссертации: формат A5, ГОСТ Р 7.0.11-2011, раздел 9
+      \documentclass[a5paper,11pt]{article}
+      \usepackage{cmap}
       \usepackage[T2A]{fontenc}
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
-      \usepackage[
-          a5paper,
-          left=20mm, right=15mm,
-          top=20mm, bottom=20mm
-      ]{geometry}
+      \usepackage{tempora}
+      \usepackage{amsmath}
+      \usepackage[a5paper,left=20mm,right=15mm,top=20mm,bottom=20mm]{geometry}
       \usepackage{setspace}
       \setstretch{1.1}
+      \setlength{\parindent}{1cm}
+      \usepackage{indentfirst}
+      \usepackage{titlesec}
+      \titleformat{\section}{\normalfont\bfseries\filcenter}{}{0pt}{\MakeUppercase}
+      \titleformat{\subsection}[runin]{\normalfont\bfseries}{}{0pt}{}[.]
+      \titlespacing*{\subsection}{\parindent}{6pt}{0.5em}
 
-      % Обязательные разделы автореферата:
-      % 1. Общая характеристика работы
-      %    — Актуальность, цели, задачи, научная новизна
-      %    — Практическая значимость
-      %    — Апробация результатов
-      %    — Публикации по теме диссертации
-      %    — Структура диссертации
-      % 2. Краткое содержание глав
-      % 3. Основные результаты и выводы
-      % 4. Список публикаций по теме диссертации</code></pre>
-                              </div>
-                              <p>Обязательный раздел «Публикации по теме диссертации» должен содержать
-      ссылки на статьи из перечня ВАК и индексируемых баз (структуру и требования международных
-      журналов мы описали в <a href="/blog/latex-scopus-wos">шаблоне статьи для Scopus и WoS</a>).
-      Оформите его нумерованным списком: записи по ГОСТ набираются вручную, как и основной список
-      литературы.</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\section*{Публикации по теме диссертации}
-      \subsection*{Статьи в изданиях из перечня ВАК}
+      % Строка «роль — кто» на обороте обложки
+      \newcommand{\role}[2]{\par\noindent
+        \parbox[t]{0.38\linewidth}{\raggedright #1}%
+        \parbox[t]{0.62\linewidth}{\raggedright #2}\par\smallskip}
+
+      % Данные диссертации
+      \newcommand{\avtor}{Иванов Иван Иванович}
+      \newcommand{\tema}{Математическое моделирование\\ теплообмена в пористых средах}
+      \newcommand{\specshifr}{1.2.2.}
+      \newcommand{\specname}{Математическое моделирование, численные методы и комплексы программ}
+      \newcommand{\stepen}{кандидата технических наук}
+      \newcommand{\gorod}{Москва}
+      \newcommand{\god}{2026}
+
+      \begin{document}
+
+      % ---------- Обложка ----------
+      \thispagestyle{empty}
+      \begin{flushright}\textit{На правах рукописи}\end{flushright}
+      \vspace{20mm}
+      \begin{center}
+        \MakeUppercase{\avtor}\par\vspace{12mm}
+        {\bfseries\large \MakeUppercase{\tema}\par}\vspace{8mm}
+        Специальность \specshifr~\specname\par\vspace{12mm}
+        Автореферат\\ диссертации на соискание учёной степени\\ \stepen
+        \vfill
+        \gorod~--- \god
+      \end{center}
+      \newpage
+
+      % ---------- Оборот обложки ----------
+      \thispagestyle{empty}
+      \noindent Работа выполнена в федеральном государственном бюджетном
+      образовательном учреждении высшего образования «Университет».
+
+      \medskip
+      \role{Научный руководитель:}{доктор технических наук, профессор\\
+        \textbf{Петров Пётр Петрович}}
+      \role{Официальные оппоненты:}{\textbf{Сидоров Сидор Сидорович},
+        доктор физико-математических наук, профессор, ФГБОУ ВО «…»\\[1mm]
+        \textbf{Кузнецова Анна Андреевна}, кандидат технических наук, доцент,
+        ФГАОУ ВО «…»}
+      \role{Ведущая организация:}{ФГБУН «Институт …» РАН}
+
+      \medskip
+      Защита состоится «\rule{8mm}{0.4pt}» \rule{25mm}{0.4pt} \god~г. в \rule{8mm}{0.4pt} часов
+      на заседании диссертационного совета \rule{25mm}{0.4pt} при … по адресу: …
+
+      С диссертацией можно ознакомиться в библиотеке и на сайте …
+
+      Автореферат разослан «\rule{8mm}{0.4pt}» \rule{25mm}{0.4pt} \god~г.
+
+      \vfill
+      \noindent Учёный секретарь\\ диссертационного совета\\
+      кандидат технических наук \hfill И.~О.~Фамилия
+      \newpage
+
+      % ---------- Текст автореферата ----------
+      \setcounter{page}{3}
+      \section*{Общая характеристика работы}
+      \subsection*{Актуальность темы исследования} Текст.
+      \subsection*{Степень разработанности темы} Текст.
+      \subsection*{Цель и задачи} Целью работы является …
+      \subsection*{Научная новизна} Текст.
+      \subsection*{Теоретическая и практическая значимость} Текст.
+      \subsection*{Методология и методы исследования} Текст.
+      \subsection*{Положения, выносимые на защиту} Текст.
+      \subsection*{Степень достоверности и апробация результатов} Текст.
+      \subsection*{Публикации} По теме диссертации опубликовано 5 работ, из них 3 —
+      в изданиях из перечня ВАК.
+      \subsection*{Личный вклад автора} Текст.
+      \subsection*{Структура и объём диссертации} Диссертация состоит из введения,
+      трёх глав, заключения и списка литературы из 120 наименований.
+
+      \section*{Основное содержание работы}
+      Во \textbf{введении} обоснована актуальность …
+
+      В \textbf{первой главе} …
+
+      \section*{Заключение}
+      Основные результаты работы: …
+
+      \section*{Публикации автора по теме диссертации}
       \begin{enumerate}
-          \item Иванов,~И.~И. Метод анализа графовых структур / И.~И.~Иванов
-            // Вестник МГТУ им.~Н.~Э.~Баумана. --- 2025. --- №~2. --- С.~15--24.
-          \item Иванов,~И.~И. Оптимизация обхода графов / И.~И.~Иванов, П.~П.~Петров
-            // Информационные технологии. --- 2026. --- Т.~32, №~1. --- С.~3--11.
-      \end{enumerate}</code></pre>
-                              </div>
-  - id: 'frames'
-    title: 'Рамки и поля по ГОСТ'
-    html: |2-
-                              <p>Номер страницы по ГОСТ Р 7.0.11-2011 (п. 5.3.8) ставят посередине
-      верхнего поля, на титульном листе его не печатают. Рамок стандарт не требует, но некоторые вузы
-      и советы просят рамки по ГОСТ 2.104. Рамку можно нарисовать через <code>tikz</code> в
-      колонтитуле <code>fancyhdr</code> (подробнее о рамках и штампах — в <a
-      href="/blog/latex-eskd">статье о рамках по ЕСКД</a>). Стиль <code>plain</code> переопределён
+        \item Иванов,~И.~И. Метод анализа графовых структур / И.~И.~Иванов //
+          Вестник … --- 2025. --- №~2. --- С.~15--24.
+      \end{enumerate}
+      \end{document}</code></pre>
+      </div>
+      <p>Шифр и название специальности берите из номенклатуры научных специальностей 2021 года:
+      например, «1.2.2. Математическое моделирование, численные методы и комплексы программ». Объём
+      проверяйте по PDF: для кандидатской в большинстве отраслей — до одного печатного листа.
+      В списке публикаций сначала обычно идут статьи из перечня ВАК и индексируемых баз, затем
+      остальные работы; записи по ГОСТ набираются вручную, как и основной список литературы.</p>
+  - id: 'layout'
+    title: 'Поля, нумерация и колонтитулы'
+    html: |-
+      <p>Номер страницы по ГОСТ Р 7.0.11-2011 (п.&nbsp;5.3.8) ставят посередине верхнего поля, на
+      титульном листе его не печатают. Рамок стандарт не предусматривает — они нужны только
+      в инженерных ВКР по ЕСКД (см. <a href="/blog/latex-eskd">статью о рамках по ЕСКД</a>).
+      Номер вверху по центру задаёт <code>fancyhdr</code>. Стиль <code>plain</code> переопределён
       целиком, потому что первые страницы глав LaTeX оформляет именно им:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\usepackage{fancyhdr}
-      \usepackage{tikz}
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage[left=25mm,right=10mm,top=20mm,bottom=20mm,
+                  headheight=17pt]{geometry} % 17pt: иначе fancyhdr ругается при 14pt
+      \usepackage{fancyhdr}
 
       \fancypagestyle{plain}{%
           \fancyhf{}
-          % Номер страницы — посередине верхнего поля
-          \fancyhead[C]{\thepage}
-          % Рамка через tikz: 20 мм слева, по 5 мм с остальных сторон
-          \fancyfoot[C]{%
-              \begin{tikzpicture}[remember picture, overlay]
-                  \draw[line width=0.5pt]
-                      ([xshift=20mm, yshift=-5mm]current page.north west)
-                      rectangle
-                      ([xshift=-5mm, yshift=5mm]current page.south east);
-              \end{tikzpicture}%
-          }%
+          \fancyhead[C]{\thepage}           % номер — посередине верхнего поля
           \renewcommand{\headrulewidth}{0pt}%
       }
-      \pagestyle{plain}</code></pre>
-                              </div>
+      \pagestyle{plain}
+
+      % на титульном листе:
+      \thispagestyle{empty}</code></pre>
+      </div>
+      <p>Без <code>headheight=17pt</code> при кегле 14&nbsp;пт fancyhdr пишет в лог предупреждение
+      <code>\headheight is too small (14.0pt)</code> и сдвигает текст. Подробнее о колонтитулах —
+      в <a href="/blog/latex-fancyhdr">руководстве по fancyhdr</a>.</p>
   - id: 'crossrefs'
     title: 'Перекрёстные ссылки'
-    html: |2-
-                              <p>В диссертации активно используются ссылки на рисунки, таблицы,
-      формулы и разделы. LaTeX автоматически отслеживает все номера:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>% Метка на формуле:
+    html: |-
+      <p>В диссертации много ссылок на рисунки, таблицы, формулы и главы. LaTeX сам отслеживает
+      все номера:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>% Метка на формуле:
       \begin{equation}
           E = mc^2
           \label{eq:einstein}
@@ -253,76 +377,165 @@ sections:
       % Ссылка на рисунок:
       На рисунке~\ref{fig:result} показано...
 
-      % Ссылка на раздел:
-      Подробнее в разделе~\ref{sec:method}.</code></pre>
-                              </div>
-                              <p>Пакет <code>cleveref</code> позволяет автоматически добавлять перед
-      номером сокращения «рис.», «табл.», «ф-ла»; с опцией <code>noabbrev</code> он пишет слова
-      полностью: «рисунок», «таблица», «формула»:</p>
-                              <div class="article-code">
-                                  <div class="article-code__header"><span
-      class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\usepackage[russian]{cleveref} % подключайте после hyperref
-      % Теперь \cref{fig:result} даёт «рис. 1»
-      % \cref{eq:einstein} даёт «ф-ла (1)»</code></pre>
-                              </div>
+      % Ссылка на главу:
+      Подробнее в главе~\ref{ch:method}.</code></pre>
+      </div>
+      <p>Пакет <code>cleveref</code> сам подставляет слово перед номером, но с опцией
+      <code>russian</code> он пишет сокращения вроде «ф-л.» и «глав.», недопустимые в научном
+      тексте. Задайте имена явно:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage[hidelinks]{hyperref}
+      \usepackage[russian]{cleveref} % подключайте после hyperref
+      \crefname{equation}{формула}{формулы}
+      \crefname{figure}{рисунок}{рисунки}
+      \crefname{table}{таблица}{таблицы}
+      \crefname{chapter}{глава}{главы}
+      % \cref{eq:einstein} даёт «формула (1.1)», \cref{fig:result} — «рисунок 1.1»</code></pre>
+      </div>
+      <p>Падежи cleveref не склоняет: «описан в \cref{ch:method}» превратится в «описан в глава 1».
+      В таких местах надёжнее писать слово вручную: <code>в главе~\ref{ch:method}</code>,
+      <code>на рисунке~\ref{fig:result}</code>.</p>
+  - id: 'vak'
+    title: 'Публикации и шифр специальности: что проверить перед подачей'
+    html: |-
+      <ul>
+          <li><strong>Шифр специальности</strong> указывайте по номенклатуре научных специальностей
+      2021 года (приказ Минобрнауки России № 118 от 24.02.2021): «1.2.2.», «2.3.1.» и т.&nbsp;п.
+      Старые шифры вида 05.13.18 на титуле и обложке — частая ошибка.</li>
+          <li><strong>Число публикаций.</strong> Положение (п.&nbsp;13) требует для кандидатской не
+      менее двух статей в рецензируемых изданиях (в гуманитарных и ряде других областей — не менее
+      трёх), для докторской — не менее десяти (пятнадцати). Точные цифры для вашей области
+      сверяйте с действующей редакцией Положения.</li>
+          <li><strong>Категории журналов.</strong> С 2023 года ВАК делит издания перечня на категории
+      К1, К2 и К3. Многие советы учитывают категорию при приёме диссертации, поэтому уточните
+      требования совета заранее.</li>
+      </ul>
+      <p>Статьи ВАК — необходимое условие защиты. Как их оформить, читайте в статьях о <a
+      href="/blog/rinc-vak-scientific-article-template-fonts-margins">шаблоне статьи для РИНЦ
+      и ВАК</a> и <a href="/blog/scientific-article-annotation-abstract-keywords-vak">аннотации
+      и ключевых словах</a>. Готовые LaTeX-шаблоны журналов из перечня есть в каталоге: <a
+      href="/templates/vestnik-mgu-fizika">«Вестник МГУ. Физика»</a>, <a
+      href="/templates/avtomatika-i-telemekhanika">«Автоматика и телемеханика»</a>, <a
+      href="/templates/izvestiya-saratov-mmi">«Известия Саратовского университета. Математика.
+      Механика. Информатика»</a> и <a href="/templates/zhurnal-svmo">«Журнал СВМО»</a>.</p>
+  - id: 'community-template'
+    title: 'Готовый шаблон сообщества Russian-Phd-LaTeX-Dissertation-Template'
+    html: |-
+      <p>Самый известный открытый шаблон русскоязычной диссертации — <a
+      href="https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template" rel="nofollow
+      noopener" target="_blank">Russian-Phd-LaTeX-Dissertation-Template</a> на GitHub. В нём уже
+      собраны диссертация, автореферат и презентация, настроены титул и списки по ГОСТ.</p>
+      <p>Шаблон рассчитан на локальную сборку: список литературы он по умолчанию строит через
+      biblatex и Biber, а проект состоит из десятков файлов. В Labkeeper не запускаются ни Biber,
+      ни BibTeX, поэтому без переделки списка литературы под <code>thebibliography</code> этот
+      шаблон там не соберётся; целиком в Labkeeper мы его не проверяли. Если вы работаете локально
+      — это хорошая отправная точка, а для онлайн-сборки удобнее каркас из этой статьи.</p>
   - id: 'tips'
     title: 'Практические советы'
-    html: |2-
-                              <div class="article-tips">
-                                  <div class="article-tip">
-                                      <div class="article-tip__number">1</div>
-                                      <div class="article-tip__content">
-                                          <h3>Начните верстку заблаговременно</h3>
-                                          <p>Верстка диссертации занимает несколько дней при большом
-      объёме. Начинайте настройку шаблона за 2–3 месяца до предполагаемой защиты, чтобы было время на
-      правки.</p>
-                                      </div>
-                                  </div>
-                                  <div class="article-tip">
-                                      <div class="article-tip__number">2</div>
-                                      <div class="article-tip__content">
-                                          <h3>Проверьте соответствие требованиям совета</h3>
-                                          <p>Многие диссертационные советы имеют собственные шаблоны.
-      Найдите готовые .tex-шаблоны от вашего совета или запросите их у секретаря.</p>
-                                      </div>
-                                  </div>
-                                  <div class="article-tip">
-                                      <div class="article-tip__number">3</div>
-                                      <div class="article-tip__content">
-                                          <h3>Используйте \includeonly при работе</h3>
-                                          <p>Команда <code>\includeonly{chapter2}</code> в преамбуле
-      ускоряет компиляцию: LaTeX обрабатывает только указанные главы, а номера страниц и ссылки на
-      остальные главы берёт из .aux-файлов прошлой полной сборки. В Labkeeper служебные файлы между
-      сборками сохраняются не всегда, поэтому перед финальной сборкой уберите
-      <code>\includeonly</code> и соберите документ целиком. Время одной сборки ограничено (до 60
-      секунд после входа), так что большие главы удобнее держать в отдельных файлах.</p>
-                                      </div>
-                                  </div>
-                                  <div class="article-tip">
-                                      <div class="article-tip__number">4</div>
-                                      <div class="article-tip__content">
-                                          <h3>Академическое резюме для диссовета</h3>
-                                          <p>Для подачи документов в диссовет и оформления заявок на
-      гранты подготовьте академическое CV (шаблон и примеры в <a href="/blog/latex-cv-resume">гайде по
-      резюме для ученых</a>).</p>
-                                      </div>
-                                  </div>
-                              </div>
+    html: |-
+      <div class="article-tips">
+          <div class="article-tip">
+              <div class="article-tip__number">1</div>
+              <div class="article-tip__content">
+                  <h3>Начните вёрстку заблаговременно</h3>
+                  <p>Вёрстка диссертации занимает несколько дней. Начинайте настройку шаблона за
+      2–3 месяца до предполагаемой защиты, чтобы было время на правки.</p>
+              </div>
+          </div>
+          <div class="article-tip">
+              <div class="article-tip__number">2</div>
+              <div class="article-tip__content">
+                  <h3>Проверьте требования совета</h3>
+                  <p>Многие диссертационные советы публикуют собственные требования и шаблоны.
+      Найдите их на сайте организации или запросите у учёного секретаря.</p>
+              </div>
+          </div>
+          <div class="article-tip">
+              <div class="article-tip__number">3</div>
+              <div class="article-tip__content">
+                  <h3>Используйте \includeonly и следите за временем сборки</h3>
+                  <p>Команда <code>\includeonly{chapter2}</code> в преамбуле ускоряет компиляцию:
+      LaTeX обрабатывает только указанные главы, а номера страниц и ссылки на остальные берёт из
+      .aux-файлов прошлой полной сборки. В Labkeeper служебные файлы между сборками сохраняются не
+      всегда, поэтому перед финальной сборкой уберите <code>\includeonly</code> и соберите документ
+      целиком. Одна сборка ограничена 60&nbsp;секундами после входа. Если документ не укладывается,
+      сохраняйте рисунки в PDF или JPG вместо тяжёлых PNG, а для черновых сборок добавьте опцию
+      <code>draft</code> в <code>\documentclass</code> — картинки заменятся рамками. Подробнее —
+      в статье о <a href="/blog/latex-multi-file-document-input-include">многофайловых
+      документах</a>.</p>
+              </div>
+          </div>
+          <div class="article-tip">
+              <div class="article-tip__number">4</div>
+              <div class="article-tip__content">
+                  <h3>Теоремы и формулы</h3>
+                  <p>Для определений, лемм и теорем используйте окружения <a
+      href="/blog/latex-amsthm">amsthm</a>, а многострочные выкладки набирайте по правилам из <a
+      href="/blog/latex-formulas">гайда по формулам</a>.</p>
+              </div>
+          </div>
+      </div>
+  - id: 'faq'
+    title: 'Частые вопросы'
+    html: |-
+      <h3>Нужен ли в диссертации реферат?</h3>
+      <p>Нет. По ГОСТ Р 7.0.11-2011 диссертация начинается с титульного листа и оглавления, реферат
+      — элемент отчёта о НИР и ВКР по ГОСТ 7.32.</p>
+      <h3>Как называется оглавление диссертации?</h3>
+      <p>«Оглавление». babel с опцией <code>russian</code> выводит именно его, переопределять
+      <code>\contentsname</code> не нужно.</p>
+      <h3>Нужны ли рамки в диссертации?</h3>
+      <p>Нет, ГОСТ Р 7.0.11 рамок не предусматривает. Номер страницы ставят посередине верхнего
+      поля.</p>
+      <h3>Какой объём автореферата кандидатской?</h3>
+      <p>По Положению о присуждении учёных степеней — до одного печатного листа, для гуманитарных
+      и общественных наук — до 1,5.</p>
+      <h3>Можно ли собрать диссертацию в Labkeeper целиком?</h3>
+      <p>Да, если список литературы набран в <code>thebibliography</code> и сборка укладывается
+      в 60&nbsp;секунд. Для большого проекта разбейте текст на файлы и облегчите рисунки.</p>
 editorExample:
-  latex: |2-
-    \documentclass[a4paper,12pt]{report}
+  latex: |-
+    \documentclass[a4paper,14pt]{extreport}
+    \usepackage{cmap}
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
-    \usepackage[english,russian]{babel}
+    \usepackage[russian]{babel}
+    \usepackage{tempora}
     \usepackage{amsmath,graphicx}
-    \usepackage[left=25mm,right=10mm,top=20mm,bottom=20mm]{geometry}
+    \usepackage[left=25mm,right=10mm,top=20mm,bottom=20mm,headheight=17pt]{geometry}
+    \usepackage{setspace}\onehalfspacing
+    \setlength{\parindent}{1.25cm}
+    % Номер страницы — посередине верхнего поля
     \usepackage{fancyhdr}
-    \fancypagestyle{plain}{\fancyhf{}\fancyhead[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+    \fancypagestyle{plain}{\fancyhf{}\fancyhead[C]{\thepage}%
+      \renewcommand{\headrulewidth}{0pt}}
     \pagestyle{plain}
+    % Заголовки глав: «Глава 1. Название» обычным кеглем, по центру
+    \usepackage{titlesec}
+    \titleformat{\chapter}[block]{\normalfont\bfseries\filcenter}
+      {Глава~\thechapter.}{0.5em}{}
+    \titleformat{name=\chapter,numberless}[block]{\normalfont\bfseries\filcenter}{}{0pt}{}
+    \titlespacing{\chapter}{0pt}{0pt}{14pt}
+    \usepackage[hidelinks]{hyperref}
+    \usepackage[russian]{cleveref}
+    \crefname{equation}{формула}{формулы}
+    \crefname{figure}{рисунок}{рисунки}
+    \crefname{table}{таблица}{таблицы}
+    \crefname{chapter}{глава}{главы}
     \begin{document}
     \tableofcontents
-    \chapter{Введение}Цель исследования.
-    \chapter{Методы}\section{Модель}Описание модели.
-    \chapter{Результаты}Основные выводы.
+    \chapter*{Введение}
+    \addcontentsline{toc}{chapter}{Введение}
+    Актуальность темы исследования. Модель описана в главе~\ref{ch:model},
+    основной результат даёт \cref{eq:main}.
+    \chapter{Модель}\label{ch:model}
+    \section{Постановка задачи}
+    \begin{equation}
+      E = mc^2
+      \label{eq:main}
+    \end{equation}
+    \chapter*{Заключение}
+    \addcontentsline{toc}{chapter}{Заключение}
+    Основные выводы.
     \end{document}
