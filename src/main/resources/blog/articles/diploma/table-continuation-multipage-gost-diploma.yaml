@@ -27,7 +27,7 @@ keywords:
   - 'продолжение таблицы на следующем листе гост'
   - 'перенос шапки таблицы диплом'
 datePublished: '2026-09-05'
-dateModified: '2026-11-05'
+dateModified: '2026-10-18'
 readingTime: '7 мин'
 cardTitle: 'Перенос таблиц в дипломных работах: правила ГОСТ 7.32 и код LaTeX'
 cardDescription: |2-
@@ -95,95 +95,42 @@ sections:
   - id: 'longtable-code'
     title: 'Готовый рабочий код шаблона таблицы в LaTeX'
     html: |2-
-      <p>Ниже самостоятельный пример оформления отдельного элемента: A4, 14 пт, поля 30/15/20/20 мм, полуторный интервал и абзац 1,25 см. Это не полный отчет: титульный лист, содержание и список источников не включены. При вставке в основной документ сохраните его преамбулу и согласуйте оформление с методичкой кафедры; ГОСТ 7.32-2017 относится к отчетам о НИР.</p>
-      <p>Окружение <code>longtable</code> само увеличивает счетчик таблиц: дополнительный <code>\refstepcounter{table}</code> перед ним не нужен. Метка стоит после <code>\caption</code> внутри окружения. Пакет <code>caption</code> задает название слева с тире; головка центрируется независимо от данных. Пятьдесят вымышленных строк обеспечивают настоящий перенос на страницах A4 с обычными полями. Код в статье совпадает с программой по кнопке.</p>
+                              <p>Команда <code>\caption</code> внутри longtable по умолчанию дает
+      подпись «Таблица 1: …» по центру. Проще всего написать наименование первой строкой шапки через
+      <code>\multicolumn{4}{l}</code> — так же, как надпись «Продолжение таблицы»: обе строки встанут
+      слева над таблицей. Номер таблицы задает команда <code>\refstepcounter{table}</code>, а метка
+      <code>\label</code> позволяет сослаться на таблицу в тексте.</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\documentclass[a4paper,14pt]{extarticle}
-      \usepackage[T2A]{fontenc}
-      \usepackage[utf8]{inputenc}
-      \usepackage[russian]{babel}
-      \usepackage{tempora}
-      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-      \usepackage{setspace}
-      \onehalfspacing
-      \setlength{\parindent}{1.25cm}
-      \usepackage{longtable,array,caption}
-      \DeclareCaptionLabelSeparator{emdash}{\ --- }
-      \captionsetup[longtable]{name=Таблица,labelsep=emdash,justification=raggedright,
-        singlelinecheck=false,font={normalsize,stretch=1}}
-      \setlength{\LTleft}{0pt}
-      \setlength{\LTright}{\fill}
-      \setlength{\LTcapwidth}{\textwidth}
-      \begin{document}
-      Учебные характеристики условных модулей приведены в таблице~\ref{tab:modules}.
-      Цены вымышлены и используются только для демонстрации переноса.
-      \begin{longtable}{|c|p{65mm}|c|r|}
-      \caption{Сравнительные характеристики модулей}\label{tab:modules}\\
-      \hline
-      \multicolumn{1}{|c|}{№} &amp; \multicolumn{1}{c|}{Наименование} &amp;
-      \multicolumn{1}{c|}{Тип} &amp; \multicolumn{1}{c|}{Цена, руб.}\\\hline
-      1 &amp; \multicolumn{1}{c|}{2} &amp; 3 &amp; \multicolumn{1}{c|}{4}\\\hline
-      \endfirsthead
-      \multicolumn{4}{@{}l}{Продолжение таблицы \thetable}\\
-      \hline
-      1 &amp; \multicolumn{1}{c|}{2} &amp; 3 &amp; \multicolumn{1}{c|}{4}\\\hline
-      \endhead
-      \endfoot
-      \endlastfoot
-      1 &amp; Условный модуль 1 &amp; А &amp; 410 \\\hline
-      2 &amp; Условный модуль 2 &amp; А &amp; 420 \\\hline
-      3 &amp; Условный модуль 3 &amp; А &amp; 430 \\\hline
-      4 &amp; Условный модуль 4 &amp; А &amp; 440 \\\hline
-      5 &amp; Условный модуль 5 &amp; А &amp; 450 \\\hline
-      6 &amp; Условный модуль 6 &amp; А &amp; 460 \\\hline
-      7 &amp; Условный модуль 7 &amp; А &amp; 470 \\\hline
-      8 &amp; Условный модуль 8 &amp; А &amp; 480 \\\hline
-      9 &amp; Условный модуль 9 &amp; А &amp; 490 \\\hline
-      10 &amp; Условный модуль 10 &amp; А &amp; 500 \\\hline
-      11 &amp; Условный модуль 11 &amp; А &amp; 510 \\\hline
-      12 &amp; Условный модуль 12 &amp; А &amp; 520 \\\hline
-      13 &amp; Условный модуль 13 &amp; А &amp; 530 \\\hline
-      14 &amp; Условный модуль 14 &amp; А &amp; 540 \\\hline
-      15 &amp; Условный модуль 15 &amp; А &amp; 550 \\\hline
-      16 &amp; Условный модуль 16 &amp; А &amp; 560 \\\hline
-      17 &amp; Условный модуль 17 &amp; А &amp; 570 \\\hline
-      18 &amp; Условный модуль 18 &amp; А &amp; 580 \\\hline
-      19 &amp; Условный модуль 19 &amp; А &amp; 590 \\\hline
-      20 &amp; Условный модуль 20 &amp; А &amp; 600 \\\hline
-      21 &amp; Условный модуль 21 &amp; А &amp; 610 \\\hline
-      22 &amp; Условный модуль 22 &amp; А &amp; 620 \\\hline
-      23 &amp; Условный модуль 23 &amp; А &amp; 630 \\\hline
-      24 &amp; Условный модуль 24 &amp; А &amp; 640 \\\hline
-      25 &amp; Условный модуль 25 &amp; А &amp; 650 \\\hline
-      26 &amp; Условный модуль 26 &amp; А &amp; 660 \\\hline
-      27 &amp; Условный модуль 27 &amp; А &amp; 670 \\\hline
-      28 &amp; Условный модуль 28 &amp; А &amp; 680 \\\hline
-      29 &amp; Условный модуль 29 &amp; А &amp; 690 \\\hline
-      30 &amp; Условный модуль 30 &amp; А &amp; 700 \\\hline
-      31 &amp; Условный модуль 31 &amp; А &amp; 710 \\\hline
-      32 &amp; Условный модуль 32 &amp; А &amp; 720 \\\hline
-      33 &amp; Условный модуль 33 &amp; А &amp; 730 \\\hline
-      34 &amp; Условный модуль 34 &amp; А &amp; 740 \\\hline
-      35 &amp; Условный модуль 35 &amp; А &amp; 750 \\\hline
-      36 &amp; Условный модуль 36 &amp; А &amp; 760 \\\hline
-      37 &amp; Условный модуль 37 &amp; А &amp; 770 \\\hline
-      38 &amp; Условный модуль 38 &amp; А &amp; 780 \\\hline
-      39 &amp; Условный модуль 39 &amp; А &amp; 790 \\\hline
-      40 &amp; Условный модуль 40 &amp; А &amp; 800 \\\hline
-      41 &amp; Условный модуль 41 &amp; А &amp; 810 \\\hline
-      42 &amp; Условный модуль 42 &amp; А &amp; 820 \\\hline
-      43 &amp; Условный модуль 43 &amp; А &amp; 830 \\\hline
-      44 &amp; Условный модуль 44 &amp; А &amp; 840 \\\hline
-      45 &amp; Условный модуль 45 &amp; А &amp; 850 \\\hline
-      46 &amp; Условный модуль 46 &amp; А &amp; 860 \\\hline
-      47 &amp; Условный модуль 47 &amp; А &amp; 870 \\\hline
-      48 &amp; Условный модуль 48 &amp; А &amp; 880 \\\hline
-      49 &amp; Условный модуль 49 &amp; А &amp; 890 \\\hline
-      50 &amp; Условный модуль 50 &amp; А &amp; 900 \\\hline
-      \end{longtable}
-      \end{document}</code></pre>
+                                  <pre><code>\refstepcounter{table}\label{tab:modules}
+      \begin{longtable}{|c|p{7cm}|c|r|}
+          % 1. ШАПКА ПЕРВОЙ СТРАНИЦЫ
+          \multicolumn{4}{l}{Таблица \thetable{} --- Сравнительные характеристики модулей} \\
+          \hline
+          \textbf{№} & \textbf{Наименование компонента} & \textbf{Тип} & \textbf{Цена, руб.} \\
+          \hline
+          \small 1 & \small 2 & \small 3 & \small 4 \\ % Строка нумерации граф
+          \hline
+          \endfirsthead
+
+          % 2. ШАПКА ВСЕХ СЛЕДУЮЩИХ СТРАНИЦ (ПО ГОСТ)
+          \multicolumn{4}{l}{Продолжение таблицы \thetable} \\
+          \hline
+          \small 1 & \small 2 & \small 3 & \small 4 \\ % Только номера граф
+          \hline
+          \endhead
+
+          % 3. ПОДВАЛЫ ПУСТЫЕ: каждая строка уже закрыта \hline,
+          % иначе на разрыве получится двойная линия
+          \endfoot
+          \endlastfoot
+
+          % СТРОКИ ДАННЫХ
+          1 & Микроконтроллер STM32F401RE & Cortex-M4 & 850 \\ \hline
+          2 & Преобразователь интерфейсов FT232RL & USB-UART & 420 \\ \hline
+          % ... много строк ...
+      \end{longtable}</code></pre>
                               </div>
   - id: 'common-pitfalls'
     title: 'Типичные ошибки при ручной верстке в Word'
@@ -205,91 +152,21 @@ tips:
       например, 12 пт при основном тексте 14 пт. В LaTeX уменьшите шрифт командой <code>\small</code>
       перед таблицей.</p>
 editorExample:
-  - type: 'latex'
-    text: |2-
-      \documentclass[a4paper,14pt]{extarticle}
-      \usepackage[T2A]{fontenc}
-      \usepackage[utf8]{inputenc}
-      \usepackage[russian]{babel}
-      \usepackage{tempora}
-      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-      \usepackage{setspace}
-      \onehalfspacing
-      \setlength{\parindent}{1.25cm}
-      \usepackage{longtable,array,caption}
-      \DeclareCaptionLabelSeparator{emdash}{\ --- }
-      \captionsetup[longtable]{name=Таблица,labelsep=emdash,justification=raggedright,
-        singlelinecheck=false,font={normalsize,stretch=1}}
-      \setlength{\LTleft}{0pt}
-      \setlength{\LTright}{\fill}
-      \setlength{\LTcapwidth}{\textwidth}
-      \begin{document}
-      Учебные характеристики условных модулей приведены в таблице~\ref{tab:modules}.
-      Цены вымышлены и используются только для демонстрации переноса.
-      \begin{longtable}{|c|p{65mm}|c|r|}
-      \caption{Сравнительные характеристики модулей}\label{tab:modules}\\
-      \hline
-      \multicolumn{1}{|c|}{№} & \multicolumn{1}{c|}{Наименование} &
-      \multicolumn{1}{c|}{Тип} & \multicolumn{1}{c|}{Цена, руб.}\\\hline
-      1 & \multicolumn{1}{c|}{2} & 3 & \multicolumn{1}{c|}{4}\\\hline
-      \endfirsthead
-      \multicolumn{4}{@{}l}{Продолжение таблицы \thetable}\\
-      \hline
-      1 & \multicolumn{1}{c|}{2} & 3 & \multicolumn{1}{c|}{4}\\\hline
-      \endhead
-      \endfoot
-      \endlastfoot
-      1 & Условный модуль 1 & А & 410 \\\hline
-      2 & Условный модуль 2 & А & 420 \\\hline
-      3 & Условный модуль 3 & А & 430 \\\hline
-      4 & Условный модуль 4 & А & 440 \\\hline
-      5 & Условный модуль 5 & А & 450 \\\hline
-      6 & Условный модуль 6 & А & 460 \\\hline
-      7 & Условный модуль 7 & А & 470 \\\hline
-      8 & Условный модуль 8 & А & 480 \\\hline
-      9 & Условный модуль 9 & А & 490 \\\hline
-      10 & Условный модуль 10 & А & 500 \\\hline
-      11 & Условный модуль 11 & А & 510 \\\hline
-      12 & Условный модуль 12 & А & 520 \\\hline
-      13 & Условный модуль 13 & А & 530 \\\hline
-      14 & Условный модуль 14 & А & 540 \\\hline
-      15 & Условный модуль 15 & А & 550 \\\hline
-      16 & Условный модуль 16 & А & 560 \\\hline
-      17 & Условный модуль 17 & А & 570 \\\hline
-      18 & Условный модуль 18 & А & 580 \\\hline
-      19 & Условный модуль 19 & А & 590 \\\hline
-      20 & Условный модуль 20 & А & 600 \\\hline
-      21 & Условный модуль 21 & А & 610 \\\hline
-      22 & Условный модуль 22 & А & 620 \\\hline
-      23 & Условный модуль 23 & А & 630 \\\hline
-      24 & Условный модуль 24 & А & 640 \\\hline
-      25 & Условный модуль 25 & А & 650 \\\hline
-      26 & Условный модуль 26 & А & 660 \\\hline
-      27 & Условный модуль 27 & А & 670 \\\hline
-      28 & Условный модуль 28 & А & 680 \\\hline
-      29 & Условный модуль 29 & А & 690 \\\hline
-      30 & Условный модуль 30 & А & 700 \\\hline
-      31 & Условный модуль 31 & А & 710 \\\hline
-      32 & Условный модуль 32 & А & 720 \\\hline
-      33 & Условный модуль 33 & А & 730 \\\hline
-      34 & Условный модуль 34 & А & 740 \\\hline
-      35 & Условный модуль 35 & А & 750 \\\hline
-      36 & Условный модуль 36 & А & 760 \\\hline
-      37 & Условный модуль 37 & А & 770 \\\hline
-      38 & Условный модуль 38 & А & 780 \\\hline
-      39 & Условный модуль 39 & А & 790 \\\hline
-      40 & Условный модуль 40 & А & 800 \\\hline
-      41 & Условный модуль 41 & А & 810 \\\hline
-      42 & Условный модуль 42 & А & 820 \\\hline
-      43 & Условный модуль 43 & А & 830 \\\hline
-      44 & Условный модуль 44 & А & 840 \\\hline
-      45 & Условный модуль 45 & А & 850 \\\hline
-      46 & Условный модуль 46 & А & 860 \\\hline
-      47 & Условный модуль 47 & А & 870 \\\hline
-      48 & Условный модуль 48 & А & 880 \\\hline
-      49 & Условный модуль 49 & А & 890 \\\hline
-      50 & Условный модуль 50 & А & 900 \\\hline
-      \end{longtable}
-      \end{document}
-    parameters:
-      visible: true
+  latex: |2-
+    \documentclass[12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[russian]{babel}
+    \usepackage{longtable}
+    \usepackage[a4paper,textheight=55mm]{geometry}
+    \begin{document}
+    \refstepcounter{table}
+    \begin{longtable}{|c|c|}
+    \multicolumn{2}{l}{Таблица \thetable{} --- Результаты измерений}\\\hline
+    Время, с & Путь, м\\\hline
+    1 & 2\\\hline\endfirsthead
+    \multicolumn{2}{l}{Продолжение таблицы \thetable}\\\hline
+    1 & 2\\\hline\endhead
+    0,5 & 1,2\\\hline 1,0 & 4,9\\\hline 1,5 & 11,0\\\hline 2,0 & 19,6\\\hline 2,5 & 30,6\\\hline
+    3,0 & 44,1\\\hline 3,5 & 60,0\\\hline 4,0 & 78,4\\\hline 4,5 & 99,2\\\hline 5,0 & 122,5\\\hline
+    \end{longtable}
+    \end{document}

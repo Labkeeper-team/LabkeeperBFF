@@ -27,7 +27,7 @@ keywords:
   - 'нумерация скриншотов в отчете гост'
   - 'подпись под рисунком со скриншотом'
 datePublished: '2026-09-05'
-dateModified: '2026-11-05'
+dateModified: '2026-10-18'
 readingTime: '7 мин'
 cardTitle: 'Скриншоты программ в студенческих отчетах и дипломах по ГОСТ 7.32'
 cardDescription: |2-
@@ -116,50 +116,32 @@ sections:
   - id: 'latex-figure-snippet'
     title: 'Шаблон вставки скриншота в LaTeX с рамкой'
     html: |2-
-      <p>Ниже самостоятельный пример оформления отдельного элемента: A4, 14 пт, поля 30/15/20/20 мм, полуторный интервал и абзац 1,25 см. Это не полный отчет: титульный лист, содержание и список источников не включены. При вставке в основной документ сохраните его преамбулу и согласуйте оформление с методичкой кафедры; ГОСТ 7.32-2017 относится к отчетам о НИР.</p>
                               <p>Если фон скриншота белый, он может визуально сливаться с белым листом
       бумаги. Оберните его в тонкую рамку через команду <code>\fbox</code>. С пакетом babel подпись по
       умолчанию выходит в виде «Рис. 1:», поэтому в преамбуле слово «Рисунок» и тире задают явно:</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\documentclass[a4paper,14pt]{extarticle}
-      \usepackage[T2A]{fontenc}
-      \usepackage[utf8]{inputenc}
-      \usepackage[russian]{babel}
-      \usepackage{tempora}
-      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-      \usepackage{setspace}
-      \onehalfspacing
-      \setlength{\parindent}{1.25cm}
-      \usepackage{graphicx,PTMono}
+                                  <pre><code>% Преамбула
       \usepackage{caption}
       \DeclareCaptionLabelSeparator{emdash}{\ --- }
-      \DeclareCaptionFont{nohyphen}{\hyphenpenalty=10000\exhyphenpenalty=10000}
-      \captionsetup[figure]{name=Рисунок,labelsep=emdash,justification=centering,
-        singlelinecheck=false,font={normalsize,stretch=1,nohyphen}}
-      \usepackage[hidelinks]{hyperref}
-      \begin{document}
-      Учебный вывод программы показан на рисунке~\ref{fig:output}.
-      \begin{figure}[htbp]
-      \centering
-      \setlength{\fboxsep}{4pt}
-      \setlength{\fboxrule}{0.5pt}
-      \fbox{\begin{minipage}{.75\textwidth}
-      \ttfamily\singlespacing
-      Вывод программы:\par
-      Результат: 42\par
-      Статус: OK
-      \end{minipage}}
-      \caption{Окно консоли с учебным выводом программы и сообщением об успешном завершении расчета}
-      \label{fig:output}
-      \end{figure}
-      \end{document}</code></pre>
-                              </div>
-      <p>В статье и по кнопке используется один переносимый учебный заменитель окна консоли: внешнее изображение не требуется. Это не снимок реальной программы. Подпись под ним центрируется, в том числе в несколько строк, набирается через один интервал без переносов слов. PTMono обеспечивает моноширинный кириллический текст.</p>
-      <p>Для собственного снимка загрузите <code>gui-window.png</code> в файлы проекта Labkeeper после входа и замените блок <code>\fbox{\begin{minipage}...\end{minipage}}</code> следующим фрагментом. Это замена только изображения; ссылку перед рисунком, подпись и метку сохраните:</p>
-      <div class="article-code"><pre><code>\fbox{\includegraphics[width=0.85\textwidth]{gui-window.png}}</code></pre></div>
+      \captionsetup[figure]{labelsep=emdash}
+      \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
 
+      % Текст
+      \begin{figure}[htbp]
+          \centering
+          \setlength{\fboxsep}{1pt}
+          \setlength{\fboxrule}{0.5pt}
+          \fbox{\includegraphics[width=0.85\textwidth]{gui-window.png}}
+          \caption{Интерфейс модуля визуализации телеметрии}
+          \label{fig:gui-telemetry}
+      \end{figure}</code></pre>
+                              </div>
+                              <p>Получится подпись «Рисунок 1 — Интерфейс модуля визуализации
+      телеметрии» по центру под рисунком. Файл скриншота загрузите в файлы проекта Labkeeper: загрузка
+      доступна после входа. В LaTeX-сегменте размер задает <code>\includegraphics</code>, а в
+      Markdown-сегменте превью оставит картинке её размер и ужмёт только то, что шире колонки.</p>
 tips:
   - title: 'Формат без сжатия PNG'
     html: |2-
@@ -170,39 +152,20 @@ tips:
       <p>Если нужно обратить внимание преподавателя на кнопку, используйте красную стрелку или
       аккуратную рамку толщиной 2–3 пикселя.</p>
 editorExample:
-  - type: 'latex'
-    text: |2-
-      \documentclass[a4paper,14pt]{extarticle}
-      \usepackage[T2A]{fontenc}
-      \usepackage[utf8]{inputenc}
-      \usepackage[russian]{babel}
-      \usepackage{tempora}
-      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-      \usepackage{setspace}
-      \onehalfspacing
-      \setlength{\parindent}{1.25cm}
-      \usepackage{graphicx,PTMono}
-      \usepackage{caption}
-      \DeclareCaptionLabelSeparator{emdash}{\ --- }
-      \DeclareCaptionFont{nohyphen}{\hyphenpenalty=10000\exhyphenpenalty=10000}
-      \captionsetup[figure]{name=Рисунок,labelsep=emdash,justification=centering,
-        singlelinecheck=false,font={normalsize,stretch=1,nohyphen}}
-      \usepackage[hidelinks]{hyperref}
-      \begin{document}
-      Учебный вывод программы показан на рисунке~\ref{fig:output}.
-      \begin{figure}[htbp]
-      \centering
-      \setlength{\fboxsep}{4pt}
-      \setlength{\fboxrule}{0.5pt}
-      \fbox{\begin{minipage}{.75\textwidth}
-      \ttfamily\singlespacing
-      Вывод программы:\par
-      Результат: 42\par
-      Статус: OK
-      \end{minipage}}
-      \caption{Окно консоли с учебным выводом программы и сообщением об успешном завершении расчета}
-      \label{fig:output}
-      \end{figure}
-      \end{document}
-    parameters:
-      visible: true
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath,graphicx}
+    \usepackage{caption}\DeclareCaptionLabelSeparator{emdash}{\ --- }
+    \captionsetup[figure]{labelsep=emdash}
+    \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+    \begin{document}
+    \begin{figure}[h]\centering
+    \fbox{\begin{minipage}{.6\textwidth}\ttfamily
+    Вывод программы:\par Результат: 42\par Статус: OK
+    \end{minipage}}
+    \caption{Окно консоли с выводом программы}\label{fig:output}\end{figure}
+    Результат приведен на рисунке~\ref{fig:output}.
+    \end{document}

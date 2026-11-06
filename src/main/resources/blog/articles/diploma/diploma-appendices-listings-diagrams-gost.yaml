@@ -27,7 +27,7 @@ keywords:
   - 'оформление приложений в дипломе гост'
   - 'как нумеровать приложения в курсовой'
 datePublished: '2026-09-05'
-dateModified: '2026-11-05'
+dateModified: '2026-10-18'
 readingTime: '7 мин'
 cardTitle: 'Приложения в дипломе и курсовой: правила оформления по ГОСТ 7.32'
 cardDescription: |2-
@@ -53,8 +53,6 @@ toc:
     title: 'Настройка окружения appendix в LaTeX с русской нумерацией'
   - id: 'listings-in-appendix'
     title: 'Размещение длинных программных листингов и таблиц'
-  - id: 'full-example'
-    title: 'Полный код учебного примера'
 sections:
   - id: 'purpose'
     title: 'Что обязательно выносится в приложения'
@@ -81,7 +79,8 @@ sections:
       „ПРИЛОЖЕНИЕ“ следует буква, обозначающая его последовательность. Допускается обозначение
       приложений буквами латинского алфавита, за исключением букв I и O» (ГОСТ 7.32-2017, п. 6.17.4).
                               </blockquote>
-                              <p>Это заданные стандартом исключения; обычная команда \Asbuk не обеспечивает всю эту последовательность. Если в работе одно приложение, оно все равно
+                              <p>Указанные буквы исключены, так как они зрительно похожи на цифры 3,
+      0, 4 или не употребляются в начале слов. Если в работе одно приложение, оно все равно
       обозначается «ПРИЛОЖЕНИЕ А».</p>
   - id: 'gost-headings'
     title: 'Оформление приложений в дипломе гост: форма заголовка'
@@ -102,8 +101,43 @@ sections:
   - id: 'latex-appendix'
     title: 'Настройка окружения appendix в LaTeX с русской нумерацией'
     html: |2-
-      <p>В полном примере ниже <code>\appendix</code> включает режим приложений. Команда <code>\reportappendix</code> увеличивает счетчик главы, создает метку, запись содержания со статусом и отдельный центрированный заголовок. В <code>\ref</code> остается только буква, поэтому ссылка читается «в приложении А».</p>
-      <p>Отображение ограничено тремя буквами А, Б, В и выдает ошибку при четвертом приложении. Для большего числа расширьте явное отображение с учетом исключений из § 6.17.4; не заменяйте его обычным <code>\Asbuk</code>. Счетчики объектов сбрасываются при начале каждой главы: пример показывает А.1 и Б.1 для формул, таблиц и рисунков.</p>
+                              <p>В LaTeX команда <code>\appendix</code> сбрасывает счетчик разделов.
+      Номером приложения должна стать только буква, а слово «ПРИЛОЖЕНИЕ» добавляет оформление
+      заголовка: если вписать слово в сам номер
+      (<code>\renewcommand{\thesection}{Приложение~\Asbuk{section}}</code>), ссылка превратится в «в
+      приложении Приложение А», а содержание собьется. Рабочий вариант для класса <code>article</code>
+      с пакетом <code>titlesec</code> в преамбуле:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% В преамбуле: \usepackage{titlesec}
+
+      \appendix
+      \renewcommand{\thesection}{\Asbuk{section}}   % А, Б, В...
+      \counterwithin{figure}{section}               % Рисунок А.1, Б.1
+      \counterwithin{table}{section}                % Таблица А.1
+      \counterwithin{equation}{section}             % (А.1)
+      % «ПРИЛОЖЕНИЕ А» по центру, заголовок приложения строкой ниже
+      \titleformat{\section}[display]
+          {\normalfont\bfseries\filcenter}
+          {ПРИЛОЖЕНИЕ~\thesection}
+          {0pt}
+          {}
+
+      \clearpage % каждое приложение — с новой страницы
+      \section{Исходный код клиентского приложения}\label{app:code}
+      ... листинг программы ...
+
+      \clearpage
+      \section{Акт внедрения результатов исследований}
+      ... скан документа ...</code></pre>
+                              </div>
+                              <p>Теперь <code>\ref{app:code}</code> дает букву «А», и ссылка читается
+      как «в приложении А», а нумерация рисунков начинается заново в каждом приложении. Команда
+      <code>\Asbuk</code> из babel пропускает буквы Ё, Й, Ъ, Ы, Ь, но не З, О и Ч, поэтому с ГОСТ она
+      совпадает только для первых семи приложений (А–Ж): восьмое получит «З» вместо «И». При большем
+      числе приложений задайте буквы вручную. В стандартной преамбуле Labkeeper разделы не нумеруются,
+      и буквы не будет вовсе — для приложений нужна своя преамбула, как в примере в редакторе.</p>
   - id: 'listings-in-appendix'
     title: 'Размещение длинных программных листингов и таблиц'
     html: |2-
@@ -112,126 +146,6 @@ sections:
       href="/blog/programming-lab-report-code-listings-gost">оформлении листингов в отчете</a>) с
       уменьшенным кеглем шрифта (<code>basicstyle=\ttfamily\scriptsize</code>) и плотными
       междустрочными интервалами, чтобы рационально использовать площадь страниц.</p>
-  - id: 'full-example'
-    title: 'Полный код учебного примера'
-    html: |2-
-      <p>Ниже весь код, который открывается по кнопке примера. Это самостоятельно компилируемый учебный макет оформления, а не полная ВКР или отчет о НИР: состав обязательных элементов, источники и реквизиты согласуйте с кафедрой. ГОСТ 7.32-2017 относится к отчетам о НИР; применение к ВКР проверяют по методичке.</p>
-      <p>Статусы приложений в макете авторские: проверьте их по заданию. Повторно соберите документ, затем сверьте содержание, ссылки и номера объектов с PDF.</p>
-      <div class="article-code"><pre><code>\documentclass[a4paper,14pt]{extreport}
-      \usepackage[T2A]{fontenc}
-      \usepackage[utf8]{inputenc}
-      \usepackage[russian]{babel}
-      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,tocloft}
-      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-      \onehalfspacing
-      \setlength{\parindent}{1.25cm}
-      \setlength{\parskip}{0pt}
-      \pagestyle{plain}
-      \newcommand{\headingfont}{\normalfont\normalsize\bfseries
-        \hyphenpenalty=10000\exhyphenpenalty=10000\relax}
-      \titleformat{\chapter}[block]{\headingfont}
-        {\thechapter}{0.5em}{}
-      \titleformat{name=\chapter,numberless}[block]
-        {\headingfont\filcenter}{}{0pt}{}
-      \titleformat{\section}{\headingfont}{\thesection}{0.5em}{}
-      \titlespacing{\chapter}{\parindent}{0pt}{14pt}
-      \titlespacing{name=\chapter,numberless}{0pt}{0pt}{14pt}
-      \titlespacing{\section}{\parindent}{12pt}{6pt}
-      \setcounter{secnumdepth}{1}
-      \setcounter{tocdepth}{1}
-      \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-      \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-      \renewcommand{\cfttoctitlefont}{\hfill\headingfont}
-      \renewcommand{\cftaftertoctitle}{\hfill}
-      \setlength{\cftbeforetoctitleskip}{0pt}
-      \addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}
-      \newcommand{\structural}[1]{\chapter*{#1}
-        \addcontentsline{toc}{chapter}{#1}}
-      \usepackage{caption,needspace}
-      \usepackage{PTMono} % кириллический моноширинный шрифт для verbatim
-      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
-      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\exhyphenpenalty=10000\relax#1}
-      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing},textformat=gosttitle}
-      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
-      \captionsetup[figure]{justification=centering,singlelinecheck=false}
-      \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
-      \AtBeginDocument{\setlength{\abovedisplayskip}{\baselineskip}
-        \setlength{\belowdisplayskip}{\baselineskip}
-        \setlength{\abovedisplayshortskip}{\baselineskip}
-        \setlength{\belowdisplayshortskip}{\baselineskip}}
-      % Учебное ограничение: только три приложения, А, Б, В.
-      \newcommand{\appendixletter}{\ifcase\value{chapter}\or А\or Б\or В\else
-        \PackageError{example}{Only three appendices supported}{Extend the explicit mapping}\fi}
-      \newcommand{\startappendices}{\appendix
-        \renewcommand{\thechapter}{\appendixletter}
-        \renewcommand{\theequation}{\thechapter.\arabic{equation}}
-        \renewcommand{\thetable}{\thechapter.\arabic{table}}
-        \renewcommand{\thefigure}{\thechapter.\arabic{figure}}}
-      \newcommand{\reportappendix}[3]{\clearpage
-        \refstepcounter{chapter}\label{#3}
-        \addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ \thechapter\space (#1) --- #2}
-        \begin{center}
-          {\headingfont ПРИЛОЖЕНИЕ \thechapter\par}
-          (#1)\par
-          {\headingfont #2\par}
-        \end{center}}
-      \begin{document}
-      \tableofcontents
-      \chapter{Реализация}
-      Учебный пример: код и расчет приведены в приложении~\ref{app:code},
-      контрольный расчет --- в приложении~\ref{app:check}.
-      \startappendices
-      \reportappendix{справочное}{Листинг и расчет}{app:code}
-      \begin{verbatim}
-      # Учебный пример
-      def square(x):
-          return x * x
-      \end{verbatim}
-      Вычисление квадрата показано формулой~\eqref{eq:square},
-      значения --- в таблице~\ref{tab:values}, схема --- на рисунке~\ref{fig:flow}.
-      Все данные учебные.
-      \Needspace{8\baselineskip}
-      \begin{equation}\label{eq:square}
-        y=x^2,
-      \end{equation}
-      где $y$ --- квадрат аргумента, безразмерная величина;\par
-      \noindent $x$ --- аргумент, безразмерная величина.
-      \begin{table}[htbp]
-        \caption{Учебные значения}\label{tab:values}
-        \centering
-        \begin{tabular}{|r|r|}\hline
-          \multicolumn{1}{|c|}{$x$} &amp; \multicolumn{1}{c|}{$y$} \\\hline
-          2 &amp; 4 \\\hline
-        \end{tabular}
-      \end{table}
-      \begin{figure}[htbp]
-        \centering
-        \fbox{\parbox{0.65\textwidth}{\centering Ввод $x$ $\longrightarrow$
-          Вычисление $x^2$ $\longrightarrow$ Вывод $y$}}
-        \caption{Учебная схема вычисления}\label{fig:flow}
-      \end{figure}
-      \reportappendix{справочное}{Контрольный расчет}{app:check}
-      Второе приложение показывает сброс счетчиков. Формула~\eqref{eq:check},
-      таблица~\ref{tab:check} и рисунок~\ref{fig:check} имеют номер Б.1.
-      \Needspace{8\baselineskip}
-      \begin{equation}\label{eq:check}
-        y=x^2,
-      \end{equation}
-      где $y$ --- квадрат аргумента, безразмерная величина;\par
-      \noindent $x$ --- аргумент, безразмерная величина.
-      \begin{table}[htbp]
-        \caption{Учебная проверка}\label{tab:check}
-        \centering
-        \begin{tabular}{|r|r|}\hline
-          \multicolumn{1}{|c|}{$x$} &amp; \multicolumn{1}{c|}{$y$} \\\hline
-          3 &amp; 9 \\\hline
-        \end{tabular}
-      \end{table}
-      \begin{figure}[htbp]
-        \centering\fbox{Учебная проверка: $3^2=9$}
-        \caption{Схема контрольного вычисления}\label{fig:check}
-      \end{figure}
-      \end{document}</code></pre></div>
 tips:
   - title: 'Сквозная нумерация страниц'
     html: |2-
@@ -242,122 +156,21 @@ tips:
       <p>Каждое приложение обязательно должно упоминаться в основном тексте диплома: <em>«Полный текст
       разработанного модуля приведен в приложении~А»</em>.</p>
 editorExample:
-  - type: 'latex'
-    text: |2-
-      \documentclass[a4paper,14pt]{extreport}
-      \usepackage[T2A]{fontenc}
-      \usepackage[utf8]{inputenc}
-      \usepackage[russian]{babel}
-      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,tocloft}
-      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-      \onehalfspacing
-      \setlength{\parindent}{1.25cm}
-      \setlength{\parskip}{0pt}
-      \pagestyle{plain}
-      \newcommand{\headingfont}{\normalfont\normalsize\bfseries
-        \hyphenpenalty=10000\exhyphenpenalty=10000\relax}
-      \titleformat{\chapter}[block]{\headingfont}
-        {\thechapter}{0.5em}{}
-      \titleformat{name=\chapter,numberless}[block]
-        {\headingfont\filcenter}{}{0pt}{}
-      \titleformat{\section}{\headingfont}{\thesection}{0.5em}{}
-      \titlespacing{\chapter}{\parindent}{0pt}{14pt}
-      \titlespacing{name=\chapter,numberless}{0pt}{0pt}{14pt}
-      \titlespacing{\section}{\parindent}{12pt}{6pt}
-      \setcounter{secnumdepth}{1}
-      \setcounter{tocdepth}{1}
-      \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-      \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-      \renewcommand{\cfttoctitlefont}{\hfill\headingfont}
-      \renewcommand{\cftaftertoctitle}{\hfill}
-      \setlength{\cftbeforetoctitleskip}{0pt}
-      \addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}
-      \newcommand{\structural}[1]{\chapter*{#1}
-        \addcontentsline{toc}{chapter}{#1}}
-      \usepackage{caption,needspace}
-      \usepackage{PTMono} % кириллический моноширинный шрифт для verbatim
-      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
-      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\exhyphenpenalty=10000\relax#1}
-      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing},textformat=gosttitle}
-      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
-      \captionsetup[figure]{justification=centering,singlelinecheck=false}
-      \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
-      \AtBeginDocument{\setlength{\abovedisplayskip}{\baselineskip}
-        \setlength{\belowdisplayskip}{\baselineskip}
-        \setlength{\abovedisplayshortskip}{\baselineskip}
-        \setlength{\belowdisplayshortskip}{\baselineskip}}
-      % Учебное ограничение: только три приложения, А, Б, В.
-      \newcommand{\appendixletter}{\ifcase\value{chapter}\or А\or Б\or В\else
-        \PackageError{example}{Only three appendices supported}{Extend the explicit mapping}\fi}
-      \newcommand{\startappendices}{\appendix
-        \renewcommand{\thechapter}{\appendixletter}
-        \renewcommand{\theequation}{\thechapter.\arabic{equation}}
-        \renewcommand{\thetable}{\thechapter.\arabic{table}}
-        \renewcommand{\thefigure}{\thechapter.\arabic{figure}}}
-      \newcommand{\reportappendix}[3]{\clearpage
-        \refstepcounter{chapter}\label{#3}
-        \addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ \thechapter\space (#1) --- #2}
-        \begin{center}
-          {\headingfont ПРИЛОЖЕНИЕ \thechapter\par}
-          (#1)\par
-          {\headingfont #2\par}
-        \end{center}}
-      \begin{document}
-      \tableofcontents
-      \chapter{Реализация}
-      Учебный пример: код и расчет приведены в приложении~\ref{app:code},
-      контрольный расчет --- в приложении~\ref{app:check}.
-      \startappendices
-      \reportappendix{справочное}{Листинг и расчет}{app:code}
-      \begin{verbatim}
-      # Учебный пример
-      def square(x):
-          return x * x
-      \end{verbatim}
-      Вычисление квадрата показано формулой~\eqref{eq:square},
-      значения --- в таблице~\ref{tab:values}, схема --- на рисунке~\ref{fig:flow}.
-      Все данные учебные.
-      \Needspace{8\baselineskip}
-      \begin{equation}\label{eq:square}
-        y=x^2,
-      \end{equation}
-      где $y$ --- квадрат аргумента, безразмерная величина;\par
-      \noindent $x$ --- аргумент, безразмерная величина.
-      \begin{table}[htbp]
-        \caption{Учебные значения}\label{tab:values}
-        \centering
-        \begin{tabular}{|r|r|}\hline
-          \multicolumn{1}{|c|}{$x$} & \multicolumn{1}{c|}{$y$} \\\hline
-          2 & 4 \\\hline
-        \end{tabular}
-      \end{table}
-      \begin{figure}[htbp]
-        \centering
-        \fbox{\parbox{0.65\textwidth}{\centering Ввод $x$ $\longrightarrow$
-          Вычисление $x^2$ $\longrightarrow$ Вывод $y$}}
-        \caption{Учебная схема вычисления}\label{fig:flow}
-      \end{figure}
-      \reportappendix{справочное}{Контрольный расчет}{app:check}
-      Второе приложение показывает сброс счетчиков. Формула~\eqref{eq:check},
-      таблица~\ref{tab:check} и рисунок~\ref{fig:check} имеют номер Б.1.
-      \Needspace{8\baselineskip}
-      \begin{equation}\label{eq:check}
-        y=x^2,
-      \end{equation}
-      где $y$ --- квадрат аргумента, безразмерная величина;\par
-      \noindent $x$ --- аргумент, безразмерная величина.
-      \begin{table}[htbp]
-        \caption{Учебная проверка}\label{tab:check}
-        \centering
-        \begin{tabular}{|r|r|}\hline
-          \multicolumn{1}{|c|}{$x$} & \multicolumn{1}{c|}{$y$} \\\hline
-          3 & 9 \\\hline
-        \end{tabular}
-      \end{table}
-      \begin{figure}[htbp]
-        \centering\fbox{Учебная проверка: $3^2=9$}
-        \caption{Схема контрольного вычисления}\label{fig:check}
-      \end{figure}
-      \end{document}
-    parameters:
-      visible: true
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[russian]{babel}
+    \usepackage{titlesec}
+    \begin{document}
+    \section{Реализация}
+    Исходный код приведен в приложении~\ref{app:code}.
+    \appendix
+    \renewcommand{\thesection}{\Asbuk{section}}
+    \titleformat{\section}[display]{\normalfont\bfseries\filcenter}{ПРИЛОЖЕНИЕ~\thesection}{0pt}{}
+    \clearpage
+    \section{Листинг программы}\label{app:code}
+    \begin{verbatim}
+    def square(x):
+        return x * x
+    \end{verbatim}
+    \end{document}

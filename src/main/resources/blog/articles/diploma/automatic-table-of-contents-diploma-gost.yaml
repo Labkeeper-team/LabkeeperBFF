@@ -27,7 +27,7 @@ keywords:
   - 'автоматическое оглавление для диплома гост'
   - 'содержание курсовой по госту онлайн'
 datePublished: '2026-09-05'
-dateModified: '2026-11-05'
+dateModified: '2026-10-18'
 readingTime: '7 мин'
 cardTitle: 'Автоматическое оглавление в дипломных и курсовых работах по ГОСТ'
 cardDescription: |2-
@@ -53,8 +53,6 @@ toc:
     title: 'Настройка отточий и выравнивания номеров страниц (пакет tocloft)'
   - id: 'unnumbered-sections'
     title: 'Добавление ненумерованных разделов (Введение, Заключение, Список источников)'
-  - id: 'full-example'
-    title: 'Полный код учебного примера'
 sections:
   - id: 'requirements'
     title: 'Требования нормоконтроля к оформлению «Содержания»'
@@ -63,7 +61,8 @@ sections:
       <strong>«СОДЕРЖАНИЕ»</strong> (заглавными буквами с выравниванием по центру). Основные
       требования:</p>
                               <ul>
-                                  <li>Разделы и подразделы перечисляют с их номерами; приложения — с обозначениями, статусами и названиями.</li>
+                                  <li>Все разделы, подразделы и приложения перечисляются с указанием
+      их порядковых номеров.</li>
                                   <li>От названия каждого пункта до номера страницы идет непрерывная
       линия из точек (отточие).</li>
                                   <li>Номера страниц выравниваются строго по правому краю без слова
@@ -134,66 +133,17 @@ sections:
     title: 'Добавление ненумерованных разделов (Введение, Заключение, Список источников)'
     html: |2-
                               <p>Если раздел объявляется со звездочкой
-      (<code>\chapter*{ВВЕДЕНИЕ}</code> в классе extreport), LaTeX автоматически исключает его из оглавления. Чтобы
+      (<code>\section*{Введение}</code>), LaTeX автоматически исключает его из оглавления. Чтобы
       вернуть его в содержание с правильным номером листа, добавьте команду
       <code>\addcontentsline</code>:</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\chapter*{ВВЕДЕНИЕ}
-      \addcontentsline{toc}{chapter}{ВВЕДЕНИЕ}
+                                  <pre><code>\section*{ВВЕДЕНИЕ}
+      \addcontentsline{toc}{section}{ВВЕДЕНИЕ}
 
       ... текст введения ...</code></pre>
                               </div>
-  - id: 'full-example'
-    title: 'Полный код учебного примера'
-    html: |2-
-      <p>Ниже весь код, который открывается по кнопке примера. Это самостоятельно компилируемый учебный макет оформления, а не полная ВКР или отчет о НИР: состав обязательных элементов, источники и реквизиты согласуйте с кафедрой. ГОСТ 7.32-2017 относится к отчетам о НИР; применение к ВКР проверяют по методичке.</p>
-      <p>Преамбула задает A4, 14 пт, tempora, поля 30/15/20/20 мм, полуторный интервал и отступ 1,25 см. Введение и заключение центрированы, главы начинаются с новой страницы. Это частичный образец: титул, список источников и приложения не включены. После добавления титула содержание продолжит общую нумерацию.</p>
-      <div class="article-code"><pre><code>\documentclass[a4paper,14pt]{extreport}
-      \usepackage[T2A]{fontenc}
-      \usepackage[utf8]{inputenc}
-      \usepackage[russian]{babel}
-      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,tocloft}
-      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-      \onehalfspacing
-      \setlength{\parindent}{1.25cm}
-      \setlength{\parskip}{0pt}
-      \pagestyle{plain}
-      \newcommand{\headingfont}{\normalfont\normalsize\bfseries
-        \hyphenpenalty=10000\exhyphenpenalty=10000\relax}
-      \titleformat{\chapter}[block]{\headingfont}
-        {\thechapter}{0.5em}{}
-      \titleformat{name=\chapter,numberless}[block]
-        {\headingfont\filcenter}{}{0pt}{}
-      \titleformat{\section}{\headingfont}{\thesection}{0.5em}{}
-      \titlespacing{\chapter}{\parindent}{0pt}{14pt}
-      \titlespacing{name=\chapter,numberless}{0pt}{0pt}{14pt}
-      \titlespacing{\section}{\parindent}{12pt}{6pt}
-      \setcounter{secnumdepth}{1}
-      \setcounter{tocdepth}{1}
-      \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-      \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-      \renewcommand{\cfttoctitlefont}{\hfill\headingfont}
-      \renewcommand{\cftaftertoctitle}{\hfill}
-      \setlength{\cftbeforetoctitleskip}{0pt}
-      \addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}
-      \newcommand{\structural}[1]{\chapter*{#1}
-        \addcontentsline{toc}{chapter}{#1}}
-      \usepackage[hidelinks]{hyperref}
-      \begin{document}
-      \tableofcontents
-      \structural{ВВЕДЕНИЕ}
-      Учебный пример содержания; титул и список источников не включены.
-      \chapter{Методика}
-      Описание учебного подхода.
-      \section{Оборудование}
-      Описание условной измерительной установки.
-      \chapter{Результаты}
-      Итоги учебного примера.
-      \structural{ЗАКЛЮЧЕНИЕ}
-      Проверьте названия и номера страниц в содержании после повторной сборки.
-      \end{document}</code></pre></div>
 tips:
   - title: 'Кликабельные пункты оглавления в PDF'
     html: |2-
@@ -205,51 +155,24 @@ tips:
       поставит в конце последней строки. Продолжение заголовка начинается от уровня начала его текста,
       как и требует ГОСТ 7.32.</p>
 editorExample:
-  - type: 'latex'
-    text: |2-
-      \documentclass[a4paper,14pt]{extreport}
-      \usepackage[T2A]{fontenc}
-      \usepackage[utf8]{inputenc}
-      \usepackage[russian]{babel}
-      \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,tocloft}
-      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-      \onehalfspacing
-      \setlength{\parindent}{1.25cm}
-      \setlength{\parskip}{0pt}
-      \pagestyle{plain}
-      \newcommand{\headingfont}{\normalfont\normalsize\bfseries
-        \hyphenpenalty=10000\exhyphenpenalty=10000\relax}
-      \titleformat{\chapter}[block]{\headingfont}
-        {\thechapter}{0.5em}{}
-      \titleformat{name=\chapter,numberless}[block]
-        {\headingfont\filcenter}{}{0pt}{}
-      \titleformat{\section}{\headingfont}{\thesection}{0.5em}{}
-      \titlespacing{\chapter}{\parindent}{0pt}{14pt}
-      \titlespacing{name=\chapter,numberless}{0pt}{0pt}{14pt}
-      \titlespacing{\section}{\parindent}{12pt}{6pt}
-      \setcounter{secnumdepth}{1}
-      \setcounter{tocdepth}{1}
-      \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-      \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-      \renewcommand{\cfttoctitlefont}{\hfill\headingfont}
-      \renewcommand{\cftaftertoctitle}{\hfill}
-      \setlength{\cftbeforetoctitleskip}{0pt}
-      \addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}
-      \newcommand{\structural}[1]{\chapter*{#1}
-        \addcontentsline{toc}{chapter}{#1}}
-      \usepackage[hidelinks]{hyperref}
-      \begin{document}
-      \tableofcontents
-      \structural{ВВЕДЕНИЕ}
-      Учебный пример содержания; титул и список источников не включены.
-      \chapter{Методика}
-      Описание учебного подхода.
-      \section{Оборудование}
-      Описание условной измерительной установки.
-      \chapter{Результаты}
-      Итоги учебного примера.
-      \structural{ЗАКЛЮЧЕНИЕ}
-      Проверьте названия и номера страниц в содержании после повторной сборки.
-      \end{document}
-    parameters:
-      visible: true
+  latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[russian]{babel}
+    \usepackage{tocloft}
+    \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+    \renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
+    \renewcommand{\cftaftertoctitle}{\hfill}
+    \addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}
+    \begin{document}
+    \tableofcontents
+    \newpage
+    \section*{ВВЕДЕНИЕ}
+    \addcontentsline{toc}{section}{ВВЕДЕНИЕ}
+    Цель работы.
+    \section{Методика}
+    \subsection{Оборудование}
+    Измерительная установка.
+    \section{Результаты}
+    Итоги измерений.
+    \end{document}

@@ -28,7 +28,7 @@ keywords:
   - 'двойная нумерация рисунков гост вкр'
   - 'нумерация по главам дипломная работа'
 datePublished: '2026-09-05'
-dateModified: '2026-11-05'
+dateModified: '2026-10-18'
 readingTime: '6 мин'
 cardTitle: 'Нумерация рисунков по главам в дипломе по ГОСТ 7.32'
 cardDescription: |2-
@@ -108,49 +108,20 @@ sections:
   - id: 'caption-pkg'
     title: 'Кастомизация разделителя тире через пакет caption'
     html: |2-
-      <p>Ниже самостоятельный пример оформления отдельного элемента: A4, 14 пт, поля 30/15/20/20 мм, полуторный интервал и абзац 1,25 см. Это не полный отчет: титульный лист, содержание и список источников не включены. При вставке в основной документ сохраните его преамбулу и согласуйте оформление с методичкой кафедры; ГОСТ 7.32-2017 относится к отчетам о НИР.</p>
-                              <p>Ниже полный пример с учебными заполнителями вместо изображений; тот же код открывается по кнопке. В классе extreport счетчик рисунков привязан к главам, поэтому получаются 1.1 и 2.1. Центрирование, одинарный интервал и запрет переносов действуют и для многострочной подписи. С пакетом babel и русским языком LaTeX по умолчанию пишет <em>«Рис.
+                              <p>С пакетом babel и русским языком LaTeX по умолчанию пишет <em>«Рис.
       1.1: Подпись»</em> — сокращение и двоеточие. По ГОСТу нужны полное слово «Рисунок» и тире без
       двоеточия. Настройка через пакет <code>caption</code>:</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\documentclass[a4paper,14pt]{extreport}
-      \usepackage[T2A]{fontenc}
-      \usepackage[utf8]{inputenc}
-      \usepackage[russian]{babel}
-      \usepackage{tempora}
-      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-      \usepackage{setspace}
-      \onehalfspacing
-      \setlength{\parindent}{1.25cm}
-      \usepackage{titlesec}
-      \titleformat{\chapter}[block]{\normalfont\bfseries}{\thechapter}{1em}{}
-      \titlespacing{\chapter}{\parindent}{0pt}{\baselineskip}
-      \usepackage{caption}
+                                  <pre><code>\usepackage{caption}
       \DeclareCaptionLabelSeparator{emdash}{\ --- }
-      \DeclareCaptionFont{nohyphen}{\hyphenpenalty=10000\exhyphenpenalty=10000}
-      \captionsetup[figure]{name=Рисунок,labelsep=emdash,justification=centering,
-        singlelinecheck=false,font={normalsize,stretch=1,nohyphen}}
-      \usepackage[hidelinks]{hyperref}
-      \begin{document}
-      \chapter{Методика}
-      Схема опыта показана на рисунке~\ref{fig:a}.
-      \begin{figure}[htbp]
-      \centering
-      \fbox{\rule{0pt}{25mm}\rule{65mm}{0pt}}
-      \caption{Учебная схема опыта с обозначением положения источника сигнала и измерительного прибора}
-      \label{fig:a}
-      \end{figure}
-      \chapter{Результаты}
-      Место для графика приведено на рисунке~\ref{fig:b}.
-      \begin{figure}[htbp]
-      \centering
-      \fbox{\rule{0pt}{25mm}\rule{65mm}{0pt}}
-      \caption{Учебный заполнитель графика зависимости}
-      \label{fig:b}
-      \end{figure}
-      \end{document}</code></pre>
+      \captionsetup[figure]{
+          name=Рисунок,
+          labelsep=emdash,
+          justification=centering,
+          font=small
+      }</code></pre>
                               </div>
   - id: 'cross-references'
     title: 'Точные ссылки на рисунки по главам в тексте'
@@ -160,9 +131,9 @@ sections:
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>Как показано на~рисунке~\ref{fig:b}, система состоит из трех узлов...</code></pre>
+                                  <pre><code>Как показано на~рисунке~\ref{fig:arch-diagram}, система состоит из трех узлов...</code></pre>
                               </div>
-                              <p>В примере подключен <code>hyperref</code>, поэтому в готовом PDF отобразится кликабельный номер: <em>«на рисунке
+                              <p>В готовом PDF отобразится кликабельный номер: <em>«на рисунке
       2.1»</em>.</p>
 tips:
   - title: 'Склонение слова «рисунок»'
@@ -175,43 +146,20 @@ tips:
       <p>В приложении А нумерация рисунков ведется с указанием буквы приложения: <em>Рисунок А.1</em>,
       <em>Рисунок А.2</em>.</p>
 editorExample:
-  - type: 'latex'
-    text: |2-
-      \documentclass[a4paper,14pt]{extreport}
-      \usepackage[T2A]{fontenc}
-      \usepackage[utf8]{inputenc}
-      \usepackage[russian]{babel}
-      \usepackage{tempora}
-      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
-      \usepackage{setspace}
-      \onehalfspacing
-      \setlength{\parindent}{1.25cm}
-      \usepackage{titlesec}
-      \titleformat{\chapter}[block]{\normalfont\bfseries}{\thechapter}{1em}{}
-      \titlespacing{\chapter}{\parindent}{0pt}{\baselineskip}
-      \usepackage{caption}
-      \DeclareCaptionLabelSeparator{emdash}{\ --- }
-      \DeclareCaptionFont{nohyphen}{\hyphenpenalty=10000\exhyphenpenalty=10000}
-      \captionsetup[figure]{name=Рисунок,labelsep=emdash,justification=centering,
-        singlelinecheck=false,font={normalsize,stretch=1,nohyphen}}
-      \usepackage[hidelinks]{hyperref}
-      \begin{document}
-      \chapter{Методика}
-      Схема опыта показана на рисунке~\ref{fig:a}.
-      \begin{figure}[htbp]
-      \centering
-      \fbox{\rule{0pt}{25mm}\rule{65mm}{0pt}}
-      \caption{Учебная схема опыта с обозначением положения источника сигнала и измерительного прибора}
-      \label{fig:a}
-      \end{figure}
-      \chapter{Результаты}
-      Место для графика приведено на рисунке~\ref{fig:b}.
-      \begin{figure}[htbp]
-      \centering
-      \fbox{\rule{0pt}{25mm}\rule{65mm}{0pt}}
-      \caption{Учебный заполнитель графика зависимости}
-      \label{fig:b}
-      \end{figure}
-      \end{document}
-    parameters:
-      visible: true
+  latex: |2-
+    \documentclass[a4paper,12pt]{report}
+    \usepackage[T2A]{fontenc}
+    \usepackage[russian]{babel}
+    \usepackage{caption}
+    \DeclareCaptionLabelSeparator{emdash}{\ --- }
+    \captionsetup[figure]{name=Рисунок,labelsep=emdash}
+    \begin{document}
+    \chapter{Методика}
+    Схема опыта показана на рисунке~\ref{fig:a}.
+    \begin{figure}[h]\centering\fbox{\rule{0pt}{15mm}\rule{40mm}{0pt}}
+    \caption{Схема опыта}\label{fig:a}\end{figure}
+    \chapter{Результаты}
+    График приведен на рисунке~\ref{fig:b}.
+    \begin{figure}[h]\centering\fbox{\rule{0pt}{15mm}\rule{40mm}{0pt}}
+    \caption{График зависимости}\label{fig:b}\end{figure}
+    \end{document}
