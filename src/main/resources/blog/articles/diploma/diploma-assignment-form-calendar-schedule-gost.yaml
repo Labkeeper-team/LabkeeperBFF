@@ -188,6 +188,8 @@ sections:
       \noindent
       Студент-дипломник: \rule{4cm}{0.4pt} / П.~П.~Петров / \hfill «\rule{1cm}{0.4pt}» \rule{2.5cm}{0.4pt} 2026 г.</code></pre>
                               </div>
+      <p>Связанный пример расчетов и оформления приведен в статье о
+      <a href="/blog/project-network-diagram-critical-path-tikz">сетевом графике и расчете критического пути</a>.</p>
 tips:
   - title: 'Храните подписанный скан'
     html: |2-

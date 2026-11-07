@@ -120,6 +120,9 @@ sections:
           <li>Список использованных источников.</li>
           <li>Приложения.</li>
       </ol>
+      <p>Примеры отдельных разделов: <a href="/blog/diploma-introduction-structure-example">введение ВКР</a>,
+      <a href="/blog/product-cost-calculation-example">расчет себестоимости</a> и
+      <a href="/blog/diploma-conclusion-structure-example">заключение</a>.</p>
   - id: 'template'
     title: 'Готовый шаблон курсовой и ВКР по ГОСТ 7.32 (копируйте целиком)'
     html: |-

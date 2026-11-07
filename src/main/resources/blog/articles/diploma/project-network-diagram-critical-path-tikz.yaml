@@ -1,0 +1,587 @@
+catalogIndex: 110
+slug: project-network-diagram-critical-path-tikz
+batch: 3
+title: 'Сетевая диаграмма проекта: критический путь и схема TikZ'
+pageTitle: 'Сетевая диаграмма проекта: критический путь и схема TikZ — Labkeeper'
+metaDescription: Как построить сетевой график, рассчитать ранние и поздние сроки и полный резерв работ. Учебный проект из шести работ, вычисления и схема TikZ в отчете.
+breadcrumbTitle: Сетевая диаграмма проекта
+h1: 'Сетевая диаграмма проекта: критический путь и схема TikZ'
+categories:
+  - diploma
+keywords:
+  - сетевая диаграмма проект управление диплом
+  - критический путь расчет пример
+  - сетевой график tikz latex
+datePublished: '2026-11-05'
+dateModified: '2026-11-06'
+readingTime: 9 мин
+cardTitle: 'Сетевая диаграмма проекта: критический путь и схема TikZ'
+cardDescription: Как построить сетевой график, рассчитать ранние и поздние сроки и полный резерв работ. Учебный проект из шести работ, вычисления и схема TikZ в отчете.
+sliderTitle: Сетевая диаграмма проекта
+sliderText: Как построить сетевой график, рассчитать ранние и поздние сроки и полный резерв работ. Учебный проект из шести работ, вычисления и схема TikZ в отчете.
+sidebarText: Оформляйте исходные данные, таблицы и выводы в одном проекте Labkeeper.
+ctaTitle: Подготовьте раздел отчета в&nbsp;Labkeeper
+ctaText: Откройте учебный пример, замените данные и соберите документ в PDF.
+toc:
+  - id: model
+    title: Чем сетевой график помогает в дипломном проекте
+  - id: tasks
+    title: Список работ и проверка зависимостей
+  - id: forward
+    title: 'Прямой проход: раннее начало и окончание'
+  - id: backward
+    title: 'Обратный проход: поздние сроки и полный резерв'
+  - id: diagram
+    title: Как показать схему и проверить изменение плана
+  - id: editor
+    title: Редактируемый пример и проверка PDF
+sections:
+  - id: model
+    title: Чем сетевой график помогает в дипломном проекте
+    html: |-
+      <p>Сетевая диаграмма показывает, какие работы зависят друг от друга и что определяет срок завершения проекта. На диаграмме «работы в узлах» (AON) прямоугольник обозначает работу, стрелка — зависимость. Расстояние между узлами не показывает длительность, как на календарной шкале диаграммы Ганта.</p>
+      <p>Ниже — вымышленный проект подготовки прототипа из шести работ. Используем зависимости «окончание–начало» без задержек: следующая работа начинается после завершения всех ее предшественников. Длительности заданы в рабочих днях, начало отсчета — момент 0. Выходные и ограничения ресурсов пока не моделируются.</p>
+      <p>Расчет прямым и обратным проходом разобран в <a href="https://www.pmi.org/learning/library/critical-path-method-calculations-scheduling-8040">материале PMI о методе критического пути</a>. Пример ниже применяет его к небольшой сети; он не является обязательным шаблоном из PMBOK.</p>
+  - id: tasks
+    title: Список работ и проверка зависимостей
+    html: |-
+      <div class="article-table-wrapper"><table class="article-table"><thead><tr><th>Код</th><th>Работа</th><th>Длительность, раб. дней</th><th>Предшественники</th></tr>
+      </thead>
+      <tbody><tr><td>A</td><td>Согласовать требования</td><td>2</td><td>Нет</td></tr>
+      <tr><td>B</td><td>Подготовить прототип</td><td>4</td><td>A</td></tr>
+      <tr><td>C</td><td>Подготовить данные</td><td>3</td><td>A</td></tr>
+      <tr><td>D</td><td>Проверить прототип с данными</td><td>5</td><td>B, C</td></tr>
+      <tr><td>E</td><td>Подготовить инструкцию</td><td>2</td><td>C</td></tr>
+      <tr><td>F</td><td>Передать результат</td><td>1</td><td>D, E</td></tr>
+      </tbody>
+      </table>
+      </div>
+      <p>B и C могут выполняться параллельно. D ждет завершения обеих; F ждет D и E. Объясните каждую стрелку через необходимый результат предшественника, а не через привычный порядок пунктов в списке.</p>
+      <p>До расчета проверьте отсутствие циклов и потерянных работ. Все работы примера должны вести к F. Если конечных работ несколько, удобно добавить общую завершающую веху длительностью 0. Циклическая зависимость не допускает обычного расчета критического пути.</p>
+  - id: forward
+    title: 'Прямой проход: раннее начало и окончание'
+    html: |-
+      <p>Для начальной работы $ES=0$. Для остальных берем максимум ранних окончаний всех предшественников, затем прибавляем длительность:</p>
+      <p>$$ES_i= \max_{j\in Pred(i)}EF_j,\qquad EF_i=ES_i+d_i.$$</p>
+      <p>A идет от 0 до 2; B — от 2 до 6; C — от 2 до 5. Для D получаем $ES_D= \max(6,5)=6$, $EF_D=11$. E идет от 5 до 7. Работа F начинается в $\max(11,7)=11$ и завершается в 12.</p>
+      <p>Полученный срок — 12 рабочих дней. При отсчете от нуля не нужно прибавлять единицу к каждой зависимости. Конкретные даты рассчитываются позже с учетом рабочего календаря.</p>
+  - id: backward
+    title: 'Обратный проход: поздние сроки и полный резерв'
+    html: |-
+      <p>Для F принимаем позднее окончание равным сроку проекта: $LF_F=12$. Двигаясь назад, берем минимум поздних начал всех непосредственных последователей:</p>
+      <p>$$LF_i= \min_{k\in Succ(i)}LS_k,\qquad LS_i=LF_i-d_i,\qquad R_i=LS_i-ES_i.$$</p>
+      <div class="article-table-wrapper"><table class="article-table"><thead><tr><th>Работа</th><th>ES</th><th>EF</th><th>LS</th><th>LF</th><th>Полный резерв</th></tr>
+      </thead>
+      <tbody><tr><td>A</td><td>0</td><td>2</td><td>0</td><td>2</td><td>0</td></tr>
+      <tr><td>B</td><td>2</td><td>6</td><td>2</td><td>6</td><td>0</td></tr>
+      <tr><td>C</td><td>2</td><td>5</td><td>3</td><td>6</td><td>1</td></tr>
+      <tr><td>D</td><td>6</td><td>11</td><td>6</td><td>11</td><td>0</td></tr>
+      <tr><td>E</td><td>5</td><td>7</td><td>9</td><td>11</td><td>4</td></tr>
+      <tr><td>F</td><td>11</td><td>12</td><td>11</td><td>12</td><td>0</td></tr>
+      </tbody>
+      </table>
+      </div>
+      <p>У C два последователя: D и E. Поэтому $LF_C=\min(6,9)=6$, а не 9. Полный резерв C — один день, E — четыре. Полный резерв показывает допустимое смещение работы при сохранении срока проекта в данной модели. Свободный резерв относится к сохранению раннего начала последователей и может отличаться.</p>
+      <p>Работы A, B, D, F образуют непрерывный путь с нулевыми резервами. Его длина — $2+4+5+1=12$ дней. Это критический путь: самый длинный путь в сети, задающий минимальный срок по принятым ограничениям. В других сетях критических путей может быть несколько.</p>
+  - id: diagram
+    title: Как показать схему и проверить изменение плана
+    html: |-
+      <p>LaTeX-пример ниже рисует сеть средствами <a href="https://ctan.org/pkg/pgf">PGF/TikZ</a>. Внутри узлов стоят код и длительность; критический путь выделен толщиной черных стрелок. Схема остается понятной при черно-белой печати. Расчет сроков выполняется в вычислительном сегменте, TikZ отвечает за изображение.</p>
+      <p>Измените длительность C с трех до пяти дней: D начнется в 7, закончится в 12, F завершится в 13. Критическим станет A–C–D–F. При такой правке нужно обновить таблицу исходных данных, узел C и текст вывода вместе с расчетом: фиксированные подписи сами не перепишутся.</p>
+      <p>Сложение резервов C и E даст неверное представление о допустимой задержке. Резервы зависят от общей сети и пересчитываются после изменения сроков. Если B и C выполняет один человек, предположение о параллельности также требует пересмотра.</p>
+      <p>В <a href="/blog/diploma-assignment-form-calendar-schedule-gost">календарном плане ВКР</a> покажите даты и контрольные точки, а сеть используйте для обоснования порядка работ. Не объявляйте расчетные 12 дней гарантированным сроком без учета ресурсов и рисков.</p>
+  - id: editor
+    title: Редактируемый пример и проверка PDF
+    html: |-
+      <p>В примере уже настроены поля, интервалы и заголовки с учётом <a href="https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf">ГОСТ 7.32-2017</a>. Для ВКР сверьте оформление с методичкой вашей кафедры.</p>
+       <p>При вставке в основной документ используйте его преамбулу, счетчики разделов и сквозную нумерацию страниц. Титульный лист, содержание, введение и приложения в этот фрагмент не входят. Каждый раздел начинается с новой страницы; подписи таблиц находятся сверху слева, ссылки на таблицы даны в тексте.</p>
+      <p>Сначала добавьте вычислительный сегмент, затем LaTeX-сегмент. Расчет можно скрыть: исходные данные, формулы и результаты остаются в печатном документе. Кнопка примера открывает оба сегмента в нужном порядке.</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">Вычислительный сегмент</span></div>
+      <pre><code>d_A = 2
+      d_B = 4
+      d_C = 3
+      d_D = 5
+      d_E = 2
+      d_F = 1
+      es_A = 0
+      ef_A = es_A + d_A
+      es_B = ef_A
+      ef_B = es_B + d_B
+      es_C = ef_A
+      ef_C = es_C + d_C
+      es_D = max([ef_B, ef_C])
+      ef_D = es_D + d_D
+      es_E = ef_C
+      ef_E = es_E + d_E
+      es_F = max([ef_D, ef_E])
+      ef_F = es_F + d_F
+      lf_F = ef_F
+      ls_F = lf_F - d_F
+      lf_D = ls_F
+      ls_D = lf_D - d_D
+      lf_E = ls_F
+      ls_E = lf_E - d_E
+      lf_B = ls_D
+      ls_B = lf_B - d_B
+      lf_C = min([ls_D, ls_E])
+      ls_C = lf_C - d_C
+      lf_A = min([ls_B, ls_C])
+      ls_A = lf_A - d_A
+      r_A = ls_A - es_A
+      r_B = ls_B - es_B
+      r_C = ls_C - es_C
+      r_D = ls_D - es_D
+      r_E = ls_E - es_E
+      r_F = ls_F - es_F</code></pre></div>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+      <pre><code>\documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,tabularx,array,titlesec,caption,needspace}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \newcommand{\reportsection}[1]{\clearpage\section{#1}}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
+      \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+      \pagestyle{plain}
+      \newcolumntype{Y}{&gt;{\raggedright\arraybackslash}X}
+      \setlength{\emergencystretch}{2em}
+      \usepackage{tikz}
+      \usetikzlibrary{arrows.meta}
+      \begin{document}
+      \reportsection{Сетевая модель учебного проекта}
+      Все работы и длительности условны. Использованы зависимости
+      &lt;&lt;окончание--начало&gt;&gt; без задержек, единый календарь рабочих дней
+      и начало отсчета $t=0$. Ресурсов достаточно для параллельных работ.
+      Узлы обозначают работы, стрелки --- зависимости, а не масштаб времени.
+      Исходный состав работ дан в таблице~\ref{tab:tasks}.
+
+      \begin{table}[htbp]
+      \caption{Работы учебного проекта}
+      \label{tab:tasks}
+      \begin{tabularx}{\textwidth}{|l|Y|c|c|}
+      \hline
+      \multicolumn{1}{|c|}{\shortstack[c]{Код}} &amp; \multicolumn{1}{c|}{\shortstack[c]{Работа}} &amp; \multicolumn{1}{c|}{\shortstack[c]{Длительность,\\раб. дней}} &amp; \multicolumn{1}{c|}{\shortstack[c]{Предшественники}} \\
+      \hline
+      A &amp; Согласовать требования &amp; 2 &amp; --- \\
+      B &amp; Подготовить прототип &amp; 4 &amp; A \\
+      C &amp; Подготовить данные &amp; 3 &amp; A \\
+      D &amp; Проверить прототип с данными &amp; 5 &amp; B, C \\
+      E &amp; Подготовить инструкцию &amp; 2 &amp; C \\
+      F &amp; Передать результат &amp; 1 &amp; D, E \\
+      \hline
+      \end{tabularx}
+      \end{table}
+
+      Зависимости показаны на рисунке~\ref{fig:network}.
+      Утолщенные стрелки отмечают критический путь A--B--D--F.
+      \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}[x=1cm,y=1cm,
+       task/.style={draw,rectangle,align=center,minimum width=2cm,
+       minimum height=1.3cm,font=\normalsize},
+       link/.style={-{Stealth[length=2mm]}},
+       critical/.style={link,very thick}]
+      \node[task] (A) at (0,0) {A\\2 дня};
+      \node[task] (B) at (3.5,1.5) {B\\4 дня};
+      \node[task] (C) at (3.5,-1.5) {C\\3 дня};
+      \node[task] (D) at (7,1.5) {D\\5 дней};
+      \node[task] (E) at (7,-1.5) {E\\2 дня};
+      \node[task] (F) at (10.5,0) {F\\1 день};
+      \draw[critical] (A) -- (B);
+      \draw[link] (A) -- (C);
+      \draw[critical] (B) -- (D);
+      \draw[link] (C) -- (D);
+      \draw[link] (C) -- (E);
+      \draw[critical] (D) -- (F);
+      \draw[link] (E) -- (F);
+      \end{tikzpicture}
+      \caption{Сетевой график учебного проекта}
+      \label{fig:network}
+      \end{figure}
+
+      \reportsection{Расчет сроков и резервов}
+      При прямом проходе ранние сроки определяются по формулам
+      \eqref{eq:early-start} и~\eqref{eq:early-finish}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:early-start}
+      ES_i=\max_{j\in\operatorname{Pred}(i)}EF_j,
+      \end{equation}
+
+      где $ES_i$ --- раннее начало работы $i$, рабочие дни от начала проекта;\par
+      $\operatorname{Pred}(i)$ --- множество предшественников работы $i$;\par
+      $EF_j$ --- раннее окончание предшественника $j$, рабочие дни.
+      \end{minipage}\par
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:early-finish}
+      EF_i=ES_i+d_i,
+      \end{equation}
+
+      где $EF_i$ --- раннее окончание работы $i$, рабочие дни;\par
+      $ES_i$ --- раннее начало работы $i$, рабочие дни;\par
+      $d_i$ --- длительность работы $i$, рабочие дни.
+      \end{minipage}\par
+
+      Для начальной работы принято $ES_A=0$.
+      При обратном проходе поздние сроки рассчитываются по формулам
+      \eqref{eq:late-finish} и~\eqref{eq:late-start}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:late-finish}
+      LF_i=\min_{k\in\operatorname{Succ}(i)}LS_k,
+      \end{equation}
+
+      где $LF_i$ --- позднее окончание работы $i$, рабочие дни;\par
+      $\operatorname{Succ}(i)$ --- множество последователей работы $i$;\par
+      $LS_k$ --- позднее начало последователя $k$, рабочие дни.
+      \end{minipage}\par
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:late-start}
+      LS_i=LF_i-d_i,
+      \end{equation}
+
+      где $LS_i$ --- позднее начало работы $i$, рабочие дни;\par
+      $LF_i$ --- позднее окончание работы $i$, рабочие дни;\par
+      $d_i$ --- длительность работы $i$, рабочие дни.
+      \end{minipage}\par
+
+      Для конечной работы принято $LF_F=EF_F$.
+      Полный резерв определяется по формуле~\eqref{eq:float}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:float}
+      R_i=LS_i-ES_i,
+      \end{equation}
+
+      где $R_i$ --- полный резерв работы $i$, рабочие дни;\par
+      $LS_i$ --- позднее начало работы $i$, рабочие дни;\par
+      $ES_i$ --- раннее начало работы $i$, рабочие дни.
+      \end{minipage}\par
+
+      Результаты приведены в таблице~\ref{tab:dates}.
+
+      \begin{table}[htbp]
+      \caption{Расчетные моменты и полные резервы, рабочие дни}
+      \label{tab:dates}
+      \begin{tabularx}{\textwidth}{|Y|r|r|r|r|r|}
+      \hline
+      \multicolumn{1}{|c|}{\shortstack[c]{Код}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$ES$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$EF$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$LS$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$LF$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$R$}} \\
+      \hline
+      A &amp; ${es_A} &amp; ${ef_A} &amp; ${ls_A} &amp; ${lf_A} &amp; ${r_A} \\
+      B &amp; ${es_B} &amp; ${ef_B} &amp; ${ls_B} &amp; ${lf_B} &amp; ${r_B} \\
+      C &amp; ${es_C} &amp; ${ef_C} &amp; ${ls_C} &amp; ${lf_C} &amp; ${r_C} \\
+      D &amp; ${es_D} &amp; ${ef_D} &amp; ${ls_D} &amp; ${lf_D} &amp; ${r_D} \\
+      E &amp; ${es_E} &amp; ${ef_E} &amp; ${ls_E} &amp; ${lf_E} &amp; ${r_E} \\
+      F &amp; ${es_F} &amp; ${ef_F} &amp; ${ls_F} &amp; ${lf_F} &amp; ${r_F} \\
+      \hline
+      \end{tabularx}
+      \end{table}
+
+      Срок проекта --- ${ef_F} рабочих дней. Критический путь
+      A--B--D--F имеет длину $2+4+5+1=12$ дней.
+      Работа C имеет полный резерв ${r_C} день, E --- ${r_E} дня.
+      Резервы связанных работ нельзя автоматически складывать.
+      Если длительность C увеличится с трех до пяти дней, срок станет
+      13 дней и критическим будет путь A--C--D--F.
+
+      Это расчет по принятым длительностям, а не обещание даты сдачи.
+      Ограничения исполнителей, выходные, задержки поставок и риски
+      проверяются отдельно; при изменении исходных данных сеть пересчитывают.
+      \end{document}</code></pre></div>
+      <p>После сборки проверьте номера, ссылки, единицы измерения, переносы в таблицах и читаемость формул. При переносе в полный отчет обновите содержание повторной компиляцией. Числа в статье округлены для чтения; стандартные настройки редактора выводят три значащие цифры.</p>
+tips:
+  - title: Задайте начало отсчета
+    html: <p>В примере используются моменты от нуля и длительности в рабочих днях. Не смешивайте их с порядковыми номерами календарных дат.</p>
+  - title: Проверяйте общий ресурс
+    html: <p>Работы могут идти параллельно по логике, но требовать одного исполнителя. После учета доступности людей срок и критическая последовательность могут измениться.</p>
+related:
+  - diploma-assignment-form-calendar-schedule-gost
+  - specialist-workstation-diploma-design
+  - technological-equipment-selection-justification
+editorExample:
+  - type: computational
+    text: |-
+      d_A = 2
+      d_B = 4
+      d_C = 3
+      d_D = 5
+      d_E = 2
+      d_F = 1
+      es_A = 0
+      ef_A = es_A + d_A
+      es_B = ef_A
+      ef_B = es_B + d_B
+      es_C = ef_A
+      ef_C = es_C + d_C
+      es_D = max([ef_B, ef_C])
+      ef_D = es_D + d_D
+      es_E = ef_C
+      ef_E = es_E + d_E
+      es_F = max([ef_D, ef_E])
+      ef_F = es_F + d_F
+      lf_F = ef_F
+      ls_F = lf_F - d_F
+      lf_D = ls_F
+      ls_D = lf_D - d_D
+      lf_E = ls_F
+      ls_E = lf_E - d_E
+      lf_B = ls_D
+      ls_B = lf_B - d_B
+      lf_C = min([ls_D, ls_E])
+      ls_C = lf_C - d_C
+      lf_A = min([ls_B, ls_C])
+      ls_A = lf_A - d_A
+      r_A = ls_A - es_A
+      r_B = ls_B - es_B
+      r_C = ls_C - es_C
+      r_D = ls_D - es_D
+      r_E = ls_E - es_E
+      r_F = ls_F - es_F
+    parameters:
+      visible: false
+  - type: latex
+    text: |-
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,tabularx,array,titlesec,caption,needspace}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \newcommand{\reportsection}[1]{\clearpage\section{#1}}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing}}
+      \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+      \captionsetup[figure]{justification=centering,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \AtBeginDocument{%
+          \setlength{\abovedisplayskip}{\baselineskip}%
+          \setlength{\belowdisplayskip}{\baselineskip}%
+          \setlength{\abovedisplayshortskip}{\baselineskip}%
+          \setlength{\belowdisplayshortskip}{\baselineskip}}
+      \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+      \pagestyle{plain}
+      \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+      \setlength{\emergencystretch}{2em}
+      \usepackage{tikz}
+      \usetikzlibrary{arrows.meta}
+      \begin{document}
+      \reportsection{Сетевая модель учебного проекта}
+      Все работы и длительности условны. Использованы зависимости
+      <<окончание--начало>> без задержек, единый календарь рабочих дней
+      и начало отсчета $t=0$. Ресурсов достаточно для параллельных работ.
+      Узлы обозначают работы, стрелки --- зависимости, а не масштаб времени.
+      Исходный состав работ дан в таблице~\ref{tab:tasks}.
+
+      \begin{table}[htbp]
+      \caption{Работы учебного проекта}
+      \label{tab:tasks}
+      \begin{tabularx}{\textwidth}{|l|Y|c|c|}
+      \hline
+      \multicolumn{1}{|c|}{\shortstack[c]{Код}} & \multicolumn{1}{c|}{\shortstack[c]{Работа}} & \multicolumn{1}{c|}{\shortstack[c]{Длительность,\\раб. дней}} & \multicolumn{1}{c|}{\shortstack[c]{Предшественники}} \\
+      \hline
+      A & Согласовать требования & 2 & --- \\
+      B & Подготовить прототип & 4 & A \\
+      C & Подготовить данные & 3 & A \\
+      D & Проверить прототип с данными & 5 & B, C \\
+      E & Подготовить инструкцию & 2 & C \\
+      F & Передать результат & 1 & D, E \\
+      \hline
+      \end{tabularx}
+      \end{table}
+
+      Зависимости показаны на рисунке~\ref{fig:network}.
+      Утолщенные стрелки отмечают критический путь A--B--D--F.
+      \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}[x=1cm,y=1cm,
+       task/.style={draw,rectangle,align=center,minimum width=2cm,
+       minimum height=1.3cm,font=\normalsize},
+       link/.style={-{Stealth[length=2mm]}},
+       critical/.style={link,very thick}]
+      \node[task] (A) at (0,0) {A\\2 дня};
+      \node[task] (B) at (3.5,1.5) {B\\4 дня};
+      \node[task] (C) at (3.5,-1.5) {C\\3 дня};
+      \node[task] (D) at (7,1.5) {D\\5 дней};
+      \node[task] (E) at (7,-1.5) {E\\2 дня};
+      \node[task] (F) at (10.5,0) {F\\1 день};
+      \draw[critical] (A) -- (B);
+      \draw[link] (A) -- (C);
+      \draw[critical] (B) -- (D);
+      \draw[link] (C) -- (D);
+      \draw[link] (C) -- (E);
+      \draw[critical] (D) -- (F);
+      \draw[link] (E) -- (F);
+      \end{tikzpicture}
+      \caption{Сетевой график учебного проекта}
+      \label{fig:network}
+      \end{figure}
+
+      \reportsection{Расчет сроков и резервов}
+      При прямом проходе ранние сроки определяются по формулам
+      \eqref{eq:early-start} и~\eqref{eq:early-finish}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:early-start}
+      ES_i=\max_{j\in\operatorname{Pred}(i)}EF_j,
+      \end{equation}
+
+      где $ES_i$ --- раннее начало работы $i$, рабочие дни от начала проекта;\par
+      $\operatorname{Pred}(i)$ --- множество предшественников работы $i$;\par
+      $EF_j$ --- раннее окончание предшественника $j$, рабочие дни.
+      \end{minipage}\par
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:early-finish}
+      EF_i=ES_i+d_i,
+      \end{equation}
+
+      где $EF_i$ --- раннее окончание работы $i$, рабочие дни;\par
+      $ES_i$ --- раннее начало работы $i$, рабочие дни;\par
+      $d_i$ --- длительность работы $i$, рабочие дни.
+      \end{minipage}\par
+
+      Для начальной работы принято $ES_A=0$.
+      При обратном проходе поздние сроки рассчитываются по формулам
+      \eqref{eq:late-finish} и~\eqref{eq:late-start}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:late-finish}
+      LF_i=\min_{k\in\operatorname{Succ}(i)}LS_k,
+      \end{equation}
+
+      где $LF_i$ --- позднее окончание работы $i$, рабочие дни;\par
+      $\operatorname{Succ}(i)$ --- множество последователей работы $i$;\par
+      $LS_k$ --- позднее начало последователя $k$, рабочие дни.
+      \end{minipage}\par
+
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:late-start}
+      LS_i=LF_i-d_i,
+      \end{equation}
+
+      где $LS_i$ --- позднее начало работы $i$, рабочие дни;\par
+      $LF_i$ --- позднее окончание работы $i$, рабочие дни;\par
+      $d_i$ --- длительность работы $i$, рабочие дни.
+      \end{minipage}\par
+
+      Для конечной работы принято $LF_F=EF_F$.
+      Полный резерв определяется по формуле~\eqref{eq:float}.
+      \par\noindent
+      \begin{minipage}[b]{\textwidth}
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{0pt}
+      \setlength{\abovedisplayshortskip}{0pt}
+      \vspace*{\baselineskip}
+      \begin{equation}
+      \label{eq:float}
+      R_i=LS_i-ES_i,
+      \end{equation}
+
+      где $R_i$ --- полный резерв работы $i$, рабочие дни;\par
+      $LS_i$ --- позднее начало работы $i$, рабочие дни;\par
+      $ES_i$ --- раннее начало работы $i$, рабочие дни.
+      \end{minipage}\par
+
+      Результаты приведены в таблице~\ref{tab:dates}.
+
+      \begin{table}[htbp]
+      \caption{Расчетные моменты и полные резервы, рабочие дни}
+      \label{tab:dates}
+      \begin{tabularx}{\textwidth}{|Y|r|r|r|r|r|}
+      \hline
+      \multicolumn{1}{|c|}{\shortstack[c]{Код}} & \multicolumn{1}{c|}{\shortstack[c]{$ES$}} & \multicolumn{1}{c|}{\shortstack[c]{$EF$}} & \multicolumn{1}{c|}{\shortstack[c]{$LS$}} & \multicolumn{1}{c|}{\shortstack[c]{$LF$}} & \multicolumn{1}{c|}{\shortstack[c]{$R$}} \\
+      \hline
+      A & ${es_A} & ${ef_A} & ${ls_A} & ${lf_A} & ${r_A} \\
+      B & ${es_B} & ${ef_B} & ${ls_B} & ${lf_B} & ${r_B} \\
+      C & ${es_C} & ${ef_C} & ${ls_C} & ${lf_C} & ${r_C} \\
+      D & ${es_D} & ${ef_D} & ${ls_D} & ${lf_D} & ${r_D} \\
+      E & ${es_E} & ${ef_E} & ${ls_E} & ${lf_E} & ${r_E} \\
+      F & ${es_F} & ${ef_F} & ${ls_F} & ${lf_F} & ${r_F} \\
+      \hline
+      \end{tabularx}
+      \end{table}
+
+      Срок проекта --- ${ef_F} рабочих дней. Критический путь
+      A--B--D--F имеет длину $2+4+5+1=12$ дней.
+      Работа C имеет полный резерв ${r_C} день, E --- ${r_E} дня.
+      Резервы связанных работ нельзя автоматически складывать.
+      Если длительность C увеличится с трех до пяти дней, срок станет
+      13 дней и критическим будет путь A--C--D--F.
+
+      Это расчет по принятым длительностям, а не обещание даты сдачи.
+      Ограничения исполнителей, выходные, задержки поставок и риски
+      проверяются отдельно; при изменении исходных данных сеть пересчитывают.
+      \end{document}
+    parameters:
+      visible: true
