@@ -1,0 +1,101 @@
+catalogIndex: 30
+slug: prezentatsiya-beamer
+projectId: a9665233-e155-4da2-aa72-7c2f5921f966
+previewImage: '/assets/img/templates/prezentatsiya-beamer.png'
+cardTitle: 'Шаблон презентации Beamer на русском'
+cardDescription: >-
+  Презентация доклада на конференции или защите на классе beamer: тема
+  Warsaw, план, пошаговый показ пунктов, заключение и литература.
+categories:
+  - latex
+related:
+  - 'vkr-gost-7-32-2017'
+  - 'dissertatsiya-disser'
+  - 'statya-vak-biblatex-gost'
+  - 'poyasnitelnaya-zapiska-eskd'
+title: 'LaTeX-шаблон презентации Beamer на русском языке'
+pageTitle: 'Шаблон презентации Beamer на русском — Labkeeper'
+metaDescription: >-
+  Шаблон презентации на классе beamer с русским babel для доклада на
+  конференции или защиты: титульный слайд, план, разделы, пошаговый показ
+  пунктов, заключение и список литературы.
+breadcrumbTitle: 'Презентация Beamer'
+h1: 'Шаблон презентации Beamer на русском языке'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '4 мин'
+keywords:
+  - 'шаблон презентации beamer'
+  - 'beamer на русском'
+  - 'презентация к защите LaTeX'
+sliderTitle: 'Презентация Beamer'
+sliderText: 'Доклад или защита на классе beamer с русским babel.'
+sidebarText: 'Откройте шаблон презентации и замените слайды своими.'
+ctaTitle: 'Откройте шаблон презентации'
+ctaText: 'Готовая презентация на beamer уже собрана в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что входит в шаблон'
+  - id: commands
+    title: 'Пошаговый показ'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: source
+    title: 'Источник и лицензия'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Заполните название, авторов, организации и дату, затем замените слайды-заготовки своими.</li>
+      </ol>
+  - id: description
+    title: 'Что входит в шаблон'
+    html: |2-
+      <p>Шаблон рассчитан на доклад около 20 минут — на конференции, семинаре или защите. Оформление — тема <code>Warsaw</code> с навигацией по разделам в шапке.</p>
+      <ul>
+          <li><strong>Титульный слайд</strong> с авторами из разных организаций.</li>
+          <li><strong>План</strong> в начале и перед каждым подразделом.</li>
+          <li>Разделы «Мотивация» и «Наши результаты» с заготовками слайдов.</li>
+          <li><strong>Заключение</strong> с главными выводами и перспективами.</li>
+          <li><strong>Дополнительная литература</strong> в приложении.</li>
+      </ul>
+      <p>В комментариях — советы по структуре доклада: два-три раздела, не более трёх подразделов, от 30 секунд до 2 минут на слайд.</p>
+  - id: commands
+    title: 'Пошаговый показ'
+    html: |2-
+      <p>Пункты списка можно открывать по шагам тремя способами:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\begin{itemize}
+      \item Первый пункт. \pause
+      \item Второй пункт.
+      \end{itemize}
+
+      \begin{itemize}
+      \item&lt;3-&gt; Первый пункт.
+      \item&lt;4-&gt; Второй пункт.
+      \end{itemize}
+
+      \uncover&lt;5-&gt;{\item Первый пункт.}</code></pre>
+      </div>
+      <p>Чтобы всё на слайдах появлялось по шагам, раскомментируйте <code>\beamerdefaultoverlayspecification{&lt;+-&gt;}</code>.</p>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Презентация собирается через pdfLaTeX с кодировкой <code>T2A</code> и <code>babel</code> на русском языке. Каждый шаг пошагового показа — отдельная страница PDF.</p>
+  - id: source
+    title: 'Источник и лицензия'
+    html: |2-
+      <p>Шаблон — русская версия решения <code>conference-ornate-20min</code> из документации пакета <a href="https://ctan.org/pkg/beamer" rel="nofollow">beamer</a> версии 3.78 (<a href="https://github.com/josephwright/beamer" rel="nofollow">репозиторий</a>). Тексты слайдов и комментарии переведены на русский, структура и команды сохранены. Шаблон распространяется по лицензии GPL-2 с разрешением автора свободно копировать и изменять его.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>Каркас презентации уже собран. Остаётся заменить слайды-заготовки своими.</p>
+      <p><a href="{{publicUrl}}/project/a9665233-e155-4da2-aa72-7c2f5921f966">Открыть шаблон презентации Beamer в онлайн-редакторе Labkeeper.</a></p>

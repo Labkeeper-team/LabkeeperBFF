@@ -199,6 +199,41 @@ class LandingPagesServerTest(
     }
 
     @Test
+    fun newTemplatePagesAreInTheCatalog() {
+        val catalog = get("/templates", MediaType.TEXT_HTML)
+        val newTemplates = mapOf(
+            "vkr-gost-7-32-2017" to "fdf310f4-8fc7-4bab-9e95-34913cc1b686",
+            "dissertatsiya-disser" to "f121883e-f6b3-4387-a47d-d06cb962f7e1",
+            "statya-vak-biblatex-gost" to "239c79f5-36fb-4134-abf7-8574051984b1",
+            "revtex-4-2-aps" to "35e8d82d-6e73-46d6-be79-28d67f62abda",
+            "elsevier-elsarticle" to "a11f92d6-02d4-4f34-aec1-3cd119489da7",
+            "ieee-conference-ieeetran" to "0a27ad9b-e22a-4843-9a86-70910820416c",
+            "acm-sigconf-acmart" to "e3d469a4-41f4-4570-808a-16331e8fa9fd",
+            "springer-lncs-llncs" to "2bd8ca56-8179-4054-8e02-7517b048af0a",
+            "prezentatsiya-beamer" to "a9665233-e155-4da2-aa72-7c2f5921f966",
+            "poyasnitelnaya-zapiska-eskd" to "a3a36541-5990-4ab1-8042-93638982955a",
+        )
+        newTemplates.forEach { (slug, projectId) ->
+            catalog shouldContain "href=\"/templates/$slug\""
+            val page = get("/templates/$slug", MediaType.TEXT_HTML)
+            page shouldContain "src=\"/assets/img/templates/$slug.png\""
+            page shouldContain "href=\"/project/$projectId\""
+            page shouldContain "https://labkeeper.test/project/$projectId"
+            page shouldContain "Источник и лицензия"
+            page shouldNotContain "labkeeper.io"
+            webTestClient.get().uri("/assets/img/templates/$slug.png").exchange().expectStatus().isOk
+        }
+
+        val diplomaFilter = Regex("data-category=\"([^\"]*)\"[^>]*>[\\s\\S]*?href=\"/templates/([a-z0-9-]+)\"")
+        val categoriesBySlug = diplomaFilter.findAll(catalog).associate { it.groupValues[2] to it.groupValues[1] }
+        listOf("vkr-gost-7-32-2017", "dissertatsiya-disser", "poyasnitelnaya-zapiska-eskd").forEach { slug ->
+            categoriesBySlug[slug].orEmpty() shouldContain "diploma"
+        }
+        categoriesBySlug["statya-vak-biblatex-gost"].orEmpty() shouldContain "vak"
+        categoriesBySlug["revtex-4-2-aps"].orEmpty() shouldContain "revtex"
+    }
+
+    @Test
     fun projectPagesAreNotIndexed() {
         listOf(
             "/project/default",

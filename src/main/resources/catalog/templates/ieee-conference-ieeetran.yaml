@@ -1,0 +1,93 @@
+catalogIndex: 27
+slug: ieee-conference-ieeetran
+projectId: 0a27ad9b-e22a-4843-9a86-70910820416c
+previewImage: '/assets/img/templates/ieee-conference-ieeetran.png'
+cardTitle: 'Шаблон статьи для конференции IEEE'
+cardDescription: >-
+  Официальный шаблон bare_conf.tex на классе IEEEtran: заголовок, блоки
+  авторов, аннотация, разделы и список литературы в две колонки.
+categories:
+  - latex
+  - articles
+related:
+  - 'acm-sigconf-acmart'
+  - 'springer-lncs-llncs'
+  - 'elsevier-elsarticle'
+  - 'springer-nature'
+title: 'Официальный LaTeX-шаблон статьи для конференций IEEE'
+pageTitle: 'Шаблон IEEE Conference (IEEEtran) — Labkeeper'
+metaDescription: >-
+  Шаблон bare_conf.tex на классе IEEEtran для статей конференций IEEE:
+  заголовок, блоки авторов, аннотация, разделы, благодарности и список
+  литературы в формате двух колонок.
+breadcrumbTitle: 'IEEE Conference'
+h1: 'Шаблон статьи для конференций IEEE на классе IEEEtran'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '4 мин'
+keywords:
+  - 'IEEE conference LaTeX шаблон'
+  - 'IEEEtran bare_conf.tex'
+  - 'статья IEEE две колонки'
+sliderTitle: 'IEEE Conference'
+sliderText: 'Шаблон bare_conf.tex для конференций IEEE.'
+sidebarText: 'Откройте шаблон статьи и продолжите его в своём проекте.'
+ctaTitle: 'Откройте шаблон статьи'
+ctaText: 'Официальный шаблон IEEE для конференций уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что входит в шаблон'
+  - id: commands
+    title: 'Авторы и аффилиации'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: source
+    title: 'Источник и лицензия'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Замените заголовок, авторов и аннотацию, затем пишите разделы статьи.</li>
+      </ol>
+  - id: description
+    title: 'Что входит в шаблон'
+    html: |2-
+      <p>Шаблон <code>bare_conf.tex</code> — минимальный каркас статьи для конференций IEEE в две колонки: заголовок, три блока авторов, аннотация, разделы Introduction и Conclusion, благодарности и список литературы.</p>
+      <p>Большая часть файла — подробные комментарии автора класса: какие пакеты для графики, формул, таблиц и подрисунков совместимы со стилем IEEE и как их подключать. Примеры рисунков и таблиц в файле закомментированы и готовы к использованию.</p>
+  - id: commands
+    title: 'Авторы и аффилиации'
+    html: |2-
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[conference]{IEEEtran}
+
+      \author{\IEEEauthorblockN{Michael Shell}
+      \IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
+      Georgia Institute of Technology\\
+      Atlanta, Georgia 30332--0250}
+      \and
+      \IEEEauthorblockN{Homer Simpson}
+      \IEEEauthorblockA{Twentieth Century Fox\\
+      Springfield, USA}}</code></pre>
+      </div>
+      <p>Если авторов больше трёх или их организации не помещаются по ширине, используйте закомментированный в шаблоне вариант с <code>\IEEEauthorrefmark</code>.</p>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Документ собирается через pdfLaTeX. Список литературы записан прямо в файле в окружении <code>thebibliography</code>, отдельный запуск BibTeX не нужен.</p>
+  - id: source
+    title: 'Источник и лицензия'
+    html: |2-
+      <p>Шаблон <code>bare_conf.tex</code> (версия 1.4b) взят из пакета <a href="https://ctan.org/pkg/ieeetran" rel="nofollow">IEEEtran</a> на CTAN без изменений. Официальные шаблоны также есть на <a href="https://www.ieee.org/conferences/publishing/templates" rel="nofollow">сайте IEEE</a>. Пакет распространяется по лицензии LPPL версии 1.3.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>Используйте официальный шаблон IEEE, чтобы сосредоточиться на содержании статьи.</p>
+      <p><a href="{{publicUrl}}/project/0a27ad9b-e22a-4843-9a86-70910820416c">Открыть шаблон IEEE Conference в онлайн-редакторе Labkeeper.</a></p>

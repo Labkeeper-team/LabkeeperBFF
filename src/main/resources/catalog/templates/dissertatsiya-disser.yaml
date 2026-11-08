@@ -1,0 +1,101 @@
+catalogIndex: 23
+slug: dissertatsiya-disser
+projectId: f121883e-f6b3-4387-a47d-d06cb962f7e1
+previewImage: '/assets/img/templates/dissertatsiya-disser.png'
+cardTitle: 'Шаблон кандидатской диссертации на классе disser'
+cardDescription: >-
+  LaTeX-шаблон диссертации на соискание учёной степени кандидата наук:
+  титульный лист, оглавление, список обозначений и литература по ГОСТ.
+categories:
+  - latex
+  - diploma
+related:
+  - 'vkr-gost-7-32-2017'
+  - 'statya-vak-biblatex-gost'
+  - 'poyasnitelnaya-zapiska-eskd'
+  - 'prezentatsiya-beamer'
+title: 'LaTeX-шаблон кандидатской диссертации на классе disser'
+pageTitle: 'Шаблон диссертации на LaTeX (disser) — Labkeeper'
+metaDescription: >-
+  Шаблон кандидатской диссертации на классе disser: титульный лист «На правах
+  рукописи», оглавление, введение, главы, список сокращений и обозначений,
+  список литературы по ГОСТ через biblatex-gost.
+breadcrumbTitle: 'Диссертация (disser)'
+h1: 'Шаблон кандидатской диссертации на классе disser'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '5 мин'
+keywords:
+  - 'шаблон диссертации LaTeX'
+  - 'disser кандидатская диссертация'
+  - 'диссертация ГОСТ Р 7.0.11-2011'
+sliderTitle: 'Диссертация (disser)'
+sliderText: 'Кандидатская диссертация на классе disser.'
+sidebarText: 'Откройте шаблон диссертации и замените текст образца своим.'
+ctaTitle: 'Откройте шаблон диссертации'
+ctaText: 'Готовый каркас кандидатской диссертации уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что входит в шаблон'
+  - id: commands
+    title: 'Титульный лист и библиография'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: source
+    title: 'Источник и лицензия'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Заполните данные титульного листа в <code>common.tex</code>, затем пишите введение в <code>intro.tex</code> и главы в <code>1.tex</code>.</li>
+      </ol>
+  - id: description
+    title: 'Что входит в шаблон'
+    html: |2-
+      <p>Шаблон оформляет диссертацию на соискание учёной степени кандидата наук по требованиям ГОСТ Р 7.0.11-2011. В образце есть:</p>
+      <ul>
+          <li><strong>Титульный лист</strong> с организацией, грифом «На правах рукописи», УДК, специальностью и научным руководителем.</li>
+          <li><strong>Оглавление</strong>, <strong>введение</strong> с общей характеристикой работы, главы и <strong>заключение</strong>.</li>
+          <li><strong>Список сокращений и условных обозначений</strong> на пакете <code>nomencl</code>.</li>
+          <li><strong>Список литературы</strong> по ГОСТ на <code>biblatex</code> со стилем <code>gost-numeric</code>.</li>
+      </ul>
+      <p>Обзор литературы, словарь терминов, список иллюстраций и приложения подключаются раскомментированием строк в <code>main.tex</code>.</p>
+  - id: commands
+    title: 'Титульный лист и библиография'
+    html: |2-
+      <p>Тип работы задаётся опцией класса, а заголовок титульного листа — командой <code>\title</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[candidate, subf, href, colorlinks]{disser}
+
+      \usepackage[style=gost-numeric, backend=biber, sorting=none]{biblatex}
+      \addbibresource{thesis.bib}
+
+      \libcatnum{12345}
+      \title{ДИССЕРТАЦИЯ\\
+      на соискание ученой степени\\
+      кандидата физико-математических наук}
+      \maketitle</code></pre>
+      </div>
+      <p>Обозначения добавляются командой <code>\nomenclature</code> прямо в тексте, а список выводится командой <code>\printnomenclature</code>.</p>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Документ собирается через pdfLaTeX.</p>
+      <p>Список литературы и список обозначений в проекте уже собраны заранее (файлы <code>main.bbl</code> и <code>main.nls</code>), потому что онлайн-сборка не запускает biber и makeindex. После изменения <code>thesis.bib</code> или обозначений эти списки сами не обновятся.</p>
+  - id: source
+    title: 'Источник и лицензия'
+    html: |2-
+      <p>Шаблон взят из пакета <a href="https://ctan.org/pkg/disser" rel="nofollow">disser</a> на CTAN (шаблон кандидатской диссертации, класс версии 1.4.1). Пакет распространяется по лицензии LPPL версии 1.3 или новее.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>Титульный лист, оглавление, список обозначений и литература по ГОСТ уже собраны. Остаётся заменить текст образца своим.</p>
+      <p><a href="{{publicUrl}}/project/f121883e-f6b3-4387-a47d-d06cb962f7e1">Открыть шаблон диссертации в онлайн-редакторе Labkeeper.</a></p>

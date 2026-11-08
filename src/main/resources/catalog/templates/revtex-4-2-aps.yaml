@@ -1,0 +1,103 @@
+catalogIndex: 25
+slug: revtex-4-2-aps
+projectId: 35e8d82d-6e73-46d6-be79-28d67f62abda
+previewImage: '/assets/img/templates/revtex-4-2-aps.png'
+cardTitle: 'Шаблон REVTeX 4.2 для журналов APS'
+cardDescription: >-
+  Официальный образец apssamp.tex на классе revtex4-2: авторы и аффилиации,
+  формулы, таблицы, рисунки, видео и библиография в стиле Physical Review.
+categories:
+  - latex
+  - revtex
+related:
+  - 'vestnik-mgu-fizika'
+  - 'springer-nature'
+  - 'elsevier-elsarticle'
+  - 'acm-sigconf-acmart'
+title: 'Шаблон статьи REVTeX 4.2 для журналов American Physical Society'
+pageTitle: 'Шаблон REVTeX 4.2 (APS) на LaTeX — Labkeeper'
+metaDescription: >-
+  Образец apssamp.tex на классе revtex4-2 для журналов Physical Review:
+  авторы, коллаборации, формулы в одну и две колонки, таблицы, рисунки,
+  видео и библиография apsrev4-2.
+breadcrumbTitle: 'REVTeX 4.2'
+h1: 'Шаблон статьи REVTeX 4.2 для журналов APS'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '5 мин'
+keywords:
+  - 'REVTeX 4.2 шаблон'
+  - 'revtex4-2 apssamp.tex'
+  - 'Physical Review LaTeX'
+sliderTitle: 'REVTeX 4.2 (APS)'
+sliderText: 'Образец статьи Physical Review на классе revtex4-2.'
+sidebarText: 'Откройте шаблон REVTeX и замените текст образца своим.'
+ctaTitle: 'Откройте шаблон статьи'
+ctaText: 'Образец REVTeX 4.2 для журналов APS уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что входит в шаблон'
+  - id: commands
+    title: 'Опции класса'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: source
+    title: 'Источник и лицензия'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Замените название, авторов и аннотацию, затем пишите текст статьи вместо пояснений образца.</li>
+      </ol>
+  - id: description
+    title: 'Что входит в шаблон'
+    html: |2-
+      <p>Образец <code>apssamp.tex</code> одновременно показывает возможности REVTeX и объясняет их в тексте статьи:</p>
+      <ul>
+          <li>Авторы, аффилиации, e-mail, домашние страницы и <strong>коллаборации</strong>.</li>
+          <li>Аннотация со структурой через окружение <code>description</code>.</li>
+          <li>Ссылки <code>\cite</code> и <code>\onlinecite</code> пакета natbib, объединение ссылок через звёздочку.</li>
+          <li><strong>Формулы</strong>: многострочные, с подномерами, на всю ширину страницы (<code>widetext</code>).</li>
+          <li><strong>Таблицы</strong> с окружением <code>ruledtabular</code> и выравниванием по десятичной точке.</li>
+          <li><strong>Рисунки</strong> в одну и две колонки и окружение <code>video</code>.</li>
+          <li>Приложения и библиография с примерами всех типов записей APS.</li>
+      </ul>
+  - id: commands
+    title: 'Опции класса'
+    html: |2-
+      <p>Журнал и вид вёрстки выбираются опциями класса:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[%
+       reprint,
+      %preprint,
+       amsmath,amssymb,
+       aps,
+      %pra,
+      %prb,
+      %rmp,
+      ]{revtex4-2}</code></pre>
+      </div>
+      <p><code>reprint</code> имитирует итоговую вёрстку журнала в две колонки, <code>preprint</code> даёт рукопись в одну колонку. Опции <code>pra</code>, <code>prb</code>, <code>rmp</code> выбирают конкретный журнал.</p>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Документ собирается через pdfLaTeX.</p>
+      <p>Список литературы в проекте собран заранее стилем <code>apsrev4-2</code> (файл <code>main.bbl</code>), потому что онлайн-сборка не запускает BibTeX. После изменения <code>apssamp.bib</code> или сносок список сам не обновится: REVTeX выносит сноски в библиографию тоже через BibTeX.</p>
+  - id: source
+    title: 'Источник и лицензия'
+    html: |2-
+      <p>Шаблон — образец <code>apssamp.tex</code> из пакета <a href="https://ctan.org/pkg/revtex" rel="nofollow">REVTeX 4.2</a> (версия 4.2f), подробнее на <a href="https://journals.aps.org/revtex" rel="nofollow">сайте APS</a>. Пакет распространяется по лицензии LPPL.</p>
+      <p>Рисунки образца — простые рамки с подписью в формате EPS. Для сборки через pdfLaTeX они воссозданы в PDF с теми же размерами и подписями.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>Образец REVTeX 4.2 со всеми примерами уже собран. Остаётся заменить текст своим.</p>
+      <p><a href="{{publicUrl}}/project/35e8d82d-6e73-46d6-be79-28d67f62abda">Открыть шаблон REVTeX 4.2 в онлайн-редакторе Labkeeper.</a></p>

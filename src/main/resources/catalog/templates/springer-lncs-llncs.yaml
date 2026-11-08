@@ -1,0 +1,98 @@
+catalogIndex: 29
+slug: springer-lncs-llncs
+projectId: 2bd8ca56-8179-4054-8e02-7517b048af0a
+previewImage: '/assets/img/templates/springer-lncs-llncs.png'
+cardTitle: 'Шаблон статьи Springer LNCS'
+cardDescription: >-
+  Официальный шаблон samplepaper.tex на классе llncs для трудов конференций
+  Springer: авторы с ORCID, аннотация, таблица, рисунок и литература.
+categories:
+  - latex
+  - articles
+related:
+  - 'springer-nature'
+  - 'ieee-conference-ieeetran'
+  - 'acm-sigconf-acmart'
+  - 'elsevier-elsarticle'
+title: 'Официальный LaTeX-шаблон статьи Springer LNCS для трудов конференций'
+pageTitle: 'Шаблон Springer LNCS (llncs) — Labkeeper'
+metaDescription: >-
+  Шаблон samplepaper.tex на классе llncs для серии Lecture Notes in Computer
+  Science и других трудов конференций Springer: авторы с ORCID, аннотация,
+  ключевые слова, таблица, рисунок и список литературы.
+breadcrumbTitle: 'Springer LNCS'
+h1: 'Шаблон статьи Springer LNCS на классе llncs'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '4 мин'
+keywords:
+  - 'Springer LNCS LaTeX шаблон'
+  - 'llncs samplepaper.tex'
+  - 'Lecture Notes in Computer Science'
+sliderTitle: 'Springer LNCS'
+sliderText: 'Шаблон статьи для трудов конференций Springer.'
+sidebarText: 'Откройте шаблон статьи и продолжите его в своём проекте.'
+ctaTitle: 'Откройте шаблон статьи'
+ctaText: 'Официальный шаблон Springer LNCS уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что входит в шаблон'
+  - id: commands
+    title: 'Авторы и рисунок'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: source
+    title: 'Источник и лицензия'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Замените название, авторов, аннотацию и ключевые слова, затем пишите разделы статьи.</li>
+      </ol>
+  - id: description
+    title: 'Что входит в шаблон'
+    html: |2-
+      <p>Шаблон Springer для серий LNCS, LNAI, LNBI, CCIS и других трудов конференций. Объём образца — три страницы:</p>
+      <ul>
+          <li>Название, авторы с ORCID и аффилиации с e-mail.</li>
+          <li>Аннотация 150–250 слов и ключевые слова.</li>
+          <li>Пример разделов, таблицы с размерами заголовков, формулы и рисунка-графика.</li>
+          <li>Окружения теорем и доказательств, список литературы в стиле Springer.</li>
+      </ul>
+  - id: commands
+    title: 'Авторы и рисунок'
+    html: |2-
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[runningheads]{llncs}
+      \author{First Author\inst{1}\orcidID{0000-1111-2222-3333} \and
+      Second Author\inst{2,3}\orcidID{1111-2222-3333-4444}}
+      \authorrunning{F. Author et al.}
+      \institute{Princeton University, Princeton NJ 08544, USA \and ...}
+
+      \begin{figure}
+      \includegraphics[width=\textwidth]{fig1.eps}
+      \caption{A figure caption is always placed below the illustration.}
+      \end{figure}</code></pre>
+      </div>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Документ собирается через pdfLaTeX. Рисунок <code>fig1.eps</code> уже сконвертирован в PDF (файл <code>fig1-eps-converted-to.pdf</code>), pdfLaTeX подставляет его автоматически. Свои рисунки лучше добавлять сразу в PDF или PNG.</p>
+      <p>Список литературы записан прямо в файле в окружении <code>thebibliography</code>. Стиль <code>splncs04.bst</code> лежит в проекте на случай перехода на BibTeX.</p>
+  - id: source
+    title: 'Источник и лицензия'
+    html: |2-
+      <p>Шаблон — <code>samplepaper.tex</code> из архива «LaTeX2e Proceedings Template» на <a href="https://www.springer.com/gp/computer-science/lncs" rel="nofollow">сайте Springer</a>, класс <a href="https://ctan.org/pkg/llncs" rel="nofollow">llncs</a> версии 2.25 из того же архива. Класс распространяется по лицензии CC BY 4.0.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>Используйте официальный шаблон Springer LNCS, чтобы сосредоточиться на содержании статьи.</p>
+      <p><a href="{{publicUrl}}/project/2bd8ca56-8179-4054-8e02-7517b048af0a">Открыть шаблон Springer LNCS в онлайн-редакторе Labkeeper.</a></p>

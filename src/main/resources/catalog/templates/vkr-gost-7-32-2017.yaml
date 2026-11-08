@@ -1,0 +1,116 @@
+catalogIndex: 22
+slug: vkr-gost-7-32-2017
+projectId: fdf310f4-8fc7-4bab-9e95-34913cc1b686
+previewImage: '/assets/img/templates/vkr-gost-7-32-2017.png'
+cardTitle: 'Шаблон ВКР и отчёта о НИР по ГОСТ 7.32-2017'
+cardDescription: >-
+  LaTeX-шаблон на классе G7-32: титульный лист, реферат, содержание, главы,
+  рисунки, листинги, список литературы и приложения по ГОСТ 7.32-2017.
+categories:
+  - latex
+  - diploma
+related:
+  - 'dissertatsiya-disser'
+  - 'poyasnitelnaya-zapiska-eskd'
+  - 'lineinaya-vremennaya-modalnaya-logika'
+  - 'prezentatsiya-beamer'
+title: 'LaTeX-шаблон ВКР, курсовой и отчёта о НИР по ГОСТ 7.32-2017'
+pageTitle: 'Шаблон ВКР по ГОСТ 7.32-2017 на LaTeX — Labkeeper'
+metaDescription: >-
+  Шаблон выпускной квалификационной работы, курсовой и отчёта о НИР по
+  ГОСТ 7.32-2017 на классе G7-32: титульный лист, реферат, главы, рисунки,
+  листинги и список литературы по ГОСТ.
+breadcrumbTitle: 'ВКР по ГОСТ 7.32-2017'
+h1: 'Шаблон ВКР, курсовой и отчёта о НИР по ГОСТ 7.32-2017'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '5 мин'
+keywords:
+  - 'шаблон ВКР ГОСТ 7.32-2017 LaTeX'
+  - 'отчёт о НИР LaTeX'
+  - 'курсовая работа по ГОСТ LaTeX'
+  - 'G7-32'
+sliderTitle: 'ВКР по ГОСТ 7.32-2017'
+sliderText: 'Диплом, курсовая или отчёт о НИР на классе G7-32.'
+sidebarText: 'Откройте шаблон ВКР и замените текст образца своим.'
+ctaTitle: 'Откройте шаблон ВКР'
+ctaText: 'Готовый каркас ВКР по ГОСТ 7.32-2017 уже собран в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что входит в шаблон'
+  - id: commands
+    title: 'Титульный лист и структура'
+  - id: compile
+    title: 'Компиляция и проверка'
+  - id: source
+    title: 'Источник и лицензия'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Заполните титульный лист в <code>00-title.tex</code>, затем пишите главы в файлах <code>12-intro.tex</code>, <code>20-analysis.tex</code> и следующих.</li>
+      </ol>
+  - id: description
+    title: 'Что входит в шаблон'
+    html: |2-
+      <p>Шаблон оформляет выпускную квалификационную работу, курсовую или отчёт о научно-исследовательской работе по ГОСТ 7.32-2017. Документ собирается из главного файла и отдельных файлов глав:</p>
+      <ul>
+          <li><strong>Титульный лист</strong> со списком исполнителей и подписями «Утверждаю».</li>
+          <li><strong>Реферат</strong> и автоматическое <strong>содержание</strong>.</li>
+          <li><strong>Введение</strong>, аналитический, конструкторский, технологический и исследовательский разделы, раздел по экономике и безопасности жизнедеятельности.</li>
+          <li><strong>Заключение</strong>, <strong>список использованных источников</strong> и <strong>приложения</strong>.</li>
+      </ul>
+      <p>В главах есть примеры рисунков (схема IDEF0, растровое изображение, граф), таблиц, формул и листингов программного кода с комментариями на русском языке.</p>
+  - id: commands
+    title: 'Титульный лист и структура'
+    html: |2-
+      <p>Данные титульного листа задаются командами класса G7-32 в файле <code>00-title.tex</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\NirOrgLongName{Министерство ...}
+      \NirUdk{УДК № 378.14}
+      \NirBoss[.49]{Проректор университета\\по научной работе}{Н.С. Жернаков}
+      \NirSubject{ТЕМА РАБОТЫ}
+      \NirManager{Зам. проректора по научной работе}{Р.А. Бадамшин}
+      \NirIsp{Руководитель темы}{Г.А. Кабакович}
+      \NirYear{1999}
+      \NirTown{Уфа}</code></pre>
+      </div>
+      <p>Нумерация глав включается командой <code>\mainmatter</code>, а реферат, введение и заключение идут как ненумерованные части через <code>\frontmatter</code> и <code>\backmatter</code>:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\frontmatter
+      \maketitle
+      \include{00-abstract}
+      \tableofcontents
+      \include{12-intro}
+      \mainmatter
+      \include{20-analysis}
+      \backmatter
+      \include{80-conclusion}
+      \include{81-biblio}
+      \appendix
+      \include{90-appendix1}</code></pre>
+      </div>
+  - id: compile
+    title: 'Компиляция и проверка'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Документ собирается через pdfLaTeX. Список литературы уже оформлен по ГОСТ и записан прямо в <code>81-biblio.tex</code>: новые источники добавляйте командой <code>\bibitem</code> по образцу.</p>
+      <p>Рисунки лежат в папке <code>inc</code>. Листинги подключаются из <code>inc/src</code> командой <code>\lstinputlisting</code>.</p>
+  - id: source
+    title: 'Источник и лицензия'
+    html: |2-
+      <p>Шаблон основан на проекте <a href="https://github.com/latex-g7-32/latex-g7-32" rel="nofollow">latex-g7-32</a> (ветка <code>7.32-2017-dev</code>) с классом <a href="https://github.com/latex-g7-32/G7-32" rel="nofollow">G7-32</a>. Проект распространяется по лицензии GPL-3, класс G7-32 — по GPL-2.</p>
+      <p>Для работы в онлайн-редакторе шаблон адаптирован: файлы преамбулы перенесены в главный файл, список литературы собран заранее, схема IDEF0 перерисована в PDF.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>Титульный лист, главы и список литературы по ГОСТ 7.32-2017 уже собраны. Остаётся заменить текст образца своим.</p>
+      <p><a href="{{publicUrl}}/project/fdf310f4-8fc7-4bab-9e95-34913cc1b686">Открыть шаблон ВКР по ГОСТ 7.32-2017 в онлайн-редакторе Labkeeper.</a></p>
