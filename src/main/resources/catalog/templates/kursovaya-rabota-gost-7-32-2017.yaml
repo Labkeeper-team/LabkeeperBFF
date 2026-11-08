@@ -1,0 +1,96 @@
+catalogIndex: 35
+slug: kursovaya-rabota-gost-7-32-2017
+projectId: ed6b8316-124c-49d0-aca8-84d59815ba8e
+previewImage: '/assets/img/templates/kursovaya-rabota-gost-7-32-2017.png'
+cardTitle: 'Шаблон курсовой работы по ГОСТ 7.32-2017'
+cardDescription: >-
+  Курсовая работа: титульный лист с подписями, содержание, введение, две главы
+  с формулой, схемой, кодом и переносимой таблицей, заключение и приложение.
+categories:
+  - latex
+  - diploma
+related:
+  - 'vkr-gost-7-32-2017'
+  - 'blok-skhemy-gost-19-701'
+  - 'otchet-po-praktike'
+  - 'referat-gost-7-32-2017'
+title: 'LaTeX-шаблон курсовой работы по ГОСТ 7.32-2017'
+pageTitle: 'Шаблон курсовой работы по ГОСТ 7.32-2017 онлайн — Labkeeper'
+metaDescription: >-
+  Шаблон курсовой работы по ГОСТ 7.32-2017: титульный лист, содержание,
+  главы, рисунки, листинги кода, таблицы, список источников и приложения.
+  Собирается онлайн без установки LaTeX.
+breadcrumbTitle: 'Курсовая по ГОСТ 7.32-2017'
+h1: 'Шаблон курсовой работы по ГОСТ 7.32-2017'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '4 мин'
+keywords:
+  - 'шаблон курсовой работы'
+  - 'шаблон курсовой работы по ГОСТ'
+  - 'курсовая работа LaTeX'
+  - 'титульный лист курсовой работы'
+sliderTitle: 'Курсовая по ГОСТ'
+sliderText: 'Курсовая с главами, кодом, таблицами и приложениями.'
+sidebarText: 'Откройте шаблон курсовой и замените текст образца своим.'
+ctaTitle: 'Откройте шаблон курсовой'
+ctaText: 'Готовая курсовая по ГОСТ 7.32-2017 уже собрана в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что входит в шаблон'
+  - id: commands
+    title: 'Полезные команды'
+  - id: compile
+    title: 'Компиляция и список источников'
+  - id: source
+    title: 'Источник и лицензия'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Заполните титульный лист, затем пишите главы командами <code>\chapter</code> и <code>\section</code>.</li>
+      </ol>
+  - id: description
+    title: 'Что входит в шаблон'
+    html: |2-
+      <p>Пример темы — «Сравнение алгоритмов сортировки массивов». Оформление по ГОСТ 7.32-2017: поля, шрифт 14 пт, полуторный интервал, заголовки без переносов, перечисления с тире.</p>
+      <ul>
+          <li><strong>Титульный лист</strong> с полями для подписи, оценки и даты.</li>
+          <li><strong>Содержание</strong> и <strong>введение</strong> с целью и задачами.</li>
+          <li>Теоретическая глава с <strong>формулой</strong> и <strong>схемой</strong> на TikZ.</li>
+          <li>Практическая глава с <strong>кодом на C</strong> и <strong>таблицей</strong>, которая сама переносится на следующую страницу.</li>
+          <li><strong>Заключение</strong>, <strong>список источников</strong> и <strong>приложение</strong>.</li>
+      </ul>
+  - id: commands
+    title: 'Полезные команды'
+    html: |2-
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\intro              % заголовок «Введение»
+      \conclusion         % заголовок «Заключение»
+      \sources            % список источников
+      \newapp{метка}{Название}  % приложение А, Б, В...</code></pre>
+      </div>
+      <p>Код вставляется окружением <code>lstlisting</code>. Комментарии в коде пишите латиницей.</p>
+  - id: compile
+    title: 'Компиляция и список источников'
+    html: |2-
+      <p>Нажмите кнопку компиляции в Labkeeper. Документ собирается через pdfLaTeX.</p>
+      <p>Список источников собран заранее (файл <code>main.bbl</code>), потому что онлайн-сборка не запускает biber. После изменения <code>refs.bib</code> список сам не обновится.</p>
+  - id: source
+    title: 'Источник и лицензия'
+    html: |2-
+      <p>Шаблон основан на проекте <a href="https://github.com/khokm/my-latex-template" rel="nofollow">my-latex-template</a> (Maxim Khokhryakov), лицензия MIT.</p>
+      <p>Для онлайн-редактора шаблон переведён с XeLaTeX на pdfLaTeX, стиль и макросы перенесены в главный файл, minted заменён на listings, пример текста заменён.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>Титульный лист, главы и список источников уже оформлены. Остаётся заменить текст образца своим.</p>
+      <p><a href="{{publicUrl}}/project/ed6b8316-124c-49d0-aca8-84d59815ba8e">Открыть шаблон курсовой работы в онлайн-редакторе Labkeeper.</a></p>

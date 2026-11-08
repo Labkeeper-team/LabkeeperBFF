@@ -1,0 +1,81 @@
+catalogIndex: 38
+slug: kontrolnaya-rabota-exam
+projectId: b5df88d4-b4b0-4213-847f-144c0286a7d5
+previewImage: '/assets/img/templates/kontrolnaya-rabota-exam.png'
+cardTitle: 'Шаблон контрольной работы для учителя'
+cardDescription: >-
+  Контрольная или рабочий лист на классе exam: баллы, таблица оценок, задания
+  с выбором ответа, пропусками и местом для решения, версия с ответами.
+categories:
+  - latex
+related:
+  - 'individualnyi-proekt'
+  - 'otchet-po-laboratornoi-rabote'
+title: 'LaTeX-шаблон контрольной работы и рабочего листа'
+pageTitle: 'Шаблон контрольной работы для учителя онлайн — Labkeeper'
+metaDescription: >-
+  Шаблон контрольной работы и рабочего листа для учителя: баллы за задания,
+  таблица оценок, варианты ответа, поля для решения и версия с ответами.
+breadcrumbTitle: 'Контрольная работа'
+h1: 'Шаблон контрольной работы и рабочего листа'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '3 мин'
+keywords:
+  - 'шаблон контрольной работы'
+  - 'шаблон для контрольных работ'
+  - 'шаблон рабочего листа'
+  - 'класс exam LaTeX'
+sliderTitle: 'Контрольная работа'
+sliderText: 'Баллы, таблица оценок и версия с ответами для учителя.'
+sidebarText: 'Откройте шаблон и впишите свои задания.'
+ctaTitle: 'Откройте шаблон контрольной'
+ctaText: 'Готовая контрольная работа уже собрана в Labkeeper.'
+toc:
+  - id: start
+    title: 'Как начать работу?'
+  - id: description
+    title: 'Что входит в шаблон'
+  - id: commands
+    title: 'Версия с ответами'
+  - id: source
+    title: 'Источник и лицензия'
+  - id: link
+    title: 'Ссылка на шаблон'
+sections:
+  - id: start
+    title: 'Как начать работу?'
+    html: |2-
+      <ol>
+          <li>Войдите в личный кабинет онлайн-редактора Labkeeper.</li>
+          <li>Создайте проект из шаблона.</li>
+          <li>Замените задания своими, баллы и таблица оценок пересчитаются сами.</li>
+      </ol>
+  - id: description
+    title: 'Что входит в шаблон'
+    html: |2-
+      <p>Пример — контрольная по алгебре для 7 класса «Линейные уравнения и функции».</p>
+      <ul>
+          <li><strong>Колонтитулы</strong> с классом, вариантом и номером страницы.</li>
+          <li>Поля для фамилии и даты, <strong>критерии оценки</strong>.</li>
+          <li><strong>Таблица оценок</strong> с обычными и бонусными баллами.</li>
+          <li>Задания разных типов: выбор ответа, ответ в строке, подпункты с пропусками, рамка для графика, задача с линиями для решения, задание по рисунку, бонусное задание.</li>
+      </ul>
+  - id: commands
+    title: 'Версия с ответами'
+    html: |2-
+      <p>Добавьте опцию <code>answers</code> в первую строку, и в PDF появятся ответы и решения:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[12pt,a4paper,answers]{exam}</code></pre>
+      </div>
+      <p>Задание с баллами пишется так: <code>\question[2] Решите уравнение ...</code></p>
+  - id: source
+    title: 'Источник и лицензия'
+    html: |2-
+      <p>Шаблон построен на классе <a href="https://ctan.org/pkg/exam" rel="nofollow">exam</a> (Philip Hirschhorn), лицензия LPPL 1.3. Подписи класса переведены на русский язык для Labkeeper.</p>
+  - id: link
+    title: 'Ссылка на шаблон'
+    html: |2-
+      <p>Таблица оценок и типы заданий уже настроены. Остаётся вписать свои задания.</p>
+      <p><a href="{{publicUrl}}/project/b5df88d4-b4b0-4213-847f-144c0286a7d5">Открыть шаблон контрольной работы в онлайн-редакторе Labkeeper.</a></p>
