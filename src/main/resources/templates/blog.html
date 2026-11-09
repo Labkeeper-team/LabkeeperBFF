@@ -7,9 +7,7 @@
             http-equiv="Content-Security-Policy"
             th:content="|default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru ${openpanelApiUrl}; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests|"
         />
-        <title>
-            Блог Labkeeper — статьи, шаблоны и руководства по LaTeX и Markdown
-        </title>
+        <title th:text="${i18n['page-title-blog']}"></title>
         <meta
             name="description"
             content="Полезные статьи, практические руководства, готовые шаблоны по ГОСТ, формулы amsmath, химические структуры chemfig, таблицы и оформление научных работ в LaTeX."
@@ -148,7 +146,7 @@
                 <div class="header__left">
                     <button
                         class="header__burger js-burger-btn"
-                        aria-label="Открыть меню"
+                        th:aria-label="${i18n['aria-open-menu']}"
                     >
                         <span class="header__burger-line"></span>
                         <span class="header__burger-line"></span>
@@ -285,12 +283,8 @@
                     class="header__container"
                     style="flex-direction: column; align-items: center"
                 >
-                    <h1 class="blog-header__title h1">База знаний Labkeeper</h1>
-                    <p class="blog-header__desc">
-                        Практические статьи, подробные гайды по ГОСТ, примеры
-                        формул и готовые шаблоны для курсовых, дипломов,
-                        диссертаций и научных статей в LaTeX.
-                    </p>
+                    <h1 class="blog-header__title h1" th:utext="${i18n['blog-title']}"></h1>
+                    <p class="blog-header__desc" th:utext="${i18n['blog-desc']}"></p>
                 </div>
             </section>
 
@@ -304,47 +298,47 @@
                         <a
                             href="#"
                             class="header__nav-link header__nav-link--active"
-                            data-filter="all"
-                            >Все статьи</a
+                            data-filter="all" th:utext="${i18n['blog-filter-all']}"
+                            ></a
                         >
                     </li>
                     <li class="header__nav-item">
-                        <a href="#" class="header__nav-link" data-filter="latex"
-                            >Работа с LaTeX</a
-                        >
-                    </li>
-                    <li class="header__nav-item">
-                        <a
-                            href="#"
-                            class="header__nav-link"
-                            data-filter="markdown"
-                            >Работа с Markdown</a
-                        >
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#" class="header__nav-link" data-filter="labs"
-                            >Лабораторные работы</a
+                        <a href="#" class="header__nav-link" data-filter="latex" th:utext="${i18n['category-latex']}"
+                            ></a
                         >
                     </li>
                     <li class="header__nav-item">
                         <a
                             href="#"
                             class="header__nav-link"
-                            data-filter="diploma"
-                            >Дипломные работы</a
+                            data-filter="markdown" th:utext="${i18n['category-markdown']}"
+                            ></a
                         >
                     </li>
                     <li class="header__nav-item">
-                        <a href="#" class="header__nav-link" data-filter="cv"
-                            >Оформление резюме / CV</a
+                        <a href="#" class="header__nav-link" data-filter="labs" th:utext="${i18n['category-labs']}"
+                            ></a
                         >
                     </li>
                     <li class="header__nav-item">
                         <a
                             href="#"
                             class="header__nav-link"
-                            data-filter="articles"
-                            >Оформление научных статей</a
+                            data-filter="diploma" th:utext="${i18n['category-diploma']}"
+                            ></a
+                        >
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-link" data-filter="cv" th:utext="${i18n['category-cv']}"
+                            ></a
+                        >
+                    </li>
+                    <li class="header__nav-item">
+                        <a
+                            href="#"
+                            class="header__nav-link"
+                            data-filter="articles" th:utext="${i18n['category-articles']}"
+                            ></a
                         >
                     </li>
                 </ul>
@@ -364,8 +358,8 @@
                         <div class="blog-card__top">
                             <span
                                 class="blog-card__tag"
-                                th:each="tag : ${article.categoryNames}"
-                                th:text="${tag}"
+                                th:each="tag : ${article.tags}"
+                                th:text="${i18n['category-' + tag.id] ?: tag.name}"
                                 >Категория</span
                             >
                         </div>
@@ -382,7 +376,7 @@
                             Описание
                         </p>
                         <div class="blog-card__footer">
-                            <span>Читать статью</span>
+                            <span th:utext="${i18n['read-article']}"></span>
                             <span class="blog-card__arrow">→</span>
                         </div>
                     </a>
@@ -397,17 +391,9 @@
             <!-- CTA секция -->
             <section class="cta-features" id="cta-features">
                 <div class="cta-features__intro">
-                    <p class="cta-features__intro-label">
-                        Попробуйте прямо сейчас
-                    </p>
-                    <h2 class="cta-features__intro-title">
-                        Набирайте формулы в&nbsp;Labkeeper
-                    </h2>
-                    <p class="cta-features__intro-text">
-                        Онлайн-редактор LaTeX с&nbsp;компиляцией в&nbsp;PDF,
-                        AI-ассистентом и&nbsp;поддержкой amsmath — без
-                        установки, сразу в&nbsp;браузере.
-                    </p>
+                    <p class="cta-features__intro-label" th:utext="${i18n['cta-try']}"></p>
+                    <h2 class="cta-features__intro-title" th:utext="${i18n['cta-formulas-title']}"></h2>
+                    <p class="cta-features__intro-text" th:utext="${i18n['cta-formulas-text']}"></p>
                 </div>
 
                 <div
@@ -466,9 +452,7 @@
                     <a
                         href="/project/default?open=latex"
                         class="button button--outline-light cta-features__intro-btn"
-                    >
-                        Открыть редактор <span class="button__arrow">→</span>
-                    </a>
+                     th:utext="${i18n['cta-open-editor']}"></a>
                 </div>
 
                 <div class="feature__bg">
@@ -560,7 +544,7 @@
             <div class="popup__content">
                 <button
                     class="popup__close js-popup-close"
-                    aria-label="Закрыть"
+                    th:aria-label="${i18n['aria-close']}"
                 >
                     <img
                         src="assets/img/close.svg"
@@ -581,23 +565,10 @@
         <!-- Cookie Banner -->
         <div id="cookie-banner" class="cookie-banner hidden">
             <div class="cookie-banner__container">
-                <p class="cookie-banner__text">
-                    Мы используем cookie и сервис Яндекс.Метрика для улучшения
-                    работы сайта. Подробнее — в
-                    <a
-                        href="/privacy"
-                        class="cookie-banner__link"
-                        target="_blank"
-                        >Политике обработки персональных данных</a
-                    >.
-                </p>
+                <p class="cookie-banner__text" th:utext="${i18n['cookie-text-short']}"></p>
                 <div class="cookie-banner__actions">
-                    <button id="cookie-accept" class="button button--primary">
-                        Принять
-                    </button>
-                    <button id="cookie-decline" class="button button--outline">
-                        Отказаться
-                    </button>
+                    <button id="cookie-accept" class="button button--primary" th:utext="${i18n['cookie-accept']}"></button>
+                    <button id="cookie-decline" class="button button--outline" th:utext="${i18n['cookie-decline']}"></button>
                 </div>
             </div>
         </div>
@@ -605,8 +576,8 @@
         <!-- Кнопка «Наверх» -->
         <button
             class="scroll-top js-scroll-top"
-            aria-label="Наверх"
-            title="Наверх"
+            th:aria-label="${i18n['aria-to-top']}"
+            th:title="${i18n['aria-to-top']}"
         ></button>
 
         <script>

@@ -7,7 +7,7 @@
             http-equiv="Content-Security-Policy"
             th:content="|default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru ${openpanelApiUrl}; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests|"
         />
-        <title>Шаблоны Labkeeper — готовые проекты для LaTeX и Markdown</title>
+        <title th:text="${i18n['page-title-templates']}"></title>
         <meta
             name="description"
             content="Готовые шаблоны Labkeeper: лабораторные, дипломы, резюме и научные работы. Откройте шаблон и продолжите в своём проекте."
@@ -146,7 +146,7 @@
                 <div class="header__left">
                     <button
                         class="header__burger js-burger-btn"
-                        aria-label="Открыть меню"
+                        th:aria-label="${i18n['aria-open-menu']}"
                     >
                         <span class="header__burger-line"></span>
                         <span class="header__burger-line"></span>
@@ -357,8 +357,8 @@
                             <div class="blog-card__top">
                                 <span
                                     class="blog-card__tag"
-                                    th:each="tag : ${entry.categoryNames}"
-                                    th:text="${tag}"
+                                    th:each="tag : ${entry.tags}"
+                                    th:text="${i18n['category-' + tag.id] ?: tag.name}"
                                     >Категория</span
                                 >
                             </div>
@@ -563,7 +563,7 @@
             <div class="popup__content">
                 <button
                     class="popup__close js-popup-close"
-                    aria-label="Закрыть"
+                    th:aria-label="${i18n['aria-close']}"
                 >
                     <img
                         src="assets/img/close.svg"
@@ -584,23 +584,10 @@
         <!-- Cookie Banner -->
         <div id="cookie-banner" class="cookie-banner hidden">
             <div class="cookie-banner__container">
-                <p class="cookie-banner__text">
-                    Мы используем cookie и сервис Яндекс.Метрика для улучшения
-                    работы сайта. Подробнее — в
-                    <a
-                        href="/privacy"
-                        class="cookie-banner__link"
-                        target="_blank"
-                        >Политике обработки персональных данных</a
-                    >.
-                </p>
+                <p class="cookie-banner__text" th:utext="${i18n['cookie-text-short']}"></p>
                 <div class="cookie-banner__actions">
-                    <button id="cookie-accept" class="button button--primary">
-                        Принять
-                    </button>
-                    <button id="cookie-decline" class="button button--outline">
-                        Отказаться
-                    </button>
+                    <button id="cookie-accept" class="button button--primary" th:utext="${i18n['cookie-accept']}"></button>
+                    <button id="cookie-decline" class="button button--outline" th:utext="${i18n['cookie-decline']}"></button>
                 </div>
             </div>
         </div>
@@ -608,8 +595,8 @@
         <!-- Кнопка «Наверх» -->
         <button
             class="scroll-top js-scroll-top"
-            aria-label="Наверх"
-            title="Наверх"
+            th:aria-label="${i18n['aria-to-top']}"
+            th:title="${i18n['aria-to-top']}"
         ></button>
 
         <script>

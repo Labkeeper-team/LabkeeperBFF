@@ -55,7 +55,18 @@ class SiteTextsTest {
     @Test
     fun everyKeyIsUsed() {
         val used = templates.values.flatMap { html -> KEY.findAll(html).map { it.groupValues[1] } }.toSet()
-        texts[SiteLanguage.RU].keys.filter { it !in used }.shouldBeEmpty()
+        // category names are looked up by the category id: i18n['category-' + tag.id]
+        texts[SiteLanguage.RU].keys.filter { it !in used && !it.startsWith(DYNAMIC_PREFIX) }.shouldBeEmpty()
+    }
+
+    @Test
+    fun datesFollowTheLanguage() {
+        val date = java.time.LocalDate.of(2026, 3, 5)
+        SiteLanguage.formatDates(date) shouldBe mapOf(
+            "ru" to "5 марта 2026",
+            "en" to "5 March 2026",
+            "zh" to "2026年3月5日",
+        )
     }
 
     @Test
@@ -76,6 +87,8 @@ class SiteTextsTest {
     }
 
     private companion object {
-        val KEY = Regex("""\$\{i18n\['([^']+)']}""")
+        /** `${i18n['key']}`, and `i18n['key']` inside a longer expression */
+        val KEY = Regex("""i18n\['([^']+)']""")
+        const val DYNAMIC_PREFIX = "category-"
     }
 }

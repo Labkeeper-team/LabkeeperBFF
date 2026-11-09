@@ -7,9 +7,7 @@
             http-equiv="Content-Security-Policy"
             th:content="|default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru ${publicUrl} ${openpanelApiUrl}; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests|"
         />
-        <title>
-            Онлайн-редактор документов и LaTeX с ИИ-агентом — Labkeeper
-        </title>
+        <title th:text="${i18n['page-title-index']}"></title>
         <!-- Social / Open Graph -->
         <meta
             name="description"
@@ -247,7 +245,7 @@
                     <!-- Кнопка мобильного меню -->
                     <button
                         class="header__burger js-burger-btn"
-                        aria-label="Открыть меню"
+                        th:aria-label="${i18n['aria-open-menu']}"
                     >
                         <span class="header__burger-line"></span>
                         <span class="header__burger-line"></span>
@@ -391,7 +389,10 @@
                             <div class="hero__labels">
                                 <span class="hero__label">LaTeX</span>
                                 <span class="hero__label">Markdown</span>
-                                <span class="hero__label">Диаграммы</span>
+                                <span
+                                    class="hero__label"
+                                    th:utext="${i18n['hero-label-diagrams']}"
+                                ></span>
                             </div>
                             <p
                                 class="hero__text"
@@ -547,7 +548,7 @@
                                 <div class="features__slide-visual">
                                     <img
                                         src="assets/img/origin/for-tab2.webp"
-                                        alt="ИИ-агент screenshot"
+                                        th:alt="${i18n['alt-screenshot-ai']}"
                                         class="features__slide-img js-popup-trigger"
                                         data-origin="assets/img/origin/for-tab2.webp"
                                         loading="lazy"
@@ -582,7 +583,7 @@
                                 <div class="features__slide-visual">
                                     <img
                                         src="assets/img/origin/markdown-editor.webp"
-                                        alt="Вычисления screenshot"
+                                        th:alt="${i18n['alt-screenshot-calc']}"
                                         class="features__slide-img js-popup-trigger"
                                         data-origin="assets/img/origin/markdown-editor.webp"
                                         loading="lazy"
@@ -690,11 +691,11 @@
                     >
                         <button
                             class="examples__arrow examples__arrow--prev knowledge__arrow--prev"
-                            aria-label="Предыдущий слайд"
+                            th:aria-label="${i18n['aria-prev-slide']}"
                         ></button>
                         <button
                             class="examples__arrow examples__arrow--next knowledge__arrow--next"
-                            aria-label="Следующий слайд"
+                            th:aria-label="${i18n['aria-next-slide']}"
                         ></button>
                         <div class="swiper knowledge__swiper">
                             <div class="swiper-wrapper">
@@ -706,8 +707,8 @@
                                         <div class="blog-card__top">
                                             <span
                                                 class="blog-card__tag"
-                                                th:each="tag : ${entry.categoryNames}"
-                                                th:text="${tag}"
+                                                th:each="tag : ${entry.tags}"
+                                                th:text="${i18n['category-' + tag.id] ?: tag.name}"
                                                 >Категория</span
                                             >
                                         </div>
@@ -818,11 +819,11 @@
                     >
                         <button
                             class="examples__arrow examples__arrow--prev knowledge__arrow--prev"
-                            aria-label="Предыдущий слайд"
+                            th:aria-label="${i18n['aria-prev-slide']}"
                         ></button>
                         <button
                             class="examples__arrow examples__arrow--next knowledge__arrow--next"
-                            aria-label="Следующий слайд"
+                            th:aria-label="${i18n['aria-next-slide']}"
                         ></button>
                         <div class="swiper knowledge__swiper">
                             <div class="swiper-wrapper">
@@ -834,8 +835,8 @@
                                         <div class="blog-card__top">
                                             <span
                                                 class="blog-card__tag"
-                                                th:each="tag : ${article.categoryNames}"
-                                                th:text="${tag}"
+                                                th:each="tag : ${article.tags}"
+                                                th:text="${i18n['category-' + tag.id] ?: tag.name}"
                                                 >Категория</span
                                             >
                                         </div>
@@ -855,7 +856,7 @@
                                             class="blog-card__footer"
                                             th:href="@{/blog/{slug}(slug=${article.slug})}"
                                         >
-                                            <span>Читать статью</span>
+                                            <span th:utext="${i18n['read-article']}"></span>
                                             <span class="blog-card__arrow"
                                                 >→</span
                                             >
@@ -960,7 +961,7 @@
             <div class="popup__content">
                 <button
                     class="popup__close js-popup-close"
-                    aria-label="Закрыть"
+                    th:aria-label="${i18n['aria-close']}"
                 >
                     <img
                         src="assets/img/close.svg"
@@ -981,32 +982,10 @@
         <!-- Cookie Banner -->
         <div id="cookie-banner" class="cookie-banner hidden">
             <div class="cookie-banner__container">
-                <p class="cookie-banner__text">
-                    Мы используем cookie и сервис Яндекс.Метрика для улучшения
-                    работы сайта. Обязательные cookie работают всегда.
-                    Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс»,
-                    Россия) требуют вашего согласия. Подробнее — в
-                    <a
-                        href="privacy"
-                        class="cookie-banner__link"
-                        target="_blank"
-                        >Политике обработки персональных данных</a
-                    >
-                    и
-                    <a
-                        href="sogl_yam"
-                        class="cookie-banner__link"
-                        target="_blank"
-                        >Согласии на использование сервиса Яндекс.Метрика</a
-                    >.
-                </p>
+                <p class="cookie-banner__text" th:utext="${i18n['cookie-text-full']}"></p>
                 <div class="cookie-banner__actions">
-                    <button id="cookie-accept" class="button button--primary">
-                        Принять
-                    </button>
-                    <button id="cookie-decline" class="button button--outline">
-                        Отказаться
-                    </button>
+                    <button id="cookie-accept" class="button button--primary" th:utext="${i18n['cookie-accept']}"></button>
+                    <button id="cookie-decline" class="button button--outline" th:utext="${i18n['cookie-decline']}"></button>
                 </div>
             </div>
         </div>

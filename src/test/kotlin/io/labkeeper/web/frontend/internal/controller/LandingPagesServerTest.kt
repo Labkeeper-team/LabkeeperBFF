@@ -91,6 +91,38 @@ class LandingPagesServerTest(
     }
 
     @Test
+    fun chineseLeavesNoRussianOutsideTheContent() {
+        listOf("/", "/about", "/blog", "/templates").forEach { path ->
+            val body = webTestClient.get().uri(path).cookie("labkeeper_lang", "zh").exchange()
+                .expectStatus().isOk
+                .expectBody<String>().returnResult().responseBody.orEmpty()
+            withClue(path) {
+                body shouldContain "<html lang=\"zh\">"
+                body shouldContain "接受"
+                body shouldContain "我们使用 Cookie"
+                body shouldNotContain "Мы используем cookie"
+                body shouldNotContain "Открыть меню"
+                body shouldNotContain "Читать статью"
+            }
+        }
+
+        val article = webTestClient.get().uri("/blog/latex-formulas").cookie("labkeeper_lang", "zh").exchange()
+            .expectStatus().isOk
+            .expectBody<String>().returnResult().responseBody.orEmpty()
+        article shouldContain Regex("更新于：\\d{4}年\\d{1,2}月\\d{1,2}日 · 阅读时间：约 \\d+ 分钟")
+        article shouldContain "首页"
+        // the article itself (sections, table of contents) stays in Russian, only the page around it is translated
+        article shouldNotContain "Обновлено:"
+
+        val notFound = webTestClient.get().uri("/blog/missing-article").accept(MediaType.TEXT_HTML)
+            .cookie("labkeeper_lang", "zh").exchange()
+            .expectStatus().isNotFound
+            .expectBody<String>().returnResult().responseBody.orEmpty()
+        notFound shouldContain "页面未找到"
+        notFound shouldNotContain "Страница не найдена"
+    }
+
+    @Test
     fun publicPagesHaveRenderedMeta() {
         listOf(
             "/", "/blog", "/templates", "/about", "/privacy", "/oferta", "/soglas", "/sogl_adv", "/sogl_ds",

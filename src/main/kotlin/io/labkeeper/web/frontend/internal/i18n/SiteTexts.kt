@@ -2,6 +2,9 @@ package io.labkeeper.web.frontend.internal.i18n
 
 import org.springframework.core.io.ClassPathResource
 import org.springframework.stereotype.Component
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 import java.util.Properties
 
 /**
@@ -15,10 +18,19 @@ enum class SiteLanguage(val code: String) {
     ZH("zh"),
     ;
 
+    /** Date as people of this language write it: «5 марта 2026», «5 March 2026», «2026年3月5日». */
+    fun formatDate(date: LocalDate): String = when (this) {
+        ZH -> "${date.year}年${date.monthValue}月${date.dayOfMonth}日"
+        else -> date.format(DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.forLanguageTag(code)))
+    }
+
     companion object {
         const val COOKIE = "labkeeper_lang"
 
         fun of(code: String?): SiteLanguage = entries.firstOrNull { it.code == code } ?: RU
+
+        /** The same date in every site language, keyed by language code: templates pick it with `[lang]`. */
+        fun formatDates(date: LocalDate): Map<String, String> = entries.associate { it.code to it.formatDate(date) }
     }
 }
 

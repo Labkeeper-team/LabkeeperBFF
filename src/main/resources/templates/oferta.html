@@ -97,7 +97,7 @@
                     <!-- Кнопка мобильного меню -->
                     <button
                         class="header__burger js-burger-btn"
-                        aria-label="Открыть меню"
+                        th:aria-label="${i18n['aria-open-menu']}"
                     >
                         <span class="header__burger-line"></span>
                         <span class="header__burger-line"></span>
@@ -1979,32 +1979,10 @@
         <!-- Cookie Banner -->
         <div id="cookie-banner" class="cookie-banner hidden">
             <div class="cookie-banner__container">
-                <p class="cookie-banner__text">
-                    Мы используем cookie и сервис Яндекс.Метрика для улучшения
-                    работы сайта. Обязательные cookie работают всегда.
-                    Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс»,
-                    Россия) требуют вашего согласия. Подробнее — в
-                    <a
-                        href="privacy"
-                        class="cookie-banner__link"
-                        target="_blank"
-                        >Политике обработки персональных данных</a
-                    >
-                    и
-                    <a
-                        href="sogl_yam"
-                        class="cookie-banner__link"
-                        target="_blank"
-                        >Согласии на использование сервиса Яндекс.Метрика</a
-                    >.
-                </p>
+                <p class="cookie-banner__text" th:utext="${i18n['cookie-text-full']}"></p>
                 <div class="cookie-banner__actions">
-                    <button id="cookie-accept" class="button button--primary">
-                        Принять
-                    </button>
-                    <button id="cookie-decline" class="button button--outline">
-                        Отказаться
-                    </button>
+                    <button id="cookie-accept" class="button button--primary" th:utext="${i18n['cookie-accept']}"></button>
+                    <button id="cookie-decline" class="button button--outline" th:utext="${i18n['cookie-decline']}"></button>
                 </div>
             </div>
         </div>

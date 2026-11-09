@@ -7,7 +7,7 @@
             http-equiv="Content-Security-Policy"
             th:content="|default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://mc.yandex.ru; connect-src 'self' https://mc.yandex.ru ${openpanelApiUrl}; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests|"
         />
-        <title>О нас — онлайн-редактор Labkeeper</title>
+        <title th:text="${i18n['page-title-about']}"></title>
         <meta
             name="description"
             content="О команде и миссии сервиса Labkeeper: единая онлайн-среда для верстки документов LaTeX и Markdown, точных математических вычислений и научных публикаций."
@@ -139,7 +139,7 @@
                     <!-- Кнопка мобильного меню -->
                     <button
                         class="header__burger js-burger-btn"
-                        aria-label="Открыть меню"
+                        th:aria-label="${i18n['aria-open-menu']}"
                     >
                         <span class="header__burger-line"></span>
                         <span class="header__burger-line"></span>
@@ -379,7 +379,7 @@
                                 ИП ТРОФИМЕНКО АНАСТАСИЯ АЛЕКСЕЕВНА
                                 <button
                                     class="about-docs__copy"
-                                    aria-label="Скопировать"
+                                    th:aria-label="${i18n['aria-copy']}"
                                 >
                                     <svg
                                         width="16"
@@ -407,7 +407,7 @@
                                 502910548283
                                 <button
                                     class="about-docs__copy"
-                                    aria-label="Скопировать"
+                                    th:aria-label="${i18n['aria-copy']}"
                                 >
                                     <svg
                                         width="16"
@@ -435,7 +435,7 @@
                                 326508100352548
                                 <button
                                     class="about-docs__copy"
-                                    aria-label="Скопировать"
+                                    th:aria-label="${i18n['aria-copy']}"
                                 >
                                     <svg
                                         width="16"
@@ -464,7 +464,7 @@
                                 ПИОНЕРСКАЯ, Д 1А КВ 127
                                 <button
                                     class="about-docs__copy"
-                                    aria-label="Скопировать"
+                                    th:aria-label="${i18n['aria-copy']}"
                                 >
                                     <svg
                                         width="16"
@@ -492,7 +492,7 @@
                                 [(${contactEmail})]
                                 <button
                                     class="about-docs__copy"
-                                    aria-label="Скопировать"
+                                    th:aria-label="${i18n['aria-copy']}"
                                 >
                                     <svg
                                         width="16"
@@ -520,7 +520,7 @@
                                 [(${contactPhone})]
                                 <button
                                     class="about-docs__copy"
-                                    aria-label="Скопировать"
+                                    th:aria-label="${i18n['aria-copy']}"
                                 >
                                     <svg
                                         width="16"
@@ -713,32 +713,10 @@
         <!-- Cookie Banner -->
         <div id="cookie-banner" class="cookie-banner hidden">
             <div class="cookie-banner__container">
-                <p class="cookie-banner__text">
-                    Мы используем cookie и сервис Яндекс.Метрика для улучшения
-                    работы сайта. Обязательные cookie работают всегда.
-                    Аналитические cookie (сервис Яндекс.Метрика от ООО «Яндекс»,
-                    Россия) требуют вашего согласия. Подробнее — в
-                    <a
-                        href="privacy"
-                        class="cookie-banner__link"
-                        target="_blank"
-                        >Политике обработки персональных данных</a
-                    >
-                    и
-                    <a
-                        href="sogl_yam"
-                        class="cookie-banner__link"
-                        target="_blank"
-                        >Согласии на использование сервиса Яндекс.Метрика</a
-                    >.
-                </p>
+                <p class="cookie-banner__text" th:utext="${i18n['cookie-text-full']}"></p>
                 <div class="cookie-banner__actions">
-                    <button id="cookie-accept" class="button button--primary">
-                        Принять
-                    </button>
-                    <button id="cookie-decline" class="button button--outline">
-                        Отказаться
-                    </button>
+                    <button id="cookie-accept" class="button button--primary" th:utext="${i18n['cookie-accept']}"></button>
+                    <button id="cookie-decline" class="button button--outline" th:utext="${i18n['cookie-decline']}"></button>
                 </div>
             </div>
         </div>

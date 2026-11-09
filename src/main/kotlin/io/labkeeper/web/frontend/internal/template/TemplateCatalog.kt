@@ -2,6 +2,7 @@ package io.labkeeper.web.frontend.internal.template
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.labkeeper.web.frontend.internal.blog.ArticleTag
+import io.labkeeper.web.frontend.internal.i18n.SiteLanguage
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver
 import org.springframework.stereotype.Component
@@ -90,6 +91,11 @@ class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String)
     val tags = categoryIds.zip(categoryNames, ::ArticleTag)
     val dateModified = text(yaml, "dateModified")
     val dateDisplay = dateModified?.let { LocalDate.parse(it).format(DATE_FORMAT) }.orEmpty()
+    val dateDisplays: Map<String, String> =
+        dateModified?.let { SiteLanguage.formatDates(LocalDate.parse(it)) }.orEmpty()
+
+    /** The YAML keeps «6 мин»; the page writes the minutes in its own language. */
+    val readingMinutes: String = readingTime.filter(Char::isDigit).ifEmpty { readingTime }
     val previewImage = text(yaml, "previewImage")?.takeIf { it.isNotBlank() }
     val openUrl = "/project/$projectId"
     val opensProject = true

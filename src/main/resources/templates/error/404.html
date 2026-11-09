@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${lang}">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="noindex, follow" />
-        <title>Страница не найдена — Labkeeper</title>
+        <title th:text="${i18n['page-title-not-found']}"></title>
         <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
         <link rel="stylesheet" href="/assets/css/style.css" />
         <style>
@@ -38,17 +38,12 @@
                 />
                 <span class="header__logo-text">Labkeeper</span>
             </a>
-            <h1 class="h1">Страница не найдена</h1>
-            <p>
-                Такой страницы нет или она переехала. Загляните в базу знаний,
-                каталог шаблонов или откройте редактор.
-            </p>
-            <nav class="not-found__links" aria-label="Разделы сайта">
-                <a href="/blog" class="button button--outline">База знаний</a>
-                <a href="/templates" class="button button--outline">Шаблоны</a>
-                <a href="/project/default" class="button button--primary"
-                    >Редактор <span class="button__arrow">→</span></a
-                >
+            <h1 class="h1" th:utext="${i18n['not-found-title']}"></h1>
+            <p th:utext="${i18n['not-found-text']}"></p>
+            <nav class="not-found__links" th:aria-label="${i18n['aria-site-sections']}">
+                <a href="/blog" class="button button--outline" th:utext="${i18n['nav-blog']}"></a>
+                <a href="/templates" class="button button--outline" th:utext="${i18n['templates-title']}"></a>
+                <a href="/project/default" class="button button--primary" th:utext="${i18n['btn-editor']}"></a>
             </nav>
         </main>
     </body>
