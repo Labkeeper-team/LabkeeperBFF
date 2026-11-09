@@ -24,6 +24,9 @@ export default defineConfig({
   use: {
     baseURL,
     reducedMotion: 'reduce',
+    // The site follows a Chinese or English browser on the first visit. The snapshots and the
+    // article checks are of the Russian site; language.spec.ts sets other languages itself.
+    locale: 'ru-RU',
   },
   // The Playwright image ships Chromium, Firefox, and WebKit. These projects apply the device
   // profile of each platform; they are not native Windows, macOS, or phone installations.
