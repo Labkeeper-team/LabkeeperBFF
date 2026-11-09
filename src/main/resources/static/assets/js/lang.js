@@ -5,7 +5,7 @@
  */
 (function () {
     const KEY = 'labkeeper_lang';
-    const LANGUAGES = ['ru', 'en'];
+    const LANGUAGES = ['ru', 'en', 'zh'];
     const YEAR_SECONDS = 60 * 60 * 24 * 365;
 
     const readStored = () => {

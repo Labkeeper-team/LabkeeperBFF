@@ -170,6 +170,13 @@
                         >
                             En
                         </button>
+                        <button
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'zh'} ? 'header__lang-btn--active'"
+                            data-lang="zh"
+                        >
+                            中文
+                        </button>
                     </div>
                 </div>
 
@@ -188,6 +195,13 @@
                             data-lang="en"
                         >
                             En
+                        </button>
+                        <button
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'zh'} ? 'header__lang-btn--active'"
+                            data-lang="zh"
+                        >
+                            中文
                         </button>
                     </div>
                     <ul class="header__nav-list">

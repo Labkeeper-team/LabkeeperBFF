@@ -19,7 +19,7 @@ function openPage({ page, cookie = null, stored = null, cookiesBlocked = false }
     const storage = new Map(stored ? [[KEY, stored]] : []);
     const jar = new Map(cookie ? [[KEY, cookie]] : []);
     const listeners = {};
-    const buttons = ['ru', 'en'].map((lang) => ({
+    const buttons = ['ru', 'en', 'zh'].map((lang) => ({
         lang,
         onClick: null,
         getAttribute: () => lang,
@@ -73,6 +73,20 @@ test('кнопка другого языка ставит cookie и переза
     assert.equal(page.jar.get(KEY), 'en');
     assert.equal(page.storage.get(KEY), 'en');
     assert.equal(page.reloads, 1);
+});
+
+test('кнопка китайского ставит cookie zh и перезагружает страницу', () => {
+    const page = openPage({ page: 'en', cookie: 'en' });
+    page.click('zh');
+    assert.equal(page.jar.get(KEY), 'zh');
+    assert.equal(page.storage.get(KEY), 'zh');
+    assert.equal(page.reloads, 1);
+});
+
+test('китайский, выбранный в редакторе, доходит до сайта', () => {
+    const page = openPage({ page: 'ru', stored: 'zh' });
+    assert.equal(page.reloads, 1);
+    assert.equal(page.jar.get(KEY), 'zh');
 });
 
 test('кнопка текущего языка ничего не делает', () => {

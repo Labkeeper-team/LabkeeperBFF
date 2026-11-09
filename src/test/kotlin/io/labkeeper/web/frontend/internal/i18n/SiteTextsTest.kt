@@ -23,6 +23,24 @@ class SiteTextsTest {
     }
 
     @Test
+    fun chineseHasEveryKey() {
+        val chinese = PathMatchingResourcePatternResolver().getResource("classpath:i18n/site_zh.properties")
+            .getContentAsString(Charsets.UTF_8)
+        texts[SiteLanguage.RU].keys.filter { !chinese.contains(Regex("(?m)^${Regex.escape(it)}=")) }.shouldBeEmpty()
+    }
+
+    @Test
+    fun everyTemplateOffersChinese() {
+        templates.forEach { (name, html) ->
+            withClue(name) {
+                if (html.contains("js-lang-switcher")) {
+                    html.contains("data-lang=\"zh\"") shouldBe true
+                }
+            }
+        }
+    }
+
+    @Test
     fun templatesUseOnlyKnownKeys() {
         templates.shouldNotBeEmpty()
         templates.forEach { (name, html) ->
@@ -45,12 +63,14 @@ class SiteTextsTest {
         texts[SiteLanguage.RU].getValue("hero-title") shouldBe
             "Создавайте документы <span class=\"text-blue\">вместе с&nbsp;ИИ</span>"
         texts[SiteLanguage.EN].getValue("nav-templates") shouldBe "Templates"
+        texts[SiteLanguage.ZH].getValue("nav-templates") shouldBe "模板"
     }
 
     @Test
     fun languageComesFromTheCookieValue() {
         SiteLanguage.of("en") shouldBe SiteLanguage.EN
         SiteLanguage.of("ru") shouldBe SiteLanguage.RU
+        SiteLanguage.of("zh") shouldBe SiteLanguage.ZH
         SiteLanguage.of(null) shouldBe SiteLanguage.RU
         SiteLanguage.of("EN") shouldBe SiteLanguage.RU
     }

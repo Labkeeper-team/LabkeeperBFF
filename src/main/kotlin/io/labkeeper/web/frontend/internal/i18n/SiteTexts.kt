@@ -12,6 +12,7 @@ import java.util.Properties
 enum class SiteLanguage(val code: String) {
     RU("ru"),
     EN("en"),
+    ZH("zh"),
     ;
 
     companion object {
@@ -28,6 +29,7 @@ class SiteTexts {
         mapOf(
             SiteLanguage.RU to russian,
             SiteLanguage.EN to russian + load("i18n/site_en.properties"),
+            SiteLanguage.ZH to russian + load("i18n/site_zh.properties"),
         )
     }
 
