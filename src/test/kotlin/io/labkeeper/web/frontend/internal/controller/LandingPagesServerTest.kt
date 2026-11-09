@@ -352,6 +352,25 @@ class LandingPagesServerTest(
     }
 
     @Test
+    fun apiErrorsStayFreeOfTheSiteTexts() {
+        // What axios sends: */* must not count as a browser asking for HTML
+        val json = webTestClient.get().uri("/blog/missing-article")
+            .header("Accept", "application/json, text/plain, */*").cookie("labkeeper_lang", "zh").exchange()
+            .expectStatus().isNotFound
+            .expectHeader().contentTypeCompatibleWith(MediaType.APPLICATION_JSON)
+            .expectBody<String>().returnResult().responseBody.orEmpty()
+        json shouldContain "\"status\":404"
+        json shouldNotContain "i18n"
+        json shouldNotContain "\"lang\""
+    }
+
+    @Test
+    fun malformedAcceptHeaderStillGetsTheError() {
+        webTestClient.get().uri("/blog/missing-article").header("Accept", "foo").exchange()
+            .expectStatus().isNotFound
+    }
+
+    @Test
     fun trailingSlashRedirectsToThePageWithoutIt() {
         mapOf(
             "/blog/" to "/blog",
