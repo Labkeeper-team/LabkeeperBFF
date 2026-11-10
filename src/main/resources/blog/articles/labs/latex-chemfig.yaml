@@ -296,6 +296,7 @@ sections:
                                       </div>
                                   </div>
                               </div>
+      <p>Численный пример с единицами и границами пересчёта приведён в статье о <a href="/blog/solution-concentration-molarity-normality-titre-calculation">концентрации раствора</a>.</p>
 editorExample:
   latex: |2-
     \documentclass[a4paper,12pt]{article}

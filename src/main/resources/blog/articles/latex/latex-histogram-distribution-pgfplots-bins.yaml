@@ -1,0 +1,289 @@
+catalogIndex: 127
+slug: 'latex-histogram-distribution-pgfplots-bins'
+batch: 3
+title: 'Гистограммы и распределения в LaTeX: интервалы, частоты и PGFPlots'
+pageTitle: 'Гистограммы и распределения в LaTeX: интервалы, частоты и PGFPlots — Labkeeper'
+metaDescription: 'Как построить гистограмму в LaTeX по заданным интервалам: проверить частоты, подписать оси и рисунок, отличить число наблюдений от плотности и использовать plot.'
+breadcrumbTitle: 'Гистограммы в LaTeX'
+h1: 'Гистограммы и распределения в LaTeX: интервалы, частоты и PGFPlots'
+categories:
+  - 'latex'
+related:
+  - 'latex-pgfplots-function-graphs'
+  - 'physics-lab-measurement-graphs-formatting-gost'
+  - 'experiment-results-analysis-lab-report'
+keywords:
+  - 'гистограмма LaTeX PGFPlots'
+  - 'распределение частот LaTeX'
+  - 'интервалы гистограммы'
+datePublished: '2026-11-09'
+dateModified: '2026-11-09'
+readingTime: '6 мин'
+cardTitle: 'Гистограммы и распределения в LaTeX: интервалы, частоты и PGFPlots'
+cardDescription: 'Как построить гистограмму в LaTeX по заданным интервалам: проверить частоты, подписать оси и рисунок, отличить число наблюдений от плотности и использовать plot.'
+sliderTitle: 'Гистограммы в LaTeX'
+sliderText: 'Как построить гистограмму в LaTeX по заданным интервалам: проверить частоты, подписать оси и рисунок, отличить число наблюдений от плотности и использовать plot.'
+sidebarText: 'Оформляйте гистограммы по проверенным интервалам и частотам в Labkeeper.'
+ctaTitle: 'Постройте гистограмму своих данных'
+ctaText: 'Откройте короткий пример, замените частоты и границы, затем проверьте оси, подпись и вывод в PDF.'
+toc:
+  - id: 'task'
+    title: 'Что показывает гистограмма'
+  - id: 'bins'
+    title: 'Задайте интервалы и проверьте частоты'
+  - id: 'scale'
+    title: 'Различайте частоту, долю и плотность'
+  - id: 'plot'
+    title: 'Как использовать встроенный plot'
+  - id: 'latex'
+    title: 'Рисунок PGFPlots по границам интервалов'
+  - id: 'check'
+    title: 'Что проверить после замены данных'
+sections:
+  - id: 'task'
+    title: 'Что показывает гистограмма'
+    html:
+      '<p>Гистограмма показывает, сколько наблюдений числовой величины попало в каждый интервал. Для неё важны не только высоты столбцов, но и границы интервалов: изменение группировки может заметно изменить вид распределения.</p>
+
+      <p>Разберём 12 вымышленных значений времени обработки запроса и построим рисунок в PGFPlots. В отличие от столбцов категорий вроде «цена», «скорость», «поддержка», здесь горизонтальная ось — числовая шкала времени. Для соседних интервалов столбцы соприкасаются. Основные определения и способы нормировки разобраны в <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/histogra.htm" target="_blank" rel="noopener noreferrer">руководстве NIST по гистограммам</a>.</p>
+
+      <p>Такой рисунок можно включить в отчёт или диссертацию, сверив оформление с требованиями организации. Пример содержит исходные значения, гистограмму и короткий вывод; полный текст исследования в него не входит.</p>'
+  - id: 'bins'
+    title: 'Задайте интервалы и проверьте частоты'
+    html:
+      '<p>Исходные значения в секундах: 1,1; 1,4; 1,8; 2,0; 2,2; 2,7; 2,9; 3,0; 3,3; 3,4; 3,8; 3,9. Для упражнения заранее выбраны три интервала шириной 1 с. Первые два включают левую границу и исключают правую; последний включает обе внешние границы.</p><div class="article-table-wrapper"><table class="article-table"><thead><tr><th>Интервал, с</th><th>Значения, с</th><th>Частота</th></tr></thead><tbody><tr><td>[1; 2)</td><td>1,1; 1,4; 1,8</td><td>3</td></tr>
+
+      <tr><td>[2; 3)</td><td>2,0; 2,2; 2,7; 2,9</td><td>4</td></tr>
+
+      <tr><td>[3; 4]</td><td>3,0; 3,3; 3,4; 3,8; 3,9</td><td>5</td></tr></tbody></table></div><p>Значение 2,0 относится ко второму интервалу, 3,0 — к третьему. Сумма частот равна 3 + 4 + 5 = 12: каждое наблюдение учтено ровно один раз. Для своей выборки объясните выбор числа интервалов и проверьте чувствительность формы к группировке. Не выбирайте границы только ради желаемого вида графика.</p>'
+  - id: 'scale'
+    title: 'Различайте частоту, долю и плотность'
+    html:
+      '<p>В нашем рисунке высота столбца — число наблюдений. Для третьего интервала это 5. Доля этого интервала равна $5/12\approx0{,}417$, или 41,7%. Это другая шкала, и название вертикальной оси должно измениться вместе с данными.</p>
+
+      <p>Для плотности частоту делят и на объём выборки, и на ширину интервала: $f_i=n_i/(N h_i)$, где $n_i$ — число наблюдений, $N$ — общий объём, $h_i$ — ширина интервала. При времени в секундах единица плотности — с$^{-1}$. Сумма площадей столбцов такой гистограммы равна единице. При неодинаковой ширине интервалов сравнивайте плотности, а не высоты сырых частот.</p>
+
+      <div class="article-note"><strong>Гистограмма не подтверждает нормальность.</strong> По виду 12 значений нельзя обосновать закон распределения или автоматически назначить доверительные интервалы. Проверка модели и <a href="/blog/experiment-results-analysis-lab-report">анализ результатов</a> требуют отдельного обоснования.</div>'
+  - id: 'plot'
+    title: 'Как использовать встроенный plot'
+    html:
+      '<p>В <a href="/wiki/language/functions/plot.html">вычислительном языке Labkeeper</a> тип <code>histogram</code> поддерживает и группировку исходных значений, и вывод готовых высот. Чтобы сохранить выбранные границы от 1 до 4 с, в этом примере передаём центры интервалов и уже проверенные частоты:</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">Вычислительный сегмент</span></div>
+
+      <pre><code>n1 = 3
+
+      n2 = 4
+
+      n3 = 5
+
+      total = n1 + n2 + n3
+
+      centers = [1.5, 2.5, 3.5]
+
+      counts = [n1, n2, n3]
+
+      plot(x_1=centers, y_1=counts, type_1="histogram", color_1="gray", x_name="Время t, с", y_name="Число наблюдений")</code></pre>
+
+      </div><p>При заданных <code>x_1</code> и <code>y_1</code> одинаковой длины это готовые столбцы; код не пересчитывает частоты по исходным наблюдениям. Автоматический вариант без <code>y_1</code> использует диапазон выборки и число интервалов <code>size_1</code>, поэтому его границы могут отличаться от наших 1, 2, 3, 4 с. Не подменяйте один вариант другим без проверки.</p>
+
+      <p>В примере по кнопке этот сегмент скрыт: итоговый PDF содержит рисунок PGFPlots ниже. Для просмотра <code>plot</code> включите видимость вычислительного сегмента; перед экспортом снова скройте его, чтобы не получить дополнительный график. Частоты <code>n1</code>, <code>n2</code>, <code>n3</code> используются и в печатном рисунке.</p>'
+  - id: 'latex'
+    title: 'Рисунок PGFPlots по границам интервалов'
+    html:
+      "<p>В преамбуле подключите PGFPlots и настройте подпись. Отступ перед рисунком задан отдельно от перехода после подписи, чтобы график не прижимался к вводному абзацу.</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>\\usepackage{pgfplots,caption}
+
+      \\pgfplotsset{compat=1.18}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\DeclareCaptionTextFormat{gostfiguretitle}{%
+
+      \  \\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1\\vphantom{у}}
+
+      \\captionsetup[figure]{name=Рисунок,labelsep=gostdash,font={normalsize,singlespacing},justification=centering,singlelinecheck=false,strut=off,textformat=gostfiguretitle}
+
+      \\AddToHook{env/figure/before}{\\begingroup\\setlength{\\intextsep}{0pt}}
+
+      \\AddToHook{env/figure/begin}{\\vspace{\\baselineskip}}
+
+      \\AddToHook{env/figure/after}{\\endgroup}</code></pre>
+
+      </div><p>В тело документа вставьте следующий фрагмент. Обработчик <code>ybar interval</code> строит столбец между соседними координатами. Параметр <code>x tick label as interval=false</code> оставляет подписи границ на делениях оси, а не в центрах столбцов. Последняя точка задаёт правую границу последнего столбца: её повторная высота не означает дополнительное наблюдение. Синтаксис интервалов и построения описан в <a href=\"https://tikz.dev/pgfplots/libs-statistics\" target=\"_blank\" rel=\"noopener noreferrer\">документации PGFPlots</a>.</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>На рисунке~\\ref{fig:hist} показана гистограмма времени обработки
+
+      12 учебных запросов. Все значения вымышлены: 1,1; 1,4; 1,8;
+
+      2,0; 2,2; 2,7; 2,9; 3,0; 3,3; 3,4; 3,8; 3,9~с.
+
+      Интервалы заданы заранее: $[1;2)$, $[2;3)$, $[3;4]$~с.
+
+      Их частоты --- ${n1}, ${n2} и ${n3}; сумма равна ${total}.
+
+      \\par
+
+      \\begin{figure}[!ht]
+
+      \\centering
+
+      \\begin{tikzpicture}
+
+      \\begin{axis}[
+
+      \  width=0.88\\textwidth,height=7cm,
+
+      \  ybar interval,x tick label as interval=false,
+
+      \  xmin=1,xmax=4,ymin=0,ymax=6,
+
+      \  xtick={1,2,3,4},xticklabel={$\\pgfmathprintnumber{\\tick}$},
+
+      \  ytick={0,1,2,3,4,5,6},
+
+      \  xlabel={Время $t$, с},ylabel={Число наблюдений},
+
+      \  tick label style={font=\\small},label style={font=\\normalsize}
+
+      ]
+
+      \\addplot[fill=gray!30,draw=black] coordinates {(1,${n1}) (2,${n2}) (3,${n3}) (4,${n3})};
+
+      \\end{axis}
+
+      \\end{tikzpicture}
+
+      \\caption{Распределение времени обработки учебных запросов}\\label{fig:hist}
+
+      \\end{figure}
+
+      \\par
+
+      В интервале от 3 до 4~с находится ${n3} из ${total} наблюдений.
+
+      По такой малой выборке нельзя подтвердить закон распределения.</code></pre>
+
+      </div><p>Оформление подписи рисунка основано на разделе 6.5 <a href=\"https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">ГОСТ 7.32-2017</a>; страница и текст настроены в примере редактора. Технические основы <code>axis</code> разобраны в статье о <a href=\"/blog/latex-pgfplots-function-graphs\">графиках PGFPlots</a>.</p>"
+  - id: 'check'
+    title: 'Что проверить после замены данных'
+    html:
+      '<p>«Просмотреть пример» открывает вычислительный сегмент с готовыми частотами и один завершённый LaTeX-документ. Замените исходные значения, пересчитайте частоты и согласуйте их с границами интервалов, центрами, пределами осей и выводом. Пример не группирует произвольный новый набор автоматически.</p>
+
+      <ol><li>Проверьте, что каждое наблюдение попало ровно в один интервал, а сумма частот совпала с объёмом выборки.</li><li>Сверьте масштаб и подпись вертикальной оси: частота, доля или плотность.</li><li>Просмотрите PDF: оси, единицы, крайние границы, подпись и соседние абзацы должны оставаться читаемыми.</li><li>При изменении числа интервалов обновите последний граничный узел и массив центров для <code>plot</code>.</li><li>Проверьте, не изменился ли вывод после другой группировки.</li></ol>
+
+      <p>Правила обозначений, единиц и читаемости подробнее разобраны в материале об <a href="/blog/physics-lab-measurement-graphs-formatting-gost">оформлении графиков измерений</a>. Из одного изображения не делайте выводов о генеральной совокупности без анализа данных и предпосылок.</p>'
+editorExample:
+  - type: 'computational'
+    text: 'n1 = 3
+
+      n2 = 4
+
+      n3 = 5
+
+      total = n1 + n2 + n3
+
+      centers = [1.5, 2.5, 3.5]
+
+      counts = [n1, n2, n3]
+
+      plot(x_1=centers, y_1=counts, type_1="histogram", color_1="gray", x_name="Время t, с", y_name="Число наблюдений")'
+    parameters:
+      visible: false
+  - type: 'latex'
+    text: "\\documentclass[a4paper,14pt]{extarticle}
+
+      \\usepackage[T2A]{fontenc}
+
+      \\usepackage[utf8]{inputenc}
+
+      \\usepackage[russian]{babel}
+
+      \\usepackage{tempora,geometry,setspace,indentfirst}
+
+      \\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+
+      \\onehalfspacing
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\usepackage{pgfplots,caption}
+
+      \\pgfplotsset{compat=1.18}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\DeclareCaptionTextFormat{gostfiguretitle}{%
+
+      \  \\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1\\vphantom{у}}
+
+      \\captionsetup[figure]{name=Рисунок,labelsep=gostdash,font={normalsize,singlespacing},justification=centering,singlelinecheck=false,strut=off,textformat=gostfiguretitle}
+
+      \\AddToHook{env/figure/before}{\\begingroup\\setlength{\\intextsep}{0pt}}
+
+      \\AddToHook{env/figure/begin}{\\vspace{\\baselineskip}}
+
+      \\AddToHook{env/figure/after}{\\endgroup}
+
+      \\begin{document}
+
+      На рисунке~\\ref{fig:hist} показана гистограмма времени обработки
+
+      12 учебных запросов. Все значения вымышлены: 1,1; 1,4; 1,8;
+
+      2,0; 2,2; 2,7; 2,9; 3,0; 3,3; 3,4; 3,8; 3,9~с.
+
+      Интервалы заданы заранее: $[1;2)$, $[2;3)$, $[3;4]$~с.
+
+      Их частоты --- ${n1}, ${n2} и ${n3}; сумма равна ${total}.
+
+      \\par
+
+      \\begin{figure}[!ht]
+
+      \\centering
+
+      \\begin{tikzpicture}
+
+      \\begin{axis}[
+
+      \  width=0.88\\textwidth,height=7cm,
+
+      \  ybar interval,x tick label as interval=false,
+
+      \  xmin=1,xmax=4,ymin=0,ymax=6,
+
+      \  xtick={1,2,3,4},xticklabel={$\\pgfmathprintnumber{\\tick}$},
+
+      \  ytick={0,1,2,3,4,5,6},
+
+      \  xlabel={Время $t$, с},ylabel={Число наблюдений},
+
+      \  tick label style={font=\\small},label style={font=\\normalsize}
+
+      ]
+
+      \\addplot[fill=gray!30,draw=black] coordinates {(1,${n1}) (2,${n2}) (3,${n3}) (4,${n3})};
+
+      \\end{axis}
+
+      \\end{tikzpicture}
+
+      \\caption{Распределение времени обработки учебных запросов}\\label{fig:hist}
+
+      \\end{figure}
+
+      \\par
+
+      В интервале от 3 до 4~с находится ${n3} из ${total} наблюдений.
+
+      По такой малой выборке нельзя подтвердить закон распределения.
+
+      \\end{document}"
+    parameters:
+      visible: true

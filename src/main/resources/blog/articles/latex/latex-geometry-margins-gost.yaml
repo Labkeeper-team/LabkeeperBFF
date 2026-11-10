@@ -103,6 +103,7 @@ sections:
       а вместо <code>left</code> и <code>right</code> задаются <code>inner=30mm</code> (внутреннее
       поле корешка) и <code>outer=15mm</code> (внешнее поле). Без <code>twoside</code> эти ключи не
       чередуются.</p>
+      <p>Для журнальной рукописи отдельно выполните <a href="/blog/journal-pdf-check-margins-fonts-file-size">проверку PDF по требованиям издания</a>: формат, поля, шрифты и размер файла.</p>
 tips:
   - title: 'Контроль геометрии ключом showframe'
     html: |2-

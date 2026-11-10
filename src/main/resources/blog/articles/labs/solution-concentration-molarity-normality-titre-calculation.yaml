@@ -1,0 +1,324 @@
+catalogIndex: 136
+slug: 'solution-concentration-molarity-normality-titre-calculation'
+batch: 3
+title: 'Концентрация раствора: молярность, нормальность и титр на примере NaCl'
+pageTitle: 'Концентрация раствора: молярность, нормальность и титр на примере NaCl — Labkeeper'
+metaDescription: 'Учебный расчёт молярной и массовой концентрации, массы вещества в 1 мл раствора и реакционно-зависимой эквивалентной концентрации. Единицы и пример Labkeeper.'
+breadcrumbTitle: 'Расчёт концентрации раствора'
+h1: 'Концентрация раствора: молярность, нормальность и титр на примере NaCl'
+categories:
+  - 'labs'
+related:
+  - 'latex-chemfig'
+  - 'latex-siunitx'
+  - 'formula-variable-explanation-where-gost'
+keywords:
+  - 'расчет концентрации раствора'
+  - 'молярность нормальность титр'
+  - 'концентрация NaCl пример'
+datePublished: '2026-11-09'
+dateModified: '2026-11-09'
+readingTime: '6 мин'
+cardTitle: 'Концентрация раствора: молярность, нормальность и титр на примере NaCl'
+cardDescription: 'Учебный расчёт молярной и массовой концентрации, массы вещества в 1 мл раствора и реакционно-зависимой эквивалентной концентрации. Единицы и пример Labkeeper.'
+sliderTitle: 'Расчёт концентрации раствора'
+sliderText: 'Учебный расчёт молярной и массовой концентрации, массы вещества в 1 мл раствора и реакционно-зависимой эквивалентной концентрации. Единицы и пример Labkeeper.'
+sidebarText: 'Считайте заданные виды концентрации и сохраняйте формулы с единицами в Labkeeper.'
+ctaTitle: 'Проверьте пересчёт концентрации'
+ctaText: 'Откройте учебный пример NaCl, измените массу и конечный объём, затем сверьте единицы и результаты.'
+toc:
+  - id: 'quantities'
+    title: 'Сначала укажите, какую концентрацию считаете'
+  - id: 'units'
+    title: 'Объём раствора и единицы'
+  - id: 'calculation'
+    title: 'Расчёт и проверка чисел'
+  - id: 'normality'
+    title: 'Почему нормальность требует указания реакции'
+  - id: 'latex'
+    title: 'Короткий расчётный фрагмент в LaTeX'
+  - id: 'check'
+    title: 'Что изменить для своей задачи'
+sections:
+  - id: 'quantities'
+    title: 'Сначала укажите, какую концентрацию считаете'
+    html: '<p>Число «0,1» без единицы и названия величины не задаёт концентрацию раствора. Молярная концентрация выражает количество вещества на объём раствора, массовая — массу на объём, а традиционная нормальность зависит ещё и от выбранной реакции.</p><p>Рассмотрим вымышленный расчёт NaCl: масса 0,585 г, заданная учебная молярная масса 58,5 г/моль и конечный объём 0,100 л. Это арифметический пример, без приготовления раствора и выполнения химической реакции. Определение <a href="https://iupac.org/wp-content/uploads/2025/03/IUPAC-GB4Abridged.pdf" target="_blank" rel="noopener noreferrer">молярной концентрации</a> приведено в IUPAC Green Book, с. 44.</p>'
+  - id: 'units'
+    title: 'Объём раствора и единицы'
+    html:
+      '<div class="article-table-wrapper"><table class="article-table"><thead><tr><th>Величина</th><th>Определение</th><th>Единица примера</th></tr></thead><tbody><tr><td>Молярная концентрация c</td><td>Количество NaCl / конечный объём</td><td>моль/л</td></tr>
+
+      <tr><td>Массовая концентрация γ</td><td>Масса NaCl / конечный объём</td><td>г/л</td></tr>
+
+      <tr><td>Титр по самому NaCl T</td><td>Масса NaCl в 1 мл раствора</td><td>г/мл</td></tr>
+
+      <tr><td>Эквивалентная концентрация</td><td>Число эквивалентов / конечный объём</td><td>моль экв/л</td></tr></tbody></table></div><p>В формуле молярности используется <strong>конечный объём раствора</strong>, а не исходный объём растворителя. Перевод 0,100 л = 100 мл выполняйте явно. Значение 58,5 г/моль задано округлённо для упражнения; не выдавайте его за результат определения состава или чистоты вещества.</p><p>Традиционное учебное определение титра как массы растворённого вещества в 1 мл приведено в <a href="https://www.apingtu.edu.ru/frontend/web/ngtu/files/obr_prog/110303/umm/46_%D0%A5%D0%B8%D0%BC%D0%B8%D1%8F/%D0%9C%D0%A3%20%D0%BA%20%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%BC%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%BC_3.pdf" target="_blank" rel="noopener noreferrer">пособии НГТУ «Растворы», с. 12</a>. В задачах титрования уточняйте смысл термина: титр по определяемому веществу нельзя подменять массой самого NaCl в 1 мл. Массовая концентрация γ относится к массе NaCl, а не ко всей массе раствора.</p>'
+  - id: 'calculation'
+    title: 'Расчёт и проверка чисел'
+    html:
+      '<p>Количество NaCl равно $0{,}585/58{,}5=0{,}0100$ моль, молярная концентрация — $0{,}0100/0{,}100=0{,}100$ моль/л. Массовая концентрация равна 5,85 г/л, масса в 1 мл — 0,00585 г/мл. Проверьте обратное действие: 0,00585 г/мл × 100 мл = 0,585 г.</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">Вычислительный сегмент</span></div>
+
+      <pre><code>mass = 0.585
+
+      molarMass = 58.5
+
+      volumeL = 0.100
+
+      volumeMl = 1000 * volumeL
+
+      molarity = mass / (molarMass * volumeL)
+
+      massConc = mass / volumeL
+
+      titre = mass / volumeMl
+
+      z = 1
+
+      equivConc = z * molarity</code></pre>
+
+      </div><p>Исходные данные, формулы и результаты остаются в печатном примере, поэтому вычислительный сегмент скрыт. Код рассчитывает конкретные зависимости; он не определяет чистоту вещества и не выполняет универсальную проверку размерностей. По умолчанию используется вывод с тремя значащими цифрами.</p>
+
+      <p>Перед расчётом проверьте: масса неотрицательна, молярная масса и конечный объём положительны. Эти условия проверяет автор, а не отдельный валидатор примера.</p>'
+  - id: 'normality'
+    title: 'Почему нормальность требует указания реакции'
+    html: '<p>Традиционную эквивалентную концентрацию записывают как $c_{\text{экв}}=zc$, где $z$ — число эквивалентов на моль вещества в данной реакции. Для выбранного взаимодействия ионов серебра и хлорида соотношение составляет 1:1, поэтому в нашем расчёте $z=1$.</p><p>Нельзя автоматически переносить этот коэффициент на другое вещество или другую реакцию. Терминологические ограничения обсуждаются в <a href="https://media.iupac.org/publications/pac/1978/pdf/5004x0325.pdf" target="_blank" rel="noopener noreferrer">рекомендациях IUPAC об эквивалентах</a>. Если коэффициент не задан и реакция не определена, однозначного пересчёта «молярность → нормальность» нет.</p>'
+  - id: 'latex'
+    title: 'Короткий расчётный фрагмент в LaTeX'
+    html:
+      "<p>Пример по кнопке содержит расчёт и один завершённый LaTeX-документ. Формулы нумеруются, пояснения идут сразу после них. Окружение <code>formulablock</code> удерживает формулу с пояснениями; его определение один раз находится в преамбуле.</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>\\usepackage{amsmath,siunitx}
+
+      \\sisetup{output-decimal-marker={,},group-digits=false}
+
+      \\newenvironment{formulablock}{%
+
+      \  \\par\\noindent\\begin{minipage}[b]{\\textwidth}%
+
+      \  \\setlength{\\parindent}{1.25cm}%
+
+      \  \\setlength{\\abovedisplayskip}{0pt}%
+
+      \  \\setlength{\\abovedisplayshortskip}{0pt}%
+
+      \  \\vspace*{\\baselineskip}%
+
+      }{\\end{minipage}\\par}</code></pre>
+
+      </div><p>Основной фрагмент документа:</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>Рассмотрим вымышленный расчёт раствора NaCl.
+
+      Заданы масса $m=\\num{${mass}}$~г, учебное округлённое значение
+
+      $M=\\num{${molarMass}}$~г/моль и конечный объём
+
+      $V=\\num{${volumeL}}$~л. Это не инструкция по приготовлению раствора.
+
+      Молярную концентрацию находим по формуле~\\eqref{eq:molarity}.
+
+      \\begin{formulablock}
+
+      \\begin{equation}\\label{eq:molarity}
+
+      c=\\frac{m}{MV}=\\num{${molarity}}~\\text{моль/л},
+
+      \\end{equation}
+
+      \\indent где $c$ --- молярная концентрация, моль/л;\\par
+
+      $m$ --- масса растворённого NaCl, г;\\par
+
+      $M$ --- молярная масса NaCl, г/моль;\\par
+
+      $V$ --- конечный объём раствора, л.
+
+      \\end{formulablock}
+
+      Массовая концентрация и масса NaCl в одном миллилитре связаны
+
+      с теми же исходными данными.
+
+      \\begin{formulablock}
+
+      \\begin{align}
+
+      \\gamma&amp;=\\frac{m}{V}=\\num{${massConc}}~\\text{г/л},\\label{eq:massconc}\\\\
+
+      T&amp;=\\frac{m}{V_{\\text{мл}}}=\\num{${titre}}~\\text{г/мл},\\label{eq:titre}
+
+      \\end{align}
+
+      \\indent где $\\gamma$ --- массовая концентрация NaCl, г/л;\\par
+
+      $T$ --- масса NaCl в 1 мл раствора, г/мл;\\par
+
+      $V_{\\text{мл}}$ --- конечный объём раствора, мл.
+
+      \\end{formulablock}
+
+      Для реакции $\\mathrm{Ag^++Cl^-\\longrightarrow AgCl}$ принимаем $z=1$.
+
+      Реакцию в этом примере не проводят.
+
+      \\begin{formulablock}
+
+      \\begin{equation}\\label{eq:equiv}
+
+      c_{\\text{экв}}=zc=\\num{${equivConc}}~\\text{моль экв/л},
+
+      \\end{equation}
+
+      \\indent где $c_{\\text{экв}}$ --- эквивалентная концентрация для указанной реакции, моль экв/л;\\par
+
+      $z$ --- безразмерное число эквивалентов на моль NaCl в этой реакции.
+
+      \\end{formulablock}
+
+      Равенство $c_{\\text{экв}}=c$ относится к выбранной реакции при $z=1$.
+
+      Для другой реакции коэффициент нужно определить заново.</code></pre>
+
+      </div><p>Страница и текст настроены как краткий отчётный пример; требования кафедры проверьте отдельно. Запись обозначений и единиц разобрана в статьях о <a href=\"/blog/latex-siunitx\">siunitx</a> и <a href=\"/blog/formula-variable-explanation-where-gost\">пояснениях переменных</a>.</p>"
+  - id: 'check'
+    title: 'Что изменить для своей задачи'
+    html: '<ul><li>Укажите вещество, используемую молярную массу и конечный объём раствора.</li><li>Согласуйте единицы массы, молярной массы и объёма до подстановки.</li><li>Для эквивалентной концентрации задайте реакцию и коэффициент z.</li><li>Уточните, в каком смысле используется термин «титр».</li><li>Проверьте обратный пересчёт и округление.</li></ul><p>«Просмотреть пример» открывает все показанные зависимости. Замените исходные значения и проверьте подстановки в PDF. Химические записи и реакции можно оформлять по руководству о <a href="/blog/latex-chemfig">химических формулах в LaTeX</a>; сам расчёт не подтверждает качество реально приготовленного раствора.</p>'
+editorExample:
+  - type: 'computational'
+    text: 'mass = 0.585
+
+      molarMass = 58.5
+
+      volumeL = 0.100
+
+      volumeMl = 1000 * volumeL
+
+      molarity = mass / (molarMass * volumeL)
+
+      massConc = mass / volumeL
+
+      titre = mass / volumeMl
+
+      z = 1
+
+      equivConc = z * molarity'
+    parameters:
+      visible: false
+  - type: 'latex'
+    text: "\\documentclass[a4paper,14pt]{extarticle}
+
+      \\usepackage[T2A]{fontenc}
+
+      \\usepackage[utf8]{inputenc}
+
+      \\usepackage[russian]{babel}
+
+      \\usepackage{tempora,geometry,setspace,indentfirst}
+
+      \\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+
+      \\onehalfspacing
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\usepackage{amsmath,siunitx}
+
+      \\sisetup{output-decimal-marker={,},group-digits=false}
+
+      \\newenvironment{formulablock}{%
+
+      \  \\par\\noindent\\begin{minipage}[b]{\\textwidth}%
+
+      \  \\setlength{\\parindent}{1.25cm}%
+
+      \  \\setlength{\\abovedisplayskip}{0pt}%
+
+      \  \\setlength{\\abovedisplayshortskip}{0pt}%
+
+      \  \\vspace*{\\baselineskip}%
+
+      }{\\end{minipage}\\par}
+
+      \\begin{document}
+
+      Рассмотрим вымышленный расчёт раствора NaCl.
+
+      Заданы масса $m=\\num{${mass}}$~г, учебное округлённое значение
+
+      $M=\\num{${molarMass}}$~г/моль и конечный объём
+
+      $V=\\num{${volumeL}}$~л. Это не инструкция по приготовлению раствора.
+
+      Молярную концентрацию находим по формуле~\\eqref{eq:molarity}.
+
+      \\begin{formulablock}
+
+      \\begin{equation}\\label{eq:molarity}
+
+      c=\\frac{m}{MV}=\\num{${molarity}}~\\text{моль/л},
+
+      \\end{equation}
+
+      \\indent где $c$ --- молярная концентрация, моль/л;\\par
+
+      $m$ --- масса растворённого NaCl, г;\\par
+
+      $M$ --- молярная масса NaCl, г/моль;\\par
+
+      $V$ --- конечный объём раствора, л.
+
+      \\end{formulablock}
+
+      Массовая концентрация и масса NaCl в одном миллилитре связаны
+
+      с теми же исходными данными.
+
+      \\begin{formulablock}
+
+      \\begin{align}
+
+      \\gamma&=\\frac{m}{V}=\\num{${massConc}}~\\text{г/л},\\label{eq:massconc}\\\\
+
+      T&=\\frac{m}{V_{\\text{мл}}}=\\num{${titre}}~\\text{г/мл},\\label{eq:titre}
+
+      \\end{align}
+
+      \\indent где $\\gamma$ --- массовая концентрация NaCl, г/л;\\par
+
+      $T$ --- масса NaCl в 1 мл раствора, г/мл;\\par
+
+      $V_{\\text{мл}}$ --- конечный объём раствора, мл.
+
+      \\end{formulablock}
+
+      Для реакции $\\mathrm{Ag^++Cl^-\\longrightarrow AgCl}$ принимаем $z=1$.
+
+      Реакцию в этом примере не проводят.
+
+      \\begin{formulablock}
+
+      \\begin{equation}\\label{eq:equiv}
+
+      c_{\\text{экв}}=zc=\\num{${equivConc}}~\\text{моль экв/л},
+
+      \\end{equation}
+
+      \\indent где $c_{\\text{экв}}$ --- эквивалентная концентрация для указанной реакции, моль экв/л;\\par
+
+      $z$ --- безразмерное число эквивалентов на моль NaCl в этой реакции.
+
+      \\end{formulablock}
+
+      Равенство $c_{\\text{экв}}=c$ относится к выбранной реакции при $z=1$.
+
+      Для другой реакции коэффициент нужно определить заново.
+
+      \\end{document}"
+    parameters:
+      visible: true

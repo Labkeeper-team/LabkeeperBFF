@@ -1,0 +1,267 @@
+catalogIndex: 119
+slug: 'cisco-network-topology-lab-report'
+batch: 3
+title: 'Топологии сетей Cisco в лабораторной: схема и проверка подключений'
+pageTitle: 'Топологии сетей Cisco в лабораторной: схема и проверка подключений — Labkeeper'
+metaDescription: 'Как оформить топологию Cisco в отчёте: схема «звезда» в TikZ, порты, адреса, скриншот Packet Tracer и отдельная проверка связи.'
+breadcrumbTitle: 'Топология сети Cisco в отчёте'
+h1: 'Топологии сетей Cisco в лабораторной: схема и проверка подключений'
+categories:
+  - 'labs'
+related:
+  - 'software-screenshots-report-gost-caption'
+  - 'latex-tikz-automata-graphs'
+  - 'programming-lab-report-code-listings-gost'
+keywords:
+  - 'топология сети Cisco лабораторная'
+  - 'схема сети Packet Tracer в отчёте'
+  - 'сетевая топология TikZ'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '6 мин'
+cardTitle: 'Топологии сетей Cisco в лабораторной: схема и проверка подключений'
+cardDescription: 'Как оформить топологию Cisco в отчёте: схема «звезда» в TikZ, порты, адреса, скриншот Packet Tracer и отдельная проверка связи.'
+sliderTitle: 'Топология сети Cisco в отчёте'
+sliderText: 'Как оформить топологию Cisco в отчёте: схема «звезда» в TikZ, порты, адреса, скриншот Packet Tracer и отдельная проверка связи.'
+sidebarText: 'Рисуйте топологии TikZ с читаемыми портами, адресами и подписью рисунка в Labkeeper.'
+ctaTitle: 'Оформите схему своей сети'
+ctaText: 'Откройте пример «звезды» на три устройства, измените имена и адреса и соберите схему для отчёта в PDF.'
+toc:
+  - id: 'scope'
+    title: 'Что должна показывать схема сети'
+  - id: 'addressing'
+    title: 'Согласуйте имена, порты и адреса'
+  - id: 'tikz'
+    title: 'Как нарисовать топологию в TikZ'
+  - id: 'screenshot'
+    title: 'Когда вместо TikZ нужен скриншот Packet Tracer'
+  - id: 'check'
+    title: 'Отделите оформление от проверки связи'
+sections:
+  - id: 'scope'
+    title: 'Что должна показывать схема сети'
+    html:
+      '<p>На схеме сети должны читаться устройства, соединения и обозначения, по которым можно сверить настройку. Скриншот с мелкими именами портов затрудняет проверку, а аккуратный рисунок без адресов не заменяет описание конфигурации.</p>
+
+      <p>Разберём учебную сеть: коммутатор S1 и два компьютера PC1 и PC2. Каждое устройство подключено к отдельному порту коммутатора — это физическая топология «звезда». В <a href="https://tutorials.ptnetacad.net/help/default/workspace_logical.htm" target="_blank" rel="noopener noreferrer">Logical Workspace Packet Tracer</a> можно расположить устройства и связи так, чтобы топология оставалась понятной. Такое расположение не является планом помещений или трасс кабелей.</p>
+
+      <p>Для отчёта используйте скриншот своей модели либо схему TikZ. Ниже строим второй вариант; это условные прямоугольники с именами, а не официальные значки Cisco. Пример не создаёт файл Packet Tracer и не настраивает оборудование.</p>'
+  - id: 'addressing'
+    title: 'Согласуйте имена, порты и адреса'
+    html:
+      "<p>Зададим две конечные станции в одной подсети. Коммутатор работает на канальном уровне, оба порта относятся к одной VLAN. Адрес управления S1 в данном упражнении не нужен.</p><div class=\"article-table-wrapper\"><table class=\"article-table\">
+
+      \    <thead><tr><th>Соединение</th><th>Порт станции</th><th>Порт S1</th><th>Адрес станции</th><th>Маска</th></tr></thead>
+
+      \    <tbody><tr><td>PC1 — S1</td><td>Fa0</td><td>Fa0/1</td><td>192.168.10.10</td><td>255.255.255.0</td></tr>
+
+      \    <tr><td>PC2 — S1</td><td>Fa0</td><td>Fa0/2</td><td>192.168.10.20</td><td>255.255.255.0</td></tr></tbody>
+
+      </table></div><p>Запись <code>/24</code> соответствует маске <code>255.255.255.0</code>; подсеть — <code>192.168.10.0/24</code>. Для обмена между этими двумя станциями шлюз по умолчанию не требуется. Имена портов сверяйте с выбранной моделью: вместо <code>Fa0/1</code> у другого устройства может быть <code>Gi0/1</code>.</p>
+
+      <div class=\"article-note\"><strong>Порт коммутатора — не отдельная IP-подсеть.</strong> Не назначайте адрес каждой линии только ради подписи. Если задание включает маршрутизатор, несколько VLAN или подсетей, дополните адресный план интерфейсами, шлюзами и маршрутизацией; одной нашей схемы для этого недостаточно.</div>"
+  - id: 'tikz'
+    title: 'Как нарисовать топологию в TikZ'
+    html:
+      "<p>В преамбуле подключите <code>tikz</code> и настройте подпись рисунка. Команды узлов и линий описаны в <a href=\"https://ctan.org/pkg/pgf\" target=\"_blank\" rel=\"noopener noreferrer\">документации PGF/TikZ</a>. Пакет <code>caption</code> и разделитель <code>gostdash</code> уже заданы в примере редактора:</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      \    <pre><code>\\usepackage{tikz}
+
+      \\DeclareCaptionTextFormat{gostfiguretitle}{%
+
+      \  \\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1\\vphantom{у}}
+
+      \\captionsetup[figure]{name=Рисунок,labelsep=gostdash,font={normalsize,singlespacing},justification=centering,singlelinecheck=false,strut=off,textformat=gostfiguretitle}
+
+      \\AddToHook{env/figure/before}{\\begingroup\\setlength{\\intextsep}{0pt}}
+
+      \\AddToHook{env/figure/after}{\\endgroup}</code></pre>
+
+      </div>
+
+      <p>Разместите настройки один раз в преамбуле: они действуют на все последующие рисунки <code>figure</code>, убирают лишний промежуток перед следующим абзацем и не меняют отступы таблиц. <code>\\vphantom{у}</code> сохраняет глубину последней строки подписи, в том числе при её переносе.</p>
+
+      <p>Следующий код вставляется в тело документа. Имена <code>s1</code>, <code>pc1</code> и <code>pc2</code> связывают узлы с линиями; <code>pos</code> размещает подписи вдоль соединения, а <code>above=2mm</code> и <code>below=2mm</code> разводят их по разным сторонам линии. Значения 0,4 и 0,7 оставляют отступ от блоков устройств. У линии нет стрелки: она показывает подключение, а не направление отдельного пакета.</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      \    <pre><code>На рисунке~\\ref{fig:lan} показана учебная физическая топология
+
+      «звезда»: два компьютера подключены к коммутатору S1.
+
+      Адреса и подключения заданы для упражнения; обмен пакетами
+
+      по этой схеме не проверялся.
+
+      \\par
+
+      \\begin{figure}[!ht]
+
+      \\centering
+
+      \\begin{tikzpicture}[
+
+      \  device/.style={draw,thick,minimum width=23mm,minimum height=10mm,align=center},
+
+      \  every node/.style={font=\\normalsize},
+
+      \  line/.style={thick},
+
+      \  port/.style={sloped,inner sep=1pt}]
+
+      \\node[device] (s1) at (0,0) {S1};
+
+      \\node[device] (pc1) at (-4,-2.3) {PC1};
+
+      \\node[device] (pc2) at (4,-2.3) {PC2};
+
+      \\draw[line] (s1) -- node[port,pos=0.4,above=2mm]{Fa0/1}
+
+      \  node[port,pos=0.7,below=2mm]{Fa0} (pc1);
+
+      \\draw[line] (s1) -- node[port,pos=0.4,above=2mm]{Fa0/2}
+
+      \  node[port,pos=0.7,below=2mm]{Fa0} (pc2);
+
+      \\node[below=2mm] at (pc1.south) {192.168.10.10/24};
+
+      \\node[below=2mm] at (pc2.south) {192.168.10.20/24};
+
+      \\end{tikzpicture}
+
+      \\caption{Учебная топология локальной сети}\\label{fig:lan}
+
+      \\end{figure}
+
+      \\par
+
+      Линии обозначают Ethernet-соединения; подписи у концов --- имена портов.
+
+      PC1 и PC2 находятся в подсети 192.168.10.0/24.
+
+      Для проверки связи между ними шлюз по умолчанию не требуется.</code></pre>
+
+      </div>
+
+      <p>«Просмотреть пример» открывает эту схему с настройками страницы и подписи. Измените подписи устройств, портов и адресов; при добавлении узла добавьте соответствующую линию. При изменении подсетей пересмотрите поясняющий текст. Более общие приёмы узлов и рёбер разобраны в статье <a href=\"/blog/latex-tikz-automata-graphs\">о графах TikZ</a>.</p>
+
+      <p>Ссылка на рисунок стоит перед ним, подпись — снизу по центру, по разделу 6.5 <a href=\"https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">ГОСТ 7.32-2017</a>. Стандарт относится к отчётам о НИР; для лабораторной сверьте требования кафедры. Пример — фрагмент со схемой, без полного отчёта и протокола испытаний.</p>"
+  - id: 'screenshot'
+    title: 'Когда вместо TikZ нужен скриншот Packet Tracer'
+    html:
+      '<p>Если преподавателю важно видеть модель в симуляторе, вставьте собственный скриншот рабочей области. Сохраните имена устройств, адреса и подписи портов, уберите лишнюю область окна и проверьте читаемость в размере страницы PDF. Не заменяйте фактическую модель нарисованной схемой, если задание требует именно снимок.</p>
+
+      <p>Загрузите изображение в файлы проекта и используйте рисунок с подписью и ссылкой по образцу <a href="/blog/software-screenshots-report-gost-caption">оформления скриншотов программ</a>. Кнопка этой статьи открывает только вариант TikZ: внешнее изображение ему не требуется. Если в отчёте есть и снимок, и схема, поясните назначение каждого рисунка.</p>'
+  - id: 'check'
+    title: 'Отделите оформление от проверки связи'
+    html:
+      '<p>Нарисованное соединение не доказывает доступность узла. В своей модели Packet Tracer проверьте сеть последовательно:</p>
+
+      <ol><li>Сверьте кабели, порты и состояние соединений с рисунком.</li><li>Проверьте адреса, маски, отсутствие дублирующихся адресов и принадлежность портов одной VLAN.</li><li>На PC1 отправьте <code>ping 192.168.10.20</code>, на PC2 — <code>ping 192.168.10.10</code>.</li><li>Зафиксируйте фактический результат: источник, назначение, число отправленных и полученных пакетов. Начальное разрешение адресов ARP может повлиять на первый запрос; при повторе сохраните оба наблюдения.</li></ol>
+
+      <p>Такой порядок согласуется с <a href="https://www.cisco.com/en/US/docs/internetworking/troubleshooting/guide/tr1907.html" target="_blank" rel="noopener noreferrer">руководством Cisco по диагностике TCP/IP</a>: проверяйте локальную связность, адресацию и маски. При передаче в другую подсеть дополнительно нужен доступный следующий узел маршрута.</p>
+
+      <p>В учебном примере заданы только адреса и схема; обмен пакетами не выполнялся. В реальном отчёте добавьте свой протокол и <a href="/blog/programming-lab-report-code-listings-gost">листинг команд</a>, если этого требует задание. Успешный <code>ping</code> подтверждает конкретную проверку ICMP, но не измеряет пропускную способность и не проверяет все сетевые службы.</p>'
+editorExample:
+  - type: 'latex'
+    text: "\\documentclass[a4paper,14pt]{extarticle}
+
+      \\usepackage[T2A]{fontenc}
+
+      \\usepackage[utf8]{inputenc}
+
+      \\usepackage[russian]{babel}
+
+      \\usepackage{tempora,geometry,setspace,indentfirst}
+
+      \\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+
+      \\onehalfspacing
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\usepackage{caption}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+
+      \\DeclareCaptionTextFormat{gosttitle}{\\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1}
+
+      \\captionsetup{textformat=gosttitle}
+
+      \\usepackage{tikz}
+
+      \\DeclareCaptionTextFormat{gostfiguretitle}{%
+
+      \  \\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1\\vphantom{у}}
+
+      \\captionsetup[figure]{name=Рисунок,labelsep=gostdash,font={normalsize,singlespacing},justification=centering,singlelinecheck=false,strut=off,textformat=gostfiguretitle}
+
+      \\AddToHook{env/figure/before}{\\begingroup\\setlength{\\intextsep}{0pt}}
+
+      \\AddToHook{env/figure/after}{\\endgroup}
+
+      \\begin{document}
+
+      На рисунке~\\ref{fig:lan} показана учебная физическая топология
+
+      «звезда»: два компьютера подключены к коммутатору S1.
+
+      Адреса и подключения заданы для упражнения; обмен пакетами
+
+      по этой схеме не проверялся.
+
+      \\par
+
+      \\begin{figure}[!ht]
+
+      \\centering
+
+      \\begin{tikzpicture}[
+
+      \  device/.style={draw,thick,minimum width=23mm,minimum height=10mm,align=center},
+
+      \  every node/.style={font=\\normalsize},
+
+      \  line/.style={thick},
+
+      \  port/.style={sloped,inner sep=1pt}]
+
+      \\node[device] (s1) at (0,0) {S1};
+
+      \\node[device] (pc1) at (-4,-2.3) {PC1};
+
+      \\node[device] (pc2) at (4,-2.3) {PC2};
+
+      \\draw[line] (s1) -- node[port,pos=0.4,above=2mm]{Fa0/1}
+
+      \  node[port,pos=0.7,below=2mm]{Fa0} (pc1);
+
+      \\draw[line] (s1) -- node[port,pos=0.4,above=2mm]{Fa0/2}
+
+      \  node[port,pos=0.7,below=2mm]{Fa0} (pc2);
+
+      \\node[below=2mm] at (pc1.south) {192.168.10.10/24};
+
+      \\node[below=2mm] at (pc2.south) {192.168.10.20/24};
+
+      \\end{tikzpicture}
+
+      \\caption{Учебная топология локальной сети}\\label{fig:lan}
+
+      \\end{figure}
+
+      \\par
+
+      Линии обозначают Ethernet-соединения; подписи у концов --- имена портов.
+
+      PC1 и PC2 находятся в подсети 192.168.10.0/24.
+
+      Для проверки связи между ними шлюз по умолчанию не требуется.
+
+      \\end{document}"
+    parameters:
+      visible: true

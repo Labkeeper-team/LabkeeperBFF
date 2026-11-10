@@ -1,0 +1,285 @@
+catalogIndex: 116
+slug: 'diploma-data-tables-formatting-gost'
+batch: 3
+title: 'Оформление таблиц данных в дипломной работе: подписи, единицы и ссылки'
+pageTitle: 'Оформление таблиц данных в дипломной работе: подписи, единицы и ссылки — Labkeeper'
+metaDescription: 'Как оформить небольшую таблицу в дипломе: сравнимые показатели, единицы в головке, подпись над таблицей и автоматическая ссылка в LaTeX.'
+breadcrumbTitle: 'Таблицы данных в дипломе'
+h1: 'Оформление таблиц данных в дипломной работе: подписи, единицы и ссылки'
+categories:
+  - 'diploma'
+related:
+  - 'table-continuation-multipage-gost-diploma'
+  - 'latex-arraystretch-table-row-height-spacing'
+  - 'latex-pgfplotstable-import-excel-csv-tables'
+keywords:
+  - 'таблицы данных в дипломе'
+  - 'оформление таблиц в дипломной работе'
+  - 'подпись таблицы ГОСТ'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '6 мин'
+cardTitle: 'Оформление таблиц данных в дипломной работе: подписи, единицы и ссылки'
+cardDescription: 'Как оформить небольшую таблицу в дипломе: сравнимые показатели, единицы в головке, подпись над таблицей и автоматическая ссылка в LaTeX.'
+sliderTitle: 'Таблицы данных в дипломе'
+sliderText: 'Как оформить небольшую таблицу в дипломе: сравнимые показатели, единицы в головке, подпись над таблицей и автоматическая ссылка в LaTeX.'
+sidebarText: 'Оформляйте сравнительные таблицы с автоматическими номерами и ссылками в Labkeeper.'
+ctaTitle: 'Подставьте данные своей таблицы'
+ctaText: 'Откройте короткий пример, замените показатели и значения, проверьте подпись и ширину таблицы в PDF.'
+toc:
+  - id: 'task'
+    title: 'Какие данные объединять в таблицу'
+  - id: 'data'
+    title: 'Показатели, единицы и условия сравнения'
+  - id: 'caption'
+    title: 'Подпись над таблицей и ссылка в тексте'
+  - id: 'latex'
+    title: 'Небольшая сравнительная таблица в LaTeX'
+  - id: 'check'
+    title: 'Что проверить перед сдачей'
+sections:
+  - id: 'task'
+    title: 'Какие данные объединять в таблицу'
+    html:
+      '<p>Таблица в дипломной работе должна отвечать на конкретный вопрос: чем различаются варианты, как меняется показатель или из чего складывается итог. Если в одной строке сравниваются разные условия или единицы, аккуратная сетка не сделает сравнение корректным.</p>
+
+      <p>Рассмотрим небольшую таблицу двух вариантов обработки данных. Пример содержит только таблицу и поясняющий текст; титул и другие разделы диплома в него не входят. Все числа вымышлены и нужны для разбора оформления.</p>
+
+      <p>Для отчёта о научно-исследовательской работе применяют <a href="https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf" target="_blank" rel="noopener noreferrer">ГОСТ 7.32-2017</a>; для диплома сначала проверьте методичку кафедры. Ниже используем оформление таблицы по разделу 6.6 этого стандарта.</p>'
+  - id: 'data'
+    title: 'Показатели, единицы и условия сравнения'
+    html:
+      "<p>Оба варианта обрабатывают один и тот же учебный набор из 1000 записей. В реальной работе рядом с таблицей укажите конфигурацию оборудования, методику измерения и источник чисел. Не сравнивайте время одного запуска со средним по серии без пояснения.</p><div class=\"article-table-wrapper\"><table class=\"article-table\">
+
+      \    <thead><tr><th>Показатель</th><th>Вариант А</th><th>Вариант Б</th></tr></thead>
+
+      \    <tbody><tr><td>Время обработки, с</td><td>12</td><td>9</td></tr>
+
+      \    <tr><td>Число ошибок, шт.</td><td>4</td><td>2</td></tr>
+
+      \    <tr><td>Объём памяти, Мбайт</td><td>80</td><td>96</td></tr></tbody>
+
+      </table></div><p>Единица указана рядом с названием показателя, поэтому в числовых ячейках её не повторяем. Для нескольких величин в столбцах перенесите обозначения и единицы в головку. Используйте одинаковый разряд округления внутри одной величины, если это соответствует точности исходных данных.</p>
+
+      <div class=\"article-note\"><strong>Пустая ячейка не равна нулю.</strong> Заранее объясните, что означает отсутствие данных. Число <code>0</code> допустимо, только если оно действительно получено или задано. Для заимствованных данных укажите источник и свяжите ссылку с записью в списке литературы диплома.</div>"
+  - id: 'caption'
+    title: 'Подпись над таблицей и ссылка в тексте'
+    html:
+      "<p>Сначала сошлитесь на таблицу в тексте, затем разместите её. Надпись «Таблица 1 — Учебное сравнение вариантов обработки» стоит сверху слева без точки в конце; заголовки столбцов центрированы, названия строк выровнены влево. Номер и ссылку поручите LaTeX: <code>\\label</code> ставят после <code>\\caption</code>, а в тексте используют <code>\\ref</code>.</p>
+
+      <p>Подключите в преамбуле пакет <code>caption</code> и настройте разделитель. Этот фрагмент наследует формат страницы и основной текст диплома:</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      \    <pre><code>\\usepackage{caption}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}</code></pre>
+
+      </div>
+
+      <p>Пример редактора уже содержит настройки A4, полей, шрифта 14 pt и полуторного интервала. Если в основном документе нумерация идёт по разделам, сохраните её; не вписывайте номер таблицы вручную.</p>
+
+      <p>Чтобы расстояние от последней строки текста до подписи таблицы соответствовало обычному межстрочному шагу, добавьте следующую настройку один раз в преамбулу, после <code>\\onehalfspacing</code> и подключения <code>caption</code>. Она автоматически применяется к каждой таблице <code>table</code> внутри текста, учитывает глубину последней строки и не меняет отступы рисунков. Подпись остаётся с одинарным интервалом; при переносе таблицы к краю страницы LaTeX использует отдельные отступы плавающих объектов.</p>
+
+      <div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX — преамбула</span></div>
+
+      \    <pre><code>\\newlength{\\tablecaptionheight}
+
+      \\settoheight{\\tablecaptionheight}{\\setstretch{1}\\strut}
+
+      \\AddToHook{env/table/before}{%
+
+      \  \\par\\begingroup
+
+      \  \\ifdim\\prevdepth&gt;-1000pt
+
+      \    \\setlength{\\intextsep}{\\dimexpr\\baselineskip-\\prevdepth-\\tablecaptionheight\\relax}%
+
+      \    \\ifdim\\intextsep&lt;0pt\\setlength{\\intextsep}{0pt}\\fi
+
+      \  \\fi
+
+      }
+
+      \\AddToHook{env/table/after}{\\endgroup}</code></pre>
+
+      </div>"
+  - id: 'latex'
+    title: 'Небольшая сравнительная таблица в LaTeX'
+    html:
+      "<p>Для длинного названия показателя используем <code>tabularx</code>: столбец <code>X</code> занимает оставшуюся ширину и переносит текст. Подключите пакет в преамбуле:</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      \    <pre><code>\\usepackage{tabularx}</code></pre>
+
+      </div>
+
+      <p>Следующий фрагмент вставляется в тело документа. Числа выровнены вправо, но отдельные команды <code>\\multicolumn</code> сохраняют центрирование головки:</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      \    <pre><code>В таблице~\\ref{tab:comparison} сопоставлены два условных варианта
+
+      обработки одного набора из 1000 записей. Все числа вымышлены;
+
+      они не являются результатами испытаний.
+
+      \\par
+
+      \\begin{table}[!ht]
+
+      \\caption{Учебное сравнение вариантов обработки}\\label{tab:comparison}
+
+      \\centering
+
+      \\renewcommand{\\arraystretch}{1.2}
+
+      \\begin{tabularx}{\\textwidth}{|&gt;{\\raggedright\\arraybackslash}X|r|r|}
+
+      \\hline
+
+      \\multicolumn{1}{|c|}{Показатель} &amp;
+
+      \\multicolumn{1}{c|}{Вариант А} &amp;
+
+      \\multicolumn{1}{c|}{Вариант Б} \\\\
+
+      \\hline
+
+      Время обработки, с &amp; 12 &amp; 9 \\\\
+
+      Число ошибок, шт. &amp; 4 &amp; 2 \\\\
+
+      Объём памяти, Мбайт &amp; 80 &amp; 96 \\\\
+
+      \\hline
+
+      \\end{tabularx}
+
+      \\end{table}
+
+      \\par
+
+      Вариант Б требует на 3~с меньше времени и на 16~Мбайт больше памяти.
+
+      Выбор зависит от допустимого объёма памяти; по этой таблице нельзя
+
+      судить о работе на других наборах данных.</code></pre>
+
+      </div>
+
+      <p>Кнопка «Просмотреть пример» открывает эту таблицу со служебными настройками. Замените показатели, значения и вывод, выполните сборку. После добавления таблиц ссылки и номера обновятся при повторной компиляции.</p>"
+  - id: 'check'
+    title: 'Что проверить перед сдачей'
+    html:
+      '<ol><li>Сопоставьте значения с источником и убедитесь, что условия сравнения одинаковы.</li><li>Проверьте единицы, округление, ссылку перед таблицей и подпись над ней.</li><li>Откройте PDF: границы таблицы должны помещаться в текстовую область, а строки и подпись — оставаться читаемыми.</li><li>Проверьте вывод: вариант Б экономит 3 с, но требует дополнительно 16 Мбайт; единственного «лучшего» варианта без критерия выбора нет.</li></ol>
+
+      <p>Если строк стало много, используйте <a href="/blog/table-continuation-multipage-gost-diploma">перенос с надписью «Продолжение таблицы»</a>. Для загрузки большого набора из файла см. <a href="/blog/latex-pgfplotstable-import-excel-csv-tables">импорт CSV через pgfplotstable</a>, а для тесных строк — <a href="/blog/latex-arraystretch-table-row-height-spacing">настройку высоты строк</a>. Не уменьшайте всю таблицу масштабированием ради размещения на одном листе.</p>'
+editorExample:
+  - type: 'latex'
+    text: "\\documentclass[a4paper,14pt]{extarticle}
+
+      \\usepackage[T2A]{fontenc}
+
+      \\usepackage[utf8]{inputenc}
+
+      \\usepackage[russian]{babel}
+
+      \\usepackage{tempora,geometry,setspace,indentfirst}
+
+      \\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+
+      \\onehalfspacing
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\usepackage{caption}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+
+      \\DeclareCaptionTextFormat{gosttitle}{\\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1}
+
+      \\captionsetup{textformat=gosttitle}
+
+      \\usepackage{tabularx}
+
+      \\newlength{\\tablecaptionheight}
+
+      \\settoheight{\\tablecaptionheight}{\\setstretch{1}\\strut}
+
+      \\AddToHook{env/table/before}{%
+
+      \  \\par\\begingroup
+
+      \  \\ifdim\\prevdepth>-1000pt
+
+      \    \\setlength{\\intextsep}{\\dimexpr\\baselineskip-\\prevdepth-\\tablecaptionheight\\relax}%
+
+      \    \\ifdim\\intextsep<0pt\\setlength{\\intextsep}{0pt}\\fi
+
+      \  \\fi
+
+      }
+
+      \\AddToHook{env/table/after}{\\endgroup}
+
+      \\begin{document}
+
+      В таблице~\\ref{tab:comparison} сопоставлены два условных варианта
+
+      обработки одного набора из 1000 записей. Все числа вымышлены;
+
+      они не являются результатами испытаний.
+
+      \\par
+
+      \\begin{table}[!ht]
+
+      \\caption{Учебное сравнение вариантов обработки}\\label{tab:comparison}
+
+      \\centering
+
+      \\renewcommand{\\arraystretch}{1.2}
+
+      \\begin{tabularx}{\\textwidth}{|>{\\raggedright\\arraybackslash}X|r|r|}
+
+      \\hline
+
+      \\multicolumn{1}{|c|}{Показатель} &
+
+      \\multicolumn{1}{c|}{Вариант А} &
+
+      \\multicolumn{1}{c|}{Вариант Б} \\\\
+
+      \\hline
+
+      Время обработки, с & 12 & 9 \\\\
+
+      Число ошибок, шт. & 4 & 2 \\\\
+
+      Объём памяти, Мбайт & 80 & 96 \\\\
+
+      \\hline
+
+      \\end{tabularx}
+
+      \\end{table}
+
+      \\par
+
+      Вариант Б требует на 3~с меньше времени и на 16~Мбайт больше памяти.
+
+      Выбор зависит от допустимого объёма памяти; по этой таблице нельзя
+
+      судить о работе на других наборах данных.
+
+      \\end{document}"
+    parameters:
+      visible: true

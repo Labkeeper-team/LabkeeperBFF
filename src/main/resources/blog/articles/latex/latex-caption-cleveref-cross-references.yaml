@@ -1,0 +1,183 @@
+catalogIndex: 144
+slug: latex-caption-cleveref-cross-references
+batch: 3
+title: 'Подписи и кросс-ссылки в LaTeX: caption, cleveref и русские названия'
+pageTitle: 'Подписи и кросс-ссылки в LaTeX: caption, cleveref и русские названия — Labkeeper'
+metaDescription: Как настроить подписи рисунков и таблиц, поставить label после caption и получить русские кликабельные ссылки через cleveref.
+breadcrumbTitle: Подписи и кросс-ссылки
+h1: 'Подписи и кросс-ссылки в LaTeX: caption, cleveref и русские названия'
+categories:
+  - latex
+related:
+  - figure-double-numbering-chapters-gost
+  - latex-hyperref-pdf-bookmarks-navigation
+  - latex-tables-tabular-longtable-booktabs-guide
+keywords:
+  - caption cleveref LaTeX
+  - подписи рисунков таблиц LaTeX
+  - кросс-ссылки LaTeX
+datePublished: '2026-11-09'
+dateModified: '2026-11-09'
+readingTime: 6 мин
+cardTitle: 'Подписи и кросс-ссылки в LaTeX: caption, cleveref и русские названия'
+cardDescription: Как настроить подписи рисунков и таблиц, поставить label после caption и получить русские кликабельные ссылки через cleveref.
+sliderTitle: Подписи и кросс-ссылки
+sliderText: Как настроить подписи рисунков и таблиц, поставить label после caption и получить русские кликабельные ссылки через cleveref.
+sidebarText: Редактируйте LaTeX-пример и проверяйте результат в PDF в Labkeeper.
+ctaTitle: Настройте подписи и ссылки
+ctaText: Откройте рисунок и таблицу с общими настройками подписей. Добавьте объект и проверьте обновление номеров и ссылок.
+toc:
+  - id: roles
+    title: За что отвечают caption, label и cleveref
+  - id: gost
+    title: Рисунок подписывают снизу, таблицу — сверху
+  - id: setup
+    title: Общие настройки подписей и отступов
+  - id: references
+    title: Русские имена ссылок и порядок подключения
+  - id: objects
+    title: Метка стоит сразу после подписи
+  - id: check
+    title: Повторная сборка и проверка второго объекта
+sections:
+  - id: roles
+    title: За что отвечают caption, label и cleveref
+    html: <p>Подпись и ссылка связаны номером объекта. Если напечатать номер вручную, после вставки нового рисунка текст начнёт ссылаться на другой объект. Используйте <code>\caption</code>, уникальную метку <code>\label</code> и ссылку по имени метки.</p><p>Пакет <a href="https://ctan.org/pkg/caption" target="_blank" rel="noopener noreferrer">caption</a> управляет оформлением подписи, <code>hyperref</code> делает переходы в PDF, а <a href="https://ctan.org/pkg/cleveref" target="_blank" rel="noopener noreferrer">cleveref</a> добавляет название типа объекта к номеру. Разберём их совместную настройку на одной схеме и небольшой таблице. Построение сложных таблиц оставим <a href="/blog/latex-tables-tabular-longtable-booktabs-guide">руководству по таблицам</a>.</p>
+  - id: gost
+    title: Рисунок подписывают снизу, таблицу — сверху
+    html: '<p>По <a href="https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf" target="_blank" rel="noopener noreferrer">ГОСТ 7.32-2017</a> ссылка на объект должна предшествовать его размещению: рисунки — п. 6.5.1, таблицы — п. 6.6.2. Название рисунка ставят снизу по центру без точки, без переносов слов; многострочную подпись печатают через один интервал (пп. 6.5.7–6.5.8). Название таблицы располагают сверху слева без абзацного отступа, также без точки, с одинарным интервалом при переносе на несколько строк (п. 6.6.3).</p><p>В примере сквозная независимая нумерация рисунков и таблиц (пп. 6.5.4 и 6.6.4). Стандарт относится к отчётам о НИР; для лабораторной и ВКР сверьте методичку кафедры. Кнопка открывает фрагмент, а не полный отчёт; страница и полуторный основной текст настроены отдельно.</p>'
+  - id: setup
+    title: Общие настройки подписей и отступов
+    html: |-
+      <p>Добавьте настройки один раз в преамбулу. У каждого типа объекта свои выравнивание и интервалы; <code>position</code> помогает пакету выбрать отступы, но не переносит саму команду подписи. Поэтому положение <code>\caption</code> в теле документа остаётся существенным.</p><div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>\usepackage{caption,tikz}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \DeclareCaptionTextFormat{gosttitle}{%
+        \hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \DeclareCaptionTextFormat{gostfiguretitle}{%
+        \hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1\vphantom{у}}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing},singlelinecheck=false}
+      \captionsetup[figure]{name=Рисунок,position=bottom,justification=centering,strut=off,textformat=gostfiguretitle}
+      \captionsetup[table]{name=Таблица,position=top,justification=raggedright,textformat=gosttitle}
+      \newlength{\tablecaptionheight}
+      \settoheight{\tablecaptionheight}{\setstretch{1}\strut}
+      \AddToHook{env/table/before}{%
+        \par\begingroup
+        \ifdim\prevdepth&gt;-1000pt
+          \setlength{\intextsep}{\dimexpr\baselineskip-\prevdepth-\tablecaptionheight\relax}%
+          \ifdim\intextsep&lt;0pt\setlength{\intextsep}{0pt}\fi
+        \fi}
+      \AddToHook{env/table/begin}{\renewcommand{\arraystretch}{1.25}}
+      \AddToHook{env/table/after}{\endgroup}
+      \AddToHook{env/figure/before}{\par\begingroup\setlength{\intextsep}{0pt}}
+      \AddToHook{env/figure/begin}{\vspace{\baselineskip}}
+      \AddToHook{env/figure/after}{\endgroup}</code></pre></div><p>Обработчики <code>table</code> и <code>figure</code> ограничивают изменение <code>\intextsep</code> своим окружением. Верхний переход к подписи таблицы учитывает глубину предыдущей строки, а рисунок получает отдельный промежуток сверху. <code>strut=off</code> и <code>\vphantom{у}</code> сохраняют переход от нижней подписи к следующему абзацу. В таблицах <code>\arraystretch</code> увеличивает высоту строк; при выбранном шрифте их шаг близок к полуторному шагу основного текста. Подписи сохраняют одинарный интервал. Эти настройки предназначены для объектов внутри текста <code>[!ht]</code>; после изменения шрифта и при переносе наверх страницы проверьте PDF, в частности <code>\textfloatsep</code>.</p>
+  - id: references
+    title: Русские имена ссылок и порядок подключения
+    html: |-
+      <p>Подключите <code>cleveref</code> после <code>hyperref</code> и задайте имена типов явно. В этом примере <code>\Cref</code> используется в начале предложения; <code>nameinlink</code> включает название объекта в кликабельную область:</p><div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>\usepackage[hidelinks]{hyperref}
+      \usepackage[nameinlink,noabbrev]{cleveref}
+      \crefname{figure}{рисунок}{рисунки}
+      \Crefname{figure}{Рисунок}{Рисунки}
+      \crefname{table}{таблица}{таблицы}
+      \Crefname{table}{Таблица}{Таблицы}</code></pre></div><p><code>\ref{fig:flow}</code> выводит только номер, <code>\cref{fig:flow}</code> — «рисунок 1», <code>\Cref{fig:flow}</code> — «Рисунок 1». Русское склонение не выбирается по контексту автоматически: для фразы «на рисунке 1» напишите <code>на рисунке~\ref{fig:flow}</code>. Имена во множественном числе заданы, но сложные перечни и падежи потребуют отдельной настройки.</p>
+  - id: objects
+    title: Метка стоит сразу после подписи
+    html: |-
+      <p>Вставьте в тело документа вводный текст и схему. Вызов <code>\caption</code> увеличивает счётчик, а следующая <code>\label</code> сохраняет нужный номер. Если поставить метку раньше, она может захватить номер другого объекта.</p><div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>Учебная схема приведена на рисунке~\ref{fig:flow}.
+      Результаты обработки заданы в таблице~\ref{tab:counts}.
+      Все числа вымышлены.
+      \par
+      \begin{figure}[!ht]
+      \centering
+      \begin{tikzpicture}[every node/.style={draw,minimum height=9mm}]
+      \node (a) at (0,0) {Ввод};
+      \node (b) at (4,0) {Проверка};
+      \draw[-&gt;] (a) -- (b);
+      \end{tikzpicture}
+      \caption{Учебная схема проверки данных}\label{fig:flow}
+      \end{figure}
+      \par
+      \Cref{fig:flow} показывает два этапа обработки.</code></pre></div><p>У таблицы подпись находится перед <code>tabular</code>. Префиксы <code>fig:</code> и <code>tab:</code> помогают различать метки; тип ссылки определяет окружение, а не префикс.</p><div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>\begin{table}[!ht]
+      \caption{Число записей в учебном наборе}\label{tab:counts}
+      \centering
+      \begin{tabular}{|l|r|}\hline
+      \multicolumn{1}{|c|}{Состояние} &amp; \multicolumn{1}{c|}{Количество} \\\hline
+      Принято &amp; 18 \\
+      Отклонено &amp; 2 \\\hline
+      \end{tabular}
+      \end{table}
+      \par
+      \Cref{tab:counts} содержит 20 записей в двух категориях.</code></pre></div><p>Рисунок получает номер 1 и таблица получает номер 1: их счётчики независимы. Для схемы используются только команды TikZ, загрузка внешних изображений не требуется.</p>
+  - id: check
+    title: Повторная сборка и проверка второго объекта
+    html: <p>Откройте пример кнопкой «Просмотреть пример», измените названия и добавьте второй рисунок либо таблицу с новой меткой. Общие настройки должны примениться без повторения преамбулы. Вставьте длинную подпись и проверьте одинарный интервал, центрирование рисунка, левый край таблицы и переход к следующему абзацу.</p><ul><li>После повторной сборки вместо <code>??</code> стоят номера; переходы ведут к нужным объектам.</li><li>На каждый объект есть ссылка до его размещения.</li><li>Метка уникальна и стоит после соответствующей подписи.</li><li>У рисунков и таблиц свои последовательности номеров.</li><li>Подпись не оторвана от объекта, длинные строки помещаются в поля.</li></ul><p>В обычном LaTeX ссылки часто требуют двух проходов компилятора. Удаление <code>.aux</code> сбрасывает накопленные метки и тоже требует повторной сборки. Для нумерации по разделам используйте <a href="/blog/figure-double-numbering-chapters-gost">настройку счётчиков</a>, для закладок PDF — <a href="/blog/latex-hyperref-pdf-bookmarks-navigation">возможности hyperref</a>.</p>
+editorExample:
+  - type: latex
+    text: |
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,geometry,setspace,indentfirst}
+      \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \usepackage{caption,tikz}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \DeclareCaptionTextFormat{gosttitle}{%
+        \hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \DeclareCaptionTextFormat{gostfiguretitle}{%
+        \hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1\vphantom{у}}
+      \captionsetup{labelsep=gostdash,font={normalsize,singlespacing},singlelinecheck=false}
+      \captionsetup[figure]{name=Рисунок,position=bottom,justification=centering,strut=off,textformat=gostfiguretitle}
+      \captionsetup[table]{name=Таблица,position=top,justification=raggedright,textformat=gosttitle}
+      \newlength{\tablecaptionheight}
+      \settoheight{\tablecaptionheight}{\setstretch{1}\strut}
+      \AddToHook{env/table/before}{%
+        \par\begingroup
+        \ifdim\prevdepth>-1000pt
+          \setlength{\intextsep}{\dimexpr\baselineskip-\prevdepth-\tablecaptionheight\relax}%
+          \ifdim\intextsep<0pt\setlength{\intextsep}{0pt}\fi
+        \fi}
+      \AddToHook{env/table/begin}{\renewcommand{\arraystretch}{1.25}}
+      \AddToHook{env/table/after}{\endgroup}
+      \AddToHook{env/figure/before}{\par\begingroup\setlength{\intextsep}{0pt}}
+      \AddToHook{env/figure/begin}{\vspace{\baselineskip}}
+      \AddToHook{env/figure/after}{\endgroup}
+      \usepackage[hidelinks]{hyperref}
+      \usepackage[nameinlink,noabbrev]{cleveref}
+      \crefname{figure}{рисунок}{рисунки}
+      \Crefname{figure}{Рисунок}{Рисунки}
+      \crefname{table}{таблица}{таблицы}
+      \Crefname{table}{Таблица}{Таблицы}
+      \begin{document}
+      Учебная схема приведена на рисунке~\ref{fig:flow}.
+      Результаты обработки заданы в таблице~\ref{tab:counts}.
+      Все числа вымышлены.
+      \par
+      \begin{figure}[!ht]
+      \centering
+      \begin{tikzpicture}[every node/.style={draw,minimum height=9mm}]
+      \node (a) at (0,0) {Ввод};
+      \node (b) at (4,0) {Проверка};
+      \draw[->] (a) -- (b);
+      \end{tikzpicture}
+      \caption{Учебная схема проверки данных}\label{fig:flow}
+      \end{figure}
+      \par
+      \Cref{fig:flow} показывает два этапа обработки.
+
+      \begin{table}[!ht]
+      \caption{Число записей в учебном наборе}\label{tab:counts}
+      \centering
+      \begin{tabular}{|l|r|}\hline
+      \multicolumn{1}{|c|}{Состояние} & \multicolumn{1}{c|}{Количество} \\\hline
+      Принято & 18 \\
+      Отклонено & 2 \\\hline
+      \end{tabular}
+      \end{table}
+      \par
+      \Cref{tab:counts} содержит 20 записей в двух категориях.
+      \end{document}
+    parameters:
+      visible: true

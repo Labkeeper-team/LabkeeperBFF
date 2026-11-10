@@ -158,6 +158,7 @@ sections:
           columns/current/.style={column name={Ток $I$, мА}}
       ]{measurements.csv}</code></pre>
                               </div>
+      <p>Если источник данных — база, сначала подготовьте выгрузку: цепочка <a href="/blog/sql-nosql-csv-data-import-report">SQL/NoSQL → CSV → load_csv</a> разобрана отдельно с проверкой полей и результата.</p>
 tips:
   - title: 'Храните CSV рядом с исходником .tex'
     html: |2-

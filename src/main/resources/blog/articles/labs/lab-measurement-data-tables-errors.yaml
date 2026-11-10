@@ -1,0 +1,393 @@
+catalogIndex: 117
+slug: 'lab-measurement-data-tables-errors'
+batch: 3
+title: 'Таблицы данных в лабораторном отчёте: показания и погрешности'
+pageTitle: 'Таблицы данных в лабораторном отчёте: показания и погрешности — Labkeeper'
+metaDescription: 'Как разделить показания и погрешности в таблице измерений: вычислительный сегмент с table(), относительная граница и оформление таблицы в LaTeX.'
+breadcrumbTitle: 'Таблицы измерений с погрешностями'
+h1: 'Таблицы данных в лабораторном отчёте: показания и погрешности'
+categories:
+  - 'labs'
+related:
+  - 'student-confidence-intervals-error-calculation'
+  - 'indirect-measurement-error-calculation-lab-report'
+  - 'physics-lab-measurement-graphs-formatting-gost'
+keywords:
+  - 'таблица измерений в лабораторной'
+  - 'таблица данных с погрешностями'
+  - 'table Labkeeper'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '6 мин'
+cardTitle: 'Таблицы данных в лабораторном отчёте: показания и погрешности'
+cardDescription: 'Как разделить показания и погрешности в таблице измерений: вычислительный сегмент с table(), относительная граница и оформление таблицы в LaTeX.'
+sliderTitle: 'Таблицы измерений с погрешностями'
+sliderText: 'Как разделить показания и погрешности в таблице измерений: вычислительный сегмент с table(), относительная граница и оформление таблицы в LaTeX.'
+sidebarText: 'Храните показания и погрешности рядом с расчётами, подставляйте результаты в таблицу отчёта.'
+ctaTitle: 'Оформите таблицу своих измерений'
+ctaText: 'Замените три показания и заданную границу погрешности, пересчитайте проценты и проверьте таблицу в PDF.'
+toc:
+  - id: 'data'
+    title: 'Что записывать в таблицу измерений'
+  - id: 'meaning'
+    title: 'Граница погрешности и неопределённость'
+  - id: 'table-function'
+    title: 'Как проверить столбцы с помощью table()'
+  - id: 'latex'
+    title: 'Формула и печатная таблица в отчёте'
+  - id: 'check'
+    title: 'Проверка единиц, округления и вывода'
+sections:
+  - id: 'data'
+    title: 'Что записывать в таблицу измерений'
+    html:
+      "<p>Показание прибора и оценка его погрешности отвечают на разные вопросы. В таблице лабораторного отчёта укажите величину и единицу, а для погрешности — обозначение и способ получения. Запись «погрешность 0,2» без единицы и пояснения неполна.</p>
+
+      <p>Разберём три вымышленных показания силы тока: 10, 20 и 40 мА. Для упражнения во всех точках задана одна граница абсолютной погрешности $\\Delta I=0{,}2$ мА. Это исходное условие, а не характеристика какого-либо прибора. При реальных измерениях возьмите границу из методики и сведений о приборе с учётом диапазона.</p><div class=\"article-table-wrapper\"><table class=\"article-table\">
+
+      \    <thead><tr><th>Номер точки</th><th>$I$, мА</th><th>$\\Delta I$, мА</th><th>$\\delta_I$, %</th></tr></thead>
+
+      \    <tbody><tr><td>1</td><td>10</td><td>0,2</td><td>2</td></tr>
+
+      \    <tr><td>2</td><td>20</td><td>0,2</td><td>1</td></tr>
+
+      \    <tr><td>3</td><td>40</td><td>0,2</td><td>0,5</td></tr></tbody>
+
+      </table></div><p>Первые два числовых столбца — исходные данные, последний — результат расчёта. В лабораторном журнале дополнительно сохраните условия измерения и прибор. Точки относятся к разным значениям тока; усреднять их как повторные измерения одной величины нельзя.</p>"
+  - id: 'meaning'
+    title: 'Граница погрешности и неопределённость'
+    html:
+      '<p>В нашем примере $\Delta I$ — заданная положительная граница абсолютной погрешности. Для ненулевого показания относительная граница в процентах равна $\delta_I=\Delta I/|I|\cdot100\%$. Для первой точки получаем $0{,}2/10\cdot100=2\%$, для второй — 1%, для третьей — 0,5%.</p>
+
+      <div class="article-note"><strong>Не подменяйте разные оценки одной колонкой.</strong> <a href="https://jcgm.bipm.org/vim/en/2.26.html" target="_blank" rel="noopener noreferrer">Неопределённость измерения в VIM</a> описывает разброс приписываемых величине значений; стандартная неопределённость выражается как стандартное отклонение. Заданная граница погрешности не становится стандартной неопределённостью или 95%-м интервалом без дополнительных предпосылок.</div>
+
+      <p>Для повторных измерений одного значения см. <a href="/blog/student-confidence-intervals-error-calculation">интервалы Стьюдента</a>, а для расчётной величины — <a href="/blog/indirect-measurement-error-calculation-lab-report">погрешность косвенных измерений</a>. Здесь эти задачи не решаем. При нулевом показании относительную границу по приведённой формуле вычислять нельзя.</p>'
+  - id: 'table-function'
+    title: 'Как проверить столбцы с помощью table()'
+    html:
+      "<p>Вычислительный сегмент хранит показания, считает относительные границы и передаёт три массива в <code>table()</code>. Параметры <code>name_1</code>, <code>name_2</code> и <code>name_3</code> задают заголовки столбцов:</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">Вычислительный сегмент</span></div>
+
+      \    <pre><code>// Вымышленные данные: ток, мА; заданная граница погрешности, мА
+
+      i1 = 10
+
+      i2 = 20
+
+      i3 = 40
+
+      di = 0.2
+
+      e1 = di / abs(i1) * 100
+
+      e2 = di / abs(i2) * 100
+
+      e3 = di / abs(i3) * 100
+
+      current = [i1, i2, i3]
+
+      delta = [di, di, di]
+
+      relative = [e1, e2, e3]
+
+      table(current, delta, relative, name_1=\"I, мА\", name_2=\"ΔI, мА\", name_3=\"δI, %\")</code></pre>
+
+      </div>
+
+      <p>Все массивы содержат по три элемента в одинаковом порядке. При замене показания пересчитывается соответствующая относительная граница. Если добавляете точку, дополните массивы и строку печатной таблицы.</p>
+
+      <p>В открываемом примере вычислительный сегмент скрыт, а результаты подставляются в оформленную таблицу LaTeX. Чтобы посмотреть вывод <code>table()</code> в редакторе, включите видимость этого сегмента и выполните расчёт. Перед экспортом снова скройте его, чтобы в документ не попал дополнительный вывод. Подпись и нумерацию печатной таблицы задаёт следующий LaTeX-фрагмент.</p>"
+  - id: 'latex'
+    title: 'Формула и печатная таблица в отчёте'
+    html:
+      "<p>В примере используются подпись и границы таблицы по разделу 6.6 <a href=\"https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">ГОСТ 7.32-2017</a>. Его область применения — отчёты о НИР; оформление лабораторной сверьте с методичкой кафедры. Пример представляет собой фрагмент отчёта, без титула и содержания.</p>
+
+      <p>Для подстановок чисел с десятичной запятой подключите <code>siunitx</code>, а для формулы — <code>amsmath</code>. Поля, основной текст и подпись уже настроены в примере редактора; при переносе фрагмента сохраните их в основном документе.</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      \    <pre><code>\\usepackage{amsmath,siunitx}
+
+      \\sisetup{output-decimal-marker={,}}</code></pre>
+
+      </div>
+
+      <p>Пояснения к обозначениям идут сразу под формулой, в порядке их появления. Короткий блок удерживаем на одной странице:</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      \    <pre><code>Относительную границу погрешности определяем по формуле~\\eqref{eq:relative}.
+
+      \\par\\noindent\\begin{minipage}[b]{\\textwidth}
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\setlength{\\abovedisplayskip}{\\baselineskip}
+
+      \\setlength{\\abovedisplayshortskip}{\\baselineskip}
+
+      \\setlength{\\belowdisplayskip}{\\baselineskip}
+
+      \\setlength{\\belowdisplayshortskip}{\\baselineskip}
+
+      \\begin{equation}\\label{eq:relative}
+
+      \\delta_I=\\frac{\\Delta I}{|I|}\\cdot100\\%,
+
+      \\end{equation}
+
+      \\indent где $\\delta_I$ --- относительная граница погрешности, \\%;\\par
+
+      $\\Delta I$ --- заданная граница абсолютной погрешности, мА;\\par
+
+      $I$ --- показание силы тока, мА.
+
+      \\end{minipage}\\par</code></pre>
+
+      </div>
+
+      <p>Теперь добавьте таблицу. Данные и результаты берутся из вычислительного сегмента через подстановки; <code>\\num</code> отвечает за десятичную запятую, но не выбирает физически обоснованное округление.</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      \    <pre><code>Учебные показания и результаты расчёта приведены в таблице~\\ref{tab:current}.
+
+      Данные вымышлены. Во всех трёх точках по условию упражнения
+
+      граница абсолютной погрешности равна \\num{${di}}~мА.
+
+      \\par
+
+      \\begin{table}[!ht]
+
+      \\caption{Учебные показания силы тока и границы погрешности}\\label{tab:current}
+
+      \\centering
+
+      \\renewcommand{\\arraystretch}{1.2}
+
+      \\begin{tabular}{|c|c|c|c|}
+
+      \\hline
+
+      Номер точки &amp; $I$, мА &amp; $\\Delta I$, мА &amp; $\\delta_I$, \\% \\\\
+
+      \\hline
+
+      1 &amp; \\num{${i1}} &amp; \\num{${di}} &amp; \\num{${e1}} \\\\
+
+      2 &amp; \\num{${i2}} &amp; \\num{${di}} &amp; \\num{${e2}} \\\\
+
+      3 &amp; \\num{${i3}} &amp; \\num{${di}} &amp; \\num{${e3}} \\\\
+
+      \\hline
+
+      \\end{tabular}
+
+      \\end{table}
+
+      \\par
+
+      При одинаковой абсолютной границе относительная граница уменьшается
+
+      от \\num{${e1}} до \\num{${e3}}~\\% с ростом показания.
+
+      Это следствие расчётной зависимости; характеристики реального прибора
+
+      в упражнении не исследовались.</code></pre>
+
+      </div>
+
+      <p>«Просмотреть пример» открывает вычисления, формулу и таблицу со всеми необходимыми настройками. После замены данных проверьте числа и текст вывода. При иной зависимости погрешности от показания нужно изменить исходную модель, а не только значения тока.</p>
+
+      <p>Чтобы расстояние от последней строки текста до подписи таблицы соответствовало обычному межстрочному шагу, добавьте следующую настройку один раз в преамбулу, после <code>\\onehalfspacing</code> и подключения <code>caption</code>. Она автоматически применяется к каждой таблице <code>table</code> внутри текста, учитывает глубину последней строки и не меняет отступы рисунков. Подпись остаётся с одинарным интервалом; при переносе таблицы к краю страницы LaTeX использует отдельные отступы плавающих объектов.</p>
+
+      <div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX — преамбула</span></div>
+
+      \    <pre><code>\\newlength{\\tablecaptionheight}
+
+      \\settoheight{\\tablecaptionheight}{\\setstretch{1}\\strut}
+
+      \\AddToHook{env/table/before}{%
+
+      \  \\par\\begingroup
+
+      \  \\ifdim\\prevdepth&gt;-1000pt
+
+      \    \\setlength{\\intextsep}{\\dimexpr\\baselineskip-\\prevdepth-\\tablecaptionheight\\relax}%
+
+      \    \\ifdim\\intextsep&lt;0pt\\setlength{\\intextsep}{0pt}\\fi
+
+      \  \\fi
+
+      }
+
+      \\AddToHook{env/table/after}{\\endgroup}</code></pre>
+
+      </div>"
+  - id: 'check'
+    title: 'Проверка единиц, округления и вывода'
+    html:
+      '<ul><li>Показания и абсолютные границы должны иметь согласованные единицы; относительная граница здесь выражена в процентах.</li><li>Три контрольных результата: 2%, 1% и 0,5%. Увеличение показания при постоянной абсолютной границе уменьшает относительную границу.</li><li>При оформлении итогового результата согласуйте разряд значения и погрешности по методичке. Не добавляйте нули к исходным показаниям ради видимости большей точности.</li><li>Проверьте в PDF подпись сверху, центрирование головки, ссылку перед таблицей и отсутствие разрыва формулы с пояснениями.</li></ul>
+
+      <p>В этой таблице три разные точки, поэтому вывод касается изменения относительной границы. Он не доказывает точность или линейность прибора. Если задача требует изучить зависимость между величинами, дополните данные <a href="/blog/physics-lab-measurement-graphs-formatting-gost">графиком с обозначениями осей и погрешностями</a>.</p>'
+editorExample:
+  - type: 'computational'
+    text: '// Вымышленные данные: ток, мА; заданная граница погрешности, мА
+
+      i1 = 10
+
+      i2 = 20
+
+      i3 = 40
+
+      di = 0.2
+
+      e1 = di / abs(i1) * 100
+
+      e2 = di / abs(i2) * 100
+
+      e3 = di / abs(i3) * 100
+
+      current = [i1, i2, i3]
+
+      delta = [di, di, di]
+
+      relative = [e1, e2, e3]
+
+      table(current, delta, relative, name_1="I, мА", name_2="ΔI, мА", name_3="δI, %")'
+    parameters:
+      visible: false
+  - type: 'latex'
+    text: "\\documentclass[a4paper,14pt]{extarticle}
+
+      \\usepackage[T2A]{fontenc}
+
+      \\usepackage[utf8]{inputenc}
+
+      \\usepackage[russian]{babel}
+
+      \\usepackage{tempora,geometry,setspace,indentfirst}
+
+      \\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+
+      \\onehalfspacing
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\usepackage{caption}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+
+      \\DeclareCaptionTextFormat{gosttitle}{\\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1}
+
+      \\captionsetup{textformat=gosttitle}
+
+      \\usepackage{amsmath,siunitx}
+
+      \\sisetup{output-decimal-marker={,}}
+
+      \\newlength{\\tablecaptionheight}
+
+      \\settoheight{\\tablecaptionheight}{\\setstretch{1}\\strut}
+
+      \\AddToHook{env/table/before}{%
+
+      \  \\par\\begingroup
+
+      \  \\ifdim\\prevdepth>-1000pt
+
+      \    \\setlength{\\intextsep}{\\dimexpr\\baselineskip-\\prevdepth-\\tablecaptionheight\\relax}%
+
+      \    \\ifdim\\intextsep<0pt\\setlength{\\intextsep}{0pt}\\fi
+
+      \  \\fi
+
+      }
+
+      \\AddToHook{env/table/after}{\\endgroup}
+
+      \\begin{document}
+
+      Относительную границу погрешности определяем по формуле~\\eqref{eq:relative}.
+
+      \\par\\noindent\\begin{minipage}[b]{\\textwidth}
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\setlength{\\abovedisplayskip}{\\baselineskip}
+
+      \\setlength{\\abovedisplayshortskip}{\\baselineskip}
+
+      \\setlength{\\belowdisplayskip}{\\baselineskip}
+
+      \\setlength{\\belowdisplayshortskip}{\\baselineskip}
+
+      \\begin{equation}\\label{eq:relative}
+
+      \\delta_I=\\frac{\\Delta I}{|I|}\\cdot100\\%,
+
+      \\end{equation}
+
+      \\indent где $\\delta_I$ --- относительная граница погрешности, \\%;\\par
+
+      $\\Delta I$ --- заданная граница абсолютной погрешности, мА;\\par
+
+      $I$ --- показание силы тока, мА.
+
+      \\end{minipage}\\par
+
+      Учебные показания и результаты расчёта приведены в таблице~\\ref{tab:current}.
+
+      Данные вымышлены. Во всех трёх точках по условию упражнения
+
+      граница абсолютной погрешности равна \\num{${di}}~мА.
+
+      \\par
+
+      \\begin{table}[!ht]
+
+      \\caption{Учебные показания силы тока и границы погрешности}\\label{tab:current}
+
+      \\centering
+
+      \\renewcommand{\\arraystretch}{1.2}
+
+      \\begin{tabular}{|c|c|c|c|}
+
+      \\hline
+
+      Номер точки & $I$, мА & $\\Delta I$, мА & $\\delta_I$, \\% \\\\
+
+      \\hline
+
+      1 & \\num{${i1}} & \\num{${di}} & \\num{${e1}} \\\\
+
+      2 & \\num{${i2}} & \\num{${di}} & \\num{${e2}} \\\\
+
+      3 & \\num{${i3}} & \\num{${di}} & \\num{${e3}} \\\\
+
+      \\hline
+
+      \\end{tabular}
+
+      \\end{table}
+
+      \\par
+
+      При одинаковой абсолютной границе относительная граница уменьшается
+
+      от \\num{${e1}} до \\num{${e3}}~\\% с ростом показания.
+
+      Это следствие расчётной зависимости; характеристики реального прибора
+
+      в упражнении не исследовались.
+
+      \\end{document}"
+    parameters:
+      visible: true

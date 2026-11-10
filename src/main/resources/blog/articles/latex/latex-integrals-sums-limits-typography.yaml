@@ -1,0 +1,247 @@
+catalogIndex: 138
+slug: 'latex-integrals-sums-limits-typography'
+batch: 3
+title: 'Интегралы, суммы и пределы в LaTeX: limits, nolimits и математические стили'
+pageTitle: 'Интегралы, суммы и пределы в LaTeX: limits, nolimits и математические стили — Labkeeper'
+metaDescription: 'Как набрать интеграл, сумму и предел, выбрать положение индексов, записать дифференциал и сохранить читаемость строки. Короткие примеры amsmath.'
+breadcrumbTitle: 'Интегралы, суммы и пределы'
+h1: 'Интегралы, суммы и пределы в LaTeX: limits, nolimits и математические стили'
+categories:
+  - 'latex'
+related:
+  - 'latex-formulas'
+  - 'formula-numbering-lab-reports-gost'
+  - 'formula-variable-explanation-where-gost'
+keywords:
+  - 'интегралы суммы пределы LaTeX'
+  - 'limits nolimits LaTeX'
+  - 'пределы над под знаком'
+datePublished: '2026-11-09'
+dateModified: '2026-11-09'
+readingTime: '6 мин'
+cardTitle: 'Интегралы, суммы и пределы в LaTeX: limits, nolimits и математические стили'
+cardDescription: 'Как набрать интеграл, сумму и предел, выбрать положение индексов, записать дифференциал и сохранить читаемость строки. Короткие примеры amsmath.'
+sliderTitle: 'Интегралы, суммы и пределы'
+sliderText: 'Как набрать интеграл, сумму и предел, выбрать положение индексов, записать дифференциал и сохранить читаемость строки. Короткие примеры amsmath.'
+sidebarText: 'Набирайте операторы и управляйте положением пределов в LaTeX-проекте Labkeeper.'
+ctaTitle: 'Сравните положение пределов'
+ctaText: 'Откройте интеграл, сумму и предел, измените команды и проверьте читаемость выражений в PDF.'
+toc:
+  - id: 'styles'
+    title: 'Почему индексы меняют положение'
+  - id: 'setup'
+    title: 'Общие настройки и компактный пример'
+  - id: 'integral'
+    title: 'Интеграл: пределы и дифференциал'
+  - id: 'sum'
+    title: 'Сумма: обычные пределы и nolimits'
+  - id: 'limit'
+    title: 'Предел: используйте имя оператора lim'
+  - id: 'check'
+    title: 'Проверьте строку, номера и пояснения'
+sections:
+  - id: 'styles'
+    title: 'Почему индексы меняют положение'
+    html:
+      '<p>В строке и в выносной формуле LaTeX использует разные математические стили. Поэтому одна и та же сумма может иметь компактные индексы сбоку в тексте и пределы сверху и снизу в отдельной строке.</p><p>Начните со стандартных команд и меняйте положение пределов только по смыслу и требованиям вёрстки. Автоматического помощника выбора <code>\limits</code> в этом примере нет: команды задаются в исходнике. Основные правила операторов приведены в <a href="https://www.latex-project.org/help/documentation/amsldoc.pdf" target="_blank" rel="noopener noreferrer">руководстве amsmath</a>.</p><div class="article-table-wrapper"><table class="article-table"><thead><tr><th>Команда</th><th>Обычное поведение в выносной формуле</th></tr></thead><tbody><tr><td><code>\sum</code></td><td>Пределы над и под знаком</td></tr>
+
+      <tr><td><code>\lim</code></td><td>Условие под названием оператора</td></tr>
+
+      <tr><td><code>\int</code></td><td>Пределы сбоку</td></tr>
+
+      <tr><td><code>\limits / \nolimits</code></td><td>Явно задают положение для предшествующего оператора</td></tr></tbody></table></div><p>Положение индексов не меняет математическое значение выражения. Если принудительный высокий оператор портит межстрочное расстояние обычного абзаца, лучше вынести выражение в отдельную строку.</p>'
+  - id: 'setup'
+    title: 'Общие настройки и компактный пример'
+    html:
+      "<p>В преамбуле подключён <code>amsmath</code>. Для отчётного фрагмента формулы нумеруются, а короткие пояснения удерживаются с ними в общем окружении:</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>\\usepackage{amsmath,siunitx}
+
+      \\sisetup{output-decimal-marker={,},group-digits=false}
+
+      \\newenvironment{formulablock}{%
+
+      \  \\par\\noindent\\begin{minipage}[b]{\\textwidth}%
+
+      \  \\setlength{\\parindent}{1.25cm}%
+
+      \  \\setlength{\\abovedisplayskip}{0pt}%
+
+      \  \\setlength{\\abovedisplayshortskip}{0pt}%
+
+      \  \\vspace*{\\baselineskip}%
+
+      }{\\end{minipage}\\par}</code></pre>
+
+      </div><p>Вступление показывает строчную сумму и задаёт безразмерные переменные:</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>В строке сумма $\\sum_{k=1}^{3}k$ набирается компактно.
+
+      Ниже сравниваются положения пределов в выносных выражениях.
+
+      Все переменные этого учебного примера безразмерны.</code></pre>
+
+      </div><p>Кнопка открывает это вступление и все три выражения ниже в одном завершённом LaTeX-документе. Служебные настройки страницы дополняют короткие фрагменты.</p>"
+  - id: 'integral'
+    title: 'Интеграл: пределы и дифференциал'
+    html:
+      '<p>По умолчанию пределы интеграла находятся сбоку. Команда <code>\limits</code> после <code>\int</code> переносит их над и под знаком. Перед дифференциалом используем небольшой пробел <code>\,</code>, букву d набираем прямо через <code>\mathrm{d}</code>.</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>\begin{formulablock}
+
+      \begin{equation}\label{eq:integral}
+
+      \int_0^1 x\,\mathrm{d}x
+
+      =\int\limits_0^1 x\,\mathrm{d}x=\frac12,
+
+      \end{equation}
+
+      \indent где $x$ --- переменная интегрирования;\par
+
+      $\mathrm{d}x$ --- дифференциал переменной $x$.
+
+      \end{formulablock}</code></pre>
+
+      </div><p>Равенство двух интегралов демонстрирует одну зависимость в двух оформлениях. В рабочем тексте обычно достаточно одного варианта; не дублируйте формулу ради внешнего вида.</p>'
+  - id: 'sum'
+    title: 'Сумма: обычные пределы и nolimits'
+    html:
+      '<p>В выносной формуле <code>\sum</code> обычно ставит пределы сверху и снизу. <code>\nolimits</code> переносит их сбоку. Индекс и диапазон остаются теми же.</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>\begin{formulablock}
+
+      \begin{equation}\label{eq:sum}
+
+      \sum_{k=1}^{3}k=\sum\nolimits_{k=1}^{3}k=6,
+
+      \end{equation}
+
+      \indent где $k$ --- целочисленный индекс суммирования от 1 до 3.
+
+      \end{formulablock}</code></pre>
+
+      </div><p>Команда должна стоять сразу после нужного оператора. Не пытайтесь позиционировать индексы пробелами или отдельными надстрочными фрагментами: при изменении размера формулы они разойдутся.</p>'
+  - id: 'limit'
+    title: 'Предел: используйте имя оператора lim'
+    html:
+      '<p><code>\lim</code> набирает название оператора прямо и правильно размещает условие. Если написать просто <code>lim</code> в математическом режиме, получатся три курсивные переменные. Функцию синуса также задаём командой <code>\sin</code>.</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>\begin{formulablock}
+
+      \begin{equation}\label{eq:limit}
+
+      \lim_{x\to0}\frac{\sin x}{x}=1.
+
+      \end{equation}
+
+      Аргумент синуса выражен в радианах; $x$ безразмерен.
+
+      \end{formulablock}</code></pre>
+
+      </div><p>Предел равен единице для аргумента в радианах. Формула служит учебным примером типографики, не вычислением по измеренным данным. Полный результат редактора содержит также фразу о смене положения пределов в формуле интеграла.</p>'
+  - id: 'check'
+    title: 'Проверьте строку, номера и пояснения'
+    html:
+      '<ul><li>У оператора верно заданы верхний и нижний пределы.</li><li>Названия функций набраны командами, дифференциал отделён пробелом.</li><li>Строчная формула не раздвигает абзац без необходимости.</li><li>Выносная формула помещается по ширине, её номер не наложен на выражение.</li><li>Ссылка обновляется после сборки, пояснения не оторваны на другую страницу.</li></ul><p>«Просмотреть пример» открывает все показанные выражения; замените функции и диапазоны, затем проверьте PDF. Для номеров используйте <a href="/blog/formula-numbering-lab-reports-gost">автоматические метки</a>, для символов — <a href="/blog/formula-variable-explanation-where-gost">последовательные пояснения</a>. Основы математического режима собраны в <a href="/blog/latex-formulas">руководстве по формулам</a>.</p>
+
+      <p>Численные результаты в этом примере записаны в LaTeX, а не вычисляются автоматически. При изменении выражения пересчитайте их самостоятельно.</p>'
+editorExample:
+  - type: 'latex'
+    text: "\\documentclass[a4paper,14pt]{extarticle}
+
+      \\usepackage[T2A]{fontenc}
+
+      \\usepackage[utf8]{inputenc}
+
+      \\usepackage[russian]{babel}
+
+      \\usepackage{tempora,geometry,setspace,indentfirst}
+
+      \\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+
+      \\onehalfspacing
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\usepackage{amsmath,siunitx}
+
+      \\sisetup{output-decimal-marker={,},group-digits=false}
+
+      \\newenvironment{formulablock}{%
+
+      \  \\par\\noindent\\begin{minipage}[b]{\\textwidth}%
+
+      \  \\setlength{\\parindent}{1.25cm}%
+
+      \  \\setlength{\\abovedisplayskip}{0pt}%
+
+      \  \\setlength{\\abovedisplayshortskip}{0pt}%
+
+      \  \\vspace*{\\baselineskip}%
+
+      }{\\end{minipage}\\par}
+
+      \\begin{document}
+
+      В строке сумма $\\sum_{k=1}^{3}k$ набирается компактно.
+
+      Ниже сравниваются положения пределов в выносных выражениях.
+
+      Все переменные этого учебного примера безразмерны.
+
+      \\begin{formulablock}
+
+      \\begin{equation}\\label{eq:integral}
+
+      \\int_0^1 x\\,\\mathrm{d}x
+
+      =\\int\\limits_0^1 x\\,\\mathrm{d}x=\\frac12,
+
+      \\end{equation}
+
+      \\indent где $x$ --- переменная интегрирования;\\par
+
+      $\\mathrm{d}x$ --- дифференциал переменной $x$.
+
+      \\end{formulablock}
+
+      В формуле~\\eqref{eq:integral} изменено только положение пределов интеграла.
+
+      \\begin{formulablock}
+
+      \\begin{equation}\\label{eq:sum}
+
+      \\sum_{k=1}^{3}k=\\sum\\nolimits_{k=1}^{3}k=6,
+
+      \\end{equation}
+
+      \\indent где $k$ --- целочисленный индекс суммирования от 1 до 3.
+
+      \\end{formulablock}
+
+      \\begin{formulablock}
+
+      \\begin{equation}\\label{eq:limit}
+
+      \\lim_{x\\to0}\\frac{\\sin x}{x}=1.
+
+      \\end{equation}
+
+      Аргумент синуса выражен в радианах; $x$ безразмерен.
+
+      \\end{formulablock}
+
+      \\end{document}"
+    parameters:
+      visible: true
