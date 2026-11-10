@@ -5,7 +5,7 @@
  */
 (function () {
     const KEY = 'labkeeper_lang';
-    const LANGUAGES = ['ru', 'en'];
+    const LANGUAGES = ['ru', 'en', 'zh'];
     const YEAR_SECONDS = 60 * 60 * 24 * 365;
 
     const readStored = () => {
@@ -43,6 +43,28 @@
         return true;
     };
 
+    // Поисковые роботы исполняют скрипты с английским браузером (Googlebot — en-US).
+    // Им сайт отдаёт русский, иначе в выдачу попал бы перевод вместо оригинала
+    const ROBOT = /bot|crawl|spider|slurp|lighthouse/i;
+
+    /**
+     * Язык сайта по первому языку из настроек браузера: китайский и английский узнаём,
+     * для остальных и для роботов — null, страница остаётся на русском
+     */
+    const browserLanguage = () => {
+        const navigator = window.navigator || {};
+        if (ROBOT.test(navigator.userAgent || '')) {
+            return null;
+        }
+        const first =
+            (navigator.languages && navigator.languages[0]) ||
+            navigator.language;
+        const code = String(first || '')
+            .toLowerCase()
+            .split('-')[0];
+        return code === 'zh' || code === 'en' ? code : null;
+    };
+
     const page = document.documentElement.lang;
     const stored = readStored();
 
@@ -52,6 +74,18 @@
         stored !== page &&
         readCookie() !== stored &&
         switchTo(stored)
+    ) {
+        return;
+    }
+    // Первый заход из китайского или английского браузера: язык ещё никто не выбирал,
+    // поэтому страница переходит на язык браузера
+    const detected = browserLanguage();
+    if (
+        !LANGUAGES.includes(stored) &&
+        readCookie() === null &&
+        detected !== null &&
+        page !== detected &&
+        switchTo(detected)
     ) {
         return;
     }

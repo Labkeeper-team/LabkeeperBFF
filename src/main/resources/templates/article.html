@@ -108,7 +108,7 @@
                 <div class="header__left">
                     <button
                         class="header__burger js-burger-btn"
-                        aria-label="Открыть меню"
+                        th:aria-label="${i18n['aria-open-menu']}"
                     >
                         <span class="header__burger-line"></span>
                         <span class="header__burger-line"></span>
@@ -139,6 +139,13 @@
                         >
                             En
                         </button>
+                        <button
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'zh'} ? 'header__lang-btn--active'"
+                            data-lang="zh"
+                        >
+                            &#x4E2D;&#x6587;
+                        </button>
                     </div>
                 </div>
                 <nav class="header__nav js-nav">
@@ -156,6 +163,13 @@
                             data-lang="en"
                         >
                             En
+                        </button>
+                        <button
+                            class="header__lang-btn"
+                            th:classappend="${lang == 'zh'} ? 'header__lang-btn--active'"
+                            data-lang="zh"
+                        >
+                            &#x4E2D;&#x6587;
                         </button>
                     </div>
                     <ul class="header__nav-list">
@@ -231,15 +245,17 @@
                     >
                         <ol class="article-breadcrumbs__list">
                             <li class="article-breadcrumbs__item">
-                                <a href="/" class="article-breadcrumbs__link"
-                                    >Главная</a
-                                >
+                                <a
+                                    href="/"
+                                    class="article-breadcrumbs__link"
+                                    th:utext="${i18n['breadcrumb-home']}"
+                                ></a>
                             </li>
                             <li class="article-breadcrumbs__item">
                                 <a
                                     class="article-breadcrumbs__link"
                                     th:href="${article.catalogHref}"
-                                    th:text="${article.catalogLabel}"
+                                    th:text="${article.catalogHref == '/blog'} ? ${i18n['blog-catalog-label']} : ${i18n['templates-title']}"
                                     >Блог</a
                                 >
                             </li>
@@ -281,23 +297,26 @@
                                 class="article-tag"
                                 th:each="tag : ${article.tags}"
                                 th:href="|${article.catalogHref}#${tag.id}|"
-                                th:text="${tag.name}"
+                                th:text="${i18n['category-' + tag.id] ?: tag.name}"
                                 >Категория</a
                             >
                         </div>
                         <p
                             class="article-content__meta"
                             th:if="${!article.dateDisplay.isEmpty()}"
-                            th:text="|Обновлено: ${article.dateDisplay} · Время чтения: ~${article.readingTime}|"
+                            th:text="${#strings.replace(#strings.replace(i18n['article-meta'], '{date}', article.dateDisplays.get(lang)), '{minutes}', article.readingMinutes)}"
                         >
                             Обновлено
                         </p>
                         <nav
                             class="article-toc"
-                            aria-label="Содержание статьи"
+                            th:aria-label="${i18n['aria-article-toc']}"
                             th:if="${!article.toc.isEmpty()}"
                         >
-                            <p class="article-toc__title">Содержание</p>
+                            <p
+                                class="article-toc__title"
+                                th:utext="${i18n['article-toc-title']}"
+                            ></p>
                             <ol class="article-toc__list">
                                 <li th:each="item : ${article.toc}">
                                     <a
@@ -327,9 +346,10 @@
                             id="tips"
                             th:if="${!article.tips.isEmpty()}"
                         >
-                            <h2 class="article-section__title">
-                                Практические советы
-                            </h2>
+                            <h2
+                                class="article-section__title"
+                                th:utext="${i18n['article-tips-title']}"
+                            ></h2>
                             <div class="article-tips">
                                 <div
                                     class="article-tip"
@@ -403,9 +423,10 @@
 
             <section class="cta-features" id="cta-features">
                 <div class="cta-features__intro">
-                    <p class="cta-features__intro-label">
-                        Попробуйте прямо сейчас
-                    </p>
+                    <p
+                        class="cta-features__intro-label"
+                        th:utext="${i18n['cta-try']}"
+                    ></p>
                     <h2
                         class="cta-features__intro-title"
                         th:utext="${article.ctaTitle}"
@@ -451,7 +472,7 @@
             <div class="audience__container">
                 <h2
                     class="audience__title h1"
-                    th:text="${article.relatedTitle}"
+                    th:text="${article.catalogHref == '/blog'} ? ${i18n['blog-related-title']} : ${i18n['templates-related-title']}"
                 >
                     Другие статьи
                 </h2>
@@ -498,7 +519,8 @@
                         class="button button--outline audience__btn"
                         th:href="${article.relatedHref}"
                     >
-                        <span th:text="${article.relatedLabel}"
+                        <span
+                            th:text="${article.catalogHref == '/blog'} ? ${i18n['blog-filter-all']} : ${i18n['templates-filter-all']}"
                             >Все статьи</span
                         >
                         <span class="button__arrow">→</span>
@@ -587,7 +609,7 @@
             <div class="popup__content">
                 <button
                     class="popup__close js-popup-close"
-                    aria-label="Закрыть"
+                    th:aria-label="${i18n['aria-close']}"
                 >
                     <img
                         src="/assets/img/close.svg"
@@ -602,31 +624,29 @@
 
         <div id="cookie-banner" class="cookie-banner hidden">
             <div class="cookie-banner__container">
-                <p class="cookie-banner__text">
-                    Мы используем cookie и сервис Яндекс.Метрика для улучшения
-                    работы сайта. Подробнее — в
-                    <a
-                        href="/privacy"
-                        class="cookie-banner__link"
-                        target="_blank"
-                        >Политике обработки персональных данных</a
-                    >.
-                </p>
+                <p
+                    class="cookie-banner__text"
+                    th:utext="${i18n['cookie-text-short']}"
+                ></p>
                 <div class="cookie-banner__actions">
-                    <button id="cookie-accept" class="button button--primary">
-                        Принять
-                    </button>
-                    <button id="cookie-decline" class="button button--outline">
-                        Отказаться
-                    </button>
+                    <button
+                        id="cookie-accept"
+                        class="button button--primary"
+                        th:utext="${i18n['cookie-accept']}"
+                    ></button>
+                    <button
+                        id="cookie-decline"
+                        class="button button--outline"
+                        th:utext="${i18n['cookie-decline']}"
+                    ></button>
                 </div>
             </div>
         </div>
 
         <button
             class="scroll-top js-scroll-top"
-            aria-label="Наверх"
-            title="Наверх"
+            th:aria-label="${i18n['aria-to-top']}"
+            th:title="${i18n['aria-to-top']}"
         ></button>
 
         <script>

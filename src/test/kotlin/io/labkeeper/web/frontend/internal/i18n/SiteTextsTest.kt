@@ -23,6 +23,24 @@ class SiteTextsTest {
     }
 
     @Test
+    fun chineseHasEveryKey() {
+        val chinese = PathMatchingResourcePatternResolver().getResource("classpath:i18n/site_zh.properties")
+            .getContentAsString(Charsets.UTF_8)
+        texts[SiteLanguage.RU].keys.filter { !chinese.contains(Regex("(?m)^${Regex.escape(it)}=")) }.shouldBeEmpty()
+    }
+
+    @Test
+    fun everyTemplateOffersChinese() {
+        templates.forEach { (name, html) ->
+            withClue(name) {
+                if (html.contains("js-lang-switcher")) {
+                    html.contains("data-lang=\"zh\"") shouldBe true
+                }
+            }
+        }
+    }
+
+    @Test
     fun templatesUseOnlyKnownKeys() {
         templates.shouldNotBeEmpty()
         templates.forEach { (name, html) ->
@@ -37,7 +55,18 @@ class SiteTextsTest {
     @Test
     fun everyKeyIsUsed() {
         val used = templates.values.flatMap { html -> KEY.findAll(html).map { it.groupValues[1] } }.toSet()
-        texts[SiteLanguage.RU].keys.filter { it !in used }.shouldBeEmpty()
+        // category names are looked up by the category id: i18n['category-' + tag.id]
+        texts[SiteLanguage.RU].keys.filter { it !in used && !it.startsWith(DYNAMIC_PREFIX) }.shouldBeEmpty()
+    }
+
+    @Test
+    fun datesFollowTheLanguage() {
+        val date = java.time.LocalDate.of(2026, 3, 5)
+        SiteLanguage.formatDates(date) shouldBe mapOf(
+            "ru" to "5 марта 2026",
+            "en" to "5 March 2026",
+            "zh" to "2026年3月5日",
+        )
     }
 
     @Test
@@ -45,17 +74,21 @@ class SiteTextsTest {
         texts[SiteLanguage.RU].getValue("hero-title") shouldBe
             "Создавайте документы <span class=\"text-blue\">вместе с&nbsp;ИИ</span>"
         texts[SiteLanguage.EN].getValue("nav-templates") shouldBe "Templates"
+        texts[SiteLanguage.ZH].getValue("nav-templates") shouldBe "模板"
     }
 
     @Test
     fun languageComesFromTheCookieValue() {
         SiteLanguage.of("en") shouldBe SiteLanguage.EN
         SiteLanguage.of("ru") shouldBe SiteLanguage.RU
+        SiteLanguage.of("zh") shouldBe SiteLanguage.ZH
         SiteLanguage.of(null) shouldBe SiteLanguage.RU
         SiteLanguage.of("EN") shouldBe SiteLanguage.RU
     }
 
     private companion object {
-        val KEY = Regex("""\$\{i18n\['([^']+)']}""")
+        /** `${i18n['key']}`, and `i18n['key']` inside a longer expression */
+        val KEY = Regex("""i18n\['([^']+)']""")
+        const val DYNAMIC_PREFIX = "category-"
     }
 }

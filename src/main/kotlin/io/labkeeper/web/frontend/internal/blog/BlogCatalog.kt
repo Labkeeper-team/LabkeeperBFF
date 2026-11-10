@@ -1,6 +1,7 @@
 package io.labkeeper.web.frontend.internal.blog
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import io.labkeeper.web.frontend.internal.i18n.SiteLanguage
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver
 import org.springframework.stereotype.Component
@@ -78,6 +79,10 @@ class BlogArticle(yaml: Map<String, Any?>, siteUrl: String) {
     val tags = categoryIds.zip(categoryNames, ::ArticleTag)
     val dateModified = yaml["dateModified"] as String
     val dateDisplay: String = LocalDate.parse(dateModified).format(DATE_FORMAT)
+    val dateDisplays: Map<String, String> = SiteLanguage.formatDates(LocalDate.parse(dateModified))
+
+    /** The YAML keeps «6 мин»; the page writes the minutes in its own language. */
+    val readingMinutes: String = readingTime.filter(Char::isDigit).ifEmpty { readingTime }
     val exampleSegments = exampleSegments(yaml["editorExample"], slug)
     val editorExampleUrl = "/project/default?example=$slug"
     val openUrl = editorExampleUrl

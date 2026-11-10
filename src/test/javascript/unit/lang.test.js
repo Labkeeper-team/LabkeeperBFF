@@ -14,12 +14,15 @@ const SOURCE = readFileSync(
 
 const KEY = 'labkeeper_lang';
 
-/** Страница на языке page. cookie и stored — что уже лежит в браузере, cookiesBlocked — cookie не сохраняются */
-function openPage({ page, cookie = null, stored = null, cookiesBlocked = false }) {
+/**
+ * Страница на языке page. cookie и stored — что уже лежит в браузере, cookiesBlocked — cookie не сохраняются,
+ * browser — языки из настроек браузера
+ */
+function openPage({ page, cookie = null, stored = null, cookiesBlocked = false, browser = ['ru-RU'], userAgent = 'Mozilla/5.0' }) {
     const storage = new Map(stored ? [[KEY, stored]] : []);
     const jar = new Map(cookie ? [[KEY, cookie]] : []);
     const listeners = {};
-    const buttons = ['ru', 'en'].map((lang) => ({
+    const buttons = ['ru', 'en', 'zh'].map((lang) => ({
         lang,
         onClick: null,
         getAttribute: () => lang,
@@ -45,6 +48,7 @@ function openPage({ page, cookie = null, stored = null, cookiesBlocked = false }
         querySelectorAll: () => buttons,
     };
     const window = {
+        navigator: { languages: browser, language: browser[0], userAgent },
         localStorage: {
             getItem: (key) => (storage.has(key) ? storage.get(key) : null),
             setItem: (key, value) => storage.set(key, String(value)),
@@ -73,6 +77,20 @@ test('кнопка другого языка ставит cookie и переза
     assert.equal(page.jar.get(KEY), 'en');
     assert.equal(page.storage.get(KEY), 'en');
     assert.equal(page.reloads, 1);
+});
+
+test('кнопка китайского ставит cookie zh и перезагружает страницу', () => {
+    const page = openPage({ page: 'en', cookie: 'en' });
+    page.click('zh');
+    assert.equal(page.jar.get(KEY), 'zh');
+    assert.equal(page.storage.get(KEY), 'zh');
+    assert.equal(page.reloads, 1);
+});
+
+test('китайский, выбранный в редакторе, доходит до сайта', () => {
+    const page = openPage({ page: 'ru', stored: 'zh' });
+    assert.equal(page.reloads, 1);
+    assert.equal(page.jar.get(KEY), 'zh');
 });
 
 test('кнопка текущего языка ничего не делает', () => {
@@ -109,4 +127,56 @@ test('чужое значение в localStorage не трогает стран
     const page = openPage({ page: 'ru', stored: 'de' });
     assert.equal(page.reloads, 0);
     assert.equal(page.storage.get(KEY), 'ru');
+});
+
+test('первый заход из китайского браузера переключает сайт на китайский', () => {
+    const page = openPage({ page: 'ru', browser: ['zh-CN', 'zh'] });
+    assert.equal(page.reloads, 1);
+    assert.equal(page.jar.get(KEY), 'zh');
+    assert.equal(page.storage.get(KEY), 'zh');
+
+    const after = openPage({ page: 'zh', cookie: 'zh', stored: 'zh', browser: ['zh-CN'] });
+    assert.equal(after.reloads, 0);
+});
+
+test('китайский браузер не отменяет язык, который человек уже выбрал', () => {
+    const chosen = openPage({ page: 'ru', cookie: 'ru', browser: ['zh-TW'] });
+    assert.equal(chosen.reloads, 0);
+
+    const fromEditor = openPage({ page: 'en', cookie: 'en', stored: 'en', browser: ['zh-CN'] });
+    assert.equal(fromEditor.reloads, 0);
+});
+
+test('другие языки браузера оставляют сайт на русском', () => {
+    const page = openPage({ page: 'ru', browser: ['de-DE', 'zh-CN'] });
+    assert.equal(page.reloads, 0);
+    assert.equal(page.storage.get(KEY), 'ru');
+});
+
+test('китайский браузер без cookie не перезагружает страницу по кругу', () => {
+    const page = openPage({ page: 'ru', browser: ['zh-CN'], cookiesBlocked: true });
+    assert.equal(page.reloads, 0);
+});
+
+test('первый заход из английского браузера переключает сайт на английский', () => {
+    const page = openPage({ page: 'ru', browser: ['en-US', 'en'] });
+    assert.equal(page.reloads, 1);
+    assert.equal(page.jar.get(KEY), 'en');
+    assert.equal(page.storage.get(KEY), 'en');
+});
+
+test('русский браузер остаётся на русском', () => {
+    const page = openPage({ page: 'ru', browser: ['ru-RU', 'en-US'] });
+    assert.equal(page.reloads, 0);
+    assert.equal(page.storage.get(KEY), 'ru');
+});
+
+test('поисковые роботы с английским браузером видят русский', () => {
+    const googlebot = openPage({
+        page: 'ru',
+        browser: ['en-US'],
+        userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+    });
+    assert.equal(googlebot.reloads, 0);
+    assert.equal(googlebot.jar.get(KEY), undefined);
 });
