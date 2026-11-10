@@ -1,0 +1,169 @@
+catalogIndex: 140
+slug: 'latex-heatmap-matrix-plot-pgfplots'
+batch: 3
+title: 'Тепловые карты и матрицы в LaTeX: matrix plot в PGFPlots'
+pageTitle: 'Тепловые карты и матрицы в LaTeX: matrix plot в PGFPlots — Labkeeper'
+metaDescription: 'Как построить тепловую карту 3 × 3 в PGFPlots: задать данные, фиксированную нормировку, палитру, цветовую шкалу с единицами и подпись рисунка.'
+breadcrumbTitle: 'Тепловые карты в LaTeX'
+h1: 'Тепловые карты и матрицы в LaTeX: matrix plot в PGFPlots'
+categories:
+  - 'latex'
+related:
+  - 'latex-pgfplots-function-graphs'
+  - 'latex-custom-rgb-hex-colors-xcolor'
+  - 'experiment-results-analysis-lab-report'
+keywords:
+  - 'тепловая карта LaTeX'
+  - 'pgfplots matrix plot'
+  - 'матрица цветов LaTeX'
+datePublished: '2026-11-09'
+dateModified: '2026-11-09'
+readingTime: '6 мин'
+cardTitle: 'Тепловые карты и матрицы в LaTeX: matrix plot в PGFPlots'
+cardDescription: 'Как построить тепловую карту 3 × 3 в PGFPlots: задать данные, фиксированную нормировку, палитру, цветовую шкалу с единицами и подпись рисунка.'
+sliderTitle: 'Тепловые карты в LaTeX'
+sliderText: 'Как построить тепловую карту 3 × 3 в PGFPlots: задать данные, фиксированную нормировку, палитру, цветовую шкалу с единицами и подпись рисунка.'
+sidebarText: 'Редактируйте значения матрицы и параметры цветовой шкалы в LaTeX-примере Labkeeper.'
+ctaTitle: 'Постройте карту своей матрицы'
+ctaText: 'Откройте пример 3 × 3, замените температуры и подписи, согласуйте диапазон цветов и проверьте PDF.'
+toc:
+  - id: 'meaning'
+    title: 'Что показывает тепловая карта'
+  - id: 'data'
+    title: 'Согласуйте матрицу и подписи'
+  - id: 'colors'
+    title: 'Зафиксируйте нормировку и палитру'
+  - id: 'code'
+    title: 'Постройте matrix plot в LaTeX'
+  - id: 'report'
+    title: 'Добавьте ссылку и подпись рисунка'
+  - id: 'check'
+    title: 'Проверьте результат после замены данных'
+sections:
+  - id: 'meaning'
+    title: 'Что показывает тепловая карта'
+    html: |2-
+      <p>Тепловая карта сопоставляет каждому элементу матрицы цвет. Чтобы читатель понял рисунок, назовите строки и столбцы, укажите величину и единицу цветовой шкалы. Само слово «тепловая» не ограничивает данные температурой: так можно показывать и другие сопоставимые величины.</p>
+      <p>Рассмотрим девять вымышленных температур трёх датчиков. Столбцы соответствуют времени 0, 5 и 10 мин, строки — датчикам А, Б и В. Построим матрицу в PGFPlots и проверим, что крайние значения, подписи и цвета согласованы. Для обычных зависимостей по точкам используйте <a href="/blog/latex-pgfplots-function-graphs">графики PGFPlots</a>.</p>
+  - id: 'data'
+    title: 'Согласуйте матрицу и подписи'
+    html: |2-
+      <p>В примере каждая ячейка содержит температуру в градусах Цельсия. Это учебные данные, а не результат реального измерения.</p>
+      <div class="article-table-wrapper"><table class="article-table"><thead><tr><th>Датчик</th><th>0 мин</th><th>5 мин</th><th>10 мин</th></tr></thead><tbody><tr><td>А</td><td>20</td><td>25</td><td>30</td></tr><tr><td>Б</td><td>25</td><td>30</td><td>35</td></tr><tr><td>В</td><td>30</td><td>35</td><td>40</td></tr></tbody></table></div>
+      <p>В коде координаты <code>x</code> и <code>y</code> — индексы столбца и строки от 1 до 3. Физическое время задаётся подписями <code>xticklabels={0,5,10}</code>, а столбец <code>T</code> хранит температуру. Не меняйте только подписи времени, если порядок самих значений в матрице изменился.</p>
+  - id: 'colors'
+    title: 'Зафиксируйте нормировку и палитру'
+    html: |2-
+      <p>Установите <code>point meta min=20</code> и <code>point meta max=40</code>: белый цвет означает 20 °C, синий — 40 °C, промежуточные оттенки получаются линейно. Температура 30 °C находится посередине диапазона, 25 °C — на четверти пути от нижней границы к верхней. Это нормировка цвета, а не преобразование исходных температур в доли.</p>
+      <p>Если сравниваете несколько карт, сохраняйте одинаковые пределы и палитру. Автоматическое растягивание по минимуму и максимуму каждой матрицы способно придать одному значению разные цвета. Механизм <code>point meta</code> и явные пределы описаны в <a href="https://tikz.dev/pgfplots/reference-meta" target="_blank" rel="noopener noreferrer">документации PGFPlots о цветовых данных</a>.</p>
+      <div class="article-note"><strong>Не прячьте выход за шкалу.</strong> После замены данных проверьте весь диапазон: значения вне 20–40 °C могут получить крайние цвета и стать визуально неразличимыми. Обоснованно измените общую шкалу и обновите текст. Пропуск измерения нельзя заменять нулём.</div>
+  - id: 'code'
+    title: 'Постройте matrix plot в LaTeX'
+    html: |2-
+      <p>В преамбуле нужны <code>\usepackage{pgfplots}</code> и <code>\pgfplotsset{compat=1.18}</code>. Вставьте следующий рисунок в тело документа. Параметр <code>mesh/cols=3</code> задаёт три значения в строке: сначала меняется <code>x</code>, затем <code>y</code>. <code>point meta=explicit</code> берёт цвет из столбца <code>T</code>, а <code>nodes near coords</code> печатает это же число в ячейке.</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>\begin{tikzpicture}
+      \begin{axis}[
+        width=0.7\textwidth,height=7cm,
+        enlargelimits=false,
+        xtick={1,2,3},xticklabels={0,5,10},
+        ytick={1,2,3},yticklabels={А,Б,В},
+        xlabel={Время $t$, мин},ylabel={Датчик},
+        point meta min=20,point meta max=40,
+        colormap={heat}{color(0cm)=(white); color(1cm)=(blue!55)},
+        colorbar,colorbar style={ylabel={Температура $T$, $^\circ$C},
+          ytick={20,25,30,35,40}},
+        nodes near coords,
+        every node near coord/.append style={font=\normalsize,text=black}
+      ]
+      \addplot[matrix plot,mesh/cols=3,point meta=explicit]
+        table[meta=T] {
+      x y T
+      1 1 20
+      2 1 25
+      3 1 30
+      1 2 25
+      2 2 30
+      3 2 35
+      1 3 30
+      2 3 35
+      3 3 40
+      };
+      \end{axis}
+      \end{tikzpicture}</code></pre></div>
+      <p>Обычный <code>matrix plot</code> размещает первую строку сверху, как в таблице. Параметр <code>enlargelimits=false</code> убирает дополнительный запас вокруг крайних ячеек. Различия <code>matrix plot</code> и <code>matrix plot*</code>, порядок данных и требования к сетке разобраны в <a href="https://tikz.dev/pgfplots/reference-3dplots#sec-4.6.12" target="_blank" rel="noopener noreferrer">руководстве по матричным графикам</a>. Цвет здесь постоянен внутри ячейки: плавное поле между датчиками не восстанавливается.</p>
+  - id: 'report'
+    title: 'Добавьте ссылку и подпись рисунка'
+    html: |2-
+      <p>До рисунка дайте ссылку <code>На рисунке~\ref{fig:heat}</code>, после графика — <code>\caption{Температуры датчиков в учебном примере}\label{fig:heat}</code> внутри окружения <code>figure</code>. В открываемом примере подпись «Рисунок 1 — …» расположена снизу по центру, основной текст чёрный, формат страницы A4, поля и полуторный интервал настроены по <a href="https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf" target="_blank" rel="noopener noreferrer">ГОСТ 7.32-2017, пункты 6.1 и 6.5</a>. Цвет кодирует данные рисунка. Для лабораторной сверяйтесь с методичкой кафедры, включая допустимость цвета.</p>
+      <p>Это фрагмент с рисунком и выводом, без титула и остальных частей отчёта. При переносе в основной документ используйте его общие настройки страницы и подписей. Числа внутри ячеек помогают читать карту при чёрно-белой печати; проверьте также контраст и читаемость шкалы.</p>
+  - id: 'check'
+    title: 'Проверьте результат после замены данных'
+    html: |2-
+      <p>«Просмотреть пример» открывает редактируемый LaTeX-документ с этой матрицей. Замените девять значений в столбце <code>T</code>, подписи датчиков и времени, при необходимости пределы цветовой шкалы. Код строит карту из заданных значений; палитру и нормировку вы меняете в параметрах PGFPlots.</p>
+      <ul><li>Убедитесь, что получилось девять ячеек: А–0 мин равна 20 °C, В–10 мин равна 40 °C.</li><li>Сопоставьте оттенки одинаковых чисел: три ячейки со значением 30 °C должны иметь один цвет.</li><li>Проверьте единицу у цветовой шкалы, порядок строк и отсутствие наложений подписей в PDF.</li><li>Обновите вывод: в момент 10 мин разность между датчиками В и А составляет 10 °C. Карта показывает различие, но не объясняет его причину.</li></ul>
+      <p>Для количественного заключения добавьте сведения об условиях и погрешностях; порядок работы описан в статье про <a href="/blog/experiment-results-analysis-lab-report">анализ результатов эксперимента</a>.</p>
+editorExample:
+  - type: 'latex'
+    text: |2-
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,geometry,setspace,indentfirst}
+      \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \usepackage{pgfplots,caption}
+      \pgfplotsset{compat=1.18}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \DeclareCaptionTextFormat{gostfiguretitle}{%
+        \hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1\vphantom{у}}
+      \captionsetup[figure]{name=Рисунок,labelsep=gostdash,font={normalsize,singlespacing},justification=centering,singlelinecheck=false,strut=off,textformat=gostfiguretitle}
+      \AddToHook{env/figure/before}{\begingroup\setlength{\intextsep}{0pt}}
+      \AddToHook{env/figure/begin}{\vspace{\baselineskip}}
+      \AddToHook{env/figure/after}{\endgroup}
+      \begin{document}
+      На рисунке~\ref{fig:heat} показаны вымышленные температуры
+      трёх датчиков через 0, 5 и 10~мин. Цветовая шкала во всех
+      ячейках линейная и фиксированная: от 20 до 40~$^\circ$C.
+      \par
+      \begin{figure}[!ht]
+      \centering
+      \begin{tikzpicture}
+      \begin{axis}[
+        width=0.7\textwidth,height=7cm,
+        enlargelimits=false,
+        xtick={1,2,3},xticklabels={0,5,10},
+        ytick={1,2,3},yticklabels={А,Б,В},
+        xlabel={Время $t$, мин},ylabel={Датчик},
+        point meta min=20,point meta max=40,
+        colormap={heat}{color(0cm)=(white); color(1cm)=(blue!55)},
+        colorbar,colorbar style={ylabel={Температура $T$, $^\circ$C},
+          ytick={20,25,30,35,40}},
+        nodes near coords,
+        every node near coord/.append style={font=\normalsize,text=black}
+      ]
+      \addplot[matrix plot,mesh/cols=3,point meta=explicit]
+        table[meta=T] {
+      x y T
+      1 1 20
+      2 1 25
+      3 1 30
+      1 2 25
+      2 2 30
+      3 2 35
+      1 3 30
+      2 3 35
+      3 3 40
+      };
+      \end{axis}
+      \end{tikzpicture}
+      \caption{Температуры датчиков в учебном примере}\label{fig:heat}
+      \end{figure}
+      \par
+      В момент 10~мин датчик В показывает 40~$^\circ$C,
+      датчик А --- 30~$^\circ$C. Разность составляет 10~$^\circ$C.
+      По этой карте нельзя установить причину различия температур.
+      \end{document}
+    parameters:
+      visible: true

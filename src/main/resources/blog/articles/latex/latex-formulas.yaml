@@ -348,6 +348,9 @@ sections:
                                       </div>
                                   </div>
                               </div>
+      <p>Для сообщений <code>Undefined control sequence</code> и <code>Missing $ inserted</code> используйте разбор <a href="/blog/latex-compilation-errors-undefined-missing-overfull">ошибок компиляции LaTeX</a>.</p>
+      <p>Положение индексов у операторов разобрано в статье об <a href="/blog/latex-integrals-sums-limits-typography">интегралах, суммах и пределах</a>.</p>
+      <p>Выбор греческих букв, прямые имена функций и экранирование служебных знаков рассмотрены в статье про <a href="/blog/latex-math-operators-greek-special-symbols">математические операторы и спецсимволы</a>.</p>
 editorExample:
   latex: |2-
     \documentclass[a4paper,12pt]{article}

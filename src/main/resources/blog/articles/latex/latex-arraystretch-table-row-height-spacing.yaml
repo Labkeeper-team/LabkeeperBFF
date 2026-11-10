@@ -138,6 +138,7 @@ sections:
       \rule{0pt}{3ex} Высокая ячейка шапки & Значение \\[1ex]
       \hline</code></pre>
                               </div>
+      <p>Если сначала нужно выбрать окружение, см. <a href="/blog/latex-tables-tabular-longtable-booktabs-guide">таблицы LaTeX: tabular, longtable и booktabs</a>.</p>
 tips:
   - title: 'Коэффициент 1.25–1.3 для отчетов'
     html: |2-

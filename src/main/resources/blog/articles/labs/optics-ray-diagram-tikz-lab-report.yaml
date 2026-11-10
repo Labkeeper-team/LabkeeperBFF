@@ -1,0 +1,268 @@
+catalogIndex: 115
+slug: optics-ray-diagram-tikz-lab-report
+batch: 3
+title: 'Оптические схемы в отчёте по физике: лучи в TikZ'
+pageTitle: 'Оптическая схема в отчёте по физике: пример TikZ — Labkeeper'
+metaDescription: 'Как построить лучевую схему собирающей линзы в LaTeX: направления лучей, проверка изображения, подпись рисунка и редактируемый пример TikZ для лабораторной.'
+breadcrumbTitle: Оптические схемы в отчёте по физике
+h1: Оптические схемы в&nbsp;отчёте по&nbsp;физике
+categories:
+  - labs
+  - latex
+related:
+  - latex-tikz-automata-graphs
+  - figure-double-numbering-chapters-gost
+  - formula-variable-explanation-where-gost
+keywords:
+  - оптическая схема отчет физика лабораторная
+  - лучевая схема линзы tikz
+  - оптическая схема latex
+datePublished: '2026-11-07'
+dateModified: '2026-11-07'
+readingTime: 7 мин
+cardTitle: Лучевая схема линзы для отчёта по физике
+cardDescription: 'Два луча, фокусы, действительное изображение и проверка расчётом. Короткий пример TikZ с подписью рисунка.'
+sliderTitle: Оптические схемы в отчёте по физике
+sliderText: 'Лучевые схемы — TikZ в LaTeX-проекте: построение и проверка изображения.'
+sidebarText: 'Откройте лучевую схему в Labkeeper: измените координаты TikZ и проверьте их по формуле тонкой линзы.'
+ctaTitle: Нарисуйте точную оптическую схему для&nbsp;защиты!
+ctaText: 'Отредактируйте TikZ в LaTeX-проекте и проверьте в PDF направления лучей, положение изображения и подпись рисунка.'
+toc:
+  - id: model
+    title: Что показывает лучевая схема
+  - id: data
+    title: Исходные данные и проверка изображения
+  - id: setup
+    title: Пакеты и оформление рисунка
+  - id: tikz
+    title: Два луча и пересечение в точке изображения
+  - id: editor
+    title: Что изменить в примере Labkeeper
+sections:
+  - id: model
+    title: Что показывает лучевая схема
+    html: |-
+      <p>В отчёте по физике оптическая схема должна показывать, откуда выходят лучи, как они проходят через линзу и где возникает изображение. Если нарисовать только линзу и две стрелки, по рисунку нельзя проверить построение. Рассмотрим короткий LaTeX-фрагмент с лучами, обозначениями, расчётом и подписью.</p>
+      <p>Используем модель <strong>тонкой собирающей линзы в воздухе</strong>. В параксиальном приближении лучи идут близко к оптической оси под малыми углами; толщиной линзы пренебрегают. Схема объясняет образование изображения, а не устройство оправы или реальный профиль поверхностей. Для расчёта аберраций такой модели недостаточно.</p>
+      <p>Правила построения и знаков приведены в <a href="https://openstax.org/books/university-physics-volume-3/pages/2-4-thin-lenses">учебнике OpenStax, раздел «Thin Lenses»</a>: параллельный оси луч после линзы проходит через дальний фокус, а луч через оптический центр не меняет направления. Двух лучей из одной точки предмета достаточно, чтобы найти соответствующую точку изображения.</p>
+  - id: data
+    title: Исходные данные и проверка изображения
+    html: |-
+      <p>Выберем вымышленные учебные значения: фокусное расстояние <em>f = 2 см</em>, расстояние до предмета <em>a = 3 см</em>, высота предмета <em>h = 0,3 см</em>. Это расчётный пример, измерения не проводились. Предмет находится между фокусом и двойным фокусом: <em>f &lt; a &lt; 2f</em>.</p>
+      <p>Для собирающей линзы берём положительное <em>f</em>; у действительного предмета <em>a &gt; 0</em>, у действительного изображения по другую сторону линзы <em>b &gt; 0</em>. Знак высоты изображения показывает его ориентацию. Вставьте следующий блок в тело документа:</p><div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>Рассмотрим вымышленный учебный пример тонкой собирающей линзы
+      в воздухе: $f=2$~см, $a=3$~см, $h=0{,}3$~см.
+      \par\vspace{0.35\baselineskip}\noindent\begin{minipage}[b]{\linewidth}
+      \setlength{\parindent}{1.25cm}
+      Расстояние до действительного изображения находим из уравнения
+      \begin{equation}
+        \frac{1}{f}=\frac{1}{a}+\frac{1}{b},
+        \label{eq:lens}
+      \end{equation}
+      \par\indent где~\begin{tabular}[t]{@{}l@{~---~}l@{}}
+      $f$ &amp; фокусное расстояние, см;\\
+      $a$ &amp; расстояние от предмета до линзы, см;\\
+      $b$ &amp; расстояние от линзы до изображения, см.
+      \end{tabular}\par
+      \end{minipage}\par\vspace{0.25\baselineskip}
+      По формуле~\eqref{eq:lens} получаем $b=6$~см.
+      \par\vspace{0.35\baselineskip}\noindent\begin{minipage}[b]{\linewidth}
+      \setlength{\parindent}{1.25cm}
+      Поперечное увеличение определяем по формуле
+      \begin{equation}
+        \Gamma=\frac{h'}{h}=-\frac{b}{a},
+        \label{eq:gain}
+      \end{equation}
+      \par\indent где~\begin{tabular}[t]{@{}l@{~---~}l@{}}
+      $\Gamma$ &amp; поперечное увеличение, безразмерное;\\
+      $h'$ &amp; высота изображения со знаком, см;\\
+      $h$ &amp; высота предмета, см.
+      \end{tabular}\par
+      \end{minipage}\par\vspace{0.25\baselineskip}
+      По формуле~\eqref{eq:gain} получаем $\Gamma=-2$ и $h'=-0{,}6$~см.
+      Изображение действительное, перевёрнутое и увеличенное вдвое.\par{}</code></pre>
+      </div>
+      <p>При расстояниях в сантиметрах проверка даёт <em>1/2 = 1/3 + 1/6</em>. Полученное расстояние <em>b = 6 см</em> больше <em>2f = 4 см</em>. Отрицательное увеличение означает перевёрнутое изображение, модуль увеличения 2 — удвоенную высоту. Порядок символов и единицы в блоках «где» разобраны в статье <a href="/blog/formula-variable-explanation-where-gost">о пояснениях переменных под формулой</a>.</p>
+  - id: setup
+    title: Пакеты и оформление рисунка
+    html: |-
+      <p>Для схемы подключите <code>tikz</code>, а для стрелок внутри отрезков — библиотеки <code>arrows.meta</code> и <code>decorations.markings</code>. Последняя ставит отметку в заданном месте пути; синтаксис описан в <a href="https://tikz.dev/library-decorations#sec-50.6">официальном руководстве PGF/TikZ</a>. Эти строки относятся к преамбуле:</p><div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage{amsmath,tikz,caption,float}
+      \usetikzlibrary{arrows.meta,decorations.markings}</code></pre>
+      </div>
+      <p>Подпись оформите через пакет <code>caption</code>; эти настройки также относятся к преамбуле:</p><div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\DeclareCaptionLabelSeparator{emdash}{\ --- }
+      \DeclareCaptionFont{nohyphen}{\hyphenpenalty=10000\exhyphenpenalty=10000}
+      \captionsetup[figure]{name=Рисунок,labelsep=emdash,
+        justification=centering,singlelinecheck=false,
+        font={normalsize,stretch=1},
+        textfont=nohyphen}</code></pre>
+      </div>
+      <p>Для подписи используем правила <a href="https://protect.gost.ru/gost/details/7d280e43-7036-4a69-8e6e-d15867028343">ГОСТ 7.32-2017</a>: ссылка в тексте, номер рисунка и название снизу по центру, без точки и переносов слов. Конкретные положения — пункты 6.5.1, 6.5.4, 6.5.7–6.5.8; формулы и пояснения — 6.8 в <a href="https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf">тексте стандарта на сайте МЭИ</a>. Стандарт относится к отчётам о НИР; оформление лабораторной сверяйте с методичкой кафедры.</p>
+      <div class="article-note"><strong>Границы примера.</strong> Это учебная лучевая схема, а не конструкторский чертёж оптической системы. Пример реализует перечисленные правила оформления рисунка и формул; соответствие чертёжным стандартам ЕСКД здесь не заявляется.</div>
+  - id: tikz
+    title: Два луча и пересечение в точке изображения
+    html: |-
+      <p>Расположим оптический центр <em>O</em> в начале координат. Фокусы находятся при <em>x = −2</em> и <em>x = 2</em>, двойные фокусы — при <em>x = −4</em> и <em>x = 4</em>. Предмет занимает отрезок от <em>A(−3; 0)</em> до <em>B(−3; 0,3)</em>, изображение — от <em>A′(6; 0)</em> до <em>B′(6; −0,6)</em>.</p>
+      <ol>
+      <li>Из верхушки <em>B</em> проведите луч параллельно оси до линзы. После линзы он идёт через правый фокус <em>F₂</em> к <em>B′</em>.</li>
+      <li>Второй луч из той же точки проведите через <em>O</em> без изменения направления.</li>
+      <li>Поставьте стрелки на обоих участках каждого луча слева направо. Точка пересечения должна совпасть с верхушкой перевёрнутого изображения.</li>
+      </ol>
+      <p>Вставьте рисунок после расчёта. Параметр <code>[H]</code> требует пакета <code>float</code> в преамбуле и оставляет небольшой рисунок в месте вставки. Его подпись и ссылка получат номер автоматически:</p><div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>Построение показано на рисунке~\ref{fig:lens}.
+      \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[x=1.25cm,y=1.25cm,&gt;=Stealth,
+        ray/.style={postaction={decorate},decoration={markings,
+          mark=at position 0.55 with {\arrow{Stealth}}}}]
+        \draw[dash dot] (-4.4,0) -- (6.6,0);
+        \draw[&lt;-&gt;,thick] (0,-1) -- (0,1) node[above] {Линза};
+        \foreach \x/\name in {-4/2F_1,-2/F_1}
+          \draw (\x,-0.06) -- (\x,0.06) node[below=5pt] {$\name$};
+        \foreach \x/\name in {2/F_2,4/2F_2}
+          \draw (\x,-0.06) -- (\x,0.06) node[above=4pt] {$\name$};
+        \node[below left] at (0,0) {$O$};
+        \draw[-&gt;,thick] (-3,0) node[below] {$A$}
+          -- (-3,0.3) node[above] {$B$};
+        \draw[-&gt;,thick] (6,0) node[above] {$A'$}
+          -- (6,-0.6) node[below] {$B'$};
+        \draw[ray] (-3,0.3) -- (0,0.3);
+        \draw[ray] (0,0.3) -- (6,-0.6);
+        \draw[ray] (-3,0.3) -- (0,0);
+        \draw[ray] (0,0) -- (6,-0.6);
+      \end{tikzpicture}
+      \caption{Построение изображения в тонкой линзе}
+      \label{fig:lens}
+      \end{figure}
+      Здесь $O$ --- оптический центр, $F_1$ и $F_2$ --- фокусы;
+      $AB$ --- предмет, $A'B'$ --- изображение.
+      Одна координатная единица соответствует 1~см модели;
+      на бумаге это 1{,}25~см по обеим осям.\par{}</code></pre>
+      </div>
+      <p>Параметры <code>x=1.25cm,y=1.25cm</code> задают одинаковый масштаб по обеим осям, поэтому наклоны и отношение высот сохраняются. Максимальный угол луча к оси здесь около 8,5°; это иллюстрация параксиальной модели, а не оценка её точности для реальной линзы. Условный знак линзы, высота букв и стрелок не задают размеры прибора. Основы работы с узлами и линиями разобраны в статье <a href="/blog/latex-tikz-automata-graphs">о схемах и графах в TikZ</a>.</p>
+      <p>Стиль <code>ray</code> добавляет стрелку на 55 % длины каждого направленного отрезка. Излом первого луча находится на линзе; два отрезка второго лежат на одной прямой. Продолжений мнимых лучей в этом примере нет.</p>
+  - id: editor
+    title: Что изменить в примере Labkeeper
+    html: |-
+      <p>Кнопка «Просмотреть пример» открывает тот же расчёт и рисунок в LaTeX-проекте. Служебный сегмент содержит преамбулу: A4, 14 pt, <code>tempora</code>, полуторный интервал, поля 30/15/20/20 мм и абзацный отступ 1,25 см. Далее идут расчёт, рисунок, проверка и завершение документа. Титула и оглавления нет: это фрагмент для включения в отчёт.</p>
+      <p><strong>Числа в тексте не управляют рисунком.</strong> Координаты TikZ заданы явно. Если заменить только <code>$a=3$</code> в абзаце, схема останется прежней. Для своих данных сначала пересчитайте расстояние до изображения и увеличение, затем согласованно измените положение фокусов, предмета, изображения и концы лучей. При изменении фокусного расстояния обновите также отметки двойных фокусов. Изменение масштаба <code>x</code> и <code>y</code> само по себе не меняет физические данные.</p>
+      <p>В конце документа оставьте короткую проверку построения:</p><div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>Проверка: $(1/2)$~см$^{-1}=(1/3+1/6)$~см$^{-1}$; $f&lt;a&lt;2f$, $b&gt;2f$.
+      Лучи из точки $B$ пересекаются в точке $B'$ за двойным фокусом справа.
+      Построение выполнено в параксиальном приближении тонкой линзы;
+      толщина линзы и аберрации не учитываются.\par{}</code></pre>
+      </div>
+      <p>После сборки PDF проверьте, что подпись находится под рисунком, все обозначения читаются, стрелки направлены по ходу света, а лучи действительно пересекаются в <em>B′</em>. Если предмет переместился внутрь фокуса или изображение стало мнимым, эту схему нужно перестроить с другим ходом лучей и их продолжений; замены подписи недостаточно.</p>
+      <p>Для общего изображения оборудования см. <a href="/blog/experimental-setup-diagram-tikz-report">схему экспериментальной установки в TikZ</a> и различие между рисунком и измерением размеров.</p>
+editorExample:
+  - type: latex
+    text: |-
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,setspace}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage{amsmath,tikz,caption,float}
+      \usetikzlibrary{arrows.meta,decorations.markings}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \setlength{\abovedisplayskip}{\baselineskip}
+      \setlength{\belowdisplayskip}{\baselineskip}
+      \setlength{\abovedisplayshortskip}{\baselineskip}
+      \setlength{\belowdisplayshortskip}{\baselineskip}
+      \DeclareCaptionLabelSeparator{emdash}{\ --- }
+      \DeclareCaptionFont{nohyphen}{\hyphenpenalty=10000\exhyphenpenalty=10000}
+      \captionsetup[figure]{name=Рисунок,labelsep=emdash,
+        justification=centering,singlelinecheck=false,
+        font={normalsize,stretch=1},
+        textfont=nohyphen}
+      \begin{document}
+    parameters:
+      visible: true
+  - type: latex
+    text: |-
+      Рассмотрим вымышленный учебный пример тонкой собирающей линзы
+      в воздухе: $f=2$~см, $a=3$~см, $h=0{,}3$~см.
+      \par\vspace{0.35\baselineskip}\noindent\begin{minipage}[b]{\linewidth}
+      \setlength{\parindent}{1.25cm}
+      Расстояние до действительного изображения находим из уравнения
+      \begin{equation}
+        \frac{1}{f}=\frac{1}{a}+\frac{1}{b},
+        \label{eq:lens}
+      \end{equation}
+      \par\indent где~\begin{tabular}[t]{@{}l@{~---~}l@{}}
+      $f$ & фокусное расстояние, см;\\
+      $a$ & расстояние от предмета до линзы, см;\\
+      $b$ & расстояние от линзы до изображения, см.
+      \end{tabular}\par
+      \end{minipage}\par\vspace{0.25\baselineskip}
+      По формуле~\eqref{eq:lens} получаем $b=6$~см.
+      \par\vspace{0.35\baselineskip}\noindent\begin{minipage}[b]{\linewidth}
+      \setlength{\parindent}{1.25cm}
+      Поперечное увеличение определяем по формуле
+      \begin{equation}
+        \Gamma=\frac{h'}{h}=-\frac{b}{a},
+        \label{eq:gain}
+      \end{equation}
+      \par\indent где~\begin{tabular}[t]{@{}l@{~---~}l@{}}
+      $\Gamma$ & поперечное увеличение, безразмерное;\\
+      $h'$ & высота изображения со знаком, см;\\
+      $h$ & высота предмета, см.
+      \end{tabular}\par
+      \end{minipage}\par\vspace{0.25\baselineskip}
+      По формуле~\eqref{eq:gain} получаем $\Gamma=-2$ и $h'=-0{,}6$~см.
+      Изображение действительное, перевёрнутое и увеличенное вдвое.\par{}
+    parameters:
+      visible: true
+  - type: latex
+    text: |-
+      Построение показано на рисунке~\ref{fig:lens}.
+      \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[x=1.25cm,y=1.25cm,>=Stealth,
+        ray/.style={postaction={decorate},decoration={markings,
+          mark=at position 0.55 with {\arrow{Stealth}}}}]
+        \draw[dash dot] (-4.4,0) -- (6.6,0);
+        \draw[<->,thick] (0,-1) -- (0,1) node[above] {Линза};
+        \foreach \x/\name in {-4/2F_1,-2/F_1}
+          \draw (\x,-0.06) -- (\x,0.06) node[below=5pt] {$\name$};
+        \foreach \x/\name in {2/F_2,4/2F_2}
+          \draw (\x,-0.06) -- (\x,0.06) node[above=4pt] {$\name$};
+        \node[below left] at (0,0) {$O$};
+        \draw[->,thick] (-3,0) node[below] {$A$}
+          -- (-3,0.3) node[above] {$B$};
+        \draw[->,thick] (6,0) node[above] {$A'$}
+          -- (6,-0.6) node[below] {$B'$};
+        \draw[ray] (-3,0.3) -- (0,0.3);
+        \draw[ray] (0,0.3) -- (6,-0.6);
+        \draw[ray] (-3,0.3) -- (0,0);
+        \draw[ray] (0,0) -- (6,-0.6);
+      \end{tikzpicture}
+      \caption{Построение изображения в тонкой линзе}
+      \label{fig:lens}
+      \end{figure}
+      Здесь $O$ --- оптический центр, $F_1$ и $F_2$ --- фокусы;
+      $AB$ --- предмет, $A'B'$ --- изображение.
+      Одна координатная единица соответствует 1~см модели;
+      на бумаге это 1{,}25~см по обеим осям.\par{}
+    parameters:
+      visible: true
+  - type: latex
+    text: |-
+      Проверка: $(1/2)$~см$^{-1}=(1/3+1/6)$~см$^{-1}$; $f<a<2f$, $b>2f$.
+      Лучи из точки $B$ пересекаются в точке $B'$ за двойным фокусом справа.
+      Построение выполнено в параксиальном приближении тонкой линзы;
+      толщина линзы и аберрации не учитываются.\par{}
+    parameters:
+      visible: true
+  - type: latex
+    text: '\end{document}'
+    parameters:
+      visible: true

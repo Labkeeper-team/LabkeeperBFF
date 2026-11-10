@@ -255,6 +255,7 @@ sections:
       <p>Из&nbsp;Markdown-проекта Labkeeper — да, PDF сохраняется через печать браузера и&nbsp;выглядит
       как превью. Во&nbsp;фрагменте внутри LaTeX-проекта вместо флажков останется текст
       <code>[ ]</code> и&nbsp;<code>[x]</code>.</p>
+      <p>Пример связи требований со списком приёмки есть в статье о <a href="/blog/website-technical-specification-requirements-acceptance">техническом задании на сайт</a>.</p>
 editorExample:
   markdown: |-
     # План эксперимента

@@ -1,0 +1,130 @@
+catalogIndex: 142
+slug: 'latex-packages-loading-order-conflicts-versions'
+batch: 3
+title: 'Пакеты LaTeX: порядок подключения, конфликты и версии'
+pageTitle: 'Пакеты LaTeX: порядок подключения, конфликты и версии — Labkeeper'
+metaDescription: 'Как подключать пакеты LaTeX, исправлять Option clash, передавать опции и проверять версии через listfiles и журнал сборки. Короткий пример для pdfLaTeX.'
+breadcrumbTitle: 'Подключение пакетов LaTeX'
+h1: 'Пакеты LaTeX: порядок подключения, конфликты и версии'
+categories:
+  - 'latex'
+related:
+  - 'latex-first-document-russian-minimal-template'
+  - 'latex-compilation-errors-undefined-missing-overfull'
+  - 'latex-hyperref-pdf-bookmarks-navigation'
+keywords:
+  - 'пакеты LaTeX порядок подключения'
+  - 'Option clash for package'
+  - 'LaTeX listfiles версии'
+datePublished: '2026-11-09'
+dateModified: '2026-11-09'
+readingTime: '6 мин'
+cardTitle: 'Пакеты LaTeX: порядок подключения, конфликты и версии'
+cardDescription: 'Как подключать пакеты LaTeX, исправлять Option clash, передавать опции и проверять версии через listfiles и журнал сборки. Короткий пример для pdfLaTeX.'
+sliderTitle: 'Подключение пакетов LaTeX'
+sliderText: 'Как подключать пакеты LaTeX, исправлять Option clash, передавать опции и проверять версии через listfiles и журнал сборки. Короткий пример для pdfLaTeX.'
+sidebarText: 'Редактируйте преамбулу и проверяйте работу пакетов в коротком LaTeX-примере.'
+ctaTitle: 'Проверьте подключения пакетов'
+ctaText: 'Откройте готовый документ, измените параметры преамбулы и проверьте сборку, ссылки и оформление PDF.'
+toc:
+  - id: 'load'
+    title: 'Где подключать пакеты'
+  - id: 'order'
+    title: 'Как выбрать порядок подключения'
+  - id: 'example'
+    title: 'Короткий документ с согласованной преамбулой'
+  - id: 'conflict'
+    title: 'Что делать при Option clash'
+  - id: 'versions'
+    title: 'Как проверить версии через listfiles'
+  - id: 'diagnosis'
+    title: 'Как найти источник конфликта'
+sections:
+  - id: 'load'
+    title: 'Где подключать пакеты'
+    html: |2-
+      <p>Пакеты расширяют LaTeX: <code>geometry</code> управляет полями, <code>setspace</code> — межстрочным интервалом, <code>hyperref</code> — ссылками в PDF. Подключайте только необходимые пакеты командой <code>\usepackage</code> в преамбуле, между <code>\documentclass</code> и <code>\begin{document}</code>.</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>\usepackage[unicode,hidelinks]{hyperref}</code></pre></div>
+      <p>В квадратных скобках перед именем задаются параметры пакета. Здесь <code>hidelinks</code> сохраняет активные ссылки и убирает их цветное оформление. Подключение пакета использует установленный файл <code>.sty</code>; само по себе оно не скачивает пакет из интернета. Начало документа и назначение преамбулы разобраны в статье <a href="/blog/latex-first-document-russian-minimal-template">о первом документе LaTeX</a>.</p>
+  - id: 'order'
+    title: 'Как выбрать порядок подключения'
+    html: |2-
+      <p>Сначала настройте язык и шрифты, затем оформление страницы и специализированные возможности. Пакет <code>hyperref</code> обычно подключают ближе к концу преамбулы, потому что он изменяет команды ссылок. Это ориентир, а не универсальный порядок для всех пакетов: исключения и специальные сочетания проверяйте в <a href="https://tug.ctan.org/macros/latex/contrib/hyperref/doc/hyperref-doc.html" target="_blank" rel="noopener noreferrer">руководстве hyperref, раздел Package Compatibility</a>.</p>
+      <p>Не собирайте преамбулу из нескольких шаблонов целиком. Выпишите нужные возможности, найдите соответствующие пакеты и добавляйте их по одному, собирая документ после каждого существенного изменения. Если пакет загружает другой пакет как зависимость, учитывайте и это подключение.</p>
+  - id: 'example'
+    title: 'Короткий документ с согласованной преамбулой'
+    html: |2-
+      <p>Пример рассчитан на pdfLaTeX. Он задаёт русскую кодировку шрифта и язык, поля, полуторный интервал и ссылку без цветного выделения. Строка с датой <code>geometry</code> проверяет минимальную дату выпуска пакета; назначение этой проверки разберём ниже.</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>\documentclass[a4paper,14pt]{extarticle}
+      \listfiles
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,indentfirst}
+      \usepackage{geometry}[2020/01/02]
+      \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+      \usepackage{setspace}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \usepackage{xcolor}
+      \usepackage[unicode,hidelinks]{hyperref}
+      \begin{document}
+      Это учебный пример подключения пакетов. Шрифт и поля
+      настроены в преамбуле, текст набран через полуторный интервал.
+
+      Ссылка на \href{https://ctan.org/pkg/hyperref}{страницу hyperref
+      в каталоге CTAN} остаётся активной, но не выделяется цветом.
+      Команда \texttt{\string\listfiles} выводит список загруженных
+      файлов и их версий в журнал сборки, а не на эту страницу.
+      \end{document}</code></pre></div>
+      <p>После сборки ссылка должна быть активной, а список файлов — находиться в журнале. Настройки страницы и текста соответствуют выбранным требованиям <a href="https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf" target="_blank" rel="noopener noreferrer">ГОСТ 7.32-2017, пункт 6.1.1</a>: A4, кегль 14 pt, поля 30/15/20/20 мм, полуторный интервал и отступ 1,25 см. Это учебный фрагмент, а не полный отчёт; требования кафедры к шрифту и оформлению проверяйте отдельно.</p>
+  - id: 'conflict'
+    title: 'Что делать при Option clash'
+    html: |2-
+      <p>Сообщение <code>Option clash for package …</code> часто означает, что пакет уже загружен, а позднее подключение запрашивает дополнительные параметры. Найдите первое подключение, включая класс документа и зависимости других пакетов. Объедините параметры в нём вместо повторного <code>\usepackage</code>.</p>
+      <p>Если <code>hyperref</code> уже подключён, настройки, допускающие изменение после загрузки, задавайте через <code>\hypersetup</code>:</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>\hypersetup{hidelinks}</code></pre></div>
+      <p>Не все параметры можно менять после подключения. Когда пакет загружает класс или другая зависимость, передайте нужную опцию до первого подключения. Например, если в документе требуется <code>dvipsnames</code>:</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>\PassOptionsToPackage{dvipsnames}{xcolor}
+      \documentclass{article}
+      \usepackage{xcolor}</code></pre></div>
+      <p>Это отдельный способ передачи опций, а не ещё один блок для безусловного добавления в основной пример. Механизм описан в <a href="https://tug.ctan.org/macros/latex2e/base/clsguide.pdf" target="_blank" rel="noopener noreferrer">руководстве команды LaTeX, раздел Passing options around</a>. Подробности оформления ссылок смотрите в статье про <a href="/blog/latex-hyperref-pdf-bookmarks-navigation">hyperref и навигацию в PDF</a>.</p>
+  - id: 'versions'
+    title: 'Как проверить версии через listfiles'
+    html: |2-
+      <p>Команда <code>\listfiles</code> в преамбуле добавляет в конец журнала сборки блок <code>*File List*</code>. После успешного завершения найдите в нём строки <code>geometry.sty</code>, <code>hyperref.sty</code> и других зависимостей: там приведены сообщённые файлами даты и версии. В начале журнала также указаны движок и версия формата LaTeX. Сохраните журнал вместе с исходником, если сравниваете сборки на двух компьютерах.</p>
+      <p>Запись <code>\usepackage{geometry}[2020/01/02]</code> требует пакет не старше заданной даты и при более старом выдаёт предупреждение. Она не устанавливает пакет, не закрепляет точную версию и не запрещает использование более нового выпуска. Правила идентификации и проверки дат приведены в <a href="https://tug.ctan.org/macros/latex2e/base/clsguide-historic.pdf" target="_blank" rel="noopener noreferrer">руководстве LaTeX, раздел Identification</a>.</p>
+      <p>Доступные пакеты и версии зависят от установленного окружения TeX. При локальной работе обновляйте его штатными средствами дистрибутива, согласуя зависимости; в размещённом сервисе окружением управляет его администратор. Дата из документа не заменяет проверку фактической версии в журнале.</p>
+  - id: 'diagnosis'
+    title: 'Как найти источник конфликта'
+    html: |2-
+      <ol><li>Начните с первой ошибки в журнале. Сообщение об отсутствующем <code>.sty</code>, неизвестная команда и конфликт опций требуют разных исправлений.</li><li>Сохраните копию исходника. Оставьте класс, нужные для языка пакеты и короткий фрагмент, на котором возникает ошибка.</li><li>Уберите подозрительный пакет вместе с использующими его командами. Возвращайте пакеты по одному и проверяйте, какое сочетание воспроизводит сбой.</li><li>Сверьте порядок, опции и ограничения с документацией конкретных пакетов. Приложите минимальный документ, первую ошибку и версии из журнала к запросу о помощи.</li></ol>
+      <p>Разбор <code>Undefined control sequence</code> и других частых сообщений приведён в статье <a href="/blog/latex-compilation-errors-undefined-missing-overfull">об ошибках компиляции LaTeX</a>. После исправления проверьте PDF: успешная сборка ещё не гарантирует правильные поля, шрифты и ссылки.</p>
+      <p>«Просмотреть пример» открывает приведённый документ для редактирования преамбулы. Меняйте подключения и проверяйте результат сборки; диагностику версий выполняйте по журналу того окружения, где собирается документ.</p>
+editorExample:
+  - type: 'latex'
+    text: |2-
+      \documentclass[a4paper,14pt]{extarticle}
+      \listfiles
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,indentfirst}
+      \usepackage{geometry}[2020/01/02]
+      \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+      \usepackage{setspace}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \usepackage{xcolor}
+      \usepackage[unicode,hidelinks]{hyperref}
+      \begin{document}
+      Это учебный пример подключения пакетов. Шрифт и поля
+      настроены в преамбуле, текст набран через полуторный интервал.
+
+      Ссылка на \href{https://ctan.org/pkg/hyperref}{страницу hyperref
+      в каталоге CTAN} остаётся активной, но не выделяется цветом.
+      Команда \texttt{\string\listfiles} выводит список загруженных
+      файлов и их версий в журнал сборки, а не на эту страницу.
+      \end{document}
+    parameters:
+      visible: true

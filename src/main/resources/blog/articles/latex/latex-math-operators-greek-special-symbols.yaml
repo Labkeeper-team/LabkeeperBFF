@@ -1,0 +1,111 @@
+catalogIndex: 143
+slug: latex-math-operators-greek-special-symbols
+batch: 3
+title: 'Математические операторы и спецсимволы в LaTeX: греческие буквы, функции и знаки'
+pageTitle: 'Математические операторы и спецсимволы в LaTeX: греческие буквы, функции и знаки — Labkeeper'
+metaDescription: Как набрать греческие буквы и их варианты, прямые sin и log, свой оператор через DeclareMathOperator и служебные символы текста.
+breadcrumbTitle: Операторы и спецсимволы
+h1: 'Математические операторы и спецсимволы в LaTeX: греческие буквы, функции и знаки'
+categories:
+  - latex
+related:
+  - latex-formulas
+  - latex-integrals-sums-limits-typography
+  - latex-compilation-errors-undefined-missing-overfull
+keywords:
+  - спецсимволы LaTeX
+  - греческие буквы LaTeX
+  - DeclareMathOperator
+datePublished: '2026-11-09'
+dateModified: '2026-11-09'
+readingTime: 6 мин
+cardTitle: 'Математические операторы и спецсимволы в LaTeX: греческие буквы, функции и знаки'
+cardDescription: Как набрать греческие буквы и их варианты, прямые sin и log, свой оператор через DeclareMathOperator и служебные символы текста.
+sliderTitle: Операторы и спецсимволы
+sliderText: Как набрать греческие буквы и их варианты, прямые sin и log, свой оператор через DeclareMathOperator и служебные символы текста.
+sidebarText: Редактируйте LaTeX-пример и проверяйте результат в PDF в Labkeeper.
+ctaTitle: Проверьте набор символов
+ctaText: Откройте короткий образец, замените обозначения и сравните прямые операторы, греческие буквы и специальные знаки.
+toc:
+  - id: mode
+    title: Сначала выберите текстовый или математический режим
+  - id: greek
+    title: Греческие буквы и варианты начертания
+  - id: operators
+    title: Прямые имена функций и DeclareMathOperator
+  - id: relations
+    title: Отношение и бинарная операция имеют разные интервалы
+  - id: escaped
+    title: Как вывести служебные символы обычным текстом
+  - id: check
+    title: Проверьте обозначения в PDF
+sections:
+  - id: mode
+    title: Сначала выберите текстовый или математический режим
+    html: '<p>Греческую букву, знак отношения и название функции набирают в математическом режиме. Процент, подчёркивание в имени файла и обратную косую черту часто нужно вывести в обычном тексте. Если перепутать эти случаи, LaTeX может принять символ за команду или изменить его смысл.</p><p>Разберём короткий образец обозначений: греческие буквы, прямые имена функций, знаки операций и служебные символы. Основы режимов описаны в <a href="/blog/latex-formulas">статье о формулах</a>. Положение пределов у сумм и интегралов рассматривается <a href="/blog/latex-integrals-sums-limits-typography">отдельно</a>.</p>'
+  - id: greek
+    title: Греческие буквы и варианты начертания
+    html: |-
+      <p>Команды чувствительны к регистру: <code>\delta</code> даёт строчную букву, <code>\Delta</code> — прописную. Для прописных букв, совпадающих с латинскими по начертанию, обычно используют латинскую букву: например, <code>A</code>, а не несуществующую стандартную команду <code>\Alpha</code>.</p><div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>Греческие буквы: $\alpha$, $\beta$, $\Gamma$, $\Delta$.
+      Варианты начертания: $\epsilon$, $\varepsilon$;
+      $\phi$, $\varphi$; $\theta$, $\vartheta$.</code></pre></div><p><code>\varepsilon</code>, <code>\varphi</code> и <code>\vartheta</code> выбирают другое начертание. Сам LaTeX не назначает ему новый физический смысл. Если в работе варианты обозначают разные величины, явно поясните их и сохраняйте различие во всех формулах. Вид букв зависит от математического шрифта.</p>
+  - id: operators
+    title: Прямые имена функций и DeclareMathOperator
+    html: |-
+      <p>Пишите <code>\sin x</code> и <code>\log x</code>: команды набирают название прямо и добавляют нужные математические промежутки. Запись <code>sin x</code> превращает имя функции в последовательность курсивных переменных.</p><p>Для своего многобуквенного оператора задайте команду один раз в преамбуле. В <a href="https://www.latex-project.org/help/documentation/amsldoc.pdf" target="_blank" rel="noopener noreferrer">руководстве amsmath, раздел 5</a> описаны <code>\DeclareMathOperator</code> и её варианты:</p><div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>\usepackage{amsmath,amssymb}
+      \DeclareMathOperator{\rank}{rank}</code></pre></div><div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>Названия функций: $\sin x$, $\log x$, $\rank A$.
+      Здесь $x&gt;0$ --- безразмерный аргумент логарифма;
+      $A$ --- матрица, $\rank A$ --- её ранг.
+      Аргумент синуса выражен в радианах.</code></pre></div><p><code>\rank</code> получает интервалы оператора; <code>\mathrm{rank}</code> меняет только начертание и не заменяет эту настройку. Основание логарифма укажите по смыслу задачи: например, <code>\log_2 x</code>. Здесь вычислений нет — показан набор обозначений.</p>
+  - id: relations
+    title: Отношение и бинарная операция имеют разные интервалы
+    html: |-
+      <p>Используйте команду, соответствующую смыслу знака. <code>\leq</code>, <code>\neq</code> и <code>\approx</code> связывают выражения отношением; <code>\cdot</code>, <code>\times</code> и <code>\pm</code> обозначают операции. LaTeX назначает этим классам разные интервалы, поэтому ручные пробелы обычно не нужны.</p><div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>Отношения: $a\leq b$, $a\neq b$, $a\approx b$.
+      Операции: $a\cdot b$, $a\times b$, $a\pm b$.
+      Здесь $a$ и $b$ --- условные безразмерные величины;
+      каждая запись показывает отдельный способ набора.</code></pre></div><p>Для нестандартного составного знака класс можно задать через <code>\mathrel{...}</code> или <code>\mathbin{...}</code>. Эти команды управляют промежутками, но не определяют математический смысл. Знак умножения <code>\times</code> не следует заменять латинской буквой <code>x</code>.</p>
+  - id: escaped
+    title: Как вывести служебные символы обычным текстом
+    html: |-
+      <p>Знаки <code>% &amp; # _ $ { }</code> участвуют в синтаксисе LaTeX. Для буквального вывода экранируйте их; обратная косая черта, тильда и крышка имеют отдельные текстовые команды:</p><div class="article-code"><div class="article-code__header"><span class="article-code__lang">LaTeX</span></div><pre><code>В тексте: 5\%, A\&amp;B, \#1, file\_name, \$10,
+      \{a,b\}, \textbackslash{}, \textasciitilde{},
+      \textasciicircum{}.
+      В математике: $\{a,b\}$, $a\in\mathbb{R}$, $a\to b$.</code></pre></div><p>Неэкранированный <code>%</code> начинает комментарий до конца строки, <code>&amp;</code> разделяет столбцы, а <code>_</code> задаёт индекс в математике. Команда <code>\\</code> означает перенос строки, а не печать обратной косой черты. <code>\{a,b\}</code> выводит видимые фигурные скобки; обычные <code>{a,b}</code> только группируют содержимое.</p>
+  - id: check
+    title: Проверьте обозначения в PDF
+    html: '<p>«Просмотреть пример» открывает все четыре фрагмента в одном небольшом документе с настройками страницы и текста. Это образец набора, без расчёта и выносных формул. Замените буквы и имена функций; команды вводятся в исходнике.</p><ul><li>Названия функций прямые, переменные набраны математическим курсивом.</li><li>Варианты греческих букв различимы и используются последовательно.</li><li>Знак выбран по смыслу, а служебные символы не удалили часть строки.</li><li>В PDF нет пропавших символов и неизвестных команд.</li></ul><p>При ошибке сборки проверьте написание команды и подключённый пакет: типичные сообщения разобраны в <a href="/blog/latex-compilation-errors-undefined-missing-overfull">статье об ошибках LaTeX</a>. В расчётных формулах добавляйте <a href="/blog/formula-variable-explanation-where-gost">пояснения обозначений</a>.</p>'
+editorExample:
+  - type: latex
+    text: |
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,geometry,setspace,indentfirst}
+      \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \usepackage{amsmath,amssymb}
+      \DeclareMathOperator{\rank}{rank}
+      \begin{document}
+      Греческие буквы: $\alpha$, $\beta$, $\Gamma$, $\Delta$.
+      Варианты начертания: $\epsilon$, $\varepsilon$;
+      $\phi$, $\varphi$; $\theta$, $\vartheta$.
+
+      Названия функций: $\sin x$, $\log x$, $\rank A$.
+      Здесь $x>0$ --- безразмерный аргумент логарифма;
+      $A$ --- матрица, $\rank A$ --- её ранг.
+      Аргумент синуса выражен в радианах.
+
+      Отношения: $a\leq b$, $a\neq b$, $a\approx b$.
+      Операции: $a\cdot b$, $a\times b$, $a\pm b$.
+      Здесь $a$ и $b$ --- условные безразмерные величины;
+      каждая запись показывает отдельный способ набора.
+
+      В тексте: 5\%, A\&B, \#1, file\_name, \$10,
+      \{a,b\}, \textbackslash{}, \textasciitilde{},
+      \textasciicircum{}.
+      В математике: $\{a,b\}$, $a\in\mathbb{R}$, $a\to b$.
+      \end{document}
+    parameters:
+      visible: true

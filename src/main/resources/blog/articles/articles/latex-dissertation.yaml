@@ -494,6 +494,7 @@ sections:
       <h3>Можно ли собрать диссертацию в Labkeeper целиком?</h3>
       <p>Да, если список литературы набран в <code>thebibliography</code> и сборка укладывается
       в 60&nbsp;секунд. Для большого проекта разбейте текст на файлы и облегчите рисунки.</p>
+      <p>Для работы с текстом по проверенным материалам см. <a href="/blog/ai-prompts-diploma-writing-editing-agent">промпты для редактирования ВКР и проверки правок ИИ-агента</a>.</p>
 editorExample:
   latex: |-
     \documentclass[a4paper,14pt]{extreport}

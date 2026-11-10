@@ -1,0 +1,248 @@
+catalogIndex: 133
+slug: 'experimental-setup-diagram-tikz-report'
+batch: 3
+title: 'Схема экспериментальной установки в TikZ: элементы, подписи и размеры'
+pageTitle: 'Схема экспериментальной установки в TikZ: элементы, подписи и размеры — Labkeeper'
+metaDescription: 'Как оформить небольшую схему установки в LaTeX: пример маятника, обозначения, подпись рисунка, отступы и различие между схемой и измерением размеров по фото.'
+breadcrumbTitle: 'Схема установки в TikZ'
+h1: 'Схема экспериментальной установки в TikZ: элементы, подписи и размеры'
+categories:
+  - 'labs'
+related:
+  - 'optics-ray-diagram-tikz-lab-report'
+  - 'latex-tikz-automata-graphs'
+  - 'software-screenshots-report-gost-caption'
+keywords:
+  - 'схема экспериментальной установки TikZ'
+  - 'схема установки LaTeX'
+  - 'размеры по фотографии схема'
+datePublished: '2026-11-09'
+dateModified: '2026-11-09'
+readingTime: '6 мин'
+cardTitle: 'Схема экспериментальной установки в TikZ: элементы, подписи и размеры'
+cardDescription: 'Как оформить небольшую схему установки в LaTeX: пример маятника, обозначения, подпись рисунка, отступы и различие между схемой и измерением размеров по фото.'
+sliderTitle: 'Схема установки в TikZ'
+sliderText: 'Как оформить небольшую схему установки в LaTeX: пример маятника, обозначения, подпись рисунка, отступы и различие между схемой и измерением размеров по фото.'
+sidebarText: 'Оформляйте схемы установок с согласованными обозначениями и подписями в LaTeX-проекте Labkeeper.'
+ctaTitle: 'Постройте схему своей установки'
+ctaText: 'Откройте учебный маятник, замените элементы и проверьте линии, подписи и отступы в PDF.'
+toc:
+  - id: 'task'
+    title: 'Сначала определите, что должна объяснять схема'
+  - id: 'elements'
+    title: 'Согласуйте обозначения с методом'
+  - id: 'photo'
+    title: 'Что можно и нельзя получить из фотографии'
+  - id: 'setup'
+    title: 'Подключите TikZ и общие настройки рисунков'
+  - id: 'example'
+    title: 'Схема маятника в теле документа'
+  - id: 'check'
+    title: 'Проверьте геометрию и положение в отчёте'
+sections:
+  - id: 'task'
+    title: 'Сначала определите, что должна объяснять схема'
+    html: '<p>Схема установки должна показывать элементы и связи, необходимые для понимания метода. Если заменить её фотографией без подписей, читатель может не увидеть точку измерения или отличить рабочий элемент от случайного предмета на столе.</p><p>Разберём короткий рисунок маятниковой установки. Он показывает место подвеса, груз, длину до центра груза и отклонение от вертикали. Это схематическое изображение, а не масштабный чертёж деталей или результат реального эксперимента.</p>'
+  - id: 'elements'
+    title: 'Согласуйте обозначения с методом'
+    html:
+      '<p>Перед рисованием перечислите элементы и определите, какие величины измеряются. Для маятника важно не перепутать длину нити с расстоянием от места подвеса до центра груза, используемым в выбранной модели. Если размер груза нельзя считать малым относительно длины, допущение математического маятника нужно обосновать отдельно.</p><div class="article-table-wrapper"><table class="article-table"><thead><tr><th>Обозначение</th><th>Смысл в примере</th></tr></thead><tbody><tr><td>O</td><td>Место подвеса</td></tr>
+
+      <tr><td>L</td><td>Расстояние от подвеса до центра груза</td></tr>
+
+      <tr><td>α</td><td>Угол отклонения от вертикали</td></tr>
+
+      <tr><td>Пунктир</td><td>Направление вертикали, а не дополнительная нить</td></tr></tbody></table></div><p>Буквы на рисунке должны совпадать с обозначениями в тексте и формулах отчёта. Лучевые построения имеют свои физические условия — для них используйте отдельный разбор <a href="/blog/optics-ray-diagram-tikz-lab-report">оптических схем</a>.</p>'
+  - id: 'photo'
+    title: 'Что можно и нельзя получить из фотографии'
+    html: '<p>Фотография помогает восстановить взаимное расположение оборудования. Для отчётной схемы выделите существенные элементы и перенесите их в векторный рисунок с понятными подписями. В примере TikZ не выполняет автоматическую векторизацию или распознавание приборов.</p><p>Размер в пикселях не равен физической длине. Нужны известный масштаб, условия съёмки и оценка перспективных искажений; одного произвольного коэффициента может быть недостаточно. Если размер важен для расчёта, измерьте его подходящим способом и укажите этот способ в работе. Координаты TikZ управляют геометрией рисунка, а не точностью измерения установки.</p>'
+  - id: 'setup'
+    title: 'Подключите TikZ и общие настройки рисунков'
+    html:
+      "<p>В преамбуле подключите библиотеку углов. Способы задания координат описаны в <a href=\"https://tikz.dev/tikz-coordinates\" target=\"_blank\" rel=\"noopener noreferrer\">руководстве PGF/TikZ</a>. Отступ перед схемой задан отдельно от перехода после подписи.</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>\\usepackage{tikz}
+
+      \\usetikzlibrary{angles}
+
+      \\usepackage{caption}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\DeclareCaptionTextFormat{gostfiguretitle}{%
+
+      \  \\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1\\vphantom{у}}
+
+      \\captionsetup[figure]{name=Рисунок,labelsep=gostdash,font={normalsize,singlespacing},justification=centering,singlelinecheck=false,strut=off,textformat=gostfiguretitle}
+
+      \\AddToHook{env/figure/before}{\\begingroup\\setlength{\\intextsep}{0pt}}
+
+      \\AddToHook{env/figure/begin}{\\vspace{\\baselineskip}}
+
+      \\AddToHook{env/figure/after}{\\endgroup}</code></pre>
+
+      </div><p>Настройки <code>figure</code> размещаются один раз и действуют на следующие рисунки. Подпись снизу по центру оформлена по разделу 6.5 <a href=\"https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">ГОСТ 7.32-2017</a>; применимость к учебному отчёту уточните по методичке. Страница и текст уже настроены в примере редактора.</p>"
+  - id: 'example'
+    title: 'Схема маятника в теле документа'
+    html:
+      "<p>Точки <code>O</code>, <code>E</code> и <code>P</code> задают подвес, вертикаль и центр груза. Дуга показывает угол между направлениями <code>OE</code> и <code>OP</code>. Меняйте координаты и расстояния до подписей вместе, затем проверяйте PDF.</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>На рисунке~\\ref{fig:pendulum} показана учебная схема маятниковой установки.
+
+      Точка $O$ --- место подвеса; $L$ --- длина от подвеса до центра груза;
+
+      $\\alpha$ --- угол отклонения от вертикали.
+
+      Рисунок схематический, без масштаба физических размеров.
+
+      \\par
+
+      \\begin{figure}[!ht]
+
+      \\centering
+
+      \\begin{tikzpicture}[line width=0.8pt,font=\\normalsize]
+
+      \  \\coordinate (O) at (0,0);
+
+      \  \\coordinate (E) at (0,-3.2);
+
+      \  \\coordinate (P) at (1.3,-2.8);
+
+      \  \\draw[very thick] (-1,0) -- (1,0);
+
+      \  \\foreach \\x in {-1,-0.6,-0.2,0.2,0.6,1}
+
+      \    \\draw (\\x,0) -- +(0.2,0.25);
+
+      \  \\node[above left=2mm] at (O) {$O$};
+
+      \  \\draw[dashed] (O) -- (E) node[below=2mm] {Вертикаль};
+
+      \  \\draw (O) -- node[pos=0.62,right=3mm] {$L$} (P);
+
+      \  \\filldraw[fill=white] (P) circle (2.5mm);
+
+      \  \\node[right=5mm] at (P) {Груз};
+
+      \  \\pic[draw,pic text={$\\alpha$},angle radius=8mm,angle eccentricity=1.4]
+
+      \    {angle=E--O--P};
+
+      \\end{tikzpicture}
+
+      \\caption{Учебная схема маятниковой установки}\\label{fig:pendulum}
+
+      \\end{figure}
+
+      \\par
+
+      Длину $L$ определяют измерением установки, а не по размеру рисунка.
+
+      Для реальной работы укажите способ измерения и свойства подвеса.</code></pre>
+
+      </div><p>«Просмотреть пример» открывает весь этот рисунок с пояснениями и служебными настройками. Замените элементы под свою установку; рисунок перестроится по координатам. При изменении положения груза проверьте, что дуга по-прежнему показывает нужный угол и не пересекается с подписью длины.</p>"
+  - id: 'check'
+    title: 'Проверьте геометрию и положение в отчёте'
+    html: '<ul><li>Каждая линия и обозначение имеют объяснение в тексте.</li><li>Длина показана до правильной точки, угол отсчитывается от нужного направления.</li><li>Подписи не пересекают нить, груз, опору и соседний текст.</li><li>Перед рисунком есть ссылка, подпись и номер согласованы.</li><li>Схема не прижата к вводному абзацу; подпись не сливается со следующим.</li><li>На печатном размере читаются все буквы и линии.</li></ul><p>Для скриншота программы используйте правила <a href="/blog/software-screenshots-report-gost-caption">оформления снимков экрана</a>, а общие приёмы размещения узлов разобраны в статье о <a href="/blog/latex-tikz-automata-graphs">графах TikZ</a>.</p>'
+editorExample:
+  - type: 'latex'
+    text: "\\documentclass[a4paper,14pt]{extarticle}
+
+      \\usepackage[T2A]{fontenc}
+
+      \\usepackage[utf8]{inputenc}
+
+      \\usepackage[russian]{babel}
+
+      \\usepackage{tempora,geometry,setspace,indentfirst}
+
+      \\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+
+      \\onehalfspacing
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\usepackage{tikz}
+
+      \\usetikzlibrary{angles}
+
+      \\usepackage{caption}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\DeclareCaptionTextFormat{gostfiguretitle}{%
+
+      \  \\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1\\vphantom{у}}
+
+      \\captionsetup[figure]{name=Рисунок,labelsep=gostdash,font={normalsize,singlespacing},justification=centering,singlelinecheck=false,strut=off,textformat=gostfiguretitle}
+
+      \\AddToHook{env/figure/before}{\\begingroup\\setlength{\\intextsep}{0pt}}
+
+      \\AddToHook{env/figure/begin}{\\vspace{\\baselineskip}}
+
+      \\AddToHook{env/figure/after}{\\endgroup}
+
+      \\begin{document}
+
+      На рисунке~\\ref{fig:pendulum} показана учебная схема маятниковой установки.
+
+      Точка $O$ --- место подвеса; $L$ --- длина от подвеса до центра груза;
+
+      $\\alpha$ --- угол отклонения от вертикали.
+
+      Рисунок схематический, без масштаба физических размеров.
+
+      \\par
+
+      \\begin{figure}[!ht]
+
+      \\centering
+
+      \\begin{tikzpicture}[line width=0.8pt,font=\\normalsize]
+
+      \  \\coordinate (O) at (0,0);
+
+      \  \\coordinate (E) at (0,-3.2);
+
+      \  \\coordinate (P) at (1.3,-2.8);
+
+      \  \\draw[very thick] (-1,0) -- (1,0);
+
+      \  \\foreach \\x in {-1,-0.6,-0.2,0.2,0.6,1}
+
+      \    \\draw (\\x,0) -- +(0.2,0.25);
+
+      \  \\node[above left=2mm] at (O) {$O$};
+
+      \  \\draw[dashed] (O) -- (E) node[below=2mm] {Вертикаль};
+
+      \  \\draw (O) -- node[pos=0.62,right=3mm] {$L$} (P);
+
+      \  \\filldraw[fill=white] (P) circle (2.5mm);
+
+      \  \\node[right=5mm] at (P) {Груз};
+
+      \  \\pic[draw,pic text={$\\alpha$},angle radius=8mm,angle eccentricity=1.4]
+
+      \    {angle=E--O--P};
+
+      \\end{tikzpicture}
+
+      \\caption{Учебная схема маятниковой установки}\\label{fig:pendulum}
+
+      \\end{figure}
+
+      \\par
+
+      Длину $L$ определяют измерением установки, а не по размеру рисунка.
+
+      Для реальной работы укажите способ измерения и свойства подвеса.
+
+      \\end{document}"
+    parameters:
+      visible: true

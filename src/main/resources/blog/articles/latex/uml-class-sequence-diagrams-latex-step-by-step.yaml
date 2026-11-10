@@ -1,0 +1,297 @@
+catalogIndex: 121
+slug: 'uml-class-sequence-diagrams-latex-step-by-step'
+batch: 3
+title: 'Построение диаграмм UML в LaTeX: классы и последовательность'
+pageTitle: 'Построение диаграмм UML в LaTeX: классы и последовательность — Labkeeper'
+metaDescription: 'Как построить согласованные диаграммы классов и последовательности через pgf-umlcd и pgf-umlsd: обозначения, короткий код, подписи и проверка модели.'
+breadcrumbTitle: 'Диаграммы UML в LaTeX'
+h1: 'Построение диаграмм UML в LaTeX: классы и последовательность'
+categories:
+  - 'latex'
+related:
+  - 'latex-tikz-automata-graphs'
+  - 'algorithm-flowcharts-gost-markdown-latex'
+  - 'specialist-workstation-diploma-design'
+keywords:
+  - 'построение диаграмм UML'
+  - 'диаграмма классов LaTeX'
+  - 'pgf umlcd umlsd'
+datePublished: '2026-11-08'
+dateModified: '2026-11-09'
+readingTime: '6 мин'
+cardTitle: 'Построение диаграмм UML в LaTeX: классы и последовательность'
+cardDescription: 'Как построить согласованные диаграммы классов и последовательности через pgf-umlcd и pgf-umlsd: обозначения, короткий код, подписи и проверка модели.'
+sliderTitle: 'Диаграммы UML в LaTeX'
+sliderText: 'Как построить согласованные диаграммы классов и последовательности через pgf-umlcd и pgf-umlsd: обозначения, короткий код, подписи и проверка модели.'
+sidebarText: 'Стройте диаграммы классов и последовательности в LaTeX-проекте Labkeeper.'
+ctaTitle: 'Согласуйте две UML-диаграммы'
+ctaText: 'Откройте классы и последовательность одного сценария, замените операции и проверьте схемы в PDF.'
+toc:
+  - id: 'task'
+    title: 'Выберите вопрос, на который отвечает диаграмма'
+  - id: 'model'
+    title: 'Определите классы, операции и сценарий'
+  - id: 'setup'
+    title: 'Подключите пакеты и подписи рисунков'
+  - id: 'classes'
+    title: 'Постройте диаграмму классов'
+  - id: 'sequence'
+    title: 'Добавьте последовательность вызова'
+  - id: 'check'
+    title: 'Сверьте обе диаграммы и PDF'
+sections:
+  - id: 'task'
+    title: 'Выберите вопрос, на который отвечает диаграмма'
+    html:
+      '<p>Диаграмма классов показывает устройство модели, а диаграмма последовательности — взаимодействие объектов в конкретном сценарии. Если смешать эти задачи, схема может выглядеть аккуратно, но не объяснять, кто хранит ссылку на объект и какую операцию он вызывает.</p>
+
+      <p>Построим две связанные диаграммы для вымышленной модели сохранения отчёта: редактор <code>Editor</code> обращается к хранилищу <code>ReportStore</code>. Для классов используем <a href="https://ctan.org/pkg/pgf-umlcd" target="_blank" rel="noopener noreferrer">pgf-umlcd</a>, для последовательности — <a href="https://ctan.org/pkg/pgf-umlsd" target="_blank" rel="noopener noreferrer">pgf-umlsd</a>. Обозначения UML определяет <a href="https://www.omg.org/spec/UML/2.5.1/About-UML" target="_blank" rel="noopener noreferrer">спецификация OMG UML</a>; пакеты рисуют их, но не проверяют смысл модели.</p>
+
+      <p>Пример — два рисунка с пояснениями для отчёта или ВКР. Полный проект приложения он не описывает. Блок-схемы алгоритмов разбираются <a href="/blog/algorithm-flowcharts-gost-markdown-latex">в отдельной статье</a>.</p>'
+  - id: 'model'
+    title: 'Определите классы, операции и сценарий'
+    html:
+      '<ol><li>Задайте границу: рассматриваем только успешное сохранение, без авторизации и обработки ошибок.</li><li>Выделите классы. <code>Editor</code> предоставляет операцию <code>saveReport()</code>, <code>ReportStore</code> — <code>save()</code>. Обе возвращают логическое значение <code>bool</code>.</li><li>Опишите связь: редактор хранит закрытое поле <code>store</code>, указывающее на одно хранилище.</li><li>Запишите сценарий: внутри <code>saveReport()</code> редактор вызывает <code>save()</code> хранилища и получает <code>true</code>.</li></ol>
+
+      <p>Знак <code>+</code> обозначает открытый член класса, <code>-</code> — закрытый. Сплошная стрелка ассоциации показывает возможность перехода от редактора к хранилищу, а не порядок выполнения. Кратность <code>1</code> у хранилища означает ровно один связанный объект для редактора. Обратная кратность здесь не задана.</p>
+
+      <div class="article-note"><strong>Не заменяйте ассоциацию композицией ради оформления.</strong> Закрашенный ромб имеет смысл владения частью и ограничения её жизненного цикла. Само наличие поля <code>store</code> такого вывода не даёт.</div>'
+  - id: 'setup'
+    title: 'Подключите пакеты и подписи рисунков'
+    html:
+      "<p>Следующие настройки размещаются один раз в преамбуле. Пакет <code>pgf-umlcd</code> подключает TikZ; <code>pgf-umlsd</code> добавляет линии жизни и вызовы. Цвета задаём чёрным по белому, чтобы схема оставалась читаемой при печати.</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>\\usepackage{pgf-umlcd,pgf-umlsd,caption}
+
+      \\renewcommand{\\umlfillcolor}{white}
+
+      \\renewcommand{\\umldrawcolor}{black}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\DeclareCaptionTextFormat{gostfiguretitle}{%
+
+      \  \\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1\\vphantom{у}}
+
+      \\captionsetup[figure]{name=Рисунок,labelsep=gostdash,font={normalsize,singlespacing},justification=centering,singlelinecheck=false,strut=off,textformat=gostfiguretitle}
+
+      \\AddToHook{env/figure/before}{\\begingroup\\setlength{\\intextsep}{0pt}}
+
+      \\AddToHook{env/figure/begin}{\\vspace{\\baselineskip}}
+
+      \\AddToHook{env/figure/after}{\\endgroup}</code></pre>
+
+      </div><p>Рисунки имеют общую автоматическую нумерацию и подписи снизу по центру. Оформление подписи взято из раздела 6.5 <a href=\"https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">ГОСТ 7.32-2017</a>; требования к ВКР сверяйте с методичкой. Общие обработчики <code>figure</code> ограничивают настройку отступов рисунками. Перед каждой диаграммой добавлен вертикальный промежуток в один межстрочный шаг основного текста; отступ после подписи задаётся отдельно. Страница, шрифт и интервал уже настроены в примере редактора.</p>"
+  - id: 'classes'
+    title: 'Постройте диаграмму классов'
+    html:
+      "<p>Вставьте в тело документа два класса и направленную ассоциацию. Имя класса служит идентификатором для соединения. Координаты задают положение блоков; <code>text width</code> — ширину содержимого. Подпись связи и кратность оставлены в промежутке между классами.</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>На рисунке~\\ref{fig:classes} показаны два класса учебной модели
+
+      сохранения отчёта. Editor хранит ссылку на один ReportStore.
+
+      \\par
+
+      \\begin{figure}[!ht]
+
+      \\centering
+
+      \\begin{tikzpicture}[font=\\small]
+
+      \\begin{class}[text width=4.8cm]{Editor}{0,0}
+
+      \  \\attribute{- store : ReportStore}
+
+      \  \\operation{+ saveReport() : bool}
+
+      \\end{class}
+
+      \\begin{class}[text width=4cm]{ReportStore}{8.8,0}
+
+      \  \\operation{+ save() : bool}
+
+      \\end{class}
+
+      \\unidirectionalAssociation{Editor}{store}{1}{ReportStore}
+
+      \\end{tikzpicture}
+
+      \\caption{Классы учебной модели сохранения отчёта}\\label{fig:classes}
+
+      \\end{figure}
+
+      \\par
+
+      Стрелка показывает навигацию от Editor к ReportStore.
+
+      Кратность 1 относится к хранилищу; связь не задаёт владение его жизненным циклом.</code></pre>
+
+      </div><p>Поле и подпись <code>store</code> обозначают одну связь, показанную двумя способами для объяснения. При расширении модели проверьте согласованность типов полей и имён классов. Для общего размещения узлов полезен разбор <a href=\"/blog/latex-tikz-automata-graphs\">схем в TikZ</a>.</p>"
+  - id: 'sequence'
+    title: 'Добавьте последовательность вызова'
+    html:
+      "<p>Участники подписаны в формате «имя объекта:класс». Время идёт сверху вниз. Окружение <code>call</code> рисует вызов, активацию хранилища и ответ; сообщение <code>save()</code> должно совпадать с операцией класса <code>ReportStore</code>.</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>На рисунке~\\ref{fig:sequence} раскрыт успешный вызов save()
+
+      из операции saveReport(). Данные отчёта и обработка отказа опущены.
+
+      \\par
+
+      \\begin{figure}[!ht]
+
+      \\centering
+
+      \\begin{sequencediagram}
+
+      \  \\newinst{ed}{editor:Editor}
+
+      \  \\newinst[3]{store}{store:ReportStore}
+
+      \  \\begin{call}{ed}{save()}{store}{true}
+
+      \  \\end{call}
+
+      \\end{sequencediagram}
+
+      \\caption{Последовательность успешного сохранения отчёта}\\label{fig:sequence}
+
+      \\end{figure}
+
+      \\par
+
+      Ответ true соответствует типу bool операции save().
+
+      Схема описывает сценарий модели и не подтверждает работу программы.</code></pre>
+
+      </div><p><code>\\newinst[3]</code> увеличивает промежуток между линиями жизни, чтобы сообщение помещалось. Не меняйте только подпись стрелки: если переименовали операцию, исправьте обе диаграммы и пояснения. Для отказа нужен отдельный сценарий или корректно оформленная альтернатива; ответ <code>true</code> описывает только успех.</p>"
+  - id: 'check'
+    title: 'Сверьте обе диаграммы и PDF'
+    html:
+      '<p>«Просмотреть пример» открывает обе схемы в одном документе. Замените классы и операции своей модели, затем соберите PDF. Проверьте подписи, ссылки и геометрию после каждого изменения: длинное имя может пересечь линию или выйти из рамки без предупреждения компилятора.</p>
+
+      <ul><li>Каждое сообщение последовательности соответствует операции класса получателя.</li><li>Тип ответа согласован с возвращаемым типом операции.</li><li>Направление ассоциации и кратность имеют объяснение в модели.</li><li>Текст внутри блоков, имена объектов и подписи связей читаются в размере печати.</li><li>Оба рисунка помещаются в текстовую область; подписи и следующий абзац не накладываются друг на друга.</li></ul>
+
+      <p>Изображение в PDF не выполняет вызов и не проверяет сохранение данных. Подтверждать работу реализации нужно отдельно, а диаграммы включать в <a href="/blog/specialist-workstation-diploma-design">описание архитектуры проекта</a> вместе с пояснением границ модели.</p>'
+editorExample:
+  - type: 'latex'
+    text: "\\documentclass[a4paper,14pt]{extarticle}
+
+      \\usepackage[T2A]{fontenc}
+
+      \\usepackage[utf8]{inputenc}
+
+      \\usepackage[russian]{babel}
+
+      \\usepackage{tempora,geometry,setspace,indentfirst}
+
+      \\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+
+      \\onehalfspacing
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\usepackage{pgf-umlcd,pgf-umlsd,caption}
+
+      \\renewcommand{\\umlfillcolor}{white}
+
+      \\renewcommand{\\umldrawcolor}{black}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\DeclareCaptionTextFormat{gostfiguretitle}{%
+
+      \  \\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1\\vphantom{у}}
+
+      \\captionsetup[figure]{name=Рисунок,labelsep=gostdash,font={normalsize,singlespacing},justification=centering,singlelinecheck=false,strut=off,textformat=gostfiguretitle}
+
+      \\AddToHook{env/figure/before}{\\begingroup\\setlength{\\intextsep}{0pt}}
+
+      \\AddToHook{env/figure/begin}{\\vspace{\\baselineskip}}
+
+      \\AddToHook{env/figure/after}{\\endgroup}
+
+      \\begin{document}
+
+      На рисунке~\\ref{fig:classes} показаны два класса учебной модели
+
+      сохранения отчёта. Editor хранит ссылку на один ReportStore.
+
+      \\par
+
+      \\begin{figure}[!ht]
+
+      \\centering
+
+      \\begin{tikzpicture}[font=\\small]
+
+      \\begin{class}[text width=4.8cm]{Editor}{0,0}
+
+      \  \\attribute{- store : ReportStore}
+
+      \  \\operation{+ saveReport() : bool}
+
+      \\end{class}
+
+      \\begin{class}[text width=4cm]{ReportStore}{8.8,0}
+
+      \  \\operation{+ save() : bool}
+
+      \\end{class}
+
+      \\unidirectionalAssociation{Editor}{store}{1}{ReportStore}
+
+      \\end{tikzpicture}
+
+      \\caption{Классы учебной модели сохранения отчёта}\\label{fig:classes}
+
+      \\end{figure}
+
+      \\par
+
+      Стрелка показывает навигацию от Editor к ReportStore.
+
+      Кратность 1 относится к хранилищу; связь не задаёт владение его жизненным циклом.
+
+      На рисунке~\\ref{fig:sequence} раскрыт успешный вызов save()
+
+      из операции saveReport(). Данные отчёта и обработка отказа опущены.
+
+      \\par
+
+      \\begin{figure}[!ht]
+
+      \\centering
+
+      \\begin{sequencediagram}
+
+      \  \\newinst{ed}{editor:Editor}
+
+      \  \\newinst[3]{store}{store:ReportStore}
+
+      \  \\begin{call}{ed}{save()}{store}{true}
+
+      \  \\end{call}
+
+      \\end{sequencediagram}
+
+      \\caption{Последовательность успешного сохранения отчёта}\\label{fig:sequence}
+
+      \\end{figure}
+
+      \\par
+
+      Ответ true соответствует типу bool операции save().
+
+      Схема описывает сценарий модели и не подтверждает работу программы.
+
+      \\end{document}"
+    parameters:
+      visible: true

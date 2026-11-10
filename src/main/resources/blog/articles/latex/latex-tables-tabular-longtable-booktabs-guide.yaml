@@ -1,0 +1,259 @@
+catalogIndex: 128
+slug: 'latex-tables-tabular-longtable-booktabs-guide'
+batch: 3
+title: 'Таблицы в LaTeX: как выбрать tabular, longtable и booktabs'
+pageTitle: 'Таблицы в LaTeX: как выбрать tabular, longtable и booktabs — Labkeeper'
+metaDescription: 'Чем отличаются table, tabular, longtable и booktabs. Короткая таблица с единицами, подписью и ссылкой, выбор ширины колонок и проверка PDF.'
+breadcrumbTitle: 'Таблицы LaTeX: выбор средств'
+h1: 'Таблицы в LaTeX: как выбрать tabular, longtable и booktabs'
+categories:
+  - 'latex'
+related:
+  - 'latex-longtable-multipage'
+  - 'latex-arraystretch-table-row-height-spacing'
+  - 'diploma-data-tables-formatting-gost'
+keywords:
+  - 'таблицы LaTeX tabular longtable booktabs'
+  - 'таблица LaTeX оформление'
+  - 'table tabular отличие'
+datePublished: '2026-11-09'
+dateModified: '2026-11-09'
+readingTime: '6 мин'
+cardTitle: 'Таблицы в LaTeX: как выбрать tabular, longtable и booktabs'
+cardDescription: 'Чем отличаются table, tabular, longtable и booktabs. Короткая таблица с единицами, подписью и ссылкой, выбор ширины колонок и проверка PDF.'
+sliderTitle: 'Таблицы LaTeX: выбор средств'
+sliderText: 'Чем отличаются table, tabular, longtable и booktabs. Короткая таблица с единицами, подписью и ссылкой, выбор ширины колонок и проверка PDF.'
+sidebarText: 'Выбирайте окружение таблицы под объём данных и требования документа в Labkeeper.'
+ctaTitle: 'Соберите небольшую таблицу LaTeX'
+ctaText: 'Откройте пример tabular, замените строки и заголовки, проверьте подпись и автоматическую ссылку в PDF.'
+toc:
+  - id: 'tools'
+    title: 'Разделите данные, размещение и оформление'
+  - id: 'columns'
+    title: 'Выберите колонки и запишите строки'
+  - id: 'caption'
+    title: 'Настройте подпись один раз в преамбуле'
+  - id: 'example'
+    title: 'Небольшая таблица tabular с автоматической ссылкой'
+  - id: 'other-tools'
+    title: 'Когда нужны longtable и booktabs'
+  - id: 'check'
+    title: 'Что проверить в PDF'
+sections:
+  - id: 'tools'
+    title: 'Разделите данные, размещение и оформление'
+    html:
+      '<p>Для небольшой таблицы достаточно <code>tabular</code>, но при добавлении подписи, переносе на другую страницу и настройке линий появляются другие средства. Они решают разные задачи: замена одного другим без понимания назначения часто приводит к потерянной подписи или обрезанным строкам.</p>
+
+      <p>Разберём выбор инструмента и короткую таблицу двух вымышленных образцов. Это пример вёрстки, а не результаты измерений. Для правил оформления дипломных данных см. <a href="/blog/diploma-data-tables-formatting-gost">подписи, единицы и ссылки в таблицах ВКР</a>; здесь сосредоточимся на устройстве LaTeX-кода.</p><div class="article-table-wrapper"><table class="article-table"><thead><tr><th>Средство</th><th>Назначение</th><th>Когда использовать</th></tr></thead><tbody><tr><td>tabular</td><td>Располагает ячейки по колонкам</td><td>Небольшая таблица, которая помещается на одной странице</td></tr>
+
+      <tr><td>table</td><td>Плавающее окружение с подписью и номером</td><td>Размещение небольшой таблицы рядом с первым упоминанием</td></tr>
+
+      <tr><td>longtable</td><td>Продолжает таблицу на следующих страницах</td><td>Много строк, повторение головки и оформление продолжения</td></tr>
+
+      <tr><td>booktabs</td><td>Добавляет команды горизонтальных линий и интервалы</td><td>Стиль таблицы для публикации, если его допускают требования</td></tr></tbody></table></div><p><code>booktabs</code> не заменяет окружение данных: его команды применяют внутри <code>tabular</code> или совместимого окружения. Подробности синтаксиса таблиц приведены в <a href="https://www.learnlatex.org/en/lesson-08" target="_blank" rel="noopener noreferrer">учебном курсе проекта LaTeX</a>.</p>'
+  - id: 'columns'
+    title: 'Выберите колонки и запишите строки'
+    html:
+      '<p>В записи <code>{|l|r|r|}</code> три колонки: первая выравнивается влево, две числовые — вправо. Символ <code>|</code> задаёт вертикальную границу. Ячейки разделяются <code>&amp;</code>, строка заканчивается <code>\\</code>. Для трёх ячеек обычно нужны два разделителя <code>&amp;</code>; объединение ячеек меняет это правило.</p>
+
+      <p>Колонки <code>l</code>, <code>c</code>, <code>r</code> имеют естественную ширину содержимого и не переносят длинный текст автоматически. Для текста используют <code>p{ширина}</code>, для распределения заданной общей ширины — <code>X</code> из пакета <code>tabularx</code>. Не маскируйте слишком широкую таблицу уменьшением всего шрифта.</p>
+
+      <p>В нашем примере <code>\multicolumn{1}{c|}{...}</code> центрирует отдельный заголовок, сохраняя выравнивание чисел вправо. Единицы стоят в головке. Десятичную запятую в математической записи заключаем в фигурные скобки, например <code>5{,}4</code>, чтобы после неё не появился лишний пробел.</p>'
+  - id: 'caption'
+    title: 'Настройте подпись один раз в преамбуле'
+    html:
+      "<p>Для отчётного примера подпись располагается над таблицей слева, а ссылка на неё — в предшествующем тексте. Номер создаёт <code>\\caption</code>, метка <code>\\label</code> стоит после неё. Оформление основано на разделе 6.6 <a href=\"https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">ГОСТ 7.32-2017</a>; требования учебной работы сверяйте с методичкой.</p><div class=\"article-code\">
+
+      <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      <pre><code>\\usepackage{caption}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\DeclareCaptionTextFormat{gosttitle}{%
+
+      \  \\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1}
+
+      \\captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false,textformat=gosttitle}
+
+      \\newlength{\\tablecaptionheight}
+
+      \\settoheight{\\tablecaptionheight}{\\setstretch{1}\\strut}
+
+      \\AddToHook{env/table/before}{%
+
+      \  \\par\\begingroup
+
+      \  \\ifdim\\prevdepth&gt;-1000pt
+
+      \    \\setlength{\\intextsep}{\\dimexpr\\baselineskip-\\prevdepth-\\tablecaptionheight\\relax}%
+
+      \    \\ifdim\\intextsep&lt;0pt\\setlength{\\intextsep}{0pt}\\fi
+
+      \  \\fi
+
+      }
+
+      \\AddToHook{env/table/after}{\\endgroup}</code></pre>
+
+      </div><p>Обработчики <code>table</code> задают отступ перед верхней подписью с учётом последней строки текста. Они размещены один раз и действуют на следующие небольшие таблицы. Внутри длинной подписи сохраняется одинарный интервал; перенос таблицы на другую страницу проверяется отдельно.</p>"
+  - id: 'example'
+    title: 'Небольшая таблица tabular с автоматической ссылкой'
+    html:
+      '<p>Следующий фрагмент вставляется в тело документа. Настройки страницы и основного текста уже включены в пример редактора. Здесь нет титула, содержания и других разделов полного отчёта.</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>В таблице~\ref{tab:samples} приведены вымышленные данные двух образцов.
+
+      Единицы указаны в головке; числа служат только для разбора вёрстки.
+
+      \par
+
+      \begin{table}[!ht]
+
+      \caption{Учебные данные образцов}\label{tab:samples}
+
+      \centering
+
+      \renewcommand{\arraystretch}{1.2}
+
+      \begin{tabular}{|l|r|r|}
+
+      \hline
+
+      \multicolumn{1}{|c|}{Образец} &amp;
+
+      \multicolumn{1}{c|}{Масса, г} &amp;
+
+      \multicolumn{1}{c|}{Объём, см\textsuperscript{3}} \\
+
+      \hline
+
+      А &amp; $5{,}4$ &amp; $2{,}0$ \\
+
+      Б &amp; $8{,}1$ &amp; $3{,}0$ \\
+
+      \hline
+
+      \end{tabular}
+
+      \end{table}
+
+      \par
+
+      Проверьте подпись, единицы и ссылку после повторной сборки.
+
+      При замене данных сохраняйте одинаковый формат чисел внутри столбца.</code></pre>
+
+      </div><p>«Просмотреть пример» открывает именно эту таблицу. Замените строки, заголовки и единицы, затем выполните сборку. Повторный запуск обновляет ссылку на номер. Параметр <code>\arraystretch</code> действует внутри данной таблицы и не растягивает остальные таблицы или математические матрицы.</p>'
+  - id: 'other-tools'
+    title: 'Когда нужны longtable и booktabs'
+    html:
+      '<p>Если строки должны продолжаться на следующей странице, используйте <a href="https://ctan.org/pkg/longtable" target="_blank" rel="noopener noreferrer">longtable</a> без внешнего <code>table</code>. Настройте головку первой страницы и повторяющуюся головку, подпись и обозначение продолжения. Не ограничивайтесь заменой имени окружения: подробный пример есть в статье о <a href="/blog/latex-longtable-multipage">многостраничных таблицах</a>.</p>
+
+      <p><a href="https://ctan.org/pkg/booktabs" target="_blank" rel="noopener noreferrer">Пакет booktabs</a> предоставляет <code>\toprule</code>, <code>\midrule</code> и <code>\bottomrule</code>. Его обычный стиль обходится без вертикальных линий; это вариант для публикации с соответствующими требованиями. Не объявляйте такую таблицу автоматически соответствующей отчётному оформлению с внешними границами. В нашем отчётном примере границы сохранены, <code>booktabs</code> не используется.</p>
+
+      <p>Если проблема только в тесных строках, сначала проверьте <a href="/blog/latex-arraystretch-table-row-height-spacing">высоту строк и интервалы таблицы</a>. Выбор пакета должен следовать задаче и требованиям, а не одному внешнему виду.</p>'
+  - id: 'check'
+    title: 'Что проверить в PDF'
+    html:
+      '<ul><li>Число колонок соответствует строкам, все данные и единицы перенесены без потерь.</li><li>Длинные заголовки и значения помещаются в текстовую область.</li><li>Головка центрирована, названия образцов выровнены влево, числовые столбцы читаются одинаково.</li><li>Ссылка стоит до таблицы, подпись — над ней, в ссылке нет <code>??</code>.</li><li>Отступы до подписи и после таблицы не сжимают соседние абзацы.</li><li>Для нескольких страниц проверены повторение головки и надпись продолжения.</li></ul>
+
+      <p>LaTeX набирает переданные значения, но не проверяет их происхождение и физический смысл. Проверка данных и выводов остаётся отдельной задачей.</p>'
+editorExample:
+  - type: 'latex'
+    text: "\\documentclass[a4paper,14pt]{extarticle}
+
+      \\usepackage[T2A]{fontenc}
+
+      \\usepackage[utf8]{inputenc}
+
+      \\usepackage[russian]{babel}
+
+      \\usepackage{tempora,geometry,setspace,indentfirst}
+
+      \\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+
+      \\onehalfspacing
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\usepackage{caption}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\DeclareCaptionTextFormat{gosttitle}{%
+
+      \  \\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1}
+
+      \\captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false,textformat=gosttitle}
+
+      \\newlength{\\tablecaptionheight}
+
+      \\settoheight{\\tablecaptionheight}{\\setstretch{1}\\strut}
+
+      \\AddToHook{env/table/before}{%
+
+      \  \\par\\begingroup
+
+      \  \\ifdim\\prevdepth>-1000pt
+
+      \    \\setlength{\\intextsep}{\\dimexpr\\baselineskip-\\prevdepth-\\tablecaptionheight\\relax}%
+
+      \    \\ifdim\\intextsep<0pt\\setlength{\\intextsep}{0pt}\\fi
+
+      \  \\fi
+
+      }
+
+      \\AddToHook{env/table/after}{\\endgroup}
+
+      \\begin{document}
+
+      В таблице~\\ref{tab:samples} приведены вымышленные данные двух образцов.
+
+      Единицы указаны в головке; числа служат только для разбора вёрстки.
+
+      \\par
+
+      \\begin{table}[!ht]
+
+      \\caption{Учебные данные образцов}\\label{tab:samples}
+
+      \\centering
+
+      \\renewcommand{\\arraystretch}{1.2}
+
+      \\begin{tabular}{|l|r|r|}
+
+      \\hline
+
+      \\multicolumn{1}{|c|}{Образец} &
+
+      \\multicolumn{1}{c|}{Масса, г} &
+
+      \\multicolumn{1}{c|}{Объём, см\\textsuperscript{3}} \\\\
+
+      \\hline
+
+      А & $5{,}4$ & $2{,}0$ \\\\
+
+      Б & $8{,}1$ & $3{,}0$ \\\\
+
+      \\hline
+
+      \\end{tabular}
+
+      \\end{table}
+
+      \\par
+
+      Проверьте подпись, единицы и ссылку после повторной сборки.
+
+      При замене данных сохраняйте одинаковый формат чисел внутри столбца.
+
+      \\end{document}"
+    parameters:
+      visible: true

@@ -1,0 +1,203 @@
+catalogIndex: 129
+slug: 'latex-compilation-errors-undefined-missing-overfull'
+batch: 3
+title: 'Ошибки компиляции LaTeX: Undefined control sequence, Missing $ и Overfull'
+pageTitle: 'Ошибки компиляции LaTeX: Undefined control sequence, Missing $ и Overfull — Labkeeper'
+metaDescription: 'Как читать первую ошибку LaTeX, исправлять неизвестные команды и математический режим, отличать Overfull от остановки сборки и проверять правки агента.'
+breadcrumbTitle: 'Ошибки компиляции LaTeX'
+h1: 'Ошибки компиляции LaTeX: Undefined control sequence, Missing $ и Overfull'
+categories:
+  - 'latex'
+related:
+  - 'latex-first-document-russian-minimal-template'
+  - 'latex-formulas'
+  - 'latex-prevent-hyphenation-linebreaks'
+keywords:
+  - 'ошибки компиляции LaTeX'
+  - 'Undefined control sequence LaTeX'
+  - 'Missing dollar inserted Overfull hbox'
+datePublished: '2026-11-09'
+dateModified: '2026-11-09'
+readingTime: '6 мин'
+cardTitle: 'Ошибки компиляции LaTeX: Undefined control sequence, Missing $ и Overfull'
+cardDescription: 'Как читать первую ошибку LaTeX, исправлять неизвестные команды и математический режим, отличать Overfull от остановки сборки и проверять правки агента.'
+sliderTitle: 'Ошибки компиляции LaTeX'
+sliderText: 'Как читать первую ошибку LaTeX, исправлять неизвестные команды и математический режим, отличать Overfull от остановки сборки и проверять правки агента.'
+sidebarText: 'Разбирайте сообщения сборки и проверяйте исправления LaTeX в Labkeeper.'
+ctaTitle: 'Откройте исправленный документ'
+ctaText: 'Проверьте рабочий пример, затем воспроизведите одну учебную ошибку и проследите её исправление.'
+toc:
+  - id: 'first'
+    title: 'Начинайте с первой ошибки'
+  - id: 'undefined'
+    title: 'Undefined control sequence: команда не определена'
+  - id: 'math'
+    title: 'Missing $ inserted: проверьте математический режим'
+  - id: 'overfull'
+    title: 'Overfull hbox: PDF собран, но строка не помещается'
+  - id: 'agent'
+    title: 'Как передать ошибку агенту и проверить изменение'
+  - id: 'example'
+    title: 'Исправленный фрагмент для проверки'
+sections:
+  - id: 'first'
+    title: 'Начинайте с первой ошибки'
+    html:
+      '<p>После одной пропущенной скобки LaTeX может выдать несколько сообщений, относящихся к следующим строкам. Если исправлять их снизу вверх, легко изменить правильный код и сохранить исходную причину.</p>
+
+      <p>Запустите сборку, откройте список «Проблемы» и прочитайте первое сообщение. Посмотрите указанную строку и несколько строк перед ней: место обнаружения не всегда совпадает с местом ошибки. Сохраните рабочий вариант, сделайте одну обоснованную правку и повторите сборку. Такой порядок разбирается и в <a href="https://www.learnlatex.org/en/lesson-15" target="_blank" rel="noopener noreferrer">руководстве проекта LaTeX по ошибкам</a>.</p>
+
+      <p>Ниже ошибочные строки помечены как упражнения. Кнопка «Просмотреть пример» открывает исправленный документ; он собирается без намеренно внесённых ошибок.</p>'
+  - id: 'undefined'
+    title: 'Undefined control sequence: команда не определена'
+    html:
+      '<p>Сообщение означает, что LaTeX встретил неизвестную команду. Сначала проверьте имя, затем необходимый пакет и собственные определения в преамбуле. Добавлять случайные пакеты до выяснения команды не нужно.</p>
+
+      <p><strong>Ошибочный фрагмент:</strong> для полужирного текста написано несуществующее в этом примере имя.</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>\textbold{Учебный фрагмент}</code></pre>
+
+      </div><p>Используйте стандартную команду:</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>\textbf{Учебный фрагмент}</code></pre>
+
+      </div><p>Если неизвестная команда относится к пакету, проверьте его документацию и подключение. Например, <code>\includegraphics</code> требует <code>graphicx</code>. Если команда определена автором шаблона, перенесите вместе с фрагментом её определение, а не заменяйте смысл случайным похожим именем.</p>'
+  - id: 'math'
+    title: 'Missing $ inserted: проверьте математический режим'
+    html:
+      '<p>Частая причина — индекс или другая математическая команда в обычном тексте. LaTeX пытается вставить знак математического режима, но это не означает, что место для него выбрано правильно.</p>
+
+      <p><strong>Ошибочный фрагмент:</strong></p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>Номер опыта x_1.</code></pre>
+
+      </div><p>Если нужен математический индекс, заключите обозначение в математический режим:</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>Номер опыта $x_1$.</code></pre>
+
+      </div><p>Если подчёркивание является частью имени файла или обычного текста, используйте <code>\_</code>. Для процента в тексте нужно <code>\%</code>: необработанный <code>%</code> начинает комментарий и скрывает остаток строки. Проверьте также парность знаков <code>$</code>, фигурных скобок и соответствие <code>\begin</code>/<code>\end</code>. Основы формул разобраны в <a href="/blog/latex-formulas">руководстве по математическому режиму</a>.</p>'
+  - id: 'overfull'
+    title: 'Overfull hbox: PDF собран, но строка не помещается'
+    html:
+      '<p><code>Overfull \hbox</code> обычно предупреждает о выходе строки за доступную ширину. Это отличается от ошибки, останавливающей сборку: PDF может появиться, но содержать обрезанный текст. Просмотрите указанное место в самом файле.</p>
+
+      <p>Следующий фрагмент намеренно запрещает перенос всего адреса внутри <code>\mbox</code>:</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>\mbox{https://example.org/project/measurement/report/appendix/results/series/measurements/processed/summary}</code></pre>
+
+      </div><p>Для адреса используйте <code>\url</code>. Пакет <a href="https://ctan.org/pkg/xurl" target="_blank" rel="noopener noreferrer">xurl</a> подключает <code>url</code> и расширяет допустимые места переноса длинного адреса:</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>\url{https://example.org/project/measurement/report/appendix/results/series/measurements/processed/summary}</code></pre>
+
+      </div><p>Для другого содержимого решение зависит от причины: длинному тексту в ячейке нужна подходящая ширина колонки, формуле — осмысленный перенос, рисунку — размер в пределах текста. Не скрывайте предупреждение увеличением <code>\hfuzz</code> и не уменьшайте весь документ. Подробности — в статье о <a href="/blog/latex-prevent-hyphenation-linebreaks">переносах и неразрывных фрагментах</a>.</p>'
+  - id: 'agent'
+    title: 'Как передать ошибку агенту и проверить изменение'
+    html:
+      '<p>В списке «Проблемы» можно использовать действие «Отправить агенту». Перед отправкой уточните задачу: исправить причину конкретного сообщения, сохранив содержание и оформление. Для самостоятельного обращения подойдёт такой запрос:</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">Запрос агенту</span></div>
+
+      <pre><code>Исправь только первую ошибку компиляции в текущем LaTeX-фрагменте.
+
+      Объясни причину и предложенную замену.
+
+      Сохрани числа, смысл текста, метки и настройки оформления.
+
+      Не переписывай остальные разделы и не скрывай предупреждения настройками.</code></pre>
+
+      </div><p>Режим «Вопрос» нужен для объяснения без изменения документа, режим «Агент» — для правок. Агент может изменить проект; просмотрите выделенные изменения и используйте «Принять» или «Отклонить» после проверки. Не принимайте удаление формулы или таблицы только потому, что после него сборка проходит.</p>
+
+      <p>Повторная компиляция проверяет синтаксис, а просмотр PDF — результат вёрстки. Удачная сборка сама по себе не подтверждает правильность расчёта, источников или структуры работы.</p>'
+  - id: 'example'
+    title: 'Исправленный фрагмент для проверки'
+    html:
+      '<p>В преамбуле примера подключён <code>xurl</code> для переноса длинного адреса. Страница, основной текст и заголовок настроены для небольшого отчётного фрагмента; это упражнение, а не полный отчёт.</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>\usepackage{xurl}</code></pre>
+
+      </div><p>В тело документа вставлен следующий исправленный текст:</p><div class="article-code">
+
+      <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+
+      <pre><code>\section{Проверка сборки}
+
+      \textbf{Учебный фрагмент}
+
+
+      Номер опыта $x_1$.
+
+      Доля условно принята равной 20\%; амперсанд записан как \&amp;.
+
+
+      Адрес документа допускает переносы:
+
+      \url{https://example.org/project/measurement/report/appendix/results/series/measurements/processed/summary}
+
+
+      Это упражнение по синтаксису, а не результат измерений.</code></pre>
+
+      </div><p>«Просмотреть пример» открывает этот документ целиком со служебными настройками. Для упражнения временно заменяйте по одной исправленной строке на ошибочную, смотрите сообщение и возвращайте рабочий код. Начальный каркас документа разобран в статье <a href="/blog/latex-first-document-russian-minimal-template">о первых шагах в LaTeX</a>.</p>'
+editorExample:
+  - type: 'latex'
+    text: '\documentclass[a4paper,14pt]{extarticle}
+
+      \usepackage[T2A]{fontenc}
+
+      \usepackage[utf8]{inputenc}
+
+      \usepackage[russian]{babel}
+
+      \usepackage{tempora,geometry,setspace,indentfirst}
+
+      \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+
+      \onehalfspacing
+
+      \setlength{\parindent}{1.25cm}
+
+      \usepackage{titlesec}
+
+      \titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection}{1em}{}
+
+      \titlespacing{\section}{1.25cm}{0pt}{\baselineskip}
+
+      \AddToHook{cmd/section/before}{\clearpage}
+
+      \usepackage{xurl}
+
+      \begin{document}
+
+      \section{Проверка сборки}
+
+      \textbf{Учебный фрагмент}
+
+
+      Номер опыта $x_1$.
+
+      Доля условно принята равной 20\%; амперсанд записан как \&.
+
+
+      Адрес документа допускает переносы:
+
+      \url{https://example.org/project/measurement/report/appendix/results/series/measurements/processed/summary}
+
+
+      Это упражнение по синтаксису, а не результат измерений.
+
+      \end{document}'
+    parameters:
+      visible: true

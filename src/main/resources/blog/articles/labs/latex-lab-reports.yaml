@@ -281,6 +281,7 @@ sections:
                                       </div>
                                   </div>
                               </div>
+      <p>Если вы только начинаете, сначала соберите <a href="/blog/latex-first-document-russian-minimal-template">первый короткий документ LaTeX на русском языке</a>.</p>
 editorExample:
   compute: |2-
     // Длина нити, м, и период колебаний, с

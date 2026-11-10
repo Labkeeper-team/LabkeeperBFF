@@ -135,6 +135,7 @@ sections:
                               </div>
                               <p>В готовом PDF отобразится кликабельный номер: <em>«на рисунке
       2.1»</em>.</p>
+      <p>Общие настройки подписей и русские названия кликабельных ссылок рассмотрены в примере <a href="/blog/latex-caption-cleveref-cross-references">caption и cleveref</a>.</p>
 tips:
   - title: 'Склонение слова «рисунок»'
     html: |2-

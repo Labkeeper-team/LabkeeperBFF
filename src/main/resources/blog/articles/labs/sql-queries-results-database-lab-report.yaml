@@ -1,0 +1,167 @@
+catalogIndex: 145
+slug: 'sql-queries-results-database-lab-report'
+batch: 3
+title: 'SQL-запросы в отчёте по базам данных: код, результат и вывод'
+pageTitle: 'SQL-запросы в отчёте по базам данных: код, результат и вывод — Labkeeper'
+metaDescription: 'Учебный пример SQLite для лабораторной: исходные таблицы, SELECT с JOIN и GROUP BY, проверка результата и объяснение ограничений.'
+breadcrumbTitle: 'SQL-запросы в лабораторной'
+h1: 'SQL-запросы в отчёте по базам данных: код, результат и вывод'
+categories:
+  - 'labs'
+related:
+  - 'programming-lab-report-code-listings-gost'
+  - 'markdown-code-syntax-highlighting'
+  - 'experiment-results-analysis-lab-report'
+keywords:
+  - 'sql-запросы в лабораторной'
+datePublished: '2026-11-09'
+dateModified: '2026-11-09'
+readingTime: '6 мин'
+cardTitle: 'SQL-запросы в отчёте по базам данных: код, результат и вывод'
+cardDescription: 'Учебный пример SQLite для лабораторной: исходные таблицы, SELECT с JOIN и GROUP BY, проверка результата и объяснение ограничений.'
+sliderTitle: 'SQL-запросы в лабораторной'
+sliderText: 'Учебный пример SQLite для лабораторной: исходные таблицы, SELECT с JOIN и GROUP BY, проверка результата и объяснение ограничений.'
+sidebarText: 'Сохраните исходные данные, код и пояснение результата рядом в документе Labkeeper.'
+ctaTitle: 'Откройте учебный пример'
+ctaText: 'Откройте фрагмент лабораторного отчёта в LaTeX: учебные данные, SQL и таблица. Запрос выполняется отдельно в SQLite; таблицу и вывод обновляют вручную.'
+toc:
+  - id: 'task'
+    title: 'Сформулируйте вопрос до запроса'
+  - id: 'setup'
+    title: 'Создайте воспроизводимые учебные данные'
+  - id: 'query'
+    title: 'Свяжите таблицы и сгруппируйте работы'
+  - id: 'result'
+    title: 'Проверьте таблицу и сформулируйте вывод'
+sections:
+  - id: 'task'
+    title: 'Сформулируйте вопрос до запроса'
+    html: |2-
+      <p>В отчёте по базам данных одного листинга SQL недостаточно: читателю нужны исходные записи, результат выполнения и объяснение того, что он означает. Покажем эту связь на небольшом наборе, который можно восстановить в пустой базе SQLite.</p>
+      <p>Все данные вымышленные. Требуется найти число сданных работ и средний балл по каждой группе, у которой есть работы, затем расположить группы по убыванию среднего. Это проверка выборки и агрегирования, а не оценка качества обучения. Настройку шрифтов и нумерации кода см. отдельно в статье о <a href="/blog/programming-lab-report-code-listings-gost">листингах в отчёте</a>.</p>
+  - id: 'setup'
+    title: 'Создайте воспроизводимые учебные данные'
+    html: |2-
+      <p>В новой пустой базе SQLite выполните следующий скрипт один раз. <code>groups.id</code> идентифицирует группу; <code>submissions.group_id</code> связывает работу с группой. Одна строка второй таблицы — одна работа, <code>score</code> задан в баллах и не допускает NULL.</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">SQL</span></div><pre><code>CREATE TABLE groups (
+        id INTEGER PRIMARY KEY, name TEXT NOT NULL
+      );
+      CREATE TABLE submissions (
+        id INTEGER PRIMARY KEY,
+        group_id INTEGER NOT NULL REFERENCES groups(id),
+        score INTEGER NOT NULL
+      );
+      INSERT INTO groups VALUES (1, 'A'), (2, 'B'), (3, 'C');
+      INSERT INTO submissions VALUES
+        (1, 1, 4), (2, 1, 6), (3, 2, 8);</code></pre></div>
+      <p>Группа A имеет две работы с баллами 4 и 6, B — одну с 8 баллами, C — ни одной. При повторном запуске используйте новую пустую учебную базу: скрипт не удаляет существующие таблицы. Названия A, B, C — условные обозначения, не персональные данные студентов.</p>
+  - id: 'query'
+    title: 'Свяжите таблицы и сгруппируйте работы'
+    html: |2-
+      <p>Запрос ниже вернёт по одной строке для каждой группы со сданными работами:</p>
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">SQL</span></div><pre><code>SELECT g.name AS group_name,
+             COUNT(s.id) AS submission_count,
+             AVG(s.score) AS mean_score
+      FROM groups AS g
+      JOIN submissions AS s ON s.group_id = g.id
+      GROUP BY g.id, g.name
+      ORDER BY mean_score DESC, g.name ASC;</code></pre></div>
+      <p><code>JOIN ... ON</code> связывает записи по ключу; <code>GROUP BY</code> объединяет работы одной группы. <code>COUNT(s.id)</code> считает работы, <code>AVG(s.score)</code> вычисляет средний балл. В выборке нет неагрегированных полей вне группировки. По <a href="https://www.sqlite.org/lang_select.html">правилам SELECT в SQLite</a> порядок строк задаётся <code>ORDER BY</code>; второй ключ сохраняет определённый порядок при равных средних.</p>
+      <p>Здесь <code>JOIN</code> означает внутреннее соединение: группа C без работ не попадёт в результат. Если задание требует все группы, нужен другой запрос с <code>LEFT JOIN</code>; при нём важно считать <code>s.id</code>, а не <code>COUNT(*)</code>, и отдельно трактовать отсутствующее среднее. Не подменяйте отсутствие работ нулевым средним баллом.</p>
+  - id: 'result'
+    title: 'Проверьте таблицу и сформулируйте вывод'
+    html: |2-
+      <p>Результат запроса приведён в таблице 1. Английские имена столбцов совпадают с псевдонимами в SQL, единица среднего балла указана отдельно.</p>
+      <p>Таблица 1 — Сводка по сданным работам</p>
+      <div class="article-table-wrapper"><table class="article-table"><thead><tr><th>group_name</th><th>submission_count</th><th>mean_score, баллы</th></tr></thead><tbody><tr><td>B</td><td>1</td><td>8.0</td></tr><tr><td>A</td><td>2</td><td>5.0</td></tr></tbody></table></div>
+      <p>Проверка вручную: для A среднее равно (4 + 6) / 2 = 5, для B — 8 / 1 = 8. Сумма количеств равна трём исходным работам. Группы C нет именно из-за внутреннего соединения, а не из-за ошибки сортировки.</p>
+      <p>Вывод для отчёта: «На учебной выборке средний балл сданных работ группы B равен 8, группы A — 5. В группе B учтена одна работа, в A — две; сравнение не позволяет заключить, что группа B в целом подготовлена лучше». О том, как связывать наблюдение с ограничениями выборки, см. <a href="/blog/experiment-results-analysis-lab-report">анализ результатов эксперимента</a>.</p>
+      <div class="article-note"><p>«Просмотреть пример» открывает фрагмент лабораторного отчёта в LaTeX с тем же скриптом, запросом и таблицей. SQL внутри listings не исполняется. Выполните его отдельно в SQLite, затем при изменении данных вручную обновите таблицу и вывод. В PDF средние записаны с десятичной запятой: 8,0 и 5,0.</p></div>
+      <p>Пример — фрагмент лабораторного отчёта без титульного листа. В LaTeX настроены A4, поля 30/15/20/20 мм, основной шрифт 14 пт, полуторный интервал, абзац 1,25 см, подпись таблицы сверху и ссылка перед ней. Это применение правил оформления отчёта к представленным объектам; требования к лабораторной сверяйте с методичкой кафедры. Для варианта Markdown начните с <a href="/blog/markdown-code-syntax-highlighting">блоков кода с подсветкой</a>. Сохраните указание СУБД, исходные данные и условия отбора: без них снимок результата нельзя воспроизвести.</p>
+editorExample:
+  - type: 'latex'
+    text: |2-
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,geometry,setspace,indentfirst}
+      \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \usepackage{caption,tabularx,listings}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+      \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
+      \captionsetup{textformat=gosttitle}
+      \newlength{\tablecaptionheight}
+      \settoheight{\tablecaptionheight}{\setstretch{1}\strut}
+      \AddToHook{env/table/before}{%
+        \par\begingroup
+        \ifdim\prevdepth>-1000pt
+          \setlength{\intextsep}{\dimexpr\baselineskip-\prevdepth-\tablecaptionheight\relax}%
+          \ifdim\intextsep<0pt\setlength{\intextsep}{0pt}\fi
+        \fi
+      }
+      \AddToHook{env/table/after}{\endgroup}
+      \lstset{language=SQL,basicstyle=\ttfamily\normalsize,columns=fullflexible,keepspaces=true,breaklines=true,showstringspaces=false}
+      \begin{document}
+      \textbf{SQL-запрос, результат и объяснение}
+
+      Все данные вымышленные. Одна строка submissions --- одна сданная работа;
+      score --- число баллов. Следующий скрипт выполняют один раз в новой пустой
+      базе SQLite. Код в этом документе не исполняется.
+      \begin{lstlisting}
+      CREATE TABLE groups (
+        id INTEGER PRIMARY KEY, name TEXT NOT NULL
+      );
+      CREATE TABLE submissions (
+        id INTEGER PRIMARY KEY,
+        group_id INTEGER NOT NULL REFERENCES groups(id),
+        score INTEGER NOT NULL
+      );
+      INSERT INTO groups VALUES (1, 'A'), (2, 'B'), (3, 'C');
+      INSERT INTO submissions VALUES
+        (1, 1, 4), (2, 1, 6), (3, 2, 8);
+      \end{lstlisting}
+      Группа A имеет две работы с баллами 4 и 6, B --- одну с 8 баллами,
+      C --- ни одной. Найдём число работ и средний балл для групп со сданными работами.
+      \begin{lstlisting}
+      SELECT g.name AS group_name,
+             COUNT(s.id) AS submission_count,
+             AVG(s.score) AS mean_score
+      FROM groups AS g
+      JOIN submissions AS s ON s.group_id = g.id
+      GROUP BY g.id, g.name
+      ORDER BY mean_score DESC, g.name ASC;
+      \end{lstlisting}
+      \clearpage
+      JOIN связывает работы с группой, GROUP BY формирует одну строку на группу.
+      COUNT считает работы, AVG находит среднее. ORDER BY сортирует по убыванию
+      среднего, затем по имени. Результат приведён в таблице~\ref{tab:sql}.
+      \par
+      \begin{table}[!ht]
+      \caption{Сводка по сданным работам}\label{tab:sql}
+      \centering
+      \renewcommand{\arraystretch}{1.25}
+      \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|r|r|}
+      \hline
+      \multicolumn{1}{|c|}{Группа} & \multicolumn{1}{c|}{Число работ} & \multicolumn{1}{c|}{Средний балл} \\
+      \hline
+      B & 1 & 8{,}0 \\
+      A & 2 & 5{,}0 \\
+      \hline
+      \end{tabularx}
+      \end{table}
+      \par
+      Проверка: для A среднее равно $(4+6)/2=5$, для B --- $8/1=8$;
+      число работ $2+1=3$. Группы C нет: внутреннее соединение оставляет
+      только группы со сданными работами.
+
+      На учебной выборке средний балл сданных работ B выше, но в B учтена
+      одна работа, в A --- две. Это не доказывает превосходства группы в целом.
+      После изменения данных выполните запрос отдельно в SQLite и вручную
+      обновите таблицу и вывод. Это фрагмент лабораторного отчёта без титульного листа.
+      \end{document}
+    parameters:
+      visible: true

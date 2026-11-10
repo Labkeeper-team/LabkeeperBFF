@@ -1,0 +1,255 @@
+catalogIndex: 114
+slug: 'ecology-lab-observation-journal-example'
+batch: 3
+title: 'Лабораторная по экологии: как оформлять наблюдения?'
+pageTitle: 'Журнал наблюдений в лабораторной по экологии — Labkeeper'
+metaDescription: 'Как оформить журнал экологических наблюдений: условия, время, глубина, единицы, повторные отсчеты и среднее. Короткий учебный пример в LaTeX.'
+breadcrumbTitle: 'Наблюдения в лабораторной по экологии'
+h1: 'Лабораторная по&nbsp;экологии: как оформлять наблюдения?'
+categories:
+  - 'labs'
+related:
+  - 'student-confidence-intervals-error-calculation'
+  - 'formula-variable-explanation-where-gost'
+  - 'how-to-write-lab-report-conclusion-examples'
+keywords:
+  - 'экология отчет наблюдение гост'
+  - 'журнал наблюдений лабораторная по экологии'
+  - 'оформление экологических наблюдений'
+datePublished: '2026-11-07'
+dateModified: '2026-11-07'
+readingTime: '7 мин'
+cardTitle: 'Журнал наблюдений в лабораторной по экологии'
+cardDescription: 'Условия, исходные отсчеты, среднее и вывод на коротком примере температуры воды.'
+sliderTitle: 'Как оформлять экологические наблюдения'
+sliderText: 'Отделите журнал исходных данных от обработки и интерпретации.'
+sidebarText: 'Заполняйте журнал наблюдений и рассчитывайте средние повторов в одном проекте Labkeeper.'
+ctaTitle: 'Оформите журнал наблюдений в&nbsp;Labkeeper'
+ctaText: 'Откройте учебный пример, замените записи и пересчитайте средние для своего раздела отчета.'
+toc:
+  - id: conditions
+    title: 'Что записать до измерения'
+  - id: journal
+    title: 'Журнал: исходные отсчеты и условия'
+  - id: calculation
+    title: 'Среднее повторов и границы вывода'
+  - id: latex
+    title: 'Таблица и расчет в LaTeX'
+  - id: check
+    title: 'Как проверить журнал и вывод'
+sections:
+  - id: conditions
+    title: 'Что записать до измерения'
+    html: |-
+      <p>В лабораторной по экологии недостаточно перечислить значения температуры: без места, времени и глубины их трудно сопоставить. Сначала зафиксируйте условия наблюдения, затем сохраните исходные отсчеты и отдельно запишите обработку и вывод. Рассмотрим короткий журнал для двух точек условного пруда.</p>
+      <p><strong>Все данные примера вымышлены.</strong> Они показывают оформление, а не результаты обследования реального водоема. В своем журнале укажите дату, местное время и часовой пояс, обозначение точки с привязкой к схеме или координатам, глубину датчика, погоду, прибор и его разрешение, сведения о калибровке и способ получения отсчетов.</p>
+      <p>Для температуры воды важны измерение непосредственно в водоеме, заданная глубина и стабилизация показаний. Эти принципы описаны в <a href="https://pubs.usgs.gov/publication/tm9A6.1/full" target="_blank" rel="noopener noreferrer">руководстве USGS по измерению температуры, раздел 4.2</a>. Конкретную процедуру, интервал и число отсчетов выбирайте по заданию и инструкции прибора. Ниже принято учебное условие: три отсчета через минуту после стабилизации, на глубине 0,20 м.</p>
+  - id: journal
+    title: 'Журнал: исходные отсчеты и условия'
+    html: |-
+      <p>В точке А записаны 18,3; 18,4; 18,5 °C в 10:00–10:02, в точке Б — 19,0; 19,1; 19,2 °C в 10:05–10:07. Дата — 15 сентября 2026 года, время московское. Условный прибор Т-1 имеет разрешение 0,1 °C; данных о калибровке здесь нет. Разрешение дисплея не равно погрешности измерения.</p>
+      <div class="article-note"><p><strong>Повторные отсчеты не заменяют независимые пробы.</strong> Три показания без переноса датчика внутри одной точки характеризуют эту серию. Они не превращают одну точку в три независимо обследованных участка. Для вывода о водоеме нужен отдельный план отбора мест, глубин и времени наблюдения.</p></div>
+      <p>Наблюдение записывайте как проверяемый факт: <em>«В серии Б зарегистрированы показания 19,0–19,2 °C»</em>. Фраза <em>«Вода нагрелась из-за сброса»</em> — интерпретация причины, которую эта запись не подтверждает. Не заменяйте числа словами «нормальная температура» и не удаляйте неудобный отсчет без документированной причины.</p>
+  - id: calculation
+    title: 'Среднее повторов и границы вывода'
+    html: |-
+      <p>Для упражнения вычислим арифметическое среднее трех отсчетов каждой точки: $\bar{T}=\sum_{i=1}^{n}T_i/n$, где $n=3$. Получаем 18,4 °C в А и 19,1 °C в Б; разность средних Б и А составляет 0,7 °C. Это описательное сравнение серий, а не проверка статистической значимости.</p>
+      <p>Среднее выбрано для учебной обработки. Оно не воспроизводит весь протокол USGS: для стоячей воды руководство предусматривает медиану последовательных значений. В своей работе применяйте способ обработки из утвержденной методики; не смешивайте его с произвольно выбранным средним.</p>
+      <p>Вычислительный сегмент Labkeeper хранит исходные числа с десятичной точкой и рассчитывает значения для подстановки в LaTeX:</p><div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">Labkeeper</span></div>
+          <pre><code>T_A = [18.3, 18.4, 18.5]
+      T_B = [19.0, 19.1, 19.2]
+      n = 3
+      mean_A = sum(T_A) / n
+      mean_B = sum(T_B) / n
+      difference = mean_B - mean_A</code></pre>
+      </div>
+      <p>При замене данных сохраните фактическое число отсчетов в <code>n</code>. Таблица журнала набрана явно: обновите ее вместе с массивами. Средние и их разность пересчитаются автоматически; условия и словесный вывод нужно проверить вручную. Оценка <a href="/blog/student-confidence-intervals-error-calculation">доверительного интервала</a> требует дополнительных предпосылок и не выполняется этим кодом.</p>
+  - id: latex
+    title: 'Таблица и расчет в LaTeX'
+    html: |-
+      <p>Пример открывается как короткий раздел без титульного листа и оглавления. Для таблицы и формулы применены правила <a href="https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf" target="_blank" rel="noopener noreferrer">ГОСТ 7.32-2017, пункты 6.6 и 6.8</a>: ссылка до таблицы, подпись сверху слева, центрированные заголовки, номер формулы справа и пояснения под ней. Стандарт относится к отчетам о НИР; оформление лабораторной согласуйте с методичкой кафедры.</p>
+      <p>В преамбуле задаются страница, шрифт и интервалы. Пакет <code>siunitx</code> и команда <code>\num</code> печатают подставленные числа с десятичной запятой. Окружение <code>formulablock</code> удерживает формулу с пояснениями на одной странице; при переносе раздела в основной отчет перенесите его определение один раз.</p><div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,array,caption,titlesec,float,siunitx}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \sisetup{output-decimal-marker={,}}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},
+        justification=raggedright,singlelinecheck=false}
+      \AtBeginDocument{%
+        \setlength{\abovedisplayskip}{\baselineskip}%
+        \setlength{\belowdisplayskip}{\baselineskip}%
+        \setlength{\abovedisplayshortskip}{\baselineskip}%
+        \setlength{\belowdisplayshortskip}{\baselineskip}}
+      \newenvironment{formulablock}{\par\noindent\begin{minipage}[b]{\textwidth}
+        \setlength{\parindent}{1.25cm}}{\end{minipage}\par}
+      \setlength{\emergencystretch}{2em}
+      \pagestyle{plain}
+      \begin{document}</code></pre>
+      </div>
+      <p>Следующий фрагмент содержит условия и журнал. Обозначения точек в реальной работе свяжите со схемой или координатами; схема условного участка здесь не создается.</p><div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\section{Наблюдения температуры воды}
+      Все записи вымышлены и служат учебным примером. Цель --- описать
+      температуру в двух фиксированных точках условного пруда.
+      Дата: 15.09.2026; время московское. Глубина датчика: 0,20 м.
+      Точки А и Б --- условные обозначения без географической привязки.
+      Прибор: условный термометр Т-1, разрешение 0,1~$^\circ$C.
+      Сведения о калибровке в примере не заданы.
+
+      Учебные условия: облачно, без осадков; датчик не касается дна.
+      После стабилизации показаний записаны три последовательных отсчета
+      через минуту без переноса датчика внутри каждой точки.
+      Журнал приведен в таблице~\ref{tab:journal}.
+      \begin{table}[H]
+      \caption{Учебный журнал температуры воды}
+      \label{tab:journal}
+      \centering
+      \begin{tabular}{|l|c|c|c|c|}
+      \hline
+      \multicolumn{1}{|c|}{Точка} &amp; \shortstack{Время\\отсчетов} &amp;
+      \shortstack{$T_1$,\\$^\circ$C} &amp; \shortstack{$T_2$,\\$^\circ$C} &amp;
+      \shortstack{$T_3$,\\$^\circ$C} \\
+      \hline
+      А &amp; 10:00--10:02 &amp; 18,3 &amp; 18,4 &amp; 18,5 \\
+      Б &amp; 10:05--10:07 &amp; 19,0 &amp; 19,1 &amp; 19,2 \\
+      \hline
+      \end{tabular}
+      \end{table}</code></pre>
+      </div>
+      <p>Завершите раздел расчетом и выводом. Пояснения начинаются со слова «где» без двоеточия, символы идут в порядке появления; подробнее — в статье о <a href="/blog/formula-variable-explanation-where-gost">пояснениях переменных под формулой</a>.</p><div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>Три отсчета в точке --- повторы показаний, а не три независимые
+      пробы водоема. Для учебной обработки найдем среднее каждой серии
+      по формуле~\eqref{eq:mean}.
+      \begin{formulablock}
+      \begin{equation}
+      \bar{T}=\frac{1}{n}\sum_{i=1}^{n}T_i,
+      \label{eq:mean}
+      \end{equation}
+      \indent где $\bar{T}$ --- среднее серии отсчетов в одной точке, $^\circ$C;\par
+      $n=3$ --- число отсчетов в серии, безразмерное;\par
+      $i$ --- номер отсчета, безразмерный;\par
+      $T_i$ --- температура при отсчете $i$, $^\circ$C.
+      \end{formulablock}
+
+      Получены $\bar{T}_A=\num{${mean_A}}$~$^\circ$C и
+      $\bar{T}_{\text{Б}}=\num{${mean_B}}$~$^\circ$C.
+      Среднее в точке Б выше на $\num{${difference}}$~$^\circ$C.
+      Это описание данных указанного времени и глубины.
+      Погрешность и статистическая значимость различия не оценивались.
+      Из этих записей нельзя установить причину различия,
+      загрязнение или соответствие нормативам.
+      \end{document}</code></pre>
+      </div>
+  - id: check
+    title: 'Как проверить журнал и вывод'
+    html: |-
+      <p>Кнопка «Просмотреть пример» открывает вычислительный сегмент и тот же раздел LaTeX. В новом проекте результаты округляются до трех значащих цифр. Для этих данных средние отображаются как 18,4 и 19,1, разность — 0,7; после замены чисел согласуйте число десятичных знаков с методикой и характеристиками прибора.</p>
+      <ol><li>Сверьте каждую строку журнала с исходной записью: точку, время, глубину, единицы и порядок отсчетов.</li><li>Проверьте средние отдельно для каждой точки. Не усредняйте разные глубины и даты в одно «значение водоема» без обоснования.</li><li>В PDF проверьте подпись и границы таблицы, отсутствие переносов чисел, номер формулы и блок пояснений.</li><li>Ограничьте вывод указанными точками, временем и глубиной. Для причин, загрязнения и сравнения с нормативами нужны другие данные и применимая методика.</li></ol>
+      <p>Корректный итог для примера: <em>«В указанные интервалы на глубине 0,20 м среднее серии Б выше среднего серии А на 0,7 °C. Причина и статистическая значимость различия не установлены»</em>. Такой вывод сохраняет результат расчета и не приписывает наблюдению лишний смысл.</p>
+editorExample:
+  - type: computational
+    text: |-
+      T_A = [18.3, 18.4, 18.5]
+      T_B = [19.0, 19.1, 19.2]
+      n = 3
+      mean_A = sum(T_A) / n
+      mean_B = sum(T_B) / n
+      difference = mean_B - mean_A
+    parameters:
+      visible: false
+  - type: latex
+    text: |-
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{tempora,amsmath,setspace,indentfirst,array,caption,titlesec,float,siunitx}
+      \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \sisetup{output-decimal-marker={,}}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},
+        justification=raggedright,singlelinecheck=false}
+      \AtBeginDocument{%
+        \setlength{\abovedisplayskip}{\baselineskip}%
+        \setlength{\belowdisplayskip}{\baselineskip}%
+        \setlength{\abovedisplayshortskip}{\baselineskip}%
+        \setlength{\belowdisplayshortskip}{\baselineskip}}
+      \newenvironment{formulablock}{\par\noindent\begin{minipage}[b]{\textwidth}
+        \setlength{\parindent}{1.25cm}}{\end{minipage}\par}
+      \setlength{\emergencystretch}{2em}
+      \pagestyle{plain}
+      \begin{document}
+    parameters:
+      visible: true
+  - type: latex
+    text: |-
+      \section{Наблюдения температуры воды}
+      Все записи вымышлены и служат учебным примером. Цель --- описать
+      температуру в двух фиксированных точках условного пруда.
+      Дата: 15.09.2026; время московское. Глубина датчика: 0,20 м.
+      Точки А и Б --- условные обозначения без географической привязки.
+      Прибор: условный термометр Т-1, разрешение 0,1~$^\circ$C.
+      Сведения о калибровке в примере не заданы.
+
+      Учебные условия: облачно, без осадков; датчик не касается дна.
+      После стабилизации показаний записаны три последовательных отсчета
+      через минуту без переноса датчика внутри каждой точки.
+      Журнал приведен в таблице~\ref{tab:journal}.
+      \begin{table}[H]
+      \caption{Учебный журнал температуры воды}
+      \label{tab:journal}
+      \centering
+      \begin{tabular}{|l|c|c|c|c|}
+      \hline
+      \multicolumn{1}{|c|}{Точка} & \shortstack{Время\\отсчетов} &
+      \shortstack{$T_1$,\\$^\circ$C} & \shortstack{$T_2$,\\$^\circ$C} &
+      \shortstack{$T_3$,\\$^\circ$C} \\
+      \hline
+      А & 10:00--10:02 & 18,3 & 18,4 & 18,5 \\
+      Б & 10:05--10:07 & 19,0 & 19,1 & 19,2 \\
+      \hline
+      \end{tabular}
+      \end{table}
+    parameters:
+      visible: true
+  - type: latex
+    text: |-
+      Три отсчета в точке --- повторы показаний, а не три независимые
+      пробы водоема. Для учебной обработки найдем среднее каждой серии
+      по формуле~\eqref{eq:mean}.
+      \begin{formulablock}
+      \begin{equation}
+      \bar{T}=\frac{1}{n}\sum_{i=1}^{n}T_i,
+      \label{eq:mean}
+      \end{equation}
+      \indent где $\bar{T}$ --- среднее серии отсчетов в одной точке, $^\circ$C;\par
+      $n=3$ --- число отсчетов в серии, безразмерное;\par
+      $i$ --- номер отсчета, безразмерный;\par
+      $T_i$ --- температура при отсчете $i$, $^\circ$C.
+      \end{formulablock}
+
+      Получены $\bar{T}_A=\num{${mean_A}}$~$^\circ$C и
+      $\bar{T}_{\text{Б}}=\num{${mean_B}}$~$^\circ$C.
+      Среднее в точке Б выше на $\num{${difference}}$~$^\circ$C.
+      Это описание данных указанного времени и глубины.
+      Погрешность и статистическая значимость различия не оценивались.
+      Из этих записей нельзя установить причину различия,
+      загрязнение или соответствие нормативам.
+      \end{document}
+    parameters:
+      visible: true

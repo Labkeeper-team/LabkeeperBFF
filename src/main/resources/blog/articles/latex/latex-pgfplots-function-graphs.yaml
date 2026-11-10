@@ -194,6 +194,8 @@ sections:
       <strong>Labkeeper</strong> одна сборка длится до 30 секунд у гостя и до 60 секунд после
       входа.</li>
                               </ul>
+      <p>Для распределения числовых наблюдений см. <a href="/blog/latex-histogram-distribution-pgfplots-bins">гистограммы в LaTeX</a>: границы интервалов, частоты и отличие от плотности.</p>
+      <p>Для числовой матрицы используйте <a href="/blog/latex-heatmap-matrix-plot-pgfplots">тепловую карту PGFPlots</a>: фиксированная шкала позволяет сопоставлять одинаковые значения по цвету.</p>
 tips:
   - title: 'Планки погрешностей (Error Bars)'
     html: |2-

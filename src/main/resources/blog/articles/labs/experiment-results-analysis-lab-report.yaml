@@ -1,0 +1,269 @@
+catalogIndex: 113
+slug: 'experiment-results-analysis-lab-report'
+batch: 3
+title: 'Анализ результатов эксперимента в отчёте: обработка данных и вывод'
+pageTitle: 'Анализ результатов эксперимента в отчёте: пример обработки данных — Labkeeper'
+metaDescription:
+  'Как связать экспериментальные данные, расчёт и вывод в отчёте: среднее, размах и
+  сравнение с опорным значением на коротком учебном примере.'
+breadcrumbTitle: 'Анализ результатов эксперимента'
+h1: 'Анализ результатов эксперимента в&nbsp;отчёте'
+categories:
+  - 'labs'
+related:
+  - 'student-confidence-intervals-error-calculation'
+  - 'physics-lab-measurement-graphs-formatting-gost'
+  - 'how-to-write-lab-report-conclusion-examples'
+keywords:
+  - 'анализ результатов эксперимента в отчёте'
+  - 'обработка экспериментальных данных'
+  - 'вывод по результатам измерений'
+datePublished: '2026-11-07'
+dateModified: '2026-11-07'
+readingTime: '6 мин'
+cardTitle: 'Анализ результатов эксперимента: от показаний к выводу'
+cardDescription:
+  'Учебная серия из пяти измерений: среднее, размах и сравнение с опорным значением
+  без подмены погрешности разбросом.'
+sliderTitle: 'Анализ экспериментальных данных'
+sliderText: 'Короткий расчёт и обоснованный вывод для раздела отчёта.'
+sidebarText: 'Рассчитывайте показатели серии измерений и подставляйте их в текст отчёта в Labkeeper.'
+ctaTitle: 'Проанализируйте свои данные в&nbsp;Labkeeper'
+ctaText:
+  'Откройте пример, замените пять показаний и опорное значение, рассчитайте среднее и размах
+  и оформите результат в PDF.'
+toc:
+  - id: 'task'
+    title: 'Что показать в анализе результатов'
+  - id: 'data'
+    title: 'Исходные показания и опорное значение'
+  - id: 'calculation'
+    title: 'Среднее, разброс и сравнение с опорным значением'
+  - id: 'report'
+    title: 'Короткий раздел отчёта в LaTeX'
+  - id: 'conclusion'
+    title: 'Как проверить вывод и его ограничения'
+sections:
+  - id: 'task'
+    title: 'Что показать в анализе результатов'
+    html: |-
+      <p>Анализ результатов эксперимента связывает исходные показания с выводом. Одного среднего недостаточно: укажите, насколько различались отдельные показания, с чем вы сравниваете результат и какие ограничения мешают сделать более сильный вывод.</p>
+      <p>Рассмотрим короткий раздел отчёта с пятью повторными измерениями сопротивления. Все данные вымышлены; это пример обработки данных и формулировки вывода, а не описание проведённого опыта.</p>
+      <ol>
+          <li>Запишите исходные показания с единицами и условиями измерений.</li>
+          <li>Выберите показатели, отвечающие задаче: здесь это среднее и размах.</li>
+          <li>Сравните результат с явно указанным опорным значением.</li>
+          <li>Отделите численный итог от предположений о причинах расхождения.</li>
+      </ol>
+  - id: 'data'
+    title: 'Исходные показания и опорное значение'
+    html: |-
+      <p>В учебном примере сопротивление одного резистора измеряют пять раз при неизменной схеме подключения. Опорное значение для сравнения принято равным 100 Ом; оно не объявляется точным истинным значением.</p>
+      <div class="article-table-wrapper"><table class="article-table">
+          <thead><tr><th>Номер измерения</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
+          <tbody><tr><td>Сопротивление, Ом</td><td>99</td><td>100</td><td>101</td><td>100</td><td>100</td></tr></tbody>
+      </table></div>
+      <p>В своей работе дополните условия по журналу: укажите прибор, диапазон и существенные влияющие факторы. Не дописывайте задним числом температуру или характеристики прибора, которых нет в записях.</p>
+  - id: 'calculation'
+    title: 'Среднее, разброс и сравнение с опорным значением'
+    html: |-
+      <p>Среднее арифметическое равно сумме показаний, делённой на их число: $\bar R=(99+100+101+100+100)/5=100$ Ом. Это определение приведено в <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm" target="_blank" rel="noopener noreferrer">справочнике NIST о мерах положения</a>.</p>
+      <p>Размах $W=R_{\max}-R_{\min}=101-99=2$ Ом описывает расстояние между крайними показаниями. Он не показывает распределение промежуточных значений и чувствителен к крайним наблюдениям — это ограничение отмечает <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm" target="_blank" rel="noopener noreferrer">NIST в разделе о мерах разброса</a>. Абсолютное расхождение среднего с опорным значением здесь равно $|100-100|=0$ Ом.</p>
+      <p>Вычислительный сегмент считает эти показатели по исходным данным. Число <code>n</code> соответствует пяти показаниям; при изменении длины серии обновите его и таблицу.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">Вычислительный сегмент</span></div>
+          <pre><code>// Вымышленные показания сопротивления, Ом
+      r1 = 99
+      r2 = 100
+      r3 = 101
+      r4 = 100
+      r5 = 100
+      r = [r1, r2, r3, r4, r5]
+      n = 5
+      reference = 100
+      mean = sum(r) / n
+      low = min(r)
+      high = max(r)
+      span = high - low
+      difference = abs(mean - reference)</code></pre>
+      </div>
+      <div class="article-note"><strong>Не называйте размах погрешностью.</strong> Размах описывает эту серию показаний. Неопределённость результата оценивают с учётом доступной информации об измерении; определения точности и неопределённости различаются в <a href="https://jcgm.bipm.org/vim/en/2.13.html" target="_blank" rel="noopener noreferrer">VIM, п. 2.13</a> и <a href="https://jcgm.bipm.org/vim/en/2.26.html" target="_blank" rel="noopener noreferrer">п. 2.26</a>. Обработку повторных измерений с доверительным интервалом см. в статье <a href="/blog/student-confidence-intervals-error-calculation">об интервалах Стьюдента</a>.</div>
+  - id: 'report'
+    title: 'Короткий раздел отчёта в LaTeX'
+    html: |-
+      <p>Пример открывается как самостоятельный раздел: таблица, две нумерованные формулы с пояснениями и вывод. Оформление представленных объектов опирается на <a href="https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf" target="_blank" rel="noopener noreferrer">ГОСТ 7.32-2017, пп. 6.1, 6.6 и 6.8</a>. Стандарт относится к отчётам о НИР; для лабораторной сверьтесь с методичкой кафедры. Титул и содержание в пример не входят.</p>
+      <p>В примере редактора заданы поля, шрифт 14 pt, полуторный интервал и отступ 1,25 см. При переносе таблицы также подключите <code>caption</code> и сохраните оформление подписи из примера редактора. Окружение <code>formulablock</code> удерживает формулу вместе с пояснениями; перенесите его определение в преамбулу своего отчёта один раз.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX — преамбула</span></div>
+          <pre><code>\usepackage{amsmath}
+      \newenvironment{formulablock}{%
+        \par\noindent\begin{minipage}[b]{\textwidth}%
+        \setlength{\parindent}{1.25cm}%
+        \setlength{\abovedisplayskip}{0pt}%
+        \setlength{\abovedisplayshortskip}{0pt}%
+        \setlength{\belowdisplayskip}{\baselineskip}%
+        \setlength{\belowdisplayshortskip}{\baselineskip}%
+        \vspace*{\baselineskip}%
+      }{\end{minipage}\par}</code></pre>
+      </div>
+      <p>Следующий фрагмент содержит весь предметный пример. Подпись таблицы стоит сверху слева, головка центрирована; пояснения начинаются со слова «где» без двоеточия.</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX — исходные данные</span></div>
+          <pre><code>\section{Анализ результатов эксперимента}
+      Рассмотрим вымышленную серию повторных измерений сопротивления
+      одного резистора при неизменной схеме подключения.
+      Показания приведены в таблице~\ref{tab:readings};
+      опорное значение для учебного сравнения $R_0=${reference}$~Ом.\par
+      \begin{table}[!ht]
+      \caption{Учебные показания сопротивления}\label{tab:readings}
+      \centering
+      \begin{tabular}{|l|c|c|c|c|c|}
+      \hline
+      \multicolumn{1}{|c|}{Номер измерения} &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\
+      \hline
+      Сопротивление, Ом &amp; ${r1} &amp; ${r2} &amp; ${r3} &amp; ${r4} &amp; ${r5} \\
+      \hline
+      \end{tabular}
+      \end{table}</code></pre>
+      </div>
+      <p>Среднее и размах вычисляются по формулам со ссылками и пояснениями обозначений:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX — обработка данных</span></div>
+          <pre><code>Среднее значение рассчитываем по формуле~\eqref{eq:mean}.
+      \begin{formulablock}
+      \begin{equation}\label{eq:mean}
+      \bar R=\frac{1}{n}\sum_{i=1}^{n}R_i=${mean}\text{ Ом},
+      \end{equation}
+      \indent где $\bar R$ --- среднее сопротивление, Ом;\par
+      $n$ --- число измерений, равное ${n};\par
+      $i$ --- номер измерения, безразмерный;\par
+      $R_i$ --- показание в измерении с номером $i$, Ом.
+      \end{formulablock}
+      Размах показаний определяем по формуле~\eqref{eq:span}.
+      \begin{formulablock}
+      \begin{equation}\label{eq:span}
+      W=R_{\max}-R_{\min}=${high}-${low}=${span}\text{ Ом},
+      \end{equation}
+      \indent где $W$ --- размах показаний, Ом;\par
+      $R_{\max}$ --- наибольшее показание, Ом;\par
+      $R_{\min}$ --- наименьшее показание, Ом.
+      \end{formulablock}</code></pre>
+      </div>
+      <p>Завершите раздел численными итогами и укажите границы интерпретации:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX — вывод</span></div>
+          <pre><code>В учебной серии среднее составляет ${mean}~Ом, размах --- ${span}~Ом.
+      Абсолютное расхождение среднего с опорным значением равно ${difference}~Ом.
+      Совпадение среднего с опорным значением само по себе не доказывает
+      точность измерений: характеристики прибора и неопределённость
+      опорного значения в примере не заданы. Размах описывает только
+      наблюдаемый разброс и не заменяет оценку неопределённости результата.</code></pre>
+      </div>
+      <p>Завершите самостоятельный документ командой:</p>
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\end{document}</code></pre>
+      </div>
+      <p>Кнопка «Просмотреть пример» открывает вычисления и этот раздел со всеми настройками. Замените показания и опорное значение, выполните расчёт и проверьте вывод: числа подставляются автоматически, а формулировку о совпадении нужно пересмотреть при других данных.</p>
+  - id: 'conclusion'
+    title: 'Как проверить вывод и его ограничения'
+    html: |-
+      <p>Для приведённых данных проверьте три числа: среднее 100 Ом, размах 2 Ом и абсолютное расхождение с опорным значением 0 Ом. Вывод в примере сообщает эти результаты и прямо указывает, что характеристики прибора и неопределённость опорного значения не заданы.</p>
+      <p><strong>Совпадение среднего с опорным значением не доказывает точность измерений.</strong> По этой серии нельзя утверждать, что систематические эффекты отсутствуют, или назначать границы вида «±1 Ом» только потому, что крайние показания отстоят от среднего на 1 Ом. Причины разброса проверяют отдельными наблюдениями и сведениями о методике.</p>
+      <p>Если задача требует изучить зависимость одной величины от другой, дополните анализ <a href="/blog/physics-lab-measurement-graphs-formatting-gost">графиком измерений</a>. Здесь все показания относятся к одному резистору, поэтому отдельный график не нужен. Схема перехода от расчётов к заключению разобрана в статье <a href="/blog/how-to-write-lab-report-conclusion-examples">о выводе к лабораторной работе</a>.</p>
+editorExample:
+  - type: 'latex'
+    text: |-
+      \documentclass[a4paper,14pt]{extarticle}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[russian]{babel}
+      \usepackage{amsmath}
+      \usepackage{tempora,geometry,setspace,caption,titlesec,indentfirst}
+      \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+      \onehalfspacing
+      \setlength{\parindent}{1.25cm}
+      \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
+      \titlespacing{\section}{\parindent}{0pt}{12pt}
+      \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+      \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+      \newenvironment{formulablock}{%
+        \par\noindent\begin{minipage}[b]{\textwidth}%
+        \setlength{\parindent}{1.25cm}%
+        \setlength{\abovedisplayskip}{0pt}%
+        \setlength{\abovedisplayshortskip}{0pt}%
+        \setlength{\belowdisplayskip}{\baselineskip}%
+        \setlength{\belowdisplayshortskip}{\baselineskip}%
+        \vspace*{\baselineskip}%
+      }{\end{minipage}\par}
+      \begin{document}
+    parameters:
+      visible: true
+  - type: 'computational'
+    text: |-
+      // Вымышленные показания сопротивления, Ом
+      r1 = 99
+      r2 = 100
+      r3 = 101
+      r4 = 100
+      r5 = 100
+      r = [r1, r2, r3, r4, r5]
+      n = 5
+      reference = 100
+      mean = sum(r) / n
+      low = min(r)
+      high = max(r)
+      span = high - low
+      difference = abs(mean - reference)
+    parameters:
+      visible: false
+  - type: 'latex'
+    text: |-
+      \section{Анализ результатов эксперимента}
+      Рассмотрим вымышленную серию повторных измерений сопротивления
+      одного резистора при неизменной схеме подключения.
+      Показания приведены в таблице~\ref{tab:readings};
+      опорное значение для учебного сравнения $R_0=${reference}$~Ом.\par
+      \begin{table}[!ht]
+      \caption{Учебные показания сопротивления}\label{tab:readings}
+      \centering
+      \begin{tabular}{|l|c|c|c|c|c|}
+      \hline
+      \multicolumn{1}{|c|}{Номер измерения} & 1 & 2 & 3 & 4 & 5 \\
+      \hline
+      Сопротивление, Ом & ${r1} & ${r2} & ${r3} & ${r4} & ${r5} \\
+      \hline
+      \end{tabular}
+      \end{table}
+
+      Среднее значение рассчитываем по формуле~\eqref{eq:mean}.
+      \begin{formulablock}
+      \begin{equation}\label{eq:mean}
+      \bar R=\frac{1}{n}\sum_{i=1}^{n}R_i=${mean}\text{ Ом},
+      \end{equation}
+      \indent где $\bar R$ --- среднее сопротивление, Ом;\par
+      $n$ --- число измерений, равное ${n};\par
+      $i$ --- номер измерения, безразмерный;\par
+      $R_i$ --- показание в измерении с номером $i$, Ом.
+      \end{formulablock}
+      Размах показаний определяем по формуле~\eqref{eq:span}.
+      \begin{formulablock}
+      \begin{equation}\label{eq:span}
+      W=R_{\max}-R_{\min}=${high}-${low}=${span}\text{ Ом},
+      \end{equation}
+      \indent где $W$ --- размах показаний, Ом;\par
+      $R_{\max}$ --- наибольшее показание, Ом;\par
+      $R_{\min}$ --- наименьшее показание, Ом.
+      \end{formulablock}
+      В учебной серии среднее составляет ${mean}~Ом, размах --- ${span}~Ом.
+      Абсолютное расхождение среднего с опорным значением равно ${difference}~Ом.
+      Совпадение среднего с опорным значением само по себе не доказывает
+      точность измерений: характеристики прибора и неопределённость
+      опорного значения в примере не заданы. Размах описывает только
+      наблюдаемый разброс и не заменяет оценку неопределённости результата.
+    parameters:
+      visible: true
+  - type: 'latex'
+    text: '\end{document}'
+    parameters:
+      visible: true

@@ -1,0 +1,155 @@
+catalogIndex: 141
+slug: 'sql-nosql-csv-data-import-report'
+batch: 3
+title: 'Сбор данных SQL и NoSQL в отчёт: выгрузка CSV и load_csv'
+pageTitle: 'Сбор данных SQL и NoSQL в отчёт: выгрузка CSV и load_csv — Labkeeper'
+metaDescription: 'Как перенести свою выборку из SQL или MongoDB через CSV в Labkeeper: загрузить файл, выполнить load_csv и пересчитать таблицу и среднюю температуру.'
+breadcrumbTitle: 'Данные SQL и NoSQL в отчёте'
+h1: 'Сбор данных SQL и NoSQL в отчёт: выгрузка CSV и load_csv'
+categories:
+  - 'diploma'
+related:
+  - 'latex-pgfplotstable-import-excel-csv-tables'
+  - 'complex-markdown-tables-syntax-online-generator'
+  - 'diploma-data-tables-formatting-gost'
+keywords:
+  - 'данные sql и nosql в отчёте'
+datePublished: '2026-11-09'
+dateModified: '2026-11-11'
+readingTime: '6 мин'
+cardTitle: 'Сбор данных SQL и NoSQL в отчёт: выгрузка CSV и load_csv'
+cardDescription: 'Как перенести свою выборку из SQL или MongoDB через CSV в Labkeeper: загрузить файл, выполнить load_csv и пересчитать таблицу и среднюю температуру.'
+sliderTitle: 'Данные SQL и NoSQL в отчёте'
+sliderText: 'Как перенести свою выборку из SQL или MongoDB через CSV в Labkeeper: загрузить файл, выполнить load_csv и пересчитать таблицу и среднюю температуру.'
+sidebarText: 'Загрузите CSV в проект Labkeeper и получите таблицу и расчёт из его данных.'
+ctaTitle: 'Загрузите CSV и выполните расчёт'
+ctaText: 'Загрузите свой CSV в проект, замените в примере имя файла и названия столбцов и выполните расчёт. Таблица и сводка строятся из загруженных данных.'
+toc:
+  - id: 'source'
+    title: 'Зафиксируйте границы выборки'
+  - id: 'export'
+    title: 'Выгрузите SQL или NoSQL в плоский CSV'
+  - id: 'import'
+    title: 'Загрузите файл и вызовите load_csv'
+  - id: 'check'
+    title: 'Сверьте импорт с исходной выгрузкой'
+sections:
+  - id: 'source'
+    title: 'Зафиксируйте границы выборки'
+    html:
+      '<p>Данные из SQL-базы или документной NoSQL-базы попадают в отчёт через подготовленную выгрузку. Чтобы таблицу можно было проверить, сохраните запрос или фильтр, названия полей, единицы и правило отбора. Само число строк не объясняет, какие записи в неё вошли.</p>
+
+      <p>Рассмотрим вымышленную выборку партии 7: три датчика и по одному значению температуры. Задача — перенести уже выбранные значения в вычислительный сегмент, а не проектировать базу данных. Labkeeper не выполняет приведённый SQL и не подключается к MongoDB через <code>load_csv</code>.</p>'
+  - id: 'export'
+    title: 'Выгрузите SQL или NoSQL в плоский CSV'
+    html:
+      "<p>Для SQL выполните выборку в своей СУБД. Таблица <code>readings</code> должна существовать заранее; <code>batch_id</code> задаёт партию, <code>ORDER BY</code> фиксирует порядок строк.</p>
+
+      <div class=\"article-code\"><div class=\"article-code__header\"><span class=\"article-code__lang\">SQL</span></div><pre><code>SELECT sensor_id, temperature_c
+
+      FROM readings
+
+      WHERE batch_id = 7
+
+      ORDER BY sensor_id;</code></pre></div>
+
+      <p>Сохраните результат средствами клиента в CSV с заголовками. В PostgreSQL для выгрузки результата предусмотрен <a href=\"https://www.postgresql.org/docs/current/sql-copy.html\">COPY TO</a>; серверный путь в COPY относится к файловой системе сервера, а не к файлам проекта Labkeeper.</p>
+
+      <p>Для MongoDB сначала получите плоские документы с теми же числовыми полями. Следующая команда предназначена для локальной учебной базы <code>training</code>, а не для вычислительного сегмента:</p>
+
+      <div class=\"article-code\"><div class=\"article-code__header\"><span class=\"article-code__lang\">Shell — mongoexport</span></div><pre><code>mongoexport --db=training --collection=readings --type=csv \\
+
+      \  --fields=sensor_id,temperature_c --query='{\"batch_id\":7}' \\
+
+      \  --sort='{\"sensor_id\":1}' --out=readings.csv</code></pre></div>
+
+      <p>В <a href=\"https://www.mongodb.com/docs/database-tools/mongoexport/\">mongoexport</a> параметр <code>--type=csv</code> выбирает CSV, <code>--fields</code> задаёт колонки, <code>--query</code> — фильтр. Утилита не создаёт учебные документы. Вложенные объекты и массивы заранее преобразуйте в плоские записи: например, одна строка на измерение с идентификатором датчика. Не рассчитывайте, что импорт CSV восстановит структуру JSON или связи между документами.</p>
+
+      <p>Проверьте выгрузку до загрузки: пропущенное значение не равно нулю, повторяющийся ключ может означать несколько измерений. Уберите персональные данные и не вставляйте строку подключения с паролем в отчёт.</p>"
+  - id: 'import'
+    title: 'Загрузите файл и вызовите load_csv'
+    html:
+      '<p>Используйте свой CSV: например, выгрузку запроса или таблицу измерений. Сохраните его в UTF-8 с заголовками столбцов. В учебном разборе файл назван <code>readings.csv</code>, а его структура выглядит так; все значения вымышлены:</p>
+
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">CSV</span></div><pre><code>sensor_id,temperature_c
+
+      1,20
+
+      2,22
+
+      3,24</code></pre></div>
+
+      <p>Откройте пример по кнопке, войдите в аккаунт и загрузите свой файл через файловый менеджер в корень отдельного проекта. В готовом вычислительном сегменте замените <code>readings.csv</code> на его имя, <code>sensor_id</code> — на столбец идентификаторов, а <code>temperature_c</code> — на числовой столбец измерений. Названия должны совпадать с заголовками CSV; также обновите подписи и единицы в таблице и сводке. Затем нажмите «Выполнить»:</p>
+
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">Вычислительный сегмент</span></div><pre><code>load_csv("readings.csv")
+
+      rows = len(temperature_c)
+
+      meanTemperature = sum(temperature_c) / rows
+
+      minimumTemperature = min(temperature_c)
+
+      maximumTemperature = max(temperature_c)
+
+      table(sensor_id, temperature_c, name_1="Датчик", name_2="Температура, °C")</code></pre></div>
+
+      <p><code>load_csv</code> создаёт массивы по заголовкам файла: <code>sensor_id = [1, 2, 3]</code> и <code>temperature_c = [20, 22, 24]</code>. <code>table</code> выводит прочитанные значения, <code>len</code> считает записи, а <code>sum</code>, <code>min</code> и <code>max</code> используются для сводки. Средняя температура — среднее арифметическое по строкам файла. Исходные массивы в коде вручную не задаются.</p>
+
+      <p>Используйте уникальные имена колонок без пробелов; единицы добавляйте в заголовок выводимой таблицы. В этом упражнении обе колонки числовые, все строки заполнены, файл непустой. Пропуски, лишние строки и текст вместо числа проверьте до загрузки: пустое значение нельзя автоматически считать нулём.</p>
+
+      <p>Разделитель по умолчанию — запятая, десятичный знак в учебном файле — точка. Для разделителя «точка с запятой» укажите <code>load_csv("readings.csv", ";")</code>. Имя и путь должны совпадать с файлом проекта; до его загрузки выполнение не даст таблицу и расчёт.</p>
+
+      <p>Подготовку печатной таблицы разбирает статья об <a href="/blog/latex-pgfplotstable-import-excel-csv-tables">импорте CSV в LaTeX</a>, а представление вычисляемых колонок — материал о <a href="/blog/complex-markdown-tables-syntax-online-generator">таблицах Markdown</a>.</p>'
+  - id: 'check'
+    title: 'Сверьте импорт с исходной выгрузкой'
+    html:
+      '<p>Для учебного файла таблица должна содержать ключи 1, 2, 3 и температуры 20, 22, 24 °C. Число записей равно 3, средняя температура — 22 °C, минимум — 20 °C, максимум — 24 °C. Сравните число строк, ключи, единицы и крайние значения с результатом запроса: такой контроль помогает обнаружить потерянную строку или сдвиг столбцов.</p>
+
+      <p>После вычислительного сегмента находится Markdown-сегмент с подстановками:</p>
+
+      <div class="article-code"><div class="article-code__header"><span class="article-code__lang">Markdown</span></div><pre><code>Записей: ${rows}. Средняя температура: ${meanTemperature} °C.
+
+      Минимальная температура: ${minimumTemperature} °C; максимальная: ${maximumTemperature} °C.
+
+
+      Сводка относится к строкам загруженной учебной выборки. Она не подтверждает достоверность измерений или исправность датчиков.</code></pre></div>
+
+      <p>Чтобы проверить обновление, измените температуры в CSV на 20, 24, 28 и загрузите новую версию под именем <code>readings.csv</code>. Перед повторной загрузкой удалите прежний учебный файл из проекта: иначе новый может получить другое имя. После «Выполнить» таблица должна показать новые значения, средняя — измениться на 24 °C, максимум — на 28 °C. Если имя файла изменилось, исправьте его и в <code>load_csv</code>.</p>
+
+      <div class="article-note"><p>«Просмотреть пример» открывает пояснение, настоящий вычислительный сегмент и сводку с подстановками. Свой CSV нужно загрузить вручную, затем согласовать имя файла и столбцы с кодом; до этого импорт выполнить нельзя. Таблица строится функцией <code>table</code>, а числа сводки подставляются из расчёта при каждом выполнении.</p></div>
+
+      <p>Это короткий пример импорта и проверки данных, а не полный отчёт по ГОСТ. Для включения результата в диплом примените требования кафедры к странице, подписи и ссылке на таблицу; см. <a href="/blog/diploma-data-tables-formatting-gost">оформление таблиц данных в дипломе</a>. SQL и MongoDB используются на этапе выгрузки вне Labkeeper.</p>'
+editorExample:
+  - type: 'md'
+    text: '## Импорт выборки из своего CSV
+
+
+      Учебная задача: одна строка на датчик, температура в °C. Показанные в статье данные вымышлены.
+
+
+      Перед выполнением войдите в аккаунт и загрузите свой CSV в корень отдельного проекта через файловый менеджер. Замените readings.csv в коде на имя файла, sensor_id и temperature_c — на названия его столбцов. Если выбрана другая величина, обновите подписи и единицы в таблице и сводке.'
+    parameters:
+      visible: true
+  - type: 'computational'
+    text: 'load_csv("readings.csv")
+
+      rows = len(temperature_c)
+
+      meanTemperature = sum(temperature_c) / rows
+
+      minimumTemperature = min(temperature_c)
+
+      maximumTemperature = max(temperature_c)
+
+      table(sensor_id, temperature_c, name_1="Датчик", name_2="Температура, °C")'
+    parameters:
+      visible: true
+  - type: 'md'
+    text: 'Записей: ${rows}. Средняя температура: ${meanTemperature} °C.
+
+      Минимальная температура: ${minimumTemperature} °C; максимальная: ${maximumTemperature} °C.
+
+
+      Сводка относится к строкам загруженной учебной выборки. Она не подтверждает достоверность измерений или исправность датчиков.'
+    parameters:
+      visible: true

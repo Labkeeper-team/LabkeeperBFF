@@ -1,0 +1,359 @@
+catalogIndex: 118
+slug: 'truth-table-logic-lab-report'
+batch: 3
+title: 'Таблица истинности в отчёте: логическая функция и проверка результата'
+pageTitle: 'Таблица истинности в отчёте: логическая функция и проверка результата — Labkeeper'
+metaDescription: 'Как построить таблицу истинности для двух переменных: порядок наборов, промежуточные операции, расчёт результата и короткий пример LaTeX.'
+breadcrumbTitle: 'Таблица истинности для отчёта'
+h1: 'Таблица истинности в отчёте: логическая функция и проверка результата'
+categories:
+  - 'labs'
+related:
+  - 'programming-lab-report-code-listings-gost'
+  - 'latex-formulas'
+  - 'diploma-data-tables-formatting-gost'
+keywords:
+  - 'таблица истинности в отчёте'
+  - 'логическая функция таблица истинности'
+  - 'таблица истинности LaTeX'
+datePublished: '2026-11-08'
+dateModified: '2026-11-08'
+readingTime: '6 мин'
+cardTitle: 'Таблица истинности в отчёте: логическая функция и проверка результата'
+cardDescription: 'Как построить таблицу истинности для двух переменных: порядок наборов, промежуточные операции, расчёт результата и короткий пример LaTeX.'
+sliderTitle: 'Таблица истинности для отчёта'
+sliderText: 'Как построить таблицу истинности для двух переменных: порядок наборов, промежуточные операции, расчёт результата и короткий пример LaTeX.'
+sidebarText: 'Связывайте вычисление логической функции с формулой и таблицей в отчёте Labkeeper.'
+ctaTitle: 'Соберите таблицу истинности для отчёта'
+ctaText: 'Откройте пример исключающего ИЛИ, проверьте четыре набора и измените выражения для своей логической функции.'
+toc:
+  - id: 'function'
+    title: 'Запишите функцию и обозначения операций'
+  - id: 'rows'
+    title: 'Переберите наборы и заполните промежуточные столбцы'
+  - id: 'compute'
+    title: 'Как пересчитать итоговый столбец'
+  - id: 'latex'
+    title: 'Формула и таблица истинности в LaTeX'
+  - id: 'check'
+    title: 'Как проверить функцию и вывод'
+sections:
+  - id: 'function'
+    title: 'Запишите функцию и обозначения операций'
+    html:
+      '<p>Таблица истинности показывает значение логической функции на каждом наборе входов. Для отчёта недостаточно выписать только итоговый столбец: читатель должен видеть исходную формулу, порядок наборов и смысл обозначений.</p>
+
+      <p>Рассмотрим $F(A,B)=(A\land\neg B)\lor(\neg A\land B)$ — исключающее ИЛИ двух переменных. Здесь 0 означает ложь, 1 — истину, $\neg$ — отрицание, $\land$ — конъюнкцию («И»), $\lor$ — дизъюнкцию («ИЛИ»). Конъюнкция равна 1, когда оба операнда равны 1; дизъюнкция — когда хотя бы один равен 1.</p>
+
+      <p>Скобки сохраняют структуру функции. При работе со своей формулой сначала выделите операции, затем заведите промежуточные столбцы. Обозначения в таблице должны совпадать с обозначениями в тексте и <a href="/blog/programming-lab-report-code-listings-gost">листинге программы</a>, если он входит в отчёт.</p>'
+  - id: 'rows'
+    title: 'Переберите наборы и заполните промежуточные столбцы'
+    html:
+      "<p>Для двух независимых логических переменных нужны четыре набора: 00, 01, 10 и 11. Это двоичный порядок: правый вход меняется в каждой строке, левый — через строку. Для $n$ переменных число наборов равно $2^n$.</p><div class=\"article-table-wrapper\"><table class=\"article-table\">
+
+      \    <thead><tr><th>$A$</th><th>$B$</th><th>$\\neg A$</th><th>$\\neg B$</th><th>$A\\land\\neg B$</th><th>$\\neg A\\land B$</th><th>$F$</th></tr></thead>
+
+      \    <tbody><tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+
+      \    <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+
+      \    <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+
+      \    <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></tbody>
+
+      </table></div><p>Например, в строке $A=0$, $B=1$ получаем $\\neg A=1$, $\\neg B=0$. Первая конъюнкция равна 0, вторая — 1, поэтому $F=1$. Строка 11 отличает исключающее ИЛИ от обычного ИЛИ: здесь результат равен 0.</p>
+
+      <div class=\"article-note\"><strong>Проверьте полноту перебора.</strong> Четыре строки с повторившимся набором не заменяют четыре разных набора. Для проверки равносильности двух функций сравнивайте результаты в каждой строке, а не только число единиц.</div>"
+  - id: 'compute'
+    title: 'Как пересчитать итоговый столбец'
+    html:
+      "<p>Для значений 0 и 1 отрицание можно записать как <code>1 - A</code>, конъюнкцию — как <code>A * B</code>. В данном выражении два слагаемых не могут одновременно равняться 1, поэтому результат вычисляется как <code>A * (1 - B) + (1 - A) * B</code>. Для произвольных выражений сложение не заменяет дизъюнкцию: при двух единицах оно даст 2.</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">Вычислительный сегмент</span></div>
+
+      \    <pre><code>// Значения функции для наборов 00, 01, 10, 11
+
+      f00 = 0 * (1 - 0) + (1 - 0) * 0
+
+      f01 = 0 * (1 - 1) + (1 - 0) * 1
+
+      f10 = 1 * (1 - 0) + (1 - 1) * 0
+
+      f11 = 1 * (1 - 1) + (1 - 1) * 1</code></pre>
+
+      </div>
+
+      <p>Получаем 0, 1, 1, 0. В примере редактора эти значения подставляются в последний столбец таблицы. При замене функции обновите четыре расчётные строки, математическую запись, промежуточные столбцы и вывод. Редактор выполняет записанные выражения; он не разбирает формулу из текста и не добавляет новые переменные автоматически.</p>"
+  - id: 'latex'
+    title: 'Формула и таблица истинности в LaTeX'
+    html:
+      "<p>Вставьте формулу с пояснениями, затем таблицу. Для математического набора подключите <code>amsmath</code> в преамбуле:</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      \    <pre><code>\\usepackage{amsmath}</code></pre>
+
+      </div>
+
+      <p>Формула получает метку, по которой строится ссылка. Соглашение 0/1 задано явно:</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      \    <pre><code>Рассмотрим логическую функцию~\\eqref{eq:xor}.
+
+      \\par\\noindent\\begin{minipage}[b]{\\textwidth}
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\setlength{\\abovedisplayskip}{\\baselineskip}
+
+      \\setlength{\\abovedisplayshortskip}{\\baselineskip}
+
+      \\setlength{\\belowdisplayskip}{\\baselineskip}
+
+      \\setlength{\\belowdisplayshortskip}{\\baselineskip}
+
+      \\begin{equation}\\label{eq:xor}
+
+      F(A,B)=(A\\land\\neg B)\\lor(\\neg A\\land B),
+
+      \\end{equation}
+
+      \\indent где $F$ --- значение функции, 0 или 1;\\par
+
+      $A$ --- первое входное логическое значение, 0 или 1;\\par
+
+      $B$ --- второе входное логическое значение, 0 или 1.
+
+      \\end{minipage}\\par</code></pre>
+
+      </div>
+
+      <p>В таблице все значения безразмерны; единицы измерения в головке не нужны. <code>\\land</code>, <code>\\lor</code> и <code>\\neg</code> набираются в математическом режиме:</p><div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX</span></div>
+
+      \    <pre><code>Здесь $\\neg$ обозначает отрицание, $\\land$ --- конъюнкцию,
+
+      $\\lor$ --- дизъюнкцию. Промежуточные значения и результат
+
+      приведены в таблице~\\ref{tab:truth}.
+
+      \\par
+
+      \\begin{table}[!ht]
+
+      \\caption{Таблица истинности функции исключающего ИЛИ}\\label{tab:truth}
+
+      \\centering
+
+      \\renewcommand{\\arraystretch}{1.2}
+
+      \\begin{tabular}{|c|c|c|c|c|c|c|}
+
+      \\hline
+
+      $A$ &amp; $B$ &amp; $\\neg A$ &amp; $\\neg B$ &amp; $A\\land\\neg B$ &amp; $\\neg A\\land B$ &amp; $F$ \\\\
+
+      \\hline
+
+      0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; ${f00} \\\\
+
+      0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; ${f01} \\\\
+
+      1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; ${f10} \\\\
+
+      1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; ${f11} \\\\
+
+      \\hline
+
+      \\end{tabular}
+
+      \\end{table}
+
+      \\par
+
+      Функция равна 1 только при различных входах.
+
+      В порядке наборов 00, 01, 10, 11 столбец результата:
+
+      ${f00}, ${f01}, ${f10}, ${f11}.</code></pre>
+
+      </div>
+
+      <p>Подпись и границы таблицы оформлены по разделу 6.6 <a href=\"https://mpei.ru/Science/ScienceDocuments/Documents/0_GOST_7.32-2017.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">ГОСТ 7.32-2017</a>. Для лабораторной применимость этого оформления определяет методичка кафедры: стандарт относится к отчётам о НИР. «Просмотреть пример» открывает формулу, вычисления и таблицу со всеми настройками самостоятельного фрагмента. Подробнее о математическом синтаксисе см. <a href=\"/blog/latex-formulas\">руководство по формулам LaTeX</a>, а о подписи — <a href=\"/blog/diploma-data-tables-formatting-gost\">оформление таблиц данных</a>.</p>
+
+      <p>Чтобы расстояние от последней строки текста до подписи таблицы соответствовало обычному межстрочному шагу, добавьте следующую настройку один раз в преамбулу, после <code>\\onehalfspacing</code> и подключения <code>caption</code>. Она автоматически применяется к каждой таблице <code>table</code> внутри текста, учитывает глубину последней строки и не меняет отступы рисунков. Подпись остаётся с одинарным интервалом; при переносе таблицы к краю страницы LaTeX использует отдельные отступы плавающих объектов.</p>
+
+      <div class=\"article-code\">
+
+      \    <div class=\"article-code__header\"><span class=\"article-code__lang\">LaTeX — преамбула</span></div>
+
+      \    <pre><code>\\newlength{\\tablecaptionheight}
+
+      \\settoheight{\\tablecaptionheight}{\\setstretch{1}\\strut}
+
+      \\AddToHook{env/table/before}{%
+
+      \  \\par\\begingroup
+
+      \  \\ifdim\\prevdepth&gt;-1000pt
+
+      \    \\setlength{\\intextsep}{\\dimexpr\\baselineskip-\\prevdepth-\\tablecaptionheight\\relax}%
+
+      \    \\ifdim\\intextsep&lt;0pt\\setlength{\\intextsep}{0pt}\\fi
+
+      \  \\fi
+
+      }
+
+      \\AddToHook{env/table/after}{\\endgroup}</code></pre>
+
+      </div>"
+  - id: 'check'
+    title: 'Как проверить функцию и вывод'
+    html:
+      '<ol><li>Убедитесь, что каждый из четырёх наборов встречается ровно один раз.</li><li>Сверьте отрицания: для 0 получается 1, для 1 — 0.</li><li>Пересчитайте обе конъюнкции, затем дизъюнкцию. Все значения должны оставаться в множестве 0/1.</li><li>Проверьте смысл результата: функция равна 1 только при различных входах; при одинаковых входах она равна 0.</li><li>После сборки PDF проверьте подпись, ссылку и читаемость головки. При увеличении числа переменных не пытайтесь уместить таблицу уменьшением шрифта до нечитаемого размера.</li></ol>
+
+      <p>Эта таблица полностью описывает выбранную функцию двух переменных. Она не подтверждает правильность отдельной программы, пока не сопоставлены её фактические результаты на тех же наборах.</p>'
+editorExample:
+  - type: 'computational'
+    text: '// Значения функции для наборов 00, 01, 10, 11
+
+      f00 = 0 * (1 - 0) + (1 - 0) * 0
+
+      f01 = 0 * (1 - 1) + (1 - 0) * 1
+
+      f10 = 1 * (1 - 0) + (1 - 1) * 0
+
+      f11 = 1 * (1 - 1) + (1 - 1) * 1'
+    parameters:
+      visible: false
+  - type: 'latex'
+    text: "\\documentclass[a4paper,14pt]{extarticle}
+
+      \\usepackage[T2A]{fontenc}
+
+      \\usepackage[utf8]{inputenc}
+
+      \\usepackage[russian]{babel}
+
+      \\usepackage{tempora,geometry,setspace,indentfirst}
+
+      \\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+
+      \\onehalfspacing
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\usepackage{caption}
+
+      \\DeclareCaptionLabelSeparator{gostdash}{\\space---\\space}
+
+      \\captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
+
+      \\DeclareCaptionTextFormat{gosttitle}{\\hyphenpenalty=10000\\relax\\exhyphenpenalty=10000\\relax#1}
+
+      \\captionsetup{textformat=gosttitle}
+
+      \\usepackage{amsmath}
+
+      \\newlength{\\tablecaptionheight}
+
+      \\settoheight{\\tablecaptionheight}{\\setstretch{1}\\strut}
+
+      \\AddToHook{env/table/before}{%
+
+      \  \\par\\begingroup
+
+      \  \\ifdim\\prevdepth>-1000pt
+
+      \    \\setlength{\\intextsep}{\\dimexpr\\baselineskip-\\prevdepth-\\tablecaptionheight\\relax}%
+
+      \    \\ifdim\\intextsep<0pt\\setlength{\\intextsep}{0pt}\\fi
+
+      \  \\fi
+
+      }
+
+      \\AddToHook{env/table/after}{\\endgroup}
+
+      \\begin{document}
+
+      Рассмотрим логическую функцию~\\eqref{eq:xor}.
+
+      \\par\\noindent\\begin{minipage}[b]{\\textwidth}
+
+      \\setlength{\\parindent}{1.25cm}
+
+      \\setlength{\\abovedisplayskip}{\\baselineskip}
+
+      \\setlength{\\abovedisplayshortskip}{\\baselineskip}
+
+      \\setlength{\\belowdisplayskip}{\\baselineskip}
+
+      \\setlength{\\belowdisplayshortskip}{\\baselineskip}
+
+      \\begin{equation}\\label{eq:xor}
+
+      F(A,B)=(A\\land\\neg B)\\lor(\\neg A\\land B),
+
+      \\end{equation}
+
+      \\indent где $F$ --- значение функции, 0 или 1;\\par
+
+      $A$ --- первое входное логическое значение, 0 или 1;\\par
+
+      $B$ --- второе входное логическое значение, 0 или 1.
+
+      \\end{minipage}\\par
+
+      Здесь $\\neg$ обозначает отрицание, $\\land$ --- конъюнкцию,
+
+      $\\lor$ --- дизъюнкцию. Промежуточные значения и результат
+
+      приведены в таблице~\\ref{tab:truth}.
+
+      \\par
+
+      \\begin{table}[!ht]
+
+      \\caption{Таблица истинности функции исключающего ИЛИ}\\label{tab:truth}
+
+      \\centering
+
+      \\renewcommand{\\arraystretch}{1.2}
+
+      \\begin{tabular}{|c|c|c|c|c|c|c|}
+
+      \\hline
+
+      $A$ & $B$ & $\\neg A$ & $\\neg B$ & $A\\land\\neg B$ & $\\neg A\\land B$ & $F$ \\\\
+
+      \\hline
+
+      0 & 0 & 1 & 1 & 0 & 0 & ${f00} \\\\
+
+      0 & 1 & 1 & 0 & 0 & 1 & ${f01} \\\\
+
+      1 & 0 & 0 & 1 & 1 & 0 & ${f10} \\\\
+
+      1 & 1 & 0 & 0 & 0 & 0 & ${f11} \\\\
+
+      \\hline
+
+      \\end{tabular}
+
+      \\end{table}
+
+      \\par
+
+      Функция равна 1 только при различных входах.
+
+      В порядке наборов 00, 01, 10, 11 столбец результата:
+
+      ${f00}, ${f01}, ${f10}, ${f11}.
+
+      \\end{document}"
+    parameters:
+      visible: true

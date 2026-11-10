@@ -158,6 +158,7 @@ sections:
           urlcolor=black
       }</code></pre>
                               </div>
+      <p>Порядок загрузки зависимостей и сообщения <code>Option clash</code> разобраны в статье о <a href="/blog/latex-packages-loading-order-conflicts-versions">подключении пакетов LaTeX</a>.</p>
 tips:
   - title: 'Подключайте hyperref последним'
     html: |2-
