@@ -856,7 +856,9 @@
                                             class="blog-card__footer"
                                             th:href="@{/blog/{slug}(slug=${article.slug})}"
                                         >
-                                            <span th:utext="${i18n['read-article']}"></span>
+                                            <span
+                                                th:utext="${i18n['read-article']}"
+                                            ></span>
                                             <span class="blog-card__arrow"
                                                 >→</span
                                             >
@@ -982,10 +984,21 @@
         <!-- Cookie Banner -->
         <div id="cookie-banner" class="cookie-banner hidden">
             <div class="cookie-banner__container">
-                <p class="cookie-banner__text" th:utext="${i18n['cookie-text-full']}"></p>
+                <p
+                    class="cookie-banner__text"
+                    th:utext="${i18n['cookie-text-full']}"
+                ></p>
                 <div class="cookie-banner__actions">
-                    <button id="cookie-accept" class="button button--primary" th:utext="${i18n['cookie-accept']}"></button>
-                    <button id="cookie-decline" class="button button--outline" th:utext="${i18n['cookie-decline']}"></button>
+                    <button
+                        id="cookie-accept"
+                        class="button button--primary"
+                        th:utext="${i18n['cookie-accept']}"
+                    ></button>
+                    <button
+                        id="cookie-decline"
+                        class="button button--outline"
+                        th:utext="${i18n['cookie-decline']}"
+                    ></button>
                 </div>
             </div>
         </div>

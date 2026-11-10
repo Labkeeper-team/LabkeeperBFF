@@ -245,7 +245,11 @@
                     >
                         <ol class="article-breadcrumbs__list">
                             <li class="article-breadcrumbs__item">
-                                <a href="/" class="article-breadcrumbs__link" th:utext="${i18n['breadcrumb-home']}"></a>
+                                <a
+                                    href="/"
+                                    class="article-breadcrumbs__link"
+                                    th:utext="${i18n['breadcrumb-home']}"
+                                ></a>
                             </li>
                             <li class="article-breadcrumbs__item">
                                 <a
@@ -309,7 +313,10 @@
                             th:aria-label="${i18n['aria-article-toc']}"
                             th:if="${!article.toc.isEmpty()}"
                         >
-                            <p class="article-toc__title" th:utext="${i18n['article-toc-title']}"></p>
+                            <p
+                                class="article-toc__title"
+                                th:utext="${i18n['article-toc-title']}"
+                            ></p>
                             <ol class="article-toc__list">
                                 <li th:each="item : ${article.toc}">
                                     <a
@@ -339,7 +346,10 @@
                             id="tips"
                             th:if="${!article.tips.isEmpty()}"
                         >
-                            <h2 class="article-section__title" th:utext="${i18n['article-tips-title']}"></h2>
+                            <h2
+                                class="article-section__title"
+                                th:utext="${i18n['article-tips-title']}"
+                            ></h2>
                             <div class="article-tips">
                                 <div
                                     class="article-tip"
@@ -413,7 +423,10 @@
 
             <section class="cta-features" id="cta-features">
                 <div class="cta-features__intro">
-                    <p class="cta-features__intro-label" th:utext="${i18n['cta-try']}"></p>
+                    <p
+                        class="cta-features__intro-label"
+                        th:utext="${i18n['cta-try']}"
+                    ></p>
                     <h2
                         class="cta-features__intro-title"
                         th:utext="${article.ctaTitle}"
@@ -506,7 +519,8 @@
                         class="button button--outline audience__btn"
                         th:href="${article.relatedHref}"
                     >
-                        <span th:text="${article.catalogHref == '/blog'} ? ${i18n['blog-filter-all']} : ${i18n['templates-filter-all']}"
+                        <span
+                            th:text="${article.catalogHref == '/blog'} ? ${i18n['blog-filter-all']} : ${i18n['templates-filter-all']}"
                             >Все статьи</span
                         >
                         <span class="button__arrow">→</span>
@@ -610,10 +624,21 @@
 
         <div id="cookie-banner" class="cookie-banner hidden">
             <div class="cookie-banner__container">
-                <p class="cookie-banner__text" th:utext="${i18n['cookie-text-short']}"></p>
+                <p
+                    class="cookie-banner__text"
+                    th:utext="${i18n['cookie-text-short']}"
+                ></p>
                 <div class="cookie-banner__actions">
-                    <button id="cookie-accept" class="button button--primary" th:utext="${i18n['cookie-accept']}"></button>
-                    <button id="cookie-decline" class="button button--outline" th:utext="${i18n['cookie-decline']}"></button>
+                    <button
+                        id="cookie-accept"
+                        class="button button--primary"
+                        th:utext="${i18n['cookie-accept']}"
+                    ></button>
+                    <button
+                        id="cookie-decline"
+                        class="button button--outline"
+                        th:utext="${i18n['cookie-decline']}"
+                    ></button>
                 </div>
             </div>
         </div>

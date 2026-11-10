@@ -283,8 +283,14 @@
                     class="header__container"
                     style="flex-direction: column; align-items: center"
                 >
-                    <h1 class="blog-header__title h1" th:utext="${i18n['blog-title']}"></h1>
-                    <p class="blog-header__desc" th:utext="${i18n['blog-desc']}"></p>
+                    <h1
+                        class="blog-header__title h1"
+                        th:utext="${i18n['blog-title']}"
+                    ></h1>
+                    <p
+                        class="blog-header__desc"
+                        th:utext="${i18n['blog-desc']}"
+                    ></p>
                 </div>
             </section>
 
@@ -298,48 +304,57 @@
                         <a
                             href="#"
                             class="header__nav-link header__nav-link--active"
-                            data-filter="all" th:utext="${i18n['blog-filter-all']}"
-                            ></a
-                        >
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#" class="header__nav-link" data-filter="latex" th:utext="${i18n['category-latex']}"
-                            ></a
-                        >
+                            data-filter="all"
+                            th:utext="${i18n['blog-filter-all']}"
+                        ></a>
                     </li>
                     <li class="header__nav-item">
                         <a
                             href="#"
                             class="header__nav-link"
-                            data-filter="markdown" th:utext="${i18n['category-markdown']}"
-                            ></a
-                        >
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#" class="header__nav-link" data-filter="labs" th:utext="${i18n['category-labs']}"
-                            ></a
-                        >
+                            data-filter="latex"
+                            th:utext="${i18n['category-latex']}"
+                        ></a>
                     </li>
                     <li class="header__nav-item">
                         <a
                             href="#"
                             class="header__nav-link"
-                            data-filter="diploma" th:utext="${i18n['category-diploma']}"
-                            ></a
-                        >
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#" class="header__nav-link" data-filter="cv" th:utext="${i18n['category-cv']}"
-                            ></a
-                        >
+                            data-filter="markdown"
+                            th:utext="${i18n['category-markdown']}"
+                        ></a>
                     </li>
                     <li class="header__nav-item">
                         <a
                             href="#"
                             class="header__nav-link"
-                            data-filter="articles" th:utext="${i18n['category-articles']}"
-                            ></a
-                        >
+                            data-filter="labs"
+                            th:utext="${i18n['category-labs']}"
+                        ></a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a
+                            href="#"
+                            class="header__nav-link"
+                            data-filter="diploma"
+                            th:utext="${i18n['category-diploma']}"
+                        ></a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a
+                            href="#"
+                            class="header__nav-link"
+                            data-filter="cv"
+                            th:utext="${i18n['category-cv']}"
+                        ></a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a
+                            href="#"
+                            class="header__nav-link"
+                            data-filter="articles"
+                            th:utext="${i18n['category-articles']}"
+                        ></a>
                     </li>
                 </ul>
             </div>
@@ -391,9 +406,18 @@
             <!-- CTA секция -->
             <section class="cta-features" id="cta-features">
                 <div class="cta-features__intro">
-                    <p class="cta-features__intro-label" th:utext="${i18n['cta-try']}"></p>
-                    <h2 class="cta-features__intro-title" th:utext="${i18n['cta-formulas-title']}"></h2>
-                    <p class="cta-features__intro-text" th:utext="${i18n['cta-formulas-text']}"></p>
+                    <p
+                        class="cta-features__intro-label"
+                        th:utext="${i18n['cta-try']}"
+                    ></p>
+                    <h2
+                        class="cta-features__intro-title"
+                        th:utext="${i18n['cta-formulas-title']}"
+                    ></h2>
+                    <p
+                        class="cta-features__intro-text"
+                        th:utext="${i18n['cta-formulas-text']}"
+                    ></p>
                 </div>
 
                 <div
@@ -452,7 +476,8 @@
                     <a
                         href="/project/default?open=latex"
                         class="button button--outline-light cta-features__intro-btn"
-                     th:utext="${i18n['cta-open-editor']}"></a>
+                        th:utext="${i18n['cta-open-editor']}"
+                    ></a>
                 </div>
 
                 <div class="feature__bg">
@@ -565,10 +590,21 @@
         <!-- Cookie Banner -->
         <div id="cookie-banner" class="cookie-banner hidden">
             <div class="cookie-banner__container">
-                <p class="cookie-banner__text" th:utext="${i18n['cookie-text-short']}"></p>
+                <p
+                    class="cookie-banner__text"
+                    th:utext="${i18n['cookie-text-short']}"
+                ></p>
                 <div class="cookie-banner__actions">
-                    <button id="cookie-accept" class="button button--primary" th:utext="${i18n['cookie-accept']}"></button>
-                    <button id="cookie-decline" class="button button--outline" th:utext="${i18n['cookie-decline']}"></button>
+                    <button
+                        id="cookie-accept"
+                        class="button button--primary"
+                        th:utext="${i18n['cookie-accept']}"
+                    ></button>
+                    <button
+                        id="cookie-decline"
+                        class="button button--outline"
+                        th:utext="${i18n['cookie-decline']}"
+                    ></button>
                 </div>
             </div>
         </div>

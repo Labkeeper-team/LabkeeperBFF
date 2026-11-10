@@ -56,8 +56,12 @@
         if (ROBOT.test(navigator.userAgent || '')) {
             return null;
         }
-        const first = (navigator.languages && navigator.languages[0]) || navigator.language;
-        const code = String(first || '').toLowerCase().split('-')[0];
+        const first =
+            (navigator.languages && navigator.languages[0]) ||
+            navigator.language;
+        const code = String(first || '')
+            .toLowerCase()
+            .split('-')[0];
         return code === 'zh' || code === 'en' ? code : null;
     };
 

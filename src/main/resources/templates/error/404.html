@@ -40,10 +40,25 @@
             </a>
             <h1 class="h1" th:utext="${i18n['not-found-title']}"></h1>
             <p th:utext="${i18n['not-found-text']}"></p>
-            <nav class="not-found__links" th:aria-label="${i18n['aria-site-sections']}">
-                <a href="/blog" class="button button--outline" th:utext="${i18n['nav-blog']}"></a>
-                <a href="/templates" class="button button--outline" th:utext="${i18n['templates-title']}"></a>
-                <a href="/project/default" class="button button--primary" th:utext="${i18n['btn-editor']}"></a>
+            <nav
+                class="not-found__links"
+                th:aria-label="${i18n['aria-site-sections']}"
+            >
+                <a
+                    href="/blog"
+                    class="button button--outline"
+                    th:utext="${i18n['nav-blog']}"
+                ></a>
+                <a
+                    href="/templates"
+                    class="button button--outline"
+                    th:utext="${i18n['templates-title']}"
+                ></a>
+                <a
+                    href="/project/default"
+                    class="button button--primary"
+                    th:utext="${i18n['btn-editor']}"
+                ></a>
             </nav>
         </main>
     </body>
