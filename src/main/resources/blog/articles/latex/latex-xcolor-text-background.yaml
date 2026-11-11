@@ -27,7 +27,7 @@ keywords:
   - 'как изменить цвет текста в latex xcolor'
   - 'цветная таблица latex онлайн'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Работа с цветом в LaTeX: текст, фон и ячейки таблиц через xcolor'
 cardDescription: |2-
@@ -151,11 +151,13 @@ sections:
       исключительно на светлом фоне, а белый — на плотно залитом фоне.</li>
                               </ul>
 tips:
-  - title: 'Устранение конфликта с пакетом tabularx'
+  - title: 'Устранение ошибки Option clash for package xcolor'
     html: |2-
-      <p>Всегда подключайте <code>\usepackage[table]{xcolor}</code> <em>до</em> пакетов
-      <code>tabularx</code> или <code>colortbl</code>, чтобы избежать ошибки <code>Option clash for
-      package xcolor</code>.</p>
+      <p>Ошибка <code>Option clash for package xcolor</code> возникает, когда xcolor уже загружен
+      без опций другим пакетом (<code>tikz</code>, <code>pgfplots</code>, <code>tcolorbox</code> и
+      т.&nbsp;п.), а затем подключается с опцией <code>table</code>. Подключайте
+      <code>\usepackage[table]{xcolor}</code> <em>до</em> таких пакетов или передайте опцию заранее:
+      <code>\PassOptionsToPackage{table}{xcolor}</code> перед <code>\documentclass</code>.</p>
   - title: 'Прозрачность и смешивание'
     html: |2-
       <p>Синтаксис <code>blue!40!red</code> создает плавное смешивание 40% синего и 60% красного цвета
@@ -169,6 +171,6 @@ editorExample:
     \usepackage{amsmath,graphicx}
     \usepackage[table]{xcolor}
     \begin{document}
-    \textcolor{blue}{Blue text}\par\colorbox{yellow!30}{Highlighted text}
+    \textcolor{blue}{Blue text}\par\colorbox{yellow!30}{Highlighted text}\par\medskip
     \begin{tabular}{cc}\rowcolor{blue!15}Item & Value\\A & 10\\B & 20\end{tabular}
     \end{document}

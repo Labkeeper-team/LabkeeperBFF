@@ -38,7 +38,7 @@ keywords:
   - 'рамка ескд latex tikz'
   - 'штамп форма 2 и 2а latex'
 datePublished: '2026-08-20'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '12 мин'
 cardTitle: 'Рамка и штамп по ЕСКД в LaTeX: формы 2 и 2а'
 cardDescription: 'Готовый код рамки 20-5-5-5 мм и основной надписи по формам 2 и 2а на TikZ для пояснительной записки.'
@@ -88,7 +88,7 @@ sections:
       сохранились. Многие методички по-прежнему ссылаются на ГОСТ 2.104-2006, а к новому стандарту
       выпускались поправки, поэтому размеры граф сверяйте с образцом кафедры.</li>
           <li><strong>ГОСТ 2.301</strong> — форматы листов (А4 — 210&nbsp;×&nbsp;297&nbsp;мм).</li>
-          <li><strong>ГОСТ Р 2.105-2019</strong> — общие требования к текстовым документам:
+          <li><strong>ГОСТ 2.105-2019</strong> — общие требования к текстовым документам:
       разделы, формулы, таблицы и иллюстрации пояснительной записки.</li>
           <li><strong>ГОСТ 2.303</strong> и <strong>ГОСТ 2.304</strong> — толщина линий и чертёжный
       шрифт.</li>
@@ -131,8 +131,8 @@ sections:
           <pre><code>% Обозначение документа (шифр)
       \newcommand{\docnum}{ВКР 15.03.01.026 ПЗ}
 
-      % Наименование документа (две строки)
-      \newcommand{\doctitle}{Расчёт привода\\технологического оборудования}
+      % Наименование документа и вид: «Пояснительная записка»
+      \newcommand{\doctitle}{Расчёт привода\\технологического оборудования\\Пояснительная записка}
 
       % Организация: вуз и кафедра
       \newcommand{\docorg}{Университет\\каф. машиностроения}
@@ -175,11 +175,14 @@ sections:
       \usepackage[left=25mm,right=10mm,top=15mm,bottom=25mm]{geometry}
       \usepackage{tikz}
       \usepackage{lastpage}
+      \usepackage{tocloft} % заголовок «Содержание» по центру
+      \renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries}
+      \renewcommand{\cftaftertoctitle}{\hfill\null}
       \pagestyle{empty} % номер листа печатается в штампе, а не в подвале
 
       % ---------- Данные штампа ----------
       \newcommand{\docnum}{ВКР 15.03.01.026 ПЗ}
-      \newcommand{\doctitle}{Расчёт привода\\технологического оборудования}
+      \newcommand{\doctitle}{Расчёт привода\\технологического оборудования\\Пояснительная записка}
       \newcommand{\docorg}{Университет\\каф. машиностроения}
       \newcommand{\docauthor}{Иванов}
       \newcommand{\docchecker}{Васильев}
@@ -254,17 +257,21 @@ sections:
       \eskdframetrue\eskdbigtrue
       \enlargethispage{-25mm} % штамп формы 2 выше на 25 мм
       \tableofcontents
+      \thispagestyle{empty} % tocloft включает стиль plain с номером в подвале
       \clearpage
 
       % Дальше — форма 2а на каждом листе
-      \section{Введение}
-      В данном курсовом проекте выполнен кинематический и прочностной расчёт привода.
+      \section*{Введение} % введение не нумеруют
+      \addcontentsline{toc}{section}{Введение}
+      В данной выпускной квалификационной работе выполнен кинематический и прочностной расчёт привода.
 
       \section{Кинематический расчёт}
-      Мощность на выходном валу определяется по формуле
+      Требуемая мощность электродвигателя определяется по формуле
       \begin{equation}
-        P = \frac{T \cdot \omega}{1000 \cdot \eta}.
+        P_{\text{тр}} = \frac{T \cdot \omega}{1000 \cdot \eta},
       \end{equation}
+      где $T$~--- вращающий момент на выходном валу, Н$\cdot$м; $\omega$~--- угловая скорость
+      выходного вала, рад/с; $\eta$~--- общий КПД привода.
       \end{document}</code></pre>
       </div>
       <p>Как устроен код:</p>
@@ -377,11 +384,14 @@ editorExample:
     \usepackage[left=25mm,right=10mm,top=15mm,bottom=25mm]{geometry}
     \usepackage{tikz}
     \usepackage{lastpage}
+    \usepackage{tocloft} % заголовок «Содержание» по центру
+    \renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries}
+    \renewcommand{\cftaftertoctitle}{\hfill\null}
     \pagestyle{empty} % номер листа печатается в штампе
 
     % ---------- Данные штампа ----------
     \newcommand{\docnum}{ВКР 15.03.01.026 ПЗ}
-    \newcommand{\doctitle}{Расчёт привода\\технологического оборудования}
+    \newcommand{\doctitle}{Расчёт привода\\технологического оборудования\\Пояснительная записка}
     \newcommand{\docorg}{Университет\\каф. машиностроения}
     \newcommand{\docauthor}{Иванов}
     \newcommand{\docchecker}{Васильев}
@@ -452,14 +462,18 @@ editorExample:
     \eskdframetrue\eskdbigtrue
     \enlargethispage{-25mm}
     \tableofcontents
+    \thispagestyle{empty}
     \clearpage
 
-    \section{Введение}
-    В данном курсовом проекте выполнен кинематический и прочностной расчёт привода.
+    \section*{Введение} % введение не нумеруют
+    \addcontentsline{toc}{section}{Введение}
+    В данной выпускной квалификационной работе выполнен кинематический и прочностной расчёт привода.
 
     \section{Кинематический расчёт}
-    Мощность на выходном валу определяется по формуле
+    Требуемая мощность электродвигателя определяется по формуле
     \begin{equation}
-      P = \frac{T \cdot \omega}{1000 \cdot \eta}.
+      P_{\text{тр}} = \frac{T \cdot \omega}{1000 \cdot \eta},
     \end{equation}
+    где $T$~--- вращающий момент на выходном валу, Н$\cdot$м; $\omega$~--- угловая скорость
+    выходного вала, рад/с; $\eta$~--- общий КПД привода.
     \end{document}

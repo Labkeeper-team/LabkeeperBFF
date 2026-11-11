@@ -27,7 +27,7 @@ keywords:
   - 'таблица на несколько страниц latex longtable'
   - 'перенос таблицы на следующий лист latex'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Многостраничные таблицы в LaTeX: пошаговая настройка пакета longtable'
 cardDescription: |2-
@@ -71,8 +71,8 @@ sections:
       class="article-code__lang">LaTeX</span></div>
                                   <pre><code>\begin{longtable}{|c|p{8cm}|r|}
           % 1. Шапка на САМОЙ ПЕРВОЙ странице
-          \refstepcounter{table}\label{tab:measurements}
-          \multicolumn{3}{l}{Таблица~\thetable{} --- Экспериментальные данные измерений} \\
+          \multicolumn{3}{l}{\label{tab:measurements}% longtable сам увеличивает счётчик table
+            Таблица~\thetable{} --- Экспериментальные данные измерений} \\
           \hline
           \textbf{№} & \textbf{Наименование образца} & \textbf{Масса, г} \\
           \hline
@@ -162,8 +162,14 @@ editorExample:
     \usepackage{amsmath,graphicx}
     \usepackage{longtable}\usepackage[textheight=55mm]{geometry}
     \begin{document}
-    \begin{longtable}{cc}Index & Result\\\hline\endfirsthead
-    Index & Result (continued)\\\hline\endhead
+    \begin{longtable}{|c|c|}
+    \multicolumn{2}{l}{\label{tab:data}%
+    Таблица~\thetable{} --- Результаты измерений}\\
+    \hline Номер & Результат\\\hline\endfirsthead
+    \multicolumn{2}{l}{\textit{Продолжение таблицы \ref{tab:data}}}\\
+    \hline Номер & Результат\\\hline\endhead
+    \hline\endfoot
+    \hline\endlastfoot
     1 & 10\\2 & 20\\3 & 30\\4 & 40\\5 & 50\\6 & 60\\7 & 70\\8 & 80\\9 & 90\\10 & 100\\11 & 110\\12 &
     120\\
     \end{longtable}

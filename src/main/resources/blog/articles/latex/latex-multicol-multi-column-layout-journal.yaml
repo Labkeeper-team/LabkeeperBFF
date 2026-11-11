@@ -27,7 +27,7 @@ keywords:
   - 'текст в 3 колонки latex multicol'
   - 'верстка газеты в latex онлайн'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Многоколоночная верстка в LaTeX: пакет multicol для журналов и газет'
 cardDescription: |2-
@@ -146,7 +146,12 @@ sections:
                               <p>Если внутри многоколоночного текста требуется разместить широкую
       формулу или схему, в режиме <code>twocolumn</code> используют окружения со звездочкой
       (<code>\begin{figure*}</code>, <code>\begin{table*}</code>). Внутри <code>multicols</code> пакет
-      флоаты не поддерживает, и звёздные окружения ширину его колонок не занимают.</p>
+      обычные плавающие <code>figure</code> и <code>table</code> не работают (LaTeX выдаст ошибку
+      «Float(s) lost»), а звёздные <code>figure*</code> и <code>table*</code> разрешены: они
+      выводятся на всю ширину страницы, но не в месте вызова, а вверху следующей страницы. Чтобы
+      поставить рисунок прямо в колонку, используйте нефлоатный вариант — <code>\includegraphics</code>
+      в окружении <code>center</code> с подписью <code>\captionof{figure}{…}</code> из пакета
+      <code>caption</code>.</p>
 tips:
   - title: 'Принудительный переход в новую колонку'
     html: |2-
@@ -165,10 +170,15 @@ editorExample:
     \usepackage{amsmath,graphicx}
     \usepackage{multicol}
     \begin{document}
+    \selectlanguage{english}
+    \raggedcolumns
     \begin{multicols}{2}
-    \section*{First column}A short newspaper-style article. The package balances the text across
-    columns.
-    \columnbreak\section*{Second column}An explicit column break starts this section in the next
-    column.
+    \section*{First column}A short newspaper-style article. Without an explicit break the package
+    balances the text across columns so that their bottom edges are level. The
+    \texttt{\textbackslash raggedcolumns} command keeps each column at its natural height instead
+    of stretching the space between headings and paragraphs.
+    \columnbreak
+    \section*{Second column}An explicit \texttt{\textbackslash columnbreak} starts this section at
+    the top of the next column, even though the first column still has free space below its text.
     \end{multicols}
     \end{document}

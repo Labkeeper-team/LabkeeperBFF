@@ -30,7 +30,7 @@ keywords:
   - 'katex vs mathjax'
   - 'как вставить формулу в markdown'
 datePublished: '2026-09-05'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '10 мин'
 cardTitle: 'Формулы в Markdown: синтаксис, GitHub и GitLab, KaTeX и MathJax'
 cardDescription: |-
@@ -193,7 +193,9 @@ sections:
       заметна разве что на&nbsp;страницах с&nbsp;сотнями формул. Главное практическое правило: если формулы
       отрисовались в&nbsp;Labkeeper или на&nbsp;GitHub, а&nbsp;в&nbsp;Notion или GitLab нет, проверьте,
       не&nbsp;используется ли команда, которой нет в&nbsp;KaTeX. В&nbsp;превью Labkeeper автонумерация
-      не&nbsp;включена, номер ставьте вручную через <code>\tag{1}</code>.</p>
+      не&nbsp;включена, номер ставьте вручную через <code>\tag{1}</code>. Учтите: в&nbsp;PDF, который
+      собирает Labkeeper из&nbsp;Markdown, такой номер пока не&nbsp;печатается — он виден только
+      в&nbsp;превью.</p>
   - id: 'errors'
     title: 'Частые ошибки: экранирование и конфликты с Markdown'
     html: |-
@@ -247,7 +249,9 @@ sections:
       <code>```math</code>. Ещё одна причина — пробел сразу после открывающего <code>$</code>.</p>
       <h3>Как пронумеровать формулу в Markdown?</h3>
       <p>Добавьте внутрь выключной формулы <code>\tag{1}</code>: <code>$$ E = mc^2 \tag{1} $$</code>.
-      Так номер работает и&nbsp;в&nbsp;MathJax, и&nbsp;в&nbsp;KaTeX. Правила нумерации в&nbsp;отчётах
+      Так номер работает и&nbsp;в&nbsp;MathJax, и&nbsp;в&nbsp;KaTeX. В&nbsp;PDF-экспорте Labkeeper
+      номер из&nbsp;<code>\tag</code> пока теряется: если он нужен в&nbsp;PDF, наберите отчёт
+      в&nbsp;LaTeX-сегменте с&nbsp;окружением <code>equation</code>. Правила нумерации в&nbsp;отчётах
       описаны в&nbsp;статье <a href="/blog/formula-numbering-lab-reports-gost">о&nbsp;нумерации формул
       по&nbsp;ГОСТ</a>.</p>
       <h3>Как вставить формулу в Notion?</h3>

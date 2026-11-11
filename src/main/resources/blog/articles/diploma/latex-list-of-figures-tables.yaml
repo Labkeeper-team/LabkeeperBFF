@@ -41,7 +41,7 @@ keywords:
   - 'список таблиц и рисунков в latex онлайн'
   - 'оформление перечня иллюстраций latex гост'
 datePublished: '2026-08-20'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: |2-
   Автоматическая генерация списка иллюстраций и таблиц (List of Figures /
@@ -115,23 +115,27 @@ sections:
       class="article-code__lang">LaTeX</span></div>
                                   <pre><code>\usepackage[titles]{tocloft}
 
-      % Русификация заголовков
-      \renewcommand{\listfigurename}{Список иллюстраций}
-      \renewcommand{\listtablename}{Список таблиц}
+      % Русификация заголовков: при babel russian — через \captionsrussian,
+      % иначе babel вернет стандартные названия в \begin{document}
+      \addto\captionsrussian{%
+        \renewcommand{\listfigurename}{Список иллюстраций}%
+        \renewcommand{\listtablename}{Список таблиц}}
 
-      % Префиксы перед номерами
+      % Префиксы перед номерами и тире после номера
       \renewcommand{\cftfigpresnum}{Рисунок~}
       \renewcommand{\cfttabpresnum}{Таблица~}
+      \renewcommand{\cftfigaftersnum}{~---}
+      \renewcommand{\cfttabaftersnum}{~---}
 
       % Отступы для вмещения префикса
-      \settowidth{\cftfignumwidth}{Рисунок~99.~}
-      \settowidth{\cfttabnumwidth}{Таблица~99.~}</code></pre>
+      \settowidth{\cftfignumwidth}{Рисунок~99~---~}
+      \settowidth{\cfttabnumwidth}{Таблица~99~---~}</code></pre>
                               </div>
   - id: 'dots'
     title: 'Отточия (лидеры) и выравнивание номеров страниц'
     html: |2-
-                              <p>Для содержания ГОСТ 7.32-2017 требует отточие до номера страницы. Для
-      перечней рисунков и таблиц отдельного правила нет, но методички часто просят те же точки. В
+                              <p>В примере оформления содержания в ГОСТ 7.32-2017 заголовки соединены с
+      номерами страниц отточием. Для перечней рисунков и таблиц отдельного правила нет, но методички часто просят те же точки. В
       перечнях LaTeX ставит их по умолчанию, а частоту точек в пакете <code>tocloft</code> задают
       команды <code>\cftfigdotsep</code> и <code>\cfttabdotsep</code>:</p>
                               <div class="article-code">
@@ -202,11 +206,37 @@ editorExample:
     \usepackage[utf8]{inputenc}
     \usepackage[english,russian]{babel}
     \usepackage{amsmath,graphicx}
+    \usepackage{caption}
+    \DeclareCaptionLabelSeparator{gost}{~---~}
+    \captionsetup{labelsep=gost}
+    \captionsetup[figure]{name=Рисунок}
+    \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+    \usepackage[titles]{tocloft}
+    \addto\captionsrussian{%
+      \renewcommand{\listfigurename}{Список иллюстраций}%
+      \renewcommand{\listtablename}{Список таблиц}}
+    \renewcommand{\cftfigpresnum}{Рисунок~}
+    \renewcommand{\cfttabpresnum}{Таблица~}
+    \renewcommand{\cftfigaftersnum}{~---}
+    \renewcommand{\cfttabaftersnum}{~---}
+    \settowidth{\cftfignumwidth}{Рисунок~99~---~}
+    \settowidth{\cfttabnumwidth}{Таблица~99~---~}
 
     \begin{document}
-    \listoffigures\listoftables
+    \listoffigures
+    \listoftables
+
     \begin{figure}[h]\centering\fbox{\rule{0pt}{15mm}\rule{35mm}{0pt}}
-    \caption{Experimental setup}\end{figure}
-    \begin{table}[h]\centering\begin{tabular}{cc}Time & Value\\1 & 2\end{tabular}
-    \caption{Measurements}\end{table}
+    \caption[Схема установки]{Схема экспериментальной установки}\end{figure}
+    \begin{table}[h]
+    \caption{Результаты измерений}
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    Время, с & Путь, м\\
+    \hline
+    1 & 2\\
+    \hline
+    \end{tabular}
+    \end{table}
     \end{document}

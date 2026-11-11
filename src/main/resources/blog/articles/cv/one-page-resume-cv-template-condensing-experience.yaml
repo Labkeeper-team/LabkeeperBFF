@@ -22,7 +22,7 @@ keywords:
   - 'одностраничное резюме шаблон онлайн'
   - 'как уместить cv на одну страницу'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Одностраничное резюме (One-Pager): как сжать опыт без потери ценности'
 cardDescription: |2-
@@ -94,7 +94,7 @@ sections:
                                   <li><strong>Размер шрифта (Font size):</strong> класс с кеглем 10pt
       для основного текста, <code>\large</code> для подзаголовков секций и <code>\LARGE</code> для
       имени;</li>
-                                  <li><strong>Плотность строк:</strong> <code>\linespread{1.05}</code>
+                                  <li><strong>Плотность строк:</strong> <code>\linespread{0.97}</code>
       и списки без лишних отступов через пакет <code>enumitem</code> с параметром
       <code>nosep</code>.</li>
                               </ul>
@@ -107,7 +107,7 @@ sections:
       \usepackage[margin=13mm]{geometry}
       \usepackage{enumitem}
       \setlist{nosep}        % списки без вертикальных отступов
-      \linespread{1.05}      % чуть плотнее одинарного интервала
+      \linespread{0.97}      % чуть плотнее одинарного интервала (больше 1 — реже)
       \pagestyle{empty}      % без номера страницы</code></pre>
                               </div>
                               <p>Также важно предельно компактно оформить <a
@@ -125,7 +125,7 @@ sections:
                                   <pre><code># Ivan Petrov — Staff Software Engineer
       iv.petrov@email.com | +7 (999) 000-00-00 | github.com/petrov-dev | linkedin.com/in/ipetrov | Moscow / Remote
 
-      **Core Stack:** Go, Python, Kubernetes, PostgreSQL, Kafka, Redis, Distributed Systems, Highload (100k+ RPS)
+      **Core Stack:** Go, Python, Kubernetes, PostgreSQL, Kafka, Redis, Distributed Systems, Highload (85k+ TPS)
 
       ## Professional Experience
 
@@ -148,7 +148,7 @@ sections:
       - **Data & Infra:** PostgreSQL, Redis, ClickHouse, Apache Kafka, Docker, Kubernetes, Terraform, Prometheus, Grafana
 
       ## Education
-      **Bauman Moscow State Technical University** — M.S. in Computer Science *(2013 — 2019)*</code></pre>
+      **Bauman Moscow State Technical University** — Specialist degree (M.S. equivalent) in Computer Science *(2013 — 2019)*</code></pre>
                               </div>
   - id: 'senior-metrics'
     title: 'Как писать о руководящем опыте и архитектуре'
@@ -177,9 +177,9 @@ editorExample:
     \documentclass[a4paper,10pt]{article}
     \usepackage[margin=13mm]{geometry}
     \usepackage{enumitem}\setlist{nosep}
-    \linespread{1.05}\pagestyle{empty}
+    \linespread{0.97}\pagestyle{empty}\setlength{\parindent}{0pt}
     \begin{document}
-    \section*{Alex Ivanov | Software Engineer}
+    \section*{Alex Ivanov \textbar{} Software Engineer}
     alex@example.com
     \section*{Selected experience}
     \textbf{Team lead, 2022--2026}: led 5 engineers; delivery time reduced by 25\%.

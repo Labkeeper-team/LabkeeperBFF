@@ -37,7 +37,7 @@ keywords:
   - 'как перевести word в latex'
   - 'pandoc docx latex кириллица'
 datePublished: '2026-08-20'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '13 мин'
 cardTitle: 'Как перенести документ из Word в LaTeX с сохранением формул'
 cardDescription: 'Формулы через режим LaTeX в Word, Pandoc для русского текста, MathType, картинки EMF и доводка до ГОСТ.'
@@ -323,6 +323,11 @@ editorExample:
     \setlength{\parindent}{1.25cm}
     \usepackage[labelsep=endash]{caption}
     \captionsetup[figure]{name=Рисунок}
+    \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+    \setlength{\LTcapwidth}{\textwidth} % подпись таблицы слева
+    \usepackage{titlesec} % «1 Расчётная часть» вместо «Глава 1»
+    \titleformat{\chapter}[hang]{\normalfont\large\bfseries}{\thechapter}{0.5em}{}
+    \titlespacing*{\chapter}{1.25cm}{0pt}{12pt}
 
     \begin{document}
     \chapter{Расчётная часть}\label{ch:calc}
@@ -345,7 +350,7 @@ editorExample:
 
     \begin{figure}[ht]
       \centering
-      \rule{6cm}{3cm} % здесь будет \includegraphics{media/image1.pdf}
+      \framebox[6cm]{\rule{0pt}{3cm}} % здесь будет \includegraphics{media/image1.pdf}
       \caption{Схема установки}
     \end{figure}
     \end{document}

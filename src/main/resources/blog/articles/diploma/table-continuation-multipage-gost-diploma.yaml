@@ -27,7 +27,7 @@ keywords:
   - 'продолжение таблицы на следующем листе гост'
   - 'перенос шапки таблицы диплом'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Перенос таблиц в дипломных работах: правила ГОСТ 7.32 и код LaTeX'
 cardDescription: |2-
@@ -98,15 +98,19 @@ sections:
                               <p>Команда <code>\caption</code> внутри longtable по умолчанию дает
       подпись «Таблица 1: …» по центру. Проще всего написать наименование первой строкой шапки через
       <code>\multicolumn{4}{l}</code> — так же, как надпись «Продолжение таблицы»: обе строки встанут
-      слева над таблицей. Номер таблицы задает команда <code>\refstepcounter{table}</code>, а метка
-      <code>\label</code> позволяет сослаться на таблицу в тексте.</p>
+      слева над таблицей. Номер таблицы longtable увеличивает сама, поэтому
+      <code>\refstepcounter{table}</code> перед ней не нужен (иначе номер удвоится), а метку
+      <code>\label</code> ставьте внутрь первой шапки, чтобы ссылка в тексте указывала на напечатанный
+      номер. Колонка <code>l</code> в <code>\multicolumn</code> не переносит строки: для длинного
+      наименования задайте вместо нее <code>p{…}</code> шириной с таблицу или оформите подпись через
+      <code>\caption</code> с пакетом <code>caption</code> (<code>ltcaption</code>).</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\refstepcounter{table}\label{tab:modules}
-      \begin{longtable}{|c|p{7cm}|c|r|}
-          % 1. ШАПКА ПЕРВОЙ СТРАНИЦЫ
-          \multicolumn{4}{l}{Таблица \thetable{} --- Сравнительные характеристики модулей} \\
+                                  <pre><code>\begin{longtable}{|c|p{7cm}|c|r|}
+          % 1. ШАПКА ПЕРВОЙ СТРАНИЦЫ (номер таблицы longtable увеличивает сама)
+          \multicolumn{4}{l}{Таблица \thetable{} --- Сравнительные характеристики модулей%
+            \label{tab:modules}} \\
           \hline
           \textbf{№} & \textbf{Наименование компонента} & \textbf{Тип} & \textbf{Цена, руб.} \\
           \hline
@@ -159,9 +163,8 @@ editorExample:
     \usepackage{longtable}
     \usepackage[a4paper,textheight=55mm]{geometry}
     \begin{document}
-    \refstepcounter{table}
     \begin{longtable}{|c|c|}
-    \multicolumn{2}{l}{Таблица \thetable{} --- Результаты измерений}\\\hline
+    \multicolumn{2}{l}{Таблица \thetable{} --- Результаты измерений\label{tab:s}}\\\hline
     Время, с & Путь, м\\\hline
     1 & 2\\\hline\endfirsthead
     \multicolumn{2}{l}{Продолжение таблицы \thetable}\\\hline

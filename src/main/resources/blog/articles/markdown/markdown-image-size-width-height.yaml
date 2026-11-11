@@ -30,7 +30,7 @@ keywords:
   - 'markdown img width'
   - 'размер картинки readme github'
 datePublished: '2026-09-05'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Размер картинки в Markdown: ширина, высота и центрирование'
 cardDescription: |2-
@@ -96,9 +96,11 @@ sections:
       <p>В превью Markdown-проекта Labkeeper картинка стоит по центру и сохраняет свой размер. Атрибут
       <code>width</code> (в пикселях или процентах) учитывается, пока картинка не упирается в ширину
       колонки; <code>height</code> перекрывается правилом <code>height: auto</code>, а стили в
-      атрибуте <code>style</code> к картинке не применяются. При сборке PDF картинку из
-      Markdown-сегмента сервер ставит по центру шириной 0,65 текста. Точный размер в PDF задают в
-      LaTeX-сегменте: <code>\includegraphics[width=0.5\textwidth]{chart.png}</code>.</p>
+      атрибуте <code>style</code> к картинке не применяются. При сборке PDF HTML-теги из
+      Markdown-сегмента отбрасываются, поэтому картинка из тега <code>&lt;img&gt;</code> в PDF не
+      попадёт. Картинку, вставленную синтаксисом <code>![](…)</code>, сервер ставит по центру шириной
+      0,65 текста. Точный размер в PDF задают в LaTeX-сегменте:
+      <code>\includegraphics[width=0.5\textwidth]{chart.png}</code>.</p>
       <p><strong>Пример в редакторе:</strong> две копии логотипа с атрибутами <code>width="100"</code>
       и <code>width="300"</code> и одна с <code>width="50%"</code>. На GitHub и в превью Labkeeper
       они получатся разного размера.</p>
@@ -263,7 +265,8 @@ sections:
       вырезает, поэтому <code>style="width:50%"</code> не сработает.</p>
       <h3>Как задать размер картинки в PDF?</h3>
       <p>При печати превью в PDF через браузер сохранится ширина из <code>width</code>. При сборке PDF
-      в Labkeeper картинка из Markdown-сегмента получает ширину 0,65 текста, а точный размер задают
+      в Labkeeper тег <code>&lt;img&gt;</code> отбрасывается вместе с картинкой, картинка из записи
+      <code>![](…)</code> получает ширину 0,65 текста, а точный размер задают
       в LaTeX-сегменте командой <code>\includegraphics[width=…]</code>. Подробнее — в статье об <a
       href="/blog/markdown-to-pdf-export">экспорте Markdown в PDF</a>.</p>
       <h3>Можно ли задать и ширину, и высоту?</h3>
@@ -290,4 +293,5 @@ editorExample:
     <img src="{{publicUrl}}/assets/img/logo.svg" alt="Логотип, половина колонки" width="50%">
 
     В превью Labkeeper ширины 100 и 300 пикселей сохранятся, пока колонка не уже картинки, а третья
-    картинка займёт половину колонки.
+    картинка займёт половину колонки. При сборке PDF теги `<img>` не выводятся: картинки видны
+    только в превью, а размер картинки в PDF задают в LaTeX-сегменте.
