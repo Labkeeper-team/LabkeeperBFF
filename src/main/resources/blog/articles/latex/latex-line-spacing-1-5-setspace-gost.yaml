@@ -28,7 +28,7 @@ keywords:
   - 'полуторный интервал в latex setspace'
   - 'междустрочный интервал 1.5 latex'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '6 мин'
 cardTitle: 'Междустрочный интервал 1.5 по ГОСТ в LaTeX: пакет setspace'
 cardDescription: |2-
@@ -60,8 +60,8 @@ sections:
       российских вузов (МГУ, СПбГУ, МГТУ им. Баумана, ВШЭ), основной текст курсовых, дипломов и
       диссертаций должен быть набран с <strong>междустрочным интервалом 1.5</strong> (в сочетании с
       правильной <a href="/blog/latex-geometry-margins-gost">настройкой полей страницы geometry в
-      LaTeX</a>). При этом текст сносок, подписей к рисункам и содержимое таблиц должно оставаться с
-      одинарным интервалом.</p>
+      LaTeX</a>). Многие методички дополнительно требуют одинарный интервал в сносках, подписях к
+      рисункам и таблицах.</p>
   - id: 'linespread-problem'
     title: "Почему команда \\linespread{1.5} портит документ"
     html: |2-
@@ -73,7 +73,7 @@ sections:
   - id: 'setspace-solution'
     title: 'Полуторный интервал в LaTeX через setspace: правильный метод'
     html: |2-
-                              <p>Единственно верный способ — использовать специализированный пакет
+                              <p>Самый надёжный способ — использовать специализированный пакет
       <code>setspace</code>. Правильная настройка, реализующая <strong>полуторный интервал в latex
       setspace</strong>, выглядит так:</p>
                               <div class="article-code">
@@ -82,9 +82,9 @@ sections:
                                   <pre><code>\usepackage{setspace}
       \onehalfspacing</code></pre>
                               </div>
-                              <p>Команда <code>\onehalfspacing</code> точно учитывает кегль шрифта
-      (12pt или 14pt) и выставляет именно те 1.5 интервала, которые ожидает увидеть вузовский
-      нормоконтроль, сохраняя эталонное <a
+                              <p>Команда <code>\onehalfspacing</code> учитывает кегль шрифта (для 10,
+      11 и 12pt в пакете подобран свой коэффициент) и выставляет полуторный интервал, который ожидает
+      увидеть вузовский нормоконтроль, сохраняя эталонное <a
       href="/blog/justified-text-spacing-hyphenation-latex-vs-word">выравнивание текста по ширине без
       огромных пробелов</a>.</p>
   - id: 'tables-and-footnotes'
@@ -92,23 +92,24 @@ sections:
     html: |2-
                               <p>Главное преимущество пакета <code>setspace</code> заключается в том,
       что он автоматически возвращает одинарный интервал (single spacing) в сносках на нижнем поле
-      страницы и подрисуночных подписях, что в точности соответствует ГОСТ.</p>
-                              <p>Если внутри большой таблицы вам требуется принудительно сжать строки,
-      используйте локальное окружение:</p>
+      страницы, а также внутри плавающих окружений <code>table</code> и <code>figure</code> — как
+      обычно и требуют методички. Оборачивать такие таблицы дополнительно не нужно.</p>
+                              <p>Если одинарный интервал нужен во фрагменте основного текста (например,
+      в длинной цитате или в таблице, вставленной без <code>table</code>), используйте локальное
+      окружение:</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\begin{table}[ht]
-        \begin{singlespace}
-          % Код таблицы с одинарным интервалом
-        \end{singlespace}
-      \end{table}</code></pre>
+                                  <pre><code>\begin{singlespace}
+        % Фрагмент с одинарным интервалом
+      \end{singlespace}</code></pre>
                               </div>
 tips:
   - title: 'Размер шрифта 14pt для дипломов'
     html: |2-
       <p>Если в документе используется шрифт 14pt (<code>\documentclass[14pt]{extreport}</code>),
-      команда <code>\onehalfspacing</code> автоматически подстроится под увеличенный кегль.</p>
+      отдельного коэффициента для этого кегля в <code>setspace</code> нет: берётся значение по
+      умолчанию 1.25, что даёт интервал около 1,52 от кегля — практически полуторный.</p>
 editorExample:
   latex: |2-
     \documentclass[a4paper,12pt]{article}
@@ -118,9 +119,16 @@ editorExample:
     \usepackage{amsmath,graphicx}
     \usepackage{setspace}\onehalfspacing
     \begin{document}
-    \section*{Line spacing}
-    This paragraph uses one-and-a-half line spacing. Add several lines of text to compare the
-    distance between baselines.
-    \begin{singlespace}This paragraph uses single spacing. The change is local to this
-    environment.\end{singlespace}
+    \section*{Межстрочный интервал}
+    Этот абзац набран с полуторным интервалом, который включает команда \verb|\onehalfspacing|.
+    Такой интервал требуют для основного текста курсовых, дипломов и отчётов. Сравните
+    расстояние между строками этого абзаца и следующего: здесь строки заметно разрежены,
+    и текст легче читать и править на распечатке.
+
+    \begin{singlespace}
+    Этот абзац помещён в окружение \verb|singlespace| и набран с одинарным интервалом.
+    Изменение действует только внутри окружения, после него снова будет полуторный интервал.
+    Так удобно оформлять длинные цитаты, листинги или примечания, когда методичка требует
+    для них одинарный интервал.
+    \end{singlespace}
     \end{document}

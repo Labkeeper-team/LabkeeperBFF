@@ -37,7 +37,7 @@ keywords:
   - 'настройка fancyhdr онлайн latex'
   - 'красивые колонтитулы в latex'
 datePublished: '2026-08-20'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Настройка колонтитулов и нумерации страниц в стиле научных журналов'
 cardDescription: |2-
@@ -167,6 +167,7 @@ sections:
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
                                   <pre><code>\documentclass[twoside,11pt]{article}
+      \usepackage[T2A]{fontenc}
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
       \usepackage{fancyhdr}
@@ -190,7 +191,8 @@ sections:
                                           <h3>Ошибки headheight</h3>
                                           <p>Если компилятор выдает предупреждение <code>Package
       Fancyhdr Warning: \headheight is too small</code>, добавьте в преамбулу
-      <code>\setlength{\headheight}{14pt}</code>.</p>
+      <code>\setlength{\headheight}{...}</code> со значением из текста предупреждения (например,
+      <code>14.5pt</code> при кегле 12&nbsp;pt).</p>
                                       </div>
                                   </div>
                                   <div class="article-tip">
@@ -199,7 +201,8 @@ sections:
                                           <h3>Отключение заглавных букв</h3>
                                           <p>Чтобы названия глав в колонтитулах не переводились в
       ВЕРХНИЙ РЕГИСТР, используйте команду
-      <code>\renewcommand{\chaptermark}[1]{\markboth{#1}{}}</code>.</p>
+      <code>\renewcommand{\chaptermark}[1]{\markboth{#1}{}}</code> после <code>\pagestyle{fancy}</code>.
+      Номер главы из колонтитула при этом тоже уберётся.</p>
                                       </div>
                                   </div>
                               </div>

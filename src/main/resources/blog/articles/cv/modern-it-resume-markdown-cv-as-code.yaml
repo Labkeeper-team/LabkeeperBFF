@@ -23,7 +23,7 @@ keywords:
   - 'markdown шаблон резюме разработчика'
   - 'создать cv в markdown онлайн'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'IT-резюме в Markdown: пишем CV как код с контролем версий в Git'
 cardDescription: |2-
@@ -54,7 +54,7 @@ sections:
     title: 'Концепция «CV как код» (Resume as Code)'
     html: |2-
                               <p>В инженерном сообществе подход <strong>«Резюме как код» (CV as
-      Code)</strong> стал признанным стандартом хорошего тона. Вместо того чтобы тратить часы на
+      Code)</strong> стал популярным подходом. Вместо того чтобы тратить часы на
       выравнивание плашек в графических редакторах Canva или мучиться с непредсказуемой сеткой Word,
       разработчик хранит резюме в виде чистого текстового файла с разметкой Markdown.</p>
                               <p>Это дает колоссальные преимущества: полный контроль версий через Git,
@@ -92,7 +92,7 @@ sections:
       class="article-code__lang">Markdown CV Template</span></div>
                                   <pre><code># Артем Кузнецов — Senior Fullstack Developer
       **Специализация:** TypeScript, React, Node.js, Cloud Native  
-      **Контакты:** artem.dev@example.com | Telegram: @artem_kuznetsov | [GitHub](https://github.com) | [Portfolio](https://example.com)
+      **Контакты:** [artem.dev@example.com](mailto:artem.dev@example.com) | [Telegram: @artem_kuznetsov](https://t.me/artem_kuznetsov) | [GitHub](https://github.com) | [Portfolio](https://example.com)
 
       ---
 
@@ -155,7 +155,7 @@ tips:
 editorExample:
   markdown: |2-
     # Артем Кузнецов — Fullstack Developer
-    **Контакты:** artem.dev@example.com | [GitHub](https://github.com/artem-dev)
+    **Контакты:** [artem.dev@example.com](mailto:artem.dev@example.com) | [Telegram](https://t.me/artem_kuznetsov) | [GitHub](https://github.com/artem-dev)
 
     ## Технический стек
     - **Фронтенд:** React, Next.js, TypeScript

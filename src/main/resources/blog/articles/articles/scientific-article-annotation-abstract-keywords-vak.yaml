@@ -27,7 +27,7 @@ keywords:
   - 'аннотация к научной статье пример гост'
   - 'ключевые слова для статьи вак'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Аннотация и ключевые слова к научной статье по ГОСТ Р 7.0.7-2021'
 cardDescription: |2-
@@ -69,7 +69,7 @@ sections:
   - id: 'structure'
     title: 'Четыре обязательных элемента качественной аннотации'
     html: |2-
-                              <p>Академический стандарт предписывает строгую композицию из 4 смысловых
+                              <p>Обычно аннотацию строят из 4 смысловых
       блоков (по 1–2 предложения на каждый):</p>
                               <ol>
                                   <li><strong>Актуальность и предмет исследования:</strong> какую
@@ -125,7 +125,8 @@ tips:
   - title: 'Чего нельзя писать в аннотации'
     html: |2-
       <p>Категорически не допускается вставлять в аннотацию ссылки на библиографию [1], сложные
-      формулы, аббревиатуры без расшифровки и субъективные оценки («удивительный»,
+      формулы, аббревиатуры без расшифровки (кроме общеизвестных и названий программ или
+      протоколов вроде NS-3 и LEACH) и субъективные оценки («удивительный»,
       «революционный»).</p>
   - title: 'Окружение abstract в LaTeX'
     html: |2-
@@ -134,14 +135,15 @@ tips:
 editorExample:
   latex: |2-
     \section*{Оптимизация энергопотребления сенсорных сетей}
-    \textbf{Аннотация.} Предложен алгоритм маршрутизации на основе нечеткой логики. Моделирование в
+    \noindent\textbf{Аннотация.} Предложен алгоритм маршрутизации на основе нечеткой логики. Моделирование в
     NS-3 показало рост времени автономной работы сети на 24\,\%.
 
-    \textbf{Ключевые слова:} сенсорные сети, нечеткая логика, энергоэффективность
+    \smallskip\noindent\textbf{Ключевые слова:} сенсорные сети, нечеткая логика, энергоэффективность
 
+    \medskip
     \begin{otherlanguage}{english}
-    \textbf{Abstract.} A fuzzy-logic routing algorithm is proposed. NS-3 simulation shows a 24\,\%
+    \noindent\textbf{Abstract.} A fuzzy-logic routing algorithm is proposed. NS-3 simulation shows a 24\,\%
     longer network lifetime.
 
-    \textbf{Keywords:} sensor networks, fuzzy logic, energy efficiency
+    \smallskip\noindent\textbf{Keywords:} sensor networks, fuzzy logic, energy efficiency
     \end{otherlanguage}

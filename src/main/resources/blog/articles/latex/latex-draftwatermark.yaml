@@ -27,11 +27,11 @@ keywords:
   - 'водяной знак черновик на фоне latex'
   - 'пакет draftwatermark онлайн'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '6 мин'
 cardTitle: 'Водяной знак «Черновик» в LaTeX: настройка пакета draftwatermark'
 cardDescription: |2-
-  Как наложить полупрозрачную фоновую надпись «Черновик», DRAFT или логотип на страницы документа
+  Как наложить светло-серую фоновую надпись «Черновик», DRAFT или логотип на страницы документа
   LaTeX, настроить масштаб, цвет и угол поворота.
 sliderTitle: 'Водяные знаки в LaTeX (draftwatermark)'
 sliderText: 'Фоновые надписи «Черновик», конфиденциальные метки и настройка прозрачности.'
@@ -73,7 +73,7 @@ sections:
       class="article-code__lang">LaTeX</span></div>
                                   <pre><code>\usepackage{draftwatermark}
 
-      % По умолчанию выводит полупрозрачное слово DRAFT по центру каждой страницы</code></pre>
+      % По умолчанию выводит светло-серое слово DRAFT по центру каждой страницы</code></pre>
                               </div>
                               <p>При базовом подключении на каждой странице под углом 45 градусов
       появится серая надпись «DRAFT». Для русскоязычных документов надпись кастомизируют.</p>
@@ -132,10 +132,11 @@ tips:
     html: |2-
       <p>Пакет позволяет использовать векторный логотип организации вместо текста:
       <code>text={\includegraphics[width=0.6\paperwidth]{logo.pdf}}</code>.</p>
-  - title: 'Исключение конфликтов с hyperref'
+  - title: 'Порядок подключения пакетов'
     html: |2-
-      <p>Подключайте <code>draftwatermark</code> после пакета <code>xcolor</code>, но до
-      <code>hyperref</code>, чтобы гарантировать корректный Z-индекс слоев в PDF.</p>
+      <p>Порядок подключения <code>draftwatermark</code> относительно <code>xcolor</code> и
+      <code>hyperref</code> не важен: пакет сам загружает <code>xcolor</code> и рисует надпись через
+      хук фона страницы, поэтому она всегда оказывается под основным текстом.</p>
 editorExample:
   latex: |2-
     \documentclass[a4paper,12pt]{article}

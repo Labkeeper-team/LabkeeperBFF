@@ -40,7 +40,7 @@ keywords:
   - 'титульный лист latex онлайн'
   - 'оформить титульный лист гост latex'
 datePublished: '2026-08-20'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Как создать титульный лист по российским стандартам в онлайн LaTeX'
 cardDescription: |2-
@@ -298,17 +298,55 @@ sections:
                               </div>
 editorExample:
   latex: |2-
-    \documentclass[a4paper,12pt]{article}
+    \documentclass[a4paper,14pt]{extreport}
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
-    \usepackage[english,russian]{babel}
-    \usepackage{amsmath,graphicx}
+    \usepackage[russian]{babel}
+    \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+    \usepackage{graphicx}
+
+    % Переменные для удобного редактирования
+    \newcommand{\university}{ФГБОУ ВО «Московский государственный университет»}
+    \newcommand{\faculty}{Факультет вычислительной математики и кибернетики}
+    \newcommand{\department}{Кафедра прикладной математики}
+    \newcommand{\worktitle}{Применение нейронных сетей в задачах распознавания образов}
+    \newcommand{\worktype}{Выпускная квалификационная работа}
+    \newcommand{\studentname}{Иванов Иван Иванович}
+    \newcommand{\studentgroup}{426}
+    \newcommand{\supervisorname}{проф., д-р физ.-мат. наук Петров С.А.}
+    \newcommand{\city}{Москва}
+    \newcommand{\workyear}{2026}
 
     \begin{document}
-    \begin{titlepage}\centering
-    Университет\par\vfill
-    {\Large Лабораторная работа\par}
-    Измерение сопротивления\par\vfill
-    Студент: Иван Иванов\par\vfill 2026
+    \begin{titlepage}
+        \begin{center}
+            \textbf{Министерство науки и высшего образования Российской Федерации}\\[6pt]
+            \textbf{\university}\\[6pt]
+            \faculty\\[6pt]
+            \department
+        \end{center}
+
+        \vfill
+
+        \begin{center}
+            {\large \textbf{\worktype}}\\[24pt]
+            {\Large \textbf{\worktitle}}
+        \end{center}
+
+        \vfill
+
+        \begin{flushright}
+            \begin{tabular}{ll}
+                Выполнил: & студент гр.~\studentgroup \\
+                          & \studentname \\[12pt]
+                Научный руководитель: & \supervisorname \\
+            \end{tabular}
+        \end{flushright}
+
+        \vfill
+
+        \begin{center}
+            \city~---~\workyear
+        \end{center}
     \end{titlepage}
     \end{document}

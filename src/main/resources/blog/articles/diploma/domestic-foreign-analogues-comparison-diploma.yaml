@@ -13,7 +13,7 @@ keywords:
   - сравнительный анализ аналогов вкр
   - таблица сравнения аналогов критерии
 datePublished: '2026-11-05'
-dateModified: '2026-11-06'
+dateModified: '2026-11-11'
 readingTime: 9 мин
 cardTitle: Сравнение отечественных и зарубежных аналогов в дипломе
 cardDescription: Как выбрать сопоставимые аналоги, отделить обязательные требования от баллов и проверить устойчивость выбора. Матрица сравнения и расчет в LaTeX.
@@ -138,6 +138,9 @@ sections:
       \pagestyle{plain}
       \newcolumntype{Y}{&gt;{\raggedright\arraybackslash}X}
       \setlength{\emergencystretch}{2em}
+      % десятичная запятая в подставленных числах
+      \mathcode`.="8000
+      {\catcode`.=\active\gdef.{{,}}}
       \begin{document}
       \reportsection{Сопоставление аналогов проектируемой системы}
       Учебный пример: А и В --- условные отечественные решения,
@@ -161,7 +164,7 @@ sections:
       Пройденные сценарии из 10 &amp; 8 &amp; 9 &amp; 6 \\
       Баллы поддержки из 10 &amp; 6 &amp; 9 &amp; 5 \\
       Автономная работа &amp; Да &amp; Да &amp; Да \\
-      Экспорт по требованию &amp; \textquotedbl &amp; \textquotedbl &amp; Нет \\
+      Экспорт по требованию &amp; Да &amp; Да &amp; Нет \\
       \hline
       \end{tabularx}
       \end{table}
@@ -273,6 +276,9 @@ editorExample:
       \pagestyle{plain}
       \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
       \setlength{\emergencystretch}{2em}
+      % десятичная запятая в подставленных числах
+      \mathcode`.="8000
+      {\catcode`.=\active\gdef.{{,}}}
       \begin{document}
       \reportsection{Сопоставление аналогов проектируемой системы}
       Учебный пример: А и В --- условные отечественные решения,
@@ -296,7 +302,7 @@ editorExample:
       Пройденные сценарии из 10 & 8 & 9 & 6 \\
       Баллы поддержки из 10 & 6 & 9 & 5 \\
       Автономная работа & Да & Да & Да \\
-      Экспорт по требованию & \textquotedbl & \textquotedbl & Нет \\
+      Экспорт по требованию & Да & Да & Нет \\
       \hline
       \end{tabularx}
       \end{table}

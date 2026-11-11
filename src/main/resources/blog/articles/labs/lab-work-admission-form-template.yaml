@@ -15,7 +15,7 @@ keywords:
   - 'допуск к лабораторной работе образец'
   - 'шаблон бланка допуска к лабораторной'
 datePublished: '2026-10-31'
-dateModified: '2026-10-31'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Бланк допуска к лабораторной: поля, проверка и шаблон LaTeX'
 cardDescription: |2-
@@ -121,7 +121,7 @@ sections:
       \pagestyle{empty}
       \setlength{\parindent}{0pt}
       \renewcommand{\arraystretch}{1.3}
-      \newcommand{\blank}{\rule{0pt}{10mm}}
+      \newcommand{\blank}[1][10mm]{\rule[-#1]{0pt}{#1}}
       \begin{document}
       \begin{center}
           Университет: \rule{9cm}{0.4pt}\\[6pt]
@@ -134,12 +134,12 @@ sections:
           \hline
           Дисциплина &amp; \blank \\ \hline
           Номер работы &amp; \blank \\ \hline
-          Тема работы &amp; \rule{0pt}{14mm} \\ \hline
+          Тема работы &amp; \blank[14mm] \\ \hline
           ФИО студента &amp; \blank \\ \hline
           Группа &amp; \blank \\ \hline
-          Оборудование &amp; \rule{0pt}{14mm} \\ \hline
-          Подготовка: теория, схема, расчеты &amp; \rule{0pt}{18mm} \\ \hline
-          Контрольные вопросы &amp; \rule{0pt}{18mm} \\ \hline
+          Оборудование &amp; \blank[14mm] \\ \hline
+          Подготовка: теория, схема, расчеты &amp; \blank[18mm] \\ \hline
+          Контрольные вопросы &amp; \blank[18mm] \\ \hline
       \end{tabularx}\par
       \vspace{6mm}
 
@@ -159,7 +159,8 @@ sections:
       <p>Вставьте код в LaTeX-сегмент Labkeeper или откройте полный бланк по кнопке
       «Просмотреть пример», заполните сведения о работе и соберите PDF.</p>
       <p>В таблице <code>tabularx</code> правая колонка занимает оставшуюся ширину листа,
-      а <code>\rule{0pt}{18mm}</code> оставляет высоту для записей.
+      а команда <code>\blank[18mm]</code> ставит невидимую распорку глубиной 18 мм:
+      она оставляет место для записей, а подпись поля остается вверху ячейки.
       Если нужны развернутые ответы, увеличьте высоту строки или приложите отдельный лист.
       После изменения формы проверьте PDF: таблица и блок подписи должны оставаться читаемыми.</p>
   - id: 'decision'
@@ -215,7 +216,7 @@ editorExample:
       \pagestyle{empty}
       \setlength{\parindent}{0pt}
       \renewcommand{\arraystretch}{1.3}
-      \newcommand{\blank}{\rule{0pt}{10mm}}
+      \newcommand{\blank}[1][10mm]{\rule[-#1]{0pt}{#1}}
       \begin{document}
       \begin{center}
           Университет: \rule{9cm}{0.4pt}\\[6pt]
@@ -228,12 +229,12 @@ editorExample:
           \hline
           Дисциплина & \blank \\ \hline
           Номер работы & \blank \\ \hline
-          Тема работы & \rule{0pt}{14mm} \\ \hline
+          Тема работы & \blank[14mm] \\ \hline
           ФИО студента & \blank \\ \hline
           Группа & \blank \\ \hline
-          Оборудование & \rule{0pt}{14mm} \\ \hline
-          Подготовка: теория, схема, расчеты & \rule{0pt}{18mm} \\ \hline
-          Контрольные вопросы & \rule{0pt}{18mm} \\ \hline
+          Оборудование & \blank[14mm] \\ \hline
+          Подготовка: теория, схема, расчеты & \blank[18mm] \\ \hline
+          Контрольные вопросы & \blank[18mm] \\ \hline
       \end{tabularx}\par
       \vspace{6mm}
 

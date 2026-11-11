@@ -28,7 +28,7 @@ keywords:
   - 'настройка biblatex biber онлайн'
   - 'сортировка списка литературы biblatex'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Современная библиография в LaTeX: связка biblatex + biber для ГОСТ'
 cardDescription: |2-
@@ -74,8 +74,8 @@ sections:
       (UTF-8). Из-за этого классический BibTeX часто ломал сортировку русских фамилий («А» оказывалась
       после «Я») и требовал сложных кодировочных ухищрений.</p>
                               <p>Современный тандем пакета <strong>biblatex</strong> и бэкенда
-      <strong>biber</strong> полностью написан с поддержкой UTF-8, понимает правила русской грамматики
-      и поддерживает официальный пакет адаптации <code>biblatex-gost</code>.</p>
+      <strong>biber</strong> полностью написан с поддержкой UTF-8, сортирует записи с учетом правил алфавита
+      (Unicode collation) и работает со сторонним пакетом стилей <code>biblatex-gost</code>.</p>
   - id: 'online-setup'
     title: 'Настройка biblatex biber онлайн: преамбула с поддержкой ГОСТ'
     html: |2-
@@ -159,7 +159,8 @@ tips:
   - title: "Команда \\parencite"
     html: |2-
       <p>Для стилей гарвардского цитирования (Автор, Год) используйте <code>\parencite{key}</code> для
-      круглых скобок: <em>(Иванов, 2025)</em>.</p>
+      круглых скобок: <em>(Иванов 2025)</em>. В стандартном стиле <code>authoryear</code> запятой
+      между автором и годом нет; ее добавляют настройкой стиля.</p>
 editorExample:
   latex: |2-
     \documentclass[a4paper,12pt]{article}
@@ -169,9 +170,10 @@ editorExample:
     \usepackage{amsmath,graphicx}
 
     \begin{document}
-    \section*{Citations and bibliography}
-    A reproducible method~\cite{demo}.
+    \section*{Цитирование и список литературы}
+    Методика измерений описана в учебном пособии~\cite{demo}.
     \begin{thebibliography}{9}
-    \bibitem{demo}Anna Example. \textit{Measurement Methods}. Example Press, 2024.
+    \bibitem{demo}Иванов,~И.~И. Методы измерений : учебное пособие / И.~И.~Иванов.~--
+    Москва : Пример, 2024.~-- 256~с.
     \end{thebibliography}
     \end{document}

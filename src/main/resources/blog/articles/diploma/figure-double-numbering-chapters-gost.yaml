@@ -28,7 +28,7 @@ keywords:
   - 'двойная нумерация рисунков гост вкр'
   - 'нумерация по главам дипломная работа'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '6 мин'
 cardTitle: 'Нумерация рисунков по главам в дипломе по ГОСТ 7.32'
 cardDescription: |2-
@@ -133,8 +133,9 @@ sections:
       class="article-code__lang">LaTeX</span></div>
                                   <pre><code>Как показано на~рисунке~\ref{fig:arch-diagram}, система состоит из трех узлов...</code></pre>
                               </div>
-                              <p>В готовом PDF отобразится кликабельный номер: <em>«на рисунке
-      2.1»</em>.</p>
+                              <p>В готовом PDF отобразится номер: <em>«на рисунке 2.1»</em>. Чтобы он
+      стал кликабельной ссылкой, подключите в преамбуле пакет <code>hyperref</code>, например
+      <code>\usepackage[hidelinks]{hyperref}</code>.</p>
 tips:
   - title: 'Склонение слова «рисунок»'
     html: |2-

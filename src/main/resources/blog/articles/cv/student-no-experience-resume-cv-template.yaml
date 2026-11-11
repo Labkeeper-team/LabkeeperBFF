@@ -22,7 +22,7 @@ keywords:
   - 'шаблон резюме для студента без опыта работы'
   - 'что писать в cv если нет опыта'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Резюме для студента без коммерческого опыта: структура и примеры'
 cardDescription: |2-
@@ -109,7 +109,7 @@ sections:
                                   <div class="article-code__header"><span
       class="article-code__lang">Markdown CV Студента</span></div>
                                   <pre><code># Михаил Васильев
-      **Junior Python / Backend Developer**
+      **Junior Python / Backend Developer**  
       Telegram: @mikhail_dev | GitHub: github.com/mikhail-dev | Email: mikhail@example.com | Москва (готов к удаленной работе)
 
       ## Обо мне
@@ -134,8 +134,8 @@ sections:
       - Стек: PyTorch, NumPy, Flask.
 
       ## Образование
-      **МГТУ им. Н. Э. Баумана** *(2023 — 2027)*  
-      Факультет «Информатика и системы управления», специальность «Программная инженерия». Средний балл: 4,8.</code></pre>
+      **МГТУ им. Н. Э. Баумана** *(2024 — 2028)*  
+      Факультет «Информатика и системы управления», направление подготовки 09.03.04 «Программная инженерия». Средний балл: 4,8.</code></pre>
                               </div>
   - id: 'github-portfolio'
     title: 'Как оформить GitHub и ссылки на проекты'
@@ -163,7 +163,7 @@ tips:
 editorExample:
   markdown: |2-
     # Михаил Васильев
-    **Junior Python Developer**
+    **Junior Python Developer**  
     Telegram: @mikhail_dev | GitHub: [github.com/mikhail-dev](https://github.com/mikhail-dev)
 
     ## Навыки

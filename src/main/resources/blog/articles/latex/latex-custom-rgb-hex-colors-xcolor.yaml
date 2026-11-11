@@ -27,7 +27,7 @@ keywords:
   - 'свой цвет hex в latex xcolor'
   - 'цвет rgb в latex xcolor'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '6 мин'
 cardTitle: 'Пользовательские цвета RGB и HEX в LaTeX: точная палитра через xcolor'
 cardDescription: |2-
@@ -55,8 +55,10 @@ sections:
   - id: 'intro'
     title: 'Почему стандартных 8 цветов недостаточно'
     html: |2-
-                              <p>Базовый TeX предоставляет всего несколько примитивных цветов: red,
-      green, blue, cyan, magenta, yellow, black, white. В реальных проектах — презентациях Beamer,
+                              <p>Классический пакет <code>color</code> заранее определяет всего восемь
+      цветов: red, green, blue, cyan, magenta, yellow, black, white. Пакет <code>xcolor</code> расширяет
+      этот набор до 19 базовых цветов (gray, orange, teal, violet и др.) и подключает по опциям
+      палитры <code>dvipsnames</code>, <code>svgnames</code> и <code>x11names</code>. Но в реальных проектах — презентациях Beamer,
       корпоративных гайдах, дипломных плакатах — требуются точные оттенки из брендбуков или
       дизайн-макетов Figma.</p>
                               <p>В дополнение к базовым функциям <a

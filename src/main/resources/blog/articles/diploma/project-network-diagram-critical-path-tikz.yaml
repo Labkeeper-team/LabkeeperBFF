@@ -13,7 +13,7 @@ keywords:
   - критический путь расчет пример
   - сетевой график tikz latex
 datePublished: '2026-11-05'
-dateModified: '2026-11-06'
+dateModified: '2026-11-11'
 readingTime: 9 мин
 cardTitle: 'Сетевая диаграмма проекта: критический путь и схема TikZ'
 cardDescription: Как построить сетевой график, рассчитать ранние и поздние сроки и полный резерв работ. Учебный проект из шести работ, вычисления и схема TikZ в отчете.
@@ -307,7 +307,7 @@ sections:
       \begin{table}[htbp]
       \caption{Расчетные моменты и полные резервы, рабочие дни}
       \label{tab:dates}
-      \begin{tabularx}{\textwidth}{|Y|r|r|r|r|r|}
+      \begin{tabularx}{\textwidth}{|c|*{5}{>{\centering\arraybackslash}X|}}
       \hline
       \multicolumn{1}{|c|}{\shortstack[c]{Код}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$ES$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$EF$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$LS$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$LF$}} &amp; \multicolumn{1}{c|}{\shortstack[c]{$R$}} \\
       \hline
@@ -332,7 +332,7 @@ sections:
       Ограничения исполнителей, выходные, задержки поставок и риски
       проверяются отдельно; при изменении исходных данных сеть пересчитывают.
       \end{document}</code></pre></div>
-      <p>После сборки проверьте номера, ссылки, единицы измерения, переносы в таблицах и читаемость формул. При переносе в полный отчет обновите содержание повторной компиляцией. Числа в статье округлены для чтения; стандартные настройки редактора выводят три значащие цифры.</p>
+      <p>После сборки проверьте номера, ссылки, единицы измерения, переносы в таблицах и читаемость формул. При переносе в полный отчет обновите содержание повторной компиляцией.</p>
 tips:
   - title: Задайте начало отсчета
     html: <p>В примере используются моменты от нуля и длительности в рабочих днях. Не смешивайте их с порядковыми номерами календарных дат.</p>
@@ -558,7 +558,7 @@ editorExample:
       \begin{table}[htbp]
       \caption{Расчетные моменты и полные резервы, рабочие дни}
       \label{tab:dates}
-      \begin{tabularx}{\textwidth}{|Y|r|r|r|r|r|}
+      \begin{tabularx}{\textwidth}{|c|*{5}{>{\centering\arraybackslash}X|}}
       \hline
       \multicolumn{1}{|c|}{\shortstack[c]{Код}} & \multicolumn{1}{c|}{\shortstack[c]{$ES$}} & \multicolumn{1}{c|}{\shortstack[c]{$EF$}} & \multicolumn{1}{c|}{\shortstack[c]{$LS$}} & \multicolumn{1}{c|}{\shortstack[c]{$LF$}} & \multicolumn{1}{c|}{\shortstack[c]{$R$}} \\
       \hline

@@ -30,7 +30,7 @@ keywords:
   - 'отчет по лабораторной программирование шаблон'
   - 'оформление листингов в отчете'
 datePublished: '2026-09-05'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '11 мин'
 cardTitle: 'Листинги кода в отчетах по ГОСТ: шаблон и правила оформления'
 cardDescription: |2-
@@ -202,8 +202,8 @@ sections:
   - id: 'full-example'
     title: 'Полный шаблон: два листинга, ссылки и список листингов'
     html: |2-
-      <p>Готовый документ, который можно скопировать и сразу собрать: листинг на C++ и листинг на
-      Python, ссылки на них из текста и список листингов в конце. Кнопка «Просмотреть пример»
+      <p>Готовый документ, который можно скопировать и сразу собрать: функция на C++ и ее проверка
+      в отдельном листинге, ссылки на них из текста и список листингов в конце. Кнопка «Просмотреть пример»
       открывает этот же код в редакторе.</p>
       <div class="article-code">
           <div class="article-code__header"><span
@@ -256,9 +256,14 @@ sections:
       }
       \end{lstlisting}
 
-      \begin{lstlisting}[language=Python, caption={Проверка результата}, label={lst:test}]
-      data = [5, 2, 4, 1]
-      print(sorted(data))  # (*@\textit{ожидается [1, 2, 4, 5]}@*)
+      \begin{lstlisting}[language=C++, caption={Проверка результата}, label={lst:test}]
+      #include &lt;cassert&gt;
+
+      int main() {
+          std::vector&lt;int&gt; data = {5, 2, 4, 1};
+          insertion_sort(data);
+          assert((data == std::vector&lt;int&gt;{1, 2, 4, 5}));
+      }
       \end{lstlisting}
 
       \lstlistoflistings
@@ -416,9 +421,14 @@ editorExample:
     }
     \end{lstlisting}
 
-    \begin{lstlisting}[language=Python, caption={Проверка результата}, label={lst:test}]
-    data = [5, 2, 4, 1]
-    print(sorted(data))  # (*@\textit{ожидается [1, 2, 4, 5]}@*)
+    \begin{lstlisting}[language=C++, caption={Проверка результата}, label={lst:test}]
+    #include <cassert>
+
+    int main() {
+        std::vector<int> data = {5, 2, 4, 1};
+        insertion_sort(data);
+        assert((data == std::vector<int>{1, 2, 4, 5}));
+    }
     \end{lstlisting}
 
     \lstlistoflistings

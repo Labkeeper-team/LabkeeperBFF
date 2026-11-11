@@ -27,7 +27,7 @@ keywords:
   - 'построение графиков функций latex pgfplots'
   - 'график по точкам latex онлайн'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Построение графиков функций в LaTeX: руководство по пакету pgfplots'
 cardDescription: |2-
@@ -170,8 +170,8 @@ sections:
                               <p>Для соответствия ГОСТ и публикационным требованиям научных журналов
       настройте оформление координатных осей:</p>
                               <ul>
-                                  <li><code>grid=both</code> или <code>grid=major</code> — отображение
-      основной или вспомогательной координатной сетки.</li>
+                                  <li><code>grid=major</code> или <code>grid=both</code> — отображение
+      только основной или основной вместе со вспомогательной координатной сеткой.</li>
                                   <li><code>axis lines = left</code> (или <code>box</code>,
       <code>middle</code>) — классическая рамка графика или пересекающиеся в нуле оси.</li>
                                   <li><code>tick label style={font=\small}</code> — единый кегль цифр

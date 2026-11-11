@@ -41,7 +41,7 @@ keywords:
   - 'размерности величин siunitx latex онлайн'
   - 'как правильно писать физические единицы в latex'
 datePublished: '2026-08-20'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Верстка формул для физических величин с размерностями, пакет siunitx'
 cardDescription: |2-
@@ -210,7 +210,7 @@ sections:
       \centering
       \begin{tabular}{l S[table-format=2.3] S[table-format=4.2]}
       \hline
-      Образец &amp; {Плотность, \unit{\gram\per\cubic\centi\meter}} &amp; {Температура, \unit{\celsius}} \\
+      Образец &amp; {Плотность, \unit{\gram\per\cubic\centi\meter}} &amp; {Температура плавления, \unit{\celsius}} \\
       \hline
       Алюминий &amp; 2.700 &amp; 660.32 \\
       Медь     &amp; 8.960 &amp; 1084.62 \\
@@ -269,7 +269,14 @@ editorExample:
     \usepackage{siunitx}
     \sisetup{output-decimal-marker={,}}
     \begin{document}
-    \qty{9.81}{\metre\per\second\squared}
-    \quad\num{12345.6789}
+    Величина с единицей: \qty{9.81}{\metre\per\second\squared}
+
+    \medskip
+    Число с группировкой разрядов: \num{12345.6789}
+
+    \medskip
+    Колонка \texttt{S} выравнивает числа по десятичной запятой:
+
+    \medskip
     \begin{tabular}{S[table-format=2.2]}1.25\\12.30\\3.40\end{tabular}
     \end{document}

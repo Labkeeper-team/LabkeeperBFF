@@ -15,7 +15,7 @@ keywords:
   - 'оформление раздела бжд в дипломе'
   - 'расчет освещения в дипломе пример'
 datePublished: '2026-10-31'
-dateModified: '2026-11-06'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'БЖД в дипломе: от анализа рабочего места до расчетного обоснования'
 cardDescription: |2-
@@ -171,6 +171,9 @@ sections:
       \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
       \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
       \captionsetup{textformat=gosttitle}
+      % десятичная запятая в подставленных числах
+      \mathcode`.="8000
+      {\catcode`.=\active\gdef.{{,}}}
       \begin{document}
       \section{Расчет освещения}
       Вымышленное помещение: $a=${a}$ м, $b=${b}$ м.
@@ -225,7 +228,7 @@ sections:
       \vspace*{\baselineskip}
       \begin{equation}
       \label{eq:illuminance}
-      E=\frac{N\Phi\eta}{Skz}=${calculated}\text{ лк},
+      E=\frac{N\Phi\eta}{Skz}\approx${calculated}\text{ лк},
       \end{equation}
 
       где $E$ --- расчетная оценка освещенности, лк;\par
@@ -245,15 +248,15 @@ sections:
       \vspace*{\baselineskip}
       \begin{equation}
       \label{eq:difference}
-      \Delta E=E-E_0=${difference}\text{ лк},
+      \Delta E=E-E_0\approx${difference}\text{ лк},
       \end{equation}
 
       где $\Delta E$ --- разность с целевым значением, лк;\par
       $E$ --- расчетная оценка освещенности, лк;\par
       $E_0$ --- условное целевое значение, лк.
       \end{minipage}\par
-      При исходных данных $E\approx303{,}03$ лк; стандартные три значащие цифры
-      дают 303 лк. Это округление отображения, а выбор целого $N$ выполняется отдельно.
+      При исходных данных $E\approx303{,}03$ лк и $\Delta E\approx3{,}03$ лк; стандартные три
+      значащие цифры дают 303 и 3 лк. Это округление отображения, а выбор целого $N$ выполняется отдельно.
       Модель не проверяет распределение освещенности по точкам, слепящее действие,
       пульсацию и затенение. Для проекта нужны обоснование цели и коэффициентов,
       схема размещения и проверка остальных требуемых показателей.
@@ -330,6 +333,9 @@ editorExample:
       \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
       \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
       \captionsetup{textformat=gosttitle}
+      % десятичная запятая в подставленных числах
+      \mathcode`.="8000
+      {\catcode`.=\active\gdef.{{,}}}
       \begin{document}
       \section{Расчет освещения}
       Вымышленное помещение: $a=${a}$ м, $b=${b}$ м.
@@ -384,7 +390,7 @@ editorExample:
       \vspace*{\baselineskip}
       \begin{equation}
       \label{eq:illuminance}
-      E=\frac{N\Phi\eta}{Skz}=${calculated}\text{ лк},
+      E=\frac{N\Phi\eta}{Skz}\approx${calculated}\text{ лк},
       \end{equation}
 
       где $E$ --- расчетная оценка освещенности, лк;\par
@@ -404,15 +410,15 @@ editorExample:
       \vspace*{\baselineskip}
       \begin{equation}
       \label{eq:difference}
-      \Delta E=E-E_0=${difference}\text{ лк},
+      \Delta E=E-E_0\approx${difference}\text{ лк},
       \end{equation}
 
       где $\Delta E$ --- разность с целевым значением, лк;\par
       $E$ --- расчетная оценка освещенности, лк;\par
       $E_0$ --- условное целевое значение, лк.
       \end{minipage}\par
-      При исходных данных $E\approx303{,}03$ лк; стандартные три значащие цифры
-      дают 303 лк. Это округление отображения, а выбор целого $N$ выполняется отдельно.
+      При исходных данных $E\approx303{,}03$ лк и $\Delta E\approx3{,}03$ лк; стандартные три
+      значащие цифры дают 303 и 3 лк. Это округление отображения, а выбор целого $N$ выполняется отдельно.
       Модель не проверяет распределение освещенности по точкам, слепящее действие,
       пульсацию и затенение. Для проекта нужны обоснование цели и коэффициентов,
       схема размещения и проверка остальных требуемых показателей.

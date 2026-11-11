@@ -27,7 +27,7 @@ keywords:
   - 'запретить перенос слова в latex'
   - 'неразрывный пробел в latex тильда'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '6 мин'
 cardTitle: 'Управление переносами и неразрывными пробелами в LaTeX'
 cardDescription: |2-
@@ -61,7 +61,7 @@ sections:
       читайте в статье о <a href="/blog/justified-text-spacing-hyphenation-latex-vs-word">выравнивании
       по ширине и переносах в LaTeX против Word</a>).</p>
                               <p>Особое внимание нормоконтроль уделяет «висячим предлогам»:
-      однобуквенные союзы и предлоги (<em>и, в, с, к, о, на</em>) по правилам русской типографики
+      короткие союзы и предлоги (<em>и, в, с, к, о, на</em>) по правилам русской типографики
       категорически нельзя оставлять в самом конце строки.</p>
   - id: 'tilde-space'
     title: 'Неразрывный пробел в latex тильда: защита от висячих предлогов'
@@ -147,9 +147,10 @@ editorExample:
     \usepackage{amsmath,graphicx}
 
     \begin{document}
-    \begin{minipage}{5cm}
-    Keep a name together: \mbox{Anna Petrova}.\par
-    Keep a number with its unit: 25~mm.\par
-    Prevent a product name from breaking: \mbox{LabkeeperEditor}.
+    \begin{minipage}{6cm}
+    \raggedright
+    Измерения провёл И.~И.~Иванов в~лаборатории.\par
+    Толщина образца составила 25~мм.\par
+    Название \mbox{Labkeeper-Editor} не~разрывается.
     \end{minipage}
     \end{document}

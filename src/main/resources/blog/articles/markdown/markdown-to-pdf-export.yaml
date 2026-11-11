@@ -28,7 +28,7 @@ keywords:
   - 'конвертировать markdown в pdf онлайн'
   - 'экспорт md в pdf'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '6 мин'
 cardTitle: 'Экспорт Markdown в PDF: генерация аккуратных документов для печати'
 cardDescription: |2-
@@ -94,12 +94,13 @@ sections:
       \usepackage[T2A]{fontenc}
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
-      \usepackage{amsmath,graphicx,longtable,booktabs,hyperref}
+      \usepackage{amsmath,graphicx,longtable,booktabs}
       \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage[hidelinks]{hyperref}
       \begin{document}</code></pre>
                               </div>
                               <p><strong>Пример в редакторе</strong> открывает LaTeX-проект:
-      LaTeX-сегмент с оглавлением и разрывом страницы, затем Markdown-сегмент с формулой, таблицей и
+      LaTeX-сегмент с этой преамбулой, оглавлением и разрывом страницы, затем Markdown-сегмент с формулой, таблицей и
       сноской. Нажмите «Выполнить», чтобы получить PDF.</p>
   - id: 'page-breaks'
     title: 'Управление разрывами страниц в PDF'
@@ -135,6 +136,14 @@ tips:
       включите «Фоновую графику», если в тексте есть заливки или выделение маркером.</p>
 editorExample:
   latex: |2-
+    \documentclass[a4paper,12pt]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[russian]{babel}
+    \usepackage{amsmath,graphicx,longtable,booktabs}
+    \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+    \usepackage[hidelinks]{hyperref}
+    \begin{document}
     \tableofcontents
     \newpage
   markdown: |2-

@@ -27,7 +27,7 @@ keywords:
   - 'повернуть таблицу на 90 градусов latex'
   - 'пакет rotating sidewaystable'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Вращение таблиц на 90 градусов в LaTeX: пакет rotating и sidewaystable'
 cardDescription: |2-
@@ -98,14 +98,15 @@ sections:
       \centering
       \caption{Сравнительный анализ производительности распределенных баз данных}
       \label{tab:db-comparison}
-      \begin{tabular}{|l|c|c|c|c|c|c|}
+      \small
+      \begin{tabular}{|l|p{2.4cm}|r|p{2cm}|p{3.6cm}|p{3cm}|p{2.2cm}|}
       \hline
       СУБД & Модель данных & Макс. RPS & Задержка p99, мс & Масштабируемость & Лицензия & Поддержка SQL \\
       \hline
       PostgreSQL & Реляционная & 12 000 & 8.5 & Вертикальная / шардинг & Open Source & Полная \\
       ClickHouse & Колоночная & 150 000 & 1.2 & Горизонтальная кластерная & Apache 2.0 & Диалект SQL \\
       MongoDB & Документная & 45 000 & 4.1 & Шардинг из коробки & SSPL & Нет (MQL) \\
-      Redis & Key-Value & 850 000 & 0.3 & Redis Cluster & Redis Source & Нет \\
+      Redis & Key-Value & 850 000 & 0.3 & Redis Cluster & RSALv2 / SSPLv1 / AGPLv3 & Нет \\
       \hline
       \end{tabular}
       \end{sidewaystable}</code></pre>
@@ -168,8 +169,20 @@ editorExample:
     \usepackage{amsmath,graphicx}
     \usepackage{rotating}
     \begin{document}
-    \begin{sidewaystable}\centering
-    \begin{tabular}{lrrrr}Sensor & Trial 1 & Trial 2 & Trial 3 & Mean\\
-    A & 10 & 11 & 12 & 11\\B & 20 & 21 & 22 & 21\end{tabular}
-    \caption{Wide results table}\end{sidewaystable}
+    \begin{sidewaystable}[htbp]
+    \centering
+    \caption{Сравнительный анализ производительности распределенных баз данных}
+    \label{tab:db-comparison}
+    \small
+    \begin{tabular}{|l|p{2.4cm}|r|p{2cm}|p{3.6cm}|p{3cm}|p{2.2cm}|}
+    \hline
+    СУБД & Модель данных & Макс. RPS & Задержка p99, мс & Масштабируемость & Лицензия & Поддержка SQL \\
+    \hline
+    PostgreSQL & Реляционная & 12 000 & 8.5 & Вертикальная / шардинг & Open Source & Полная \\
+    ClickHouse & Колоночная & 150 000 & 1.2 & Горизонтальная кластерная & Apache 2.0 & Диалект SQL \\
+    MongoDB & Документная & 45 000 & 4.1 & Шардинг из коробки & SSPL & Нет (MQL) \\
+    Redis & Key-Value & 850 000 & 0.3 & Redis Cluster & RSALv2 / SSPLv1 / AGPLv3 & Нет \\
+    \hline
+    \end{tabular}
+    \end{sidewaystable}
     \end{document}

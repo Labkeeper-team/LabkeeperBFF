@@ -27,7 +27,7 @@ keywords:
   - 'псевдокод в latex algorithm2e'
   - 'оформление алгоритма в latex'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Псевдокод и алгоритмы в LaTeX: пакет algorithm2e от А до Я'
 cardDescription: |2-
@@ -189,11 +189,25 @@ editorExample:
     \usepackage[utf8]{inputenc}
     \usepackage[english,russian]{babel}
     \usepackage{amsmath,graphicx}
-    \usepackage[ruled]{algorithm2e}
+    \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+    \SetAlgorithmName{Алгоритм}{алгоритм}{Список алгоритмов}
+    \SetKwInOut{Input}{Вход}
+    \SetKwInOut{Output}{Выход}
+    \SetKw{KwTo}{до}
+    \SetKwIF{If}{ElseIf}{Else}{если}{то}{иначе если}{иначе}{конец если}
+    \SetKwFor{For}{для}{выполнять}{конец цикла}
+    \SetKw{Return}{вернуть}
     \begin{document}
     \begin{algorithm}[H]
-    \KwIn{Array $a$ of length $n$}\KwOut{Sum $s$}
-    $s\gets0$\;
-    \For{$i\gets1$ \KwTo $n$}{$s\gets s+a_i$\;}
-    \caption{Array sum}\end{algorithm}
+    \caption{Поиск максимального элемента массива}
+    \Input{Массив $a$ длины $n$}
+    \Output{Максимальный элемент $m$}
+    $m \gets a_1$\;
+    \For{$i \gets 2$ \KwTo $n$}{
+      \If{$a_i > m$}{
+        $m \gets a_i$\;
+      }
+    }
+    \Return $m$\;
+    \end{algorithm}
     \end{document}

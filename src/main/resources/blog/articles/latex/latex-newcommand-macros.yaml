@@ -28,7 +28,7 @@ keywords:
   - 'как создать свою команду макрос в latex'
   - 'newcommand latex примеры'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: "Макросы в LaTeX: создание пользовательских команд через \\newcommand"
 cardDescription: |2-
@@ -90,7 +90,7 @@ sections:
                                   <pre><code>% Вектор со стрелкой в жирном начертании
       \newcommand{\vect}[1]{\mathbf{\vec{#1}}}
 
-      % Дробная производная функции по переменной
+      % Частная производная функции по переменной
       \newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}</code></pre>
                               </div>
                               <p>Использование в документе: <code>$\pder{u}{t} = a^2 \pder{^2
@@ -121,7 +121,7 @@ editorExample:
     \usepackage[utf8]{inputenc}
     \usepackage[english,russian]{babel}
     \usepackage{amsmath,graphicx}
-    \newcommand{\vect}[1]{\mathbf{#1}}\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+    \newcommand{\vect}[1]{\mathbf{\vec{#1}}}\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
     \begin{document}
     \[\vect{v}=(1,2,3),\qquad \norm{\vect{v}}=\sqrt{14}\]
     \end{document}

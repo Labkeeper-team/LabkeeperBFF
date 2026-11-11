@@ -27,12 +27,12 @@ keywords:
   - 'закладки в pdf latex hyperref'
   - 'навигация по оглавлению pdf latex'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Пакет hyperref: закладки, ссылки и интерактивная навигация в PDF'
 cardDescription: |2-
-  Как сделать оглавление кликабельным, включить боковое дерево закладок в PDF-ридере и избавиться
-  от кракозябр в русскоязычных названиях глав.
+  Как сделать оглавление кликабельным, включить боковое дерево закладок в PDF-ридере и получить
+  корректные закладки для русских заголовков и заголовков с формулами.
 sliderTitle: 'Закладки в PDF (hyperref)'
 sliderText: 'Интерактивная навигация по документу, дерево закладок и цветные ссылки.'
 sidebarText: |2-
@@ -178,7 +178,7 @@ editorExample:
     \usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
     \begin{document}
     \tableofcontents
-    \section{Introduction}\label{intro}
-    Visit \href{{{publicUrl}}}{Labkeeper}.
-    \newpage\section{Results}Back to Section~\ref{intro}.
+    \section{Введение}\label{intro}
+    Подробнее на сайте \href{{{publicUrl}}}{Labkeeper}.
+    \newpage\section{Результаты}Вернуться к разделу~\ref{intro}.
     \end{document}
