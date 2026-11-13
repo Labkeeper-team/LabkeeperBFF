@@ -37,7 +37,7 @@ keywords:
   - 'шаблон статьи scopus latex онлайн'
   - 'подготовка публикации wos в latex'
 datePublished: '2026-08-20'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '9 мин'
 cardTitle: |2-
   Подготовка статьи для публикации в журнале Scopus/WoS: базовый шаблон
@@ -168,6 +168,9 @@ sections:
       BibTeX в Labkeeper пока не запускается, и команды <code>\bibliographystyle{IEEEtran}</code> и
       <code>\bibliography{references}</code> дали бы «[?]» вместо ссылки и пустой список. При
       локальной сборке их можно вернуть вместе с файлом <code>references.bib</code>.</p>
+                              <p>Кнопка «Открыть пример в редакторе» загружает упрощённый скелет
+      той же структуры на стандартном классе <code>article</code>; если журнал требует IEEEtran,
+      замените его кодом выше.</p>
   - id: 'authors'
     title: 'Авторы, аффилиации и ORCID ID'
     html: |2-
@@ -223,8 +226,9 @@ sections:
                                           <h3>Проверка рисунков</h3>
                                           <p>Векторные графики сохраняйте в PDF: у вектора нет
       разрешения в DPI, и шрифты остаются чёткими при любом масштабе. Растровые рисунки в PNG или JPG
-      готовьте с разрешением от 300 dpi, если журнал не требует большего. EPS загрузить можно, но
-      pdfLaTeX без shell-escape его не вставит — сконвертируйте файл в PDF.</p>
+      готовьте с разрешением от 300 dpi, если журнал не требует большего. EPS pdfLaTeX вставляет
+      только через автоматическую конвертацию epstopdf, которая зависит от настроек shell-escape
+      компилятора, — надёжнее заранее сконвертировать файл в PDF.</p>
                                       </div>
                                   </div>
                                   <div class="article-tip">
@@ -243,11 +247,11 @@ editorExample:
     \documentclass[a4paper,12pt]{article}
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
-    \usepackage[english,russian]{babel}
+    \usepackage[russian,english]{babel}
     \usepackage{amsmath,graphicx}
 
     \begin{document}
-    \title{A Reproducible Measurement Method}\author{Anna Petrova}\maketitle
+    \title{A Reproducible Measurement Method}\author{Anna Petrova}\date{}\maketitle
     \begin{abstract}We compare two measurement methods.\end{abstract}
     \section{Introduction}Research question.
     \section{Methods}Three repeated measurements.

@@ -37,7 +37,7 @@ keywords:
   - 'окружение теорема и доказательство latex онлайн'
   - 'оформление лемм и определений в amsthm'
 datePublished: '2026-08-20'
-dateModified: '2026-08-20'
+dateModified: '2026-11-11'
 readingTime: '9 мин'
 cardTitle: |2-
   Как оформить теоремы, леммы, доказательства и следствия в LaTeX (пакет
@@ -219,8 +219,8 @@ editorExample:
     \usepackage[utf8]{inputenc}
     \usepackage[english,russian]{babel}
     \usepackage{amsmath,graphicx}
-    \usepackage{amsthm}\newtheorem{theorem}{Theorem}
+    \usepackage{amsthm}\newtheorem{theorem}{Теорема}
     \begin{document}
-    \begin{theorem}If $n$ is even, then $n^2$ is even.\end{theorem}
-    \begin{proof}Write $n=2k$. Then $n^2=4k^2$.\end{proof}
+    \begin{theorem}Если $n$ чётно, то $n^2$ тоже чётно.\end{theorem}
+    \begin{proof}Пусть $n=2k$. Тогда $n^2=4k^2=2\cdot 2k^2$.\end{proof}
     \end{document}

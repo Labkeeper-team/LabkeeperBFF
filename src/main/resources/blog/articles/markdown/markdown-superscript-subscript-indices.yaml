@@ -27,7 +27,7 @@ keywords:
   - 'индексы в markdown sub sup'
   - 'нижний индекс в markdown'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '6 мин'
 cardTitle: 'Надстрочные и подстрочные индексы в Markdown: HTML теги и формулы'
 cardDescription: |2-
@@ -73,8 +73,8 @@ sections:
     title: 'Индексы в Markdown sub sup: использование базовых HTML-тегов'
     html: |2-
                               <p>Поскольку спецификация Markdown полностью поддерживает прозрачную
-      вставку HTML-тегов, самый кроссплатформенный и универсальный способ проставить верхний или
-      <strong>нижний индекс в markdown</strong> — использовать парные теги <code>&lt;sup&gt;</code> и
+      вставку HTML-тегов, самый распространенный способ проставить верхний или
+      <strong>нижний индекс в markdown</strong> для просмотра в браузере — использовать парные теги <code>&lt;sup&gt;</code> и
       <code>&lt;sub&gt;</code>.</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
@@ -93,9 +93,10 @@ sections:
                                   <li>Текстовая сноска: Данные исследования<sup>[1]</sup>
       подтверждены.</li>
                               </ul>
-                              <p>Этот метод работает во всех современных движках: GitHub, GitLab,
-      Obsidian, Notion, а также в веб-редакторе <a href="/blog/markdown-raw-html-integration">при
-      интеграции чистого HTML внутрь Markdown</a>.</p>
+                              <p>Этот метод работает в движках, которые пропускают HTML: GitHub, GitLab,
+      Obsidian, а также в веб-редакторе <a href="/blog/markdown-raw-html-integration">при
+      интеграции чистого HTML внутрь Markdown</a>. Notion сырой HTML не обрабатывает, а при сборке
+      PDF в Labkeeper теги выбрасываются (подробнее ниже), поэтому там используйте формулы.</p>
   - id: 'subscript-math'
     title: 'Нижний индекс в Markdown через математический блок KaTeX/MathJax'
     html: |2-

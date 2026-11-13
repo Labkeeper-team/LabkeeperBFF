@@ -30,7 +30,7 @@ keywords:
   - 'требования к статье ВАК'
   - 'ГОСТ Р 7.0.7-2021'
 datePublished: '2026-09-06'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '11 мин'
 cardTitle: 'Оформление статьи для журналов ВАК и РИНЦ: шрифты, УДК и ГОСТ Р 7.0.7-2021'
 cardDescription: |2-
@@ -377,13 +377,13 @@ editorExample:
     Иван Иванович Иванов\\{\small МГТУ им. Н.~Э.~Баумана, Москва, Россия\\
     ivanov@bmstu.ru, \url{https://orcid.org/0000-0000-0000-0001}}\end{center}
     \noindent\textbf{Аннотация.} Рассмотрен метод калибровки датчиков.\par
-    \noindent\textbf{Ключевые слова:} измерения, погрешность, калибровка
+    \noindent\textbf{Ключевые слова:} измерения, погрешность, калибровка\par
     \begin{otherlanguage}{english}
     \noindent Original article
     \begin{center}\textbf{Sensor calibration method}\\
     Ivan I. Ivanov\\{\small Bauman Moscow State Technical University, Moscow, Russia}\end{center}
     \noindent\textbf{Abstract.} A sensor calibration method is considered.\par
-    \noindent\textbf{Keywords:} measurement, uncertainty, calibration
+    \noindent\textbf{Keywords:} measurement, error, calibration\par
     \end{otherlanguage}
     \section*{Введение}Постановка задачи~\cite{ivanov}.
     \begin{thebibliography}{9}

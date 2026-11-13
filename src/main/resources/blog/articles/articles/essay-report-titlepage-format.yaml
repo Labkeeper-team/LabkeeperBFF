@@ -27,7 +27,7 @@ keywords:
   - 'правильный титульник для реферата онлайн'
   - 'создать титульный лист для эссе'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '6 мин'
 cardTitle: 'Титульный лист реферата и научного эссе: правила и готовый шаблон'
 cardDescription: |2-
@@ -168,6 +168,7 @@ editorExample:
     \documentclass[12pt]{article}
     \usepackage[T2A]{fontenc}
     \usepackage[russian]{babel}
+    \usepackage{tempora}
     \usepackage[a4paper,left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
     \begin{document}
     \begin{titlepage}\centering

@@ -30,7 +30,7 @@ keywords:
   - 'где без двоеточия гост'
   - 'пояснение символов под формулой'
 datePublished: '2026-09-05'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '9 мин'
 cardTitle: 'Пояснение переменных под формулой по ГОСТ: правила и шаблоны'
 cardDescription: |-
@@ -255,16 +255,27 @@ sections:
       выравнивайте табуляцией. Для Markdown смотрите <a href="#markdown">раздел выше</a>.</p>
 editorExample:
   latex: |-
+    \documentclass[a4paper,14pt]{extarticle}
+    \usepackage{cmap}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[russian]{babel}
+    \usepackage{amsmath}
+    \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+    \setlength{\parindent}{1.25cm}
+    \newenvironment{where}
+      {\par где~\begin{tabular}[t]{@{}l@{~---~}p{\dimexpr\linewidth-\parindent-7em\relax}@{}}}
+      {\end{tabular}\par}
+    \begin{document}
     Скорость находят по формуле
     \begin{equation}
     v=\frac{s}{t},
     \label{eq:v}
     \end{equation}
-
-    где~\begin{tabular}[t]{@{}l@{~---~}l@{}}
+    \begin{where}
     $v$ & скорость, м/с;\\
     $s$ & путь, м;\\
     $t$ & время, с.
-    \end{tabular}
-
+    \end{where}
     По формуле~\eqref{eq:v} при $s=100$~м и $t=20$~с получаем $v=5$~м/с.
+    \end{document}

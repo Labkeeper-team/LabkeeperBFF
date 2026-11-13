@@ -22,7 +22,7 @@ keywords:
   - 'оформление языков в резюме a1 c2'
   - 'уровень владения языком в cv шаблон'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Раздел «Языки» в резюме: градация CEFR (A1–C2) и международные сертификаты'
 cardDescription: |2-
@@ -77,7 +77,7 @@ sections:
       Способность понимать техническую документацию, переписываться в Slack и Jira с
       онлайн-переводчиком, участвовать в простых синхронах;</li>
                                   <li><strong>B2 (Upper-Intermediate):</strong> уверенный рабочий
-      уровень (Professional Working Proficiency). Свободное участие в ежедневных митингах, защита
+      уровень (примерно соответствует Professional Working Proficiency по шкале ILR). Свободное участие в ежедневных митингах, защита
       архитектурных решений, прохождение технических интервью на английском языке. Золотой стандарт
       для найма в международные команды;</li>
                                   <li><strong>C1 (Advanced):</strong> профессиональное владение.
@@ -104,20 +104,20 @@ sections:
       href="/blog/frontend-backend-developer-resume-tech-stack-ats">резюме разработчика под
       ATS-фильтры</a>, то компактный маркированный список языков распознается поисковыми алгоритмами
       без малейших искажений.</p>
-                              <p>Если в вашем резюме используется двухколоночная таблица навыков:</p>
+                              <p>Если всё же нужна таблица (учтите, что часть ATS-систем читает таблицы хуже, чем список):</p>
                               <div class="article-table-wrapper">
                                   <table class="article-table">
                                       <thead>
                                           <tr>
                                               <th>Язык</th>
-                                              <th>Уровень по CEFR</th>
+                                              <th>Уровень</th>
                                               <th>Пояснение</th>
                                           </tr>
                                       </thead>
                                       <tbody>
                                           <tr>
                                               <td>Русский</td>
-                                              <td>Native</td>
+                                              <td>Native (вне шкалы CEFR)</td>
                                               <td>Родной язык</td>
                                           </tr>
                                           <tr>
@@ -142,7 +142,8 @@ sections:
                               <ul>
                                   <li><code>English: C1 — Advanced (IELTS Academic 7.5,
       2023)</code>;</li>
-                                  <li><code>English: B2 (TOEFL iBT 92, 2024)</code>;</li>
+                                  <li><code>English: B2 (TOEFL iBT 92, 2024)</code> — балл по шкале 0–120; с 2026 года TOEFL iBT
+      перешёл на шкалу 1–6, поэтому указывайте балл в той шкале, что стоит в сертификате;</li>
                                   <li><code>German: B2 (Goethe-Zertifikat B2)</code>.</li>
                               </ul>
                               <p>Наличие сертификата мгновенно снимает любые сомнения рекрутера в
@@ -166,7 +167,7 @@ editorExample:
   markdown: |2-
     # Languages
 
-    | Language | CEFR | Working context |
+    | Language | Level | Working context |
     |:---------|:-----|:----------------|
     | English | C1 | Technical presentations |
     | German | B1 | Everyday communication |

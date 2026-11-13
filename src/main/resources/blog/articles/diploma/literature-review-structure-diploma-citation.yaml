@@ -28,7 +28,7 @@ keywords:
   - 'структура литературного обзора диплом'
   - 'оформление ссылок в обзоре литературы'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Литературный обзор в дипломной работе: композиция и техника цитирования'
 cardDescription: |2-
@@ -143,16 +143,29 @@ tips:
       в порядке первого упоминания.</p>
 editorExample:
   latex: |2-
+    \documentclass[a4paper,14pt]{extarticle}
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[russian]{babel}
+    \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+    \usepackage[hidelinks]{hyperref}
+    \begin{document}
     \section*{1.2 Анализ существующих подходов}
-    Динамической кластеризации посвящены работы~\cite{smirnov,vasiliev}: у Смирнова она проще, у
-    Васильева тяжелее.
+    Динамической кластеризации посвящены работы~\cite{smirnov,vasiliev}. Алгоритм~\cite{smirnov}
+    отличается низкой вычислительной сложностью, но не работает в~реальном времени; решение~\cite{vasiliev}
+    обеспечивает работу в~реальном времени ценой высокой вычислительной нагрузки.
 
+    \bigskip
+    \noindent Таблица 1.1 --- Сравнение существующих решений\\[2mm]
     \begin{tabular}{|l|c|c|}\hline
-    Критерий & \cite{smirnov} & \cite{vasiliev}\\\hline
+    Критерий & Решение~\cite{smirnov} & Решение~\cite{vasiliev}\\\hline
     Реальное время & $-$ & $+$\\
     Малая сложность & $+$ & $-$\\\hline
     \end{tabular}
     \begin{thebibliography}{9}
-    \bibitem{smirnov} Смирнов, А.~В. Кластеризация сенсорных сетей. --- М., 2024.
-    \bibitem{vasiliev} Васильев, К.~М. Энергосбережение в~сетях. --- СПб., 2025.
+    \bibitem{smirnov} Смирнов, А.~В. Кластеризация сенсорных сетей : монография / А.~В.~Смирнов. ---
+    Москва : Техносфера, 2024. --- 212~с.
+    \bibitem{vasiliev} Васильев, К.~М. Энергосбережение в~беспроводных сетях / К.~М.~Васильев. ---
+    Санкт-Петербург : БХВ-Петербург, 2025. --- 288~с.
     \end{thebibliography}
+    \end{document}

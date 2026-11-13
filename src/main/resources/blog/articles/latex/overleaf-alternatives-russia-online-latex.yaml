@@ -27,7 +27,7 @@ keywords:
   - 'чем заменить overleaf'
   - 'overleaf лимит компиляции'
 datePublished: '2026-09-05'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '11 мин'
 cardTitle: 'Альтернативы Overleaf в России: сравнение редакторов LaTeX'
 cardDescription: |-
@@ -215,7 +215,7 @@ sections:
     title: 'Как перенести проект из Overleaf'
     html: |-
       <ol>
-          <li>В Overleaf откройте проект и скачайте исходники: «Menu» → «Download» → «Source».
+          <li>В Overleaf откройте проект и скачайте исходники: «Menu» → «Download» → «Source» (в новом интерфейсе — «File» → «Download as source (.zip)»).
       Получится zip-архив с файлами проекта.</li>
           <li>Проверьте, что главный файл называется <code>main.tex</code> и лежит в корне архива.
       Если он называется иначе, переименуйте его и упакуйте архив заново.</li>
@@ -264,7 +264,7 @@ sections:
       <p>10 секунд на одну сборку для всех бесплатных пользователей с 8 сентября 2025 года.
       У платных тарифов — до 4 минут.</p>
       <h3>Как перенести проект из Overleaf?</h3>
-      <p>Скачайте исходники архивом («Menu» → «Download» → «Source»), проверьте, что главный файл
+      <p>Скачайте исходники архивом («Menu» → «Download» → «Source» или «File» → «Download as source (.zip)» в новом интерфейсе), проверьте, что главный файл
       называется <code>main.tex</code>, и загрузите zip в Labkeeper как «Проект из архива».</p>
       <h3>Есть ли бесплатная альтернатива Overleaf?</h3>
       <p>Да: локальные TeXstudio, VS Code с LaTeX Workshop или LyX, а для кафедры — Overleaf

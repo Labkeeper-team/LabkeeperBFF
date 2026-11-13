@@ -40,7 +40,7 @@ keywords:
   - 'редактор химических формул latex онлайн'
   - 'пакет chemfig онлайн примеры'
 datePublished: '2026-08-20'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '9 мин'
 cardTitle: 'Интеграция химических формул и реакций в LaTeX, пакет chemfig'
 cardDescription: |2-
@@ -156,14 +156,14 @@ sections:
                                       </tbody>
                                   </table>
                               </div>
-                              <p>Направление связи задается абсолютным или относительным углом с
-      помощью двоеточия
-                                  <code>[:угол]</code> (в градусах от 0 до 360 против часовой
-      стрелки):</p>
+                              <p>Направление связи задается абсолютным углом
+                                  <code>[:угол]</code> (в градусах против часовой стрелки
+      от горизонтали) или относительным углом <code>[::угол]</code>, который отсчитывается
+      от направления предыдущей связи:</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>% Молекула воды H2O с углом связей:
+                                  <pre><code>% Молекула воды H2O (схематично):
       \chemfig{H-[:30]O-[:-30]H}
 
       % Молекула этанола CH3-CH2-OH:
@@ -305,6 +305,6 @@ editorExample:
     \usepackage{amsmath,graphicx}
     \usepackage{chemfig}
     \begin{document}
-    Ethanol: \chemfig{CH_3-CH_2-OH}
-    \qquad Benzene: \chemfig{*6(=-=-=-)}
+    Этанол: \chemfig{CH_3-CH_2-OH}
+    \qquad Бензол:\quad\chemfig{*6(=-=-=-)}
     \end{document}

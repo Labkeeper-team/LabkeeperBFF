@@ -31,7 +31,7 @@ keywords:
   - 'как написать аннотацию к вкр пример'
   - 'abstract диплом перевод шаблон'
 datePublished: '2026-09-06'
-dateModified: '2026-11-09'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Аннотация и Abstract к диплому: русская и английская версии по ГОСТ'
 cardDescription: |2-
@@ -115,8 +115,8 @@ sections:
                                   <strong>Методы исследования:</strong> математическая статистика,
       машинное обучение (ARIMA, Isolation Forest), контейнеризация Docker.<br>
                                   <strong>Результаты:</strong> разработан программный комплекс на
-      языке Python/FastAPI с интеграцией Prometheus и Grafana. Внедрение позволило сократить время
-      реакции на сбои на 38%.»</p>
+      языке Python/FastAPI с интеграцией Prometheus и Grafana. Внедрение позволило сократить среднее
+      время обнаружения инцидентов на 38%.»</p>
                               </div>
   - id: 'english-abstract'
     title: 'Abstract диплом перевод: шаблон и профессиональные термины'
@@ -136,7 +136,7 @@ sections:
       Object of study: Distributed cloud server infrastructure.
       Objective: To reduce Mean Time to Detect (MTTD) by implementing predictive metric analysis.
       Methods: Mathematical statistics, machine learning algorithms (ARIMA, Isolation Forest), Docker containerization.
-      Results: A software suite was developed using Python and FastAPI framework, integrated with Prometheus and Grafana. Implementation reduced incident response time by 38%.
+      Results: A software suite was developed using Python and FastAPI framework, integrated with Prometheus and Grafana. Implementation reduced MTTD by 38%.
       Practical significance: The solution can be adopted by SaaS companies to optimize DevOps workloads.</code></pre>
                               </div>
   - id: 'keywords-selection'
@@ -176,18 +176,18 @@ editorExample:
     \usepackage{lastpage}
     \begin{document}
     \begin{center}\textbf{РЕФЕРАТ}\end{center}
-    ВКР содержит \pageref{LastPage}~с., 28~рис., 12~табл., 35~источников.
+    ВКР содержит \pageref{LastPage}~с., 28~рис., 12~табл., 35~источников, 3~прил.
 
-    МОНИТОРИНГ, ПРЕДИКТИВНЫЙ АНАЛИЗ, МЕТРИКИ
+    \noindent МОНИТОРИНГ, ПРЕДИКТИВНЫЙ АНАЛИЗ, МЕТРИКИ
 
     Объект исследования --- серверная инфраструктура. Цель --- сократить время обнаружения сбоев.
-    Время реакции снижено на 38\,\%.
+    В результате оно сокращено на 38\,\%.
     \begin{otherlanguage}{english}
     \begin{center}\textbf{ABSTRACT}\end{center}
-    The thesis contains \pageref{LastPage}~pages, 28~figures, 12~tables, 35~references.
+    The thesis contains \pageref{LastPage}~p., 28~figures, 12~tables, 35~references, 3~appendices.
 
-    MONITORING, PREDICTIVE ANALYSIS, METRICS
+    \noindent MONITORING, PREDICTIVE ANALYSIS, METRICS
 
-    A monitoring system was developed; incident response time was reduced by 38\,\%.
+    A monitoring system was developed; the mean time to detect failures was reduced by 38\,\%.
     \end{otherlanguage}
     \end{document}

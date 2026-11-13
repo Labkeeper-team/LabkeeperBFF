@@ -27,7 +27,7 @@ keywords:
   - 'скрытый текст details markdown'
   - 'как сделать спойлер в markdown'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '5 мин'
 cardTitle: 'Спойлеры и раскрывающиеся блоки в Markdown: теги details и summary'
 cardDescription: |2-
@@ -115,4 +115,5 @@ editorExample:
 
     </details>
 
-    The summary remains visible when the details are collapsed.
+    In the web preview the summary line stays visible while the details are collapsed;
+    in the exported PDF the summary line is dropped and the details are printed as plain text.

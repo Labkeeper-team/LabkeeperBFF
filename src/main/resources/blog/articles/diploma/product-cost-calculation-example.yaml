@@ -15,7 +15,7 @@ keywords:
   - 'себестоимость единицы продукции формула'
   - 'калькуляция себестоимости в дипломе'
 datePublished: '2026-10-30'
-dateModified: '2026-11-06'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Расчет себестоимости продукции: пошаговый пример для диплома'
 cardDescription: |2-
@@ -173,6 +173,7 @@ sections:
       \usepackage[russian]{babel}
       \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,array,tabularx,caption}
       \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage[output-decimal-marker={,},group-separator={\,},group-minimum-digits=4]{siunitx}
       \onehalfspacing
       \setlength{\parindent}{1.25cm}
       \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
@@ -191,18 +192,18 @@ sections:
       }{\end{minipage}\par}
       \begin{document}
       \section{Калькуляция себестоимости}
-      Условная завершенная партия без брака: $Q=${Q}$ шт.; материал
-      $m=${m}$ кг/шт., цена $p=${p}$ руб./кг; трудоемкость
-      $t=${t}$ ч/шт., ставка $w=${w}$ руб./ч; начисления $r=${r}$.
-      За один период косвенные расходы $H_\Sigma=${overhead}$ руб.,
-      база оплаты труда $L_\Sigma=${wages}$ руб.; расходы на продажу
-      партии $S=${selling}$ руб. Прибыль и НДС не рассчитываются.
+      Условная завершенная партия без брака: $Q=\num{${Q}}$ шт.; материал
+      $m=\num{${m}}$ кг/шт., цена $p=\num{${p}}$ руб./кг; трудоемкость
+      $t=\num{${t}}$ ч/шт., ставка $w=\num{${w}}$ руб./ч; начисления $r=\num{${r}}$.
+      За один период косвенные расходы $H_\Sigma=\num{${overhead}}$ руб.,
+      база оплаты труда $L_\Sigma=\num{${wages}}$ руб.; расходы на продажу
+      партии $S=\num{${selling}}$ руб. Прибыль и НДС не рассчитываются.
       Материалы и оплату труда находим по формулам~\eqref{eq:materials}, \eqref{eq:labor}.
 
       \begin{formulablock}
       \begin{equation}
       \label{eq:materials}
-      M=Qmp=${materials}\text{ руб.},
+      M=Qmp=\num{${materials}}\text{ руб.},
       \end{equation}
 
       где $M$ --- затраты на материал партии, руб.;\par
@@ -214,7 +215,7 @@ sections:
       \begin{formulablock}
       \begin{equation}
       \label{eq:labor}
-      L=Qtw=${labor}\text{ руб.},
+      L=Qtw=\num{${labor}}\text{ руб.},
       \end{equation}
 
       где $L$ --- прямая оплата труда партии, руб.;\par
@@ -227,7 +228,7 @@ sections:
       \begin{formulablock}
       \begin{equation}
       \label{eq:charges}
-      A=Lr=${charges}\text{ руб.},
+      A=Lr=\num{${charges}}\text{ руб.},
       \end{equation}
 
       где $A$ --- начисления на оплату труда партии, руб.;\par
@@ -239,7 +240,7 @@ sections:
       \begin{formulablock}
       \begin{equation}
       \label{eq:rate}
-      k=\frac{H_\Sigma}{L_\Sigma}=${rate},
+      k=\frac{H_\Sigma}{L_\Sigma}=\num{${rate}},
       \end{equation}
 
       где $k$ --- коэффициент распределения, безразмерный;\par
@@ -250,7 +251,7 @@ sections:
       \begin{formulablock}
       \begin{equation}
       \label{eq:allocated}
-      H=kL=${allocated}\text{ руб.},
+      H=kL=\num{${allocated}}\text{ руб.},
       \end{equation}
 
       где $H$ --- косвенные расходы партии, руб.;\par
@@ -262,7 +263,7 @@ sections:
       \begin{formulablock}
       \begin{equation}
       \label{eq:production}
-      C_{\text{пр}}=M+L+A+H=${production}\text{ руб.},
+      C_{\text{пр}}=M+L+A+H=\num{${production}}\text{ руб.},
       \end{equation}
 
       где $C_{\text{пр}}$ --- производственная себестоимость партии, руб.;\par
@@ -275,7 +276,7 @@ sections:
       \begin{formulablock}
       \begin{equation}
       \label{eq:total}
-      C_{\text{полн}}=C_{\text{пр}}+S=${total}\text{ руб.},
+      C_{\text{полн}}=C_{\text{пр}}+S=\num{${total}}\text{ руб.},
       \end{equation}
 
       где $C_{\text{полн}}$ --- полная себестоимость партии, руб.;\par
@@ -303,18 +304,18 @@ sections:
       \hline
       \multicolumn{1}{|c|}{Статья затрат} &amp; \multicolumn{1}{c|}{\shortstack{На партию,\\руб.}} &amp; \multicolumn{1}{c|}{\shortstack{На изделие,\\руб./шт.}} \\
       \hline
-      Материалы &amp; ${materials} &amp; ${unitMaterials} \\
-      Оплата труда &amp; ${labor} &amp; ${unitLabor} \\
-      Начисления &amp; ${charges} &amp; ${unitCharges} \\
-      Косвенные расходы &amp; ${allocated} &amp; ${unitAllocated} \\
-      Производственная &amp; ${production} &amp; ${unitProduction} \\
-      Расходы на продажу &amp; ${selling} &amp; ${unitSelling} \\
-      Полная &amp; ${total} &amp; ${unitCost} \\
+      Материалы &amp; \num{${materials}} &amp; \num{${unitMaterials}} \\
+      Оплата труда &amp; \num{${labor}} &amp; \num{${unitLabor}} \\
+      Начисления &amp; \num{${charges}} &amp; \num{${unitCharges}} \\
+      Косвенные расходы &amp; \num{${allocated}} &amp; \num{${unitAllocated}} \\
+      Производственная &amp; \num{${production}} &amp; \num{${unitProduction}} \\
+      Расходы на продажу &amp; \num{${selling}} &amp; \num{${unitSelling}} \\
+      Полная &amp; \num{${total}} &amp; \num{${unitCost}} \\
       \hline
       \end{tabularx}
       \end{table}
 
-      Полная себестоимость изделия составляет ${unitCost} руб./шт.
+      Полная себестоимость изделия составляет \num{${unitCost}} руб./шт.
       \end{document}</code></pre>
       </div>
       </details>
@@ -398,6 +399,7 @@ editorExample:
       \usepackage[russian]{babel}
       \usepackage{tempora,amsmath,setspace,indentfirst,titlesec,array,tabularx,caption}
       \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+      \usepackage[output-decimal-marker={,},group-separator={\,},group-minimum-digits=4]{siunitx}
       \onehalfspacing
       \setlength{\parindent}{1.25cm}
       \titleformat{\section}{\normalfont\bfseries\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}{\thesection}{1em}{}
@@ -416,18 +418,18 @@ editorExample:
       }{\end{minipage}\par}
       \begin{document}
       \section{Калькуляция себестоимости}
-      Условная завершенная партия без брака: $Q=${Q}$ шт.; материал
-      $m=${m}$ кг/шт., цена $p=${p}$ руб./кг; трудоемкость
-      $t=${t}$ ч/шт., ставка $w=${w}$ руб./ч; начисления $r=${r}$.
-      За один период косвенные расходы $H_\Sigma=${overhead}$ руб.,
-      база оплаты труда $L_\Sigma=${wages}$ руб.; расходы на продажу
-      партии $S=${selling}$ руб. Прибыль и НДС не рассчитываются.
+      Условная завершенная партия без брака: $Q=\num{${Q}}$ шт.; материал
+      $m=\num{${m}}$ кг/шт., цена $p=\num{${p}}$ руб./кг; трудоемкость
+      $t=\num{${t}}$ ч/шт., ставка $w=\num{${w}}$ руб./ч; начисления $r=\num{${r}}$.
+      За один период косвенные расходы $H_\Sigma=\num{${overhead}}$ руб.,
+      база оплаты труда $L_\Sigma=\num{${wages}}$ руб.; расходы на продажу
+      партии $S=\num{${selling}}$ руб. Прибыль и НДС не рассчитываются.
       Материалы и оплату труда находим по формулам~\eqref{eq:materials}, \eqref{eq:labor}.
 
       \begin{formulablock}
       \begin{equation}
       \label{eq:materials}
-      M=Qmp=${materials}\text{ руб.},
+      M=Qmp=\num{${materials}}\text{ руб.},
       \end{equation}
 
       где $M$ --- затраты на материал партии, руб.;\par
@@ -439,7 +441,7 @@ editorExample:
       \begin{formulablock}
       \begin{equation}
       \label{eq:labor}
-      L=Qtw=${labor}\text{ руб.},
+      L=Qtw=\num{${labor}}\text{ руб.},
       \end{equation}
 
       где $L$ --- прямая оплата труда партии, руб.;\par
@@ -452,7 +454,7 @@ editorExample:
       \begin{formulablock}
       \begin{equation}
       \label{eq:charges}
-      A=Lr=${charges}\text{ руб.},
+      A=Lr=\num{${charges}}\text{ руб.},
       \end{equation}
 
       где $A$ --- начисления на оплату труда партии, руб.;\par
@@ -464,7 +466,7 @@ editorExample:
       \begin{formulablock}
       \begin{equation}
       \label{eq:rate}
-      k=\frac{H_\Sigma}{L_\Sigma}=${rate},
+      k=\frac{H_\Sigma}{L_\Sigma}=\num{${rate}},
       \end{equation}
 
       где $k$ --- коэффициент распределения, безразмерный;\par
@@ -475,7 +477,7 @@ editorExample:
       \begin{formulablock}
       \begin{equation}
       \label{eq:allocated}
-      H=kL=${allocated}\text{ руб.},
+      H=kL=\num{${allocated}}\text{ руб.},
       \end{equation}
 
       где $H$ --- косвенные расходы партии, руб.;\par
@@ -487,7 +489,7 @@ editorExample:
       \begin{formulablock}
       \begin{equation}
       \label{eq:production}
-      C_{\text{пр}}=M+L+A+H=${production}\text{ руб.},
+      C_{\text{пр}}=M+L+A+H=\num{${production}}\text{ руб.},
       \end{equation}
 
       где $C_{\text{пр}}$ --- производственная себестоимость партии, руб.;\par
@@ -500,7 +502,7 @@ editorExample:
       \begin{formulablock}
       \begin{equation}
       \label{eq:total}
-      C_{\text{полн}}=C_{\text{пр}}+S=${total}\text{ руб.},
+      C_{\text{полн}}=C_{\text{пр}}+S=\num{${total}}\text{ руб.},
       \end{equation}
 
       где $C_{\text{полн}}$ --- полная себестоимость партии, руб.;\par
@@ -528,18 +530,18 @@ editorExample:
       \hline
       \multicolumn{1}{|c|}{Статья затрат} & \multicolumn{1}{c|}{\shortstack{На партию,\\руб.}} & \multicolumn{1}{c|}{\shortstack{На изделие,\\руб./шт.}} \\
       \hline
-      Материалы & ${materials} & ${unitMaterials} \\
-      Оплата труда & ${labor} & ${unitLabor} \\
-      Начисления & ${charges} & ${unitCharges} \\
-      Косвенные расходы & ${allocated} & ${unitAllocated} \\
-      Производственная & ${production} & ${unitProduction} \\
-      Расходы на продажу & ${selling} & ${unitSelling} \\
-      Полная & ${total} & ${unitCost} \\
+      Материалы & \num{${materials}} & \num{${unitMaterials}} \\
+      Оплата труда & \num{${labor}} & \num{${unitLabor}} \\
+      Начисления & \num{${charges}} & \num{${unitCharges}} \\
+      Косвенные расходы & \num{${allocated}} & \num{${unitAllocated}} \\
+      Производственная & \num{${production}} & \num{${unitProduction}} \\
+      Расходы на продажу & \num{${selling}} & \num{${unitSelling}} \\
+      Полная & \num{${total}} & \num{${unitCost}} \\
       \hline
       \end{tabularx}
       \end{table}
 
-      Полная себестоимость изделия составляет ${unitCost} руб./шт.
+      Полная себестоимость изделия составляет \num{${unitCost}} руб./шт.
       \end{document}
     parameters:
       visible: true

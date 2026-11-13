@@ -22,7 +22,7 @@ keywords:
   - 'шаблон cover letter на английском онлайн'
   - 'структура сопроводительного письма it'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Сопроводительное письмо в IT: структура, формулы и шаблон на английском'
 cardDescription: |2-
@@ -102,7 +102,7 @@ sections:
       - **Architected event-driven microservices** with Apache Kafka handling 35,000+ RPS with zero downtime during peak seasonal events.
       - **Mentored 4 junior engineers** and established CI/CD automated linting pipelines, decreasing deployment rollbacks by 30%.
 
-      What excites me most about [Company Name] is your commitment to open-source tooling and your mission to democratize developer tooling. I believe my hands-on background in fault-tolerant architecture will directly support your roadmap for the upcoming EU market expansion.
+      What excites me most about [Company Name] is your commitment to open source and your mission to democratize developer tooling. I believe my hands-on background in fault-tolerant architecture will directly support your roadmap for the upcoming EU market expansion.
 
       I would welcome the opportunity to discuss how my technical skills and architectural mindset can contribute to [Company Name]'s growth. Thank you for your time and consideration.
 
@@ -134,6 +134,8 @@ sections:
       обучаемый»</em> — пустые клише, которые игнорируют все рекрутеры;</li>
                                   <li><em>«Все подробности есть в моем резюме»</em> — Cover Letter
       должно дополнять CV контекстом, а не дублировать его тезисы;</li>
+                                  <li><em>«I am looking for an opportunity to grow»</em> — фокус на
+      собственных ожиданиях вместо пользы для команды; покажите, какую задачу компании вы решите;</li>
                                   <li><em>Копипаст без смены названия компании:</em> непростительная
       ошибка при массовых рассылках.</li>
                               </ul>
@@ -160,4 +162,5 @@ editorExample:
 
     I would welcome an opportunity to discuss the role.
 
+    Best regards,  
     Anna Petrova

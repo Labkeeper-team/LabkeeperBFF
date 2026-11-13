@@ -30,7 +30,7 @@ keywords:
   - 'markdown colspan'
   - 'объединить ячейки markdown github'
 datePublished: '2026-09-05'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '8 мин'
 cardTitle: 'Объединение ячеек в таблице Markdown: rowspan и colspan с готовым кодом'
 cardDescription: |2-
@@ -261,18 +261,43 @@ tips:
       в статье о <a href="/blog/complex-markdown-tables-syntax-online-generator">сложных таблицах
       Markdown</a>.</p>
 editorExample:
-  markdown: |2-
-    # Таблица с объединёнными ячейками
+  - type: 'latex'
+    text: |2-
+      \documentclass[a4paper,12pt]{article}
+      \usepackage{cmap}
+      \usepackage[T2A]{fontenc}
+      \usepackage[utf8]{inputenc}
+      \usepackage[english,russian]{babel}
+      \usepackage{multirow}
+      \setcounter{secnumdepth}{0}
+      \begin{document}
+  - type: 'markdown'
+    text: |2-
+      # Таблица с объединёнными ячейками
 
-    Таблица 1 — Результаты измерений
+      HTML-таблица ниже видна в превью Markdown, но в PDF не попадает. Для PDF та же таблица
+      набрана в LaTeX-сегменте через `\multicolumn` и `\multirow`.
 
-    <table>
-    <thead>
-    <tr><th rowspan="2">№ опыта</th><th colspan="2">Напряжение U, В</th><th colspan="2">Ток I, мА</th></tr>
-    <tr><th>значение</th><th>погрешность</th><th>значение</th><th>погрешность</th></tr>
-    </thead>
-    <tbody>
-    <tr><td>1</td><td>1,20</td><td>0,05</td><td>10,0</td><td>0,5</td></tr>
-    <tr><td>2</td><td>2,35</td><td>0,05</td><td>20,0</td><td>0,5</td></tr>
-    </tbody>
-    </table>
+      <table>
+      <caption>Таблица 1 — Результаты измерений</caption>
+      <thead>
+      <tr><th rowspan="2">№ опыта</th><th colspan="2">Напряжение U, В</th><th colspan="2">Ток I, мА</th></tr>
+      <tr><th>значение</th><th>погрешность</th><th>значение</th><th>погрешность</th></tr>
+      </thead>
+      <tbody>
+      <tr><td>1</td><td>1,20</td><td>0,05</td><td>10,0</td><td>0,5</td></tr>
+      <tr><td>2</td><td>2,35</td><td>0,05</td><td>20,0</td><td>0,5</td></tr>
+      </tbody>
+      </table>
+  - type: 'latex'
+    text: |2-
+      \medskip
+      \noindent Таблица 1 --- Результаты измерений
+
+      \noindent\begin{tabular}{|c|c|c|c|c|}\hline
+      \multirow{2}{*}{№ опыта} & \multicolumn{2}{c|}{Напряжение $U$, В} & \multicolumn{2}{c|}{Ток $I$, мА}\\ \cline{2-5}
+       & значение & погрешность & значение & погрешность\\ \hline
+      1 & 1,20 & 0,05 & 10,0 & 0,5\\ \hline
+      2 & 2,35 & 0,05 & 20,0 & 0,5\\ \hline
+      \end{tabular}
+      \end{document}

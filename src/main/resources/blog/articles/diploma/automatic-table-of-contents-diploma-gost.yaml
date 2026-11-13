@@ -27,7 +27,7 @@ keywords:
   - 'автоматическое оглавление для диплома гост'
   - 'содержание курсовой по госту онлайн'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Автоматическое оглавление в дипломных и курсовых работах по ГОСТ'
 cardDescription: |2-
@@ -64,7 +64,8 @@ sections:
                                   <li>Все разделы, подразделы и приложения перечисляются с указанием
       их порядковых номеров.</li>
                                   <li>От названия каждого пункта до номера страницы идет непрерывная
-      линия из точек (отточие).</li>
+      линия из точек (отточие) — так требуют методички большинства вузов, сам ГОСТ отточие прямо не
+      оговаривает.</li>
                                   <li>Номера страниц выравниваются строго по правому краю без слова
       «стр.» или буквы «с» (а о том, как убрать номер с титульника, читайте в статье о <a
       href="/blog/diploma-page-numbering-second-page">нумерации диплома со второй страницы</a>).</li>
@@ -120,7 +121,7 @@ sections:
 
       % Заголовок по центру
       \renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
-      \renewcommand{\cftaftertoctitle}{\hfill}
+      \renewcommand{\cftaftertoctitle}{\hfill\mbox{}}
 
       % «Оглавление» -> «СОДЕРЖАНИЕ»
       \addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}</code></pre>
@@ -162,7 +163,7 @@ editorExample:
     \usepackage{tocloft}
     \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
     \renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
-    \renewcommand{\cftaftertoctitle}{\hfill}
+    \renewcommand{\cftaftertoctitle}{\hfill\mbox{}}
     \addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}
     \begin{document}
     \tableofcontents

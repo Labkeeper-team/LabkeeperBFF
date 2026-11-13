@@ -15,7 +15,7 @@ keywords:
   - 'как защитить лабораторную работу'
   - 'вопросы на защите лабораторной'
 datePublished: '2026-10-31'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Защита лабораторной: что повторить и как объяснить результат'
 cardDescription: |2-
@@ -141,6 +141,9 @@ sections:
       \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
       \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
       \captionsetup{textformat=gosttitle}
+      % десятичная запятая в подставленных числах
+      \mathcode`.="8000
+      {\catcode`.=\active\gdef.{{,}}}
       \begin{document}
       \section{Расчет для защиты лабораторной работы}
       Учебные данные вымышлены: напряжение $U=${U}$ В, ток $I=${I}$ А;
@@ -302,6 +305,9 @@ editorExample:
       \captionsetup[table]{labelsep=gostdash,font={normalsize,singlespacing},justification=raggedright,singlelinecheck=false}
       \DeclareCaptionTextFormat{gosttitle}{\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax#1}
       \captionsetup{textformat=gosttitle}
+      % десятичная запятая в подставленных числах
+      \mathcode`.="8000
+      {\catcode`.=\active\gdef.{{,}}}
       \begin{document}
       \section{Расчет для защиты лабораторной работы}
       Учебные данные вымышлены: напряжение $U=${U}$ В, ток $I=${I}$ А;

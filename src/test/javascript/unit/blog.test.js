@@ -87,9 +87,18 @@ for (const slug of [
 ]) {
     test(`${slug}: calculation example keeps compute and result substitutions in YAML`, () => {
         const example = examples[slug];
-        assert.ok(example.compute.trim());
-        assert.match(example.latex, /\$\{[a-z]+\}/);
-        assert.doesNotMatch(example.latex, /\\(?:documentclass|begin\{document\}|end\{document\})/);
+        const segmentText = (types) =>
+            Array.isArray(example)
+                ? example
+                      .filter((segment) => types.includes(segment.type))
+                      .map((segment) => segment.text)
+                      .join('\n')
+                : types.map((type) => example[type] ?? '').join('\n');
+        const compute = segmentText(['compute', 'computational']);
+        const latex = segmentText(['latex']);
+        assert.ok(compute.trim());
+        assert.match(latex, /\$\{[a-z]+\}/);
+        assert.doesNotMatch(latex, /\\(?:documentclass|begin\{document\}|end\{document\})/);
         const query = new URL(buildExampleUrl(example, slug), EXAMPLE_ORIGIN).searchParams;
         assert.equal(query.get('example'), slug);
         assert.equal(query.has('compute'), false);

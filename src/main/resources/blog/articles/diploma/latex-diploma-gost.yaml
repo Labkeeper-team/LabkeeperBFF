@@ -38,7 +38,7 @@ keywords:
   - 'шаблон вкр latex гост 7.32'
   - 'структура дипломной работы по гост'
 datePublished: '2026-08-20'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '15 мин'
 cardTitle: 'Оформление курсовой и диплома по ГОСТ 7.32 в LaTeX: гайд и шаблон'
 cardDescription: 'Готовый шаблон ВКР по ГОСТ 7.32-2017: поля, шрифт, заголовки, рисунки, таблицы, содержание и приложения.'
@@ -176,7 +176,9 @@ sections:
       \renewcommand{\headrulewidth}{0pt}
 
       % --- Подписи рисунков и таблиц ---
-      \usepackage[labelsep=endash]{caption}
+      \usepackage{caption}
+      \DeclareCaptionLabelSeparator{gostdash}{~---\space} % «Рисунок 1.1 — Название»
+      \captionsetup{labelsep=gostdash}
       \captionsetup[figure]{name=Рисунок,justification=centering}
       \captionsetup[table]{name=Таблица,justification=raggedright,singlelinecheck=false}
       % \counterwithout{figure}{chapter} % сквозная нумерация, если её требует методичка
@@ -184,7 +186,7 @@ sections:
       % --- Содержание ---
       \usepackage{tocloft}
       \renewcommand{\cfttoctitlefont}{\hfill\normalfont\bfseries\MakeUppercase}
-      \renewcommand{\cftaftertoctitle}{\hfill}
+      \renewcommand{\cftaftertoctitle}{\hfill\mbox{}}
       \renewcommand{\cftchapfont}{\normalfont}
       \renewcommand{\cftchappagefont}{\normalfont}
       \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
@@ -250,7 +252,8 @@ sections:
         \label{eq:speed}
       \end{equation}
 
-      где \(s\) — путь, м;\\
+      где \(s\) — путь, м;
+
       \(t\) — время, с.
 
       \chapter*{Заключение}
@@ -417,7 +420,9 @@ sections:
       <code>caption</code> делает это одной настройкой:</p>
       <div class="article-code">
           <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
-          <pre><code>\usepackage[labelsep=endash]{caption}
+          <pre><code>\usepackage{caption}
+      \DeclareCaptionLabelSeparator{gostdash}{~---\space} % «Рисунок 1.1 — Название»
+      \captionsetup{labelsep=gostdash}
       \captionsetup[figure]{name=Рисунок,justification=centering}
       \captionsetup[table]{name=Таблица,justification=raggedright,singlelinecheck=false}
       % Сквозная нумерация «Рисунок 1», «Таблица 1» — если её требует методичка:
@@ -445,11 +450,14 @@ sections:
         \label{eq:speed}
       \end{equation}
 
-      где \(s\) — путь, м;\\
+      где \(s\) — путь, м;
+
       \(t\) — время, с.</code></pre>
       </div>
       <p>Пустая строка после формулы начинает новый абзац, поэтому «где» печатается с абзацного
-      отступа. Правила для ГОСТ 7.32 и ГОСТ 2.105 здесь различаются — разбор в статье о <a
+      отступа. Каждое следующее пояснение тоже отделяйте пустой строкой: тогда все строки начинаются
+      с одного отступа, а не прижимаются к левому полю, как после <code>\\</code>.
+      Правила для ГОСТ 7.32 и ГОСТ 2.105 здесь различаются — разбор в статье о <a
       href="/blog/formula-variable-explanation-where-gost">пояснении переменных после формулы</a>,
       а про нумерацию — в статье о <a href="/blog/formula-numbering-lab-reports-gost">нумерации
       формул</a>.</p>
@@ -496,7 +504,7 @@ sections:
 
       \usepackage{tocloft}
       \renewcommand{\cfttoctitlefont}{\hfill\normalfont\bfseries\MakeUppercase}
-      \renewcommand{\cftaftertoctitle}{\hfill}
+      \renewcommand{\cftaftertoctitle}{\hfill\mbox{}}
       \renewcommand{\cftchapfont}{\normalfont}      % главы в содержании не жирные
       \renewcommand{\cftchappagefont}{\normalfont}
       \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % точки до номера страницы
@@ -519,7 +527,7 @@ sections:
     title: 'Приложения'
     html: |-
       <p>Приложения обозначают заглавными буквами русского алфавита, начиная с А. ГОСТ 7.32-2017
-      (п. 6.14) исключает буквы Ё, З, Й, О, Ч, Ъ, Ы, Ь. Стандартная команда <code>\Asbuk</code>
+      (п. 6.17) исключает буквы Ё, З, Й, О, Ч, Ъ, Ы, Ь. Стандартная команда <code>\Asbuk</code>
       из babel их не пропускает: восьмое приложение получит букву З, пятнадцатое — О. Поэтому
       в шаблоне свой счётчик <code>\gostAsbuk</code>:</p>
       <div class="article-code">
@@ -631,11 +639,11 @@ editorExample:
     \documentclass[a4paper,14pt]{extreport}
 
     % --- Кириллица и шрифт ---
-    \usepackage{cmap}
+    \usepackage{cmap}                 % копируемый текст в PDF (до fontenc!)
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
     \usepackage[russian]{babel}
-    \usepackage{tempora}
+    \usepackage{tempora}              % аналог Times New Roman с кириллицей
     \usepackage{amsmath}
     \usepackage{graphicx}
 
@@ -643,15 +651,17 @@ editorExample:
     \usepackage[a4paper,left=30mm,right=15mm,top=20mm,bottom=20mm,
                 headheight=17pt]{geometry}
     \usepackage{setspace}
-    \onehalfspacing
+    \onehalfspacing                   % «1,5» как в Word
     \setlength{\parindent}{1.25cm}
     \setlength{\parskip}{0pt}
 
     % --- Заголовки ---
     \usepackage{titlesec}
+    % Разделы: с абзацного отступа, полужирные, без переносов, без точки
     \titleformat{\chapter}[block]
         {\normalfont\bfseries\raggedright\hyphenpenalty=10000}
         {\hspace*{1.25cm}\thechapter}{0.5em}{}
+    % Структурные элементы (\chapter*): по центру, прописными
     \titleformat{name=\chapter,numberless}[block]
         {\normalfont\bfseries\filcenter}{}{0pt}{\MakeUppercase}
     \titleformat{\section}
@@ -668,18 +678,21 @@ editorExample:
     \renewcommand{\headrulewidth}{0pt}
 
     % --- Подписи рисунков и таблиц ---
-    \usepackage[labelsep=endash]{caption}
+    \usepackage{caption}
+    \DeclareCaptionLabelSeparator{gostdash}{~---\space} % «Рисунок 1.1 — Название»
+    \captionsetup{labelsep=gostdash}
     \captionsetup[figure]{name=Рисунок,justification=centering}
     \captionsetup[table]{name=Таблица,justification=raggedright,singlelinecheck=false}
+    % \counterwithout{figure}{chapter} % сквозная нумерация, если её требует методичка
 
     % --- Содержание ---
     \usepackage{tocloft}
     \renewcommand{\cfttoctitlefont}{\hfill\normalfont\bfseries\MakeUppercase}
-    \renewcommand{\cftaftertoctitle}{\hfill}
+    \renewcommand{\cftaftertoctitle}{\hfill\mbox{}}
     \renewcommand{\cftchapfont}{\normalfont}
     \renewcommand{\cftchappagefont}{\normalfont}
     \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-    \setcounter{tocdepth}{2}
+    \setcounter{tocdepth}{2}          % в содержании разделы и подразделы
     \addto\captionsrussian{%
       \renewcommand{\contentsname}{Содержание}%
       \renewcommand{\bibname}{Список использованных источников}}
@@ -690,16 +703,17 @@ editorExample:
     \def\@gostAsbuk#1{\ifcase#1\or А\or Б\or В\or Г\or Д\or Е\or Ж\or И\or К\or
       Л\or М\or Н\or П\or Р\or С\or Т\or У\or Ф\or Х\or Ц\or Ш\or Щ\or Э\or Ю\or
       Я\else\@ctrerr\fi}
-    \renewcommand{\@biblabel}[1]{#1.\hfill}
+    \renewcommand{\@biblabel}[1]{#1.\hfill} % «1.» вместо «[1]» в списке источников
     \makeatother
 
     \begin{document}
 
+    % --- Титульный лист: входит в нумерацию, номер не печатается ---
     \begin{titlepage}
       \centering
       Министерство науки и высшего образования Российской Федерации\par
       \vfill
-      {\bfseries КУРСОВАЯ РАБОТА\par}
+      {\bfseries ВЫПУСКНАЯ КВАЛИФИКАЦИОННАЯ РАБОТА\par}
       \vfill
       Москва 2026
     \end{titlepage}
@@ -709,30 +723,44 @@ editorExample:
 
     \chapter*{Введение}
     \addcontentsline{toc}{chapter}{Введение}
-    Цель работы: сравнить методы расчёта.
+    Текст введения.
 
-    \chapter{Методика}
-    \section{Описание эксперимента}
-    Схема установки приведена на рисунке~\ref{fig:scheme}.
+    \chapter{Анализ предметной области и постановка задачи}
+    \section{Обзор существующих решений}
+    Текст раздела. Результаты приведены на рисунке~\ref{fig:scheme}
+    и в таблице~\ref{tab:params}.
 
     \begin{figure}[ht]
       \centering
-      \rule{6cm}{3cm}
+      \rule{6cm}{3cm} % замените на \includegraphics[width=0.8\linewidth]{scheme}
       \caption{Структурная схема установки}
       \label{fig:scheme}
     \end{figure}
 
+    \begin{table}[ht]
+      \caption{Параметры модели}
+      \label{tab:params}
+      \centering
+      \begin{tabular}{|l|c|}
+        \hline
+        Параметр & Значение \\ \hline
+        Масса, кг & 12,5 \\ \hline
+      \end{tabular}
+    \end{table}
+
     Скорость вычисляют по формуле
     \begin{equation}
       v = \frac{s}{t},
+      \label{eq:speed}
     \end{equation}
 
-    где \(s\) — путь, м;\\
+    где \(s\) — путь, м;
+
     \(t\) — время, с.
 
     \chapter*{Заключение}
     \addcontentsline{toc}{chapter}{Заключение}
-    Основные выводы.
+    Текст заключения.
 
     \begin{thebibliography}{9}
       \addcontentsline{toc}{chapter}{Список использованных источников}
@@ -740,6 +768,7 @@ editorExample:
         И. И. Иванов. --- Москва : Издательство, 2024. --- 320~с.
     \end{thebibliography}
 
+    % --- Приложения: «ПРИЛОЖЕНИЕ А» по центру, название строкой ниже ---
     \appendix
     \renewcommand{\thechapter}{\gostAsbuk{chapter}}
     \renewcommand{\chaptername}{Приложение}
@@ -749,7 +778,7 @@ editorExample:
     \addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{Приложение~}%
       \protect\setlength{\protect\cftchapnumwidth}{3.6cm}}
 
-    \chapter{Исходные данные}
+    \chapter{Исходный код программы}
     Текст приложения А.
 
     \end{document}

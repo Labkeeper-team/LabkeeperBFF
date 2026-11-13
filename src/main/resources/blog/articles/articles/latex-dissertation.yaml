@@ -36,7 +36,7 @@ keywords:
   - 'верстка кандидатской диссертации в latex онлайн'
   - 'диссертация latex гост р 7.0.11'
 datePublished: '2026-08-20'
-dateModified: '2026-11-05'
+dateModified: '2026-11-11'
 readingTime: '14 мин'
 cardTitle: 'Диссертация и автореферат в LaTeX по ГОСТ Р 7.0.11'
 cardDescription: 'Структура диссертации, готовый шаблон автореферата ВАК с обложкой, научная новизна и положения на защиту, ссылки.'
@@ -381,7 +381,7 @@ sections:
       Подробнее в главе~\ref{ch:method}.</code></pre>
       </div>
       <p>Пакет <code>cleveref</code> сам подставляет слово перед номером, но с опцией
-      <code>russian</code> он пишет сокращения вроде «ф-л.» и «глав.», недопустимые в научном
+      <code>russian</code> он пишет сокращения вроде «ф-л.» и «рис.», недопустимые в научном
       тексте. Задайте имена явно:</p>
       <div class="article-code">
           <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
@@ -501,8 +501,8 @@ editorExample:
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
     \usepackage[russian]{babel}
-    \usepackage{tempora}
     \usepackage{amsmath,graphicx}
+    \usepackage{tempora,newtxmath}
     \usepackage[left=25mm,right=10mm,top=20mm,bottom=20mm,headheight=17pt]{geometry}
     \usepackage{setspace}\onehalfspacing
     \setlength{\parindent}{1.25cm}
@@ -517,6 +517,7 @@ editorExample:
       {Глава~\thechapter.}{0.5em}{}
     \titleformat{name=\chapter,numberless}[block]{\normalfont\bfseries\filcenter}{}{0pt}{}
     \titlespacing{\chapter}{0pt}{0pt}{14pt}
+    \titleformat{\section}{\normalfont\bfseries}{\thesection}{0.5em}{}
     \usepackage[hidelinks]{hyperref}
     \usepackage[russian]{cleveref}
     \crefname{equation}{формула}{формулы}

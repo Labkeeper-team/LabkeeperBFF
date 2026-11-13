@@ -27,7 +27,7 @@ keywords:
   - 'блок схемы для лабораторной по госту'
   - 'схема алгоритма по гост 19.701 онлайн'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Блок-схемы алгоритмов по ГОСТ 19.701 в отчетах: гайд по TikZ'
 cardDescription: |2-
@@ -50,7 +50,7 @@ toc:
   - id: 'mermaid-flowchart'
     title: 'Схема алгоритма по гост 19.701 онлайн: Mermaid для GitHub, GitLab и Obsidian'
   - id: 'symbols'
-    title: 'Таблица стандартных геометрических фигур и их значение'
+    title: 'Общие правила оформления графики схем'
   - id: 'best-practices'
     title: 'Правила размещения линий связи и подписей «Да/Нет»'
 sections:
@@ -81,7 +81,7 @@ sections:
       <code>shapes.geometric</code> дает ромб и параллелограмм, а <code>shapes.misc</code> —
       скругленный терминатор <code>rounded rectangle</code> (аналогично строятся диаграммы состояний в
       <a href="/blog/latex-tikz-automata-graphs">конечных автоматах и графах TikZ</a>). Текст в блоках
-      набран прямым шрифтом, как требует правило из раздела о фигурах ниже:</p>
+      набран прямым шрифтом, как обычно требуют методички (см. общие правила ниже):</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
@@ -139,7 +139,7 @@ sections:
       <code>[/текст/]</code> — блок ввода/вывода, а <code>{"условие"}</code> — блок проверки
       ветвления.</p>
   - id: 'symbols'
-    title: 'Таблица стандартных геометрических фигур и их значение'
+    title: 'Общие правила оформления графики схем'
     html: |2-
                               <p>Общие правила оформления графики:</p>
                               <ul>
@@ -147,8 +147,9 @@ sections:
       вертикальные и горизонтальные сегменты под прямым углом).</li>
                                   <li>Стрелки на линиях обязательны только тогда, когда поток
       направлен снизу вверх или справа налево (против стандартного чтения).</li>
-                                  <li>Текст внутри блоков центрируется и пишется шрифтом без
-      курсива.</li>
+                                  <li>Текст внутри блоков принято центрировать и набирать прямым
+      шрифтом без курсива: сам ГОСТ 19.701-90 шрифт не регламентирует, это требование многих
+      методичек.</li>
                               </ul>
   - id: 'best-practices'
     title: 'Правила размещения линий связи и подписей «Да/Нет»'
@@ -174,7 +175,12 @@ editorExample:
     \usepackage[russian]{babel}
     \usepackage{tikz}
     \usetikzlibrary{shapes.geometric,shapes.misc,positioning}
+    \usepackage{caption}
+    \DeclareCaptionLabelSeparator{gostdash}{\space---\space}
+    \captionsetup[figure]{name=Рисунок,labelsep=gostdash}
     \begin{document}
+    \begin{figure}[h]
+    \centering
     \begin{tikzpicture}[node distance=8mm,b/.style={draw,align=center,minimum width=28mm,minimum
     height=8mm}]
     \node[b,rounded rectangle] (s) {Начало};
@@ -182,9 +188,16 @@ editorExample:
     \node[b,diamond,aspect=2,below=of i] (d) {A > B?};
     \node[b,below left=8mm and 2mm of d] (y) {Max := A};
     \node[b,below right=8mm and 2mm of d] (n) {Max := B};
+    \node[b,trapezium,trapezium left angle=70,trapezium right angle=110,below=24mm of d] (o) {Вывод Max};
+    \node[b,rounded rectangle,below=of o] (e) {Конец};
     \draw[->] (s)--(i);
     \draw[->] (i)--(d);
     \draw[->] (d.west) -| node[above] {Да} (y);
     \draw[->] (d.east) -| node[above] {Нет} (n);
+    \draw[->] (y) |- (o);
+    \draw[->] (n) |- (o);
+    \draw[->] (o)--(e);
     \end{tikzpicture}
+    \caption{Схема алгоритма поиска максимума из двух чисел}
+    \end{figure}
     \end{document}

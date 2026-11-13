@@ -27,7 +27,7 @@ keywords:
   - 'шаблон readme md для github'
   - 'как сделать спойлер в markdown'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Идеальный README.md для GitHub: структура, бейджи, спойлеры и гифки'
 cardDescription: |2-
@@ -95,7 +95,16 @@ sections:
       ```env
       PORT=3000
       DATABASE_URL=postgresql://user:pass@localhost:5432/mydb
-      ```</code></pre>
+      ```
+
+      ## 💡 Использование
+      ```bash
+      npm run build
+      npm test
+      ```
+
+      ## 📄 Лицензия
+      Проект распространяется под лицензией MIT, см. [LICENSE](LICENSE).</code></pre>
                               </div>
   - id: 'spoilers'
     title: 'Как сделать спойлер в markdown: сворачивание длинных логов'
@@ -173,9 +182,13 @@ editorExample:
     - CSV input
     - Reproducible reports
 
+    ## Development
+
     <details>
     <summary>Development notes</summary>
 
     Run the tests before submitting a change.
 
     </details>
+
+    The spoiler collapses in the preview and on GitHub; in the PDF export its content is printed expanded, without the summary line.

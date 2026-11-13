@@ -27,7 +27,7 @@ keywords:
   - 'можно ли писать html в markdown'
   - 'вставка html тегов в markdown'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '6 мин'
 cardTitle: 'HTML внутри Markdown: возможности верстки и безопасная интеграция тегов'
 cardDescription: |2-
@@ -121,11 +121,24 @@ editorExample:
   markdown: |2-
     # Markdown + HTML
 
-    A normal **Markdown** paragraph.
+    A normal **Markdown** paragraph. The preview renders the raw HTML blocks below. The PDF build
+    drops a block without blank lines inside it and keeps only the text of a block with blank lines.
 
     <table>
     <tr><th>Sensor</th><th>Value</th></tr>
     <tr><td>A</td><td>10.2</td></tr>
     </table>
 
-    <details><summary>Notes</summary>Calibrated before measurement.</details>
+    The same data as a Markdown table reaches the PDF:
+
+    | Sensor | Value |
+    |--------|-------|
+    | A      | 10.2  |
+
+    <details>
+
+    <summary>Notes</summary>
+
+    Calibrated before measurement.
+
+    </details>

@@ -27,7 +27,7 @@ keywords:
   - 'две картинки рядом latex minipage'
   - 'текст рядом с таблицей latex'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-11'
 readingTime: '7 мин'
 cardTitle: 'Картинки и таблицы бок о бок в LaTeX: руководство по minipage'
 cardDescription: |2-
@@ -122,8 +122,11 @@ sections:
     title: 'Независимая нумерация подрисуночных подписей (subcaption)'
     html: |2-
                               <p>Если две картинки являются частями одной общей иллюстрации, лучше
-      подключить пакет <code>subcaption</code> и использовать окружения <code>subfigure</code>. Это
-      дает стандартную нумерацию вида «Рисунок 1 — Схема установки: а — вид спереди; б — вид сверху».
+      подключить пакет <code>subcaption</code> и использовать окружения <code>subfigure</code>. По
+      умолчанию части подписываются латинскими буквами в скобках — «(a)», «(b)». Чтобы получить
+      привычный вид «а — вид спереди; б — вид сверху», добавьте в преамбулу
+      <code>\captionsetup[subfigure]{labelformat=simple,labelsep=endash}</code> и
+      <code>\renewcommand{\thesubfigure}{\asbuk{subfigure}}</code>.
       Это нумерация частей одного рисунка, а не <a
       href="/blog/figure-double-numbering-chapters-gost">двойная нумерация по главам</a> вида «Рисунок
       2.1».</p>
@@ -149,7 +152,7 @@ tips:
   - title: "Сумма ширин менее 1.0\\textwidth"
     html: |2-
       <p>Суммарная ширина двух minipage плюс пробел не должна превышать <code>\textwidth</code>, иначе
-      возникнет ошибка переполнения <code>Overfull \hbox</code>.</p>
+      LaTeX выдаст предупреждение о переполнении <code>Overfull \hbox</code>, и блок вылезет на поле.</p>
 editorExample:
   latex: |2-
     \documentclass[a4paper,12pt]{article}
@@ -157,13 +160,16 @@ editorExample:
     \usepackage[utf8]{inputenc}
     \usepackage[english,russian]{babel}
     \usepackage{amsmath,graphicx}
+    \usepackage{caption}
 
     \begin{document}
     \noindent
-    \begin{minipage}{.46\textwidth}\centering
-    \fbox{\rule{0pt}{25mm}\rule{35mm}{0pt}}\\Diagram
+    \begin{minipage}[b]{.46\textwidth}\centering
+    \fbox{\parbox[c][25mm][c]{35mm}{\centering Место\\для рисунка}}
+    \captionof{figure}{Схема установки}
     \end{minipage}\hfill
-    \begin{minipage}{.46\textwidth}\centering
-    \begin{tabular}{cc}Time & Value\\1 & 2\\2 & 4\end{tabular}\\Measurements
+    \begin{minipage}[b]{.46\textwidth}\centering
+    \captionof{table}{Результаты измерений}
+    \begin{tabular}{|c|c|}\hline $t$, с & $x$, м\\\hline 1 & 2\\2 & 4\\\hline\end{tabular}
     \end{minipage}
     \end{document}
