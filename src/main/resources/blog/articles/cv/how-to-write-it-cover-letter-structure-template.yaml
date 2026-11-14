@@ -22,7 +22,7 @@ keywords:
   - 'шаблон cover letter на английском онлайн'
   - 'структура сопроводительного письма it'
 datePublished: '2026-09-06'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '8 мин'
 cardTitle: 'Сопроводительное письмо в IT: структура, формулы и шаблон на английском'
 cardDescription: |2-
@@ -151,16 +151,22 @@ tips:
       печати выключите, чтобы на листе не было адреса страницы и даты.</p>
 editorExample:
   markdown: |2-
-    # Cover letter
+    # Alex Ivanov — Software Engineer
+    [LinkedIn](https://linkedin.com) | [GitHub](https://github.com) | alex@example.com
 
-    Dear hiring team,
+    Dear [Hiring Manager Name / Engineering Team],
 
-    I am applying for the Backend Engineer role. In my current project I reduced API latency by 30%
-    and added automated integration tests.
+    I am excited to apply for the **Senior Backend Engineer** role at [Company Name]. Having followed [Company Name]'s recent scaling challenges with high-throughput stream processing, I am eager to bring my 5+ years of experience in distributed systems and Go/Kubernetes to your infrastructure team.
 
-    Your focus on reliable data services matches my experience with Python and PostgreSQL.
+    In my current role at [Previous Company], I led the redesign of our real-time payment processing gateway:
 
-    I would welcome an opportunity to discuss the role.
+    - **Reduced API latency by 45%** (from 220ms to 120ms p99) by optimizing PostgreSQL indexing and introducing Redis distributed caching.
+    - **Architected event-driven microservices** with Apache Kafka handling 35,000+ RPS with zero downtime during peak seasonal events.
+    - **Mentored 4 junior engineers** and established CI/CD automated linting pipelines, decreasing deployment rollbacks by 30%.
+
+    What excites me most about [Company Name] is your commitment to open source and your mission to democratize developer tooling. I believe my hands-on background in fault-tolerant architecture will directly support your roadmap for the upcoming EU market expansion.
+
+    I would welcome the opportunity to discuss how my technical skills and architectural mindset can contribute to [Company Name]'s growth. Thank you for your time and consideration.
 
     Best regards,  
-    Anna Petrova
+    Alex Ivanov

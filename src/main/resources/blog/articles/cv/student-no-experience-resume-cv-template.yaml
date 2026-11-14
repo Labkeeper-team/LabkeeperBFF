@@ -22,7 +22,7 @@ keywords:
   - 'шаблон резюме для студента без опыта работы'
   - 'что писать в cv если нет опыта'
 datePublished: '2026-09-06'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '7 мин'
 cardTitle: 'Резюме для студента без коммерческого опыта: структура и примеры'
 cardDescription: |2-
@@ -163,17 +163,30 @@ tips:
 editorExample:
   markdown: |2-
     # Михаил Васильев
-    **Junior Python Developer**  
-    Telegram: @mikhail_dev | GitHub: [github.com/mikhail-dev](https://github.com/mikhail-dev)
+    **Junior Python / Backend Developer**  
+    Telegram: @mikhail_dev | GitHub: [github.com/mikhail-dev](https://github.com/mikhail-dev) | Email: mikhail@example.com | Москва (готов к удаленной работе)
+
+    ## Обо мне
+    Студент 3-го курса МГТУ им. Баумана (ИУ7). Ищу позицию Junior Python разработчика или стажера (готов уделять 30+ часов в неделю). Увлечен бэкендом, проектированием реляционных баз данных и написанием чистого кода.
 
     ## Навыки
-    - **Языки:** Python, SQL
-    - **Инструменты:** FastAPI, PostgreSQL, Docker, Git
+    - **Языки:** Python 3.12, SQL, базовый C++
+    - **Фреймворки и библиотеки:** FastAPI, Django, SQLAlchemy, Alembic, Pydantic, Aiogram
+    - **Базы данных и инструменты:** PostgreSQL, Redis, Docker, Git, Linux (Ubuntu), Pytest
 
     ## Проекты
-    ### Telegram-бот для записи на услуги
-    - Асинхронный бэкенд на FastAPI и PostgreSQL.
-    - Код: [github.com/mikhail-dev/booking-bot](https://github.com/mikhail-dev/booking-bot)
+
+    ### 1. Telegram-бот для автоматизации записи на услуги (FastAPI + Aiogram + PostgreSQL)
+    - Разработал асинхронный бэкенд для бронирования слотов с защитой от двойного бронирования.
+    - Настроил авторизацию через JWT и автоматические пуш-напоминания через Redis Pub/Sub.
+    - Стек: Python, FastAPI, Aiogram 3, PostgreSQL, Docker Compose.
+    - Ссылка на код: [github.com/mikhail-dev/booking-bot](https://github.com/mikhail-dev/booking-bot)
+
+    ### 2. Курсовой проект: Система распознавания рукописных символов
+    - Обучил сверточную нейросеть (CNN) на датасете MNIST, добившись точности 98,4 %.
+    - Реализовал веб-интерфейс для загрузки и визуализации предсказаний.
+    - Стек: PyTorch, NumPy, Flask.
 
     ## Образование
-    МГТУ им. Н. Э. Баумана, 3 курс, «Программная инженерия».
+    **МГТУ им. Н. Э. Баумана** *(2024 — 2028)*  
+    Факультет «Информатика и системы управления», направление подготовки 09.03.04 «Программная инженерия». Средний балл: 4,8.

@@ -27,7 +27,7 @@ keywords:
   - 'повернуть таблицу на 90 градусов latex'
   - 'пакет rotating sidewaystable'
 datePublished: '2026-09-06'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '7 мин'
 cardTitle: 'Вращение таблиц на 90 градусов в LaTeX: пакет rotating и sidewaystable'
 cardDescription: |2-
@@ -130,6 +130,10 @@ sections:
                                   <li>Если документ с двухсторонней печатью, используйте опцию
       <code>\usepackage[figuresright]{rotating}</code>, чтобы все таблицы были повернуты в одну
       сторону.</li>
+                                  <li>Подпись по ГОСТ 7.32-2017 имеет вид «Таблица 1 – Название» и
+      стоит над таблицей слева. В стандартном классе <code>article</code> её настраивают пакетом
+      <code>caption</code>:
+      <code>\captionsetup[table]{labelsep=endash,justification=raggedright,singlelinecheck=false}</code>.</li>
                               </ul>
   - id: 'single-cell-rotation'
     title: 'Вращение отдельных заголовков колонок через turn и rotatebox'
@@ -168,6 +172,8 @@ editorExample:
     \usepackage[english,russian]{babel}
     \usepackage{amsmath,graphicx}
     \usepackage{rotating}
+    \usepackage{caption}
+    \captionsetup[table]{labelsep=endash,justification=raggedright,singlelinecheck=false}
     \begin{document}
     \begin{sidewaystable}[htbp]
     \centering

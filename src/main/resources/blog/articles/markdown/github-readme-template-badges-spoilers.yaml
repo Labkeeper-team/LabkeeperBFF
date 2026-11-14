@@ -27,7 +27,7 @@ keywords:
   - 'шаблон readme md для github'
   - 'как сделать спойлер в markdown'
 datePublished: '2026-09-05'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '7 мин'
 cardTitle: 'Идеальный README.md для GitHub: структура, бейджи, спойлеры и гифки'
 cardDescription: |2-
@@ -138,14 +138,15 @@ sections:
   - id: 'badges'
     title: 'Бейджи Shields.io: версия, статус CI/CD, лицензия и тесты'
     html: |2-
-                              <p>Динамические бейджи сервиса <strong>Shields.io</strong> мгновенно
-      придают проекту профессиональный вид. Они обновляются автоматически при каждом коммите:</p>
+                              <p>Динамические бейджи сервиса <strong>Shields.io</strong> подтягивают
+      данные из GitHub (статус CI, релиз, звёзды) и обновляются с задержкой кэша. Статичные бейджи
+      (<code>/badge/...</code>) задаются вручную и сами не меняются:</p>
                               <ul>
                                   <li>Статус тестов:
       <code>https://img.shields.io/github/actions/workflow/status/:user/:repo/test.yml</code></li>
                                   <li>Количество звезд:
       <code>https://img.shields.io/github/stars/:user/:repo?style=social</code></li>
-                                  <li>Язык проекта:
+                                  <li>Язык проекта (статичный бейдж):
       <code>https://img.shields.io/badge/Python-3.11+-blue.svg</code></li>
                               </ul>
                               <p>В превью Labkeeper бейдж остаётся маленьким и не растягивается до 500

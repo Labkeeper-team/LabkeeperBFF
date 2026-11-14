@@ -31,7 +31,7 @@ keywords:
   - 'постраничные сноски в курсовой гост'
   - 'оформление сносок внизу страницы диплом'
 datePublished: '2026-09-05'
-dateModified: '2026-11-09'
+dateModified: '2026-11-14'
 readingTime: '7 мин'
 cardTitle: 'Постраничные сноски (footnote) в курсовых по праву и истории по ГОСТ'
 cardDescription: |2-
@@ -142,6 +142,9 @@ editorExample:
     \documentclass[a4paper,12pt]{article}
     \usepackage[T2A]{fontenc}
     \usepackage[russian]{babel}
+    \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm]{geometry}
+    \usepackage{setspace}
+    \onehalfspacing
     \usepackage[perpage]{footmisc}
     \begin{document}
     Порядок расследования описан в учебнике\footnote{Смирнов А.~В. Уголовный процесс : учебник. ---

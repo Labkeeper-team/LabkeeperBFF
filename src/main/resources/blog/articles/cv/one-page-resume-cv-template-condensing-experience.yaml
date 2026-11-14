@@ -22,7 +22,7 @@ keywords:
   - 'одностраничное резюме шаблон онлайн'
   - 'как уместить cv на одну страницу'
 datePublished: '2026-09-06'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '8 мин'
 cardTitle: 'Одностраничное резюме (One-Pager): как сжать опыт без потери ценности'
 cardDescription: |2-
@@ -174,16 +174,59 @@ tips:
       еще раз.</p>
 editorExample:
   latex: |2-
-    \documentclass[a4paper,10pt]{article}
+    \documentclass[10pt,a4paper]{article}
+    \usepackage[T2A]{fontenc}
+    \usepackage[english,russian]{babel}
     \usepackage[margin=13mm]{geometry}
-    \usepackage{enumitem}\setlist{nosep}
-    \linespread{0.97}\pagestyle{empty}\setlength{\parindent}{0pt}
+    \usepackage{enumitem}
+    \setlist{nosep}        % списки без вертикальных отступов
+    \linespread{0.97}      % чуть плотнее одинарного интервала (больше 1 — реже)
+    \pagestyle{empty}      % без номера страницы
+    \setlength{\parindent}{0pt}
+    \newcommand{\cvsection}[1]{\par\medskip{\large\bfseries #1}\par\smallskip}
+    \newcommand{\job}[2]{\par\smallskip\textbf{#1}\hfill\textit{#2}\par}
     \begin{document}
-    \section*{Alex Ivanov \textbar{} Software Engineer}
-    alex@example.com
-    \section*{Selected experience}
-    \textbf{Team lead, 2022--2026}: led 5 engineers; delivery time reduced by 25\%.
-    \par\textbf{Developer, 2016--2022}: built reporting services.
-    \section*{Skills}Python, SQL, system design.
-    \section*{Education}BSc Computer Science.
+    \selectlanguage{english}
+    {\LARGE\bfseries Ivan Petrov --- Staff Software Engineer}\par\smallskip
+    iv.petrov@email.com \textbar{} +7 (999) 000-00-00 \textbar{} github.com/petrov-dev \textbar{}
+    linkedin.com/in/ipetrov \textbar{} Moscow / Remote\par\smallskip
+    \textbf{Core Stack:} Go, Python, Kubernetes, PostgreSQL, Kafka, Redis, Distributed Systems,
+    Highload (85k+ TPS)
+
+    \cvsection{Professional Experience}
+    \job{Lead / Staff Backend Engineer --- FinTech Cloud Platform}{2022 --- Present}
+    \begin{itemize}
+      \item Architected high-throughput ledger service in Go, scaling system throughput from 12k
+        to 85k TPS with zero data loss.
+      \item Reduced cloud infrastructure spending by \$180,000/year by migrating workloads to
+        autoscaling Kubernetes clusters with spot instances.
+      \item Led an engineering team of 9 developers, establishing RFC design review processes and
+        automated trunk-based CI/CD.
+    \end{itemize}
+    \job{Senior Backend Engineer --- Global E-Commerce Core}{2019 --- 2022}
+    \begin{itemize}
+      \item Designed event-driven inventory tracking microservice with Apache Kafka and Redis,
+        cutting inventory drift incidents by 92\%.
+      \item Optimized database query planner bottlenecks in PostgreSQL, dropping 99th percentile
+        search latency from 680\,ms to 95\,ms.
+      \item Mentored 6 engineers to Middle/Senior grade and drove adoption of OpenTelemetry
+        distributed tracing across 40+ microservices.
+    \end{itemize}
+    \job{Software Engineer --- Enterprise Telecom Solutions}{2015 --- 2019}
+    \begin{itemize}
+      \item Built asynchronous network mediation pipelines in Python/C++ processing 500M daily
+        telemetry events.
+      \item Delivered carrier-grade reliability with 99.999\% uptime compliance.
+    \end{itemize}
+
+    \cvsection{Skills \& Technologies}
+    \begin{itemize}
+      \item \textbf{Languages \& Frameworks:} Go, Python (FastAPI, AsyncIO), C++, SQL, Bash
+      \item \textbf{Data \& Infra:} PostgreSQL, Redis, ClickHouse, Apache Kafka, Docker, Kubernetes,
+        Terraform, Prometheus, Grafana
+    \end{itemize}
+
+    \cvsection{Education}
+    \job{Bauman Moscow State Technical University}{2013 --- 2019}
+    Specialist degree (M.S. equivalent) in Computer Science
     \end{document}

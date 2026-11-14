@@ -27,7 +27,7 @@ keywords:
   - 'свой цвет hex в latex xcolor'
   - 'цвет rgb в latex xcolor'
 datePublished: '2026-09-05'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '6 мин'
 cardTitle: 'Пользовательские цвета RGB и HEX в LaTeX: точная палитра через xcolor'
 cardDescription: |2-
@@ -122,6 +122,20 @@ sections:
       \begin{equation}
           \textcolor{BrandBlue}{E} = \textcolor{WarningAmber}{m} \cdot \textcolor{EmeraldGreen}{c^2}
       \end{equation}</code></pre>
+                              </div>
+                              <p>Ссылки окрашивает пакет <code>hyperref</code>: после опции
+      <code>colorlinks=true</code> внутренние ссылки (на разделы, формулы, рисунки) берут цвет из
+      <code>linkcolor</code>, а веб-адреса — из <code>urlcolor</code>. Пакет подключают в конце
+      преамбулы, после объявления цветов:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX</span></div>
+                                  <pre><code>% В преамбуле
+      \usepackage{hyperref}
+      \hypersetup{colorlinks=true, linkcolor=BrandBlue, urlcolor=EmeraldGreen}
+
+      % В тексте документа
+      Подробнее в разделе~\ref{sec:results} и на сайте \url{https://ctan.org/pkg/xcolor}.</code></pre>
                               </div>
   - id: 'cmyk-print'
     title: 'Особенности подготовки к полиграфической печати (CMYK)'

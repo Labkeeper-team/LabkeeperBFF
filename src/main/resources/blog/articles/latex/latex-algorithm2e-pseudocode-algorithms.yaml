@@ -27,7 +27,7 @@ keywords:
   - 'псевдокод в latex algorithm2e'
   - 'оформление алгоритма в latex'
 datePublished: '2026-09-06'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '8 мин'
 cardTitle: 'Псевдокод и алгоритмы в LaTeX: пакет algorithm2e от А до Я'
 cardDescription: |2-
@@ -116,7 +116,8 @@ sections:
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX Русификация</span></div>
-                                  <pre><code>\SetKwInOut{Input}{Вход}
+                                  <pre><code>\SetAlgorithmName{Алгоритм}{алгоритм}{Список алгоритмов}
+      \SetKwInOut{Input}{Вход}
       \SetKwInOut{Output}{Выход}
       \SetKw{KwTo}{до}
       \SetKw{KwDownTo}{вниз до}
@@ -126,6 +127,10 @@ sections:
       \SetKwFor{ForEach}{для каждого}{выполнять}{конец цикла}
       \SetKw{Return}{вернуть}</code></pre>
                               </div>
+                              <p>Первая строка переименовывает подпись: algorithm2e не берёт язык из
+      babel, и без <code>\SetAlgorithmName</code> в подписи останется «Algorithm 1». Если
+      вы пользуетесь <code>\KwData</code> и <code>\KwResult</code>, переведите и их:
+      <code>\SetKwInput{KwData}{Дано}</code> и <code>\SetKwInput{KwResult}{Результат}</code>.</p>
   - id: 'complete-example'
     title: 'Оформление алгоритма в LaTeX: законченный пример'
     html: |2-

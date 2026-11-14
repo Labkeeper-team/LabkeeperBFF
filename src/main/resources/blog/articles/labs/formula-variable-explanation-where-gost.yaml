@@ -30,7 +30,7 @@ keywords:
   - 'где без двоеточия гост'
   - 'пояснение символов под формулой'
 datePublished: '2026-09-05'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '9 мин'
 cardTitle: 'Пояснение переменных под формулой по ГОСТ: правила и шаблоны'
 cardDescription: |-
@@ -124,8 +124,11 @@ sections:
           <code>m₁, m₂ — массы первого и второго тела, кг;</code>.</li>
       </ul>
       <p>Единицы по&nbsp;ГОСТ 8.417 набирают прямым шрифтом и&nbsp;по-русски: в&nbsp;тексте пишут
-      «м/с», внутри формулы — <code>\text{м/с}</code> или <code>\si{\metre\per\second}</code> из&nbsp;<a
-      href="/blog/latex-siunitx">пакета siunitx</a> с&nbsp;русской локализацией.</p>
+      «м/с», внутри формулы — <code>\text{м/с}</code> или команды <a
+      href="/blog/latex-siunitx">пакета siunitx</a>. Русская локализация siunitx меняет только
+      десятичный знак и&nbsp;похожие настройки, а&nbsp;не&nbsp;обозначения: <code>\si{\metre\per\second}</code>
+      по-прежнему выведет «m/s». Русские обозначения объявляют сами, например
+      <code>\DeclareSIUnit{\metre}{м}</code> и&nbsp;<code>\DeclareSIUnit{\second}{с}</code>.</p>
   - id: 'latex-snippets'
     title: 'Шаблоны в LaTeX: таблица и список description'
     html: |-

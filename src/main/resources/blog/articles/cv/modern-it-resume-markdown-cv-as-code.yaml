@@ -23,7 +23,7 @@ keywords:
   - 'markdown шаблон резюме разработчика'
   - 'создать cv в markdown онлайн'
 datePublished: '2026-09-06'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '8 мин'
 cardTitle: 'IT-резюме в Markdown: пишем CV как код с контролем версий в Git'
 cardDescription: |2-
@@ -140,7 +140,41 @@ sections:
                               <p>Продвинутый уровень: создайте приватный или публичный репозиторий
       <code>my-resume</code> на GitHub. Настройте GitHub Action, который при каждом пуше в ветку
       <code>main</code> компилирует ваш <code>resume.md</code> в свежий <code>resume.pdf</code> и
-      публикует его в GitHub Releases.</p>
+      публикует его в GitHub Releases. Для этого положите в репозиторий файл
+      <code>.github/workflows/resume.yml</code>:</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">.github/workflows/resume.yml</span></div>
+                                  <pre><code>name: Build resume
+      on:
+        push:
+          branches: [main]
+
+      permissions:
+        contents: write
+
+      jobs:
+        pdf:
+          runs-on: ubuntu-latest
+          steps:
+            - uses: actions/checkout@v4
+            - name: Install Pandoc and XeLaTeX
+              run: |
+                sudo apt-get update
+                sudo apt-get install -y pandoc texlive-xetex texlive-latex-recommended texlive-fonts-recommended texlive-lang-cyrillic fonts-dejavu-core
+            - name: Build PDF
+              run: pandoc resume.md -o resume.pdf --pdf-engine=xelatex -V mainfont="DejaVu Serif"
+            - name: Publish release
+              uses: softprops/action-gh-release@v2
+              with:
+                tag_name: resume-${{ github.run_number }}
+                files: resume.pdf</code></pre>
+                              </div>
+                              <p>Релиз в GitHub привязан к тегу, поэтому имя тега здесь собирается из
+      номера запуска: каждый пуш дает новый релиз <code>resume-1</code>, <code>resume-2</code> и так
+      далее. Шрифт DejaVu Serif задан явно, чтобы XeLaTeX напечатал кириллицу. Если отдельные релизы
+      не нужны, замените последний шаг на <code>actions/upload-artifact@v4</code> с
+      <code>path: resume.pdf</code> — PDF будет лежать в артефактах сборки.</p>
 tips:
   - title: 'Кликабельные ссылки в шапке'
     html: |2-

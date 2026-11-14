@@ -27,7 +27,7 @@ keywords:
   - 'нарисовать граф в latex tikz automata'
   - 'конечный автомат latex онлайн'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-14'
 readingTime: '8 мин'
 cardTitle: 'Конечные автоматы и графы в LaTeX: руководство по библиотеке TikZ automata'
 cardDescription: |2-
@@ -166,10 +166,25 @@ editorExample:
     \usepackage[utf8]{inputenc}
     \usepackage[english,russian]{babel}
     \usepackage{amsmath,graphicx}
-    \usepackage{tikz}\usetikzlibrary{automata,positioning}
+    \usepackage{tikz}
+    \usetikzlibrary{automata, positioning, arrows.meta}
     \begin{document}
-    \begin{tikzpicture}[node distance=3cm,>=stealth]
-    \node[state,initial] (a) {$q_0$};\node[state,accepting,right of=a] (b) {$q_1$};
-    \path[->] (a) edge[bend left] node[above]{1} (b) (b) edge[bend left] node[below]{0} (a);
+    \begin{tikzpicture}[
+        shorten >=1pt,
+        node distance=3cm,
+        on grid,
+        auto,
+        every state/.style={thick, fill=blue!10}
+    ]
+        % Состояния
+        \node[state, initial, accepting] (q_0)   {$q_0$};
+        \node[state]                    (q_1) [right=of q_0] {$q_1$};
+
+        % Переходы
+        \path[-{Stealth}]
+            (q_0) edge [loop above] node {1} (q_0)
+                  edge [bend left]  node {0} (q_1)
+            (q_1) edge [loop above] node {1} (q_1)
+                  edge [bend left]  node {0} (q_0);
     \end{tikzpicture}
     \end{document}

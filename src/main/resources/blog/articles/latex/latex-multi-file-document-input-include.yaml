@@ -28,7 +28,7 @@ keywords:
   - 'разбить диплом на несколько файлов latex'
   - 'команда include latex'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-14'
 readingTime: '7 мин'
 cardTitle: 'Модульная структура проекта в LaTeX: команды include, input и includeonly'
 cardDescription: |2-
@@ -119,6 +119,9 @@ sections:
       \include{chapters/04-concl}
 
       \input{biblio} % Список литературы: окружение thebibliography
+
+      \appendix
+      \include{appendices/app-a-code} % Приложение А с листингами
       \end{document}</code></pre>
                               </div>
                               <p>Класс <code>extreport</code> нужен для кегля 14 пт: стандартный

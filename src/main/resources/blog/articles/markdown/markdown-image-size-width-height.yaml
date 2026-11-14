@@ -30,7 +30,7 @@ keywords:
   - 'markdown img width'
   - 'размер картинки readme github'
 datePublished: '2026-09-05'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '8 мин'
 cardTitle: 'Размер картинки в Markdown: ширина, высота и центрирование'
 cardDescription: |2-
@@ -231,7 +231,8 @@ sections:
         &lt;img src="after.png" alt="После калибровки" width="45%"&gt;
       &lt;/p&gt;</code></pre>
       </div>
-      <p>На узком экране картинки встанут друг под другом. Для PDF с картинками в ряд и отдельными
+      <p>На узком экране обе картинки пропорционально уменьшатся и останутся в одном ряду; если нужен
+      перенос, задайте ширину в пикселях (<code>width="300"</code>). Для PDF с картинками в ряд и отдельными
       подписями удобнее LaTeX: см. <a href="/blog/latex-minipage-images-tables-side-by-side">картинки
       и таблицы рядом через minipage</a>.</p>
       <h3>Картинка-ссылка</h3>

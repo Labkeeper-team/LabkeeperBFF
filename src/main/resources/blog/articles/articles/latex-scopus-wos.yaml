@@ -37,7 +37,7 @@ keywords:
   - 'шаблон статьи scopus latex онлайн'
   - 'подготовка публикации wos в latex'
 datePublished: '2026-08-20'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '9 мин'
 cardTitle: |2-
   Подготовка статьи для публикации в журнале Scopus/WoS: базовый шаблон
@@ -252,9 +252,26 @@ editorExample:
 
     \begin{document}
     \title{A Reproducible Measurement Method}\author{Anna Petrova}\date{}\maketitle
-    \begin{abstract}We compare two measurement methods.\end{abstract}
-    \section{Introduction}Research question.
-    \section{Methods}Three repeated measurements.
-    \section{Results}The average was 5.2.
-    \section{Discussion}A larger sample is needed.
+    \begin{abstract}We compare two measurement methods and estimate their random error.\end{abstract}
+    \noindent\textbf{Keywords:} measurement, reproducibility, random error.
+
+    \section{Introduction}
+    Repeated measurements are a standard way to estimate random error \cite{smith2024}.
+    \section{Methods}
+    Three repeated measurements were averaged:
+    \begin{equation}
+      \bar{x} = \frac{1}{N}\sum_{i=1}^{N} x_i .
+    \end{equation}
+    \section{Results}
+    The average was 5.2.
+    \section{Discussion}
+    A larger sample is needed.
+
+    \section*{Acknowledgment}
+    This work was supported by a research grant (No.~0000).
+
+    \begin{thebibliography}{1}
+    \bibitem{smith2024} J.~Smith, ``Scalable validation pipelines for laboratory
+      telemetry,'' \emph{IEEE Trans. Instrum. Meas.}, vol.~73, pp.~1--10, 2024.
+    \end{thebibliography}
     \end{document}

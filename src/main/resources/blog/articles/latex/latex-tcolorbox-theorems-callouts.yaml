@@ -27,7 +27,7 @@ keywords:
   - 'красивые рамки для теорем latex tcolorbox'
   - 'цветной блок с текстом latex'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-14'
 readingTime: '8 мин'
 cardTitle: 'Цветные блоки и рамки для теорем в LaTeX: руководство по пакету tcolorbox'
 cardDescription: |2-
@@ -152,10 +152,40 @@ editorExample:
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
     \usepackage[english,russian]{babel}
-    \usepackage{amsmath,graphicx}
-    \usepackage{tcolorbox}
+    \usepackage{amsmath}
+    \usepackage[most]{tcolorbox}
+
+    \newtcbtheorem[number within=section]{mytheorem}{Теорема}%
+    {colback=green!5,colframe=green!50!black,fonttitle=\bfseries}{th}
+
+    \newtcolorbox{warningbox}{
+        colback=red!5!white,
+        colframe=red!75!black,
+        leftrule=5mm,
+        rightrule=0.5mm, toprule=0.5mm, bottomrule=0.5mm,
+        arc=1mm,
+        title=\textbf{Внимание!}
+    }
+
     \begin{document}
-    \begin{tcolorbox}[title=Pythagorean theorem,colback=blue!5,colframe=blue!60!black]
-    For a right triangle, $a^2+b^2=c^2$.
+    \section{Цветные блоки tcolorbox}
+
+    \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,
+        title=Ключевой вывод,arc=3mm]
+    Энтропия изолированной термодинамической системы не может убывать
+    в самопроизвольных процессах.
     \end{tcolorbox}
+
+    \begin{mytheorem}{Пифагора}{pythagoras}
+    В прямоугольном треугольнике квадрат длины гипотенузы равен сумме
+    квадратов длин катетов:
+    \[ c^2 = a^2 + b^2. \]
+    \end{mytheorem}
+
+    Согласно теореме~\ref{th:pythagoras}, для катетов $3$ и $4$ гипотенуза
+    равна $5$.
+
+    \begin{warningbox}
+    Теорема~\ref{th:pythagoras} верна только для прямоугольных треугольников.
+    \end{warningbox}
     \end{document}

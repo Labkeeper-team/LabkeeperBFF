@@ -28,7 +28,7 @@ keywords:
   - 'настройка полей страницы latex geometry'
   - 'размер полей гост в latex'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-14'
 readingTime: '6 мин'
 cardTitle: 'Настройка полей страницы в LaTeX по ГОСТ: пакет geometry'
 cardDescription: |2-
@@ -49,7 +49,7 @@ toc:
   - id: 'headers-footers-offset'
     title: 'Учет колонтитулов и переплета (bindingoffset)'
   - id: 'two-sided'
-    title: 'Двусторонняя печать для диссертаций (twoside)'
+    title: 'Двусторонняя печать (twoside)'
 sections:
   - id: 'gost-standards'
     title: 'Размер полей ГОСТ в LaTeX: требования стандарта 7.32'
@@ -96,13 +96,18 @@ sections:
       полезно добавить параметр <code>bindingoffset=5mm</code>, который автоматически сместит текст
       для компенсации толщины сшивки.</p>
   - id: 'two-sided'
-    title: 'Двусторонняя печать для диссертаций (twoside)'
+    title: 'Двусторонняя печать (twoside)'
     html: |2-
                               <p>При двусторонней печати документа поля чередуются на четных и
       нечетных листах. В таком случае у <code>\documentclass</code> нужна опция <code>twoside</code>,
-      а вместо <code>left</code> и <code>right</code> задаются <code>inner=30mm</code> (внутреннее
-      поле корешка) и <code>outer=15mm</code> (внешнее поле). Без <code>twoside</code> эти ключи не
+      а вместо <code>left</code> и <code>right</code> задаются <code>inner</code> (внутреннее поле
+      корешка) и <code>outer</code> (внешнее поле): для отчета по ГОСТ 7.32-2017 это
+      <code>inner=30mm</code> и <code>outer=15mm</code>, для диссертации по ГОСТ Р 7.0.11-2011 —
+      <code>inner=25mm</code> и <code>outer=10mm</code>. Без <code>twoside</code> эти ключи не
       чередуются.</p>
+                              <p>Прежде чем включать двустороннюю печать, уточните в методичке вуза
+      или у издателя, допускается ли она: отчеты и диссертации по ГОСТ обычно печатают на одной
+      стороне листа.</p>
 tips:
   - title: 'Контроль геометрии ключом showframe'
     html: |2-

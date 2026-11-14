@@ -28,7 +28,7 @@ keywords:
   - 'настройка biblatex biber онлайн'
   - 'сортировка списка литературы biblatex'
 datePublished: '2026-09-05'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '8 мин'
 cardTitle: 'Современная библиография в LaTeX: связка biblatex + biber для ГОСТ'
 cardDescription: |2-
@@ -149,7 +149,7 @@ sections:
       $\to$ <code>biber main</code> $\to$ <code>pdflatex main</code>. Так выглядит локальная сборка:
       latexmk и редакторы вроде TeXstudio запускают эту цепочку сами.</p>
                               <p>В <strong>Labkeeper</strong> Biber пока не запускается, поэтому
-      список из .bib-файла останется пустым, а ссылки превратятся в «[?]». Для онлайн-сборки оформите
+      список из .bib-файла останется пустым, а вместо номеров ссылок появятся ключи записей жирным шрифтом (например, [react_docs]). Для онлайн-сборки оформите
       список через <code>thebibliography</code>, как в примере для редактора.</p>
 tips:
   - title: 'Удаление вспомогательных файлов при локальной сборке'

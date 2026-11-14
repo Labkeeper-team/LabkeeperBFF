@@ -38,7 +38,7 @@ keywords:
   - 'система неравенств latex'
   - 'systeme latex'
 datePublished: '2026-08-20'
-dateModified: '2026-11-05'
+dateModified: '2026-11-14'
 readingTime: '10 мин'
 cardTitle: 'Система уравнений в LaTeX: фигурная скобка, cases и aligned'
 cardDescription: |-
@@ -134,8 +134,7 @@ sections:
       </div>
       <p>Символ <code>&amp;</code> отделяет формулу от&nbsp;условия, в&nbsp;строке он&nbsp;ставится
       один раз. Две косые черты <code>\\</code> переносят на&nbsp;новую строку. После последней строки
-      <code>\\</code> не&nbsp;ставят: иначе появится пустая строка и&nbsp;скобка станет выше
-      нужного. Русские слова в&nbsp;условии всегда заключайте в&nbsp;<code>\text{…}</code>.</p>
+      <code>\\</code> ставить не&nbsp;нужно. Русские слова в&nbsp;условии всегда заключайте в&nbsp;<code>\text{…}</code>.</p>
   - id: 'aligned'
     title: 'Выравнивание по знаку «=»: \left\{ и aligned'
     html: |-
@@ -323,11 +322,11 @@ sections:
           предупреждение <code>Command \cyre invalid in math mode</code>, а&nbsp;в&nbsp;PDF буквы
           пропадают или превращаются в&nbsp;мусор, пробелы между словами исчезают.</li>
           <li><strong><code>align</code> внутри <code>\left\{ … \right.</code></strong> — не&nbsp;собирается:
-          LaTeX выдаёт <code>Missing $ inserted</code> и&nbsp;<code>\begin{align} allowed only in
-          paragraph mode</code>. Внутри скобок используйте <code>aligned</code>, а&nbsp;для нумерации
+          LaTeX выдаёт <code>Erroneous nesting of equation structures; trying to recover with
+          `aligned'</code>. Внутри скобок используйте <code>aligned</code>, а&nbsp;для нумерации
           строк — <code>empheq</code>.</li>
-          <li><strong>Лишний <code>\\</code> после последней строки</strong> — внизу появляется пустая
-          строка, и&nbsp;скобка становится несимметричной.</li>
+          <li><strong>Лишний <code>\\</code> в&nbsp;конце <code>align</code></strong> — появляется пустая
+          строка с&nbsp;номером.</li>
           <li><strong><code>Undefined control sequence \systeme</code></strong> — не&nbsp;подключён пакет
           <code>systeme</code> или код вставлен в&nbsp;Markdown, где этого пакета нет.</li>
       </ul>

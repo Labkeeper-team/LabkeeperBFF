@@ -37,7 +37,7 @@ keywords:
   - 'настройка fancyhdr онлайн latex'
   - 'красивые колонтитулы в latex'
 datePublished: '2026-08-20'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '8 мин'
 cardTitle: 'Настройка колонтитулов и нумерации страниц в стиле научных журналов'
 cardDescription: |2-
@@ -208,14 +208,62 @@ sections:
                               </div>
 editorExample:
   latex: |2-
-    \documentclass[a4paper,12pt]{article}
+    \documentclass[a4paper,twoside,11pt]{article}
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
-    \usepackage[english,russian]{babel}
-    \usepackage{amsmath,graphicx}
-    \usepackage{fancyhdr}\pagestyle{fancy}\fancyhf{}
-    \fancyhead[L]{Research report}\fancyhead[R]{Labkeeper}\fancyfoot[C]{\thepage}
+    \usepackage[russian]{babel}
+    \usepackage{fancyhdr}
+    \usepackage{lastpage} % для формата «Стр. X из Y»
+
+    \setlength{\headheight}{14pt}
+    \pagestyle{fancy}
+    \fancyhf{}
+    % Чётные страницы (Even): автор и название статьи слева
+    \fancyhead[LE]{\small\textbf{Иванов И.\,И.} / Исследование моделей данных}
+    % Нечётные страницы (Odd): журнал справа
+    \fancyhead[RO]{\small Журнал прикладных исследований · 2026}
+    \fancyfoot[C]{\small Стр. \thepage\ из \pageref{LastPage}}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+
+    % Первая страница (\maketitle): только номер, без линий
+    \fancypagestyle{plain}{%
+      \fancyhf{}
+      \fancyfoot[C]{\small Стр. \thepage\ из \pageref{LastPage}}
+      \renewcommand{\headrulewidth}{0pt}
+      \renewcommand{\footrulewidth}{0pt}
+    }
+
+    \title{Исследование моделей данных}
+    \author{И.\,И.~Иванов}
+    \date{2026}
+
     \begin{document}
-    \section{Methods}First page.
-    \newpage\section{Results}Second page.
+    \maketitle
+
+    \begin{abstract}
+    На первой странице действует стиль \texttt{plain}: верхнего колонтитула
+    и линий нет, внизу~--- только номер страницы.
+    \end{abstract}
+
+    \section{Введение}
+    Это первая страница. Команда \verb|\maketitle| переключила её на стиль
+    \texttt{plain}, который мы переопределили через \verb|\fancypagestyle|.
+
+    \clearpage
+    \section{Методы}
+    Это вторая, чётная страница. В шапке слева~--- автор и название статьи
+    (поле \texttt{LE}), под шапкой и над подвалом~--- линии толщиной 0,4\,pt,
+    внизу по центру~--- «Стр.~X из~Y».
+
+    \clearpage
+    \section{Результаты}
+    Это третья, нечётная страница. Колонтитул зеркально перешёл направо:
+    теперь в шапке справа название журнала (поле \texttt{RO}).
+
+    \clearpage
+    \section{Заключение}
+    Четвёртая страница снова чётная, и шапка опять слева. Общее число страниц
+    в подвале берётся из метки \texttt{LastPage}, поэтому документ нужно
+    скомпилировать дважды.
     \end{document}

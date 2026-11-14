@@ -27,7 +27,7 @@ keywords:
   - 'нумерация скриншотов в отчете гост'
   - 'подпись под рисунком со скриншотом'
 datePublished: '2026-09-05'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '7 мин'
 cardTitle: 'Скриншоты программ в студенческих отчетах и дипломах по ГОСТ 7.32'
 cardDescription: |2-
@@ -123,6 +123,7 @@ sections:
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
                                   <pre><code>% Преамбула
+      \usepackage{graphicx}
       \usepackage{caption}
       \DeclareCaptionLabelSeparator{emdash}{\ --- }
       \captionsetup[figure]{labelsep=emdash}

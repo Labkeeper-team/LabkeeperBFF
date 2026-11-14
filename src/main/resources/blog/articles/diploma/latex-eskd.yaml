@@ -38,7 +38,7 @@ keywords:
   - 'рамка ескд latex tikz'
   - 'штамп форма 2 и 2а latex'
 datePublished: '2026-08-20'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '12 мин'
 cardTitle: 'Рамка и штамп по ЕСКД в LaTeX: формы 2 и 2а'
 cardDescription: 'Готовый код рамки 20-5-5-5 мм и основной надписи по формам 2 и 2а на TikZ для пояснительной записки.'
@@ -172,7 +172,7 @@ sections:
       \usepackage[utf8]{inputenc}
       \usepackage[russian]{babel}
       \usepackage{amsmath}
-      \usepackage[left=25mm,right=10mm,top=15mm,bottom=25mm]{geometry}
+      \usepackage[left=25mm,right=10mm,top=15mm,bottom=30mm]{geometry}
       \usepackage{tikz}
       \usepackage{lastpage}
       \usepackage{tocloft} % заголовок «Содержание» по центру
@@ -276,7 +276,7 @@ sections:
       </div>
       <p>Как устроен код:</p>
       <ul>
-          <li>Нижнее поле 25&nbsp;мм оставляет место под штамп формы 2а, а
+          <li>Нижнее поле 30&nbsp;мм оставляет место под штамп формы 2а и 10&nbsp;мм над ним, а
       <code>\enlargethispage{-25mm}</code> на листе содержания освобождает место под более высокий
       штамп формы 2.</li>
           <li>Номер листа (графа «Лист») подставляет <code>\thepage</code>, поэтому обычный номер
@@ -338,7 +338,7 @@ sections:
                   <h3>Поля текста внутри рамки</h3>
                   <p>Поля <code>geometry</code> задают, где идёт текст, а не где нарисована рамка.
       Текст не должен заходить на линии рамки и штамп: держите левое поле не меньше 25&nbsp;мм,
-      а нижнее — не меньше 25&nbsp;мм. Подробнее о полях — в статье о <a
+      а нижнее — не меньше 30&nbsp;мм (10&nbsp;мм над штампом формы 2а). Подробнее о полях — в статье о <a
       href="/blog/latex-geometry-margins-gost">пакете geometry по ГОСТ</a>.</p>
               </div>
           </div>
@@ -381,7 +381,7 @@ editorExample:
     \usepackage[utf8]{inputenc}
     \usepackage[russian]{babel}
     \usepackage{amsmath}
-    \usepackage[left=25mm,right=10mm,top=15mm,bottom=25mm]{geometry}
+    \usepackage[left=25mm,right=10mm,top=15mm,bottom=30mm]{geometry}
     \usepackage{tikz}
     \usepackage{lastpage}
     \usepackage{tocloft} % заголовок «Содержание» по центру

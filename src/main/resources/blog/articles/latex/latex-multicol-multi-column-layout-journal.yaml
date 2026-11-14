@@ -27,7 +27,7 @@ keywords:
   - 'текст в 3 колонки latex multicol'
   - 'верстка газеты в latex онлайн'
 datePublished: '2026-09-06'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '7 мин'
 cardTitle: 'Многоколоночная верстка в LaTeX: пакет multicol для журналов и газет'
 cardDescription: |2-
@@ -49,6 +49,8 @@ toc:
     title: 'Текст в 3 колонки LaTeX multicol: подключение и базовый синтаксис'
   - id: 'styling-columns'
     title: 'Настройка разделительных линий columnseprule и отступов'
+  - id: 'column-breaks'
+    title: 'Переход в следующую колонку: columnbreak и raggedcolumns'
   - id: 'newspaper-layout'
     title: 'Верстка газеты в LaTeX онлайн: врезки, шапки и сбалансированные колонки'
   - id: 'wide-elements'
@@ -107,6 +109,27 @@ sections:
       интерактивность — ознакомьтесь с принципами <a
       href="/blog/latex-hyperref-pdf-bookmarks-navigation">навигации по разделам документа через
       hyperref</a>.</p>
+  - id: 'column-breaks'
+    title: 'Переход в следующую колонку: columnbreak и raggedcolumns'
+    html: |2-
+                              <p>Команда <code>\columnbreak</code> обрывает текущую колонку: текст после
+      нее начинается сверху следующей колонки, даже если в предыдущей еще осталось место. Так удобно
+      начинать новую заметку или рубрику с верха колонки.</p>
+                              <p>При таком переходе пакет по умолчанию растягивает вертикальные
+      пробелы в укороченной колонке, чтобы ее низ совпал с соседними. Если промежутки между абзацами и
+      заголовками от этого становятся слишком большими, поставьте перед окружением команду
+      <code>\raggedcolumns</code> — тогда каждая колонка сохранит естественную высоту. Команда
+      <code>\flushcolumns</code> возвращает поведение по умолчанию.</p>
+                              <div class="article-code">
+                                  <div class="article-code__header"><span
+      class="article-code__lang">LaTeX columnbreak</span></div>
+                                  <pre><code>\raggedcolumns
+      \begin{multicols}{3}
+      Первая заметка...
+      \columnbreak
+      Вторая заметка начинается с верха следующей колонки.
+      \end{multicols}</code></pre>
+                              </div>
   - id: 'newspaper-layout'
     title: 'Верстка газеты в LaTeX онлайн: врезки, шапки и сбалансированные колонки'
     html: |2-
@@ -163,22 +186,38 @@ tips:
       преамбуле, и колонки задаст сам класс журнала.</p>
 editorExample:
   latex: |2-
-    \documentclass[a4paper,12pt]{article}
+    \documentclass[a4paper,11pt]{article}
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
-    \usepackage[english,russian]{babel}
-    \usepackage{amsmath,graphicx}
+    \usepackage[russian]{babel}
+    \usepackage[margin=2cm]{geometry}
     \usepackage{multicol}
+    \setlength{\columnsep}{18pt}
+    \setlength{\columnseprule}{0.4pt}
     \begin{document}
-    \selectlanguage{english}
+    \begin{center}
+    {\Huge\bfseries ВЕСТНИК ЛАБОРАТОРИИ}\\[0.2cm]
+    {\small Выпуск № 1 \hfill 14 ноября 2026 г.}\\
+    \hrulefill
+    \end{center}
     \raggedcolumns
-    \begin{multicols}{2}
-    \section*{First column}A short newspaper-style article. Without an explicit break the package
-    balances the text across columns so that their bottom edges are level. The
-    \texttt{\textbackslash raggedcolumns} command keeps each column at its natural height instead
-    of stretching the space between headings and paragraphs.
+    \begin{multicols}{3}[\section*{Три колонки с разделительными линиями}]
+    Заголовок выше передан в необязательном аргументе окружения \texttt{multicols}
+    и поэтому занимает всю ширину страницы, а текст ниже идет в три колонки.
+    Расстояние между ними задает \texttt{\textbackslash columnsep}, а тонкую
+    вертикальную линию~--- \texttt{\textbackslash columnseprule}.
+
+    Без явных переходов пакет сам распределяет текст и выравнивает нижний край
+    колонок в конце блока.
     \columnbreak
-    \section*{Second column}An explicit \texttt{\textbackslash columnbreak} starts this section at
-    the top of the next column, even though the first column still has free space below its text.
+
+    \subsection*{Вторая заметка}
+    Команда \texttt{\textbackslash columnbreak} перенесла эту заметку в начало
+    следующей колонки, хотя в первой еще есть место.
+    \columnbreak
+
+    \subsection*{Третья заметка}
+    Благодаря \texttt{\textbackslash raggedcolumns} укороченные колонки сохраняют
+    естественную высоту, и пробелы между абзацами не растягиваются.
     \end{multicols}
     \end{document}

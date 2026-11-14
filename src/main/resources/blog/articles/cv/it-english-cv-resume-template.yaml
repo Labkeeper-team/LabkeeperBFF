@@ -22,7 +22,7 @@ keywords:
   - 'шаблон резюме на английском cv builder'
   - 'cv in english template it'
 datePublished: '2026-09-05'
-dateModified: '2026-10-18'
+dateModified: '2026-11-14'
 readingTime: '7 мин'
 cardTitle: 'Англоязычное резюме (CV) для IT-специалистов: шаблон LaTeX'
 cardDescription: |2-
@@ -119,6 +119,9 @@ sections:
 
       \urlstyle{same}
 
+      % Заголовки секций в стиле Jake's Resume: капитель и линия под названием
+      \titleformat{\section}{\vspace{-4pt}\scshape\raggedright\large}{}{0em}{}[\titlerule \vspace{-5pt}]
+
       \begin{document}
 
       % ШАПКА
@@ -129,23 +132,34 @@ sections:
           \href{https://github.com/alex}{\underline{github.com/alex}}
       \end{center}
 
+      % ОБРАЗОВАНИЕ
+      \section*{Education}
+      \textbf{ITMO University} \hfill {\small Saint Petersburg, Russia} \\
+      \emph{B.S. in Computer Science, GPA 4.7/5.0} \hfill {\small Sep 2020 -- Jun 2024}
+
       % ТЕХНИЧЕСКИЕ НАВЫКИ
       \section*{Technical Skills}
       \begin{itemize}[leftmargin=0.15in, label={}]
-          \small{\item{
+          \small \item
            \textbf{Languages}{: Python, Go, TypeScript, SQL, C++} \\
            \textbf{Frameworks}{: FastAPI, Django, React, Node.js} \\
            \textbf{Infrastructure}{: Docker, Kubernetes, AWS, PostgreSQL, Redis, Git, CI/CD}
-          }}
       \end{itemize}
 
       % ОПЫТ РАБОТЫ
       \section*{Experience}
-      \textbf{Backend Software Engineer} $|$ \emph{Fintech Solutions} \hfill \small{Jun 2024 -- Present} \\
+      \textbf{Backend Software Engineer} $|$ \emph{Fintech Solutions} \hfill {\small Jun 2024 -- Present}
       \begin{itemize}[leftmargin=0.15in]
           \item Designed and implemented a high-throughput payment processing microservice handling 3,000+ RPS with Go and PostgreSQL.
           \item Reduced database query latency by 45\% through Redis caching and query index optimization.
           \item Automated CI/CD deployment pipelines using GitHub Actions, cutting release cycle time from 2 hours to 15 minutes.
+      \end{itemize}
+
+      % ПРОЕКТЫ
+      \section*{Projects}
+      \textbf{rate-limiter} $|$ \emph{Go, Redis} \hfill \href{https://github.com/alex/rate-limiter}{\underline{github.com/alex/rate-limiter}}
+      \begin{itemize}[leftmargin=0.15in]
+          \item Built an open-source distributed rate limiter used as middleware in Go HTTP services.
       \end{itemize}
 
       \end{document}</code></pre>

@@ -27,7 +27,7 @@ keywords:
   - 'русский язык в листингах кода latex'
   - 'ошибка кириллицы в listings latex'
 datePublished: '2026-09-06'
-dateModified: '2026-10-18'
+dateModified: '2026-11-14'
 readingTime: '8 мин'
 cardTitle: 'Кириллица в листингах кода LaTeX: решение проблем в listings и minted'
 cardDescription: |2-
@@ -167,11 +167,14 @@ sections:
       \end{minted}</code></pre>
                               </div>
                               <p><em>Обратите внимание:</em> <code>minted</code> запускает внешнюю
-      программу — Python с библиотекой Pygments, поэтому для локальной сборки нужен флаг компиляции
-      <code>-shell-escape</code>. В Labkeeper minted не работает: серверная сборка запрещает запуск
-      внешних программ, и пакет останавливается с ошибкой <code>minted executable is unavailable or
-      disabled</code>. Используйте <code>listings</code> с таблицей <code>literate</code> из раздела
-      выше.</p>
+      программу с библиотекой Pygments. Для minted 2.x нужен флаг компиляции
+      <code>-shell-escape</code>. minted 3 вызывает программу <code>latexminted</code> (Python-пакет
+      с тем же именем) и в TeX Live 2024 и новее работает и при ограниченном shell escape, без
+      полного <code>-shell-escape</code>. В Labkeeper minted не работает: серверная сборка запрещает запуск
+      внешних программ, и пакет останавливается с ошибкой о том, что его внешняя программа
+      недоступна (в minted 3 сообщение начинается со слов «minted v3+ executable is not installed»;
+      точный текст зависит от версии). Используйте <code>listings</code> с таблицей
+      <code>literate</code> из раздела выше.</p>
   - id: 'xelatex-lualatex'
     title: 'Движки XeLaTeX и LuaLaTeX при локальной сборке'
     html: |2-

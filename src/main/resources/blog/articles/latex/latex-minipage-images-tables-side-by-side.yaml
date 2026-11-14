@@ -27,7 +27,7 @@ keywords:
   - 'две картинки рядом latex minipage'
   - 'текст рядом с таблицей latex'
 datePublished: '2026-09-05'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '7 мин'
 cardTitle: 'Картинки и таблицы бок о бок в LaTeX: руководство по minipage'
 cardDescription: |2-
@@ -161,6 +161,10 @@ editorExample:
     \usepackage[english,russian]{babel}
     \usepackage{amsmath,graphicx}
     \usepackage{caption}
+    % Подписи по ГОСТ 7.32-2017: «Рисунок 1 – ...», «Таблица 1 – ...» слева над таблицей
+    \captionsetup{labelsep=endash}
+    \captionsetup[table]{justification=raggedright,singlelinecheck=false}
+    \addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
 
     \begin{document}
     \noindent
@@ -168,7 +172,7 @@ editorExample:
     \fbox{\parbox[c][25mm][c]{35mm}{\centering Место\\для рисунка}}
     \captionof{figure}{Схема установки}
     \end{minipage}\hfill
-    \begin{minipage}[b]{.46\textwidth}\centering
+    \begin{minipage}[b]{.46\textwidth}
     \captionof{table}{Результаты измерений}
     \begin{tabular}{|c|c|}\hline $t$, с & $x$, м\\\hline 1 & 2\\2 & 4\\\hline\end{tabular}
     \end{minipage}

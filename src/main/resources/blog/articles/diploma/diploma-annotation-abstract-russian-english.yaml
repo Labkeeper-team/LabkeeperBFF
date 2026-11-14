@@ -31,7 +31,7 @@ keywords:
   - 'как написать аннотацию к вкр пример'
   - 'abstract диплом перевод шаблон'
 datePublished: '2026-09-06'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '8 мин'
 cardTitle: 'Аннотация и Abstract к диплому: русская и английская версии по ГОСТ'
 cardDescription: |2-
@@ -178,7 +178,7 @@ editorExample:
     \begin{center}\textbf{РЕФЕРАТ}\end{center}
     ВКР содержит \pageref{LastPage}~с., 28~рис., 12~табл., 35~источников, 3~прил.
 
-    \noindent МОНИТОРИНГ, ПРЕДИКТИВНЫЙ АНАЛИЗ, МЕТРИКИ
+    \noindent МОНИТОРИНГ, СЕРВЕРНАЯ ИНФРАСТРУКТУРА, ПРЕДИКТИВНЫЙ АНАЛИЗ, FASTAPI, PROMETHEUS, МЕТРИКИ
 
     Объект исследования --- серверная инфраструктура. Цель --- сократить время обнаружения сбоев.
     В результате оно сокращено на 38\,\%.
@@ -186,7 +186,7 @@ editorExample:
     \begin{center}\textbf{ABSTRACT}\end{center}
     The thesis contains \pageref{LastPage}~p., 28~figures, 12~tables, 35~references, 3~appendices.
 
-    \noindent MONITORING, PREDICTIVE ANALYSIS, METRICS
+    \noindent MONITORING, SERVER INFRASTRUCTURE, PREDICTIVE ANALYSIS, FASTAPI, PROMETHEUS, METRICS
 
     A monitoring system was developed; the mean time to detect failures was reduced by 38\,\%.
     \end{otherlanguage}

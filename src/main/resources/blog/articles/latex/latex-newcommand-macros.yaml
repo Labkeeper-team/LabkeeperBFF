@@ -28,7 +28,7 @@ keywords:
   - 'как создать свою команду макрос в latex'
   - 'newcommand latex примеры'
 datePublished: '2026-09-05'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '7 мин'
 cardTitle: "Макросы в LaTeX: создание пользовательских команд через \\newcommand"
 cardDescription: |2-
@@ -88,7 +88,7 @@ sections:
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
                                   <pre><code>% Вектор со стрелкой в жирном начертании
-      \newcommand{\vect}[1]{\mathbf{\vec{#1}}}
+      \newcommand{\vect}[1]{\vec{\mathbf{#1}}}
 
       % Частная производная функции по переменной
       \newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}</code></pre>
@@ -120,8 +120,27 @@ editorExample:
     \usepackage[T2A]{fontenc}
     \usepackage[utf8]{inputenc}
     \usepackage[english,russian]{babel}
-    \usepackage{amsmath,graphicx}
-    \newcommand{\vect}[1]{\mathbf{\vec{#1}}}\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+    \usepackage{amsmath,amssymb}
+    % Команды без аргументов
+    \newcommand{\R}{\mathbb{R}}
+    \newcommand{\eps}{\varepsilon}
+    % Команды с аргументами
+    \newcommand{\vect}[1]{\vec{\mathbf{#1}}}
+    \newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
+    % Первый аргумент необязательный, по умолчанию 1
+    \newcommand{\plusplus}[2][1]{#2 + #1}
+    % Переопределение существующей команды
+    \renewcommand{\phi}{\varphi}
     \begin{document}
-    \[\vect{v}=(1,2,3),\qquad \norm{\vect{v}}=\sqrt{14}\]
+    \section*{Свои команды в LaTeX}
+    Пространство: $\R^3$, малый параметр: $\eps > 0$.
+
+    Вектор: $\vect{v} = (1, 2, 3) \in \R^3$.
+
+    Уравнение теплопроводности:
+    \[\pder{u}{t} = a^2 \pder{^2 u}{x^2}.\]
+
+    Аргумент по умолчанию: $\plusplus{n}$, явный аргумент: $\plusplus[5]{n}$.
+
+    После \verb|\renewcommand|: $\phi(x) = \sin x$.
     \end{document}

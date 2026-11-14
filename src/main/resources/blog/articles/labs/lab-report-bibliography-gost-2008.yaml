@@ -27,7 +27,7 @@ keywords:
   - 'список литературы гост 2008 онлайн'
   - 'как оформить источники в лабораторной'
 datePublished: '2026-09-05'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '7 мин'
 cardTitle: 'Список литературы по ГОСТ Р 7.0.5-2008 в студенческих лабораторных работах'
 cardDescription: |2-
@@ -118,10 +118,19 @@ sections:
   - id: 'latex-ready'
     title: 'Готовый шаблон списка thebibliography в LaTeX'
     html: |2-
+                              <p>Стандартное окружение <code>thebibliography</code> выводит номера
+      записей в квадратных скобках: «[1]». По ГОСТ 7.32-2017 записи списка нумеруют арабскими
+      цифрами с точкой, как в образцах выше, поэтому в шаблон добавлено переопределение команды
+      <code>\@biblabel</code>. Отсылки <code>\cite</code> в тексте при этом остаются в квадратных
+      скобках.</p>
                               <div class="article-code">
                                   <div class="article-code__header"><span
       class="article-code__lang">LaTeX</span></div>
-                                  <pre><code>\begin{thebibliography}{9}
+                                  <pre><code>\makeatletter
+      \renewcommand\@biblabel[1]{#1.}
+      \makeatother
+
+      \begin{thebibliography}{9}
           \bibitem{metod}
           Методические указания к~лабораторной работе №~3 / сост. В.~И.~Петров. --- СПб.~: СПбПУ, 2024. --- 16~с.
 
@@ -140,6 +149,9 @@ tips:
       издания книг. Требования к «возрасту» источников задает кафедра, а не ГОСТ.</p>
 editorExample:
   latex: |2-
+    \makeatletter
+    \renewcommand\@biblabel[1]{#1.}
+    \makeatother
     Методика описана в~\cite[с.~8]{metod}, теория --- в~\cite{trofimova}.
     \begin{thebibliography}{9}
     \bibitem{metod} Методические указания к~лабораторной работе №~3 / сост. В.~И.~Петров. --- СПб.~:
