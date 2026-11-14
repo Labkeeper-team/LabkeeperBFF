@@ -4,7 +4,7 @@ batch: 1
 title: 'Как перенести документ из Word в LaTeX с сохранением формул'
 pageTitle: 'Word в LaTeX: перенос docx и формул без потерь (Pandoc, онлайн) — Labkeeper'
 metaDescription: |-
-  Как перевести документ Word в LaTeX: копирование формул в режиме LaTeX (Microsoft 365), команда
+  Как перевести документ Word в LaTeX: копирование формул в режиме LaTeX (Word 2021+), команда
   Pandoc для кириллицы, MathType и картинки EMF. Пошагово, с готовыми командами.
 ogDescription: |-
   Перенос формул из Word в LaTeX: режим LaTeX в редакторе уравнений, рабочая команда Pandoc для
@@ -37,7 +37,7 @@ keywords:
   - 'как перевести word в latex'
   - 'pandoc docx latex кириллица'
 datePublished: '2026-08-20'
-dateModified: '2026-11-11'
+dateModified: '2026-11-14'
 readingTime: '13 мин'
 cardTitle: 'Как перенести документ из Word в LaTeX с сохранением формул'
 cardDescription: 'Формулы через режим LaTeX в Word, Pandoc для русского текста, MathType, картинки EMF и доводка до ГОСТ.'
@@ -92,10 +92,10 @@ sections:
               </thead>
               <tbody>
                   <tr><td>Режим LaTeX в редакторе уравнений Word</td><td>Да, по одной</td><td>Нет</td>
-                  <td>Нет</td><td>Нет</td><td>Microsoft 365</td></tr>
+                  <td>Нет</td><td>Нет</td><td>Microsoft 365 или Word 2021+</td></tr>
                   <tr><td>Pandoc</td><td>Да, все сразу</td><td>Нет (картинки или пропуск)</td>
                   <td>Да, в longtable</td><td>Да, в папку media</td><td>Установка Pandoc</td></tr>
-                  <tr><td>MathType → Convert Equations</td><td>—</td><td>Да, в TeX-код</td>
+                  <tr><td>MathType → Convert Equations</td><td>—</td><td>Да, в формулы Word (OMML)</td>
                   <td>Нет</td><td>Нет</td><td>Установленный MathType</td></tr>
                   <tr><td>Writer2LaTeX (LibreOffice)</td><td>Частично</td><td>Нет</td>
                   <td>Да</td><td>Да</td><td>LibreOffice с расширением</td></tr>
@@ -106,13 +106,13 @@ sections:
       </div>
       <p>Если формул немного — копируйте их из Word по одной. Если это целая глава или диплом —
       конвертируйте файл через Pandoc и вставьте результат в готовый шаблон. Формулы MathType
-      сначала переведите в TeX самим MathType.</p>
+      сначала переведите самим MathType в формулы Word (OMML).</p>
   - id: 'word-builtin'
     title: 'Копирование формул из Word в режиме LaTeX'
     html: |-
-      <p>Режим LaTeX в редакторе уравнений есть только в Word из подписки Microsoft 365. В Word 2016
-      и 2019 доступен лишь линейный формат UnicodeMath, который похож на TeX, но им не является.
-      Порядок действий в Microsoft 365:</p>
+      <p>Режим LaTeX в редакторе уравнений есть в Word из Microsoft 365, а также в Word 2021
+      и новее. В Word 2016 и 2019 доступен лишь линейный формат UnicodeMath, который похож на TeX,
+      но им не является. Порядок действий:</p>
       <ol>
           <li>Щёлкните по формуле — появится вкладка «Уравнение».</li>
           <li>В группе «Преобразования» выберите формат <strong>LaTeX</strong>.</li>
@@ -135,10 +135,14 @@ sections:
       при конвертации они превращаются в картинки WMF/EMF или пропадают. В старых методичках
       и дипломах таких формул большинство, поэтому переведите их до конвертации:</p>
       <ul>
-          <li><strong>MathType</strong> (продаётся и сейчас) умеет переводить формулы в TeX-код
-      сразу во всём документе: меню MathType → <em>Convert Equations</em> → <em>Text using MathType
-      translator</em> → <em>LaTeX 2.09 and later</em>. После этого формулы становятся текстом
-      вида <code>$...$</code>, и Pandoc перенесёт их как есть.</li>
+          <li><strong>MathType</strong> (продаётся и сейчас) умеет переводить формулы сразу во всём
+      документе: меню MathType → <em>Convert Equations</em>. Для Pandoc выберите преобразование
+      в формулы Office (<em>Microsoft Office equations</em>, формат OMML): такие формулы Pandoc
+      читает сам и превращает в обычный LaTeX. Не выбирайте вариант <em>Text using MathType
+      translator</em> → <em>LaTeX</em>, если дальше пойдёт Pandoc: формулы станут простым текстом
+      <code>$x^2$</code>, а Pandoc экранирует его как обычный текст, и в <code>.tex</code> получится
+      <code>\$x\^{}2\$</code>. Этот вариант годится, только если TeX-код формул вы копируете
+      вручную.</li>
           <li><strong>Equation 3.0</strong> удалён из современных версий Word, такие формулы
       открываются только как картинки. Их можно сконвертировать тем же MathType или набрать заново
       в редакторе уравнений Word.</li>
@@ -237,7 +241,7 @@ sections:
       единицами величин и между инициалами и фамилией.</li>
           <li><strong>Кавычки:</strong> «ёлочки» можно вставлять прямо в UTF-8 — с
       <code>\usepackage[T2A]{fontenc}</code> и <code>[utf8]{inputenc}</code> они печатаются как
-      есть. Лигатуры <code>&lt;&lt;...&gt;&gt;</code> тоже дают «ёлочки», но только в кодировке T2A.
+      есть. Лигатуры <code>&lt;&lt;...&gt;&gt;</code> тоже дают «ёлочки» — в кодировках T2A и T1.
       Прямые кавычки <code>"..."</code> из Word замените.</li>
           <li><strong>Окружения формул:</strong> замените <code>$$...$$</code> и
       <code>\[...\]</code> для нумеруемых формул на <code>equation</code> или <code>align</code>
@@ -254,15 +258,26 @@ sections:
       <ol>
           <li>Откройте <a href="/blog/latex-diploma-gost#template">шаблон курсовой и ВКР по ГОСТ
       7.32</a> и скопируйте его в проект.</li>
-          <li>Добавьте в преамбулу шаблона строку для таблиц Pandoc:
-      <code>\usepackage{longtable,booktabs,array,calc}</code>.</li>
+          <li>Добавьте в преамбулу шаблона пакеты и команды, которые Pandoc использует в теле
+      документа. Без ключа <code>-s</code> их определения не попадают в <code>body.tex</code>, и сборка
+      падает на <code>Undefined control sequence</code>:
+      <div class="article-code">
+          <div class="article-code__header"><span class="article-code__lang">LaTeX</span></div>
+          <pre><code>\usepackage{longtable,booktabs,array,calc} % таблицы
+      \usepackage{graphicx}                      % картинки из media
+      \usepackage{hyperref}                      % ссылки \href и \url
+      \providecommand{\tightlist}{%              % списки
+        \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+      \providecommand{\pandocbounded}[1]{#1}     % картинки в Pandoc 3.2+</code></pre>
+      </div></li>
           <li>Сконвертируйте документ второй командой из раздела о Pandoc (без <code>-s</code>,
       с <code>--top-level-division=chapter</code>) и подключите файл в шаблоне через
       <code>\input{body}</code>.</li>
           <li>Введение и заключение переделайте в <code>\chapter*</code>
       с <code>\addcontentsline</code>, список источников — в <code>thebibliography</code>.</li>
       </ol>
-      <p>Поля, шрифт, заголовки, подписи и содержание после этого уже будут по ГОСТ.</p>
+      <p>Поля, шрифт, заголовки и содержание после этого будут по ГОСТ из шаблона. Подписи
+      таблиц и рисунков из тела документа проверьте вручную: Pandoc переносит их как были в Word.</p>
   - id: 'tips'
     title: 'Лайфхаки'
     html: |-
@@ -297,11 +312,11 @@ sections:
       <p>Pandoc по умолчанию ставит кодировку T1 без кириллицы. Добавьте к команде
       <code>-V lang=ru -V fontenc=T2A</code>.</p>
       <h3>Можно ли скопировать формулу из Word 2016 или 2019 сразу в LaTeX?</h3>
-      <p>Нет, режим LaTeX в редакторе уравнений есть только в Microsoft 365. В старых версиях
-      сконвертируйте файл через Pandoc.</p>
+      <p>Нет, режим LaTeX в редакторе уравнений есть только в Word из Microsoft 365 и в Word 2021
+      и новее. В старых версиях сконвертируйте файл через Pandoc.</p>
       <h3>Куда пропали формулы MathType после конвертации?</h3>
       <p>Pandoc не понимает объекты MathType — они становятся картинками или исчезают. Сначала
-      переведите их в TeX через MathType → Convert Equations.</p>
+      переведите их в формулы Word (OMML) через MathType → Convert Equations.</p>
       <h3>Можно ли перенести Word в LaTeX онлайн без установки программ?</h3>
       <p>Да: загрузите .docx в проект Labkeeper и попросите ИИ-агента перенести текст. Сложные
       формулы после этого проверьте вручную.</p>
