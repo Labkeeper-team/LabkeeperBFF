@@ -1,6 +1,7 @@
 catalogIndex: 15
 slug: magnitnoe-pole-zemli
 projectId: 3833a076-136e-4030-9a6b-2390bc562465
+useInWarmup: true
 previewImage: '/assets/img/templates/magnitnoe-pole-zemli.png'
 cardTitle: 'Шаблон «Магнитное поле Земли»'
 cardDescription: >-

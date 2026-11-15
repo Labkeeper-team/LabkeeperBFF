@@ -61,6 +61,9 @@ class TemplatePage(yaml: Map<String, Any?>, siteUrl: String, sourceName: String)
         }
     }
     val catalogIndex = (yaml["catalogIndex"] as Number?)?.toInt() ?: 0
+
+    /** Compiled during JVM warmup. Not part of the public API. */
+    val useInWarmup = yaml["useInWarmup"] as Boolean? ?: false
     val cardTitle = collapseWhitespace(required(yaml, sourceName, "cardTitle"))
     val cardDescription = collapseWhitespace(required(yaml, sourceName, "cardDescription"))
     val pageTitle = text(yaml, "pageTitle") ?: "$cardTitle — Labkeeper"
