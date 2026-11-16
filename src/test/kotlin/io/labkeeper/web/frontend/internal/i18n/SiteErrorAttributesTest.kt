@@ -3,6 +3,7 @@ package io.labkeeper.web.frontend.internal.i18n
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldNotContain
 import io.kotest.matchers.shouldBe
+import io.labkeeper.web.frontend.FrontendProperties
 import org.junit.jupiter.api.Test
 import org.springframework.boot.web.error.ErrorAttributeOptions
 import org.springframework.http.HttpCookie
@@ -14,7 +15,13 @@ import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.server.ResponseStatusException
 
 class SiteErrorAttributesTest {
-    private val errorAttributes = SiteErrorAttributes(SiteTexts())
+    private val errorAttributes = SiteErrorAttributes(
+        SiteTexts(),
+        FrontendProperties().apply {
+            openpanelClientId = "client-id"
+            openpanelApiUrl = "https://openpanel.example.test/api"
+        },
+    )
 
     private fun attributes(accept: String?): Map<String, Any?> {
         val builder = MockServerHttpRequest.get("/blog/missing-article").cookie(HttpCookie(SiteLanguage.COOKIE, "zh"))
@@ -32,12 +39,21 @@ class SiteErrorAttributesTest {
         page.keys shouldContain "i18n"
     }
 
+    /** GH-713: the 404 page sends its own OpenPanel event */
+    @Test
+    fun browsersGetTheOpenPanelKeys() {
+        val page = attributes("text/html")
+        page["openpanelClientId"] shouldBe "client-id"
+        page["openpanelApiUrl"] shouldBe "https://openpanel.example.test/api"
+    }
+
     @Test
     fun clientsThatAcceptAnythingGetAPlainError() {
         listOf("*/*", "application/json, text/plain, */*", "application/json", null).forEach { accept ->
             val error = attributes(accept)
             error.keys shouldNotContain "i18n"
             error.keys shouldNotContain "lang"
+            error.keys shouldNotContain "openpanelClientId"
             error["status"] shouldBe 404
         }
     }

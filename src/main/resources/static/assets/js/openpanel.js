@@ -338,6 +338,31 @@
         document.addEventListener('auxclick', onLinkClick, true);
     }
 
+    // GH-713: страница 404 лендинга. Адрес страницы и есть ненайденный адрес, а referrer
+    // показывает, откуда на него пришли: битая ссылка у нас или снаружи
+    function trackPageNotFound() {
+        if (window.__LABKEEPER_PAGE_NOT_FOUND !== true) {
+            return;
+        }
+        var clientId = configuredSecret(window.__LABKEEPER_OPENPANEL_CLIENT_ID);
+        var apiUrl = configuredSecret(window.__LABKEEPER_OPENPANEL_API_URL);
+        if (!clientId || !apiUrl) {
+            return;
+        }
+        postOpenPanel(apiUrl, clientId, {
+            type: 'track',
+            payload: {
+                name: '[L] Page not found',
+                profileId: prepareGuest().profileId,
+                properties: {
+                    __path: window.location.pathname,
+                    __referrer: document.referrer,
+                },
+            },
+        });
+    }
+
     startOpenPanelSession();
     trackEditorOpenedFromArticle();
+    trackPageNotFound();
 })();

@@ -88,6 +88,7 @@ function openPage({ storage = new MemoryStorage(), tabValues = {}, search = '', 
             const target = { closest: () => link };
             listeners.filter(entry => entry.type === type).forEach(entry => entry.listener({ type, button, target }));
         },
+        notFound: () => requests.filter(request => request.body.type === 'track' && request.body.payload.name === '[L] Page not found').map(request => request.body.payload),
         fromArticle: () => requests.filter(request => request.body.type === 'track' && request.body.payload.name === '[L] Editor opened from article').map(request => request.body.payload),
         identify: requests.filter(request => request.body.type === 'identify').map(request => request.body.payload),
         starts: requests.filter(request => request.body.type === 'track' && request.body.payload.name === '[L] Session started').map(request => request.body.payload)
@@ -344,5 +345,22 @@ test('without the keys a transition from an article sends nothing', () => {
     page.click(EXAMPLE, { attributes: ['data-blog-example'] });
 
     assert.equal(page.requests.length, 0);
+});
+
+// GH-713: страница 404 лендинга
+test('the not found page reports the missing address', () => {
+    const storage = new MemoryStorage();
+
+    const page = openPage({ storage, pathname: '/blog/missing-article', windowOverrides: { __LABKEEPER_PAGE_NOT_FOUND: true } });
+
+    assert.deepEqual(page.notFound(), [
+        { name: '[L] Page not found', profileId: storage.getItem(PROFILE_KEY), properties: { __path: '/blog/missing-article', __referrer: '' } }
+    ]);
+    assert.equal(page.starts.length, 1);
+});
+
+test('other pages and pages without the keys report no missing address', () => {
+    assert.deepEqual(openPage({ pathname: '/blog' }).notFound(), []);
+    assert.deepEqual(openPage({ configured: false, windowOverrides: { __LABKEEPER_PAGE_NOT_FOUND: true } }).notFound(), []);
 });
 

@@ -1,5 +1,6 @@
 package io.labkeeper.web.frontend.internal.i18n
 
+import io.labkeeper.web.frontend.FrontendProperties
 import org.springframework.boot.web.error.ErrorAttributeOptions
 import org.springframework.boot.web.reactive.error.DefaultErrorAttributes
 import org.springframework.http.InvalidMediaTypeException
@@ -9,16 +10,23 @@ import org.springframework.web.reactive.function.server.ServerRequest
 
 /**
  * The error pages (templates/error) are rendered by Spring Boot, not by LandingPagesController, so they would miss the
- * language and the texts the landing pages get. Only HTML requests get them: a JSON error stays small.
+ * language, the texts and the OpenPanel keys the landing pages get. Only HTML requests get them: a JSON error stays
+ * small.
  */
 @Component
-class SiteErrorAttributes(private val siteTexts: SiteTexts) : DefaultErrorAttributes() {
+class SiteErrorAttributes(
+    private val siteTexts: SiteTexts,
+    private val properties: FrontendProperties,
+) : DefaultErrorAttributes() {
     override fun getErrorAttributes(request: ServerRequest, options: ErrorAttributeOptions): MutableMap<String, Any?> {
         val attributes = super.getErrorAttributes(request, options)
         if (acceptsHtml(request)) {
             val language = SiteLanguage.of(request.cookies().getFirst(SiteLanguage.COOKIE)?.value)
             attributes["lang"] = language.code
             attributes["i18n"] = siteTexts[language]
+            // GH-713: the 404 page reports itself to OpenPanel
+            attributes["openpanelClientId"] = properties.openpanelClientId
+            attributes["openpanelApiUrl"] = properties.openpanelApiUrl
         }
         return attributes
     }
