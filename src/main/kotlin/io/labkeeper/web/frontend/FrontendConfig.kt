@@ -56,6 +56,13 @@ class FrontendConfig(
         resources("/wiki/**", ClassPathResource("wiki/"))
         resources("/**", ClassPathResource("static/"))
         resources("/**", ClassPathResource("editor/"))
+        // The wiki stays reachable from the site but out of search results; a robots.txt Disallow would hide the header.
+        filter { request, next ->
+            if (request.path().startsWith("/wiki")) {
+                request.exchange().response.headers.set(ROBOTS_HEADER, NOINDEX)
+            }
+            next(request)
+        }
     }
 }
 
@@ -79,5 +86,8 @@ private val SERVICE_PATHS = listOf(
 )
 
 private const val DISALLOW_ALL_ROBOTS = "User-agent: *\nDisallow: /\n"
+
+private const val ROBOTS_HEADER = "X-Robots-Tag"
+private const val NOINDEX = "noindex, follow"
 
 private fun wikiIndex() = ServerResponse.status(HttpStatus.FOUND).location(URI.create("/wiki/index.html")).build()

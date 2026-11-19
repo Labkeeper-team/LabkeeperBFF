@@ -5,7 +5,6 @@ import io.labkeeper.web.frontend.internal.blog.BlogCatalog
 import io.labkeeper.web.frontend.internal.i18n.SiteLanguage
 import io.labkeeper.web.frontend.internal.i18n.SiteTexts
 import io.labkeeper.web.frontend.internal.template.TemplateCatalog
-import io.labkeeper.web.frontend.internal.wiki.WikiPages
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -23,7 +22,6 @@ import org.springframework.web.server.ServerWebExchange
 class LandingPagesController(
     private val blogCatalog: BlogCatalog,
     private val templateCatalog: TemplateCatalog,
-    private val wikiPages: WikiPages,
     private val siteTexts: SiteTexts,
     private val properties: FrontendProperties,
     @Value($$"${io.labkeeper.host}") private val host: String,
@@ -87,7 +85,6 @@ class LandingPagesController(
             "homeLastModified",
             listOfNotNull(blogCatalog.lastModified, templateCatalog.lastModified).maxOrNull(),
         )
-        model.addAttribute("wikiPages", wikiPages.paths)
         return "sitemap"
     }
 

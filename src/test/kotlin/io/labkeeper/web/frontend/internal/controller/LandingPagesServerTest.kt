@@ -192,9 +192,7 @@ class LandingPagesServerTest(
         sitemap shouldContain "<lastmod>2026-10-18</lastmod>"
         sitemap shouldContain "<loc>https://labkeeper.test/templates</loc>"
         sitemap shouldContain "<loc>https://labkeeper.test/templates/avtomatika-i-telemekhanika</loc>"
-        sitemap shouldContain "<loc>https://labkeeper.test/wiki/index.html</loc>"
-        sitemap shouldContain "<loc>https://labkeeper.test/wiki/language/syntax.html</loc>"
-        sitemap shouldNotContain "/wiki/_search"
+        sitemap shouldNotContain "/wiki/"
         sitemap.replace("\r\n", "\n") shouldContain
             "<loc>https://labkeeper.test/templates/rezyume-1</loc>\n    <lastmod>2026-10-30</lastmod>"
         sitemap shouldNotContain "labkeeper.io"
@@ -392,11 +390,17 @@ class LandingPagesServerTest(
             webTestClient.get().uri(path).exchange()
                 .expectStatus().isFound
                 .expectHeader().location("/wiki/index.html")
+                .expectHeader().valueEquals("X-Robots-Tag", "noindex, follow")
         }
 
         get("/wiki/index.html", MediaType.TEXT_HTML) shouldContain "<title>Labkeeper.io — документация"
         get("/wiki/language/syntax.html", MediaType.TEXT_HTML) shouldContain "<title>Синтаксис"
         ok("/wiki/toc.js", MediaType.valueOf("text/javascript"))
+        webTestClient.get().uri("/wiki/language/syntax.html").exchange()
+            .expectStatus().isOk
+            .expectHeader().valueEquals("X-Robots-Tag", "noindex, follow")
+        webTestClient.get().uri("/blog").exchange()
+            .expectHeader().doesNotExist("X-Robots-Tag")
         webTestClient.get().uri("/wiki/language/syntax").exchange().expectStatus().isNotFound
     }
 
