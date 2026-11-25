@@ -56,7 +56,8 @@ class FrontendConfig(
         resources("/wiki/**", ClassPathResource("wiki/"))
         resources("/**", ClassPathResource("static/"))
         resources("/**", ClassPathResource("editor/"))
-        // The wiki stays reachable from the site but out of search results; a robots.txt Disallow would hide the header.
+        // The wiki stays reachable from the site but out of search results;
+        // a robots.txt Disallow would hide the header.
         filter { request, next ->
             if (request.path().startsWith("/wiki")) {
                 request.exchange().response.headers.set(ROBOTS_HEADER, NOINDEX)
