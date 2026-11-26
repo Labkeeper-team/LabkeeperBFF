@@ -1,5 +1,6 @@
 package io.labkeeper.web.frontend
 
+import io.labkeeper.web.frontend.internal.StaticFileHeaders
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.context.properties.EnableConfigurationProperties
@@ -13,6 +14,7 @@ import org.springframework.http.MediaType
 import org.springframework.web.reactive.config.EnableWebFlux
 import org.springframework.web.reactive.config.ViewResolverRegistry
 import org.springframework.web.reactive.config.WebFluxConfigurer
+import org.springframework.web.reactive.function.server.RouterFunctions
 import org.springframework.web.reactive.function.server.ServerResponse
 import org.springframework.web.reactive.function.server.router
 import org.thymeleaf.spring6.view.reactive.ThymeleafReactiveViewResolver
@@ -53,9 +55,9 @@ class FrontendConfig(
         GET("/index.html") { notFound().build() }
         GET("/wiki") { wikiIndex() }
         GET("/wiki/") { wikiIndex() }
-        resources("/wiki/**", ClassPathResource("wiki/"))
-        resources("/**", ClassPathResource("static/"))
-        resources("/**", ClassPathResource("editor/"))
+        add(RouterFunctions.resources("/wiki/**", ClassPathResource("wiki/"), StaticFileHeaders::revalidatedFile))
+        add(RouterFunctions.resources("/**", ClassPathResource("static/"), StaticFileHeaders::revalidatedFile))
+        add(RouterFunctions.resources("/**", ClassPathResource("editor/"), StaticFileHeaders::editorFile))
         // The wiki stays reachable from the site but out of search results;
         // a robots.txt Disallow would hide the header.
         filter { request, next ->
