@@ -85,6 +85,23 @@ class StaticFilesServerTest(
         }
     }
 
+    @Test
+    fun textFilesAreCompressed() {
+        listOf("/", "/assets/js/script.js", editorFile("index-*.js"), editorFile("*.dic"), editorFile("*.ttf"))
+            .forEach { path ->
+                withClue(path) {
+                    headersOf(path, acceptEncoding = "gzip").getFirst(HttpHeaders.CONTENT_ENCODING) shouldBe "gzip"
+                    headersOf(path).getFirst(HttpHeaders.CONTENT_ENCODING).shouldBeNull()
+                }
+            }
+    }
+
+    @Test
+    fun imagesAreNotCompressedAgain() {
+        headersOf("/assets/img/logo.png", acceptEncoding = "gzip").getFirst(HttpHeaders.CONTENT_ENCODING)
+            .shouldBeNull()
+    }
+
     private fun headersOf(path: String, acceptEncoding: String? = null): HttpHeaders {
         val request = webTestClient.get().uri(path)
         acceptEncoding?.let { request.header(HttpHeaders.ACCEPT_ENCODING, it) }
